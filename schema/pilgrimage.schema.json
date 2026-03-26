@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://cdn.jsdelivr.net/gh/momentmaker/open-pilgrimages@v1/schema/pilgrimage.schema.json",
+  "$id": "https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1/schema/pilgrimage.schema.json",
   "title": "Pilgrimage Metadata",
   "description": "Route overview, tradition, cultural context, and logistics for a pilgrimage",
   "type": "object",

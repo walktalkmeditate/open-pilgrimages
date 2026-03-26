@@ -43,8 +43,7 @@ npm run build-index   # Regenerate index.json
 ## Consumers
 
 - pilgrim-ios: Decodes route.geojson and waypoints.geojson via GeoJSONFeatureCollection Codable type
-- pilgrimag.es: Fetches all files at Astro build time for route guides
-- jsDelivr CDN: `https://cdn.jsdelivr.net/gh/momentmaker/open-pilgrimages@v1/routes/{routeId}/`
+- jsDelivr CDN: `https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1/routes/{routeId}/`
 
 ## Interior Journey Content
 

@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://cdn.jsdelivr.net/gh/momentmaker/open-pilgrimages@v1/schema/index.schema.json",
+  "$id": "https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1/schema/index.schema.json",
   "title": "Open Pilgrimages Route Index",
   "description": "Registry of all pilgrimage routes in the dataset",
   "type": "object",

@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://cdn.jsdelivr.net/gh/momentmaker/open-pilgrimages@v1/schema/stages.schema.json",
+  "$id": "https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1/schema/stages.schema.json",
   "title": "Pilgrimage Stages",
   "description": "Stage-by-stage breakdown of a pilgrimage route with logistics and interior journey",
   "type": "object",

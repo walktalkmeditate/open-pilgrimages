@@ -6,7 +6,7 @@ Thank you for helping build the world's open pilgrimage dataset.
 
 ### Report Data Issues
 
-Found an incorrect coordinate, a closed albergue listed as open, or a missing waypoint? [Open an issue](https://github.com/momentmaker/open-pilgrimages/issues/new) with:
+Found an incorrect coordinate, a closed albergue listed as open, or a missing waypoint? [Open an issue](https://github.com/walktalkmeditate/open-pilgrimages/issues/new) with:
 
 - The route and stage affected
 - What's wrong
@@ -24,7 +24,7 @@ Submit a pull request with corrections to any data file. Please:
 
 Adding a new pilgrimage route is a larger undertaking. Before starting:
 
-1. [Open an issue](https://github.com/momentmaker/open-pilgrimages/issues/new) proposing the route
+1. [Open an issue](https://github.com/walktalkmeditate/open-pilgrimages/issues/new) proposing the route
 2. Include: route name, region, approximate distance, topology (linear/circular/network), tradition, and available data sources
 3. Wait for approval before investing significant effort
 
@@ -58,7 +58,7 @@ The interior journey layer (stage themes, narratives, common experiences, reflec
 ## Development Setup
 
 ```bash
-git clone https://github.com/momentmaker/open-pilgrimages.git
+git clone https://github.com/walktalkmeditate/open-pilgrimages.git
 cd open-pilgrimages
 npm install
 npm run validate    # Validate all data against schemas

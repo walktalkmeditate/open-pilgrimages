@@ -29,9 +29,9 @@ Open Pilgrimages captures three layers of data:
 Pin to a major version for stability:
 
 ```
-https://cdn.jsdelivr.net/gh/momentmaker/open-pilgrimages@v1/index.json
-https://cdn.jsdelivr.net/gh/momentmaker/open-pilgrimages@v1/routes/camino-frances/route.geojson
-https://cdn.jsdelivr.net/gh/momentmaker/open-pilgrimages@v1/routes/camino-frances/stages.json
+https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1/index.json
+https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1/routes/camino-frances/route.geojson
+https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1/routes/camino-frances/stages.json
 ```
 
 ### File Structure Per Route
@@ -48,7 +48,7 @@ routes/{route-id}/
 
 ```js
 const res = await fetch(
-  'https://cdn.jsdelivr.net/gh/momentmaker/open-pilgrimages@v1/routes/camino-frances/route.geojson'
+  'https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1/routes/camino-frances/route.geojson'
 );
 const route = await res.json();
 // Standard GeoJSON — use with Mapbox GL JS, Leaflet, deck.gl, etc.
@@ -58,7 +58,7 @@ map.addSource('camino', { type: 'geojson', data: route });
 ### Swift
 
 ```swift
-let url = URL(string: "https://cdn.jsdelivr.net/gh/momentmaker/open-pilgrimages@v1/routes/camino-frances/route.geojson")!
+let url = URL(string: "https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1/routes/camino-frances/route.geojson")!
 let (data, _) = try await URLSession.shared.data(from: url)
 let features = try MKGeoJSONDecoder().decode(data)
 ```
@@ -68,7 +68,7 @@ let features = try MKGeoJSONDecoder().decode(data)
 ```python
 import json, urllib.request
 
-url = "https://cdn.jsdelivr.net/gh/momentmaker/open-pilgrimages@v1/routes/camino-frances/stages.json"
+url = "https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1/routes/camino-frances/stages.json"
 stages = json.loads(urllib.request.urlopen(url).read())
 for stage in stages["stages"]:
     print(f"Stage {stage['index']}: {stage['name']['en']} — {stage['distanceKm']} km")
@@ -76,7 +76,7 @@ for stage in stages["stages"]:
 
 ## Schema
 
-All data files conform to JSON Schema definitions in the [`schema/`](schema/) directory. See the [schema documentation](https://momentmaker.github.io/open-pilgrimages/schema.html) for full reference.
+All data files conform to JSON Schema definitions in the [`schema/`](schema/) directory. See the [schema documentation](https://walktalkmeditate.github.io/open-pilgrimages/schema.html) for full reference.
 
 - `schemaVersion` field in every file tracks the data format version (SemVer)
 - MAJOR version = breaking changes, MINOR = new optional fields, PATCH = content fixes
@@ -88,7 +88,7 @@ Route geometry is sourced from [OpenStreetMap](https://www.openstreetmap.org) vi
 
 **Required attribution when using this data:**
 
-> Contains information from [Open Pilgrimages](https://github.com/momentmaker/open-pilgrimages), made available under the [ODbL](https://opendatacommons.org/licenses/odbl/1-0/).
+> Contains information from [Open Pilgrimages](https://github.com/walktalkmeditate/open-pilgrimages), made available under the [ODbL](https://opendatacommons.org/licenses/odbl/1-0/).
 > Route data &copy; [OpenStreetMap contributors](https://www.openstreetmap.org/copyright).
 
 Interior journey narratives are editorial content by the project maintainers, clearly marked as such within the data.

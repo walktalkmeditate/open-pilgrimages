@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://cdn.jsdelivr.net/gh/momentmaker/open-pilgrimages@v1/schema/route.schema.json",
+  "$id": "https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1/schema/route.schema.json",
   "title": "Pilgrimage Route GeoJSON",
   "description": "Constraints on properties within route.geojson FeatureCollection. The file itself must be valid RFC 7946 GeoJSON.",
   "type": "object",
