@@ -182,5 +182,9 @@
       { "name": "walk · talk · meditate", "role": "initial_author", "url": "https://github.com/walktalkmeditate" }
     ],
     "license": "ODbL-1.0"
+  },
+
+  "osm": {
+    "query": "[out:json][timeout:120];relation[\"name\"~\"熊野古道\"][\"type\"=\"route\"];out geom;"
   }
 }

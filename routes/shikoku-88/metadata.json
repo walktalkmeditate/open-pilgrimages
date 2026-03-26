@@ -183,5 +183,9 @@
       { "name": "walk · talk · meditate", "role": "initial_author", "url": "https://github.com/walktalkmeditate" }
     ],
     "license": "ODbL-1.0"
+  },
+
+  "osm": {
+    "query": "[out:json][timeout:300];relation[\"name\"~\"四国遍路\"][\"type\"=\"route\"](32,132,35,135);out geom;"
   }
 }
