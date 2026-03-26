@@ -1,0 +1,27 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "kohechi",
+  "parentRouteId": "kumano-kodo",
+  "lastUpdated": "2026-03-26T00:00:00Z",
+  "name": { "en": "Kohechi (Mountain Route)", "ja": "小辺路" },
+  "description": { "en": "The most strenuous Kumano Kodo route. 70 km mountain crossing from Kōyasan to Kumano Hongu Taisha, traversing three passes over 1,000m. Typically 4 days." },
+  "overview": {
+    "distanceKm": 70,
+    "estimatedDays": { "min": 3, "max": 5, "typical": 4 },
+    "topology": "linear",
+    "direction": "south",
+    "startPoint": { "name": { "en": "Kōyasan", "ja": "高野山" }, "coordinates": [135.587, 34.213, 800] },
+    "endPoint": { "name": { "en": "Kumano Hongu Taisha", "ja": "熊野本宮大社" }, "coordinates": [135.774, 33.840, 80] },
+    "elevationRange": { "minMeters": 80, "maxMeters": 1344, "totalAscentMeters": 3320, "totalDescentMeters": 4150 },
+    "difficulty": "expert",
+    "terrainTypes": ["mountain", "forest", "dirt"],
+    "bestMonths": [4, 5, 10, 11],
+    "countries": ["JP"]
+  },
+  "tradition": { "type": "mixed", "primaryFaith": "Shinto", "otherFaiths": ["buddhist", "shugendo"] },
+  "provenance": {
+    "sources": [{ "name": "OpenStreetMap", "url": "https://www.openstreetmap.org", "license": "ODbL-1.0", "dataTypes": ["geometry"], "accessDate": "2026-03-26" }],
+    "contributors": [{ "name": "Steven Ross", "role": "initial_author", "url": "https://github.com/momentmaker" }],
+    "license": "ODbL-1.0"
+  }
+}

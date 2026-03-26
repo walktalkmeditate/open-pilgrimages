@@ -1,0 +1,124 @@
+{
+  "schemaVersion": "1.0.0",
+  "routeId": "kumano-kodo",
+  "stageCount": 4,
+  "stages": [
+    {
+      "index": 0,
+      "name": { "en": "Takijiri-oji to Takahara", "ja": "滝尻王子〜高原" },
+      "start": { "name": { "en": "Takijiri-oji", "ja": "滝尻王子" }, "coordinates": [135.504, 33.776, 100] },
+      "end": { "name": { "en": "Takahara", "ja": "高原" }, "coordinates": [135.519, 33.793, 330] },
+      "distanceKm": 4,
+      "elevationGainMeters": 430,
+      "elevationLossMeters": 200,
+      "highPointMeters": 450,
+      "lowPointMeters": 100,
+      "estimatedHours": { "min": 2, "max": 3 },
+      "difficulty": "moderate",
+      "terrainTypes": ["forest", "mountain", "dirt"],
+      "terrainNotes": { "en": "Short but steep. The initial climb from Takijiri-oji announces the character of the route — ancient cedar forests, moss-covered stone, and relentless ascent. Takahara is a mountain settlement known as 'the village in the mist'." },
+      "accommodationDensity": "low",
+      "waterSources": 1,
+      "services": { "atm": false, "pharmacy": false, "grocery": false, "restaurant": true },
+      "interior": {
+        "theme": { "en": "Entry" },
+        "narrative": { "en": "Takijiri-oji is the gate to the sacred mountains. For a thousand years, pilgrims have paused here to purify themselves before entering the divine realm. The climb from the river to Takahara is immediate and steep — the mountain makes no concessions to your arrival. By the time you reach the ridge, you understand: you have left the ordinary world behind." },
+        "commonExperiences": [
+          { "en": "The sudden transition from road to ancient forest" },
+          { "en": "The quality of silence in the cedar groves" },
+          { "en": "Arriving at Takahara in the mist and feeling the isolation" }
+        ],
+        "reflection": { "en": "What did you leave behind at the gate?" }
+      }
+    },
+    {
+      "index": 1,
+      "name": { "en": "Takahara to Chikatsuyu-oji", "ja": "高原〜近露王子" },
+      "start": { "name": { "en": "Takahara", "ja": "高原" }, "coordinates": [135.519, 33.793, 330] },
+      "end": { "name": { "en": "Chikatsuyu-oji", "ja": "近露王子" }, "coordinates": [135.606, 33.814, 300] },
+      "distanceKm": 13,
+      "elevationGainMeters": 830,
+      "elevationLossMeters": 650,
+      "highPointMeters": 870,
+      "lowPointMeters": 280,
+      "estimatedHours": { "min": 6, "max": 8 },
+      "difficulty": "hard",
+      "terrainTypes": ["forest", "mountain", "cobblestone", "dirt"],
+      "terrainNotes": { "en": "The longest and most demanding stage. Multiple passes through deep forest. Ancient cobblestone paths (ishidatami) in places. Passes through Tsugizakura-oji, one of the five great Oji shrines." },
+      "accommodationDensity": "low",
+      "waterSources": 2,
+      "services": { "atm": false, "pharmacy": false, "grocery": true, "restaurant": true },
+      "interior": {
+        "theme": { "en": "Immersion" },
+        "narrative": { "en": "This is the day that defines the Kumano Kodo. The forest is everything. Cedar and cypress close overhead, moss covers every surface, and the ancient cobblestone paths — some laid centuries ago by monks — guide your feet through terrain that feels older than history. At Tsugizakura-oji, 800-year-old cedar trees tower above a tiny wooden shrine. The Oji were rest stops for imperial pilgrims. Now they are portals." },
+        "commonExperiences": [
+          { "en": "The overwhelming green of the forest" },
+          { "en": "Feeling the age of the cobblestone path through your feet" },
+          { "en": "Fatigue and then a strange second wind" },
+          { "en": "The sound of nothing but birds and wind" }
+        ],
+        "reflection": { "en": "When did the forest stop being scenery and become presence?" }
+      }
+    },
+    {
+      "index": 2,
+      "name": { "en": "Chikatsuyu-oji to Hosshinmon-oji", "ja": "近露王子〜発心門王子" },
+      "start": { "name": { "en": "Chikatsuyu-oji", "ja": "近露王子" }, "coordinates": [135.606, 33.814, 300] },
+      "end": { "name": { "en": "Hosshinmon-oji", "ja": "発心門王子" }, "coordinates": [135.721, 33.862, 290] },
+      "distanceKm": 14,
+      "elevationGainMeters": 780,
+      "elevationLossMeters": 980,
+      "highPointMeters": 800,
+      "lowPointMeters": 230,
+      "estimatedHours": { "min": 6, "max": 8 },
+      "difficulty": "hard",
+      "terrainTypes": ["forest", "mountain", "cobblestone", "dirt"],
+      "terrainNotes": { "en": "Another demanding forest stage with significant climbing. The arrival at Hosshinmon-oji — the 'Gate of Spiritual Awakening' — marks the entrance to the sacred precincts of Kumano Hongu Taisha." },
+      "accommodationDensity": "very_low",
+      "waterSources": 2,
+      "services": { "atm": false, "pharmacy": false, "grocery": false, "restaurant": false },
+      "warnings": [
+        { "en": "Very limited services on this stage. Carry food and water for the full day." }
+      ],
+      "interior": {
+        "theme": { "en": "Awakening", "ja": "発心" },
+        "narrative": { "en": "Hosshinmon-oji means 'Gate of Spiritual Awakening'. This was the boundary where imperial pilgrim parties officially entered the divine domain of Kumano Hongu. They changed into white robes here and chanted purification rites. The Oji marks a transition: everything before was preparation. Everything after is sacred ground." },
+        "commonExperiences": [
+          { "en": "Physical exhaustion giving way to clarity" },
+          { "en": "The anticipation of arrival at Hongu" },
+          { "en": "A shift in the quality of attention" }
+        ],
+        "reflection": { "en": "What does it mean to cross a threshold? Is it the place that changes, or you?" }
+      }
+    },
+    {
+      "index": 3,
+      "name": { "en": "Hosshinmon-oji to Kumano Hongu Taisha", "ja": "発心門王子〜熊野本宮大社" },
+      "start": { "name": { "en": "Hosshinmon-oji", "ja": "発心門王子" }, "coordinates": [135.721, 33.862, 290] },
+      "end": { "name": { "en": "Kumano Hongu Taisha", "ja": "熊野本宮大社" }, "coordinates": [135.774, 33.840, 80] },
+      "distanceKm": 7.5,
+      "elevationGainMeters": 190,
+      "elevationLossMeters": 460,
+      "highPointMeters": 350,
+      "lowPointMeters": 80,
+      "estimatedHours": { "min": 2, "max": 3 },
+      "difficulty": "easy",
+      "terrainTypes": ["forest", "dirt", "paved"],
+      "terrainNotes": { "en": "The final descent through forest and small settlements to Kumano Hongu Taisha. Passes Fushiogami-oji where pilgrims first see the shrine and traditionally prostrate in reverence." },
+      "accommodationDensity": "moderate",
+      "waterSources": 2,
+      "services": { "atm": true, "pharmacy": false, "grocery": true, "restaurant": true },
+      "interior": {
+        "theme": { "en": "Arrival" },
+        "narrative": { "en": "At Fushiogami-oji, you see Kumano Hongu Taisha for the first time. 'Fushiogami' means 'prostrate worship' — pilgrims traditionally fell to their knees here. The final walk is gentle, descending through tea plantations and small villages to the shrine. Kumano Hongu Taisha is not monumental. It is modest, wooden, nestled in mountains. The Yatagarasu — the three-legged crow — watches from the banners. You have arrived at what emperors traveled weeks to reach." },
+        "commonExperiences": [
+          { "en": "The first glimpse of the shrine from Fushiogami-oji" },
+          { "en": "Quiet emotion at arrival — different from the Camino's dramatic plaza moment" },
+          { "en": "The enormous torii gate at Oyunohara nearby" },
+          { "en": "Soaking in Yunomine or Kawayu Onsen after" }
+        ],
+        "reflection": { "en": "What did the mountains give you that you could not have found in a building?" }
+      }
+    }
+  ]
+}

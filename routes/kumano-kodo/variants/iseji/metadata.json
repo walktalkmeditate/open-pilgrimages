@@ -1,0 +1,27 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "iseji",
+  "parentRouteId": "kumano-kodo",
+  "lastUpdated": "2026-03-26T00:00:00Z",
+  "name": { "en": "Iseji (Eastern/Coastal Route)", "ja": "伊勢路" },
+  "description": { "en": "170 km coastal route from Ise Grand Shrine to Kumano Hayatama Taisha. A series of 20+ mountain passes connecting fishing villages along the eastern coast of the Kii Peninsula. Typically 9-14 days." },
+  "overview": {
+    "distanceKm": 170,
+    "estimatedDays": { "min": 9, "max": 14, "typical": 11 },
+    "topology": "linear",
+    "direction": "southwest",
+    "startPoint": { "name": { "en": "Ise Grand Shrine (Ise Jingū)", "ja": "伊勢神宮" }, "coordinates": [136.726, 34.455, 30] },
+    "endPoint": { "name": { "en": "Kumano Hayatama Taisha", "ja": "熊野速玉大社" }, "coordinates": [135.984, 33.732, 10] },
+    "elevationRange": { "minMeters": 0, "maxMeters": 647, "totalAscentMeters": 5000, "totalDescentMeters": 5020 },
+    "difficulty": "moderate",
+    "terrainTypes": ["coastal", "forest", "cobblestone", "mountain", "paved"],
+    "bestMonths": [3, 4, 5, 10, 11],
+    "countries": ["JP"]
+  },
+  "tradition": { "type": "mixed", "primaryFaith": "Shinto", "otherFaiths": ["buddhist"] },
+  "provenance": {
+    "sources": [{ "name": "OpenStreetMap", "url": "https://www.openstreetmap.org", "license": "ODbL-1.0", "dataTypes": ["geometry"], "accessDate": "2026-03-26" }],
+    "contributors": [{ "name": "Steven Ross", "role": "initial_author", "url": "https://github.com/momentmaker" }],
+    "license": "ODbL-1.0"
+  }
+}

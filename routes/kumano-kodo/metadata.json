@@ -1,0 +1,184 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "kumano-kodo",
+  "lastUpdated": "2026-03-26T00:00:00Z",
+
+  "name": {
+    "en": "Kumano Kodo",
+    "ja": "熊野古道"
+  },
+  "description": {
+    "en": "A network of ancient pilgrimage routes through the mountains of the Kii Peninsula, leading to the three Grand Shrines of Kumano (Kumano Sanzan). UNESCO World Heritage Site since 2004. One of only two pilgrimage routes in the world with UNESCO designation (the other being the Camino de Santiago).",
+    "ja": "紀伊半島の山々を通る古代の巡礼路ネットワーク。熊野三山に至る。2004年よりユネスコ世界遺産。"
+  },
+
+  "overview": {
+    "distanceKm": 38,
+    "estimatedDays": { "min": 3, "max": 6, "typical": 4 },
+    "topology": "network",
+    "startPoint": {
+      "name": { "en": "Takijiri-oji", "ja": "滝尻王子" },
+      "coordinates": [135.504, 33.776, 100]
+    },
+    "endPoint": {
+      "name": { "en": "Kumano Hongu Taisha", "ja": "熊野本宮大社" },
+      "coordinates": [135.774, 33.840, 80]
+    },
+    "elevationRange": {
+      "minMeters": 50,
+      "maxMeters": 870,
+      "totalAscentMeters": 2230,
+      "totalDescentMeters": 2290
+    },
+    "difficulty": "moderate",
+    "terrainTypes": ["forest", "mountain", "cobblestone", "dirt"],
+    "bestMonths": [3, 4, 5, 10, 11],
+    "peakMonths": [4, 5, 10, 11],
+    "countries": ["JP"],
+    "bbox": [135.40, 33.60, 136.50, 34.40]
+  },
+
+  "tradition": {
+    "type": "mixed",
+    "primaryFaith": "Shinto",
+    "otherFaiths": ["buddhist", "shugendo"],
+    "origin": {
+      "en": "The Kumano Kodo routes have been walked for over 1,000 years, originally by imperial parties from Kyoto seeking spiritual renewal at the three Grand Shrines. The routes embody shinbutsu-shūgō — the syncretic fusion of Shinto and Buddhism that characterized Japanese religion until the Meiji Restoration (1868). Kumano was believed to be the Pure Land of Amida Buddha, where pilgrims could be reborn after death. At its peak (11th-12th centuries), 94 imperial pilgrimages were recorded, with retinues of hundreds."
+    },
+    "unescoStatus": "World Heritage Site: Sacred Sites and Pilgrimage Routes in the Kii Mountain Range",
+    "unescoYear": 2004,
+    "credentialSystem": {
+      "name": { "en": "Dual Pilgrim Credential", "ja": "二つの巡礼の道スタンプ帳" },
+      "description": {
+        "en": "A joint credential program with the Camino de Santiago, launched 2015. Free booklet with one side for Kumano Kodo stamps, one side for Camino stamps. Pilgrims who complete both pilgrimages receive a special Dual Pilgrim certificate and pin badge at a ceremony with the Head Priest of Kumano Hongu Taisha."
+      },
+      "completionCertificate": { "en": "Dual Pilgrim Certificate" },
+      "obtainableAt": [
+        {
+          "name": { "en": "Tanabe Tourist Information Center" },
+          "coordinates": [135.378, 33.729]
+        },
+        {
+          "name": { "en": "Kumano Hongu Heritage Center", "ja": "世界遺産熊野本宮館" },
+          "coordinates": [135.773, 33.840]
+        },
+        {
+          "name": { "en": "Kumano Kodo Kan (Pilgrimage Center)", "ja": "熊野古道館" },
+          "coordinates": [135.504, 33.776]
+        }
+      ]
+    }
+  },
+
+  "cultural": {
+    "practices": [
+      {
+        "name": { "en": "Yatagarasu", "ja": "八咫烏" },
+        "description": {
+          "en": "The three-legged crow, divine guide of Kumano. Symbol of divine intervention and guidance. Said to have led Emperor Jimmu through the mountains. Now the symbol of the Japan Football Association."
+        }
+      },
+      {
+        "name": { "en": "Shinbutsu-shūgō", "ja": "神仏習合" },
+        "description": {
+          "en": "The syncretic fusion of Shinto and Buddhism. Kumano deities were understood as manifestations of Buddhist figures: Amida, Yakushi, and Senju Kannon. This fusion was suppressed during the Meiji Restoration but its traces remain in the architecture and rituals."
+        }
+      },
+      {
+        "name": { "en": "Tsuboyu Onsen", "ja": "つぼ湯" },
+        "description": {
+          "en": "The only bathing facility in the world with UNESCO World Heritage status. A tiny natural hot spring at Yunomine Onsen where pilgrims have purified themselves for over 1,800 years. 30-minute private sessions, 780 JPY."
+        },
+        "location": { "coordinates": [135.758, 33.829], "stageIndex": 3 }
+      }
+    ],
+    "etiquette": [
+      { "en": "Bow at torii gates before entering shrine grounds." },
+      { "en": "Purify hands and mouth at the temizuya (water basin) before worship." },
+      { "en": "Walk to the sides of shrine paths — the center is reserved for the gods." },
+      { "en": "Be respectful of the forest. The mountains themselves are sacred." }
+    ],
+    "associatedLiterature": [
+      {
+        "title": "The Old Ways",
+        "author": "Robert Macfarlane",
+        "isbn": "978-0141030586",
+        "type": "nonfiction",
+        "relevance": { "en": "Explores ancient paths worldwide including Japanese pilgrimage routes. Beautifully captures the relationship between walking, landscape, and meaning." }
+      },
+      {
+        "title": "A Hundred Mountains of Japan",
+        "author": "Kyuya Fukada",
+        "isbn": "978-0824827793",
+        "type": "nonfiction",
+        "relevance": { "en": "Classic Japanese mountaineering literature. Provides context for the sacred mountain geography of the Kii Peninsula." }
+      }
+    ],
+    "events": [
+      {
+        "name": { "en": "Nachi-no-Hi Matsuri (Fire Festival)", "ja": "那智の火祭" },
+        "date": { "month": 7, "day": 14 },
+        "recurrence": "annual",
+        "description": { "en": "One of Japan's three great fire festivals. Twelve large flaming torches (each 50 kg, 6 meters tall) are carried to Nachi Falls in a dramatic nighttime procession." }
+      }
+    ],
+    "historicalSignificance": {
+      "en": "The Kumano pilgrimage represents one of the most important expressions of Japanese spirituality. Between 908 and 1281, 94 imperial pilgrimages were recorded from Kyoto to Kumano — a journey of several weeks through mountains. At its peak in the medieval period, pilgrims were so numerous they were described as 'ants on the Kumano road' (蟻の熊野詣). The routes preserve the rare syncretic tradition of shinbutsu-shūgō that defined Japanese religion for centuries before the Meiji separation of Shinto and Buddhism."
+    }
+  },
+
+  "logistics": {
+    "seasonalAvailability": {
+      "openMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+      "notes": { "en": "Open year-round. The Kii Peninsula is one of the wettest regions in mainland Japan. Rainy season (June-July) and typhoon season (August-September) bring heavy rain and possible trail closures. Winter is cold but walkable on the Nakahechi. The Kohechi mountain route closes in winter due to snow." }
+    },
+    "accommodationTypes": ["ryokan", "minshuku", "hotel", "hostel"],
+    "accommodationNotes": {
+      "en": "Limited capacity on the trail — advance booking is essential, especially at Takahara, Chikatsuyu/Nonaka, and Koguchi. Book through KUMANO TRAVEL (kumano-travel.com). Luggage transfer services available. Yunomine Onsen and Kawayu Onsen near Hongu have excellent traditional accommodation."
+    },
+    "currency": "JPY",
+    "languages": ["ja"],
+    "cellularCoverage": "fair",
+    "cellularNotes": { "en": "Variable coverage. Good in towns, weak or absent on mountain trails. The Nakahechi has better coverage than the Kohechi." },
+    "waterAvailability": "limited",
+    "waterNotes": { "en": "Carry water for each stage. Some springs along the trail but not reliable year-round. Vending machines in trailhead towns." },
+    "emergencyNumber": "119",
+    "transportLinks": [
+      {
+        "type": "train",
+        "name": { "en": "JR Kii-Tanabe Station" },
+        "nearStage": 0,
+        "notes": { "en": "From Osaka Tennoji (~2 hrs by limited express). Bus connections to Takijiri-oji trailhead." }
+      },
+      {
+        "type": "airport",
+        "name": { "en": "Nanki-Shirahama Airport" },
+        "code": "SHM",
+        "nearStage": 0,
+        "notes": { "en": "Nearest airport. Flights from Tokyo Haneda (1 hr). Bus to Kii-Tanabe." }
+      }
+    ]
+  },
+
+  "provenance": {
+    "sources": [
+      {
+        "name": "OpenStreetMap",
+        "url": "https://www.openstreetmap.org",
+        "license": "ODbL-1.0",
+        "dataTypes": ["geometry", "waypoints"],
+        "accessDate": "2026-03-26"
+      },
+      {
+        "name": "Tanabe City Kumano Tourism Bureau",
+        "url": "https://www.tb-kumano.jp/en/kumano-kodo/",
+        "dataTypes": ["stages", "logistics", "credential"],
+        "accessDate": "2026-03-26"
+      }
+    ],
+    "contributors": [
+      { "name": "Steven Ross", "role": "initial_author", "url": "https://github.com/momentmaker" }
+    ],
+    "license": "ODbL-1.0"
+  }
+}

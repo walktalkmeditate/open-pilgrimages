@@ -1,0 +1,38 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "nakahechi-main",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [135.504, 33.776, 100],
+          [135.506, 33.777, 150],
+          [135.519, 33.793, 330],
+          [135.547, 33.797, 500],
+          [135.560, 33.801, 600],
+          [135.577, 33.808, 750],
+          [135.589, 33.814, 400],
+          [135.606, 33.814, 300],
+          [135.634, 33.829, 550],
+          [135.657, 33.835, 700],
+          [135.680, 33.845, 600],
+          [135.721, 33.862, 290],
+          [135.721, 33.858, 310],
+          [135.737, 33.858, 280],
+          [135.757, 33.860, 250],
+          [135.774, 33.840, 80]
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Nakahechi (Imperial Route)",
+        "type": "main",
+        "segment": "nakahechi",
+        "source": "OpenStreetMap (relation 17094646)",
+        "notes": "Simplified geometry. Full resolution available via OSM relation 17094646."
+      }
+    }
+  ]
+}
