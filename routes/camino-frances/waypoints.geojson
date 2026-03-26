@@ -1,323 +1,55 @@
 {
   "type": "FeatureCollection",
   "features": [
-    {
-      "type": "Feature",
-      "id": "wp-sjpp-pilgrim-office",
-      "geometry": { "type": "Point", "coordinates": [-1.236, 43.163, 172] },
-      "properties": {
-        "routeId": "camino-frances",
-        "name": "Pilgrim Welcome Office",
-        "nameLocalized": { "fr": "Bureau des Pèlerins" },
-        "type": "credential_stamp",
-        "subtype": "pilgrim_office",
-        "stageIndex": 0,
-        "kmFromStart": 0,
-        "icon": "stamp",
-        "description": "Starting point credential office. Obtain your Credencial del Peregrino here.",
-        "elevation": 172,
-        "credentialStamp": true,
-        "tags": ["start", "credential"]
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "wp-roncesvalles-collegiate",
-      "geometry": { "type": "Point", "coordinates": [-1.319, 43.010, 945] },
-      "properties": {
-        "routeId": "camino-frances",
-        "name": "Collegiate Church of Roncesvalles",
-        "nameLocalized": { "es": "Real Colegiata de Roncesvalles" },
-        "type": "sacred_site",
-        "subtype": "church",
-        "stageIndex": 0,
-        "kmFromStart": 24.2,
-        "icon": "church",
-        "description": "Medieval pilgrim hospital and church. Nightly pilgrim blessing at 20:00.",
-        "elevation": 945,
-        "tradition": "christian",
-        "credentialStamp": true,
-        "tags": ["blessing", "historic"]
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "wp-pamplona-cathedral",
-      "geometry": { "type": "Point", "coordinates": [-1.644, 42.818, 435] },
-      "properties": {
-        "routeId": "camino-frances",
-        "name": "Cathedral of Santa María la Real",
-        "nameLocalized": { "es": "Catedral de Santa María la Real de Pamplona" },
-        "type": "sacred_site",
-        "subtype": "cathedral",
-        "stageIndex": 2,
-        "kmFromStart": 66.0,
-        "icon": "cathedral",
-        "description": "Gothic cathedral where kings of Navarre were crowned.",
-        "elevation": 435,
-        "tradition": "christian",
-        "credentialStamp": true,
-        "tags": ["cathedral", "historic"]
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "wp-alto-del-perdon",
-      "geometry": { "type": "Point", "coordinates": [-1.730, 42.750, 770] },
-      "properties": {
-        "routeId": "camino-frances",
-        "name": "Alto del Perdón",
-        "nameLocalized": { "es": "Alto del Perdón" },
-        "type": "viewpoint",
-        "stageIndex": 3,
-        "kmFromStart": 78.0,
-        "icon": "viewpoint",
-        "description": "Height of Forgiveness. Iconic pilgrim monument sculpture on the ridge with panoramic views of Navarra.",
-        "elevation": 770,
-        "tags": ["monument", "viewpoint", "landmark"]
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "wp-irache-wine-fountain",
-      "geometry": { "type": "Point", "coordinates": [-2.020, 42.660] },
-      "properties": {
-        "routeId": "camino-frances",
-        "name": "Irache Wine Fountain",
-        "nameLocalized": { "es": "Fuente del Vino de Irache" },
-        "type": "water_source",
-        "subtype": "fountain",
-        "stageIndex": 5,
-        "kmFromStart": 110.0,
-        "icon": "wine",
-        "description": "Free red wine for pilgrims, provided by Bodegas Irache. Two taps: wine and water.",
-        "waterReliability": "permanent",
-        "tags": ["wine", "landmark", "tradition"]
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "wp-santo-domingo-cathedral",
-      "geometry": { "type": "Point", "coordinates": [-2.955, 42.430, 640] },
-      "properties": {
-        "routeId": "camino-frances",
-        "name": "Cathedral of Santo Domingo de la Calzada",
-        "type": "sacred_site",
-        "subtype": "cathedral",
-        "stageIndex": 8,
-        "kmFromStart": 185.0,
-        "icon": "cathedral",
-        "description": "12th century cathedral. Famous for housing a live rooster and hen — commemorating a miracle of a pilgrim unjustly hanged.",
-        "elevation": 640,
-        "tradition": "christian",
-        "credentialStamp": true,
-        "tags": ["cathedral", "miracle", "historic"]
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "wp-atapuerca",
-      "geometry": { "type": "Point", "coordinates": [-3.510, 42.380, 1020] },
-      "properties": {
-        "routeId": "camino-frances",
-        "name": "Atapuerca Archaeological Site",
-        "type": "cultural_site",
-        "stageIndex": 11,
-        "kmFromStart": 245.0,
-        "icon": "museum",
-        "description": "UNESCO World Heritage Site. Contains the earliest known European human remains (800,000+ years old).",
-        "elevation": 1020,
-        "tags": ["unesco", "archaeology", "historic"]
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "wp-burgos-cathedral",
-      "geometry": { "type": "Point", "coordinates": [-3.700, 42.344, 860] },
-      "properties": {
-        "routeId": "camino-frances",
-        "name": "Burgos Cathedral",
-        "nameLocalized": { "es": "Catedral de Santa María de Burgos" },
-        "type": "sacred_site",
-        "subtype": "cathedral",
-        "stageIndex": 11,
-        "kmFromStart": 282.0,
-        "icon": "cathedral",
-        "description": "UNESCO World Heritage Site. First Gothic cathedral built in the Crown of Castile (1221). Extraordinary spires and chapels.",
-        "elevation": 860,
-        "tradition": "christian",
-        "credentialStamp": true,
-        "tags": ["cathedral", "unesco", "gothic"]
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "wp-leon-cathedral",
-      "geometry": { "type": "Point", "coordinates": [-5.568, 42.595, 837] },
-      "properties": {
-        "routeId": "camino-frances",
-        "name": "León Cathedral",
-        "nameLocalized": { "es": "Catedral de Santa María de Regla de León" },
-        "type": "sacred_site",
-        "subtype": "cathedral",
-        "stageIndex": 19,
-        "kmFromStart": 468.0,
-        "icon": "cathedral",
-        "description": "Gothic masterpiece with the largest collection of medieval stained glass windows in Europe. Known as the 'House of Light'.",
-        "elevation": 837,
-        "tradition": "christian",
-        "credentialStamp": true,
-        "tags": ["cathedral", "stained-glass", "gothic"]
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "wp-astorga-gaudi-palace",
-      "geometry": { "type": "Point", "coordinates": [-6.056, 42.456, 870] },
-      "properties": {
-        "routeId": "camino-frances",
-        "name": "Episcopal Palace of Astorga",
-        "nameLocalized": { "es": "Palacio Episcopal de Astorga" },
-        "type": "cultural_site",
-        "stageIndex": 21,
-        "kmFromStart": 510.0,
-        "icon": "museum",
-        "description": "Neo-Gothic palace designed by Antoni Gaudí. Now houses the Museum of the Camino.",
-        "elevation": 870,
-        "tags": ["gaudi", "museum", "architecture"]
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "wp-cruz-de-ferro",
-      "geometry": { "type": "Point", "coordinates": [-6.361, 42.489, 1505] },
-      "properties": {
-        "routeId": "camino-frances",
-        "name": "Cruz de Ferro",
-        "nameLocalized": { "es": "Cruz de Ferro" },
-        "type": "sacred_site",
-        "subtype": "cross",
-        "stageIndex": 23,
-        "kmFromStart": 540.0,
-        "icon": "cross",
-        "description": "Iron cross at the highest point of the Camino Frances (1,505 m). Pilgrims leave a stone from home at the cairn, symbolizing the release of a burden.",
-        "elevation": 1505,
-        "tradition": "christian",
-        "credentialStamp": false,
-        "tags": ["landmark", "ritual", "highest-point", "emotional"]
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "wp-ponferrada-castle",
-      "geometry": { "type": "Point", "coordinates": [-6.598, 42.549, 510] },
-      "properties": {
-        "routeId": "camino-frances",
-        "name": "Templar Castle of Ponferrada",
-        "nameLocalized": { "es": "Castillo de los Templarios" },
-        "type": "cultural_site",
-        "stageIndex": 23,
-        "kmFromStart": 567.0,
-        "icon": "castle",
-        "description": "Knights Templar fortress built to protect pilgrims on the Camino de Santiago.",
-        "elevation": 510,
-        "tags": ["castle", "templar", "historic"]
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "wp-villafranca-puerta-perdon",
-      "geometry": { "type": "Point", "coordinates": [-6.814, 42.610, 525] },
-      "properties": {
-        "routeId": "camino-frances",
-        "name": "Church of Santiago — Puerta del Perdón",
-        "type": "sacred_site",
-        "subtype": "church",
-        "stageIndex": 24,
-        "kmFromStart": 590.0,
-        "icon": "church",
-        "description": "The Door of Forgiveness. In medieval times, sick pilgrims who could not continue received equivalent indulgences by passing through this door.",
-        "elevation": 525,
-        "tradition": "christian",
-        "credentialStamp": true,
-        "tags": ["historic", "indulgence", "tradition"]
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "wp-o-cebreiro-church",
-      "geometry": { "type": "Point", "coordinates": [-7.040, 42.709, 1300] },
-      "properties": {
-        "routeId": "camino-frances",
-        "name": "Santa María la Real, O Cebreiro",
-        "type": "sacred_site",
-        "subtype": "church",
-        "stageIndex": 25,
-        "kmFromStart": 618.0,
-        "icon": "church",
-        "description": "9th century pre-Romanesque church. Site of the Eucharistic miracle of the Holy Grail. The oldest standing church on the Camino.",
-        "elevation": 1300,
-        "tradition": "christian",
-        "credentialStamp": true,
-        "tags": ["pre-romanesque", "miracle", "historic"]
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "wp-monte-do-gozo",
-      "geometry": { "type": "Point", "coordinates": [-8.510, 42.890, 370] },
-      "properties": {
-        "routeId": "camino-frances",
-        "name": "Monte do Gozo (Mount of Joy)",
-        "nameLocalized": { "gl": "Monte do Gozo" },
-        "type": "viewpoint",
-        "stageIndex": 32,
-        "kmFromStart": 775.0,
-        "icon": "viewpoint",
-        "description": "First viewpoint of Santiago's cathedral spires. Medieval pilgrims raced to be the first to see the cathedral, earning the surname 'Rey' (king).",
-        "elevation": 370,
-        "tags": ["viewpoint", "tradition", "landmark"]
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "wp-santiago-cathedral",
-      "geometry": { "type": "Point", "coordinates": [-8.544, 42.881, 260] },
-      "properties": {
-        "routeId": "camino-frances",
-        "name": "Cathedral of Santiago de Compostela",
-        "nameLocalized": { "es": "Catedral de Santiago de Compostela", "gl": "Catedral de Santiago de Compostela" },
-        "type": "sacred_site",
-        "subtype": "cathedral",
-        "stageIndex": 32,
-        "kmFromStart": 790.0,
-        "icon": "cathedral",
-        "description": "Final destination of the Camino de Santiago. Houses the tomb of the Apostle Saint James. The Pórtico de la Gloria (1188) and the Botafumeiro are its most famous features.",
-        "elevation": 260,
-        "tradition": "christian",
-        "credentialStamp": true,
-        "tags": ["end", "cathedral", "tomb", "botafumeiro"]
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "wp-pilgrim-office-santiago",
-      "geometry": { "type": "Point", "coordinates": [-8.543, 42.879, 260] },
-      "properties": {
-        "routeId": "camino-frances",
-        "name": "Pilgrim's Office (Oficina del Peregrino)",
-        "nameLocalized": { "es": "Oficina del Peregrino" },
-        "type": "credential_stamp",
-        "subtype": "pilgrim_office",
-        "stageIndex": 32,
-        "kmFromStart": 790.0,
-        "icon": "stamp",
-        "description": "Where pilgrims receive their Compostela certificate. Located on Rúa das Carretas. Open 9:00-19:00 daily.",
-        "elevation": 260,
-        "hours": "09:00-19:00",
-        "credentialStamp": true,
-        "tags": ["end", "credential", "compostela"]
-      }
-    }
+    { "type": "Feature", "id": "wp-sjpp", "geometry": { "type": "Point", "coordinates": [-1.236, 43.163, 172] }, "properties": { "routeId": "camino-frances", "name": "Saint-Jean-Pied-de-Port", "nameLocalized": { "fr": "Saint-Jean-Pied-de-Port", "eu": "Donibane Garazi" }, "type": "town", "stageIndex": 0, "kmFromStart": 0, "icon": "town", "elevation": 172, "credentialStamp": true, "description": "Traditional starting point. Pilgrim welcome office issues credentials.", "tags": ["start", "credential"] } },
+    { "type": "Feature", "id": "wp-sjpp-pilgrim-office", "geometry": { "type": "Point", "coordinates": [-1.236, 43.163, 172] }, "properties": { "routeId": "camino-frances", "name": "Pilgrim Welcome Office", "nameLocalized": { "fr": "Bureau des Pèlerins" }, "type": "credential_stamp", "subtype": "pilgrim_office", "stageIndex": 0, "kmFromStart": 0, "icon": "stamp", "elevation": 172, "credentialStamp": true, "tags": ["credential"] } },
+    { "type": "Feature", "id": "wp-roncesvalles", "geometry": { "type": "Point", "coordinates": [-1.319, 43.010, 945] }, "properties": { "routeId": "camino-frances", "name": "Roncesvalles", "nameLocalized": { "es": "Roncesvalles", "eu": "Orreaga" }, "type": "town", "stageIndex": 0, "kmFromStart": 24.2, "icon": "town", "elevation": 945, "credentialStamp": true, "tags": ["town"] } },
+    { "type": "Feature", "id": "wp-roncesvalles-collegiate", "geometry": { "type": "Point", "coordinates": [-1.319, 43.010, 945] }, "properties": { "routeId": "camino-frances", "name": "Collegiate Church of Roncesvalles", "nameLocalized": { "es": "Real Colegiata de Roncesvalles" }, "type": "sacred_site", "subtype": "church", "stageIndex": 0, "kmFromStart": 24.2, "icon": "church", "description": "Medieval pilgrim hospital and church. Nightly pilgrim blessing at 20:00.", "elevation": 945, "tradition": "christian", "credentialStamp": true, "tags": ["blessing", "historic"] } },
+    { "type": "Feature", "id": "wp-zubiri", "geometry": { "type": "Point", "coordinates": [-1.510, 42.929, 530] }, "properties": { "routeId": "camino-frances", "name": "Zubiri", "type": "town", "stageIndex": 1, "kmFromStart": 45.6, "icon": "town", "elevation": 530, "credentialStamp": true, "tags": ["town"] } },
+    { "type": "Feature", "id": "wp-pamplona", "geometry": { "type": "Point", "coordinates": [-1.644, 42.818, 435] }, "properties": { "routeId": "camino-frances", "name": "Pamplona", "nameLocalized": { "es": "Pamplona", "eu": "Iruña" }, "type": "town", "stageIndex": 2, "kmFromStart": 66.0, "icon": "town", "elevation": 435, "credentialStamp": true, "description": "Capital of Navarra. Famous for San Fermín (Running of the Bulls) in July.", "tags": ["town", "city"] } },
+    { "type": "Feature", "id": "wp-pamplona-cathedral", "geometry": { "type": "Point", "coordinates": [-1.644, 42.818, 435] }, "properties": { "routeId": "camino-frances", "name": "Cathedral of Santa María la Real", "nameLocalized": { "es": "Catedral de Santa María la Real de Pamplona" }, "type": "sacred_site", "subtype": "cathedral", "stageIndex": 2, "kmFromStart": 66.0, "icon": "cathedral", "elevation": 435, "tradition": "christian", "credentialStamp": true, "tags": ["cathedral", "historic"] } },
+    { "type": "Feature", "id": "wp-alto-del-perdon", "geometry": { "type": "Point", "coordinates": [-1.730, 42.750, 770] }, "properties": { "routeId": "camino-frances", "name": "Alto del Perdón", "nameLocalized": { "es": "Alto del Perdón" }, "type": "viewpoint", "stageIndex": 3, "kmFromStart": 78.0, "icon": "viewpoint", "description": "Height of Forgiveness. Iconic pilgrim monument sculpture on the ridge.", "elevation": 770, "tags": ["monument", "viewpoint", "landmark"] } },
+    { "type": "Feature", "id": "wp-puente-la-reina", "geometry": { "type": "Point", "coordinates": [-1.813, 42.672, 350] }, "properties": { "routeId": "camino-frances", "name": "Puente la Reina", "nameLocalized": { "es": "Puente la Reina", "eu": "Gares" }, "type": "town", "stageIndex": 3, "kmFromStart": 89.9, "icon": "town", "elevation": 350, "credentialStamp": true, "description": "Named for the medieval bridge where Camino routes converge.", "tags": ["town", "bridge"] } },
+    { "type": "Feature", "id": "wp-estella", "geometry": { "type": "Point", "coordinates": [-2.031, 42.671, 430] }, "properties": { "routeId": "camino-frances", "name": "Estella", "nameLocalized": { "es": "Estella", "eu": "Lizarra" }, "type": "town", "stageIndex": 4, "kmFromStart": 111.5, "icon": "town", "elevation": 430, "credentialStamp": true, "tags": ["town"] } },
+    { "type": "Feature", "id": "wp-irache-wine-fountain", "geometry": { "type": "Point", "coordinates": [-2.020, 42.660] }, "properties": { "routeId": "camino-frances", "name": "Irache Wine Fountain", "nameLocalized": { "es": "Fuente del Vino de Irache" }, "type": "water_source", "subtype": "fountain", "stageIndex": 5, "kmFromStart": 114.0, "icon": "wine", "description": "Free red wine for pilgrims, provided by Bodegas Irache.", "waterReliability": "permanent", "tags": ["wine", "landmark", "tradition"] } },
+    { "type": "Feature", "id": "wp-los-arcos", "geometry": { "type": "Point", "coordinates": [-2.192, 42.567, 450] }, "properties": { "routeId": "camino-frances", "name": "Los Arcos", "type": "town", "stageIndex": 5, "kmFromStart": 132.8, "icon": "town", "elevation": 450, "credentialStamp": true, "tags": ["town"] } },
+    { "type": "Feature", "id": "wp-logrono", "geometry": { "type": "Point", "coordinates": [-2.444, 42.469, 384] }, "properties": { "routeId": "camino-frances", "name": "Logroño", "nameLocalized": { "es": "Logroño" }, "type": "town", "stageIndex": 6, "kmFromStart": 160.4, "icon": "town", "elevation": 384, "credentialStamp": true, "description": "Capital of La Rioja wine region.", "tags": ["town", "city", "wine"] } },
+    { "type": "Feature", "id": "wp-najera", "geometry": { "type": "Point", "coordinates": [-2.735, 42.416, 485] }, "properties": { "routeId": "camino-frances", "name": "Nájera", "type": "town", "stageIndex": 7, "kmFromStart": 188.9, "icon": "town", "elevation": 485, "credentialStamp": true, "tags": ["town"] } },
+    { "type": "Feature", "id": "wp-santo-domingo", "geometry": { "type": "Point", "coordinates": [-2.955, 42.430, 640] }, "properties": { "routeId": "camino-frances", "name": "Santo Domingo de la Calzada", "type": "town", "stageIndex": 8, "kmFromStart": 209.6, "icon": "town", "elevation": 640, "credentialStamp": true, "tags": ["town"] } },
+    { "type": "Feature", "id": "wp-santo-domingo-cathedral", "geometry": { "type": "Point", "coordinates": [-2.955, 42.430, 640] }, "properties": { "routeId": "camino-frances", "name": "Cathedral of Santo Domingo de la Calzada", "type": "sacred_site", "subtype": "cathedral", "stageIndex": 8, "kmFromStart": 209.6, "icon": "cathedral", "description": "12th century cathedral. Famous for housing a live rooster and hen.", "elevation": 640, "tradition": "christian", "credentialStamp": true, "tags": ["cathedral", "miracle", "historic"] } },
+    { "type": "Feature", "id": "wp-belorado", "geometry": { "type": "Point", "coordinates": [-3.190, 42.420, 770] }, "properties": { "routeId": "camino-frances", "name": "Belorado", "type": "town", "stageIndex": 9, "kmFromStart": 231.6, "icon": "town", "elevation": 770, "credentialStamp": true, "tags": ["town"] } },
+    { "type": "Feature", "id": "wp-san-juan-ortega", "geometry": { "type": "Point", "coordinates": [-3.437, 42.373, 1000] }, "properties": { "routeId": "camino-frances", "name": "San Juan de Ortega", "type": "town", "stageIndex": 10, "kmFromStart": 255.5, "icon": "town", "elevation": 1000, "credentialStamp": true, "description": "Monastery with famous equinox light phenomenon.", "tags": ["town", "monastery"] } },
+    { "type": "Feature", "id": "wp-atapuerca", "geometry": { "type": "Point", "coordinates": [-3.510, 42.380, 1020] }, "properties": { "routeId": "camino-frances", "name": "Atapuerca Archaeological Site", "type": "cultural_site", "stageIndex": 11, "kmFromStart": 261.0, "icon": "museum", "description": "UNESCO World Heritage Site. Earliest known European human remains (800,000+ years old).", "elevation": 1020, "tags": ["unesco", "archaeology", "historic"] } },
+    { "type": "Feature", "id": "wp-burgos", "geometry": { "type": "Point", "coordinates": [-3.700, 42.344, 860] }, "properties": { "routeId": "camino-frances", "name": "Burgos", "type": "town", "stageIndex": 11, "kmFromStart": 282.0, "icon": "town", "elevation": 860, "credentialStamp": true, "description": "Historic capital of Castile. Major rest day stop.", "tags": ["town", "city"] } },
+    { "type": "Feature", "id": "wp-burgos-cathedral", "geometry": { "type": "Point", "coordinates": [-3.700, 42.344, 860] }, "properties": { "routeId": "camino-frances", "name": "Burgos Cathedral", "nameLocalized": { "es": "Catedral de Santa María de Burgos" }, "type": "sacred_site", "subtype": "cathedral", "stageIndex": 11, "kmFromStart": 282.0, "icon": "cathedral", "description": "UNESCO World Heritage Site. First Gothic cathedral in the Crown of Castile (1221).", "elevation": 860, "tradition": "christian", "credentialStamp": true, "tags": ["cathedral", "unesco", "gothic"] } },
+    { "type": "Feature", "id": "wp-hornillos", "geometry": { "type": "Point", "coordinates": [-3.912, 42.337, 810] }, "properties": { "routeId": "camino-frances", "name": "Hornillos del Camino", "type": "town", "stageIndex": 12, "kmFromStart": 302.3, "icon": "town", "elevation": 810, "credentialStamp": true, "description": "First meseta town. The landscape opens into vast plains.", "tags": ["town", "meseta"] } },
+    { "type": "Feature", "id": "wp-castrojeriz", "geometry": { "type": "Point", "coordinates": [-4.140, 42.289, 800] }, "properties": { "routeId": "camino-frances", "name": "Castrojeriz", "type": "town", "stageIndex": 13, "kmFromStart": 322.2, "icon": "town", "elevation": 800, "credentialStamp": true, "tags": ["town", "meseta"] } },
+    { "type": "Feature", "id": "wp-fromista", "geometry": { "type": "Point", "coordinates": [-4.406, 42.268, 780] }, "properties": { "routeId": "camino-frances", "name": "Frómista", "type": "town", "stageIndex": 14, "kmFromStart": 346.9, "icon": "town", "elevation": 780, "credentialStamp": true, "tags": ["town", "meseta"] } },
+    { "type": "Feature", "id": "wp-carrion", "geometry": { "type": "Point", "coordinates": [-4.602, 42.338, 830] }, "properties": { "routeId": "camino-frances", "name": "Carrión de los Condes", "type": "town", "stageIndex": 15, "kmFromStart": 365.7, "icon": "town", "elevation": 830, "credentialStamp": true, "tags": ["town", "meseta"] } },
+    { "type": "Feature", "id": "wp-sahagun", "geometry": { "type": "Point", "coordinates": [-5.033, 42.372, 860] }, "properties": { "routeId": "camino-frances", "name": "Sahagún", "type": "town", "stageIndex": 17, "kmFromStart": 404.0, "icon": "town", "elevation": 860, "credentialStamp": true, "description": "Historic town with Mudéjar architecture. Midpoint of the Camino.", "tags": ["town", "midpoint", "mudejar"] } },
+    { "type": "Feature", "id": "wp-mansilla", "geometry": { "type": "Point", "coordinates": [-5.415, 42.498, 800] }, "properties": { "routeId": "camino-frances", "name": "Mansilla de las Mulas", "type": "town", "stageIndex": 18, "kmFromStart": 449.6, "icon": "town", "elevation": 800, "credentialStamp": true, "tags": ["town"] } },
+    { "type": "Feature", "id": "wp-leon", "geometry": { "type": "Point", "coordinates": [-5.568, 42.595, 837] }, "properties": { "routeId": "camino-frances", "name": "León", "type": "town", "stageIndex": 19, "kmFromStart": 468.0, "icon": "town", "elevation": 837, "credentialStamp": true, "description": "Major city. End of the meseta. Common rest day stop.", "tags": ["town", "city"] } },
+    { "type": "Feature", "id": "wp-leon-cathedral", "geometry": { "type": "Point", "coordinates": [-5.568, 42.595, 837] }, "properties": { "routeId": "camino-frances", "name": "León Cathedral", "nameLocalized": { "es": "Catedral de Santa María de Regla de León" }, "type": "sacred_site", "subtype": "cathedral", "stageIndex": 19, "kmFromStart": 468.0, "icon": "cathedral", "description": "Gothic masterpiece with the largest medieval stained glass collection in Europe.", "elevation": 837, "tradition": "christian", "credentialStamp": true, "tags": ["cathedral", "stained-glass", "gothic"] } },
+    { "type": "Feature", "id": "wp-astorga", "geometry": { "type": "Point", "coordinates": [-6.056, 42.456, 870] }, "properties": { "routeId": "camino-frances", "name": "Astorga", "type": "town", "stageIndex": 21, "kmFromStart": 510.0, "icon": "town", "elevation": 870, "credentialStamp": true, "description": "Maragato capital. Gaudí's Episcopal Palace and the Cathedral.", "tags": ["town", "gaudi"] } },
+    { "type": "Feature", "id": "wp-astorga-gaudi-palace", "geometry": { "type": "Point", "coordinates": [-6.056, 42.456, 870] }, "properties": { "routeId": "camino-frances", "name": "Episcopal Palace of Astorga", "nameLocalized": { "es": "Palacio Episcopal de Astorga" }, "type": "cultural_site", "stageIndex": 21, "kmFromStart": 510.0, "icon": "museum", "description": "Neo-Gothic palace designed by Antoni Gaudí. Houses the Museum of the Camino.", "elevation": 870, "tags": ["gaudi", "museum", "architecture"] } },
+    { "type": "Feature", "id": "wp-foncebadon", "geometry": { "type": "Point", "coordinates": [-6.385, 42.482, 1437] }, "properties": { "routeId": "camino-frances", "name": "Foncebadón", "type": "town", "stageIndex": 22, "kmFromStart": 535.8, "icon": "town", "elevation": 1437, "credentialStamp": true, "tags": ["town", "mountain"] } },
+    { "type": "Feature", "id": "wp-cruz-de-ferro", "geometry": { "type": "Point", "coordinates": [-6.361, 42.489, 1505] }, "properties": { "routeId": "camino-frances", "name": "Cruz de Ferro", "nameLocalized": { "es": "Cruz de Ferro" }, "type": "sacred_site", "subtype": "cross", "stageIndex": 23, "kmFromStart": 540.0, "icon": "cross", "description": "Iron cross at the highest point (1,505 m). Pilgrims leave a stone symbolizing a burden released.", "elevation": 1505, "tradition": "christian", "tags": ["landmark", "ritual", "highest-point", "emotional"] } },
+    { "type": "Feature", "id": "wp-ponferrada", "geometry": { "type": "Point", "coordinates": [-6.598, 42.549, 510] }, "properties": { "routeId": "camino-frances", "name": "Ponferrada", "type": "town", "stageIndex": 23, "kmFromStart": 567.0, "icon": "town", "elevation": 510, "credentialStamp": true, "description": "Bierzo region capital. Templar castle.", "tags": ["town", "city"] } },
+    { "type": "Feature", "id": "wp-ponferrada-castle", "geometry": { "type": "Point", "coordinates": [-6.598, 42.549, 510] }, "properties": { "routeId": "camino-frances", "name": "Templar Castle of Ponferrada", "nameLocalized": { "es": "Castillo de los Templarios" }, "type": "cultural_site", "stageIndex": 23, "kmFromStart": 567.0, "icon": "castle", "description": "Knights Templar fortress built to protect Camino pilgrims.", "elevation": 510, "tags": ["castle", "templar", "historic"] } },
+    { "type": "Feature", "id": "wp-villafranca", "geometry": { "type": "Point", "coordinates": [-6.814, 42.610, 525] }, "properties": { "routeId": "camino-frances", "name": "Villafranca del Bierzo", "type": "town", "stageIndex": 24, "kmFromStart": 590.0, "icon": "town", "elevation": 525, "credentialStamp": true, "tags": ["town"] } },
+    { "type": "Feature", "id": "wp-villafranca-puerta-perdon", "geometry": { "type": "Point", "coordinates": [-6.814, 42.610, 525] }, "properties": { "routeId": "camino-frances", "name": "Church of Santiago — Puerta del Perdón", "type": "sacred_site", "subtype": "church", "stageIndex": 24, "kmFromStart": 590.0, "icon": "church", "description": "The Door of Forgiveness. Sick medieval pilgrims received equivalent indulgences here.", "elevation": 525, "tradition": "christian", "credentialStamp": true, "tags": ["historic", "indulgence", "tradition"] } },
+    { "type": "Feature", "id": "wp-o-cebreiro", "geometry": { "type": "Point", "coordinates": [-7.040, 42.709, 1300] }, "properties": { "routeId": "camino-frances", "name": "O Cebreiro", "type": "town", "stageIndex": 25, "kmFromStart": 618.0, "icon": "town", "elevation": 1300, "credentialStamp": true, "description": "Mountain village entering Galicia. Pre-Romanesque church.", "tags": ["town", "mountain", "galicia"] } },
+    { "type": "Feature", "id": "wp-o-cebreiro-church", "geometry": { "type": "Point", "coordinates": [-7.040, 42.709, 1300] }, "properties": { "routeId": "camino-frances", "name": "Santa María la Real, O Cebreiro", "type": "sacred_site", "subtype": "church", "stageIndex": 25, "kmFromStart": 618.0, "icon": "church", "description": "9th century pre-Romanesque church. Site of the Holy Grail miracle.", "elevation": 1300, "tradition": "christian", "credentialStamp": true, "tags": ["pre-romanesque", "miracle", "historic"] } },
+    { "type": "Feature", "id": "wp-triacastela", "geometry": { "type": "Point", "coordinates": [-7.239, 42.756, 665] }, "properties": { "routeId": "camino-frances", "name": "Triacastela", "type": "town", "stageIndex": 26, "kmFromStart": 638.6, "icon": "town", "elevation": 665, "credentialStamp": true, "tags": ["town"] } },
+    { "type": "Feature", "id": "wp-sarria", "geometry": { "type": "Point", "coordinates": [-7.414, 42.780, 453] }, "properties": { "routeId": "camino-frances", "name": "Sarria", "type": "town", "stageIndex": 27, "kmFromStart": 656.4, "icon": "town", "elevation": 453, "credentialStamp": true, "description": "111 km from Santiago. Most popular starting point for the minimum 100 km Compostela requirement.", "tags": ["town", "100km-start"] } },
+    { "type": "Feature", "id": "wp-portomarin", "geometry": { "type": "Point", "coordinates": [-7.617, 42.810, 350] }, "properties": { "routeId": "camino-frances", "name": "Portomarín", "type": "town", "stageIndex": 28, "kmFromStart": 678.6, "icon": "town", "elevation": 350, "credentialStamp": true, "tags": ["town"] } },
+    { "type": "Feature", "id": "wp-palas-de-rei", "geometry": { "type": "Point", "coordinates": [-7.870, 42.873, 565] }, "properties": { "routeId": "camino-frances", "name": "Palas de Rei", "type": "town", "stageIndex": 29, "kmFromStart": 703.4, "icon": "town", "elevation": 565, "credentialStamp": true, "tags": ["town"] } },
+    { "type": "Feature", "id": "wp-melide", "geometry": { "type": "Point", "coordinates": [-8.013, 42.917, 450] }, "properties": { "routeId": "camino-frances", "name": "Melide", "type": "town", "stageIndex": 30, "kmFromStart": 718.0, "icon": "town", "elevation": 450, "credentialStamp": true, "description": "Famous for pulpo a feira (Galician-style octopus).", "tags": ["town", "food", "octopus"] } },
+    { "type": "Feature", "id": "wp-arzua", "geometry": { "type": "Point", "coordinates": [-8.164, 42.926, 380] }, "properties": { "routeId": "camino-frances", "name": "Arzúa", "type": "town", "stageIndex": 30, "kmFromStart": 731.9, "icon": "town", "elevation": 380, "credentialStamp": true, "tags": ["town"] } },
+    { "type": "Feature", "id": "wp-o-pedrouzo", "geometry": { "type": "Point", "coordinates": [-8.358, 42.907, 290] }, "properties": { "routeId": "camino-frances", "name": "O Pedrouzo", "type": "town", "stageIndex": 31, "kmFromStart": 751.2, "icon": "town", "elevation": 290, "credentialStamp": true, "tags": ["town"] } },
+    { "type": "Feature", "id": "wp-monte-do-gozo", "geometry": { "type": "Point", "coordinates": [-8.510, 42.890, 370] }, "properties": { "routeId": "camino-frances", "name": "Monte do Gozo (Mount of Joy)", "nameLocalized": { "gl": "Monte do Gozo" }, "type": "viewpoint", "stageIndex": 32, "kmFromStart": 775.0, "icon": "viewpoint", "description": "First viewpoint of Santiago's cathedral spires.", "elevation": 370, "tags": ["viewpoint", "tradition", "landmark"] } },
+    { "type": "Feature", "id": "wp-santiago", "geometry": { "type": "Point", "coordinates": [-8.544, 42.881, 260] }, "properties": { "routeId": "camino-frances", "name": "Santiago de Compostela", "nameLocalized": { "es": "Santiago de Compostela", "gl": "Santiago de Compostela" }, "type": "town", "stageIndex": 32, "kmFromStart": 790.0, "icon": "town", "elevation": 260, "credentialStamp": true, "description": "Final destination of the Camino de Santiago.", "tags": ["town", "city", "end"] } },
+    { "type": "Feature", "id": "wp-santiago-cathedral", "geometry": { "type": "Point", "coordinates": [-8.544, 42.881, 260] }, "properties": { "routeId": "camino-frances", "name": "Cathedral of Santiago de Compostela", "nameLocalized": { "es": "Catedral de Santiago de Compostela", "gl": "Catedral de Santiago de Compostela" }, "type": "sacred_site", "subtype": "cathedral", "stageIndex": 32, "kmFromStart": 790.0, "icon": "cathedral", "description": "Houses the tomb of the Apostle Saint James. The Pórtico de la Gloria (1188) and the Botafumeiro.", "elevation": 260, "tradition": "christian", "credentialStamp": true, "tags": ["cathedral", "tomb", "botafumeiro"] } },
+    { "type": "Feature", "id": "wp-pilgrim-office-santiago", "geometry": { "type": "Point", "coordinates": [-8.543, 42.879, 260] }, "properties": { "routeId": "camino-frances", "name": "Pilgrim's Office", "nameLocalized": { "es": "Oficina del Peregrino" }, "type": "credential_stamp", "subtype": "pilgrim_office", "stageIndex": 32, "kmFromStart": 790.0, "icon": "stamp", "description": "Where pilgrims receive their Compostela certificate. Rúa das Carretas.", "elevation": 260, "hours": "09:00-19:00", "credentialStamp": true, "tags": ["credential", "compostela"] } }
   ]
 }
