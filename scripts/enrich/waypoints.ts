@@ -1,0 +1,140 @@
+import { readFileSync, writeFileSync, existsSync } from "fs";
+import { join } from "path";
+import {
+  queryOverpass, buildPoiQuery, classifyNode, extractName,
+  extractNameLocalized, type OsmNode,
+} from "./osm.js";
+import { minDistanceToLineKm, projectOntoLine, type Coord } from "./geo-utils.js";
+
+const ROOT = join(import.meta.dirname, "../..");
+const BUFFER_KM = 0.5;
+const DEDUP_KM = 0.05;
+
+function loadJson(path: string) {
+  return JSON.parse(readFileSync(path, "utf-8"));
+}
+
+function getRouteCoords(routeDir: string): Coord[] {
+  const route = loadJson(join(routeDir, "route.geojson"));
+  const feature = route.features[0];
+  return feature.geometry.coordinates as Coord[];
+}
+
+function getStageRanges(routeDir: string): Array<{ cumulativeKm: number }> {
+  const stages = loadJson(join(routeDir, "stages.json"));
+  const ranges: Array<{ cumulativeKm: number }> = [];
+  let cumulative = 0;
+  for (const s of stages.stages) {
+    cumulative += s.distanceKm;
+    ranges.push({ cumulativeKm: cumulative });
+  }
+  return ranges;
+}
+
+function findStageIndex(kmAlong: number, ranges: Array<{ cumulativeKm: number }>): number {
+  for (let i = 0; i < ranges.length; i++) {
+    if (kmAlong <= ranges[i].cumulativeKm) return i;
+  }
+  return ranges.length - 1;
+}
+
+async function main() {
+  const routeId = process.argv[2];
+  if (!routeId) {
+    console.error("Usage: tsx scripts/enrich/waypoints.ts <route-id>");
+    process.exit(1);
+  }
+
+  const routeDir = join(ROOT, "routes", routeId);
+  const meta = loadJson(join(routeDir, "metadata.json"));
+  const wpPath = join(routeDir, "waypoints.geojson");
+  const existing = existsSync(wpPath) ? loadJson(wpPath) : { type: "FeatureCollection", features: [] };
+
+  const routeCoords = getRouteCoords(routeDir);
+  const stageRanges = getStageRanges(routeDir);
+  const bbox = meta.overview.bbox as [number, number, number, number];
+
+  const curated = existing.features.filter((f: any) => f.properties.source !== "osm");
+  const curatedCoords = curated.map((f: any) => f.geometry.coordinates as Coord);
+
+  console.log(`Fetching POIs for ${routeId} within bbox [${bbox}]...`);
+  const query = buildPoiQuery(bbox);
+  const data = await queryOverpass(query, `pois-${routeId}`) as { elements: OsmNode[] };
+  const nodes = data.elements.filter((e): e is OsmNode => e.type === "node");
+  console.log(`Received ${nodes.length} POIs from OSM`);
+
+  const added: Record<string, number> = {};
+  let skippedDistance = 0;
+  let skippedDedup = 0;
+  const newWaypoints: object[] = [];
+
+  for (const node of nodes) {
+    const classification = classifyNode(node);
+    if (!classification) continue;
+
+    const coord: Coord = [node.lon, node.lat];
+    const dist = minDistanceToLineKm(coord, routeCoords);
+
+    if (dist > BUFFER_KM) {
+      skippedDistance++;
+      continue;
+    }
+
+    const tooClose = curatedCoords.some((c: Coord) => {
+      const d = Math.sqrt((c[0] - coord[0]) ** 2 + (c[1] - coord[1]) ** 2) * 111;
+      return d < DEDUP_KM * 2;
+    });
+    if (tooClose) {
+      skippedDedup++;
+      continue;
+    }
+
+    const { kmAlong } = projectOntoLine(coord, routeCoords);
+    const stageIndex = findStageIndex(kmAlong, stageRanges);
+    const name = extractName(node.tags);
+    const nameLocalized = extractNameLocalized(node.tags);
+
+    const feature: Record<string, unknown> = {
+      type: "Feature",
+      id: `wp-osm-${classification.type}-node${node.id}`,
+      geometry: { type: "Point", coordinates: coord },
+      properties: {
+        routeId,
+        name,
+        ...(nameLocalized && { nameLocalized }),
+        type: classification.type,
+        subtype: classification.subtype,
+        stageIndex,
+        kmFromStart: Math.round(kmAlong * 10) / 10,
+        icon: classification.subtype,
+        source: "osm",
+        osmId: `node/${node.id}`,
+        ...(node.tags.ele && { elevation: parseFloat(node.tags.ele) }),
+        ...(node.tags.opening_hours && { hours: node.tags.opening_hours }),
+      },
+    };
+
+    newWaypoints.push(feature);
+    added[classification.type] = (added[classification.type] ?? 0) + 1;
+  }
+
+  newWaypoints.sort((a: any, b: any) =>
+    (a.properties.kmFromStart ?? 0) - (b.properties.kmFromStart ?? 0));
+  const allWaypoints = [...curated, ...newWaypoints];
+  allWaypoints.sort((a: any, b: any) =>
+    (a.properties.kmFromStart ?? 0) - (b.properties.kmFromStart ?? 0));
+
+  writeFileSync(wpPath, JSON.stringify({ type: "FeatureCollection", features: allWaypoints }, null, 2) + "\n");
+
+  console.log(`\nResults:`);
+  console.log(`  Curated waypoints preserved: ${curated.length}`);
+  console.log(`  OSM waypoints added: ${newWaypoints.length}`);
+  for (const [type, count] of Object.entries(added).sort()) {
+    console.log(`    ${type}: ${count}`);
+  }
+  console.log(`  Skipped (>500m from route): ${skippedDistance}`);
+  console.log(`  Skipped (duplicate <50m): ${skippedDedup}`);
+  console.log(`  Total waypoints: ${allWaypoints.length}`);
+}
+
+main();
