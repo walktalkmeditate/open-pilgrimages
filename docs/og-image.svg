@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" font-family="Georgia, serif">
+  <rect width="1200" height="630" fill="#F5F0E8"/>
+  <rect x="0" y="0" width="1200" height="4" fill="#A0634B"/>
+
+  <!-- Decorative paths -->
+  <path d="M100 500 C200 350, 400 280, 600 300 C800 320, 1000 250, 1100 400" stroke="#B8AFA2" stroke-width="1.5" fill="none" opacity="0.4"/>
+  <path d="M100 520 C250 380, 450 310, 650 330 C850 350, 1000 290, 1100 420" stroke="#B8AFA2" stroke-width="1" fill="none" opacity="0.25"/>
+
+  <!-- Waypoint dots -->
+  <circle cx="200" cy="430" r="4" fill="#A0634B" opacity="0.5"/>
+  <circle cx="450" cy="310" r="4" fill="#7A8B6F" opacity="0.5"/>
+  <circle cx="700" cy="320" r="4" fill="#8B7355" opacity="0.5"/>
+  <circle cx="950" cy="350" r="4" fill="#A0634B" opacity="0.5"/>
+
+  <!-- Title -->
+  <text x="100" y="200" font-size="72" font-weight="500" fill="#2C241E" letter-spacing="-1">Open Pilgrimages</text>
+
+  <!-- Subtitle -->
+  <text x="100" y="270" font-size="28" fill="#8B7355" font-style="italic">A canonical, open-source dataset of pilgrimage routes worldwide.</text>
+
+  <!-- Route badges -->
+  <text x="100" y="360" font-size="20" fill="#8B7355" font-family="Helvetica, sans-serif" letter-spacing="2">CAMINO FRANCES</text>
+  <text x="100" y="385" font-size="16" fill="#B8AFA2" font-family="Helvetica, sans-serif">790 km &#183; Spain</text>
+
+  <text x="430" y="360" font-size="20" fill="#8B7355" font-family="Helvetica, sans-serif" letter-spacing="2">SHIKOKU 88</text>
+  <text x="430" y="385" font-size="16" fill="#B8AFA2" font-family="Helvetica, sans-serif">1,200 km &#183; Japan</text>
+
+  <text x="730" y="360" font-size="20" fill="#8B7355" font-family="Helvetica, sans-serif" letter-spacing="2">KUMANO KODO</text>
+  <text x="730" y="385" font-size="16" fill="#B8AFA2" font-family="Helvetica, sans-serif">38 km &#183; Japan</text>
+
+  <!-- Footer -->
+  <text x="100" y="590" font-size="16" fill="#B8AFA2" font-family="Helvetica, sans-serif">open.pilgrimag.es</text>
+</svg>
