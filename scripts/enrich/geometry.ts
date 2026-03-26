@@ -13,7 +13,10 @@ function extractLineCoords(relation: OsmRelation): Array<[number, number]> {
   for (const member of relation.members) {
     if (member.type === "way" && member.geometry && member.role !== "alternative") {
       for (const point of member.geometry) {
-        coords.push([point.lon, point.lat]);
+        const last = coords[coords.length - 1];
+        if (!last || last[0] !== point.lon || last[1] !== point.lat) {
+          coords.push([point.lon, point.lat]);
+        }
       }
     }
   }

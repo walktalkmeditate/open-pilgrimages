@@ -4,7 +4,7 @@ import {
   queryOverpass, buildPoiQuery, classifyNode, extractName,
   extractNameLocalized, type OsmNode,
 } from "./osm.js";
-import { minDistanceToLineKm, projectOntoLine, type Coord } from "./geo-utils.js";
+import { haversineKm, minDistanceToLineKm, projectOntoLine, type Coord } from "./geo-utils.js";
 
 const ROOT = join(import.meta.dirname, "../..");
 const BUFFER_KM = 0.5;
@@ -16,8 +16,11 @@ function loadJson(path: string) {
 
 function getRouteCoords(routeDir: string): Coord[] {
   const route = loadJson(join(routeDir, "route.geojson"));
-  const feature = route.features[0];
-  return feature.geometry.coordinates as Coord[];
+  const allCoords: Coord[] = [];
+  for (const feature of route.features) {
+    allCoords.push(...(feature.geometry.coordinates as Coord[]));
+  }
+  return allCoords;
 }
 
 function getStageRanges(routeDir: string): Array<{ cumulativeKm: number }> {
@@ -80,11 +83,11 @@ async function main() {
       continue;
     }
 
-    const tooClose = curatedCoords.some((c: Coord) => {
-      const d = Math.sqrt((c[0] - coord[0]) ** 2 + (c[1] - coord[1]) ** 2) * 111;
-      return d < DEDUP_KM * 2;
-    });
-    if (tooClose) {
+    const tooCloseCurated = curatedCoords.some((c: Coord) => haversineKm(c, coord) < DEDUP_KM);
+    const tooCloseOsm = newWaypoints.some((w: any) =>
+      haversineKm(w.geometry.coordinates as Coord, coord) < DEDUP_KM
+    );
+    if (tooCloseCurated || tooCloseOsm) {
       skippedDedup++;
       continue;
     }

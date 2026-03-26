@@ -39,11 +39,13 @@ export function minDistanceToLineKm(point: Coord, line: Coord[]): number {
   for (let i = 0; i < line.length - 1; i++) {
     const d = pointToSegmentDistanceKm(point, line[i], line[i + 1]);
     if (d < min) min = d;
+    if (min < 0.01) return min;
   }
   return min;
 }
 
 export function projectOntoLine(point: Coord, line: Coord[]): { segmentIndex: number; kmAlong: number } {
+  if (line.length < 2) return { segmentIndex: 0, kmAlong: 0 };
   let bestSeg = 0;
   let bestDist = Infinity;
   let bestT = 0;
