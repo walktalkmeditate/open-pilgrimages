@@ -55,9 +55,13 @@ function getCachePath(routeId: string): string {
 
 function isCacheFresh(path: string, maxAgeMs: number): boolean {
   if (!existsSync(path)) return false;
-  const stat = readFileSync(path);
-  const age = Date.now() - new Date(JSON.parse(stat.toString()).fetchedAt).getTime();
-  return age < maxAgeMs;
+  try {
+    const content = JSON.parse(readFileSync(path, "utf-8"));
+    const age = Date.now() - new Date(content.fetchedAt).getTime();
+    return age < maxAgeMs;
+  } catch {
+    return false;
+  }
 }
 
 async function fetchRoute(config: RouteConfig, force: boolean): Promise<void> {

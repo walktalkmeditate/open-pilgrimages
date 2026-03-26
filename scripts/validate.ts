@@ -1,9 +1,9 @@
 import Ajv2020 from "ajv/dist/2020.js";
 import addFormats from "ajv-formats";
-
-type Ajv = InstanceType<typeof Ajv2020>;
 import { readFileSync, existsSync, readdirSync, statSync } from "fs";
 import { join, relative } from "path";
+
+type Ajv = InstanceType<typeof Ajv2020>;
 
 const ROOT = join(import.meta.dirname, "..");
 
@@ -44,7 +44,6 @@ function createValidator() {
   addFormats(ajv);
 
   const schemaDir = join(ROOT, "schema");
-  const schemas: Record<string, object> = {};
 
   for (const name of [
     "index.schema.json",
@@ -53,12 +52,10 @@ function createValidator() {
     "route.schema.json",
     "waypoints.schema.json",
   ]) {
-    const schema = loadJson(join(schemaDir, name));
-    schemas[name] = schema;
-    ajv.addSchema(schema, name);
+    ajv.addSchema(loadJson(join(schemaDir, name)), name);
   }
 
-  return { ajv, schemas };
+  return ajv;
 }
 
 function validateFile(
@@ -204,7 +201,7 @@ function validateDataConsistency(
 }
 
 function main() {
-  const { ajv } = createValidator();
+  const ajv = createValidator();
   const errors: ValidationError[] = [];
 
   const indexPath = join(ROOT, "index.json");

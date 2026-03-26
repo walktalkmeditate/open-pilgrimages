@@ -37,7 +37,7 @@ function scanVariants(routeDir: string): RouteEntry[] {
       name: meta.name,
       distanceKm: meta.overview?.distanceKm ?? 0,
       path: relative(ROOT, varDir),
-      region: meta.overview?.countries?.[0] ? "" : "",
+      region: "",
       country: meta.overview?.countries?.[0] ?? "",
       topology: meta.overview?.topology ?? "",
       tradition: meta.tradition?.type ?? "",
