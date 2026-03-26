@@ -1,0 +1,277 @@
+{
+  "schemaVersion": "1.0.0",
+  "routeId": "shikoku-88",
+  "stageCount": 15,
+  "stages": [
+    {
+      "index": 0,
+      "name": { "en": "Ryōzen-ji to Shōzan-ji (Temples 1-12)", "ja": "霊山寺〜焼山寺" },
+      "start": { "name": { "en": "Ryōzen-ji (Temple 1)", "ja": "霊山寺" }, "coordinates": [134.503, 34.160, 15] },
+      "end": { "name": { "en": "Shōzan-ji (Temple 12)", "ja": "焼山寺" }, "coordinates": [134.310, 33.985, 700] },
+      "distanceKm": 53,
+      "elevationGainMeters": 1200,
+      "elevationLossMeters": 500,
+      "highPointMeters": 700,
+      "lowPointMeters": 15,
+      "estimatedHours": { "min": 12, "max": 16 },
+      "difficulty": "hard",
+      "terrainTypes": ["paved", "mountain", "forest"],
+      "terrainNotes": { "en": "Begins flat through the Yoshino River plain. The climb to Temple 12 (Shōzan-ji) at 700m is one of the hardest on the entire pilgrimage — the first major 'trial by fire'." },
+      "accommodationDensity": "high",
+      "waterSources": 8,
+      "services": { "atm": true, "pharmacy": true, "grocery": true, "restaurant": true },
+      "interior": {
+        "theme": { "en": "Awakening", "ja": "発心" },
+        "narrative": { "en": "The first phase of the pilgrimage: Hosshin no Dōjō — the Place of Awakening. Tokushima prefecture is where you learn what this pilgrimage will ask of you. The first eleven temples come quickly, close together, giving you confidence. Then Temple 12 — Shōzan-ji, the 'Burning Mountain Temple' — announces the price. The climb is brutal and you are not ready for it. This is the design." },
+        "commonExperiences": [
+          { "en": "Excitement and nervousness at Temple 1" },
+          { "en": "Buying the white jacket and staff, feeling both foolish and sacred" },
+          { "en": "Physical shock at the climb to Temple 12" },
+          { "en": "First encounter with osettai from a stranger" }
+        ],
+        "reflection": { "en": "What awakened in you when you decided to walk?" }
+      }
+    },
+    {
+      "index": 1,
+      "name": { "en": "Dainichi-ji to Yakuō-ji (Temples 13-23)", "ja": "大日寺〜薬王寺" },
+      "start": { "name": { "en": "Dainichi-ji (Temple 13)", "ja": "大日寺" }, "coordinates": [134.463, 34.038, 30] },
+      "end": { "name": { "en": "Yakuō-ji (Temple 23)", "ja": "薬王寺" }, "coordinates": [134.528, 33.732, 40] },
+      "distanceKm": 100,
+      "elevationGainMeters": 2500,
+      "elevationLossMeters": 2500,
+      "highPointMeters": 600,
+      "lowPointMeters": 10,
+      "estimatedHours": { "min": 22, "max": 30 },
+      "difficulty": "hard",
+      "terrainTypes": ["mountain", "forest", "coastal", "paved"],
+      "terrainNotes": { "en": "Includes challenging mountain temples (T20-T21) and the descent to the southern coast. The path through cedar forests to Tairyū-ji (Temple 21) on its cable car mountain is memorable." },
+      "accommodationDensity": "moderate",
+      "waterSources": 6,
+      "services": { "atm": true, "pharmacy": true, "grocery": true, "restaurant": true },
+      "interior": {
+        "theme": { "en": "Commitment", "ja": "発心" },
+        "narrative": { "en": "Still in Tokushima, the Awakening phase. But now the temples spread out and the mountains deepen. By Temple 23, you have walked over 150 km and begin to understand what 1,200 km means. Yakuō-ji sits above the ocean. Ahead lies the longest gap on the entire pilgrimage — 75 km to Cape Muroto with no temple at all." },
+        "commonExperiences": [
+          { "en": "Finding your walking rhythm" },
+          { "en": "The first real blisters and learning to care for them" },
+          { "en": "Looking at the ocean and thinking about the distance ahead" }
+        ],
+        "reflection": { "en": "Now that you know what this costs, do you still choose it?" }
+      }
+    },
+    {
+      "index": 2,
+      "name": { "en": "Hotsumisaki-ji to Kiyotaki-ji (Temples 24-35)", "ja": "最御崎寺〜清滝寺" },
+      "start": { "name": { "en": "Hotsumisaki-ji (Temple 24)", "ja": "最御崎寺" }, "coordinates": [134.176, 33.249, 160] },
+      "end": { "name": { "en": "Kiyotaki-ji (Temple 35)", "ja": "清滝寺" }, "coordinates": [133.410, 33.513, 130] },
+      "distanceKm": 200,
+      "elevationGainMeters": 3000,
+      "elevationLossMeters": 3000,
+      "highPointMeters": 450,
+      "lowPointMeters": 5,
+      "estimatedHours": { "min": 45, "max": 60 },
+      "difficulty": "hard",
+      "terrainTypes": ["coastal", "paved", "mountain", "forest"],
+      "terrainNotes": { "en": "Kochi — the longest and most remote section. Begins with the 75 km walk from Temple 23 to Cape Muroto (Temple 24). Long gaps between temples. The Pacific coast dominates." },
+      "accommodationDensity": "low",
+      "waterSources": 5,
+      "services": { "atm": true, "pharmacy": false, "grocery": true, "restaurant": true },
+      "warnings": [
+        { "en": "75 km gap between Temple 23 and Temple 24 (Cape Muroto). Plan accommodation carefully." },
+        { "en": "Limited services in rural Kochi. Carry cash and food supplies." }
+      ],
+      "interior": {
+        "theme": { "en": "Discipline", "ja": "修行" },
+        "narrative": { "en": "Kochi is the Shugyō no Dōjō — the Place of Discipline. The province is vast, sparsely populated, and the distances between temples are the longest on the route. The 75 km walk to Cape Muroto is where many pilgrims quit. There is nothing to do but walk. The Pacific stretches to the horizon. The discipline is not in the difficulty — it is in the monotony, the repetition, the willingness to keep going when nothing new is happening." },
+        "commonExperiences": [
+          { "en": "Loneliness in rural Kochi" },
+          { "en": "The mental challenge of long road-walking sections" },
+          { "en": "Deep gratitude for osettai encounters" },
+          { "en": "A quiet shift from 'doing' a pilgrimage to 'being' a pilgrim" }
+        ],
+        "reflection": { "en": "What discipline sustains you when the path offers no reward?" }
+      }
+    },
+    {
+      "index": 3,
+      "name": { "en": "Shōryū-ji to Kongōfuku-ji (Temples 36-38)", "ja": "青竜寺〜金剛福寺" },
+      "start": { "name": { "en": "Shōryū-ji (Temple 36)", "ja": "青竜寺" }, "coordinates": [133.451, 33.426, 30] },
+      "end": { "name": { "en": "Kongōfuku-ji (Temple 38)", "ja": "金剛福寺" }, "coordinates": [133.019, 32.726, 20] },
+      "distanceKm": 140,
+      "elevationGainMeters": 1500,
+      "elevationLossMeters": 1500,
+      "highPointMeters": 300,
+      "lowPointMeters": 5,
+      "estimatedHours": { "min": 32, "max": 42 },
+      "difficulty": "hard",
+      "terrainTypes": ["coastal", "paved", "forest"],
+      "terrainNotes": { "en": "The longest gap: 80.7 km from Temple 37 to Temple 38 at Cape Ashizuri, the southernmost point of Shikoku. Then 53 km back north to Temple 39." },
+      "accommodationDensity": "very_low",
+      "waterSources": 3,
+      "services": { "atm": false, "pharmacy": false, "grocery": true, "restaurant": true },
+      "warnings": [
+        { "en": "80.7 km between Temple 37 and Temple 38 — the longest gap on the entire pilgrimage. Plan at least 3 days." }
+      ],
+      "interior": {
+        "theme": { "en": "Endurance", "ja": "修行" },
+        "narrative": { "en": "Cape Ashizuri is the bottom of the world. Kūkai practiced asceticism here as a young man, staring at the ocean and the morning star until enlightenment struck. The walk here is the most isolated stretch of the pilgrimage. You are as far from Temple 1 as you will ever be — in every sense." },
+        "commonExperiences": [
+          { "en": "Feeling genuinely remote from civilization" },
+          { "en": "Standing at the cape and feeling the scale of the journey" },
+          { "en": "The turn northward feeling like a homecoming" }
+        ],
+        "reflection": { "en": "What is at your own Cape Ashizuri — the farthest point from home?" }
+      }
+    },
+    {
+      "index": 4,
+      "name": { "en": "Enkō-ji to Iwaya-ji (Temples 39-45)", "ja": "延光寺〜岩屋寺" },
+      "start": { "name": { "en": "Enkō-ji (Temple 39)", "ja": "延光寺" }, "coordinates": [132.774, 32.961, 30] },
+      "end": { "name": { "en": "Iwaya-ji (Temple 45)", "ja": "岩屋寺" }, "coordinates": [132.981, 33.659, 560] },
+      "distanceKm": 140,
+      "elevationGainMeters": 3500,
+      "elevationLossMeters": 2500,
+      "highPointMeters": 900,
+      "lowPointMeters": 30,
+      "estimatedHours": { "min": 32, "max": 42 },
+      "difficulty": "hard",
+      "terrainTypes": ["mountain", "forest", "paved"],
+      "terrainNotes": { "en": "Entering Ehime — the Province of Enlightenment. The route turns inland and climbs into the mountains of central Shikoku. Iwaya-ji (Temple 45) is dramatically set in cliffs." },
+      "accommodationDensity": "low",
+      "waterSources": 4,
+      "services": { "atm": true, "pharmacy": false, "grocery": true, "restaurant": true },
+      "interior": {
+        "theme": { "en": "Enlightenment Begins", "ja": "菩提" },
+        "narrative": { "en": "Ehime is the Bodai no Dōjō — the Place of Enlightenment. The word 'bodai' means the awakening that comes not from study but from direct experience. You have been walking for weeks. The temples in western Ehime climb into the mountains and something shifts. You stop counting kilometers. You stop worrying about tomorrow's accommodation. The walk becomes the point, not the temples." },
+        "commonExperiences": [
+          { "en": "The transition from 'getting through it' to being present" },
+          { "en": "Awe at Iwaya-ji carved into the cliff face" },
+          { "en": "Feeling physically strong for the first time" }
+        ],
+        "reflection": { "en": "What has this walk taught you that you could not have learned sitting still?" }
+      }
+    },
+    {
+      "index": 5,
+      "name": { "en": "Jōruri-ji to Enmyō-ji (Temples 46-53)", "ja": "浄瑠璃寺〜圓明寺" },
+      "start": { "name": { "en": "Jōruri-ji (Temple 46)", "ja": "浄瑠璃寺" }, "coordinates": [132.819, 33.754, 80] },
+      "end": { "name": { "en": "Enmyō-ji (Temple 53)", "ja": "圓明寺" }, "coordinates": [132.740, 33.892, 10] },
+      "distanceKm": 35,
+      "elevationGainMeters": 400,
+      "elevationLossMeters": 470,
+      "highPointMeters": 120,
+      "lowPointMeters": 10,
+      "estimatedHours": { "min": 8, "max": 10 },
+      "difficulty": "easy",
+      "terrainTypes": ["urban", "paved"],
+      "terrainNotes": { "en": "Matsuyama cluster — eight temples packed closely together. Urban walking through Japan's largest city on Shikoku. Dōgo Onsen, one of Japan's oldest hot springs, is nearby." },
+      "accommodationDensity": "high",
+      "waterSources": 10,
+      "services": { "atm": true, "pharmacy": true, "grocery": true, "restaurant": true }
+    },
+    {
+      "index": 6,
+      "name": { "en": "Enmei-ji to Maegami-ji (Temples 54-64)", "ja": "延命寺〜前神寺" },
+      "start": { "name": { "en": "Enmei-ji (Temple 54)", "ja": "延命寺" }, "coordinates": [132.964, 34.067, 20] },
+      "end": { "name": { "en": "Maegami-ji (Temple 64)", "ja": "前神寺" }, "coordinates": [133.161, 33.890, 250] },
+      "distanceKm": 60,
+      "elevationGainMeters": 1800,
+      "elevationLossMeters": 1600,
+      "highPointMeters": 750,
+      "lowPointMeters": 20,
+      "estimatedHours": { "min": 14, "max": 18 },
+      "difficulty": "moderate",
+      "terrainTypes": ["paved", "mountain", "forest"],
+      "terrainNotes": { "en": "Imabari to Saijō through eastern Ehime. Includes the challenging climb to Yokomine-ji (Temple 60) at 750m." },
+      "accommodationDensity": "moderate",
+      "waterSources": 6,
+      "services": { "atm": true, "pharmacy": true, "grocery": true, "restaurant": true }
+    },
+    {
+      "index": 7,
+      "name": { "en": "Sankaku-ji to Unpen-ji (Temples 65-66)", "ja": "三角寺〜雲辺寺" },
+      "start": { "name": { "en": "Sankaku-ji (Temple 65)", "ja": "三角寺" }, "coordinates": [133.587, 33.968, 350] },
+      "end": { "name": { "en": "Unpen-ji (Temple 66)", "ja": "雲辺寺" }, "coordinates": [133.724, 34.035, 911] },
+      "distanceKm": 19.3,
+      "elevationGainMeters": 750,
+      "elevationLossMeters": 200,
+      "highPointMeters": 911,
+      "lowPointMeters": 350,
+      "estimatedHours": { "min": 5, "max": 7 },
+      "difficulty": "hard",
+      "terrainTypes": ["mountain", "forest"],
+      "terrainNotes": { "en": "Transition from Ehime to Kagawa. Temple 66 (Unpen-ji) at 911m is the highest temple on the pilgrimage. Marks the entrance to the final province." },
+      "accommodationDensity": "low",
+      "waterSources": 2,
+      "services": { "atm": false, "pharmacy": false, "grocery": false, "restaurant": true },
+      "interior": {
+        "theme": { "en": "Nirvana Begins", "ja": "涅槃" },
+        "narrative": { "en": "Kagawa is the Nehan no Dōjō — the Place of Nirvana. Unpen-ji, the Cloud Monastery, sits at the highest point of the pilgrimage. You look out over the Seto Inland Sea and the final province stretches below you. Twenty-two temples remain. The end is visible. This is where a strange grief begins — the grief of completion, of a journey that is about to end." },
+        "commonExperiences": [
+          { "en": "Standing at the highest temple, seeing the end ahead" },
+          { "en": "Not wanting the pilgrimage to end" },
+          { "en": "An unexpected sense of loss mixed with accomplishment" }
+        ],
+        "reflection": { "en": "What does it mean to approach the end of something you have given yourself to?" }
+      }
+    },
+    {
+      "index": 8,
+      "name": { "en": "Daikō-ji to Zentsū-ji (Temples 67-75)", "ja": "大興寺〜善通寺" },
+      "start": { "name": { "en": "Daikō-ji (Temple 67)", "ja": "大興寺" }, "coordinates": [133.719, 34.102, 60] },
+      "end": { "name": { "en": "Zentsū-ji (Temple 75)", "ja": "善通寺" }, "coordinates": [133.774, 34.225, 40] },
+      "distanceKm": 50,
+      "elevationGainMeters": 600,
+      "elevationLossMeters": 600,
+      "highPointMeters": 350,
+      "lowPointMeters": 10,
+      "estimatedHours": { "min": 12, "max": 15 },
+      "difficulty": "moderate",
+      "terrainTypes": ["paved", "forest", "urban"],
+      "terrainNotes": { "en": "Dense temple cluster through the Sanuki Plain. Temple 75 (Zentsū-ji) is Kūkai's birthplace — the spiritual heart of the pilgrimage." },
+      "accommodationDensity": "high",
+      "waterSources": 8,
+      "services": { "atm": true, "pharmacy": true, "grocery": true, "restaurant": true },
+      "interior": {
+        "theme": { "en": "Homecoming", "ja": "涅槃" },
+        "narrative": { "en": "Zentsū-ji is where Kūkai was born. To stand in this temple is to stand at the source. After weeks of walking in his footsteps, you arrive at his beginning. Many pilgrims find this more moving than the finish. There is a darkness ritual in the basement of the Daishi Hall — you walk through absolute blackness, hand on a wall, trusting the path you cannot see. It distills the entire pilgrimage into three minutes." },
+        "commonExperiences": [
+          { "en": "Deep emotion at Kūkai's birthplace" },
+          { "en": "The darkness ritual as a pilgrimage within the pilgrimage" },
+          { "en": "Temples coming fast now, accelerating toward the end" }
+        ],
+        "reflection": { "en": "What have you found at the source?" }
+      }
+    },
+    {
+      "index": 9,
+      "name": { "en": "Konzō-ji to Ōkubo-ji (Temples 76-88)", "ja": "金倉寺〜大窪寺" },
+      "start": { "name": { "en": "Konzō-ji (Temple 76)", "ja": "金倉寺" }, "coordinates": [133.781, 34.250, 20] },
+      "end": { "name": { "en": "Ōkubo-ji (Temple 88)", "ja": "大窪寺" }, "coordinates": [134.207, 34.191, 450] },
+      "distanceKm": 110,
+      "elevationGainMeters": 2000,
+      "elevationLossMeters": 1600,
+      "highPointMeters": 600,
+      "lowPointMeters": 10,
+      "estimatedHours": { "min": 25, "max": 33 },
+      "difficulty": "moderate",
+      "terrainTypes": ["paved", "mountain", "forest", "urban"],
+      "terrainNotes": { "en": "The final thirteen temples through Takamatsu and eastern Kagawa. Yashima (Temple 84) offers views of the Seto Inland Sea. The last mountain climb to Temple 88 (Ōkubo-ji) is a fitting final challenge." },
+      "accommodationDensity": "high",
+      "waterSources": 8,
+      "services": { "atm": true, "pharmacy": true, "grocery": true, "restaurant": true },
+      "interior": {
+        "theme": { "en": "Completion", "ja": "涅槃" },
+        "narrative": { "en": "The final temples accelerate toward conclusion. Ōkubo-ji — the Great Hollow Temple — sits in a mountain valley. Many pilgrims leave their walking staff here, planted in the ground like a grave marker for the person they were when they started. Then comes the traditional journey to Temple 1 to close the circle, and often to Mount Kōya to pay respects at Kūkai's mausoleum where he is believed to be in eternal meditation." },
+        "commonExperiences": [
+          { "en": "Tears at Temple 88" },
+          { "en": "Leaving the staff — letting go of the pilgrim identity" },
+          { "en": "The strange emptiness of being 'done'" },
+          { "en": "Returning to Temple 1 to close the circle" }
+        ],
+        "reflection": { "en": "The circle closes. What opened in you that you want to keep open?" }
+      }
+    }
+  ]
+}

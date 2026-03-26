@@ -1,0 +1,185 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "shikoku-88",
+  "lastUpdated": "2026-03-26T00:00:00Z",
+
+  "name": {
+    "en": "Shikoku 88 Temple Pilgrimage",
+    "ja": "四国八十八ヶ所巡礼"
+  },
+  "description": {
+    "en": "A 1,200 km circular pilgrimage visiting 88 Buddhist temples around the island of Shikoku, following the footsteps of the monk Kūkai (Kōbō Daishi). One of the few circular pilgrimages in the world.",
+    "ja": "弘法大師空海の足跡をたどり、四国の88の寺院を巡る約1,200kmの巡礼路。"
+  },
+
+  "overview": {
+    "distanceKm": 1200,
+    "estimatedDays": { "min": 30, "max": 60, "typical": 45 },
+    "topology": "circular",
+    "startPoint": {
+      "name": { "en": "Ryōzen-ji (Temple 1)", "ja": "霊山寺" },
+      "coordinates": [134.503, 34.160, 15]
+    },
+    "endPoint": {
+      "name": { "en": "Ōkubo-ji (Temple 88)", "ja": "大窪寺" },
+      "coordinates": [134.207, 34.191, 450]
+    },
+    "elevationRange": {
+      "minMeters": 0,
+      "maxMeters": 1400,
+      "totalAscentMeters": 18000,
+      "totalDescentMeters": 18000
+    },
+    "difficulty": "hard",
+    "terrainTypes": ["paved", "mountain", "forest", "coastal", "urban"],
+    "bestMonths": [3, 4, 5, 10, 11],
+    "peakMonths": [4, 10],
+    "countries": ["JP"],
+    "bbox": [132.01, 32.72, 134.51, 34.36]
+  },
+
+  "tradition": {
+    "type": "buddhist",
+    "primaryFaith": "Shingon Buddhism",
+    "otherFaiths": ["secular"],
+    "saint": { "en": "Kūkai (Kōbō Daishi)", "ja": "空海（弘法大師）" },
+    "origin": {
+      "en": "The pilgrimage traces the path of the monk Kūkai (774-835), founder of Shingon Buddhism in Japan. Kūkai practiced asceticism across Shikoku before founding the monastic center at Mount Kōya. The 88-temple circuit was formalized during the Edo period (1603-1868). The phrase 'Dōgyō Ninin' (walking with two) inscribed on the pilgrim's hat signifies that Kōbō Daishi walks with every pilgrim."
+    },
+    "credentialSystem": {
+      "name": { "en": "Nōkyōchō (Stamp Book)", "ja": "納経帳" },
+      "description": {
+        "en": "A calligraphy book purchased at Temple 1 (2,000-3,500 JPY). At each temple, monks write the temple name, principal deity, and temple number in calligraphy and apply three red stamps. Cost: 500 JPY per temple (44,000 JPY total). Stamp hours: 7:00-17:00."
+      },
+      "completionCertificate": { "en": "Kechi-gan-shō (Completion Certificate)", "ja": "結願証" },
+      "obtainableAt": [
+        {
+          "name": { "en": "Temple 1 (Ryōzen-ji) Gift Shop", "ja": "霊山寺売店" },
+          "coordinates": [134.503, 34.160]
+        }
+      ]
+    }
+  },
+
+  "cultural": {
+    "practices": [
+      {
+        "name": { "en": "Dōgyō Ninin", "ja": "同行二人" },
+        "description": {
+          "en": "'Walking with Two' — the belief that Kōbō Daishi walks alongside every pilgrim. Inscribed on the sedge hat. The pilgrim is never alone."
+        }
+      },
+      {
+        "name": { "en": "Henro Attire" },
+        "description": {
+          "en": "Traditional pilgrim outfit: white jacket (hakue) symbolizing purity and readiness for death, sedge hat (sugegasa), walking staff (kongōzue) representing Kōbō Daishi himself, stole (wagesa), prayer beads (juzu), and name slips (osamefuda) deposited at each temple."
+        }
+      },
+      {
+        "name": { "en": "Temple Visit Protocol" },
+        "description": {
+          "en": "At each temple: bow at the gate, purify at the water basin, ring the bell, offer incense and candle at the Main Hall, chant the Heart Sutra (Hannya Shingyō), repeat at the Daishi Hall, receive the stamp. The full sequence takes 20-30 minutes per temple."
+        }
+      },
+      {
+        "name": { "en": "Osettai", "ja": "お接待" },
+        "description": {
+          "en": "Charitable gifts from locals to pilgrims — food, drinks, money, or lodging. A deeply rooted tradition in Shikoku. It is customary to accept osettai graciously and give a name slip (osamefuda) in return."
+        }
+      },
+      {
+        "name": { "en": "Kongōzue Protocol" },
+        "description": {
+          "en": "The walking staff is considered an embodiment of Kōbō Daishi. It must be washed and placed in the room before the pilgrim washes. It must never be placed on the ground where it could be stepped over. In historical times, if a pilgrim died, the staff was used as their grave marker."
+        }
+      }
+    ],
+    "etiquette": [
+      { "en": "Remove shoes before entering temple buildings." },
+      { "en": "Do not ring the bell when leaving a temple — only upon arrival." },
+      { "en": "The walking staff must never be used to point or gesture." },
+      { "en": "Accept osettai graciously, even if you do not need it. Refusing is considered disrespectful to Kōbō Daishi." }
+    ],
+    "associatedLiterature": [
+      {
+        "title": "Japanese Pilgrimage",
+        "author": "Oliver Statler",
+        "isbn": "978-0824816575",
+        "type": "nonfiction",
+        "relevance": { "en": "The definitive English-language book on the Shikoku pilgrimage. Statler walked the route multiple times and documented its history, culture, and personal meaning." }
+      },
+      {
+        "title": "Kukai: Major Works",
+        "author": "Yoshito S. Hakeda",
+        "isbn": "978-0231059336",
+        "type": "nonfiction",
+        "relevance": { "en": "Translations of Kūkai's major philosophical and religious writings. Essential for understanding the spiritual foundation of the pilgrimage." }
+      }
+    ],
+    "events": [
+      {
+        "name": { "en": "Kōbō Daishi's Birthday", "ja": "弘法大師御誕生日" },
+        "date": { "month": 6, "day": 15 },
+        "recurrence": "annual",
+        "description": { "en": "Celebrated at Temple 75 (Zentsū-ji), Kūkai's birthplace. Special ceremonies and increased pilgrim activity." }
+      }
+    ],
+    "historicalSignificance": {
+      "en": "The Shikoku pilgrimage is one of the few circular pilgrimages in the world and the most important Buddhist pilgrimage in Japan. It embodies the Shingon Buddhist concept of spiritual progression through four stages: awakening, discipline, enlightenment, and nirvana — mapped onto the four provinces of Shikoku."
+    }
+  },
+
+  "logistics": {
+    "seasonalAvailability": {
+      "openMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+      "notes": { "en": "Open year-round but rainy season (June-July) and typhoon season (August-September) are challenging. Winter walking is possible but some mountain temples may be difficult to access. Peak seasons are spring (cherry blossoms) and autumn (fall foliage)." }
+    },
+    "accommodationTypes": ["temple_lodging", "ryokan", "minshuku", "hotel", "hostel"],
+    "accommodationNotes": {
+      "en": "Shukubo (temple lodging): 6,000-8,500 JPY with meals. Minshuku: 5,500-7,500 JPY with meals. Business hotels: 3,000-8,000 JPY without meals. Cash is essential — credit cards rarely accepted at traditional lodging. Advance reservations recommended, especially in Kochi (long gaps between temples)."
+    },
+    "currency": "JPY",
+    "languages": ["ja"],
+    "cellularCoverage": "good",
+    "cellularNotes": { "en": "Good coverage in towns and along main roads. Weak or no signal on mountain trails, particularly in remote Kochi sections." },
+    "waterAvailability": "adequate",
+    "waterNotes": { "en": "Vending machines are ubiquitous in Japan, even in rural areas. Carry extra water for the long mountain sections in Kochi and southern Ehime." },
+    "emergencyNumber": "119",
+    "transportLinks": [
+      {
+        "type": "airport",
+        "name": { "en": "Tokushima Awaodori Airport" },
+        "code": "TKS",
+        "nearStage": 0,
+        "notes": { "en": "Nearest airport to Temple 1. Bus to Naruto/Bando area." }
+      },
+      {
+        "type": "train",
+        "name": { "en": "JR Shikoku rail network" },
+        "notes": { "en": "Trains circle most of Shikoku. Useful for reaching temples or skipping difficult sections. JR passes available." }
+      }
+    ]
+  },
+
+  "provenance": {
+    "sources": [
+      {
+        "name": "OpenStreetMap",
+        "url": "https://www.openstreetmap.org",
+        "license": "ODbL-1.0",
+        "dataTypes": ["geometry", "waypoints"],
+        "accessDate": "2026-03-26"
+      },
+      {
+        "name": "Shikoku 88 Temple Pilgrimage Official Site",
+        "url": "https://88shikokuhenro.jp/en/",
+        "dataTypes": ["temples", "credential"],
+        "accessDate": "2026-03-26"
+      }
+    ],
+    "contributors": [
+      { "name": "Steven Ross", "role": "initial_author", "url": "https://github.com/momentmaker" }
+    ],
+    "license": "ODbL-1.0"
+  }
+}
