@@ -175,7 +175,11 @@ function validateDataConsistency(
   const bbox = meta.overview?.bbox;
   if (bbox && route) {
     for (const feat of route.features) {
-      for (const coord of feat.geometry.coordinates) {
+      const positions =
+        feat.geometry.type === "MultiLineString"
+          ? feat.geometry.coordinates.flat()
+          : feat.geometry.coordinates;
+      for (const coord of positions) {
         const [lon, lat] = coord;
         if (lon < bbox[0] || lon > bbox[2] || lat < bbox[1] || lat > bbox[3]) {
           errors.push({

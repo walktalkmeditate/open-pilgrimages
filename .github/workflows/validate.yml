@@ -25,4 +25,7 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
+      - run: npm run build-index
+      - name: Check index.json is up to date
+        run: git diff --exit-code index.json
       - run: npm run validate

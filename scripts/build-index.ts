@@ -7,6 +7,13 @@ function loadJson(path: string) {
   return JSON.parse(readFileSync(path, "utf-8"));
 }
 
+interface VariantEntry {
+  id: string;
+  name: Record<string, string>;
+  distanceKm: number;
+  path: string;
+}
+
 interface RouteEntry {
   id: string;
   name: Record<string, string>;
@@ -16,16 +23,16 @@ interface RouteEntry {
   topology: string;
   tradition: string;
   path: string;
-  variants?: RouteEntry[];
+  variants?: VariantEntry[];
 }
 
-function scanVariants(routeDir: string): RouteEntry[] {
+function scanVariants(routeDir: string): VariantEntry[] {
   const variantsDir = join(routeDir, "variants");
   if (!existsSync(variantsDir) || !statSync(variantsDir).isDirectory()) {
     return [];
   }
 
-  const variants: RouteEntry[] = [];
+  const variants: VariantEntry[] = [];
   for (const entry of readdirSync(variantsDir)) {
     const varDir = join(variantsDir, entry);
     const metaPath = join(varDir, "metadata.json");
@@ -37,10 +44,6 @@ function scanVariants(routeDir: string): RouteEntry[] {
       name: meta.name,
       distanceKm: meta.overview?.distanceKm ?? 0,
       path: relative(ROOT, varDir),
-      region: "",
-      country: meta.overview?.countries?.[0] ?? "",
-      topology: meta.overview?.topology ?? "",
-      tradition: meta.tradition?.type ?? "",
     });
   }
 
@@ -86,10 +89,6 @@ function main() {
         name: v.name,
         distanceKm: v.distanceKm,
         path: v.path,
-        region: v.region,
-        country: v.country,
-        topology: v.topology,
-        tradition: v.tradition,
       }));
     }
 

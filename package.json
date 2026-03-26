@@ -7,12 +7,20 @@
     "validate": "tsx scripts/validate.ts",
     "build-index": "tsx scripts/build-index.ts",
     "fetch": "tsx scripts/fetch-osm.ts",
-    "pipeline": "npm run fetch && npm run validate && npm run build-index",
+    "pipeline": "npm run fetch && npm run build-index && npm run validate",
     "stats": "tsx scripts/stats.ts"
   },
-  "keywords": ["pilgrimage", "geojson", "open-data", "camino", "shikoku", "kumano-kodo"],
+  "keywords": [
+    "pilgrimage",
+    "geojson",
+    "open-data",
+    "camino",
+    "shikoku",
+    "kumano-kodo"
+  ],
   "license": "MIT",
   "devDependencies": {
+    "@types/node": "^25.5.0",
     "ajv": "^8.17.0",
     "ajv-formats": "^3.0.0",
     "tsx": "^4.19.0",

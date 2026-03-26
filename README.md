@@ -76,7 +76,7 @@ for stage in stages["stages"]:
 
 ## Schema
 
-All data files conform to JSON Schema definitions in the [`schema/`](schema/) directory. See the [schema documentation](https://walktalkmeditate.github.io/open-pilgrimages/schema.html) for full reference.
+All data files conform to JSON Schema definitions in the [`schema/`](schema/) directory.
 
 - `schemaVersion` field in every file tracks the data format version (SemVer)
 - MAJOR version = breaking changes, MINOR = new optional fields, PATCH = content fixes

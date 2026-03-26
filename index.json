@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-03-26T19:08:35.112Z",
+  "generatedAt": "2026-03-26T19:20:05.836Z",
   "routes": [
     {
       "id": "camino-frances",
@@ -38,11 +38,7 @@
             "ja": "伊勢路"
           },
           "distanceKm": 170,
-          "path": "routes/kumano-kodo/variants/iseji",
-          "region": "",
-          "country": "JP",
-          "topology": "linear",
-          "tradition": "mixed"
+          "path": "routes/kumano-kodo/variants/iseji"
         },
         {
           "id": "kohechi",
@@ -51,11 +47,7 @@
             "ja": "小辺路"
           },
           "distanceKm": 70,
-          "path": "routes/kumano-kodo/variants/kohechi",
-          "region": "",
-          "country": "JP",
-          "topology": "linear",
-          "tradition": "mixed"
+          "path": "routes/kumano-kodo/variants/kohechi"
         }
       ]
     },

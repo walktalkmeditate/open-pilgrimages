@@ -2,6 +2,7 @@
   "schemaVersion": "1.0.0",
   "routeId": "shikoku-88",
   "stageCount": 10,
+  "distanceNote": "Stage distances cover temple-to-temple walking within each cluster. Inter-stage connecting distances (approximately 293 km total) are not included in individual stages. The full circuit including all connections is approximately 1,200 km.",
   "stages": [
     {
       "index": 0,

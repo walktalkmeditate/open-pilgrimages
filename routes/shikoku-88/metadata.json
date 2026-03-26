@@ -32,6 +32,8 @@
       "totalDescentMeters": 18000
     },
     "difficulty": "hard",
+    "waypointCoverage": "representative",
+    "waypointCoverageNote": { "en": "20 of 88 temples included as representative waypoints. Full 88-temple dataset planned for a future release." },
     "terrainTypes": ["paved", "mountain", "forest", "coastal", "urban"],
     "bestMonths": [3, 4, 5, 10, 11],
     "peakMonths": [4, 10],
