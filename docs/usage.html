@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Usage Guide &mdash; Open Pilgrimages</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="routes.html">Routes</a>
+      <a href="schema.html">Schema</a>
+      <a href="usage.html" class="active">Usage</a>
+    </nav>
+
+    <h1>Usage Guide</h1>
+    <p class="subtitle">How to consume pilgrimage data in your application.</p>
+
+    <h2>Via jsDelivr CDN</h2>
+    <p>Pin to a major version for stability. Files are cached globally.</p>
+    <pre><code>https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1/index.json
+https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1/routes/camino-frances/route.geojson
+https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1/routes/camino-frances/stages.json
+https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1/routes/camino-frances/metadata.json
+https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1/routes/camino-frances/waypoints.geojson</code></pre>
+
+    <h2>JavaScript / TypeScript</h2>
+    <pre><code>const BASE = 'https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1';
+
+// Discover available routes
+const index = await fetch(`${BASE}/index.json`).then(r => r.json());
+
+// Load route geometry for Mapbox GL JS, Leaflet, etc.
+const route = await fetch(`${BASE}/routes/camino-frances/route.geojson`).then(r => r.json());
+map.addSource('camino', { type: 'geojson', data: route });
+
+// Load stage data
+const stages = await fetch(`${BASE}/routes/camino-frances/stages.json`).then(r => r.json());
+for (const stage of stages.stages) {
+  console.log(`Stage ${stage.index}: ${stage.name.en} — ${stage.distanceKm} km`);
+}</code></pre>
+
+    <h2>Swift (iOS)</h2>
+    <pre><code>import MapKit
+
+let base = "https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1"
+let url = URL(string: "\(base)/routes/camino-frances/route.geojson")!
+let (data, _) = try await URLSession.shared.data(from: url)
+
+// Decode as standard GeoJSON
+let features = try MKGeoJSONDecoder().decode(data)
+
+// Or decode with custom types
+let route = try JSONDecoder().decode(GeoJSONFeatureCollection.self, from: data)</code></pre>
+
+    <h2>Python</h2>
+    <pre><code>import json
+import urllib.request
+
+BASE = "https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1"
+
+# Load stages
+url = f"{BASE}/routes/camino-frances/stages.json"
+stages = json.loads(urllib.request.urlopen(url).read())
+
+for stage in stages["stages"]:
+    name = stage["name"]["en"]
+    km = stage["distanceKm"]
+    interior = stage.get("interior", {}).get("theme", {}).get("en", "—")
+    print(f"  Stage {stage['index']:2d}: {name:45s} {km:5.1f} km  [{interior}]")</code></pre>
+
+    <h2>Attribution</h2>
+    <p>When using this data, include:</p>
+    <pre><code>Contains information from Open Pilgrimages
+(https://github.com/walktalkmeditate/open-pilgrimages),
+made available under the ODbL.
+
+Route data &copy; OpenStreetMap contributors.
+https://www.openstreetmap.org/copyright</code></pre>
+
+    <h2>Contributing</h2>
+    <p>See the <a href="https://github.com/walktalkmeditate/open-pilgrimages/blob/main/CONTRIBUTING.md">contributing guide</a> for how to add routes, fix data, and contribute interior journey content.</p>
+
+    <footer>
+      <p><a href="https://github.com/walktalkmeditate/open-pilgrimages">GitHub</a></p>
+    </footer>
+  </div>
+</body>
+</html>

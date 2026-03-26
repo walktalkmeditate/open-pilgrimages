@@ -1,0 +1,242 @@
+:root {
+  --parchment: #F5F0E8;
+  --ink: #2C241E;
+  --stone: #8B7355;
+  --moss: #7A8B6F;
+  --rust: #A0634B;
+  --dawn: #C4956A;
+  --fog: #B8AFA2;
+  --night: #1C1914;
+
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Lato', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2.5rem;
+  --space-2xl: 4rem;
+
+  --max-width: 48rem;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 18px;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--parchment);
+  color: var(--ink);
+  line-height: 1.7;
+  padding: var(--space-lg);
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--space-xl) 0;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+h1 {
+  font-size: 2.4rem;
+  margin-bottom: var(--space-md);
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: 1.6rem;
+  margin-top: var(--space-2xl);
+  margin-bottom: var(--space-md);
+  color: var(--stone);
+}
+
+h3 {
+  font-size: 1.2rem;
+  margin-top: var(--space-xl);
+  margin-bottom: var(--space-sm);
+}
+
+p {
+  margin-bottom: var(--space-md);
+}
+
+a {
+  color: var(--rust);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s;
+}
+
+a:hover {
+  border-bottom-color: var(--rust);
+}
+
+.subtitle {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  color: var(--stone);
+  font-style: italic;
+  margin-bottom: var(--space-xl);
+}
+
+nav {
+  margin-bottom: var(--space-2xl);
+  padding-bottom: var(--space-md);
+  border-bottom: 1px solid var(--fog);
+}
+
+nav a {
+  margin-right: var(--space-lg);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--stone);
+}
+
+nav a:hover,
+nav a.active {
+  color: var(--ink);
+  border-bottom-color: var(--stone);
+}
+
+.route-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+  margin: var(--space-xl) 0;
+}
+
+.route-card {
+  border: 1px solid var(--fog);
+  border-radius: 4px;
+  padding: var(--space-lg);
+  background: white;
+  transition: border-color 0.2s;
+}
+
+.route-card:hover {
+  border-color: var(--stone);
+}
+
+.route-card h3 {
+  margin-top: 0;
+  margin-bottom: var(--space-xs);
+  font-size: 1.3rem;
+  color: var(--ink);
+}
+
+.route-card .meta {
+  font-size: 0.85rem;
+  color: var(--stone);
+  margin-bottom: var(--space-sm);
+}
+
+.route-card .meta span {
+  margin-right: var(--space-md);
+}
+
+.route-card p {
+  font-size: 0.95rem;
+  margin-bottom: 0;
+}
+
+.badge {
+  display: inline-block;
+  font-size: 0.7rem;
+  padding: 0.15em 0.5em;
+  border-radius: 3px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-family: var(--font-sans);
+  vertical-align: middle;
+}
+
+.badge-christian { background: var(--dawn); color: white; }
+.badge-buddhist { background: var(--moss); color: white; }
+.badge-mixed { background: var(--stone); color: white; }
+
+pre, code {
+  font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+  font-size: 0.85rem;
+}
+
+pre {
+  background: var(--night);
+  color: var(--parchment);
+  padding: var(--space-md) var(--space-lg);
+  border-radius: 4px;
+  overflow-x: auto;
+  margin: var(--space-md) 0 var(--space-lg);
+  line-height: 1.5;
+}
+
+code {
+  background: rgba(0,0,0,0.06);
+  padding: 0.1em 0.35em;
+  border-radius: 3px;
+}
+
+pre code {
+  background: none;
+  padding: 0;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: var(--space-md) 0 var(--space-lg);
+  font-size: 0.9rem;
+}
+
+th, td {
+  text-align: left;
+  padding: var(--space-sm) var(--space-md);
+  border-bottom: 1px solid var(--fog);
+}
+
+th {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--stone);
+}
+
+.attribution {
+  margin-top: var(--space-2xl);
+  padding-top: var(--space-lg);
+  border-top: 1px solid var(--fog);
+  font-size: 0.85rem;
+  color: var(--stone);
+}
+
+footer {
+  margin-top: var(--space-2xl);
+  padding-top: var(--space-lg);
+  border-top: 1px solid var(--fog);
+  font-size: 0.8rem;
+  color: var(--fog);
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  html { font-size: 16px; }
+  h1 { font-size: 1.8rem; }
+  nav a { display: block; margin-bottom: var(--space-sm); }
+}

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Routes &mdash; Open Pilgrimages</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="routes.html" class="active">Routes</a>
+      <a href="schema.html">Schema</a>
+      <a href="usage.html">Usage</a>
+    </nav>
+
+    <h1>Route Catalog</h1>
+    <p class="subtitle">Three pilgrimages. Three traditions. Three topologies.</p>
+
+    <h2>Camino de Santiago (Frances)</h2>
+    <table>
+      <tr><th>Distance</th><td>790 km</td></tr>
+      <tr><th>Topology</th><td>Linear</td></tr>
+      <tr><th>Tradition</th><td>Christian (Roman Catholic)</td></tr>
+      <tr><th>Countries</th><td>France, Spain</td></tr>
+      <tr><th>Stages</th><td>33</td></tr>
+      <tr><th>Waypoints</th><td>17 key sacred sites and landmarks</td></tr>
+      <tr><th>Interior Journey</th><td>10 stages with editorial narratives</td></tr>
+      <tr><th>Credential</th><td>Credencial del Peregrino &rarr; Compostela certificate</td></tr>
+      <tr><th>Route ID</th><td><code>camino-frances</code></td></tr>
+    </table>
+
+    <h3>Files</h3>
+    <pre><code>routes/camino-frances/
+  metadata.json        # Overview, tradition, culture, logistics
+  route.geojson        # GeoJSON LineString (simplified)
+  stages.json          # 33 stages with interior journey
+  waypoints.geojson    # Sacred sites, cathedrals, landmarks</code></pre>
+
+    <h2>Shikoku 88 Temple Pilgrimage</h2>
+    <table>
+      <tr><th>Distance</th><td>1,200 km</td></tr>
+      <tr><th>Topology</th><td>Circular (clockwise)</td></tr>
+      <tr><th>Tradition</th><td>Buddhist (Shingon)</td></tr>
+      <tr><th>Country</th><td>Japan</td></tr>
+      <tr><th>Stages</th><td>10 (grouped by four spiritual phases)</td></tr>
+      <tr><th>Waypoints</th><td>20 representative temples (of 88)</td></tr>
+      <tr><th>Interior Journey</th><td>8 stages with editorial narratives</td></tr>
+      <tr><th>Credential</th><td>N&#333;ky&#333;ch&#333; (stamp book) &rarr; Kechi-gan-sh&#333; certificate</td></tr>
+      <tr><th>Route ID</th><td><code>shikoku-88</code></td></tr>
+    </table>
+
+    <h3>Four Spiritual Phases</h3>
+    <table>
+      <thead>
+        <tr><th>Phase</th><th>Japanese</th><th>Prefecture</th><th>Temples</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Awakening</td><td>&#30330;&#24515;&#12398;&#36947;&#22580;</td><td>Tokushima</td><td>1&ndash;23</td></tr>
+        <tr><td>Discipline</td><td>&#20462;&#34892;&#12398;&#36947;&#22580;</td><td>Kochi</td><td>24&ndash;39</td></tr>
+        <tr><td>Enlightenment</td><td>&#33769;&#25552;&#12398;&#36947;&#22580;</td><td>Ehime</td><td>40&ndash;65</td></tr>
+        <tr><td>Nirvana</td><td>&#28037;&#27075;&#12398;&#36947;&#22580;</td><td>Kagawa</td><td>66&ndash;88</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Files</h3>
+    <pre><code>routes/shikoku-88/
+  metadata.json        # Buddhist tradition, nokyocho system, henro culture
+  route.geojson        # Circular GeoJSON using temple coordinates
+  stages.json          # 10 stages across four spiritual phases
+  waypoints.geojson    # 20 representative temples</code></pre>
+
+    <h2>Kumano Kodo</h2>
+    <table>
+      <tr><th>Distance</th><td>38 km (Nakahechi main route)</td></tr>
+      <tr><th>Topology</th><td>Network (multiple sub-routes)</td></tr>
+      <tr><th>Tradition</th><td>Shinto / Buddhist (syncretic)</td></tr>
+      <tr><th>Country</th><td>Japan</td></tr>
+      <tr><th>Stages</th><td>4 (Nakahechi)</td></tr>
+      <tr><th>Waypoints</th><td>11 (Three Grand Shrines, Oji, Nachi Falls)</td></tr>
+      <tr><th>Interior Journey</th><td>All 4 stages with editorial narratives</td></tr>
+      <tr><th>Credential</th><td>Dual Pilgrim program (joint with Camino de Santiago)</td></tr>
+      <tr><th>Route ID</th><td><code>kumano-kodo</code></td></tr>
+    </table>
+
+    <h3>Sub-Routes</h3>
+    <table>
+      <thead>
+        <tr><th>Route</th><th>Distance</th><th>Difficulty</th><th>Status</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Nakahechi (Imperial Route)</td><td>38 km</td><td>Moderate</td><td>Complete</td></tr>
+        <tr><td>Kohechi (Mountain Route)</td><td>70 km</td><td>Expert</td><td>Metadata only</td></tr>
+        <tr><td>Iseji (Coastal Route)</td><td>170 km</td><td>Moderate</td><td>Metadata only</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Files</h3>
+    <pre><code>routes/kumano-kodo/
+  metadata.json        # Mixed tradition, dual pilgrim credential, UNESCO
+  route.geojson        # Nakahechi main route
+  stages.json          # 4 Nakahechi stages with interior journey
+  waypoints.geojson    # Grand Shrines, Oji, Nachi Falls, onsen
+  variants/
+    kohechi/metadata.json
+    iseji/metadata.json</code></pre>
+
+    <footer>
+      <p><a href="https://github.com/walktalkmeditate/open-pilgrimages">GitHub</a></p>
+    </footer>
+  </div>
+</body>
+</html>

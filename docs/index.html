@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Open Pilgrimages</title>
+  <meta name="description" content="A canonical, open-source dataset of pilgrimage routes worldwide.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <a href="index.html" class="active">Home</a>
+      <a href="routes.html">Routes</a>
+      <a href="schema.html">Schema</a>
+      <a href="usage.html">Usage</a>
+    </nav>
+
+    <h1>Open Pilgrimages</h1>
+    <p class="subtitle">A canonical, open-source dataset of pilgrimage routes worldwide.</p>
+
+    <p>Route geometry, stage breakdowns, waypoints, logistics, cultural context, and interior journey narratives &mdash; structured as JSON and GeoJSON for developers, researchers, and pilgrimage organizations to build upon.</p>
+
+    <h2>Why This Exists</h2>
+
+    <p>There is no comprehensive, structured, open dataset of pilgrimage routes. Trail databases capture geometry and elevation but miss what makes a pilgrimage <em>a pilgrimage</em> &mdash; the credential systems, sacred sites, cultural practices, seasonal ceremonies, and the interior transformation that unfolds over weeks of walking.</p>
+
+    <p>Open Pilgrimages captures three layers of data:</p>
+
+    <table>
+      <thead>
+        <tr><th>Layer</th><th>What It Contains</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Geometry</td><td>Route paths and waypoints as standard GeoJSON</td></tr>
+        <tr><td>Logistics</td><td>Stages, accommodation, water sources, services, seasonal availability</td></tr>
+        <tr><td>Cultural &amp; Spiritual</td><td>Traditions, credential systems, associated literature, sacred site protocols, interior journey narratives</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Routes</h2>
+
+    <div class="route-grid">
+      <div class="route-card">
+        <h3>Camino de Santiago (Frances) <span class="badge badge-christian">Christian</span></h3>
+        <div class="meta">
+          <span>790 km</span>
+          <span>Linear</span>
+          <span>France &rarr; Spain</span>
+          <span>33 stages</span>
+        </div>
+        <p>The most popular pilgrimage route to Santiago de Compostela, crossing the Pyrenees and traversing northern Spain. Walked continuously since the 9th century.</p>
+      </div>
+
+      <div class="route-card">
+        <h3>Shikoku 88 Temple Pilgrimage <span class="badge badge-buddhist">Buddhist</span></h3>
+        <div class="meta">
+          <span>1,200 km</span>
+          <span>Circular</span>
+          <span>Japan</span>
+          <span>10 stages</span>
+        </div>
+        <p>A circular pilgrimage visiting 88 Buddhist temples around the island of Shikoku, following the footsteps of the monk K&#363;kai.</p>
+      </div>
+
+      <div class="route-card">
+        <h3>Kumano Kodo <span class="badge badge-mixed">Shinto / Buddhist</span></h3>
+        <div class="meta">
+          <span>38 km (Nakahechi)</span>
+          <span>Network</span>
+          <span>Japan</span>
+          <span>4 stages</span>
+        </div>
+        <p>Ancient pilgrimage routes through the mountains of the Kii Peninsula to the three Grand Shrines of Kumano. UNESCO World Heritage since 2004.</p>
+      </div>
+    </div>
+
+    <h2>Data Sources &amp; License</h2>
+
+    <p>Route geometry is sourced from <a href="https://www.openstreetmap.org">OpenStreetMap</a>. Additional data comes from official pilgrimage organizations and published sources. Interior journey narratives are editorial content.</p>
+
+    <p><strong>Data:</strong> <a href="https://opendatacommons.org/licenses/odbl/1-0/">Open Database License (ODbL) 1.0</a><br>
+    <strong>Code:</strong> <a href="https://opensource.org/licenses/MIT">MIT</a></p>
+
+    <div class="attribution">
+      <p>Contains information from OpenStreetMap, which is made available under the ODbL by the OpenStreetMap Foundation.<br>
+      &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>.</p>
+    </div>
+
+    <footer>
+      <p>Part of the <a href="https://pilgrimapp.org">Pilgrim</a> ecosystem.</p>
+    </footer>
+  </div>
+</body>
+</html>

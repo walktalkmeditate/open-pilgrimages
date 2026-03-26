@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Schema Reference &mdash; Open Pilgrimages</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="routes.html">Routes</a>
+      <a href="schema.html" class="active">Schema</a>
+      <a href="usage.html">Usage</a>
+    </nav>
+
+    <h1>Schema Reference</h1>
+    <p class="subtitle">JSON Schema 2020-12 definitions for all data files.</p>
+
+    <h2>File Structure</h2>
+    <p>Each pilgrimage route is a directory with four files:</p>
+    <pre><code>routes/{route-id}/
+  metadata.json        # Overview, tradition, culture, logistics
+  route.geojson        # GeoJSON FeatureCollection (LineString)
+  stages.json          # Stage-by-stage breakdown
+  waypoints.geojson    # GeoJSON FeatureCollection (Points)</code></pre>
+
+    <p>Plus <code>index.json</code> at the repo root as the discovery file.</p>
+
+    <h2>Schemas</h2>
+    <table>
+      <thead>
+        <tr><th>Schema</th><th>Validates</th><th>Source</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>index.schema.json</code></td><td><code>index.json</code></td><td><a href="https://github.com/walktalkmeditate/open-pilgrimages/blob/main/schema/index.schema.json">View</a></td></tr>
+        <tr><td><code>pilgrimage.schema.json</code></td><td><code>metadata.json</code></td><td><a href="https://github.com/walktalkmeditate/open-pilgrimages/blob/main/schema/pilgrimage.schema.json">View</a></td></tr>
+        <tr><td><code>stages.schema.json</code></td><td><code>stages.json</code></td><td><a href="https://github.com/walktalkmeditate/open-pilgrimages/blob/main/schema/stages.schema.json">View</a></td></tr>
+        <tr><td><code>route.schema.json</code></td><td><code>route.geojson</code></td><td><a href="https://github.com/walktalkmeditate/open-pilgrimages/blob/main/schema/route.schema.json">View</a></td></tr>
+        <tr><td><code>waypoints.schema.json</code></td><td><code>waypoints.geojson</code></td><td><a href="https://github.com/walktalkmeditate/open-pilgrimages/blob/main/schema/waypoints.schema.json">View</a></td></tr>
+      </tbody>
+    </table>
+
+    <h2>Conventions</h2>
+
+    <h3>Coordinates</h3>
+    <p>GeoJSON standard: <code>[longitude, latitude]</code> or <code>[longitude, latitude, altitude]</code>. Altitude in meters.</p>
+
+    <h3>Localized Strings</h3>
+    <p>All human-readable text uses the <code>LocalizedString</code> pattern. English is always required.</p>
+    <pre><code>{
+  "en": "Camino de Santiago",
+  "es": "Camino de Santiago",
+  "ja": "&#12469;&#12531;&#12486;&#12451;&#12450;&#12468;&#24033;&#31036;&#36335;"
+}</code></pre>
+
+    <h3>Route Topologies</h3>
+    <table>
+      <thead><tr><th>Value</th><th>Meaning</th><th>Example</th></tr></thead>
+      <tbody>
+        <tr><td><code>linear</code></td><td>A-to-B route</td><td>Camino Frances</td></tr>
+        <tr><td><code>circular</code></td><td>Loop returning to start</td><td>Shikoku 88</td></tr>
+        <tr><td><code>network</code></td><td>Interconnected sub-routes</td><td>Kumano Kodo</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Waypoint Types</h3>
+    <p>15 types covering diverse pilgrimage traditions:</p>
+    <table>
+      <thead><tr><th>Type</th><th>Description</th></tr></thead>
+      <tbody>
+        <tr><td><code>town</code></td><td>Settlement, village, city</td></tr>
+        <tr><td><code>accommodation</code></td><td>Place to sleep (albergue, temple lodging, ryokan, etc.)</td></tr>
+        <tr><td><code>sacred_site</code></td><td>Temple, church, shrine, chapel</td></tr>
+        <tr><td><code>water_source</code></td><td>Fountain, spring, tap</td></tr>
+        <tr><td><code>credential_stamp</code></td><td>Stamp/seal location</td></tr>
+        <tr><td><code>viewpoint</code></td><td>Scenic overlook</td></tr>
+        <tr><td><code>food</code></td><td>Restaurant, cafe, market</td></tr>
+        <tr><td><code>medical</code></td><td>Hospital, pharmacy, clinic</td></tr>
+        <tr><td><code>transport</code></td><td>Bus stop, train station, ferry</td></tr>
+        <tr><td><code>waymarker</code></td><td>Trail marker, milestone</td></tr>
+        <tr><td><code>cultural_site</code></td><td>Museum, monument, heritage site</td></tr>
+        <tr><td><code>camping</code></td><td>Designated camping area</td></tr>
+        <tr><td><code>pass</code></td><td>Mountain pass or summit</td></tr>
+        <tr><td><code>information</code></td><td>Tourist office, info board</td></tr>
+        <tr><td><code>supply</code></td><td>Shop, supermarket, ATM</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Schema Versioning</h3>
+    <p>Every data file includes a <code>schemaVersion</code> field following SemVer:</p>
+    <table>
+      <thead><tr><th>Change</th><th>Version Bump</th><th>Example</th></tr></thead>
+      <tbody>
+        <tr><td>Field removed or renamed</td><td>MAJOR</td><td>1.0.0 &rarr; 2.0.0</td></tr>
+        <tr><td>New optional field added</td><td>MINOR</td><td>1.0.0 &rarr; 1.1.0</td></tr>
+        <tr><td>Content correction</td><td>PATCH</td><td>1.0.0 &rarr; 1.0.1</td></tr>
+      </tbody>
+    </table>
+    <p>CDN URLs pin to the major version: <code>@v1</code>. All schemas use <code>additionalProperties: true</code> for forward compatibility.</p>
+
+    <footer>
+      <p><a href="https://github.com/walktalkmeditate/open-pilgrimages">GitHub</a></p>
+    </footer>
+  </div>
+</body>
+</html>
