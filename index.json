@@ -1,0 +1,50 @@
+{
+  "schemaVersion": "1.0.0",
+  "generatedAt": "2026-03-26T00:00:00Z",
+  "routes": [
+    {
+      "id": "camino-frances",
+      "name": { "en": "Camino de Santiago (Frances)", "es": "Camino de Santiago (Francés)" },
+      "region": "Europe",
+      "country": "ES",
+      "distanceKm": 790,
+      "topology": "linear",
+      "tradition": "christian",
+      "path": "routes/camino-frances"
+    },
+    {
+      "id": "shikoku-88",
+      "name": { "en": "Shikoku 88 Temple Pilgrimage", "ja": "四国八十八ヶ所巡礼" },
+      "region": "Asia",
+      "country": "JP",
+      "distanceKm": 1200,
+      "topology": "circular",
+      "tradition": "buddhist",
+      "path": "routes/shikoku-88"
+    },
+    {
+      "id": "kumano-kodo",
+      "name": { "en": "Kumano Kodo", "ja": "熊野古道" },
+      "region": "Asia",
+      "country": "JP",
+      "distanceKm": 38,
+      "topology": "network",
+      "tradition": "mixed",
+      "path": "routes/kumano-kodo",
+      "variants": [
+        {
+          "id": "kohechi",
+          "name": { "en": "Kohechi (Mountain Route)", "ja": "小辺路" },
+          "distanceKm": 70,
+          "path": "routes/kumano-kodo/variants/kohechi"
+        },
+        {
+          "id": "iseji",
+          "name": { "en": "Iseji (Eastern/Coastal Route)", "ja": "伊勢路" },
+          "distanceKm": 170,
+          "path": "routes/kumano-kodo/variants/iseji"
+        }
+      ]
+    }
+  ]
+}
