@@ -88,7 +88,7 @@
       {
         "name": { "en": "Tsuboyu Onsen", "ja": "つぼ湯" },
         "description": {
-          "en": "The only bathing facility in the world with UNESCO World Heritage status. A tiny natural hot spring at Yunomine Onsen where pilgrims have purified themselves for over 1,800 years. 30-minute private sessions, 780 JPY."
+          "en": "The only bathing facility in the world with UNESCO World Heritage status. A tiny natural hot spring at Yunomine Onsen where pilgrims have purified themselves for over 1,800 years. 30-minute private sessions, 800 JPY."
         },
         "location": { "coordinates": [135.758, 33.829], "stageIndex": 3 }
       }
@@ -117,10 +117,10 @@
     ],
     "events": [
       {
-        "name": { "en": "Nachi-no-Hi Matsuri (Fire Festival)", "ja": "那智の火祭" },
+        "name": { "en": "Nachi-no-Ogi Matsuri (Fan Fire Festival)", "ja": "那智の扇祭り" },
         "date": { "month": 7, "day": 14 },
         "recurrence": "annual",
-        "description": { "en": "One of Japan's three great fire festivals. Twelve large flaming torches (each 50 kg, 6 meters tall) are carried to Nachi Falls in a dramatic nighttime procession." }
+        "description": { "en": "One of Japan's three great fire festivals. Twelve large flaming torches (each 50 kg) are carried alongside 6-meter fan-shaped mikoshi to Nachi Falls in a daytime procession (main ceremony at 14:00)." }
       }
     ],
     "historicalSignificance": {
