@@ -1,0 +1,293 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "camino-frances",
+  "lastUpdated": "2026-03-26T00:00:00Z",
+
+  "name": {
+    "en": "Camino de Santiago (Frances)",
+    "es": "Camino de Santiago (Francés)",
+    "fr": "Chemin de Saint-Jacques (Voie française)",
+    "gl": "Camiño de Santiago (Francés)",
+    "ja": "サンティアゴ巡礼路（フランス人の道）"
+  },
+  "description": {
+    "en": "The most popular pilgrimage route to Santiago de Compostela, crossing the Pyrenees from France and traversing northern Spain for 790 km. Walked continuously since the 9th century.",
+    "es": "La ruta de peregrinación más popular a Santiago de Compostela, cruzando los Pirineos desde Francia y atravesando el norte de España durante 790 km."
+  },
+
+  "overview": {
+    "distanceKm": 790,
+    "estimatedDays": { "min": 28, "max": 35, "typical": 31 },
+    "topology": "linear",
+    "direction": "west",
+    "startPoint": {
+      "name": { "en": "Saint-Jean-Pied-de-Port", "fr": "Saint-Jean-Pied-de-Port", "eu": "Donibane Garazi" },
+      "coordinates": [-1.236, 43.163, 172]
+    },
+    "endPoint": {
+      "name": { "en": "Santiago de Compostela", "es": "Santiago de Compostela", "gl": "Santiago de Compostela" },
+      "coordinates": [-8.544, 42.881, 260]
+    },
+    "elevationRange": {
+      "minMeters": 50,
+      "maxMeters": 1505,
+      "totalAscentMeters": 13331,
+      "totalDescentMeters": 13246
+    },
+    "difficulty": "moderate",
+    "terrainTypes": ["paved", "gravel", "dirt", "cobblestone", "mountain", "forest", "urban"],
+    "bestMonths": [5, 6, 9],
+    "peakMonths": [7, 8],
+    "countries": ["FR", "ES"],
+    "bbox": [-8.55, 42.27, -1.23, 43.17]
+  },
+
+  "tradition": {
+    "type": "christian",
+    "primaryFaith": "Roman Catholic",
+    "otherFaiths": ["secular"],
+    "saint": { "en": "Saint James the Great", "es": "Santiago Apóstol" },
+    "origin": {
+      "en": "Medieval pilgrimage route to the shrine of the apostle Saint James, established in the 9th century following the discovery of the apostle's remains in what is now Santiago de Compostela. One of the three great medieval Christian pilgrimages alongside Rome and Jerusalem."
+    },
+    "unescoStatus": "World Heritage Site",
+    "unescoYear": 1993,
+    "credentialSystem": {
+      "name": {
+        "en": "Pilgrim Credential",
+        "es": "Credencial del Peregrino"
+      },
+      "description": {
+        "en": "A passport-like booklet stamped (sellos) at churches, albergues, cafes, and other locations along the route. Required for the Compostela certificate. Must be stamped at least twice per day for the qualifying distance."
+      },
+      "completionCertificate": {
+        "en": "Compostela",
+        "es": "Compostela"
+      },
+      "minimumDistanceKm": 100,
+      "minimumDistanceNote": {
+        "en": "Walk at least 100 km (or cycle 200 km) on a recognized route ending in Santiago de Compostela. The Compostela is issued for religious, spiritual, or existential motivations. A separate Certificado de Bienvenida is available for cultural or tourism motivations."
+      },
+      "obtainableAt": [
+        {
+          "name": { "en": "Pilgrim Welcome Office, Saint-Jean-Pied-de-Port", "fr": "Bureau des Pèlerins" },
+          "coordinates": [-1.236, 43.163]
+        },
+        {
+          "name": { "en": "Friends of the Camino associations" },
+          "coordinates": [-1.644, 42.818]
+        }
+      ]
+    }
+  },
+
+  "cultural": {
+    "practices": [
+      {
+        "name": { "en": "Buen Camino", "es": "Buen Camino" },
+        "description": {
+          "en": "Traditional greeting exchanged between pilgrims, meaning 'Good Way' or 'Good Camino'. Used as both hello and goodbye on the trail."
+        }
+      },
+      {
+        "name": { "en": "Cruz de Ferro", "es": "Cruz de Ferro" },
+        "description": {
+          "en": "Pilgrims carry a stone from home and leave it at the iron cross atop a cairn at the highest point of the route (1,505 m). The stone symbolizes a burden being released — grief, regret, or whatever weight the pilgrim carries."
+        },
+        "location": { "coordinates": [-6.361, 42.489, 1505], "stageIndex": 23 }
+      },
+      {
+        "name": { "en": "Embrace of Saint James" },
+        "description": {
+          "en": "Upon arriving at Santiago Cathedral, pilgrims climb behind the main altar to embrace the statue of Saint James. A centuries-old tradition marking the completion of the pilgrimage."
+        },
+        "location": { "coordinates": [-8.544, 42.881, 260], "stageIndex": 32 }
+      },
+      {
+        "name": { "en": "Botafumeiro" },
+        "description": {
+          "en": "A giant incense thurible swung through the transept of Santiago Cathedral by eight men (tiraboleiros). Originally used to mask the smell of arriving pilgrims. Now swung during special masses and Holy Years, or by private donation."
+        },
+        "location": { "coordinates": [-8.544, 42.881, 260], "stageIndex": 32 }
+      },
+      {
+        "name": { "en": "Pilgrim Scallop Shell" },
+        "description": {
+          "en": "The scallop shell (vieira) is the universal symbol of the Camino. Traditionally collected at the coast near Santiago, now often attached to backpacks at the start. Shell waymarkers along the route show the direction to Santiago."
+        }
+      },
+      {
+        "name": { "en": "Irache Wine Fountain", "es": "Fuente del Vino de Irache" },
+        "description": {
+          "en": "A fountain dispensing free red wine for pilgrims, provided by Bodegas Irache near Estella. Two taps: one for wine, one for water. A webcam streams the fountain live."
+        },
+        "location": { "coordinates": [-2.02, 42.66], "stageIndex": 5 }
+      }
+    ],
+    "etiquette": [
+      {
+        "en": "Albergue lights-out is typically 22:00. Pack your gear the night before to avoid disturbing others at dawn."
+      },
+      {
+        "en": "The Camino has a strong communal dining tradition. Sharing a meal with strangers is part of the experience."
+      },
+      {
+        "en": "Municipal albergues operate on a first-come, first-served basis. Arriving after 14:00 in peak season risks finding no bed."
+      },
+      {
+        "en": "Respect the pace of others. The Camino is not a race. 'Everyone walks their own Camino' is a common saying."
+      }
+    ],
+    "associatedLiterature": [
+      {
+        "title": "The Art of Pilgrimage",
+        "author": "Phil Cousineau",
+        "isbn": "978-1573245654",
+        "type": "nonfiction",
+        "relevance": {
+          "en": "Foundational text on pilgrimage as spiritual practice. Not Camino-specific but widely read by pilgrims preparing for any route."
+        }
+      },
+      {
+        "title": "I'm Off Then: Losing and Finding Myself on the Camino de Santiago",
+        "author": "Hape Kerkeling",
+        "isbn": "978-1416553878",
+        "type": "memoir",
+        "relevance": {
+          "en": "German comedian's account of walking the Camino Frances. Hugely popular in Europe, credited with a surge in German pilgrims after publication."
+        }
+      },
+      {
+        "title": "A Pilgrim's Guide to the Camino de Santiago",
+        "author": "John Brierley",
+        "isbn": "978-1912216444",
+        "type": "guidebook",
+        "relevance": {
+          "en": "The most widely used English-language guidebook. Defines the standard 33-stage breakdown that most English-speaking pilgrims follow."
+        }
+      },
+      {
+        "title": "The Pilgrimage",
+        "author": "Paulo Coelho",
+        "isbn": "978-0061687457",
+        "type": "memoir",
+        "relevance": {
+          "en": "Semi-autobiographical novel about Coelho's 1986 Camino walk. Widely read globally, though sometimes criticized by experienced pilgrims for its mystical framing."
+        }
+      },
+      {
+        "title": "The Way Is Made by Walking",
+        "author": "Arthur Paul Boers",
+        "isbn": "978-0830835065",
+        "type": "memoir",
+        "relevance": {
+          "en": "A Christian pastor's reflections on walking the Camino and what it reveals about faith, community, and simplicity."
+        }
+      }
+    ],
+    "events": [
+      {
+        "name": { "en": "Feast of Saint James", "es": "Fiesta de Santiago Apóstol" },
+        "date": { "month": 7, "day": 25 },
+        "recurrence": "annual",
+        "description": {
+          "en": "The patron saint's feast day. Special masses at Santiago Cathedral, fireworks, cultural events throughout the city. When July 25 falls on a Sunday, it is declared a Holy Year (Año Xacobeo) and the cathedral's Holy Door opens. Next Holy Year: 2027."
+        }
+      },
+      {
+        "name": { "en": "Running of the Bulls, Pamplona", "es": "San Fermín" },
+        "date": { "month": 7, "day": 7 },
+        "recurrence": "annual",
+        "description": {
+          "en": "The festival of San Fermín runs July 6-14 in Pamplona (Stage 3-4). The city is extremely crowded and accommodation nearly impossible to find. Plan accordingly."
+        }
+      }
+    ],
+    "historicalSignificance": {
+      "en": "One of three major medieval Christian pilgrimages alongside Rome and Jerusalem. The route has been continuously walked since the 9th century, when the tomb of Saint James was discovered. At its medieval peak, 500,000 pilgrims walked annually. The route was instrumental in the cultural exchange between Christian Europe and the Iberian Peninsula during the Reconquista."
+    }
+  },
+
+  "logistics": {
+    "seasonalAvailability": {
+      "openMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+      "notes": {
+        "en": "Open year-round but many albergues close November through March. The Napoleon Route over the Pyrenees (Stage 1) is officially closed November 1 through March 31 — the Valcarlos valley variant must be used in winter. Mountain stages can have snow December through February."
+      }
+    },
+    "accommodationTypes": ["albergue", "hotel", "pension", "casa_rural", "camping"],
+    "accommodationNotes": {
+      "en": "Municipal albergues: 8-15 EUR, first-come basis, one-night limit. Private albergues: 12-25 EUR, often accept reservations. Hotels/pensions: 30-80 EUR. Albergue density is high — rarely more than 10 km between options on the main route."
+    },
+    "currency": "EUR",
+    "languages": ["es", "eu", "gl", "fr"],
+    "cellularCoverage": "good",
+    "cellularNotes": {
+      "en": "Reliable mobile coverage on most of the route. Spotty in the Pyrenees crossing (Stage 1), remote meseta stretches (Stages 13-19), and some mountain sections in Galicia. Most albergues and cafes offer WiFi."
+    },
+    "waterAvailability": "abundant",
+    "waterNotes": {
+      "en": "Fountains (fuentes) are common in towns. On the meseta, towns can be 15-20 km apart — always carry at least 1.5L. All tap water in Spain is potable unless marked 'agua no potable'."
+    },
+    "emergencyNumber": "112",
+    "transportLinks": [
+      {
+        "type": "airport",
+        "name": { "en": "Biarritz Airport" },
+        "code": "BIQ",
+        "nearStage": 0,
+        "notes": { "en": "Closest airport to Saint-Jean-Pied-de-Port. Bus or train connections via Bayonne." }
+      },
+      {
+        "type": "train",
+        "name": { "en": "SNCF to Saint-Jean-Pied-de-Port" },
+        "nearStage": 0,
+        "notes": { "en": "Train from Bayonne to SJPP (1h15). Bayonne connects to Paris TGV and Bordeaux." }
+      },
+      {
+        "type": "train",
+        "name": { "en": "RENFE rail network" },
+        "notes": { "en": "Major cities on the route (Pamplona, Logrono, Burgos, Leon, Ponferrada, Santiago) have RENFE train stations for joining or leaving mid-route." }
+      },
+      {
+        "type": "airport",
+        "name": { "en": "Santiago de Compostela Airport" },
+        "code": "SCQ",
+        "nearStage": 32,
+        "notes": { "en": "10 km from the city center. Direct flights to many European cities. Bus to city center every 30 minutes." }
+      }
+    ]
+  },
+
+  "provenance": {
+    "sources": [
+      {
+        "name": "OpenStreetMap",
+        "url": "https://www.openstreetmap.org",
+        "license": "ODbL-1.0",
+        "dataTypes": ["geometry", "waypoints"],
+        "accessDate": "2026-03-26"
+      },
+      {
+        "name": "Gronze.com",
+        "url": "https://www.gronze.com",
+        "dataTypes": ["stages", "distances", "elevation"],
+        "accessDate": "2026-03-26"
+      },
+      {
+        "name": "Santiago Pilgrim's Office",
+        "url": "https://oficinadelperegrino.com",
+        "dataTypes": ["credential", "statistics"],
+        "accessDate": "2026-03-26"
+      }
+    ],
+    "contributors": [
+      {
+        "name": "Steven Ross",
+        "role": "initial_author",
+        "url": "https://github.com/momentmaker"
+      }
+    ],
+    "license": "ODbL-1.0"
+  }
+}
