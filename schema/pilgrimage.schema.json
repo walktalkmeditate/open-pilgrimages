@@ -1,0 +1,349 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cdn.jsdelivr.net/gh/momentmaker/open-pilgrimages@v1/schema/pilgrimage.schema.json",
+  "title": "Pilgrimage Metadata",
+  "description": "Route overview, tradition, cultural context, and logistics for a pilgrimage",
+  "type": "object",
+  "required": ["schemaVersion", "id", "lastUpdated", "name", "description", "overview", "tradition", "provenance"],
+  "properties": {
+    "schemaVersion": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+$",
+      "description": "Must match the directory name"
+    },
+    "parentRouteId": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+$",
+      "description": "For variants, references the parent route"
+    },
+    "lastUpdated": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "name": { "$ref": "#/$defs/LocalizedString" },
+    "description": { "$ref": "#/$defs/LocalizedString" },
+
+    "overview": {
+      "type": "object",
+      "required": ["distanceKm", "estimatedDays", "topology", "startPoint", "difficulty"],
+      "properties": {
+        "distanceKm": { "type": "number", "minimum": 0 },
+        "estimatedDays": {
+          "type": "object",
+          "required": ["min", "max"],
+          "properties": {
+            "min": { "type": "integer", "minimum": 1 },
+            "max": { "type": "integer", "minimum": 1 },
+            "typical": { "type": "integer", "minimum": 1 }
+          },
+          "additionalProperties": true
+        },
+        "topology": {
+          "type": "string",
+          "enum": ["linear", "circular", "network"]
+        },
+        "direction": {
+          "type": "string",
+          "description": "Primary compass direction of travel"
+        },
+        "startPoint": { "$ref": "#/$defs/NamedLocation" },
+        "endPoint": { "$ref": "#/$defs/NamedLocation" },
+        "elevationRange": {
+          "type": "object",
+          "properties": {
+            "minMeters": { "type": "number" },
+            "maxMeters": { "type": "number" },
+            "totalAscentMeters": { "type": "number", "minimum": 0 },
+            "totalDescentMeters": { "type": "number", "minimum": 0 }
+          },
+          "additionalProperties": true
+        },
+        "difficulty": {
+          "type": "string",
+          "enum": ["easy", "moderate", "hard", "expert"]
+        },
+        "terrainTypes": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/TerrainType" }
+        },
+        "bestMonths": {
+          "type": "array",
+          "items": { "type": "integer", "minimum": 1, "maximum": 12 }
+        },
+        "peakMonths": {
+          "type": "array",
+          "items": { "type": "integer", "minimum": 1, "maximum": 12 }
+        },
+        "countries": {
+          "type": "array",
+          "items": { "type": "string", "pattern": "^[A-Z]{2}$" }
+        },
+        "bbox": {
+          "type": "array",
+          "items": { "type": "number" },
+          "minItems": 4,
+          "maxItems": 4,
+          "description": "[west, south, east, north]"
+        }
+      },
+      "additionalProperties": true
+    },
+
+    "tradition": {
+      "type": "object",
+      "required": ["type"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["christian", "buddhist", "shinto", "multi-faith", "secular", "mixed"]
+        },
+        "primaryFaith": { "type": "string" },
+        "otherFaiths": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "saint": { "$ref": "#/$defs/LocalizedString" },
+        "origin": { "$ref": "#/$defs/LocalizedString" },
+        "unescoStatus": { "type": "string" },
+        "unescoYear": { "type": "integer" },
+        "credentialSystem": {
+          "type": "object",
+          "properties": {
+            "name": { "$ref": "#/$defs/LocalizedString" },
+            "description": { "$ref": "#/$defs/LocalizedString" },
+            "completionCertificate": { "$ref": "#/$defs/LocalizedString" },
+            "minimumDistanceKm": { "type": "number", "minimum": 0 },
+            "minimumDistanceNote": { "$ref": "#/$defs/LocalizedString" },
+            "obtainableAt": {
+              "type": "array",
+              "items": { "$ref": "#/$defs/NamedLocation" }
+            }
+          },
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": true
+    },
+
+    "cultural": {
+      "type": "object",
+      "properties": {
+        "practices": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["name", "description"],
+            "properties": {
+              "name": { "$ref": "#/$defs/LocalizedString" },
+              "description": { "$ref": "#/$defs/LocalizedString" },
+              "location": {
+                "type": "object",
+                "properties": {
+                  "coordinates": { "$ref": "#/$defs/Coordinates" },
+                  "stageIndex": { "type": "integer", "minimum": 0 }
+                },
+                "additionalProperties": true
+              }
+            },
+            "additionalProperties": true
+          }
+        },
+        "etiquette": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/LocalizedString" }
+        },
+        "associatedLiterature": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["title", "author"],
+            "properties": {
+              "title": { "type": "string" },
+              "author": { "type": "string" },
+              "isbn": { "type": "string" },
+              "type": {
+                "type": "string",
+                "enum": ["memoir", "nonfiction", "poetry", "fiction", "guidebook"]
+              },
+              "relevance": { "$ref": "#/$defs/LocalizedString" }
+            },
+            "additionalProperties": true
+          }
+        },
+        "events": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["name"],
+            "properties": {
+              "name": { "$ref": "#/$defs/LocalizedString" },
+              "date": {
+                "type": "object",
+                "properties": {
+                  "month": { "type": "integer", "minimum": 1, "maximum": 12 },
+                  "day": { "type": "integer", "minimum": 1, "maximum": 31 }
+                },
+                "additionalProperties": true
+              },
+              "recurrence": {
+                "type": "string",
+                "enum": ["annual", "monthly", "seasonal", "irregular"]
+              },
+              "description": { "$ref": "#/$defs/LocalizedString" }
+            },
+            "additionalProperties": true
+          }
+        },
+        "historicalSignificance": { "$ref": "#/$defs/LocalizedString" }
+      },
+      "additionalProperties": true
+    },
+
+    "logistics": {
+      "type": "object",
+      "properties": {
+        "seasonalAvailability": {
+          "type": "object",
+          "properties": {
+            "openMonths": {
+              "type": "array",
+              "items": { "type": "integer", "minimum": 1, "maximum": 12 }
+            },
+            "notes": { "$ref": "#/$defs/LocalizedString" }
+          },
+          "additionalProperties": true
+        },
+        "accommodationTypes": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/AccommodationType" }
+        },
+        "accommodationNotes": { "$ref": "#/$defs/LocalizedString" },
+        "currency": {
+          "type": "string",
+          "pattern": "^[A-Z]{3}$",
+          "description": "ISO 4217 currency code"
+        },
+        "languages": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "cellularCoverage": {
+          "type": "string",
+          "enum": ["excellent", "good", "fair", "poor", "none"]
+        },
+        "cellularNotes": { "$ref": "#/$defs/LocalizedString" },
+        "waterAvailability": {
+          "type": "string",
+          "enum": ["abundant", "adequate", "limited", "scarce"]
+        },
+        "waterNotes": { "$ref": "#/$defs/LocalizedString" },
+        "emergencyNumber": { "type": "string" },
+        "transportLinks": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["type", "name"],
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": ["airport", "train", "bus", "ferry"]
+              },
+              "name": { "$ref": "#/$defs/LocalizedString" },
+              "code": { "type": "string" },
+              "nearStage": { "type": "integer" },
+              "notes": { "$ref": "#/$defs/LocalizedString" }
+            },
+            "additionalProperties": true
+          }
+        }
+      },
+      "additionalProperties": true
+    },
+
+    "provenance": {
+      "type": "object",
+      "required": ["sources", "license"],
+      "properties": {
+        "sources": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["name", "license", "dataTypes"],
+            "properties": {
+              "name": { "type": "string" },
+              "url": { "type": "string", "format": "uri" },
+              "license": { "type": "string" },
+              "dataTypes": {
+                "type": "array",
+                "items": { "type": "string" }
+              },
+              "accessDate": {
+                "type": "string",
+                "format": "date"
+              }
+            },
+            "additionalProperties": true
+          }
+        },
+        "contributors": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["name", "role"],
+            "properties": {
+              "name": { "type": "string" },
+              "role": { "type": "string" },
+              "url": { "type": "string", "format": "uri" }
+            },
+            "additionalProperties": true
+          }
+        },
+        "license": {
+          "type": "string",
+          "const": "ODbL-1.0"
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true,
+
+  "$defs": {
+    "LocalizedString": {
+      "type": "object",
+      "required": ["en"],
+      "properties": {
+        "en": { "type": "string" }
+      },
+      "additionalProperties": { "type": "string" }
+    },
+    "Coordinates": {
+      "type": "array",
+      "items": { "type": "number" },
+      "minItems": 2,
+      "maxItems": 3,
+      "description": "[longitude, latitude] or [longitude, latitude, altitude]"
+    },
+    "NamedLocation": {
+      "type": "object",
+      "required": ["name", "coordinates"],
+      "properties": {
+        "name": { "$ref": "#/$defs/LocalizedString" },
+        "coordinates": { "$ref": "#/$defs/Coordinates" }
+      },
+      "additionalProperties": true
+    },
+    "TerrainType": {
+      "type": "string",
+      "enum": ["paved", "gravel", "dirt", "cobblestone", "mountain", "forest", "coastal", "urban", "sand", "rock", "boardwalk"]
+    },
+    "AccommodationType": {
+      "type": "string",
+      "enum": ["albergue", "hotel", "pension", "casa_rural", "camping", "temple_lodging", "ryokan", "minshuku", "hut", "hostel", "bivouac"]
+    }
+  }
+}

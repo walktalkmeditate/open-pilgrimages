@@ -1,0 +1,214 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cdn.jsdelivr.net/gh/momentmaker/open-pilgrimages@v1/schema/waypoints.schema.json",
+  "title": "Pilgrimage Waypoints GeoJSON",
+  "description": "Constraints on properties within waypoints.geojson FeatureCollection. The file itself must be valid RFC 7946 GeoJSON.",
+  "type": "object",
+  "required": ["type", "features"],
+  "properties": {
+    "type": {
+      "type": "string",
+      "const": "FeatureCollection"
+    },
+    "features": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/WaypointFeature" }
+    }
+  },
+  "additionalProperties": true,
+
+  "$defs": {
+    "LocalizedString": {
+      "type": "object",
+      "required": ["en"],
+      "properties": {
+        "en": { "type": "string" }
+      },
+      "additionalProperties": { "type": "string" }
+    },
+    "WaypointFeature": {
+      "type": "object",
+      "required": ["type", "geometry", "properties"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "const": "Feature"
+        },
+        "id": {
+          "type": "string",
+          "description": "Unique feature identifier"
+        },
+        "geometry": {
+          "type": "object",
+          "required": ["type", "coordinates"],
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "Point"
+            },
+            "coordinates": {
+              "type": "array",
+              "items": { "type": "number" },
+              "minItems": 2,
+              "maxItems": 3,
+              "description": "[longitude, latitude] or [longitude, latitude, altitude]"
+            }
+          },
+          "additionalProperties": true
+        },
+        "properties": {
+          "type": "object",
+          "required": ["routeId", "name", "type"],
+          "properties": {
+            "routeId": {
+              "type": "string",
+              "pattern": "^[a-z0-9-]+$"
+            },
+            "name": {
+              "type": "string",
+              "description": "Default English name"
+            },
+            "nameLocalized": {
+              "type": "object",
+              "additionalProperties": { "type": "string" },
+              "description": "Non-English names keyed by BCP 47 language tag"
+            },
+            "type": {
+              "type": "string",
+              "enum": [
+                "town",
+                "accommodation",
+                "sacred_site",
+                "water_source",
+                "credential_stamp",
+                "viewpoint",
+                "food",
+                "medical",
+                "transport",
+                "waymarker",
+                "cultural_site",
+                "camping",
+                "pass",
+                "information",
+                "supply"
+              ]
+            },
+            "subtype": {
+              "type": "string",
+              "description": "Further classification within type (e.g., albergue, temple, shrine, church, fountain)"
+            },
+            "stageIndex": {
+              "type": "integer",
+              "minimum": 0,
+              "description": "Which stage this waypoint belongs to (0-indexed)"
+            },
+            "kmFromStart": {
+              "type": "number",
+              "minimum": 0,
+              "description": "Distance from route start in km"
+            },
+            "icon": {
+              "type": "string",
+              "description": "Suggested icon identifier for rendering"
+            },
+            "description": {
+              "type": "string"
+            },
+            "elevation": {
+              "type": "number",
+              "description": "Meters above sea level"
+            },
+            "seasonalAvailability": {
+              "type": "object",
+              "properties": {
+                "openMonths": {
+                  "type": "array",
+                  "items": { "type": "integer", "minimum": 1, "maximum": 12 }
+                },
+                "notes": { "type": "string" }
+              },
+              "additionalProperties": true
+            },
+            "contact": {
+              "type": "object",
+              "properties": {
+                "phone": { "type": "string" },
+                "url": { "type": "string", "format": "uri" },
+                "email": { "type": "string", "format": "email" }
+              },
+              "additionalProperties": true
+            },
+            "capacity": {
+              "type": "integer",
+              "minimum": 0,
+              "description": "For accommodation waypoints"
+            },
+            "priceRange": {
+              "type": "object",
+              "properties": {
+                "currency": { "type": "string", "pattern": "^[A-Z]{3}$" },
+                "min": { "type": "number", "minimum": 0 },
+                "max": { "type": "number", "minimum": 0 }
+              },
+              "additionalProperties": true
+            },
+            "amenities": {
+              "type": "array",
+              "items": { "type": "string" },
+              "description": "Available amenities (wifi, laundry, kitchen, meals, etc.)"
+            },
+            "reservable": {
+              "type": "boolean"
+            },
+            "waterReliability": {
+              "type": "string",
+              "enum": ["permanent", "seasonal", "unreliable"],
+              "description": "For water_source waypoints"
+            },
+            "tradition": {
+              "type": "string",
+              "description": "Religious tradition of a sacred site"
+            },
+            "denomination": {
+              "type": "string",
+              "description": "Specific denomination"
+            },
+            "protocols": {
+              "type": "array",
+              "items": { "type": "string" },
+              "description": "Behavioral protocols for sacred sites"
+            },
+            "credentialStamp": {
+              "type": "boolean",
+              "description": "Whether this location offers a credential stamp"
+            },
+            "stampFee": {
+              "type": "object",
+              "properties": {
+                "currency": { "type": "string", "pattern": "^[A-Z]{3}$" },
+                "amount": { "type": "number", "minimum": 0 }
+              },
+              "additionalProperties": true
+            },
+            "hours": {
+              "type": "string",
+              "description": "Operating hours as human-readable string"
+            },
+            "templeNumber": {
+              "type": "integer",
+              "minimum": 1,
+              "description": "For numbered pilgrimage sites (Shikoku 88, Kumano Kodo oji)"
+            },
+            "tags": {
+              "type": "array",
+              "items": { "type": "string" },
+              "description": "Free-form tags for filtering"
+            }
+          },
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": true
+    }
+  }
+}

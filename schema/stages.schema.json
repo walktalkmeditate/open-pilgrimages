@@ -1,0 +1,140 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cdn.jsdelivr.net/gh/momentmaker/open-pilgrimages@v1/schema/stages.schema.json",
+  "title": "Pilgrimage Stages",
+  "description": "Stage-by-stage breakdown of a pilgrimage route with logistics and interior journey",
+  "type": "object",
+  "required": ["schemaVersion", "routeId", "stageCount", "stages"],
+  "properties": {
+    "schemaVersion": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "routeId": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+$"
+    },
+    "stageCount": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "stages": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/Stage" }
+    }
+  },
+  "additionalProperties": true,
+
+  "$defs": {
+    "LocalizedString": {
+      "type": "object",
+      "required": ["en"],
+      "properties": {
+        "en": { "type": "string" }
+      },
+      "additionalProperties": { "type": "string" }
+    },
+    "Coordinates": {
+      "type": "array",
+      "items": { "type": "number" },
+      "minItems": 2,
+      "maxItems": 3,
+      "description": "[longitude, latitude] or [longitude, latitude, altitude]"
+    },
+    "NamedLocation": {
+      "type": "object",
+      "required": ["name", "coordinates"],
+      "properties": {
+        "name": { "$ref": "#/$defs/LocalizedString" },
+        "coordinates": { "$ref": "#/$defs/Coordinates" }
+      },
+      "additionalProperties": true
+    },
+    "Stage": {
+      "type": "object",
+      "required": ["index", "name", "start", "end", "distanceKm"],
+      "properties": {
+        "index": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "0-based stage number"
+        },
+        "name": { "$ref": "#/$defs/LocalizedString" },
+        "start": { "$ref": "#/$defs/NamedLocation" },
+        "end": { "$ref": "#/$defs/NamedLocation" },
+        "distanceKm": {
+          "type": "number",
+          "minimum": 0
+        },
+        "elevationGainMeters": {
+          "type": "number",
+          "minimum": 0
+        },
+        "elevationLossMeters": {
+          "type": "number",
+          "minimum": 0
+        },
+        "highPointMeters": { "type": "number" },
+        "lowPointMeters": { "type": "number" },
+        "estimatedHours": {
+          "type": "object",
+          "properties": {
+            "min": { "type": "number", "minimum": 0 },
+            "max": { "type": "number", "minimum": 0 }
+          },
+          "additionalProperties": true
+        },
+        "difficulty": {
+          "type": "string",
+          "enum": ["easy", "moderate", "hard", "expert"]
+        },
+        "terrainTypes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["paved", "gravel", "dirt", "cobblestone", "mountain", "forest", "coastal", "urban", "sand", "rock", "boardwalk"]
+          }
+        },
+        "terrainNotes": { "$ref": "#/$defs/LocalizedString" },
+        "accommodationDensity": {
+          "type": "string",
+          "enum": ["high", "moderate", "low", "very_low", "none"]
+        },
+        "waterSources": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Count of known water sources on the stage"
+        },
+        "services": {
+          "type": "object",
+          "properties": {
+            "atm": { "type": "boolean" },
+            "pharmacy": { "type": "boolean" },
+            "grocery": { "type": "boolean" },
+            "restaurant": { "type": "boolean" }
+          },
+          "additionalProperties": { "type": "boolean" }
+        },
+        "warnings": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/LocalizedString" }
+        },
+        "interior": {
+          "type": "object",
+          "description": "Editorial content about the pilgrim experience on this stage",
+          "properties": {
+            "theme": { "$ref": "#/$defs/LocalizedString" },
+            "narrative": { "$ref": "#/$defs/LocalizedString" },
+            "commonExperiences": {
+              "type": "array",
+              "items": { "$ref": "#/$defs/LocalizedString" }
+            },
+            "reflection": { "$ref": "#/$defs/LocalizedString" }
+          },
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": true
+    }
+  }
+}

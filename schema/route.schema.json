@@ -1,0 +1,96 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cdn.jsdelivr.net/gh/momentmaker/open-pilgrimages@v1/schema/route.schema.json",
+  "title": "Pilgrimage Route GeoJSON",
+  "description": "Constraints on properties within route.geojson FeatureCollection. The file itself must be valid RFC 7946 GeoJSON.",
+  "type": "object",
+  "required": ["type", "features"],
+  "properties": {
+    "type": {
+      "type": "string",
+      "const": "FeatureCollection"
+    },
+    "features": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/RouteFeature" },
+      "minItems": 1
+    }
+  },
+  "additionalProperties": true,
+
+  "$defs": {
+    "RouteFeature": {
+      "type": "object",
+      "required": ["type", "geometry", "properties"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "const": "Feature"
+        },
+        "id": {
+          "type": "string",
+          "description": "Unique feature identifier within this file"
+        },
+        "geometry": {
+          "type": "object",
+          "required": ["type", "coordinates"],
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": ["LineString", "MultiLineString"]
+            },
+            "coordinates": {
+              "description": "Array of [lon, lat, alt?] positions (LineString) or array of arrays (MultiLineString)"
+            }
+          },
+          "additionalProperties": true
+        },
+        "properties": {
+          "type": "object",
+          "required": ["routeId", "name", "type"],
+          "properties": {
+            "routeId": {
+              "type": "string",
+              "pattern": "^[a-z0-9-]+$"
+            },
+            "name": {
+              "type": "string",
+              "description": "Plain English name for map rendering"
+            },
+            "type": {
+              "type": "string",
+              "enum": ["main", "variant", "detour", "connection"],
+              "description": "Role of this geometry within the route"
+            },
+            "segment": {
+              "type": "string",
+              "description": "For network routes, which sub-route this belongs to"
+            },
+            "stageIndex": {
+              "type": "integer",
+              "minimum": 0,
+              "description": "Which stage this segment corresponds to"
+            },
+            "variantOf": {
+              "type": "string",
+              "description": "Feature ID of the main segment this is a variant of"
+            },
+            "surface": {
+              "type": ["string", "null"],
+              "description": "Dominant surface type"
+            },
+            "source": {
+              "type": "string",
+              "description": "Data provenance for this geometry"
+            },
+            "notes": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": true
+        }
+      },
+      "additionalProperties": true
+    }
+  }
+}
