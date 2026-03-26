@@ -187,6 +187,7 @@
         "nameLocalized": { "ja": "湯の峰温泉" },
         "type": "accommodation",
         "subtype": "ryokan",
+        "stageIndex": 3,
         "icon": "onsen",
         "description": "Japan's oldest thermal spring (1,800+ years). Tsuboyu bath is the only UNESCO World Heritage bathing facility in the world. 780 JPY, 30-minute private session.",
         "elevation": 120,

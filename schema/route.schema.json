@@ -40,7 +40,9 @@
               "enum": ["LineString", "MultiLineString"]
             },
             "coordinates": {
-              "description": "Array of [lon, lat, alt?] positions (LineString) or array of arrays (MultiLineString)"
+              "description": "Array of [lon, lat, alt?] positions (LineString) or array of arrays (MultiLineString)",
+              "type": "array",
+              "minItems": 2
             }
           },
           "additionalProperties": true

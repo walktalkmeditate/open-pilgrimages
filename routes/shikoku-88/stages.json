@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
   "routeId": "shikoku-88",
-  "stageCount": 15,
+  "stageCount": 10,
   "stages": [
     {
       "index": 0,
@@ -50,7 +50,7 @@
       "waterSources": 6,
       "services": { "atm": true, "pharmacy": true, "grocery": true, "restaurant": true },
       "interior": {
-        "theme": { "en": "Commitment", "ja": "発心" },
+        "theme": { "en": "Awakening", "ja": "発心" },
         "narrative": { "en": "Still in Tokushima, the Awakening phase. But now the temples spread out and the mountains deepen. By Temple 23, you have walked over 150 km and begin to understand what 1,200 km means. Yakuō-ji sits above the ocean. Ahead lies the longest gap on the entire pilgrimage — 75 km to Cape Muroto with no temple at all." },
         "commonExperiences": [
           { "en": "Finding your walking rhythm" },
@@ -130,7 +130,7 @@
       "start": { "name": { "en": "Enkō-ji (Temple 39)", "ja": "延光寺" }, "coordinates": [132.774, 32.961, 30] },
       "end": { "name": { "en": "Iwaya-ji (Temple 45)", "ja": "岩屋寺" }, "coordinates": [132.981, 33.659, 560] },
       "distanceKm": 140,
-      "elevationGainMeters": 3500,
+      "elevationGainMeters": 3030,
       "elevationLossMeters": 2500,
       "highPointMeters": 900,
       "lowPointMeters": 30,

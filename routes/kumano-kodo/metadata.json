@@ -14,6 +14,7 @@
 
   "overview": {
     "distanceKm": 38,
+    "distanceNote": { "en": "Distance shown is for the Nakahechi (main route). Kohechi variant: 70 km. Iseji variant: 170 km." },
     "estimatedDays": { "min": 3, "max": 6, "typical": 4 },
     "topology": "network",
     "startPoint": {

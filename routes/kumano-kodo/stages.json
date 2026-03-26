@@ -67,7 +67,7 @@
       "end": { "name": { "en": "Hosshinmon-oji", "ja": "発心門王子" }, "coordinates": [135.721, 33.862, 290] },
       "distanceKm": 14,
       "elevationGainMeters": 780,
-      "elevationLossMeters": 980,
+      "elevationLossMeters": 790,
       "highPointMeters": 800,
       "lowPointMeters": 230,
       "estimatedHours": { "min": 6, "max": 8 },

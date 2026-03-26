@@ -330,7 +330,7 @@
     },
     "NamedLocation": {
       "type": "object",
-      "required": ["name", "coordinates"],
+      "required": ["name"],
       "properties": {
         "name": { "$ref": "#/$defs/LocalizedString" },
         "coordinates": { "$ref": "#/$defs/Coordinates" }
