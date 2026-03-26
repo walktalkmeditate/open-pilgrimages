@@ -21,7 +21,7 @@
   "tradition": { "type": "mixed", "primaryFaith": "Shinto", "otherFaiths": ["buddhist"] },
   "provenance": {
     "sources": [{ "name": "OpenStreetMap", "url": "https://www.openstreetmap.org", "license": "ODbL-1.0", "dataTypes": ["geometry"], "accessDate": "2026-03-26" }],
-    "contributors": [{ "name": "Steven Ross", "role": "initial_author", "url": "https://github.com/walktalkmeditate" }],
+    "contributors": [{ "name": "walk · talk · meditate", "role": "initial_author", "url": "https://github.com/walktalkmeditate" }],
     "license": "ODbL-1.0"
   }
 }
