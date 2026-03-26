@@ -173,6 +173,7 @@
       {
         "name": "Tanabe City Kumano Tourism Bureau",
         "url": "https://www.tb-kumano.jp/en/kumano-kodo/",
+        "license": "public-data",
         "dataTypes": ["stages", "logistics", "credential"],
         "accessDate": "2026-03-26"
       }
