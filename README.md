@@ -18,7 +18,7 @@ Open Pilgrimages captures three layers of data:
 
 | Route | Region | Distance | Topology | Tradition |
 |-------|--------|----------|----------|-----------|
-| [Camino Frances](routes/camino-frances/) | Spain | 780 km | Linear | Christian |
+| [Camino Frances](routes/camino-frances/) | Spain | 790 km | Linear | Christian |
 | [Shikoku 88](routes/shikoku-88/) | Japan | 1,200 km | Circular | Buddhist |
 | [Kumano Kodo](routes/kumano-kodo/) | Japan | 70-160 km | Network | Shinto/Buddhist |
 

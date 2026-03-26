@@ -65,6 +65,8 @@ npm run validate    # Validate all data against schemas
 npm run pipeline    # Fetch and rebuild route data from sources
 ```
 
+> **Note:** The tooling pipeline is under development. Until it ships, you can validate JSON files manually against the schemas in `schema/` using any JSON Schema validator.
+
 ## Code of Conduct
 
 This project exists to serve pilgrims and the pilgrimage community worldwide. We welcome contributions from all traditions and backgrounds. Be respectful of sacred sites, cultural practices, and the diverse motivations people bring to pilgrimage.

@@ -16,6 +16,7 @@
     "distanceKm": 1200,
     "estimatedDays": { "min": 30, "max": 60, "typical": 45 },
     "topology": "circular",
+    "direction": "clockwise",
     "startPoint": {
       "name": { "en": "Ryōzen-ji (Temple 1)", "ja": "霊山寺" },
       "coordinates": [134.503, 34.160, 15]
@@ -35,7 +36,7 @@
     "bestMonths": [3, 4, 5, 10, 11],
     "peakMonths": [4, 10],
     "countries": ["JP"],
-    "bbox": [132.01, 32.72, 134.51, 34.36]
+    "bbox": [132.01, 32.72, 134.61, 34.36]
   },
 
   "tradition": {

@@ -25,4 +25,4 @@ Initial release.
 - `LocalizedString` pattern: `{ "en": "...", "ja": "..." }` with English always required
 
 ### Waypoint taxonomy
-16 types: town, accommodation, sacred_site, water_source, credential_stamp, viewpoint, food, medical, transport, waymarker, cultural_site, camping, pass, information, supply
+15 types: town, accommodation, sacred_site, water_source, credential_stamp, viewpoint, food, medical, transport, waymarker, cultural_site, camping, pass, information, supply

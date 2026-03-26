@@ -270,12 +270,14 @@
       {
         "name": "Gronze.com",
         "url": "https://www.gronze.com",
+        "license": "reference",
         "dataTypes": ["stages", "distances", "elevation"],
         "accessDate": "2026-03-26"
       },
       {
         "name": "Santiago Pilgrim's Office",
         "url": "https://oficinadelperegrino.com",
+        "license": "public-data",
         "dataTypes": ["credential", "statistics"],
         "accessDate": "2026-03-26"
       }

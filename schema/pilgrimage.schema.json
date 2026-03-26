@@ -304,7 +304,7 @@
         },
         "license": {
           "type": "string",
-          "const": "ODbL-1.0"
+          "description": "License of the combined dataset. Must be ODbL-1.0 when OSM-derived data is included."
         }
       },
       "additionalProperties": true
