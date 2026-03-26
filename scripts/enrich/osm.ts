@@ -103,6 +103,7 @@ export const OSM_TAG_MAP: Record<string, { type: string; subtype: string }> = {
 };
 
 export function classifyNode(node: OsmNode): { type: string; subtype: string } | null {
+  if (!node.tags) return null;
   for (const [tagCombo, classification] of Object.entries(OSM_TAG_MAP)) {
     const [key, value] = tagCombo.split("=");
     if (node.tags[key] === value) return classification;
