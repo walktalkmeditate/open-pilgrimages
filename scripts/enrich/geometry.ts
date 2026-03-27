@@ -57,6 +57,10 @@ async function main() {
   const data = await queryOverpass(query, `geom-${routeId}`) as { elements: OsmRelation[] };
 
   const relations = data.elements.filter((e): e is OsmRelation => e.type === "relation");
+  if (relations.length === 0) {
+    console.error("No relations returned from Overpass. Aborting to preserve existing data.");
+    process.exit(1);
+  }
   console.log(`Received ${relations.length} relations`);
 
   const isNetwork = meta.overview?.topology === "network";
@@ -107,4 +111,7 @@ async function main() {
   console.log(`Wrote route.geojson: ${oldCount} -> ${newCount} points`);
 }
 
-main();
+main().catch((err) => {
+  console.error(err instanceof Error ? err.message : err);
+  process.exit(1);
+});

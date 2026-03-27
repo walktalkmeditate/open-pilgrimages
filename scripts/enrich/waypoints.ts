@@ -35,6 +35,7 @@ function getStageRanges(routeDir: string): Array<{ cumulativeKm: number }> {
 }
 
 function findStageIndex(kmAlong: number, ranges: Array<{ cumulativeKm: number }>): number {
+  if (ranges.length === 0) return 0;
   for (let i = 0; i < ranges.length; i++) {
     if (kmAlong <= ranges[i].cumulativeKm) return i;
   }
@@ -52,6 +53,16 @@ async function main() {
   const meta = loadJson(join(routeDir, "metadata.json"));
   const wpPath = join(routeDir, "waypoints.geojson");
   const existing = existsSync(wpPath) ? loadJson(wpPath) : { type: "FeatureCollection", features: [] };
+
+  if (!existsSync(join(routeDir, "route.geojson"))) {
+    console.error("route.geojson not found. Run geometry enrichment first.");
+    process.exit(1);
+  }
+
+  if (!meta.overview?.bbox) {
+    console.error(`Missing overview.bbox in metadata.json for ${routeId}.`);
+    process.exit(1);
+  }
 
   const routeCoords = getRouteCoords(routeDir);
   const stageRanges = getStageRanges(routeDir);
@@ -112,7 +123,7 @@ async function main() {
         icon: classification.subtype,
         source: "osm",
         osmId: `node/${node.id}`,
-        ...(node.tags.ele && { elevation: parseFloat(node.tags.ele) }),
+        ...(node.tags.ele && isFinite(parseFloat(node.tags.ele)) && { elevation: parseFloat(node.tags.ele) }),
         ...(node.tags.opening_hours && { hours: node.tags.opening_hours }),
       },
     };
@@ -140,4 +151,7 @@ async function main() {
   console.log(`  Total waypoints: ${allWaypoints.length}`);
 }
 
-main();
+main().catch((err) => {
+  console.error(err instanceof Error ? err.message : err);
+  process.exit(1);
+});
