@@ -31,7 +31,8 @@
         { "year": 2024, "count": 1817, "foreign": 512 },
         { "year": 2025, "count": 1622, "foreign": 536, "note": "Foreign share 33% — record high" }
       ],
-      "cumulativeTotal": 48009,
+      "cumulativeTotal": 47574,
+      "cumulativeTotalNote": "Sum of fiscal years in trend data. The Omotenashi Network's published total of 48,009 includes a partial pre-2005 period not in the annual breakdown.",
       "cumulativeForeign": 3652,
       "source": "https://www.omotenashi88.net/list_henrotaishi.html"
     },
