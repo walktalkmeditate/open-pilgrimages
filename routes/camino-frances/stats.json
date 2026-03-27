@@ -1,0 +1,131 @@
+{
+  "schemaVersion": "1.0.0",
+  "routeId": "camino-frances",
+  "lastUpdated": "2026-03-26",
+  "dataYear": 2025,
+  "annualPilgrims": {
+    "latest": { "year": 2025, "count": 530919 },
+    "trend": [
+      { "year": 1985, "count": 690 },
+      { "year": 1986, "count": 1801 },
+      { "year": 1987, "count": 2905 },
+      { "year": 1988, "count": 3501 },
+      { "year": 1989, "count": 5760 },
+      { "year": 1990, "count": 4918 },
+      { "year": 1991, "count": 7274 },
+      { "year": 1992, "count": 9764 },
+      { "year": 1993, "count": 99436, "note": "Holy Year" },
+      { "year": 1994, "count": 15863 },
+      { "year": 1995, "count": 19821 },
+      { "year": 1996, "count": 23218 },
+      { "year": 1997, "count": 25179 },
+      { "year": 1998, "count": 30126 },
+      { "year": 1999, "count": 154613, "note": "Holy Year" },
+      { "year": 2000, "count": 55004 },
+      { "year": 2001, "count": 61418 },
+      { "year": 2002, "count": 68952 },
+      { "year": 2003, "count": 74614 },
+      { "year": 2004, "count": 179944, "note": "Holy Year" },
+      { "year": 2005, "count": 93924 },
+      { "year": 2006, "count": 100377 },
+      { "year": 2007, "count": 114026 },
+      { "year": 2008, "count": 125141 },
+      { "year": 2009, "count": 145877 },
+      { "year": 2010, "count": 272703, "note": "Holy Year" },
+      { "year": 2011, "count": 179919 },
+      { "year": 2012, "count": 192488 },
+      { "year": 2013, "count": 215880 },
+      { "year": 2014, "count": 237886 },
+      { "year": 2015, "count": 262458 },
+      { "year": 2016, "count": 277915 },
+      { "year": 2017, "count": 301036 },
+      { "year": 2018, "count": 327378 },
+      { "year": 2019, "count": 347578 },
+      { "year": 2020, "count": 54144, "note": "COVID-19" },
+      { "year": 2021, "count": 178912, "note": "Holy Year (extended)" },
+      { "year": 2022, "count": 437507, "note": "Extended Holy Year" },
+      { "year": 2023, "count": 446035 },
+      { "year": 2024, "count": 499239 },
+      { "year": 2025, "count": 530919, "note": "Record year" }
+    ],
+    "source": "https://oficinadelperegrino.com/en/statistics/"
+  },
+  "demographics": {
+    "topNationalities": [
+      { "country": "ES", "name": "Spain", "count": 228527, "percentage": 43.0 },
+      { "country": "US", "name": "United States", "count": 43964, "percentage": 8.3 },
+      { "country": "IT", "name": "Italy", "count": 26626, "percentage": 5.0 },
+      { "country": "DE", "name": "Germany", "count": 24335, "percentage": 4.6 },
+      { "country": "PT", "name": "Portugal", "count": 22813, "percentage": 4.3 },
+      { "country": "GB", "name": "United Kingdom", "count": 14643, "percentage": 2.8 },
+      { "country": "MX", "name": "Mexico", "count": 12088, "percentage": 2.3 },
+      { "country": "IE", "name": "Ireland", "count": 10792, "percentage": 2.0 },
+      { "country": "FR", "name": "France", "count": 9999, "percentage": 1.9 },
+      { "country": "AU", "name": "Australia", "count": 9407, "percentage": 1.8 }
+    ],
+    "genderSplit": { "female": 0.5367, "male": 0.4633 },
+    "ageGroups": [
+      { "group": "Under 18", "percentage": 11.3 },
+      { "group": "18-45", "percentage": 44.4 },
+      { "group": "46-65", "percentage": 39.3 },
+      { "group": "Over 65", "percentage": 5.1 }
+    ],
+    "source": "https://americanpilgrims.org/statistics/"
+  },
+  "seasonalDistribution": [
+    { "month": 1, "count": 2907, "percentage": 0.5 },
+    { "month": 2, "count": 3537, "percentage": 0.7 },
+    { "month": 3, "count": 14072, "percentage": 2.7 },
+    { "month": 4, "count": 54645, "percentage": 10.3 },
+    { "month": 5, "count": 78774, "percentage": 14.8 },
+    { "month": 6, "count": 74048, "percentage": 14.0 },
+    { "month": 7, "count": 67036, "percentage": 12.6 },
+    { "month": 8, "count": 77097, "percentage": 14.5 },
+    { "month": 9, "count": 81564, "percentage": 15.4 },
+    { "month": 10, "count": 62862, "percentage": 11.8 },
+    { "month": 11, "count": 11073, "percentage": 2.1 },
+    { "month": 12, "count": 3304, "percentage": 0.6 }
+  ],
+  "modeOfTravel": [
+    { "mode": "foot", "count": 469546, "percentage": 93.0 },
+    { "mode": "bicycle", "percentage": 4.0 },
+    { "mode": "horseback", "percentage": 0.1 },
+    { "mode": "sailboat", "percentage": 0.05 },
+    { "mode": "wheelchair", "percentage": 0.04 }
+  ],
+  "motivation": [
+    { "type": "religious", "count": 233182, "percentage": 44.0 },
+    { "type": "religious_and_other", "count": 169061, "percentage": 32.0 },
+    { "type": "non_religious", "count": 97798, "percentage": 18.0 },
+    { "type": "not_stated", "count": 30878, "percentage": 6.0 }
+  ],
+  "startingPoints": [
+    { "name": "Sarria", "count": 162076, "percentage": 30.5 },
+    { "name": "Porto", "count": 51572, "percentage": 9.7 },
+    { "name": "Tui", "count": 41664, "percentage": 7.8 },
+    { "name": "Saint-Jean-Pied-de-Port", "count": 30345, "percentage": 5.7 },
+    { "name": "Ferrol", "count": 28885, "percentage": 5.5 },
+    { "name": "Vigo", "count": 18678, "percentage": 3.5 },
+    { "name": "Valenca", "count": 18147, "percentage": 3.4 },
+    { "name": "Oviedo", "count": 15353, "percentage": 2.9 },
+    { "name": "Baiona", "count": 10261, "percentage": 1.9 },
+    { "name": "Lugo", "count": 9392, "percentage": 1.8 }
+  ],
+  "routeBreakdown": [
+    { "route": "Frances", "count": 242175, "percentage": 45.6 },
+    { "route": "Portugues Central", "count": 100835, "percentage": 19.0 },
+    { "route": "Portugues Coastal", "count": 89509, "percentage": 16.9 },
+    { "route": "Ingles", "count": 30203, "percentage": 5.7 },
+    { "route": "Primitivo", "count": 27868, "percentage": 5.3 },
+    { "route": "Norte", "count": 21482, "percentage": 4.0 },
+    { "route": "Via de la Plata", "count": 8833, "percentage": 1.7 }
+  ],
+  "sources": [
+    { "name": "Oficina del Peregrino", "url": "https://oficinadelperegrino.com/en/statistics/", "accessDate": "2026-03-26" },
+    { "name": "American Pilgrims on the Camino", "url": "https://americanpilgrims.org/statistics/", "accessDate": "2026-03-26" },
+    { "name": "Follow the Camino", "url": "https://followthecamino.com/en/camino-statistics-for-2025-the-year-a-pilgrimage-confirmed-its-global-dimension/", "accessDate": "2026-03-26" },
+    { "name": "Solvitur Ambulando", "url": "https://solviturambulando.es/statistics/2025", "accessDate": "2026-03-26" },
+    { "name": "Your Camino", "url": "https://your-camino.com/philosophical/camino-statistics-2025/", "accessDate": "2026-03-26" },
+    { "name": "Wikipedia: Camino de Santiago", "url": "https://en.wikipedia.org/wiki/Camino_de_Santiago", "accessDate": "2026-03-26" }
+  ]
+}
