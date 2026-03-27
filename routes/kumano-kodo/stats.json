@@ -1,0 +1,87 @@
+{
+  "schemaVersion": "1.0.0",
+  "routeId": "kumano-kodo",
+  "lastUpdated": "2026-03-27",
+  "dataYear": 2024,
+  "dataNote": "Primary metric is foreign overnight visitors in the Hongu area (Kumano Hongu Taisha vicinity), tracked by Tanabe City Kumano Tourism Bureau via local accommodation check-in data since 2003.",
+  "annualPilgrims": {
+    "latest": { "year": 2024, "count": 44540, "note": "Foreign overnight visitors in Hongu area — all-time record" },
+    "trend": [
+      { "year": 2003, "count": 218 },
+      { "year": 2004, "count": 492, "note": "UNESCO inscription year" },
+      { "year": 2005, "count": 555 },
+      { "year": 2006, "count": 1299 },
+      { "year": 2008, "count": 588, "note": "Santiago partnership begins" },
+      { "year": 2009, "count": 843 },
+      { "year": 2010, "count": 1217 },
+      { "year": 2011, "count": 1217 },
+      { "year": 2013, "count": 5480 },
+      { "year": 2016, "count": 30958 },
+      { "year": 2017, "count": 36821 },
+      { "year": 2018, "count": 43824 },
+      { "year": 2019, "count": 39960 },
+      { "year": 2020, "count": 2181, "note": "COVID-19" },
+      { "year": 2021, "count": 226, "note": "COVID-19 low" },
+      { "year": 2023, "count": 26790 },
+      { "year": 2024, "count": 44540, "note": "All-time record" }
+    ],
+    "trendNote": "Data gaps for 2007, 2012, 2014, 2015, 2022 — not found in public sources. Figures are foreign overnight visitors in Hongu area only.",
+    "source": "https://www.agara.co.jp/article/491535"
+  },
+  "demographics": {
+    "topNationalities": [
+      { "country": "CN", "name": "China", "count": 6241, "note": "First time #1 since records began (2003)" },
+      { "country": "AU", "name": "Australia", "count": 5841 },
+      { "country": "US", "name": "USA", "count": 4392 },
+      { "country": "TW", "name": "Taiwan", "count": 4101 },
+      { "country": "ES", "name": "Spain", "count": 2912 },
+      { "country": "FR", "name": "France", "count": 2082 }
+    ],
+    "nationalityNote": "2024 full year, Hongu area. Historically Western-dominated (Australia, France, USA); China surged to #1 in 2024.",
+    "source": "https://www.agara.co.jp/article/491535"
+  },
+  "dualPilgrim": {
+    "totalRegistered": 14238,
+    "countries": 78,
+    "launchDate": "2015-02-01",
+    "topNationalities": [
+      { "country": "TW", "name": "Taiwan", "count": 2339 },
+      { "country": "JP", "name": "Japan", "count": 2222 },
+      { "country": "US", "name": "USA", "count": 1907 },
+      { "country": "CN", "name": "China", "count": 1538 },
+      { "country": "AU", "name": "Australia", "count": 1522 },
+      { "country": "ES", "name": "Spain", "count": 911 },
+      { "country": "CA", "name": "Canada", "count": 440 },
+      { "country": "GB", "name": "United Kingdom", "count": 375 },
+      { "country": "IT", "name": "Italy", "count": 315 },
+      { "country": "SG", "name": "Singapore", "count": 297 }
+    ],
+    "milestones": [
+      { "number": 1, "date": "2015-02-05", "name": "Eric Bruce", "country": "US" },
+      { "number": 500, "date": "2017-03-30", "name": "David Whitson", "country": "US" },
+      { "number": 1000, "date": "2018-02-21", "name": "Stephen Bugno", "country": "US" },
+      { "number": 5000, "date": "2023-10-07", "name": "June-Lian Mok", "country": "SG" },
+      { "number": 10000, "date": "2025-04-25", "name": "Carlos Alberto Garcia Villarreal", "country": "MX" }
+    ],
+    "source": "https://www.tb-kumano.jp/en/kumano-kodo/dual-pilgrim/"
+  },
+  "seasonalDistribution": [
+    { "season": "spring", "months": [3, 4, 5], "intensity": "peak", "note": "Cherry blossom season. Accommodations sell out 3-12 months ahead." },
+    { "season": "autumn", "months": [10, 11], "intensity": "peak", "note": "Fall foliage. Second busiest period." },
+    { "season": "september", "months": [9], "intensity": "high", "note": "Good weather, less crowded than spring." },
+    { "season": "summer", "months": [6, 7, 8], "intensity": "low", "note": "Rainy season (Jun-Jul), extreme heat/humidity." },
+    { "season": "winter", "months": [12, 1, 2], "intensity": "low", "note": "Cold, short days. Fewest visitors." }
+  ],
+  "infrastructure": {
+    "unescoInscription": { "date": "2004-07-07", "criteria": ["ii", "iv", "vi"], "area": "506.4 ha + 12,100 ha buffer" },
+    "honguAreaTotalVisitors": { "year": 2024, "count": 1617365, "note": "All nationalities, day + overnight" },
+    "bookingLeadTime": "30+ days for processing, 10-12 months advance for peak season"
+  },
+  "sources": [
+    { "name": "Kii Minpo (AGARA) — 2024 record article", "url": "https://www.agara.co.jp/article/491535", "accessDate": "2026-03-27" },
+    { "name": "Kii Minpo (AGARA) — V-shaped recovery", "url": "https://www.agara.co.jp/article/385824", "accessDate": "2026-03-27" },
+    { "name": "Tanabe City Kumano Tourism Bureau — Dual Pilgrim", "url": "https://www.tb-kumano.jp/en/kumano-kodo/dual-pilgrim/", "accessDate": "2026-03-27" },
+    { "name": "CLAIR — Tanabe case study", "url": "https://economy.clair.or.jp/casestudy/inbound/5501/", "accessDate": "2026-03-27" },
+    { "name": "Wakayama Prefecture tourism survey", "url": "https://www.agara.co.jp/article/500709", "accessDate": "2026-03-27" }
+  ]
+}

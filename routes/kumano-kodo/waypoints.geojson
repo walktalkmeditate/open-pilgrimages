@@ -1,26 +1,1256 @@
 {
   "type": "FeatureCollection",
   "features": [
-    { "type": "Feature", "id": "wp-takijiri-oji", "geometry": { "type": "Point", "coordinates": [135.504, 33.776, 100] }, "properties": { "routeId": "kumano-kodo", "name": "Takijiri-oji", "nameLocalized": { "ja": "滝尻王子" }, "type": "sacred_site", "subtype": "oji", "stageIndex": 0, "kmFromStart": 0, "icon": "shrine", "description": "One of the Five Great Oji. Gate to the sacred mountains.", "elevation": 100, "tradition": "shinto", "credentialStamp": true, "tags": ["start", "gotai-oji", "gate"] } },
-    { "type": "Feature", "id": "wp-nezu-oji", "geometry": { "type": "Point", "coordinates": [135.506, 33.777, 120] }, "properties": { "routeId": "kumano-kodo", "name": "Nezu-oji (remains)", "nameLocalized": { "ja": "不寝王子跡" }, "type": "sacred_site", "subtype": "oji", "stageIndex": 0, "kmFromStart": 0.3, "icon": "shrine", "description": "Ruins of an Oji shrine.", "elevation": 120, "tradition": "shinto", "tags": ["oji", "ruins"] } },
-    { "type": "Feature", "id": "wp-takahara", "geometry": { "type": "Point", "coordinates": [135.519, 33.793, 330] }, "properties": { "routeId": "kumano-kodo", "name": "Takahara", "nameLocalized": { "ja": "高原" }, "type": "town", "stageIndex": 0, "kmFromStart": 4, "icon": "town", "description": "Mountain settlement known as 'the village in the mist'.", "elevation": 330, "tags": ["town", "accommodation"] } },
-    { "type": "Feature", "id": "wp-daimon-oji", "geometry": { "type": "Point", "coordinates": [135.547, 33.797, 500] }, "properties": { "routeId": "kumano-kodo", "name": "Daimon-oji", "nameLocalized": { "ja": "大門王子" }, "type": "sacred_site", "subtype": "oji", "stageIndex": 1, "kmFromStart": 7, "icon": "shrine", "elevation": 500, "tradition": "shinto", "tags": ["oji"] } },
-    { "type": "Feature", "id": "wp-jujyo-oji", "geometry": { "type": "Point", "coordinates": [135.560, 33.801, 530] }, "properties": { "routeId": "kumano-kodo", "name": "Jujyo-oji", "nameLocalized": { "ja": "十丈王子" }, "type": "sacred_site", "subtype": "oji", "stageIndex": 1, "kmFromStart": 8.5, "icon": "shrine", "elevation": 530, "tradition": "shinto", "tags": ["oji"] } },
-    { "type": "Feature", "id": "wp-oosakamoto-oji", "geometry": { "type": "Point", "coordinates": [135.589, 33.814, 580] }, "properties": { "routeId": "kumano-kodo", "name": "Oosakamoto-oji", "nameLocalized": { "ja": "大阪本王子" }, "type": "sacred_site", "subtype": "oji", "stageIndex": 1, "kmFromStart": 12, "icon": "shrine", "elevation": 580, "tradition": "shinto", "tags": ["oji"] } },
-    { "type": "Feature", "id": "wp-chikatsuyu-oji", "geometry": { "type": "Point", "coordinates": [135.606, 33.814, 300] }, "properties": { "routeId": "kumano-kodo", "name": "Chikatsuyu-oji", "nameLocalized": { "ja": "近露王子" }, "type": "sacred_site", "subtype": "oji", "stageIndex": 1, "kmFromStart": 17, "icon": "shrine", "description": "Midway point of the Nakahechi.", "elevation": 300, "tradition": "shinto", "credentialStamp": true, "tags": ["oji", "midpoint"] } },
-    { "type": "Feature", "id": "wp-chikatsuyu-town", "geometry": { "type": "Point", "coordinates": [135.606, 33.814, 300] }, "properties": { "routeId": "kumano-kodo", "name": "Chikatsuyu", "nameLocalized": { "ja": "近露" }, "type": "town", "stageIndex": 1, "kmFromStart": 17, "icon": "town", "description": "Small village with guesthouses and minshuku. Key overnight stop.", "elevation": 300, "tags": ["town", "accommodation"] } },
-    { "type": "Feature", "id": "wp-tsugizakura-oji", "geometry": { "type": "Point", "coordinates": [135.634, 33.829, 550] }, "properties": { "routeId": "kumano-kodo", "name": "Tsugizakura-oji", "nameLocalized": { "ja": "継桜王子" }, "type": "sacred_site", "subtype": "oji", "stageIndex": 2, "kmFromStart": 21, "icon": "shrine", "description": "800-year-old cedar trees tower over the shrine.", "elevation": 550, "tradition": "shinto", "credentialStamp": true, "tags": ["oji", "cedar"] } },
-    { "type": "Feature", "id": "wp-kobiro-oji", "geometry": { "type": "Point", "coordinates": [135.657, 33.835, 600] }, "properties": { "routeId": "kumano-kodo", "name": "Kobiro-oji", "nameLocalized": { "ja": "小広王子" }, "type": "sacred_site", "subtype": "oji", "stageIndex": 2, "kmFromStart": 24, "icon": "shrine", "elevation": 600, "tradition": "shinto", "tags": ["oji"] } },
-    { "type": "Feature", "id": "wp-inohana-oji", "geometry": { "type": "Point", "coordinates": [135.721, 33.857, 350] }, "properties": { "routeId": "kumano-kodo", "name": "Inohana-oji", "nameLocalized": { "ja": "猪鼻王子" }, "type": "sacred_site", "subtype": "oji", "stageIndex": 2, "kmFromStart": 30, "icon": "shrine", "elevation": 350, "tradition": "shinto", "tags": ["oji"] } },
-    { "type": "Feature", "id": "wp-hosshinmon-oji", "geometry": { "type": "Point", "coordinates": [135.721, 33.862, 290] }, "properties": { "routeId": "kumano-kodo", "name": "Hosshinmon-oji", "nameLocalized": { "ja": "発心門王子" }, "type": "sacred_site", "subtype": "oji", "stageIndex": 2, "kmFromStart": 31, "icon": "shrine", "description": "Gate of Spiritual Awakening. One of the Five Great Oji. Entrance to the sacred precincts of Kumano Hongu Taisha.", "elevation": 290, "tradition": "shinto", "credentialStamp": true, "tags": ["gotai-oji", "gate", "threshold"] } },
-    { "type": "Feature", "id": "wp-mizunomi-oji", "geometry": { "type": "Point", "coordinates": [135.737, 33.858, 280] }, "properties": { "routeId": "kumano-kodo", "name": "Mizunomi-oji", "nameLocalized": { "ja": "水呑王子跡" }, "type": "sacred_site", "subtype": "oji", "stageIndex": 3, "kmFromStart": 33, "icon": "shrine", "description": "Ruins. Known for its water source.", "elevation": 280, "tradition": "shinto", "tags": ["oji", "ruins", "water"] } },
-    { "type": "Feature", "id": "wp-fushiogami-oji", "geometry": { "type": "Point", "coordinates": [135.757, 33.860, 250] }, "properties": { "routeId": "kumano-kodo", "name": "Fushiogami-oji", "nameLocalized": { "ja": "伏拝王子" }, "type": "sacred_site", "subtype": "oji", "stageIndex": 3, "kmFromStart": 35, "icon": "shrine", "description": "Prostrate Worship Shrine. First view of Kumano Hongu Taisha. Pilgrims traditionally fell to their knees here.", "elevation": 250, "tradition": "shinto", "credentialStamp": true, "tags": ["oji", "viewpoint"] } },
-    { "type": "Feature", "id": "wp-hongu-taisha", "geometry": { "type": "Point", "coordinates": [135.774, 33.840, 80] }, "properties": { "routeId": "kumano-kodo", "name": "Kumano Hongu Taisha", "nameLocalized": { "ja": "熊野本宮大社" }, "type": "sacred_site", "subtype": "taisha", "stageIndex": 3, "kmFromStart": 38, "icon": "shrine", "description": "The primary Grand Shrine of Kumano. Symbol: Yatagarasu (three-legged crow).", "elevation": 80, "tradition": "shinto", "hours": "08:00-17:00", "credentialStamp": true, "tags": ["grand-shrine", "end", "yatagarasu", "unesco"] } },
-    { "type": "Feature", "id": "wp-oyunohara", "geometry": { "type": "Point", "coordinates": [135.770, 33.843, 65] }, "properties": { "routeId": "kumano-kodo", "name": "Oyunohara", "nameLocalized": { "ja": "大斎原" }, "type": "sacred_site", "subtype": "shrine", "stageIndex": 3, "icon": "torii", "description": "Original site of Kumano Hongu Taisha. The massive torii gate (33.9m tall, 42m wide) is the largest in the world.", "elevation": 65, "tradition": "shinto", "tags": ["torii", "original-site", "largest-torii"] } },
-    { "type": "Feature", "id": "wp-yunomine-onsen", "geometry": { "type": "Point", "coordinates": [135.758, 33.829, 120] }, "properties": { "routeId": "kumano-kodo", "name": "Yunomine Onsen", "nameLocalized": { "ja": "湯の峰温泉" }, "type": "accommodation", "subtype": "ryokan", "stageIndex": 3, "icon": "onsen", "description": "Japan's oldest thermal spring (1,800+ years). Tsuboyu bath is the only UNESCO World Heritage bathing facility in the world.", "elevation": 120, "tags": ["onsen", "unesco", "purification", "historic"] } },
-    { "type": "Feature", "id": "wp-yunomine-oji", "geometry": { "type": "Point", "coordinates": [135.758, 33.829, 120] }, "properties": { "routeId": "kumano-kodo", "name": "Yunomine-oji", "nameLocalized": { "ja": "湯峯王子" }, "type": "sacred_site", "subtype": "oji", "stageIndex": 3, "icon": "shrine", "description": "Oji shrine near the hot springs.", "elevation": 120, "tradition": "shinto", "tags": ["oji"] } },
-    { "type": "Feature", "id": "wp-nachi-taisha", "geometry": { "type": "Point", "coordinates": [135.890, 33.668, 330] }, "properties": { "routeId": "kumano-kodo", "name": "Kumano Nachi Taisha", "nameLocalized": { "ja": "熊野那智大社" }, "type": "sacred_site", "subtype": "taisha", "icon": "shrine", "description": "Grand Shrine overlooking Nachi Falls. 800-year-old sacred camphor tree. Annual fire festival (July 14).", "elevation": 330, "tradition": "shinto", "hours": "08:00-16:30", "credentialStamp": true, "tags": ["grand-shrine", "waterfall", "fire-festival", "unesco"] } },
-    { "type": "Feature", "id": "wp-nachi-falls", "geometry": { "type": "Point", "coordinates": [135.891, 33.672, 200] }, "properties": { "routeId": "kumano-kodo", "name": "Nachi Falls", "nameLocalized": { "ja": "那智滝" }, "type": "sacred_site", "subtype": "waterfall", "icon": "waterfall", "description": "133m tall — tallest single-drop waterfall in Japan. Worshipped as a deity (Hiryu Gongen).", "elevation": 200, "tradition": "shinto", "tags": ["waterfall", "sacred", "natural-wonder"] } },
-    { "type": "Feature", "id": "wp-hayatama-taisha", "geometry": { "type": "Point", "coordinates": [135.984, 33.732, 10] }, "properties": { "routeId": "kumano-kodo", "name": "Kumano Hayatama Taisha", "nameLocalized": { "ja": "熊野速玉大社" }, "type": "sacred_site", "subtype": "taisha", "icon": "shrine", "description": "Grand Shrine in Shingu. Sacred Nagi tree (planted 1159, 17.6m tall) is a designated Natural Monument.", "elevation": 10, "tradition": "shinto", "hours": "08:00-17:00", "credentialStamp": true, "tags": ["grand-shrine", "nagi-tree", "natural-monument", "unesco"] } }
+    {
+      "type": "Feature",
+      "id": "wp-takijiri-oji",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.504,
+          33.776,
+          100
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Takijiri-oji",
+        "nameLocalized": {
+          "ja": "滝尻王子"
+        },
+        "type": "sacred_site",
+        "subtype": "oji",
+        "stageIndex": 0,
+        "kmFromStart": 0,
+        "icon": "shrine",
+        "description": "One of the Five Great Oji. Gate to the sacred mountains.",
+        "elevation": 100,
+        "tradition": "shinto",
+        "credentialStamp": true,
+        "tags": [
+          "start",
+          "gotai-oji",
+          "gate"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-oyunohara",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.77,
+          33.843,
+          65
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Oyunohara",
+        "nameLocalized": {
+          "ja": "大斎原"
+        },
+        "type": "sacred_site",
+        "subtype": "shrine",
+        "stageIndex": 3,
+        "icon": "torii",
+        "description": "Original site of Kumano Hongu Taisha. The massive torii gate (33.9m tall, 42m wide) is the largest in the world.",
+        "elevation": 65,
+        "tradition": "shinto",
+        "tags": [
+          "torii",
+          "original-site",
+          "largest-torii"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-yunomine-onsen",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.758,
+          33.829,
+          120
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Yunomine Onsen",
+        "nameLocalized": {
+          "ja": "湯の峰温泉"
+        },
+        "type": "accommodation",
+        "subtype": "ryokan",
+        "stageIndex": 3,
+        "icon": "onsen",
+        "description": "Japan's oldest thermal spring (1,800+ years). Tsuboyu bath is the only UNESCO World Heritage bathing facility in the world.",
+        "elevation": 120,
+        "tags": [
+          "onsen",
+          "unesco",
+          "purification",
+          "historic"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-yunomine-oji",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.758,
+          33.829,
+          120
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Yunomine-oji",
+        "nameLocalized": {
+          "ja": "湯峯王子"
+        },
+        "type": "sacred_site",
+        "subtype": "oji",
+        "stageIndex": 3,
+        "icon": "shrine",
+        "description": "Oji shrine near the hot springs.",
+        "elevation": 120,
+        "tradition": "shinto",
+        "tags": [
+          "oji"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-nachi-taisha",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.89,
+          33.668,
+          330
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Kumano Nachi Taisha",
+        "nameLocalized": {
+          "ja": "熊野那智大社"
+        },
+        "type": "sacred_site",
+        "subtype": "taisha",
+        "icon": "shrine",
+        "description": "Grand Shrine overlooking Nachi Falls. 800-year-old sacred camphor tree. Annual fire festival (July 14).",
+        "elevation": 330,
+        "tradition": "shinto",
+        "hours": "08:00-16:30",
+        "credentialStamp": true,
+        "tags": [
+          "grand-shrine",
+          "waterfall",
+          "fire-festival",
+          "unesco"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-nachi-falls",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.891,
+          33.672,
+          200
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Nachi Falls",
+        "nameLocalized": {
+          "ja": "那智滝"
+        },
+        "type": "sacred_site",
+        "subtype": "waterfall",
+        "icon": "waterfall",
+        "description": "133m tall — tallest single-drop waterfall in Japan. Worshipped as a deity (Hiryu Gongen).",
+        "elevation": 200,
+        "tradition": "shinto",
+        "tags": [
+          "waterfall",
+          "sacred",
+          "natural-wonder"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-hayatama-taisha",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.984,
+          33.732,
+          10
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Kumano Hayatama Taisha",
+        "nameLocalized": {
+          "ja": "熊野速玉大社"
+        },
+        "type": "sacred_site",
+        "subtype": "taisha",
+        "icon": "shrine",
+        "description": "Grand Shrine in Shingu. Sacred Nagi tree (planted 1159, 17.6m tall) is a designated Natural Monument.",
+        "elevation": 10,
+        "tradition": "shinto",
+        "hours": "08:00-17:00",
+        "credentialStamp": true,
+        "tags": [
+          "grand-shrine",
+          "nagi-tree",
+          "natural-monument",
+          "unesco"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-nezu-oji",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.506,
+          33.777,
+          120
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Nezu-oji (remains)",
+        "nameLocalized": {
+          "ja": "不寝王子跡"
+        },
+        "type": "sacred_site",
+        "subtype": "oji",
+        "stageIndex": 0,
+        "kmFromStart": 0.3,
+        "icon": "shrine",
+        "description": "Ruins of an Oji shrine.",
+        "elevation": 120,
+        "tradition": "shinto",
+        "tags": [
+          "oji",
+          "ruins"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-takahara",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.519,
+          33.793,
+          330
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Takahara",
+        "nameLocalized": {
+          "ja": "高原"
+        },
+        "type": "town",
+        "stageIndex": 0,
+        "kmFromStart": 4,
+        "icon": "town",
+        "description": "Mountain settlement known as 'the village in the mist'.",
+        "elevation": 330,
+        "tags": [
+          "town",
+          "accommodation"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-daimon-oji",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.547,
+          33.797,
+          500
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Daimon-oji",
+        "nameLocalized": {
+          "ja": "大門王子"
+        },
+        "type": "sacred_site",
+        "subtype": "oji",
+        "stageIndex": 1,
+        "kmFromStart": 7,
+        "icon": "shrine",
+        "elevation": 500,
+        "tradition": "shinto",
+        "tags": [
+          "oji"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-jujyo-oji",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.56,
+          33.801,
+          530
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Jujyo-oji",
+        "nameLocalized": {
+          "ja": "十丈王子"
+        },
+        "type": "sacred_site",
+        "subtype": "oji",
+        "stageIndex": 1,
+        "kmFromStart": 8.5,
+        "icon": "shrine",
+        "elevation": 530,
+        "tradition": "shinto",
+        "tags": [
+          "oji"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-oosakamoto-oji",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.589,
+          33.814,
+          580
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Oosakamoto-oji",
+        "nameLocalized": {
+          "ja": "大阪本王子"
+        },
+        "type": "sacred_site",
+        "subtype": "oji",
+        "stageIndex": 1,
+        "kmFromStart": 12,
+        "icon": "shrine",
+        "elevation": 580,
+        "tradition": "shinto",
+        "tags": [
+          "oji"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-food-node11245043242",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.5948386,
+          33.8120907
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Unnamed",
+        "type": "food",
+        "subtype": "cafe",
+        "stageIndex": 1,
+        "kmFromStart": 13.3,
+        "icon": "cafe",
+        "source": "osm",
+        "osmId": "node/11245043242"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-food-node11247011997",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.606258,
+          33.8145913
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Cabelo Coffee",
+        "nameLocalized": {
+          "ja": "かベロ"
+        },
+        "type": "food",
+        "subtype": "cafe",
+        "stageIndex": 1,
+        "kmFromStart": 15.2,
+        "icon": "cafe",
+        "source": "osm",
+        "osmId": "node/11247011997"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-chikatsuyu-oji",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.606,
+          33.814,
+          300
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Chikatsuyu-oji",
+        "nameLocalized": {
+          "ja": "近露王子"
+        },
+        "type": "sacred_site",
+        "subtype": "oji",
+        "stageIndex": 1,
+        "kmFromStart": 17,
+        "icon": "shrine",
+        "description": "Midway point of the Nakahechi.",
+        "elevation": 300,
+        "tradition": "shinto",
+        "credentialStamp": true,
+        "tags": [
+          "oji",
+          "midpoint"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-chikatsuyu-town",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.606,
+          33.814,
+          300
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Chikatsuyu",
+        "nameLocalized": {
+          "ja": "近露"
+        },
+        "type": "town",
+        "stageIndex": 1,
+        "kmFromStart": 17,
+        "icon": "town",
+        "description": "Small village with guesthouses and minshuku. Key overnight stop.",
+        "elevation": 300,
+        "tags": [
+          "town",
+          "accommodation"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-food-node10904114319",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.6333919,
+          33.8278975
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Unnamed",
+        "type": "food",
+        "subtype": "cafe",
+        "stageIndex": 2,
+        "kmFromStart": 20.3,
+        "icon": "cafe",
+        "source": "osm",
+        "osmId": "node/10904114319"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-food-node11299858719",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.6345451,
+          33.8282606
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "とがの木茶室",
+        "type": "food",
+        "subtype": "cafe",
+        "stageIndex": 2,
+        "kmFromStart": 20.4,
+        "icon": "cafe",
+        "source": "osm",
+        "osmId": "node/11299858719"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-tsugizakura-oji",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.634,
+          33.829,
+          550
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Tsugizakura-oji",
+        "nameLocalized": {
+          "ja": "継桜王子"
+        },
+        "type": "sacred_site",
+        "subtype": "oji",
+        "stageIndex": 2,
+        "kmFromStart": 21,
+        "icon": "shrine",
+        "description": "800-year-old cedar trees tower over the shrine.",
+        "elevation": 550,
+        "tradition": "shinto",
+        "credentialStamp": true,
+        "tags": [
+          "oji",
+          "cedar"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-kobiro-oji",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.657,
+          33.835,
+          600
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Kobiro-oji",
+        "nameLocalized": {
+          "ja": "小広王子"
+        },
+        "type": "sacred_site",
+        "subtype": "oji",
+        "stageIndex": 2,
+        "kmFromStart": 24,
+        "icon": "shrine",
+        "elevation": 600,
+        "tradition": "shinto",
+        "tags": [
+          "oji"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-inohana-oji",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.721,
+          33.857,
+          350
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Inohana-oji",
+        "nameLocalized": {
+          "ja": "猪鼻王子"
+        },
+        "type": "sacred_site",
+        "subtype": "oji",
+        "stageIndex": 2,
+        "kmFromStart": 30,
+        "icon": "shrine",
+        "elevation": 350,
+        "tradition": "shinto",
+        "tags": [
+          "oji"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-hosshinmon-oji",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.721,
+          33.862,
+          290
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Hosshinmon-oji",
+        "nameLocalized": {
+          "ja": "発心門王子"
+        },
+        "type": "sacred_site",
+        "subtype": "oji",
+        "stageIndex": 2,
+        "kmFromStart": 31,
+        "icon": "shrine",
+        "description": "Gate of Spiritual Awakening. One of the Five Great Oji. Entrance to the sacred precincts of Kumano Hongu Taisha.",
+        "elevation": 290,
+        "tradition": "shinto",
+        "credentialStamp": true,
+        "tags": [
+          "gotai-oji",
+          "gate",
+          "threshold"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-mizunomi-oji",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.737,
+          33.858,
+          280
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Mizunomi-oji",
+        "nameLocalized": {
+          "ja": "水呑王子跡"
+        },
+        "type": "sacred_site",
+        "subtype": "oji",
+        "stageIndex": 3,
+        "kmFromStart": 33,
+        "icon": "shrine",
+        "description": "Ruins. Known for its water source.",
+        "elevation": 280,
+        "tradition": "shinto",
+        "tags": [
+          "oji",
+          "ruins",
+          "water"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-fushiogami-oji",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.757,
+          33.86,
+          250
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Fushiogami-oji",
+        "nameLocalized": {
+          "ja": "伏拝王子"
+        },
+        "type": "sacred_site",
+        "subtype": "oji",
+        "stageIndex": 3,
+        "kmFromStart": 35,
+        "icon": "shrine",
+        "description": "Prostrate Worship Shrine. First view of Kumano Hongu Taisha. Pilgrims traditionally fell to their knees here.",
+        "elevation": 250,
+        "tradition": "shinto",
+        "credentialStamp": true,
+        "tags": [
+          "oji",
+          "viewpoint"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-hongu-taisha",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.774,
+          33.84,
+          80
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Kumano Hongu Taisha",
+        "nameLocalized": {
+          "ja": "熊野本宮大社"
+        },
+        "type": "sacred_site",
+        "subtype": "taisha",
+        "stageIndex": 3,
+        "kmFromStart": 38,
+        "icon": "shrine",
+        "description": "The primary Grand Shrine of Kumano. Symbol: Yatagarasu (three-legged crow).",
+        "elevation": 80,
+        "tradition": "shinto",
+        "hours": "08:00-17:00",
+        "credentialStamp": true,
+        "tags": [
+          "grand-shrine",
+          "end",
+          "yatagarasu",
+          "unesco"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-food-node6710271450",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.7741539,
+          33.8389918
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Unnamed",
+        "type": "food",
+        "subtype": "cafe",
+        "stageIndex": 3,
+        "kmFromStart": 46.8,
+        "icon": "cafe",
+        "source": "osm",
+        "osmId": "node/6710271450",
+        "hours": "We-Mo 09:00-16:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-food-node4836368282",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.9358893,
+          33.6448183
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Bistro Bonheur",
+        "type": "food",
+        "subtype": "restaurant",
+        "stageIndex": 3,
+        "kmFromStart": 73.1,
+        "icon": "restaurant",
+        "source": "osm",
+        "osmId": "node/4836368282"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-food-node6842876887",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.9374052,
+          33.6460733
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Cafe Pilina",
+        "type": "food",
+        "subtype": "cafe",
+        "stageIndex": 3,
+        "kmFromStart": 73.1,
+        "icon": "cafe",
+        "source": "osm",
+        "osmId": "node/6842876887"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-food-node6843661485",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.9360917,
+          33.6439443
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "smart cafe",
+        "type": "food",
+        "subtype": "cafe",
+        "stageIndex": 3,
+        "kmFromStart": 73.1,
+        "icon": "cafe",
+        "source": "osm",
+        "osmId": "node/6843661485"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node4437427603",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.9331879,
+          33.6417772
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "LAWSON",
+        "nameLocalized": {
+          "ja": "ローソン",
+          "ko": "로손"
+        },
+        "type": "supply",
+        "subtype": "convenience_store",
+        "stageIndex": 3,
+        "kmFromStart": 73.5,
+        "icon": "convenience_store",
+        "source": "osm",
+        "osmId": "node/4437427603",
+        "hours": "24/7"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node4836368277",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.9339243,
+          33.6406446
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "FamilyMart",
+        "nameLocalized": {
+          "ja": "ファミリーマート 那智勝浦店"
+        },
+        "type": "supply",
+        "subtype": "convenience_store",
+        "stageIndex": 3,
+        "kmFromStart": 73.5,
+        "icon": "convenience_store",
+        "source": "osm",
+        "osmId": "node/4836368277",
+        "hours": "24/7"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-food-node10780183507",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.9060395,
+          33.6669848
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Nachi Neboke-do",
+        "type": "food",
+        "subtype": "restaurant",
+        "stageIndex": 3,
+        "kmFromStart": 81.3,
+        "icon": "restaurant",
+        "source": "osm",
+        "osmId": "node/10780183507",
+        "hours": "Mo-Su 08:15-17:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-food-node9672933992",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.8925962,
+          33.6700253
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Unnamed",
+        "type": "food",
+        "subtype": "cafe",
+        "stageIndex": 3,
+        "kmFromStart": 83.9,
+        "icon": "cafe",
+        "source": "osm",
+        "osmId": "node/9672933992"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-food-node5104407334",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.7869682,
+          33.8206799
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Aimi",
+        "type": "food",
+        "subtype": "cafe",
+        "stageIndex": 3,
+        "kmFromStart": 115,
+        "icon": "cafe",
+        "source": "osm",
+        "osmId": "node/5104407334"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node11279132687",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.7625252,
+          33.8209119
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "正八",
+        "type": "supply",
+        "subtype": "convenience_store",
+        "stageIndex": 3,
+        "kmFromStart": 121.7,
+        "icon": "convenience_store",
+        "source": "osm",
+        "osmId": "node/11279132687"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-water_source-node13105384222",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.7700072,
+          33.8130637
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Unnamed",
+        "type": "water_source",
+        "subtype": "fountain",
+        "stageIndex": 3,
+        "kmFromStart": 126.4,
+        "icon": "fountain",
+        "source": "osm",
+        "osmId": "node/13105384222"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-food-node6699999688",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.7728722,
+          33.8130758
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Oshokujidokoro Tokiwaya",
+        "type": "food",
+        "subtype": "restaurant",
+        "stageIndex": 3,
+        "kmFromStart": 126.6,
+        "icon": "restaurant",
+        "source": "osm",
+        "osmId": "node/6699999688"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-food-node5694272317",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.7725432,
+          33.8344239
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "kumanoco restaurant",
+        "type": "food",
+        "subtype": "restaurant",
+        "stageIndex": 3,
+        "kmFromStart": 168.3,
+        "icon": "restaurant",
+        "source": "osm",
+        "osmId": "node/5694272317",
+        "hours": "Mo-Su 11:00-15:00, 17:00-22:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node7472496586",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.7722083,
+          33.8337734
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Unnamed",
+        "type": "supply",
+        "subtype": "convenience_store",
+        "stageIndex": 3,
+        "kmFromStart": 168.3,
+        "icon": "convenience_store",
+        "source": "osm",
+        "osmId": "node/7472496586"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node7472478786",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.7745326,
+          33.8377525
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Yamazaki",
+        "type": "supply",
+        "subtype": "convenience_store",
+        "stageIndex": 3,
+        "kmFromStart": 170,
+        "icon": "convenience_store",
+        "source": "osm",
+        "osmId": "node/7472478786"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-food-node2722914025",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.5890906,
+          34.2127794
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Café Hirugashi",
+        "nameLocalized": {
+          "es": "Bon On Sha",
+          "ja": "ひぐらし"
+        },
+        "type": "food",
+        "subtype": "cafe",
+        "stageIndex": 3,
+        "kmFromStart": 231.3,
+        "icon": "cafe",
+        "source": "osm",
+        "osmId": "node/2722914025",
+        "hours": "We, Fr-Mo 11:00-18:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-food-node4994907321",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.5882433,
+          34.2128208
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "udon restaurant",
+        "nameLocalized": {
+          "fr": "restaurant udon"
+        },
+        "type": "food",
+        "subtype": "restaurant",
+        "stageIndex": 3,
+        "kmFromStart": 231.3,
+        "icon": "restaurant",
+        "source": "osm",
+        "osmId": "node/4994907321"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-medical-node1423077141",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.5867031,
+          34.2163645
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Koyasan Hospital",
+        "type": "medical",
+        "subtype": "hospital",
+        "stageIndex": 3,
+        "kmFromStart": 231.4,
+        "icon": "hospital",
+        "source": "osm",
+        "osmId": "node/1423077141"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-medical-node4795891627",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.5861406,
+          34.2133133
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "順敬堂薬局",
+        "type": "medical",
+        "subtype": "pharmacy",
+        "stageIndex": 3,
+        "kmFromStart": 231.4,
+        "icon": "pharmacy",
+        "source": "osm",
+        "osmId": "node/4795891627"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-food-node4916163221",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.5869001,
+          34.2127617
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Hanabishi",
+        "nameLocalized": {
+          "ja": "花菱"
+        },
+        "type": "food",
+        "subtype": "restaurant",
+        "stageIndex": 3,
+        "kmFromStart": 231.4,
+        "icon": "restaurant",
+        "source": "osm",
+        "osmId": "node/4916163221"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-food-node13245189701",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.5833396,
+          34.2123323
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Café Shizuku",
+        "type": "food",
+        "subtype": "cafe",
+        "stageIndex": 3,
+        "kmFromStart": 232.6,
+        "icon": "cafe",
+        "source": "osm",
+        "osmId": "node/13245189701"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node2984492821",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.5873851,
+          34.2123802
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Daily Yamazaki",
+        "nameLocalized": {
+          "ja": "デイリーヤマザキ"
+        },
+        "type": "supply",
+        "subtype": "convenience_store",
+        "stageIndex": 3,
+        "kmFromStart": 232.8,
+        "icon": "convenience_store",
+        "source": "osm",
+        "osmId": "node/2984492821"
+      }
+    }
   ]
 }
