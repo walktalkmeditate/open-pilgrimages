@@ -1,0 +1,95 @@
+{
+  "schemaVersion": "1.0.0",
+  "routeId": "shikoku-88",
+  "lastUpdated": "2026-03-27",
+  "dataYear": 2025,
+  "dataNote": "Shikoku has no central pilgrim office. Walking/cycling completion data comes from the Omotenashi Network (Henro Ambassador certificates). Total pilgrim counts (all modes) are estimates only.",
+  "annualPilgrims": {
+    "latest": { "year": 2025, "count": 150000, "note": "Estimated total (all modes). Walking completions: 1,622." },
+    "walkingCompletions": {
+      "note": "Henro Ambassador certificates issued by NPO Henro to Omotenashi no Network. Fiscal year July 1 - June 30. Covers only self-powered pilgrims who pass through Maeyama salon.",
+      "trend": [
+        { "year": 2005, "count": 1740, "foreign": 10 },
+        { "year": 2006, "count": 1990, "foreign": 34 },
+        { "year": 2007, "count": 2796, "foreign": 33 },
+        { "year": 2008, "count": 3067, "foreign": 44 },
+        { "year": 2009, "count": 3040, "foreign": 63 },
+        { "year": 2010, "count": 2859, "foreign": 78 },
+        { "year": 2011, "count": 2721, "foreign": 63 },
+        { "year": 2012, "count": 2478, "foreign": 79 },
+        { "year": 2013, "count": 2463, "foreign": 98 },
+        { "year": 2014, "count": 2581, "foreign": 129 },
+        { "year": 2015, "count": 3447, "foreign": 184, "note": "1200th anniversary of Kukai's pilgrimage" },
+        { "year": 2016, "count": 2554, "foreign": 221 },
+        { "year": 2017, "count": 2717, "foreign": 323 },
+        { "year": 2018, "count": 2503, "foreign": 416 },
+        { "year": 2019, "count": 2255, "foreign": 345 },
+        { "year": 2020, "count": 1419, "foreign": 206 },
+        { "year": 2021, "count": 899, "foreign": 15, "note": "COVID-19" },
+        { "year": 2022, "count": 1119, "foreign": 16 },
+        { "year": 2023, "count": 1487, "foreign": 247 },
+        { "year": 2024, "count": 1817, "foreign": 512 },
+        { "year": 2025, "count": 1622, "foreign": 536, "note": "Foreign share 33% — record high" }
+      ],
+      "cumulativeTotal": 48009,
+      "cumulativeForeign": 3652,
+      "source": "https://www.omotenashi88.net/list_henrotaishi.html"
+    },
+    "cyclingCompletions": {
+      "trend": [
+        { "year": 2015, "count": 134, "foreign": 4 },
+        { "year": 2016, "count": 130, "foreign": 12 },
+        { "year": 2017, "count": 101, "foreign": 15 },
+        { "year": 2018, "count": 137, "foreign": 18 },
+        { "year": 2019, "count": 129, "foreign": 15 },
+        { "year": 2020, "count": 101, "foreign": 8 },
+        { "year": 2021, "count": 73, "foreign": 2 },
+        { "year": 2022, "count": 106, "foreign": 1 },
+        { "year": 2023, "count": 105, "foreign": 10 },
+        { "year": 2024, "count": 107, "foreign": 16 },
+        { "year": 2025, "count": 106, "foreign": 24 }
+      ],
+      "cumulativeTotal": 1229,
+      "source": "https://www.omotenashi88.net/list_henrotaishi.html"
+    },
+    "source": "https://www.omotenashi88.net/list_henrotaishi.html"
+  },
+  "demographics": {
+    "topNationalities": [
+      { "country": "FR", "name": "France", "count": 73, "note": "2024-25 walking completions" },
+      { "country": "US", "name": "United States", "count": 72 },
+      { "country": "TW", "name": "Taiwan", "count": 61 },
+      { "country": "DE", "name": "Germany", "count": 49 },
+      { "country": "NL", "name": "Netherlands", "count": 36 },
+      { "country": "AU", "name": "Australia", "count": 35 },
+      { "country": "CA", "name": "Canada", "count": 30 }
+    ],
+    "genderSplit": { "male": 0.73, "female": 0.27, "note": "2001 walking pilgrim survey — only rigorous data available" },
+    "ageNote": "Peak ages: men 60s, women 50s (2001 survey). Growing 20s-30s segment post-COVID.",
+    "source": "https://www.i-manabi.jp/system/regionals/regionals/ecode:1/12/view/2111"
+  },
+  "seasonalDistribution": [
+    { "season": "spring", "months": [3, 4, 5], "percentage": 32.2, "note": "April is peak month" },
+    { "season": "autumn", "months": [9, 10, 11], "percentage": 29.5 },
+    { "season": "summer", "months": [6, 7, 8], "percentage": 24.6 },
+    { "season": "winter", "months": [12, 1, 2], "percentage": 13.7 }
+  ],
+  "modeOfTravel": [
+    { "mode": "tour_bus", "percentage": 60, "note": "Estimated — no rigorous recent survey" },
+    { "mode": "car", "percentage": 30 },
+    { "mode": "foot", "percentage": 5 },
+    { "mode": "bicycle", "percentage": 0.1 }
+  ],
+  "infrastructure": {
+    "pilgrimLodges": { "count": 617, "year": 2023, "note": "Down from 687 in 2020 (70 closures)" },
+    "stampFee": { "amount": 500, "currency": "JPY", "changedDate": "2024-04-01", "previousAmount": 300, "note": "First increase in 30 years" },
+    "templeHours": { "current": "08:00-17:00", "changedDate": "2024-04-01", "previous": "07:00-17:00" }
+  },
+  "sources": [
+    { "name": "NPO Henro to Omotenashi no Network", "url": "https://www.omotenashi88.net/list_henrotaishi.html", "accessDate": "2026-03-27" },
+    { "name": "Ehime Prefecture Academic Database", "url": "https://www.i-manabi.jp/system/regionals/regionals/ecode:1/12/view/2111", "accessDate": "2026-03-27" },
+    { "name": "Trail to the Horizon — Ohenro Data Analytics", "url": "https://trailtothehorizon.com/ohenro-data-analytics/", "accessDate": "2026-03-27" },
+    { "name": "KSB Setouchi Broadcasting", "url": "https://news.ksb.co.jp/article/15253685", "accessDate": "2026-03-27" },
+    { "name": "CLAIR (Council of Local Authorities for International Relations)", "url": "https://economy.clair.or.jp/casestudy/inbound/970/", "accessDate": "2026-03-27" }
+  ]
+}
