@@ -512,7 +512,7 @@
       "services": { "atm": true, "pharmacy": true, "grocery": true, "restaurant": true },
       "interior": {
         "theme": { "en": "Halfway" },
-        "narrative": { "en": "You arrived here through the longest stretch without shelter on the entire route, and you did not break. Sahagún marks the geographical midpoint of the Camino Frances. Its Mudéjar brick towers — Islamic architecture built by Christian hands — speak of a Spain where traditions blended rather than fought. You are halfway. The realization lands differently than you expected. There is no fanfare, no ceremony. You simply walk through a town and keep going. But halfway also means you cannot turn back without walking as far as you have already come. You are committed now, in a way you were not before." },
+        "narrative": { "en": "You survived yesterday's longest stretch without shelter on the entire route, and you did not break. Sahagún marks the geographical midpoint of the Camino Frances. Its Mudéjar brick towers — Islamic architecture built by Christian hands — speak of a Spain where traditions blended rather than fought. You are halfway. The realization lands differently than you expected. There is no fanfare, no ceremony. You simply walk through a town and keep going. But halfway also means you cannot turn back without walking as far as you have already come. You are committed now, in a way you were not before." },
         "commonExperiences": [
           { "en": "The quiet significance of reaching the halfway point" },
           { "en": "Calling home and struggling to explain what is happening to you" },

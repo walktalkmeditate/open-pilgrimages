@@ -52,7 +52,7 @@
       "waterSources": 6,
       "services": { "atm": true, "pharmacy": true, "grocery": true, "restaurant": true },
       "interior": {
-        "theme": { "en": "Awakening", "ja": "発心" },
+        "theme": { "en": "Reckoning", "ja": "発心" },
         "narrative": { "en": "Still in Tokushima, the Awakening phase. But now the temples spread out and the mountains deepen. By Temple 23, you have walked over 150 km and begin to understand what 1,200 km means. Yakuō-ji sits above the ocean. Ahead lies the longest gap on the entire pilgrimage — 75 km to Cape Muroto with no temple at all." },
         "commonExperiences": [
           { "en": "Finding your walking rhythm" },
@@ -117,7 +117,7 @@
         { "en": "80.7 km between Temple 37 and Temple 38 — the longest gap on the entire pilgrimage. Plan at least 3 days." }
       ],
       "interior": {
-        "theme": { "en": "Discipline", "ja": "修行" },
+        "theme": { "en": "The Farthest Point", "ja": "修行" },
         "narrative": { "en": "Cape Ashizuri is the bottom of the world. Kūkai trained here as a young ascetic, staring at the ocean and sky until the boundary between them dissolved. The walk here is the most isolated stretch of the pilgrimage. You are as far from Temple 1 as you will ever be — in every sense." },
         "commonExperiences": [
           { "en": "Feeling genuinely remote from civilization" },
@@ -266,7 +266,7 @@
           { "en": "The darkness ritual as a pilgrimage within the pilgrimage" },
           { "en": "Temples coming fast now, accelerating toward the end" }
         ],
-        "reflection": { "en": "In the darkness beneath Kukai's birthplace, what did your hands find that your eyes could not?" }
+        "reflection": { "en": "In the darkness beneath Kūkai's birthplace, what did your hands find that your eyes could not?" }
       }
     },
     {
