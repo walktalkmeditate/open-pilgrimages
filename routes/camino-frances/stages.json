@@ -345,7 +345,7 @@
           { "en": "Standing before Burgos cathedral in stunned silence" },
           { "en": "Feeling like a genuine pilgrim for the first time" }
         ],
-        "reflection": { "en": "What does it mean to you that humans have walked this land for a thousand centuries?" }
+        "reflection": { "en": "What does it mean to you that humans have walked this land for hundreds of thousands of years?" }
       }
     },
     {
@@ -373,7 +373,7 @@
           { "en": "Leaving the comfort of a major city" },
           { "en": "The landscape suddenly feeling very empty" }
         ],
-        "reflection": { "en": "What happens when there is nothing to distract you?" }
+        "reflection": { "en": "What part of you resists entering the empty spaces?" }
       }
     },
     {
@@ -451,7 +451,7 @@
       "services": { "atm": true, "pharmacy": true, "grocery": true, "restaurant": true },
       "interior": {
         "theme": { "en": "Surrender" },
-        "narrative": { "en": "An easy, flat day, and in that ease something softens. The Romanesque church of San Martín in Frómista is considered one of the most perfect in Spain — symmetrical, proportioned, complete. You do not need to understand architecture to feel what it offers: the peace of something made with total devotion and no hurry. Carrión de los Condes was once a major medieval city. Now it is a quiet town that knows how to receive tired walkers. You are learning to receive, too." },
+        "narrative": { "en": "You did not quit. And in the wake of that survival, an easy, flat day, and in that ease something softens. The Romanesque church of San Martín in Frómista is considered one of the most perfect in Spain — symmetrical, proportioned, complete. You do not need to understand architecture to feel what it offers: the peace of something made with total devotion and no hurry. Carrión de los Condes was once a major medieval city. Now it is a quiet town that knows how to receive tired walkers. You are learning to receive, too." },
         "commonExperiences": [
           { "en": "Lingering in the church of San Martín de Frómista" },
           { "en": "A rare easy day that feels like a gift" },
@@ -512,7 +512,7 @@
       "services": { "atm": true, "pharmacy": true, "grocery": true, "restaurant": true },
       "interior": {
         "theme": { "en": "Halfway" },
-        "narrative": { "en": "Sahagún marks the geographical midpoint of the Camino Frances. Its Mudéjar brick towers — Islamic architecture built by Christian hands — speak of a Spain where traditions blended rather than fought. You are halfway. The realization lands differently than you expected. There is no fanfare, no ceremony. You simply walk through a town and keep going. But halfway also means you cannot turn back without walking as far as you have already come. You are committed now, in a way you were not before." },
+        "narrative": { "en": "You arrived here through the longest stretch without shelter on the entire route, and you did not break. Sahagún marks the geographical midpoint of the Camino Frances. Its Mudéjar brick towers — Islamic architecture built by Christian hands — speak of a Spain where traditions blended rather than fought. You are halfway. The realization lands differently than you expected. There is no fanfare, no ceremony. You simply walk through a town and keep going. But halfway also means you cannot turn back without walking as far as you have already come. You are committed now, in a way you were not before." },
         "commonExperiences": [
           { "en": "The quiet significance of reaching the halfway point" },
           { "en": "Calling home and struggling to explain what is happening to you" },
@@ -567,7 +567,7 @@
       "waterSources": 5,
       "services": { "atm": true, "pharmacy": true, "grocery": true, "restaurant": true },
       "interior": {
-        "theme": { "en": "Arrival" },
+        "theme": { "en": "Reentry" },
         "narrative": { "en": "León marks the end of the meseta and the beginning of the mountains. After days of emptiness, the city feels overwhelming — noise, traffic, choices, stimulation. The cathedral's stained glass is the largest medieval collection in Europe. Pilgrims often take a rest day here, and the city has a way of testing your resolve. The meseta simplified your life. León complicates it again." },
         "commonExperiences": [
           { "en": "Sensory overload after days of open plains" },
@@ -713,7 +713,7 @@
       "services": { "atm": true, "pharmacy": true, "grocery": true, "restaurant": true },
       "interior": {
         "theme": { "en": "Lightness" },
-        "narrative": { "en": "After the emotional intensity of Cruz de Ferro and the brutal descent, this day through the Bierzo valley vineyards feels like convalescence. The body is battered but the spirit is lighter. Something was left at the cross and you can feel its absence — not as loss, but as space. The Templar castle in Ponferrada stands as a reminder that this route was once protected by warrior monks. You no longer need protecting. You have become your own guardian on this path." },
+        "narrative": { "en": "After the emotional intensity of Cruz de Ferro and the brutal descent, this day through the Bierzo valley vineyards feels like convalescence. The body is battered but the spirit is lighter. Something was left at the cross and you can feel its absence — not as loss, but as space. You left the Templar castle behind this morning — a fortress built by warrior monks to protect pilgrims on this very route. You no longer need protecting. You have become your own guardian on this path." },
         "commonExperiences": [
           { "en": "Walking with a sense of unburdening after Cruz de Ferro" },
           { "en": "Gentler terrain that allows emotional processing" },
@@ -744,7 +744,7 @@
         { "en": "The hardest climbing day. 660 m gain in the final 12 km. Start early and carry sufficient water." }
       ],
       "interior": {
-        "theme": { "en": "Endurance" },
+        "theme": { "en": "Trust" },
         "narrative": { "en": "The Queen Stage. By now you have walked 500 km and your body knows what it can do. The climb to O Cebreiro tests whether you trust that knowledge. The village at the top has been receiving pilgrims since the 9th century. The pre-Romanesque church of Santa María la Real is where the Holy Grail miracle is said to have occurred. You enter Galicia — the final region, the final language, the final landscape." },
         "commonExperiences": [
           { "en": "Drawing on reserves you didn't know you had" },
@@ -752,7 +752,7 @@
           { "en": "Mist and rain adding to the atmosphere" },
           { "en": "Sitting in the ancient church at the summit" }
         ],
-        "reflection": { "en": "What have you learned about your own endurance?" }
+        "reflection": { "en": "When your body said it could not climb any further, what answered back?" }
       }
     },
     {
@@ -774,7 +774,7 @@
       "services": { "atm": false, "pharmacy": false, "grocery": true, "restaurant": true },
       "interior": {
         "theme": { "en": "Descent" },
-        "narrative": { "en": "You walk above the clouds through the Galician mountains, and then you descend. The landscape transforms — from bare summits to chestnut groves to the green, wet valleys below. Everything here is softer than Castilla. The stone walls are covered in moss. The air smells of damp earth and eucalyptus. After the arid meseta and the high mountains, Galicia feels like arriving somewhere that has been waiting for you. Your body descends 600 meters and your guard comes down with it." },
+        "narrative": { "en": "You walk above the clouds through the Galician mountains, and then you descend. The landscape transforms — from bare summits to chestnut groves to the green, wet valleys below. Everything here is softer than Castilla. The stone walls are covered in moss. The air smells of chestnut and damp earth. After the arid meseta and the high mountains, Galicia feels like arriving somewhere that has been waiting for you. Your body descends 600 meters and your guard comes down with it." },
         "commonExperiences": [
           { "en": "Walking through clouds above 1,200 meters" },
           { "en": "The shock of Galicia's greenness after weeks of brown and gold" },
