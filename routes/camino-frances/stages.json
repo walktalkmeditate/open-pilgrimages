@@ -79,7 +79,18 @@
       "terrainTypes": ["dirt", "forest", "urban"],
       "accommodationDensity": "high",
       "waterSources": 6,
-      "services": { "atm": true, "pharmacy": true, "grocery": true, "restaurant": true }
+      "services": { "atm": true, "pharmacy": true, "grocery": true, "restaurant": true },
+      "interior": {
+        "theme": { "en": "Emergence" },
+        "narrative": { "en": "The forest trail gives way to the outskirts of Pamplona and you walk into your first city on the Camino. The contrast is disorienting — from birdsong and river crossings to traffic lights and shop windows. You catch your reflection in glass and barely recognize the person looking back. Three days in and the city feels like a test: can you carry the quiet you found in the mountains through places that do not want you to be quiet?" },
+        "commonExperiences": [
+          { "en": "Disorientation entering a major city on foot" },
+          { "en": "The temptation of comfort — real beds, hot showers, restaurant meals" },
+          { "en": "Noticing how different you already feel from the person who started" },
+          { "en": "Walking Pamplona's old streets and imagining the running of the bulls" }
+        ],
+        "reflection": { "en": "Who are you when you step out of the wilderness and back into the world?" }
+      }
     },
     {
       "index": 3,
@@ -124,7 +135,18 @@
       "terrainTypes": ["dirt", "paved", "cobblestone"],
       "accommodationDensity": "moderate",
       "waterSources": 5,
-      "services": { "atm": true, "pharmacy": true, "grocery": true, "restaurant": true }
+      "services": { "atm": true, "pharmacy": true, "grocery": true, "restaurant": true },
+      "interior": {
+        "theme": { "en": "Connection" },
+        "narrative": { "en": "The path between Puente la Reina and Estella follows the Ega river through villages where Romanesque churches stand open and unguarded. By now you have started recognizing faces — the German couple who walk fast, the Brazilian woman who sings. The Camino is building a temporary community around you whether you invited it or not. Conversations deepen. Someone tells you why they are really here." },
+        "commonExperiences": [
+          { "en": "Walking companions forming naturally" },
+          { "en": "First deep conversation about why you came" },
+          { "en": "Discovering the beauty of Romanesque churches along the river" },
+          { "en": "Your body beginning to find its rhythm" }
+        ],
+        "reflection": { "en": "What have you told someone on this path that you have not told anyone at home?" }
+      }
     },
     {
       "index": 5,
@@ -142,7 +164,18 @@
       "terrainNotes": { "en": "Passes through wine country. The Irache wine fountain (free wine for pilgrims) is near the start. Exposed sections with little shade in summer." },
       "accommodationDensity": "low",
       "waterSources": 3,
-      "services": { "atm": true, "pharmacy": true, "grocery": true, "restaurant": true }
+      "services": { "atm": true, "pharmacy": true, "grocery": true, "restaurant": true },
+      "interior": {
+        "theme": { "en": "Generosity" },
+        "narrative": { "en": "At the Irache monastery, a fountain dispenses free wine for pilgrims. It is absurd and beautiful — a spigot of red wine beside a spigot of water, and the honor system is the only rule. The gesture is older than you. This stretch through Navarra's wine country teaches something the modern world has largely forgotten: that generosity can be anonymous, unconditional, and offered simply because you are passing through." },
+        "commonExperiences": [
+          { "en": "Laughter and photographs at the Irache wine fountain" },
+          { "en": "Long exposed stretches without shade" },
+          { "en": "The quiet pride of completing nearly a week of walking" },
+          { "en": "Sunburn and heat exhaustion in summer months" }
+        ],
+        "reflection": { "en": "When was the last time you gave something to a stranger expecting nothing in return?" }
+      }
     },
     {
       "index": 6,
@@ -159,7 +192,18 @@
       "terrainTypes": ["dirt", "gravel", "paved", "urban"],
       "accommodationDensity": "moderate",
       "waterSources": 4,
-      "services": { "atm": true, "pharmacy": true, "grocery": true, "restaurant": true }
+      "services": { "atm": true, "pharmacy": true, "grocery": true, "restaurant": true },
+      "interior": {
+        "theme": { "en": "Endurance" },
+        "narrative": { "en": "At 27.6 kilometers, this is the longest day you have faced so far. The path from Los Arcos stretches through rolling farmland with few villages and fewer distractions. Your feet hurt in new places. The final kilometers into Logroño feel endless. But something shifts today — you stop counting kilometers and start trusting that you will arrive. This is the day your body stops arguing and begins cooperating." },
+        "commonExperiences": [
+          { "en": "Hitting the wall around kilometer 22" },
+          { "en": "The relief of crossing the bridge into Logroño" },
+          { "en": "Celebrating with pintxos on Calle Laurel" },
+          { "en": "Realizing you are tougher than you believed" }
+        ],
+        "reflection": { "en": "What is the difference between the discomfort that means stop and the discomfort that means keep going?" }
+      }
     },
     {
       "index": 7,
@@ -177,7 +221,18 @@
       "terrainNotes": { "en": "Through the Rioja wine region. Gentle climbs through vineyards." },
       "accommodationDensity": "moderate",
       "waterSources": 4,
-      "services": { "atm": true, "pharmacy": true, "grocery": true, "restaurant": true }
+      "services": { "atm": true, "pharmacy": true, "grocery": true, "restaurant": true },
+      "interior": {
+        "theme": { "en": "Rhythm" },
+        "narrative": { "en": "You walk through the Rioja vineyards and something has changed. You no longer think about how to walk — your legs know. The rows of grapevines extend to the horizon in orderly lines, and your steps have found a similar order. A week in, the rhythm of the Camino has entered your body: wake, walk, eat, sleep, repeat. In this simplicity, your mind begins to quiet. Not empty, but unburdened." },
+        "commonExperiences": [
+          { "en": "Walking becomes automatic for the first time" },
+          { "en": "A sense of daily life simplifying" },
+          { "en": "Enjoying the beauty of the vineyard landscape" },
+          { "en": "Feeling settled into the pilgrim routine" }
+        ],
+        "reflection": { "en": "What would your life look like if it were this simple every day?" }
+      }
     },
     {
       "index": 8,
@@ -194,7 +249,18 @@
       "terrainTypes": ["dirt", "gravel", "paved"],
       "accommodationDensity": "moderate",
       "waterSources": 4,
-      "services": { "atm": true, "pharmacy": true, "grocery": true, "restaurant": true }
+      "services": { "atm": true, "pharmacy": true, "grocery": true, "restaurant": true },
+      "interior": {
+        "theme": { "en": "Tradition" },
+        "narrative": { "en": "Santo Domingo de la Calzada — Saint Dominic of the Causeway — built roads and bridges for pilgrims a thousand years ago. In the cathedral, a live rooster and hen are kept in a Gothic coop, commemorating a miracle of a hanged pilgrim found alive. The story is strange and wonderful and entirely serious to the people who tend those birds. You are walking a path that has been maintained by devoted hands for centuries. You are not alone in this, even when you walk alone." },
+        "commonExperiences": [
+          { "en": "Hearing the rooster crow inside the cathedral" },
+          { "en": "Feeling the weight of a thousand years of pilgrimage" },
+          { "en": "Easy walking that allows the mind to wander freely" },
+          { "en": "First deep rest day considerations" }
+        ],
+        "reflection": { "en": "What traditions have you inherited that you did not choose but now carry willingly?" }
+      }
     },
     {
       "index": 9,
@@ -211,7 +277,18 @@
       "terrainTypes": ["dirt", "paved"],
       "accommodationDensity": "moderate",
       "waterSources": 4,
-      "services": { "atm": true, "pharmacy": true, "grocery": true, "restaurant": true }
+      "services": { "atm": true, "pharmacy": true, "grocery": true, "restaurant": true },
+      "interior": {
+        "theme": { "en": "Patience" },
+        "narrative": { "en": "The terrain is gentle and the villages are small and unremarkable. This is a day that teaches patience — not every stage brings a revelation. The wheat fields roll on. Your thoughts loop and repeat. The Camino is not a sequence of peak experiences. It is mostly ordinary walking through ordinary places, and learning to be present in the ordinary is perhaps the harder discipline." },
+        "commonExperiences": [
+          { "en": "A day without dramatic scenery or emotional peaks" },
+          { "en": "Walking through quiet agricultural villages" },
+          { "en": "Restlessness or boredom on flat terrain" },
+          { "en": "Conversations that meander like the path itself" }
+        ],
+        "reflection": { "en": "Can you be fully present on a day when nothing remarkable happens?" }
+      }
     },
     {
       "index": 10,
@@ -229,7 +306,18 @@
       "terrainNotes": { "en": "Crosses the Montes de Oca — a forested mountain range. The monastery of San Juan de Ortega has a famous equinox light phenomenon." },
       "accommodationDensity": "low",
       "waterSources": 3,
-      "services": { "atm": false, "pharmacy": false, "grocery": false, "restaurant": true }
+      "services": { "atm": false, "pharmacy": false, "grocery": false, "restaurant": true },
+      "interior": {
+        "theme": { "en": "Solitude" },
+        "narrative": { "en": "The Montes de Oca is the first true wilderness since the Pyrenees. Dense oak and beech forest closes around you, and for long stretches there is no one else on the trail. The monastery at San Juan de Ortega sits in a clearing like a place that chose to be forgotten. Twice a year, at the equinox, a beam of light illuminates a carved scene of the Annunciation. Something about this place — its silence, its hiddenness — invites you to sit with your own solitude without flinching." },
+        "commonExperiences": [
+          { "en": "Walking alone through dense forest for hours" },
+          { "en": "Unease followed by deep peace in the wilderness" },
+          { "en": "The stark simplicity of the monastery albergue" },
+          { "en": "Garlic soup served by hospitaleros in the evening" }
+        ],
+        "reflection": { "en": "What is the difference between being alone and being lonely?" }
+      }
     },
     {
       "index": 11,
@@ -247,7 +335,18 @@
       "terrainNotes": { "en": "Passes through Atapuerca (UNESCO archaeological site — earliest known European human remains). Long urban approach into Burgos." },
       "accommodationDensity": "high",
       "waterSources": 5,
-      "services": { "atm": true, "pharmacy": true, "grocery": true, "restaurant": true }
+      "services": { "atm": true, "pharmacy": true, "grocery": true, "restaurant": true },
+      "interior": {
+        "theme": { "en": "Perspective" },
+        "narrative": { "en": "You pass through Atapuerca, where archaeologists found the oldest human remains in Europe — 800,000 years of human presence in this hillside. The long approach into Burgos takes you through suburbs and industrial zones, and the contrast is deliberate: deep time beside modern sprawl. By the time you stand before the cathedral's Gothic spires, you are carrying a strange awareness that walking is the oldest human act, and that your footsteps are neither the first nor the last." },
+        "commonExperiences": [
+          { "en": "Awe at the deep human history of Atapuerca" },
+          { "en": "Frustration with the long urban approach into Burgos" },
+          { "en": "Standing before Burgos cathedral in stunned silence" },
+          { "en": "Feeling like a genuine pilgrim for the first time" }
+        ],
+        "reflection": { "en": "What does it mean to you that humans have walked this land for a thousand centuries?" }
+      }
     },
     {
       "index": 12,
@@ -321,7 +420,18 @@
       "terrainNotes": { "en": "Notable climb at Alto de Mostelares, then long flat paths and canal-side walking." },
       "accommodationDensity": "low",
       "waterSources": 2,
-      "services": { "atm": true, "pharmacy": true, "grocery": true, "restaurant": true }
+      "services": { "atm": true, "pharmacy": true, "grocery": true, "restaurant": true },
+      "interior": {
+        "theme": { "en": "Perseverance" },
+        "narrative": { "en": "The Alto de Mostelares rises like a wall out of the flat meseta — a short, steep climb that rewards you with the most expansive view on the entire plateau. From the top, the land stretches in every direction without feature. Then the descent, and then hours of walking beside a canal, flat and straight and hypnotic. This is the meseta at its most relentless. Pilgrims who are going to quit often quit around here. Those who stay discover that perseverance is not about willpower. It is about walking the next step and then the next." },
+        "commonExperiences": [
+          { "en": "The panoramic view from Alto de Mostelares" },
+          { "en": "Contemplating quitting the Camino" },
+          { "en": "Hours of canal-side walking in silence" },
+          { "en": "Finding unexpected beauty in the monotony" }
+        ],
+        "reflection": { "en": "What keeps you walking when there is no scenery, no company, and no visible destination?" }
+      }
     },
     {
       "index": 15,
@@ -338,7 +448,18 @@
       "terrainTypes": ["dirt", "paved"],
       "accommodationDensity": "moderate",
       "waterSources": 3,
-      "services": { "atm": true, "pharmacy": true, "grocery": true, "restaurant": true }
+      "services": { "atm": true, "pharmacy": true, "grocery": true, "restaurant": true },
+      "interior": {
+        "theme": { "en": "Surrender" },
+        "narrative": { "en": "An easy, flat day, and in that ease something softens. The Romanesque church of San Martín in Frómista is considered one of the most perfect in Spain — symmetrical, proportioned, complete. You do not need to understand architecture to feel what it offers: the peace of something made with total devotion and no hurry. Carrión de los Condes was once a major medieval city. Now it is a quiet town that knows how to receive tired walkers. You are learning to receive, too." },
+        "commonExperiences": [
+          { "en": "Lingering in the church of San Martín de Frómista" },
+          { "en": "A rare easy day that feels like a gift" },
+          { "en": "Letting go of the need to walk fast or far" },
+          { "en": "Deep fatigue giving way to acceptance" }
+        ],
+        "reflection": { "en": "What would happen if you stopped trying to earn your rest?" }
+      }
     },
     {
       "index": 16,
@@ -359,7 +480,18 @@
       "services": { "atm": false, "pharmacy": false, "grocery": false, "restaurant": true },
       "warnings": [
         { "en": "17 km without services after Carrión de los Condes. Carry at least 2L of water and food." }
-      ]
+      ],
+      "interior": {
+        "theme": { "en": "Desolation" },
+        "narrative": { "en": "Seventeen kilometers without a village, a bar, a bench, a tree. Just the path and the wheat and the sky. This is the most exposed stretch on the entire Camino. You carry your water and food and yourself across a landscape that offers nothing but distance. The Templars named their settlement here for a reason — this was the frontier, the edge of the known. By the time you reach Terradillos, you understand in your body what 'desert' means, even in the middle of Spain's breadbasket." },
+        "commonExperiences": [
+          { "en": "The strange intimacy of walking 17 km without seeing a building" },
+          { "en": "Rationing water and feeling genuinely vulnerable" },
+          { "en": "A mind that has finally stopped narrating and simply watches" },
+          { "en": "Arriving at the tiny village feeling you have crossed something vast" }
+        ],
+        "reflection": { "en": "What do you discover about yourself when all external support is removed?" }
+      }
     },
     {
       "index": 17,
@@ -377,7 +509,18 @@
       "terrainNotes": { "en": "Passes through Sahagún, a significant historical town with Mudéjar architecture." },
       "accommodationDensity": "moderate",
       "waterSources": 3,
-      "services": { "atm": true, "pharmacy": true, "grocery": true, "restaurant": true }
+      "services": { "atm": true, "pharmacy": true, "grocery": true, "restaurant": true },
+      "interior": {
+        "theme": { "en": "Halfway" },
+        "narrative": { "en": "Sahagún marks the geographical midpoint of the Camino Frances. Its Mudéjar brick towers — Islamic architecture built by Christian hands — speak of a Spain where traditions blended rather than fought. You are halfway. The realization lands differently than you expected. There is no fanfare, no ceremony. You simply walk through a town and keep going. But halfway also means you cannot turn back without walking as far as you have already come. You are committed now, in a way you were not before." },
+        "commonExperiences": [
+          { "en": "The quiet significance of reaching the halfway point" },
+          { "en": "Calling home and struggling to explain what is happening to you" },
+          { "en": "Admiring the Mudéjar architecture in Sahagún" },
+          { "en": "A deepening commitment to finishing" }
+        ],
+        "reflection": { "en": "Now that turning back is as far as going forward, what does commitment feel like in your body?" }
+      }
     },
     {
       "index": 18,
@@ -394,7 +537,18 @@
       "terrainTypes": ["dirt", "gravel"],
       "accommodationDensity": "low",
       "waterSources": 2,
-      "services": { "atm": true, "pharmacy": true, "grocery": true, "restaurant": true }
+      "services": { "atm": true, "pharmacy": true, "grocery": true, "restaurant": true },
+      "interior": {
+        "theme": { "en": "Endlessness" },
+        "narrative": { "en": "The last stage of the meseta, and it knows it. The flatness that once terrified you has become a companion. You walk toward Mansilla de las Mulas across land so level you can see the town for an hour before you reach it. The medieval walls still stand. Tomorrow you will be in León, and the meseta will be behind you. Many pilgrims feel a strange sadness here — the emptiness they dreaded has become the space where they found themselves, and they are about to lose it." },
+        "commonExperiences": [
+          { "en": "Seeing your destination for an hour before arriving" },
+          { "en": "Nostalgia for the meseta before it is even over" },
+          { "en": "A body that has fully adapted to long-distance walking" },
+          { "en": "Anticipation of León and the mountains beyond" }
+        ],
+        "reflection": { "en": "What will you miss about the emptiness when it is gone?" }
+      }
     },
     {
       "index": 19,
@@ -439,7 +593,18 @@
       "terrainTypes": ["paved", "dirt"],
       "accommodationDensity": "moderate",
       "waterSources": 4,
-      "services": { "atm": false, "pharmacy": false, "grocery": true, "restaurant": true }
+      "services": { "atm": false, "pharmacy": false, "grocery": true, "restaurant": true },
+      "interior": {
+        "theme": { "en": "Departure" },
+        "narrative": { "en": "Leaving León is harder than arriving. The city offered comfort, culture, a rest day, maybe two. Walking out through the suburbs in the early morning, past the Hostal de San Marcos and into open country again, you feel the pull of the life you left behind. Every city on the Camino is a small rehearsal for going home — and every departure from a city is a recommitment to the path. The terrain is flat and uninspiring, which makes the interior work of leaving all the more visible." },
+        "commonExperiences": [
+          { "en": "Difficulty leaving a comfortable city" },
+          { "en": "Navigating confusing path markers through León's outskirts" },
+          { "en": "Missing the pilgrim community after a rest day scattered everyone" },
+          { "en": "Recommitting to the walk with clearer intention" }
+        ],
+        "reflection": { "en": "What comforts are you most reluctant to leave behind, on the Camino and in life?" }
+      }
     },
     {
       "index": 21,
@@ -457,7 +622,18 @@
       "terrainNotes": { "en": "Crosses the medieval bridge at Hospital de Órbigo — site of a famous 15th century jousting tournament." },
       "accommodationDensity": "moderate",
       "waterSources": 4,
-      "services": { "atm": true, "pharmacy": true, "grocery": true, "restaurant": true }
+      "services": { "atm": true, "pharmacy": true, "grocery": true, "restaurant": true },
+      "interior": {
+        "theme": { "en": "Romance" },
+        "narrative": { "en": "The medieval bridge at Hospital de Órbigo is the longest on the Camino and the site of a 15th-century jousting tournament — a knight fought 300 bouts to win back his lady's honor. The story is ridiculous and romantic and somehow fitting for the Camino, where extravagant gestures feel possible. Astorga welcomes you with Gaudí's fairy-tale bishop's palace and chocolate shops. After weeks of austerity, this day is playful, even whimsical. The Camino is reminding you that not everything needs to be solemn to be meaningful." },
+        "commonExperiences": [
+          { "en": "Crossing the ancient bridge at Hospital de Órbigo" },
+          { "en": "Chocolate and maragato stew in Astorga" },
+          { "en": "The surprise of Gaudí's palace in a small town" },
+          { "en": "Lightness and laughter after weeks of intensity" }
+        ],
+        "reflection": { "en": "When did you last do something extravagant for no practical reason?" }
+      }
     },
     {
       "index": 22,
@@ -475,7 +651,18 @@
       "terrainNotes": { "en": "Steady gradual climb through the Maragatería region. Traditional stone villages. The climb steepens after Rabanal del Camino." },
       "accommodationDensity": "low",
       "waterSources": 3,
-      "services": { "atm": false, "pharmacy": false, "grocery": true, "restaurant": true }
+      "services": { "atm": false, "pharmacy": false, "grocery": true, "restaurant": true },
+      "interior": {
+        "theme": { "en": "Ascent" },
+        "narrative": { "en": "You climb into the mountains of the Maragatería, through stone villages that feel abandoned by time but not by dignity. The air thins and cools. After weeks of flatland, the uphill pull in your calves is almost welcome. Foncebadón was a ghost village a generation ago — now pilgrims have brought it back to life. Tomorrow you will reach Cruz de Ferro, the highest and deepest point of the Camino. Tonight, in this half-ruined village above the clouds, you prepare. Something in you knows that what comes next will matter." },
+        "commonExperiences": [
+          { "en": "Relief at returning to mountains after the meseta and plains" },
+          { "en": "The haunting beauty of semi-abandoned stone villages" },
+          { "en": "Carrying a stone from home, feeling its weight in a new way" },
+          { "en": "Quiet anticipation of tomorrow's Cruz de Ferro ritual" }
+        ],
+        "reflection": { "en": "What are you preparing to let go of at the cross?" }
+      }
     },
     {
       "index": 23,
@@ -523,7 +710,18 @@
       "terrainNotes": { "en": "Bierzo valley — vineyard paths and sun-exposed terrain." },
       "accommodationDensity": "moderate",
       "waterSources": 4,
-      "services": { "atm": true, "pharmacy": true, "grocery": true, "restaurant": true }
+      "services": { "atm": true, "pharmacy": true, "grocery": true, "restaurant": true },
+      "interior": {
+        "theme": { "en": "Lightness" },
+        "narrative": { "en": "After the emotional intensity of Cruz de Ferro and the brutal descent, this day through the Bierzo valley vineyards feels like convalescence. The body is battered but the spirit is lighter. Something was left at the cross and you can feel its absence — not as loss, but as space. The Templar castle in Ponferrada stands as a reminder that this route was once protected by warrior monks. You no longer need protecting. You have become your own guardian on this path." },
+        "commonExperiences": [
+          { "en": "Walking with a sense of unburdening after Cruz de Ferro" },
+          { "en": "Gentler terrain that allows emotional processing" },
+          { "en": "Visiting the Templar castle in Ponferrada" },
+          { "en": "Tasting Bierzo wines and feeling celebratory" }
+        ],
+        "reflection": { "en": "What does the space feel like where the weight used to be?" }
+      }
     },
     {
       "index": 25,
@@ -573,7 +771,18 @@
       "terrainNotes": { "en": "Galician mountains. Two-thirds of the day above 1,200 m. Passes through the Sierra de Ancares." },
       "accommodationDensity": "low",
       "waterSources": 3,
-      "services": { "atm": false, "pharmacy": false, "grocery": true, "restaurant": true }
+      "services": { "atm": false, "pharmacy": false, "grocery": true, "restaurant": true },
+      "interior": {
+        "theme": { "en": "Descent" },
+        "narrative": { "en": "You walk above the clouds through the Galician mountains, and then you descend. The landscape transforms — from bare summits to chestnut groves to the green, wet valleys below. Everything here is softer than Castilla. The stone walls are covered in moss. The air smells of damp earth and eucalyptus. After the arid meseta and the high mountains, Galicia feels like arriving somewhere that has been waiting for you. Your body descends 600 meters and your guard comes down with it." },
+        "commonExperiences": [
+          { "en": "Walking through clouds above 1,200 meters" },
+          { "en": "The shock of Galicia's greenness after weeks of brown and gold" },
+          { "en": "A gentler, more humid landscape that softens the body" },
+          { "en": "Feeling the end approaching and wanting to slow down" }
+        ],
+        "reflection": { "en": "What defenses have you been carrying that you no longer need?" }
+      }
     },
     {
       "index": 27,
@@ -620,7 +829,18 @@
       "terrainNotes": { "en": "Rural Galicia — meadows, oak and chestnut forests, small stone villages." },
       "accommodationDensity": "moderate",
       "waterSources": 4,
-      "services": { "atm": true, "pharmacy": true, "grocery": true, "restaurant": true }
+      "services": { "atm": true, "pharmacy": true, "grocery": true, "restaurant": true },
+      "interior": {
+        "theme": { "en": "Impermanence" },
+        "narrative": { "en": "The path winds through rural Galicia — oak and chestnut forests, stone hamlets with hórreos standing like small temples to the harvest. The trail is crowded now with pilgrims who started in Sarria, and you must find your peace amid the noise. Portomarín itself was moved stone by stone when a dam flooded the original town. The old bridge emerges when the water is low, a ghost of what was. Everything on this Camino — the friendships, the pain, the beauty — is temporary. Portomarín teaches you to hold things lightly." },
+        "commonExperiences": [
+          { "en": "Adjusting to the crowded trail after Sarria" },
+          { "en": "The beauty of oak-shaded paths through small hamlets" },
+          { "en": "Seeing the drowned old town beneath the reservoir" },
+          { "en": "Pre-arrival anxiety beginning to build" }
+        ],
+        "reflection": { "en": "What are you holding onto that has already changed its form?" }
+      }
     },
     {
       "index": 29,
@@ -637,7 +857,18 @@
       "terrainTypes": ["dirt", "gravel", "paved"],
       "accommodationDensity": "moderate",
       "waterSources": 4,
-      "services": { "atm": true, "pharmacy": true, "grocery": true, "restaurant": true }
+      "services": { "atm": true, "pharmacy": true, "grocery": true, "restaurant": true },
+      "interior": {
+        "theme": { "en": "Gratitude" },
+        "narrative": { "en": "The rolling Galician hills demand more of your legs than you expected this late in the journey, but your body answers without complaint. The small churches and wayside crosses appear every few kilometers, each one placed by someone who wanted pilgrims to feel accompanied. You begin to notice all the hands that have held this path open for you — the hospitaleros, the farmers who maintain the trail markers, the bar owners who welcome muddy strangers. Gratitude arrives not as an idea but as a physical sensation, a warmth in the chest that has nothing to do with exertion." },
+        "commonExperiences": [
+          { "en": "Feeling surprisingly strong despite accumulated fatigue" },
+          { "en": "Gratitude toward the people who maintain the Camino" },
+          { "en": "Beginning to say goodbye to walking companions" },
+          { "en": "Counting remaining days and not wanting them to end" }
+        ],
+        "reflection": { "en": "Who has held the path open for you in your life, and have you thanked them?" }
+      }
     },
     {
       "index": 30,
@@ -655,7 +886,18 @@
       "terrainNotes": { "en": "Longest of the final stages. Continuous ups and downs, many stream crossings, eucalyptus forests. Passes through Melide — famous for pulpo (octopus)." },
       "accommodationDensity": "moderate",
       "waterSources": 5,
-      "services": { "atm": true, "pharmacy": true, "grocery": true, "restaurant": true }
+      "services": { "atm": true, "pharmacy": true, "grocery": true, "restaurant": true },
+      "interior": {
+        "theme": { "en": "Grief" },
+        "narrative": { "en": "The longest of the final stages, through eucalyptus forests that smell medicinal and strange. The constant ups and downs through stream valleys exhaust legs that have walked nearly 700 kilometers. In Melide, you eat pulpo a feira with other pilgrims and the meal has the feeling of a last supper. People exchange addresses, make promises to stay in touch, know that most of them will not. The grief of the Camino ending is not about the walk. It is about the person you became while walking, and the fear that person will not survive the return home." },
+        "commonExperiences": [
+          { "en": "Exhaustion from the relentless terrain on tired legs" },
+          { "en": "Eating octopus in Melide as a pilgrim tradition" },
+          { "en": "Exchanging contact details with walking companions" },
+          { "en": "Grief arriving before the journey has actually ended" }
+        ],
+        "reflection": { "en": "Which version of yourself do you want to bring home?" }
+      }
     },
     {
       "index": 31,
@@ -672,7 +914,18 @@
       "terrainTypes": ["forest", "dirt", "paved"],
       "accommodationDensity": "moderate",
       "waterSources": 4,
-      "services": { "atm": true, "pharmacy": true, "grocery": true, "restaurant": true }
+      "services": { "atm": true, "pharmacy": true, "grocery": true, "restaurant": true },
+      "interior": {
+        "theme": { "en": "Vigil" },
+        "narrative": { "en": "The penultimate day. Tomorrow you will arrive. Tonight you lie in your bunk in O Pedrouzo and the feeling is not excitement but something closer to reverence. The eucalyptus forests were quiet today, the path gentle, as if the Camino itself was giving you space to prepare. You have walked nearly 800 kilometers. Your body is a different instrument than the one that left Saint-Jean. Your mind is quieter. Something has been completed that you cannot yet name. You set your alarm for before dawn, because tomorrow you want to walk the last kilometers in the dark, alone." },
+        "commonExperiences": [
+          { "en": "Insomnia the night before arrival" },
+          { "en": "A quiet, reflective day of easy walking" },
+          { "en": "Trying to memorize the feeling of being a pilgrim" },
+          { "en": "Setting the alarm early to walk the final stage at dawn" }
+        ],
+        "reflection": { "en": "What has this walk made true that was not true before you started?" }
+      }
     },
     {
       "index": 32,
