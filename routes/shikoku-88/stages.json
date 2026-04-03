@@ -169,7 +169,18 @@
       "terrainNotes": { "en": "Matsuyama cluster — eight temples packed closely together. Urban walking through Japan's largest city on Shikoku. Dōgo Onsen, one of Japan's oldest hot springs, is nearby." },
       "accommodationDensity": "high",
       "waterSources": 10,
-      "services": { "atm": true, "pharmacy": true, "grocery": true, "restaurant": true }
+      "services": { "atm": true, "pharmacy": true, "grocery": true, "restaurant": true },
+      "interior": {
+        "theme": { "en": "Illumination", "ja": "菩提" },
+        "narrative": { "en": "After weeks of mountain solitude, you descend into Matsuyama — Shikoku's largest city — and eight temples arrive in a single day. The sacred does not retreat from the noise of traffic and shop fronts; it persists in courtyard silence between busy streets. You recite the Heart Sutra beside salary workers on lunch breaks. Dōgo Onsen steams nearby, its waters older than memory, and you soak away not just fatigue but the last distinction you held between pilgrimage and ordinary life. Enlightenment in Shingon was never about escaping the world. It was about seeing the world as it already is." },
+        "commonExperiences": [
+          { "en": "The disorientation of returning to city life after remote walking" },
+          { "en": "Finding unexpected stillness inside crowded temple grounds" },
+          { "en": "Soaking in Dōgo Onsen and feeling the body soften completely" },
+          { "en": "Realizing the temples are no longer destinations but punctuation" }
+        ],
+        "reflection": { "en": "Where does the sacred live when the wilderness is gone?" }
+      }
     },
     {
       "index": 6,
@@ -187,7 +198,18 @@
       "terrainNotes": { "en": "Imabari to Saijō through eastern Ehime. Includes the challenging climb to Yokomine-ji (Temple 60) at 750m." },
       "accommodationDensity": "moderate",
       "waterSources": 6,
-      "services": { "atm": true, "pharmacy": true, "grocery": true, "restaurant": true }
+      "services": { "atm": true, "pharmacy": true, "grocery": true, "restaurant": true },
+      "interior": {
+        "theme": { "en": "Perseverance", "ja": "菩提" },
+        "narrative": { "en": "The path from Imabari climbs steadily toward Yokomine-ji, Temple 60, perched at 750 meters on a ridge that Kūkai himself is said to have scaled in search of the morning star. Your legs remember every mountain that came before this one, and yet this ascent feels different — not punishing but clarifying, as though the effort itself is burning away something you no longer need. Below, the Seto Inland Sea glimmers through gaps in the cedar canopy. By Saijō, the temples come in quick succession again, and you carry the altitude with you like a secret. You are deep in the Province of Enlightenment now, and the understanding arrives not as thought but as rhythm — step after step, breath after breath." },
+        "commonExperiences": [
+          { "en": "The grueling switchbacks up to Yokomine-ji and the silence at the summit" },
+          { "en": "A sense of physical mastery earned through weeks of walking" },
+          { "en": "Glimpses of the Inland Sea reorienting your sense of the island" },
+          { "en": "Feeling the pilgrimage approaching its final quarter" }
+        ],
+        "reflection": { "en": "What in you has been strengthened by the climbing, and what has fallen away?" }
+      }
     },
     {
       "index": 7,
