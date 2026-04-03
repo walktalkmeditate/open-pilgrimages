@@ -22,7 +22,7 @@
       "services": { "atm": false, "pharmacy": false, "grocery": false, "restaurant": true },
       "interior": {
         "theme": { "en": "Entry" },
-        "narrative": { "en": "Takijiri-oji is the gate to the sacred mountains. For a thousand years, pilgrims have paused here to purify themselves before entering the divine realm. The climb from the river to Takahara is immediate and steep — the mountain makes no concessions to your arrival. By the time you reach the ridge, you understand: you have left the ordinary world behind." },
+        "narrative": { "en": "Takijiri-oji stands at the confluence of two rivers, where pilgrims traditionally waded into the water to purify themselves before entering the divine realm. The climb from the river to Takahara is immediate and steep — the mountain makes no concessions to your arrival. By the time you reach the ridge, you understand: you have left the ordinary world behind." },
         "commonExperiences": [
           { "en": "The sudden transition from road to ancient forest" },
           { "en": "The quality of silence in the cedar groves" },
@@ -50,7 +50,7 @@
       "services": { "atm": false, "pharmacy": false, "grocery": true, "restaurant": true },
       "interior": {
         "theme": { "en": "Immersion" },
-        "narrative": { "en": "This is the day that defines the Kumano Kodo. The forest is everything. Cedar and cypress close overhead, moss covers every surface, and the ancient cobblestone paths — some laid centuries ago by monks — guide your feet through terrain that feels older than history. At Tsugizakura-oji, 800-year-old cedar trees tower above a tiny wooden shrine. The Oji were rest stops for imperial pilgrims. Now they are portals." },
+        "narrative": { "en": "This is the day that defines the Kumano Kodo. The forest is everything. Cedar and cypress close overhead, moss covers every surface, and the ancient cobblestone paths — some laid centuries ago by monks — guide your feet through terrain that feels older than history. At Tsugizakura-oji, 800-year-old cedar trees tower above a tiny wooden shrine. The Oji were subsidiary shrines where pilgrims paused to make offerings and purify themselves. Now they are portals." },
         "commonExperiences": [
           { "en": "The overwhelming green of the forest" },
           { "en": "Feeling the age of the cobblestone path through your feet" },
@@ -82,13 +82,13 @@
       ],
       "interior": {
         "theme": { "en": "Awakening", "ja": "発心" },
-        "narrative": { "en": "Hosshinmon-oji means 'Gate of Spiritual Awakening'. This was the boundary where imperial pilgrim parties officially entered the divine domain of Kumano Hongu. They changed into white robes here and chanted purification rites. The Oji marks a transition: everything before was preparation. Everything after is sacred ground." },
+        "narrative": { "en": "The day is a demanding forest climb through the mountain settlements of Nonaka, wet stone underfoot, humid air pressing close under the cedar canopy. This is terrain shaped by Shugendo — the ancient practice of mountain asceticism — where monks trained by submitting their bodies to the mountain itself. For centuries the path was so crowded with imperial processions and commoners that chroniclers described them as 'ants on the Kumano road.' Hosshinmon-oji means 'Gate of Spiritual Awakening'. This was the boundary where imperial pilgrim parties officially entered the divine domain of Kumano Hongu. They changed into white robes here and chanted purification rites. The Oji marks a transition: everything before was preparation. Everything after is sacred ground." },
         "commonExperiences": [
           { "en": "Physical exhaustion giving way to clarity" },
           { "en": "The anticipation of arrival at Hongu" },
           { "en": "A shift in the quality of attention" }
         ],
-        "reflection": { "en": "What does it mean to cross a threshold? Is it the place that changes, or you?" }
+        "reflection": { "en": "Is it the threshold that changes, or the one who crosses it?" }
       }
     },
     {
@@ -110,7 +110,7 @@
       "services": { "atm": true, "pharmacy": false, "grocery": true, "restaurant": true },
       "interior": {
         "theme": { "en": "Arrival" },
-        "narrative": { "en": "At Fushiogami-oji, you see Kumano Hongu Taisha for the first time. 'Fushiogami' means 'prostrate worship' — pilgrims traditionally fell to their knees here. The final walk is gentle, descending through tea plantations and small villages to the shrine. Kumano Hongu Taisha is not monumental. It is modest, wooden, nestled in mountains. The Yatagarasu — the three-legged crow — watches from the banners. You have arrived at what emperors traveled weeks to reach." },
+        "narrative": { "en": "At Fushiogami-oji, you see Kumano Hongu Taisha for the first time. 'Fushiogami' means 'prostrate worship' — pilgrims traditionally fell to their knees here. The final walk is gentle, descending through tea plantations and small villages to the shrine. Kumano Hongu Taisha is not monumental. It is modest, wooden, nestled in mountains. For centuries this was a place of shinbutsu-shūgō — the fusion of Shinto and Buddhism — where the Kumano deities were understood as both kami and Buddhist manifestations. The Yatagarasu — the three-legged crow — watches from the banners. Nearby stands Oyunohara — the original site of the shrine before floods destroyed it in 1889 — marked now by the largest torii gate in Japan, rising from a river sandbar like a door to a world that no longer exists. You have arrived at what emperors traveled weeks to reach." },
         "commonExperiences": [
           { "en": "The first glimpse of the shrine from Fushiogami-oji" },
           { "en": "Quiet emotion at arrival — different from the Camino's dramatic plaza moment" },
