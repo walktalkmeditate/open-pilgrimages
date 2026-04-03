@@ -28,7 +28,8 @@
           { "en": "Excitement and nervousness at Temple 1" },
           { "en": "Buying the white jacket and staff, feeling both foolish and sacred" },
           { "en": "Physical shock at the climb to Temple 12" },
-          { "en": "First encounter with osettai from a stranger" }
+          { "en": "First encounter with osettai from a stranger" },
+          { "en": "Reading 'Dōgyō Ninin' — we two, walking together — on the sedge hat for the first time" }
         ],
         "reflection": { "en": "What awakened in you when you decided to walk?" }
       }
@@ -56,7 +57,8 @@
         "commonExperiences": [
           { "en": "Finding your walking rhythm" },
           { "en": "The first real blisters and learning to care for them" },
-          { "en": "Looking at the ocean and thinking about the distance ahead" }
+          { "en": "Looking at the ocean and thinking about the distance ahead" },
+          { "en": "The Heart Sutra chant becoming familiar through repetition" }
         ],
         "reflection": { "en": "Now that you know what this costs, do you still choose it?" }
       }
@@ -116,7 +118,7 @@
       ],
       "interior": {
         "theme": { "en": "Discipline", "ja": "修行" },
-        "narrative": { "en": "Cape Ashizuri is the bottom of the world. Kūkai practiced asceticism here as a young man, staring at the ocean and the morning star until enlightenment struck. The walk here is the most isolated stretch of the pilgrimage. You are as far from Temple 1 as you will ever be — in every sense." },
+        "narrative": { "en": "Cape Ashizuri is the bottom of the world. Kūkai trained here as a young ascetic, staring at the ocean and sky until the boundary between them dissolved. The walk here is the most isolated stretch of the pilgrimage. You are as far from Temple 1 as you will ever be — in every sense." },
         "commonExperiences": [
           { "en": "Feeling genuinely remote from civilization" },
           { "en": "Standing at the cape and feeling the scale of the journey" },
@@ -144,7 +146,7 @@
       "services": { "atm": true, "pharmacy": false, "grocery": true, "restaurant": true },
       "interior": {
         "theme": { "en": "Enlightenment Begins", "ja": "菩提" },
-        "narrative": { "en": "Ehime is the Bodai no Dōjō — the Place of Enlightenment. The word 'bodai' means the awakening that comes not from study but from direct experience. You have been walking for weeks. The temples in western Ehime climb into the mountains and something shifts. You stop counting kilometers. You stop worrying about tomorrow's accommodation. The walk becomes the point, not the temples." },
+        "narrative": { "en": "You have turned north. The harshest coast is behind you. Ehime is the Bodai no Dōjō — the Place of Enlightenment. The word 'bodai' means the awakening that comes not from study but from direct experience. You have been walking for weeks. The temples in western Ehime climb into the mountains and something shifts. You stop counting kilometers. You stop worrying about tomorrow's accommodation. The walk becomes the point, not the temples." },
         "commonExperiences": [
           { "en": "The transition from 'getting through it' to being present" },
           { "en": "Awe at Iwaya-ji carved into the cliff face" },
@@ -201,7 +203,7 @@
       "services": { "atm": true, "pharmacy": true, "grocery": true, "restaurant": true },
       "interior": {
         "theme": { "en": "Perseverance", "ja": "菩提" },
-        "narrative": { "en": "The path from Imabari climbs steadily toward Yokomine-ji, Temple 60, perched at 750 meters on a ridge that Kūkai himself is said to have scaled in search of the morning star. Your legs remember every mountain that came before this one, and yet this ascent feels different — not punishing but clarifying, as though the effort itself is burning away something you no longer need. Below, the Seto Inland Sea glimmers through gaps in the cedar canopy. By Saijō, the temples come in quick succession again, and you carry the altitude with you like a secret. You are deep in the Province of Enlightenment now, and the understanding arrives not as thought but as rhythm — step after step, breath after breath." },
+        "narrative": { "en": "The path from Imabari climbs steadily toward Yokomine-ji, Temple 60, perched at 750 meters on a ridge where Kūkai is said to have practiced mountain asceticism. Your legs remember every mountain that came before this one, and yet this ascent feels different — not punishing but clarifying, as though the effort itself is burning away something you no longer need. Below, the Seto Inland Sea glimmers through gaps in the cedar canopy. By Saijō, the temples come in quick succession again, and you carry the altitude with you like a secret. You are deep in the Province of Enlightenment now, and the understanding arrives not as thought but as rhythm — step after step, breath after breath." },
         "commonExperiences": [
           { "en": "The grueling switchbacks up to Yokomine-ji and the silence at the summit" },
           { "en": "A sense of physical mastery earned through weeks of walking" },
@@ -264,7 +266,7 @@
           { "en": "The darkness ritual as a pilgrimage within the pilgrimage" },
           { "en": "Temples coming fast now, accelerating toward the end" }
         ],
-        "reflection": { "en": "What have you found at the source?" }
+        "reflection": { "en": "In the darkness beneath Kukai's birthplace, what did your hands find that your eyes could not?" }
       }
     },
     {
