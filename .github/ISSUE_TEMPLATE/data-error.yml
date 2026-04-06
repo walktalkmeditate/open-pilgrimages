@@ -1,0 +1,61 @@
+name: Report a Data Error
+description: Report incorrect coordinates, missing waypoints, outdated information, or other data issues
+title: "[Data] "
+labels: ["data-fix"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Help us keep the dataset accurate. Whether it's a wrong coordinate, a closed albergue listed as open, or a missing water source — every correction matters.
+
+  - type: dropdown
+    id: route
+    attributes:
+      label: Which route?
+      options:
+        - Camino de Santiago (Frances)
+        - Shikoku 88
+        - Kumano Kodo (Nakahechi)
+        - Kumano Kodo (Kohechi)
+        - Kumano Kodo (Iseji)
+    validations:
+      required: true
+
+  - type: input
+    id: stage
+    attributes:
+      label: Stage (if applicable)
+      placeholder: e.g., Stage 5, or between Temple 23 and Temple 24
+
+  - type: dropdown
+    id: error-type
+    attributes:
+      label: Type of issue
+      options:
+        - Wrong coordinates / geometry
+        - Missing waypoint (water source, accommodation, etc.)
+        - Outdated information (closed, moved, renamed)
+        - Incorrect metadata (distance, elevation, description)
+        - Interior journey content issue
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: What's wrong?
+      description: Describe the error and what the correct data should be
+      placeholder: |
+        What's currently in the dataset:
+        What it should be:
+        How you know (source, personal experience, etc.):
+    validations:
+      required: true
+
+  - type: textarea
+    id: source
+    attributes:
+      label: Source
+      description: How do you know this is incorrect? Link to a source if possible.
+      placeholder: e.g., I walked this stage in March 2026, or see official website at ...

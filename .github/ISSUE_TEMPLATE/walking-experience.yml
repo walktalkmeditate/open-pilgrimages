@@ -1,0 +1,68 @@
+name: Share Walking Experience
+description: Share your pilgrimage experience to help us write interior journey content
+title: "[Experience] "
+labels: ["interior-journey"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        The interior journey layer captures what makes a pilgrimage more than a long walk — the emotional arc, the spiritual experiences, the moments of transformation. Your firsthand account helps us write authentic narratives. Share as much or as little as you're comfortable with.
+
+  - type: dropdown
+    id: route
+    attributes:
+      label: Which route did you walk?
+      options:
+        - Camino de Santiago (Frances)
+        - Shikoku 88
+        - Kumano Kodo
+        - Other (describe below)
+    validations:
+      required: true
+
+  - type: input
+    id: other-route
+    attributes:
+      label: If other, which route?
+      placeholder: e.g., Via Francigena, Camino del Norte
+
+  - type: input
+    id: when
+    attributes:
+      label: When did you walk?
+      placeholder: e.g., September 2025, Spring 2024
+
+  - type: dropdown
+    id: completion
+    attributes:
+      label: Did you complete the full route?
+      options:
+        - "Yes, the full route"
+        - "Part of it"
+        - "Multiple times"
+
+  - type: textarea
+    id: experience
+    attributes:
+      label: Your experience
+      description: |
+        Share whatever feels meaningful. Some things that help us write interior journey content:
+        - What surprised you about the experience?
+        - Were there stages or moments that felt like turning points?
+        - How did the landscape affect your inner state?
+        - What did you learn about yourself?
+        - Were there cultural practices or encounters that shaped the journey?
+      placeholder: |
+        There's no wrong way to answer this. Write as you would tell a friend.
+    validations:
+      required: true
+
+  - type: textarea
+    id: practical
+    attributes:
+      label: Practical observations
+      description: Anything about specific stages, waypoints, or logistics that we should know
+      placeholder: |
+        e.g., The water fountain at km 14 was dry in summer,
+        the temple lodging at Temple 45 was the most welcoming,
+        stage 8 was harder than the elevation profile suggests

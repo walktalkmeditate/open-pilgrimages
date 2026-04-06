@@ -1,0 +1,85 @@
+name: Propose a New Route
+description: Suggest a pilgrimage route to add to the dataset
+title: "[Route] "
+labels: ["new-route"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for proposing a new pilgrimage route! The more traditions we cover, the richer this dataset becomes. You don't need to be technical — just share what you know.
+
+  - type: input
+    id: route-name
+    attributes:
+      label: Route name
+      description: The common name of the pilgrimage route
+      placeholder: e.g., Via Francigena, Char Dham Yatra, Camino Portugues
+    validations:
+      required: true
+
+  - type: input
+    id: tradition
+    attributes:
+      label: Tradition
+      description: The religious or spiritual tradition
+      placeholder: e.g., Christian, Hindu, Buddhist, Islamic, Indigenous, Secular
+    validations:
+      required: true
+
+  - type: input
+    id: region
+    attributes:
+      label: Region / Countries
+      description: Where the route is located
+      placeholder: e.g., Italy, India (Uttarakhand), Portugal to Spain
+    validations:
+      required: true
+
+  - type: input
+    id: distance
+    attributes:
+      label: Approximate distance
+      placeholder: e.g., 1,000 km
+    validations:
+      required: true
+
+  - type: dropdown
+    id: topology
+    attributes:
+      label: Route topology
+      options:
+        - Linear (A to B)
+        - Circular (returns to start)
+        - Network (multiple interconnected routes)
+        - Not sure
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: About this pilgrimage
+      description: Tell us about the route — its history, significance, what makes it a pilgrimage rather than a hiking trail
+      placeholder: |
+        What tradition does it come from?
+        How long has it been walked?
+        Is there a credential or completion system?
+        What's the spiritual or cultural significance?
+    validations:
+      required: true
+
+  - type: textarea
+    id: sources
+    attributes:
+      label: Data sources
+      description: Any sources for route data — official websites, guidebooks, academic papers, OpenStreetMap relations, GPS tracks
+      placeholder: |
+        - Official website: ...
+        - Guidebook: ...
+        - OSM relation: ...
+
+  - type: textarea
+    id: experience
+    attributes:
+      label: Personal experience
+      description: Have you walked this route? Share anything that would help us capture it accurately.
