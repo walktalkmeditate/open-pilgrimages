@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contribute &mdash; Open Pilgrimages</title>
+  <meta name="description" content="Help build the world's open pilgrimage dataset. Share your walking experience, propose new routes, or contribute data directly.">
+  <link rel="canonical" href="https://open.pilgrimag.es/contribute.html">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Contribute &mdash; Open Pilgrimages">
+  <meta property="og:description" content="Help build the world's open pilgrimage dataset. Share walking experience, propose routes, contribute data.">
+  <meta property="og:url" content="https://open.pilgrimag.es/contribute.html">
+  <meta property="og:image" content="https://open.pilgrimag.es/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Contribute &mdash; Open Pilgrimages">
+  <meta name="twitter:image" content="https://open.pilgrimag.es/og-image.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="routes.html">Routes</a>
+        <a href="schema.html">Schema</a>
+        <a href="usage.html">Usage</a>
+        <a href="contribute.html" class="nav-contribute active">Contribute</a>
+      </div>
+      <a href="https://github.com/walktalkmeditate/open-pilgrimages" class="nav-github">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+        GitHub
+      </a>
+    </nav>
+
+    <h1>Contribute</h1>
+    <p class="subtitle">Every pilgrimage tradition deserves to be mapped, understood, and shared openly.</p>
+
+    <h2>What We Need Most</h2>
+
+    <div class="need-tags">
+      <span class="need-tag">New routes from other traditions</span>
+      <span class="need-tag">Kumano Kodo sub-routes (Kohechi, Iseji)</span>
+      <span class="need-tag">Walking experiences &amp; local knowledge</span>
+      <span class="need-tag">Data corrections &amp; waypoint additions</span>
+    </div>
+
+    <div class="step-card">
+      <div class="step-header">
+        <div class="step-number step-number-1">1</div>
+        <div class="step-body">
+          <h3>Tell Us What You Know</h3>
+          <p>Open a GitHub issue describing the route, correction, or experience you'd like to share. No technical skills needed &mdash; we'll help shape your knowledge into data.</p>
+          <ul class="step-paths">
+            <li>Propose a new pilgrimage route</li>
+            <li>Report a data error or missing waypoint</li>
+            <li>Share your walking experience for interior journey content</li>
+          </ul>
+          <a href="https://github.com/walktalkmeditate/open-pilgrimages/issues/new" class="btn btn-primary">Open an Issue &rarr;</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="step-card">
+      <div class="step-header">
+        <div class="step-number step-number-2">2</div>
+        <div class="step-body">
+          <h3>Or Contribute Directly</h3>
+          <p>Fork the repository, edit the data files, and submit a pull request. Our JSON schemas validate your changes automatically.</p>
+          <ul class="step-paths">
+            <li>Fix waypoint coordinates or metadata</li>
+            <li>Add interior journey narratives for stages</li>
+            <li>Build out a complete new route</li>
+          </ul>
+          <pre><code>git clone https://github.com/walktalkmeditate/open-pilgrimages.git
+cd open-pilgrimages
+npm install
+npm run validate    # Check your changes against schemas</code></pre>
+          <p>Each route follows a standard four-file structure:</p>
+          <pre><code>routes/{route-id}/
+  metadata.json        # Overview, tradition, culture, logistics
+  route.geojson        # GeoJSON route geometry
+  stages.json          # Stage breakdowns with interior journey
+  waypoints.geojson    # Points of interest along the route</code></pre>
+          <p>See the full <a href="https://github.com/walktalkmeditate/open-pilgrimages/blob/main/CONTRIBUTING.md">contributing guide</a> for detailed instructions.</p>
+        </div>
+      </div>
+    </div>
+
+    <h2>Data Quality</h2>
+
+    <table>
+      <thead>
+        <tr><th>Convention</th><th>Standard</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Coordinates</td><td><code>[longitude, latitude, altitude]</code> (GeoJSON standard). Altitude in meters.</td></tr>
+        <tr><td>Distances</td><td>Kilometers, measured along the route path.</td></tr>
+        <tr><td>Localization</td><td><code>{ "en": "...", "ja": "..." }</code> &mdash; English always required.</td></tr>
+        <tr><td>Sources</td><td>Include source URLs and access dates in the <code>provenance</code> section.</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Code of Conduct</h2>
+
+    <p>This project serves pilgrims and the pilgrimage community worldwide. We welcome contributions from all traditions and backgrounds. Be respectful of sacred sites, cultural practices, and the diverse motivations people bring to pilgrimage.</p>
+
+    <footer>
+      <p><a href="https://github.com/walktalkmeditate/open-pilgrimages">GitHub</a></p>
+    </footer>
+  </div>
+</body>
+</html>
