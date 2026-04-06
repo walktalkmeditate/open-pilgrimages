@@ -114,6 +114,213 @@ nav a.active {
   border-bottom-color: var(--stone);
 }
 
+nav {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+nav .nav-links {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+nav .nav-links a {
+  margin-right: var(--space-lg);
+}
+
+nav .nav-contribute {
+  color: var(--rust) !important;
+}
+
+nav .nav-contribute:hover,
+nav .nav-contribute.active {
+  color: var(--rust) !important;
+  border-bottom-color: var(--rust) !important;
+}
+
+nav .nav-github {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--stone);
+}
+
+nav .nav-github:hover {
+  color: var(--ink);
+  border-bottom-color: var(--stone);
+}
+
+nav .nav-github svg {
+  flex-shrink: 0;
+}
+
+.hero-stats {
+  display: flex;
+  gap: var(--space-xl);
+  margin: var(--space-xl) 0;
+}
+
+.stat {
+  text-align: center;
+}
+
+.stat-number {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 2.2rem;
+  font-weight: 500;
+  color: var(--rust);
+  line-height: 1.2;
+}
+
+.stat-label {
+  display: block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--stone);
+}
+
+.hero-cta {
+  display: flex;
+  gap: var(--space-md);
+  margin-bottom: var(--space-xl);
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.5rem 1.2rem;
+  border-radius: 4px;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.btn:hover {
+  opacity: 0.85;
+  border-bottom-color: transparent;
+}
+
+.btn-primary {
+  background: var(--rust);
+  color: white;
+}
+
+.btn-secondary {
+  background: transparent;
+  border: 1px solid var(--stone);
+  color: var(--stone);
+}
+
+.route-status {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.8rem;
+  margin-top: var(--space-sm);
+}
+
+.route-status svg {
+  flex-shrink: 0;
+}
+
+.route-status-complete {
+  color: var(--moss);
+}
+
+.route-status-needs {
+  color: var(--rust);
+}
+
+.route-status-needs + .route-status-needs {
+  margin-top: 0.25rem;
+}
+
+.need-tags {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  margin: var(--space-md) 0 var(--space-xl);
+}
+
+.need-tag {
+  font-size: 0.8rem;
+  background: white;
+  border: 1px solid var(--dawn);
+  color: var(--rust);
+  padding: 0.35rem 0.75rem;
+  border-radius: 4px;
+  font-family: var(--font-sans);
+}
+
+.step-card {
+  border: 1px solid var(--fog);
+  border-radius: 4px;
+  padding: var(--space-lg);
+  background: white;
+  margin-bottom: var(--space-md);
+}
+
+.step-header {
+  display: flex;
+  gap: var(--space-md);
+  align-items: flex-start;
+}
+
+.step-number {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: white;
+  flex-shrink: 0;
+}
+
+.step-number-1 {
+  background: var(--rust);
+}
+
+.step-number-2 {
+  background: var(--stone);
+}
+
+.step-body h3 {
+  margin-top: 0;
+  margin-bottom: var(--space-xs);
+}
+
+.step-paths {
+  list-style: none;
+  padding: 0;
+  margin: var(--space-sm) 0 var(--space-md);
+  font-size: 0.9rem;
+  color: var(--stone);
+}
+
+.step-paths li {
+  margin-bottom: 0.3rem;
+}
+
+.step-paths li::before {
+  content: "\2192\00a0";
+  color: var(--rust);
+}
+
 .route-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -238,5 +445,15 @@ footer {
 @media (max-width: 600px) {
   html { font-size: 16px; }
   h1 { font-size: 1.8rem; }
-  nav a { display: block; margin-bottom: var(--space-sm); }
+
+  nav { flex-direction: column; align-items: flex-start; gap: var(--space-sm); }
+  nav .nav-links { flex-direction: column; align-items: flex-start; }
+  nav .nav-links a { margin-right: 0; margin-bottom: var(--space-xs); }
+  nav .nav-github { margin-left: 0; margin-top: var(--space-sm); }
+
+  .hero-stats { flex-wrap: wrap; gap: var(--space-lg); }
+  .stat-number { font-size: 1.8rem; }
+
+  .hero-cta { flex-direction: column; }
+  .hero-cta .btn { text-align: center; }
 }
