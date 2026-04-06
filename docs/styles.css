@@ -216,6 +216,9 @@ nav .nav-github svg {
 
 .btn:hover {
   opacity: 0.85;
+}
+
+.btn-primary:hover {
   border-bottom-color: transparent;
 }
 
