@@ -86,6 +86,11 @@ a:hover {
   border-bottom-color: var(--rust);
 }
 
+a:focus-visible {
+  outline: 2px solid var(--rust);
+  outline-offset: 2px;
+}
+
 .subtitle {
   font-family: var(--font-serif);
   font-size: 1.15rem;
@@ -95,6 +100,9 @@ a:hover {
 }
 
 nav {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
   margin-bottom: var(--space-2xl);
   padding-bottom: var(--space-md);
   border-bottom: 1px solid var(--fog);
@@ -114,12 +122,6 @@ nav a.active {
   border-bottom-color: var(--stone);
 }
 
-nav {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
 nav .nav-links {
   display: flex;
   align-items: center;
@@ -131,14 +133,14 @@ nav .nav-links a {
   margin-right: var(--space-lg);
 }
 
-nav .nav-contribute {
-  color: var(--rust) !important;
+nav .nav-links a.nav-contribute {
+  color: var(--rust);
 }
 
-nav .nav-contribute:hover,
-nav .nav-contribute.active {
-  color: var(--rust) !important;
-  border-bottom-color: var(--rust) !important;
+nav .nav-links a.nav-contribute:hover,
+nav .nav-links a.nav-contribute.active {
+  color: var(--rust);
+  border-bottom-color: var(--rust);
 }
 
 nav .nav-github {
@@ -203,8 +205,13 @@ nav .nav-github svg {
   font-weight: 700;
   text-decoration: none;
   border: none;
-  cursor: pointer;
   transition: opacity 0.2s;
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+  opacity: 1;
 }
 
 .btn:hover {
@@ -241,6 +248,10 @@ nav .nav-github svg {
 
 .route-status-needs {
   color: var(--rust);
+}
+
+.route-status-needs a {
+  text-decoration: underline;
 }
 
 .route-status-needs + .route-status-needs {
