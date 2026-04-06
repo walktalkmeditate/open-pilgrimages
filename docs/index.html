@@ -40,9 +40,31 @@
     </nav>
 
     <h1>Open Pilgrimages</h1>
-    <p class="subtitle">A canonical, open-source dataset of pilgrimage routes worldwide.</p>
+    <p class="subtitle">An open-source pilgrimage dataset, built by pilgrims and researchers worldwide.</p>
 
-    <p>Route geometry, stage breakdowns, waypoints, logistics, cultural context, and interior journey narratives &mdash; structured as JSON and GeoJSON for developers, researchers, and pilgrimage organizations to build upon.</p>
+    <div class="hero-stats">
+      <div class="stat">
+        <span class="stat-number">3</span>
+        <span class="stat-label">Routes</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number">89K</span>
+        <span class="stat-label">GPS Points</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number">6K</span>
+        <span class="stat-label">Waypoints</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number">47</span>
+        <span class="stat-label">Stages</span>
+      </div>
+    </div>
+
+    <div class="hero-cta">
+      <a href="https://github.com/walktalkmeditate/open-pilgrimages" class="btn btn-primary">&#9733; Star on GitHub</a>
+      <a href="contribute.html" class="btn btn-secondary">How to Contribute</a>
+    </div>
 
     <h2>Why This Exists</h2>
 
@@ -73,6 +95,10 @@
           <span>33 stages</span>
         </div>
         <p>The most popular pilgrimage route to Santiago de Compostela, crossing the Pyrenees and traversing northern Spain. Walked continuously since the 9th century.</p>
+        <div class="route-status route-status-complete">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="currentColor" stroke-width="1.5"/><path d="M4 7l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Fully enriched &mdash; geometry, waypoints, stages, interior journey
+        </div>
       </div>
 
       <div class="route-card">
@@ -84,6 +110,10 @@
           <span>10 stages</span>
         </div>
         <p>A circular pilgrimage visiting 88 Buddhist temples around the island of Shikoku, following the footsteps of the monk K&#363;kai.</p>
+        <div class="route-status route-status-complete">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="currentColor" stroke-width="1.5"/><path d="M4 7l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Fully enriched &mdash; geometry, waypoints, stages, interior journey
+        </div>
       </div>
 
       <div class="route-card">
@@ -95,6 +125,14 @@
           <span>4 stages</span>
         </div>
         <p>Ancient pilgrimage routes through the mountains of the Kii Peninsula to the three Grand Shrines of Kumano. UNESCO World Heritage since 2004.</p>
+        <div class="route-status route-status-needs">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="currentColor" stroke-width="1.5"/><path d="M7 4v3m0 2.5v.01" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          Needs: Kohechi &amp; Iseji sub-route data, more waypoints
+        </div>
+        <div class="route-status route-status-needs">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="currentColor" stroke-width="1.5"/><path d="M7 4v3m0 2.5v.01" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          Walked this route? <a href="contribute.html">Share your experience</a>
+        </div>
       </div>
     </div>
 
@@ -111,7 +149,7 @@
     </div>
 
     <footer>
-      <p>Part of the <a href="https://pilgrimapp.org">Pilgrim</a> ecosystem.</p>
+      <p>Part of the <a href="https://pilgrimapp.org">Pilgrim</a> ecosystem. <a href="https://github.com/walktalkmeditate/open-pilgrimages">GitHub</a></p>
     </footer>
   </div>
 </body>
