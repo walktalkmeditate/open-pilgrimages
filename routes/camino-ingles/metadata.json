@@ -1,0 +1,314 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "camino-ingles",
+  "lastUpdated": "2026-04-10T00:00:00Z",
+
+  "name": {
+    "en": "Camino Inglés (English Way)",
+    "es": "Camino Inglés",
+    "gl": "Camiño Inglés",
+    "ja": "イギリス人の道"
+  },
+  "description": {
+    "en": "The shortest of the major Caminos to Santiago de Compostela, walked since the medieval period by English, Irish, Scandinavian, and Flemish pilgrims who arrived by sea at the Galician ports of Ferrol and A Coruña. The standard 6-stage route from Ferrol covers ~123 km along the Ría de Ferrol coast, through the medieval Gothic town of Betanzos, over the Bruma highlands, and down into Santiago. Modern revival began in earnest in the 2000s; in 2025 over 30,000 pilgrims walked it.",
+    "gl": "O camiño máis curto a Santiago de Compostela polo norte, percorrido desde a Idade Media por peregrinos ingleses, irlandeses, escandinavos e flamengos que chegaban por mar aos portos galegos de Ferrol e A Coruña.",
+    "es": "El más corto de los Caminos principales a Santiago de Compostela, recorrido desde la época medieval por peregrinos ingleses, irlandeses, escandinavos y flamencos que llegaban por mar a los puertos gallegos de Ferrol y La Coruña."
+  },
+
+  "overview": {
+    "distanceKm": 123,
+    "distanceNote": "Sum of the 6 Brierley stages from Ferrol. Other commonly cited figures: 110 km (Wikipedia), 116 km (Galicia tourism board). Variation reflects waymarking differences along the alternative paths between Ferrol and Hospital de Bruma.",
+    "estimatedDays": { "min": 5, "max": 7, "typical": 6 },
+    "topology": "linear",
+    "direction": "south",
+    "startPoint": {
+      "name": {
+        "en": "Curuxeiras, Ferrol (historic port of arrival)",
+        "es": "Curuxeiras, Ferrol",
+        "gl": "Curuxeiras, Ferrol"
+      },
+      "coordinates": [-8.233, 43.484, 26]
+    },
+    "endPoint": {
+      "name": {
+        "en": "Santiago de Compostela",
+        "es": "Santiago de Compostela",
+        "gl": "Santiago de Compostela"
+      },
+      "coordinates": [-8.544, 42.881, 260]
+    },
+    "elevationRange": {
+      "minMeters": 2,
+      "maxMeters": 410,
+      "totalAscentMeters": 1850,
+      "totalDescentMeters": 1620
+    },
+    "difficulty": "moderate",
+    "terrainTypes": ["paved", "cobblestone", "dirt", "forest", "urban", "coastal"],
+    "bestMonths": [4, 5, 6, 9, 10],
+    "peakMonths": [7, 8],
+    "countries": ["ES"],
+    "bbox": [-8.55, 42.88, -8.15, 43.52]
+  },
+
+  "tradition": {
+    "type": "christian",
+    "primaryFaith": "Roman Catholic",
+    "otherFaiths": ["secular"],
+    "saint": {
+      "en": "Saint James the Great",
+      "es": "Santiago Apóstol",
+      "gl": "Santiago Apóstolo"
+    },
+    "origin": {
+      "en": "The Camino Inglés takes its name from medieval pilgrims who arrived by sea at the Galician ports of Ferrol and A Coruña, primarily from England, Ireland, Scandinavia, and Flanders. The earliest documented pilgrim is the Icelandic Benedictine monk Nikulás Bergsson (Níkulás of Munkaþverá), whose 12th-century itinerary 'Leiðarvísir' (c. 1154) describes a maritime journey to Santiago via Iceland. The route's peak use occurred during the Hundred Years' War (1337-1453), when English pilgrims and traders accessed Galician ports under royal license. The two historic starting cities — A Coruña (closer, ~75 km) and Ferrol (further, ~123 km) — diverge but converge at Hospital de Bruma. Modern pilgrims overwhelmingly start from Ferrol because A Coruña falls below the 100 km Compostela minimum walking distance."
+    },
+    "credentialSystem": {
+      "name": {
+        "en": "Pilgrim Credential",
+        "es": "Credencial del Peregrino",
+        "gl": "Credencial do Peregrino"
+      },
+      "description": {
+        "en": "Standard Camino credential, stamped (sello) at churches, albergues, cafés, and tourism offices along the route. Required for the Compostela certificate. Must be stamped at least twice per day for the qualifying distance. Since December 2016, pilgrims starting in A Coruña can also obtain the Compostela by walking a minimum certified 25 km on another connected Camino in addition to the A Coruña route — addressing the historical inequity of the shorter A Coruña start."
+      },
+      "completionCertificate": {
+        "en": "Compostela",
+        "es": "Compostela"
+      },
+      "minimumDistanceKm": 100,
+      "minimumDistanceNote": {
+        "en": "From Ferrol it is ~123 km to Santiago — comfortably above the 100 km Compostela minimum. From A Coruña it is only ~75 km, which historically did not qualify alone; the 2016 rule change allows A Coruña pilgrims to qualify by combining with at least 25 km on another Camino."
+      },
+      "obtainableAt": [
+        {
+          "name": {
+            "en": "Concatedral de San Xulián de Ferrol",
+            "gl": "Concatedral de San Xiao de Ferrol"
+          },
+          "coordinates": [-8.235, 43.482]
+        },
+        {
+          "name": {
+            "en": "Tourism office, Curuxeiras pier, Ferrol",
+            "gl": "Oficina de turismo, Curuxeiras"
+          },
+          "coordinates": [-8.233, 43.484]
+        },
+        {
+          "name": { "en": "Confraternity of Saint James, UK" }
+        }
+      ]
+    }
+  },
+
+  "cultural": {
+    "practices": [
+      {
+        "name": { "en": "Maritime Arrival Tradition", "es": "Tradición Marítima" },
+        "description": {
+          "en": "Unlike the inland Caminos, the Camino Inglés begins at the sea. Medieval pilgrims arrived by ship at the Curuxeiras pier in Ferrol or at the port of A Coruña. The act of stepping off a boat onto the muelle and beginning the walk replaces the more common Camino opening of leaving a inland border town. Many modern pilgrims still touch the waters of the Ría de Ferrol or take a photograph at Curuxeiras before starting south."
+        },
+        "location": { "coordinates": [-8.233, 43.484], "stageIndex": 0 }
+      },
+      {
+        "name": { "en": "Hospital de Bruma — confluence point", "gl": "Hospital de Bruma" },
+        "description": {
+          "en": "A tiny hilltop hamlet where the historic Ferrol path meets the historic A Coruña path. Named for a medieval pilgrim hospital that served both routes. The albergue today sits at ~394 m, the highest point of the Camino Inglés. Pilgrims arriving from either start meet here on the climb out of the coastal plain."
+        },
+        "location": { "coordinates": [-8.363, 43.150], "stageIndex": 4 }
+      },
+      {
+        "name": {
+          "en": "Igrexa de Santiago de Betanzos",
+          "gl": "Igrexa de Santiago de Betanzos"
+        },
+        "description": {
+          "en": "15th-century Gothic church in Betanzos, one of the 'Gothic trio' of Betanzos churches alongside Santa María del Azogue and San Francisco. Begun by Fernán Pérez de Andrade 'O Bo' (d. 1397) and completed by his descendants. The basilica plan with three naves features a Santiago Matamoros statue. A traditional credential stamp point."
+        },
+        "location": { "coordinates": [-8.211, 43.279], "stageIndex": 3 }
+      },
+      {
+        "name": { "en": "Pilgrim Scallop Shell" },
+        "description": {
+          "en": "The scallop shell (vieira) is the universal symbol of the Camino. On the Camino Inglés, shell waymarkers are installed by the Xunta de Galicia in the standard blue-and-yellow Galician format. The route is well-marked throughout."
+        }
+      }
+    ],
+    "etiquette": [
+      {
+        "en": "Albergue capacity is significantly smaller than on the Francés. The Camino Inglés has fewer pilgrims and fewer beds — book ahead in peak season."
+      },
+      {
+        "en": "Galician is spoken alongside Spanish throughout the route. A few words of either language go far. Locals in small villages may default to Galician."
+      },
+      {
+        "en": "The Hospital de Bruma stage is long (~28 km) with limited services in between. Carry water and food, and start early."
+      },
+      {
+        "en": "Sunday markets in Betanzos (the second and fourth Sunday of each month) are a beloved local tradition; pilgrims passing through that day will find streets closed and stalls everywhere."
+      }
+    ],
+    "associatedLiterature": [
+      {
+        "title": "The Camino Inglés and Ruta do Mar",
+        "author": "Dave Whitson",
+        "isbn": "978-1786310323",
+        "type": "guidebook",
+        "relevance": {
+          "en": "Cicerone Press dedicated guide. Covers the Camino Inglés from both Ferrol and A Coruña starts, plus the Ruta do Mar maritime alternative. The most detailed English-language guidebook for this route."
+        }
+      },
+      {
+        "title": "A Pilgrim's Guide to the Camino Inglés",
+        "author": "John Brierley",
+        "type": "guidebook",
+        "relevance": {
+          "en": "Camino Guides / Findhorn Press. Brierley's signature format applied to the Camino Inglés: 1:200,000 maps, stage-by-stage spiritual reflections, practical logistics. Defines the standard 6-stage breakdown from Ferrol used by most English-speaking pilgrims."
+        }
+      },
+      {
+        "title": "Leiðarvísir og borgarskipan",
+        "author": "Nikulás Bergsson",
+        "type": "nonfiction",
+        "relevance": {
+          "en": "12th-century Icelandic pilgrim itinerary (c. 1154) by Abbot Nikulás of Munkaþverá. The earliest documented Scandinavian pilgrimage account to Santiago, describing a maritime arrival. A primary source for the Camino Inglés's medieval origins; available in modern Old Norse editions and partial English translations."
+        }
+      }
+    ],
+    "events": [
+      {
+        "name": { "en": "Feast of Saint James", "es": "Fiesta de Santiago Apóstol" },
+        "date": { "month": 7, "day": 25 },
+        "recurrence": "annual",
+        "description": {
+          "en": "The patron saint's feast day. Special masses at Santiago Cathedral, fireworks, and cultural events throughout the city. When July 25 falls on a Sunday, it is declared a Holy Year (Año Xacobeo). Next Holy Year: 2027."
+        }
+      },
+      {
+        "name": { "en": "Os Caneiros, Betanzos", "gl": "Os Caneiros" },
+        "date": { "month": 8, "day": 18 },
+        "recurrence": "annual",
+        "description": {
+          "en": "Riverboat festival held in late August in Betanzos. Pilgrims passing through during this period encounter a town in full festive mode, with decorated boats sailing the Mendo river. Date varies year to year."
+        }
+      }
+    ],
+    "historicalSignificance": {
+      "en": "The Camino Inglés is the most distinctively maritime of the major Caminos. Unlike the Francés or Norte, which begin at inland border crossings, the Inglés begins where pilgrims stepped off boats — Ferrol's Curuxeiras pier and A Coruña's old harbor. From the 12th century onwards, English, Irish, Scandinavian, and Flemish pilgrims used the route as a 'path of convenience' that avoided the long overland journey through France. Use peaked during the Hundred Years' War (1337-1453) when English kings issued royal licenses for Santiago pilgrimage despite the conflict with France. The route was largely forgotten after the Reformation reduced English Catholic pilgrimage in the 16th-17th centuries, then revived in the late 20th century. In 2025, 30,203 pilgrims walked it (5.7% of all Compostelas) — small relative to Frances (45.6%) but the fastest-growing percentage among the major Caminos in recent years (+58% UK starts year-on-year, +33% Irish starts). The Camino Inglés is NOT UNESCO inscribed, unlike the Francés (1993), Norte, Primitivo, and Lebaniego (all added in the 2015 Northern Spain extension)."
+    }
+  },
+
+  "logistics": {
+    "seasonalAvailability": {
+      "openMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+      "notes": {
+        "en": "Open year-round with no seasonal closures. Galicia has a wet Atlantic climate — expect rain in any month. The high point at Hospital de Bruma (~394 m) can be cold and exposed in winter; April-October is most popular. Albergues outside the high season may have reduced services."
+      }
+    },
+    "accommodationTypes": ["albergue", "hotel", "pension", "casa_rural", "hostel"],
+    "accommodationNotes": {
+      "en": "The Camino Inglés has significantly fewer beds than Frances or Portugués. Public albergues exist in Pontedeume, Betanzos, Hospital de Bruma, and Sigüeiro. Private pensiones and casas rurais fill gaps. In peak season (July-August) booking ahead is strongly recommended — especially Hospital de Bruma which has only ~22 beds and is the only accommodation at that altitude."
+    },
+    "currency": "EUR",
+    "languages": ["gl", "es", "en"],
+    "cellularCoverage": "good",
+    "cellularNotes": {
+      "en": "Mobile coverage is generally good throughout. The Hospital de Bruma highland section may have weaker signal."
+    },
+    "waterAvailability": "abundant",
+    "waterNotes": {
+      "en": "Fountains (fontes/fuentes) are common in Galician villages. Tap water is potable throughout Galicia unless marked 'auga non potable' (gl) or 'agua no potable' (es)."
+    },
+    "emergencyNumber": "112",
+    "transportLinks": [
+      {
+        "type": "airport",
+        "name": { "en": "A Coruña Airport (Alvedro)" },
+        "code": "LCG",
+        "nearStage": 0,
+        "notes": {
+          "en": "Closest major airport, ~7 km from A Coruña and ~45 km from Ferrol. Domestic and limited European connections."
+        }
+      },
+      {
+        "type": "airport",
+        "name": { "en": "Santiago–Rosalía de Castro Airport" },
+        "code": "SCQ",
+        "nearStage": 5,
+        "notes": {
+          "en": "About 12 km from Santiago de Compostela, in Lavacolla. Direct flights to many European cities. Bus connections to Santiago every 30 minutes; ~95 km by road from Ferrol."
+        }
+      },
+      {
+        "type": "train",
+        "name": { "en": "Renfe (Santiago/A Coruña → Ferrol)" },
+        "nearStage": 0,
+        "notes": {
+          "en": "Standard-gauge Renfe trains run from Santiago and A Coruña to Ferrol. There is no direct standard-gauge train from Santiago to Ferrol — pilgrims normally route via A Coruña (~1h15)."
+        }
+      },
+      {
+        "type": "train",
+        "name": { "en": "FEVE narrow-gauge (Cantabrian coast → Ferrol)" },
+        "nearStage": 0,
+        "notes": {
+          "en": "The historic FEVE narrow-gauge (1,000 mm) runs from Bilbao via Santander, Oviedo, and the Cantabrian coast to Ferrol. Operated as a series of regional services rather than a single through-train. Atmospheric option for pilgrims arriving from northern Spain."
+        }
+      },
+      {
+        "type": "bus",
+        "name": { "en": "Monbus / Arriva (Santiago ↔ Ferrol)" },
+        "nearStage": 0,
+        "notes": {
+          "en": "Direct bus service Santiago to Ferrol via the AP-9 motorway, ~1h45. Often the easiest way back to Santiago after completing the Camino if returning to fly out of SCQ."
+        }
+      }
+    ]
+  },
+
+  "provenance": {
+    "sources": [
+      {
+        "name": "OpenStreetMap",
+        "url": "https://www.openstreetmap.org/relation/1102966",
+        "license": "ODbL-1.0",
+        "dataTypes": ["geometry", "waypoints"],
+        "accessDate": "2026-04-10"
+      },
+      {
+        "name": "Solvitur Ambulando — Yearly Demographics API",
+        "url": "https://solviturambulando.es/api/yearly-demographics.json",
+        "license": "reference",
+        "dataTypes": ["statistics"],
+        "accessDate": "2026-04-10"
+      },
+      {
+        "name": "Camino Inglés Galicia (official)",
+        "url": "https://www.caminoingles.gal/",
+        "license": "reference",
+        "dataTypes": ["stages", "cultural"],
+        "accessDate": "2026-04-10"
+      },
+      {
+        "name": "Wikipedia: English Way",
+        "url": "https://en.wikipedia.org/wiki/English_Way",
+        "license": "reference",
+        "dataTypes": ["historical"],
+        "accessDate": "2026-04-10"
+      }
+    ],
+    "contributors": [
+      {
+        "name": "walk · talk · meditate",
+        "role": "initial_author",
+        "url": "https://github.com/walktalkmeditate"
+      }
+    ],
+    "license": "ODbL-1.0"
+  },
+
+  "osm": {
+    "relations": [1102966]
+  }
+}

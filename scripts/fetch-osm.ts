@@ -40,6 +40,13 @@ out geom;`,
 relation(id:12786090);
 out geom;`,
   },
+  {
+    id: "camino-ingles",
+    description: "Camino Inglés (English Way) — OSM relation 1102966 (Ferrol → Santiago)",
+    query: `[out:json][timeout:300];
+relation(id:1102966);
+out geom;`,
+  },
 ];
 
 async function fetchOverpass(query: string): Promise<unknown> {

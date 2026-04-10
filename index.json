@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-04-10T00:54:20.231Z",
+  "generatedAt": "2026-04-10T02:18:05.551Z",
   "routes": [
     {
       "id": "camino-frances",
@@ -17,6 +17,33 @@
       "topology": "linear",
       "tradition": "christian",
       "path": "routes/camino-frances"
+    },
+    {
+      "id": "camino-ingles",
+      "name": {
+        "en": "Camino Inglés (English Way)",
+        "es": "Camino Inglés",
+        "gl": "Camiño Inglés",
+        "ja": "イギリス人の道"
+      },
+      "region": "Europe",
+      "country": "ES",
+      "distanceKm": 123,
+      "topology": "linear",
+      "tradition": "christian",
+      "path": "routes/camino-ingles",
+      "variants": [
+        {
+          "id": "a-coruna",
+          "name": {
+            "en": "Camino Inglés from A Coruña",
+            "es": "Camino Inglés desde A Coruña",
+            "gl": "Camiño Inglés desde A Coruña"
+          },
+          "distanceKm": 75,
+          "path": "routes/camino-ingles/variants/a-coruna"
+        }
+      ]
     },
     {
       "id": "camino-portugues",

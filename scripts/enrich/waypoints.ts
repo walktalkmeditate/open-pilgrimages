@@ -62,6 +62,11 @@ function getStageRanges(routeDir: string, routeCoords: Coord[]): StageRangeInfo 
   }
   boundaryIdxs.push(routeCoords.length - 1);
 
+  // Force first stage to claim from coord 0 (any geometry before the projected
+  // first stage start belongs to stage 0 — typically a short OSM relation prefix
+  // that approaches the canonical start point).
+  boundaryIdxs[0] = 0;
+
   const monotonic = boundaryIdxs.every((v, i) => i === 0 || v >= boundaryIdxs[i - 1]);
   if (!monotonic) {
     console.warn(

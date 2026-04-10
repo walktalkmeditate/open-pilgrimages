@@ -1,0 +1,60 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "a-coruna",
+  "parentRouteId": "camino-ingles",
+  "lastUpdated": "2026-04-10T00:00:00Z",
+  "name": {
+    "en": "Camino Inglés from A Coruña",
+    "es": "Camino Inglés desde A Coruña",
+    "gl": "Camiño Inglés desde A Coruña"
+  },
+  "description": {
+    "en": "The historically older starting point of the Camino Inglés. Pilgrims arrived by sea at the port of A Coruña and walked inland to Santiago, joining the Ferrol path at Hospital de Bruma. The full A Coruña route is only ~75 km — below the 100 km Compostela minimum. Since December 2016, A Coruña pilgrims can qualify for the Compostela by combining their walk with at least 25 km on another connected Camino. v1 of open-pilgrimages ships this variant as a metadata stub; full geometry, stages, and waypoints are planned for a future release."
+  },
+  "overview": {
+    "distanceKm": 75,
+    "estimatedDays": { "min": 3, "max": 4, "typical": 3 },
+    "topology": "linear",
+    "direction": "south",
+    "startPoint": {
+      "name": { "en": "A Coruña old port", "gl": "Porto vello da Coruña" },
+      "coordinates": [-8.412, 43.371, 5]
+    },
+    "endPoint": {
+      "name": { "en": "Santiago de Compostela" },
+      "coordinates": [-8.544, 42.881, 260]
+    },
+    "difficulty": "easy",
+    "terrainTypes": ["paved", "cobblestone", "dirt", "forest", "urban", "coastal"],
+    "bestMonths": [4, 5, 6, 9, 10],
+    "countries": ["ES"]
+  },
+  "tradition": {
+    "type": "christian",
+    "primaryFaith": "Roman Catholic",
+    "saint": { "en": "Saint James the Great" }
+  },
+  "provenance": {
+    "sources": [
+      {
+        "name": "OpenStreetMap",
+        "url": "https://www.openstreetmap.org/relation/10464208",
+        "license": "ODbL-1.0",
+        "dataTypes": ["geometry"],
+        "accessDate": "2026-04-10",
+        "notes": "Camiño Inglés (rutas alternativas) — historic A Coruña start path"
+      }
+    ],
+    "contributors": [
+      {
+        "name": "walk · talk · meditate",
+        "role": "initial_author",
+        "url": "https://github.com/walktalkmeditate"
+      }
+    ],
+    "license": "ODbL-1.0"
+  },
+  "osm": {
+    "relations": [10464208]
+  }
+}

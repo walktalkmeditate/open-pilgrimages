@@ -1,0 +1,117 @@
+{
+  "schemaVersion": "1.0.0",
+  "routeId": "camino-ingles",
+  "lastUpdated": "2026-04-10",
+  "dataYear": 2025,
+  "annualPilgrims": {
+    "latest": { "year": 2025, "count": 30204, "note": "Camino Inglés (Ferrol + A Coruña starts combined); 5.7% of 531,000 total Compostelas" },
+    "trend": [
+      { "year": 2003, "count": 267 },
+      { "year": 2004, "count": 3092, "note": "Holy Year" },
+      { "year": 2005, "count": 651 },
+      { "year": 2006, "count": 812 },
+      { "year": 2007, "count": 1086 },
+      { "year": 2008, "count": 1451 },
+      { "year": 2009, "count": 1820 },
+      { "year": 2010, "count": 6461, "note": "Holy Year" },
+      { "year": 2011, "count": 2722 },
+      { "year": 2012, "count": 3577 },
+      { "year": 2013, "count": 4404 },
+      { "year": 2014, "count": 7194 },
+      { "year": 2015, "count": 9245 },
+      { "year": 2016, "count": 9703 },
+      { "year": 2017, "count": 11321 },
+      { "year": 2018, "count": 14150 },
+      { "year": 2019, "count": 15781 },
+      { "year": 2020, "count": 2932, "note": "COVID-19" },
+      { "year": 2021, "count": 10980, "note": "Holy Year (extended)" },
+      { "year": 2022, "count": 24205, "note": "Extended Holy Year" },
+      { "year": 2023, "count": 24104 },
+      { "year": 2024, "count": 28064 },
+      { "year": 2025, "count": 30204, "note": "Record year, +7.6% YoY; UK starts +58%, Irish starts +33%" }
+    ],
+    "source": "https://solviturambulando.es/api/yearly-demographics.json?year={YEAR}&v=5",
+    "sourceNotes": "All counts sourced from the Solvitur Ambulando JSON API which mirrors and extends the Oficina del Peregrino official Compostela data. The Inglés trend grew slowly until ~2014 when international interest accelerated; the route is now the fastest-growing major Camino by percentage. See docs/data-sources.md for the refresh procedure."
+  },
+  "demographics": {
+    "dataYear": 2024,
+    "totalPilgrims": 28064,
+    "topNationalities": [
+      { "country": "ES", "name": "Spain", "count": 14557, "percentage": 51.87 },
+      { "country": "IT", "name": "Italy", "count": 3246, "percentage": 11.57 },
+      { "country": "PT", "name": "Portugal", "count": 1503, "percentage": 5.36 },
+      { "country": "DE", "name": "Germany", "count": 1259, "percentage": 4.49 },
+      { "country": "GB", "name": "United Kingdom", "count": 1278, "percentage": 4.55 },
+      { "country": "US", "name": "United States", "count": 1231, "percentage": 4.39 },
+      { "country": "IE", "name": "Ireland", "count": 645, "percentage": 2.30 },
+      { "country": "MX", "name": "Mexico", "count": 334, "percentage": 1.19 },
+      { "country": "PL", "name": "Poland", "count": 250, "percentage": 0.89 },
+      { "country": "NL", "name": "Netherlands", "count": 251, "percentage": 0.89 },
+      { "country": "CA", "name": "Canada", "count": 216, "percentage": 0.77 },
+      { "country": "FR", "name": "France", "count": 169, "percentage": 0.60 },
+      { "country": "AU", "name": "Australia", "count": 145, "percentage": 0.52 },
+      { "country": "BR", "name": "Brazil", "count": 131, "percentage": 0.47 },
+      { "country": "KR", "name": "South Korea", "count": 66, "percentage": 0.24 }
+    ],
+    "topNationalitiesNote": "Per-route 2024 figures from Solvitur Ambulando. Note the disproportionate Italian and UK/Irish presence compared to other Caminos — Italians are overrepresented across all Caminos but the Inglés specifically attracts more UK and Irish pilgrims because of the historical English/Irish maritime origins of the route.",
+    "genderSplit": {
+      "female": 0.5282,
+      "male": 0.4713,
+      "unknown": 0.0006,
+      "counts": { "female": 14822, "male": 13226, "unknown": 16 }
+    },
+    "ageGroups": [
+      { "group": "Under 18", "count": 1688, "percentage": 6.02 },
+      { "group": "18-45", "count": 10888, "percentage": 38.80 },
+      { "group": "46-65", "count": 12190, "percentage": 43.44 },
+      { "group": "Over 65", "count": 3298, "percentage": 11.75 }
+    ],
+    "source": "https://solviturambulando.es/api/yearly-demographics.json?year=2024&v=5"
+  },
+  "motivation": [
+    { "type": "religious", "count": 12517, "percentage": 44.60 },
+    { "type": "religious_and_other", "count": 9251, "percentage": 32.96 },
+    { "type": "non_religious", "count": 5191, "percentage": 18.50 },
+    { "type": "not_stated", "count": 1105, "percentage": 3.94 }
+  ],
+  "motivationNote": "Per-route 2024 figures from Solvitur Ambulando.",
+  "startingPoints": [
+    {
+      "name": "Ferrol",
+      "note": "The most common modern start. ~123 km to Santiago — comfortably above the 100 km Compostela minimum. About 96% of pilgrims start here."
+    },
+    {
+      "name": "A Coruña",
+      "note": "The historically older starting point. ~75 km to Santiago — below the 100 km minimum. Since December 2016, A Coruña pilgrims can qualify for the Compostela by walking an additional 25 km on another connected Camino."
+    }
+  ],
+  "startingPointsNote": "Per-starting-point breakdown is published by Oficina del Peregrino but not exposed in the Solvitur API at the per-route level. The split is approximately 96% Ferrol / 4% A Coruña in modern years.",
+  "routeContext": {
+    "growthAndTrend": {
+      "en": "The Camino Inglés is the fastest-growing major Camino by percentage in recent years. From a low base of just 267 pilgrims in 2003, the route has grown to over 30,000 in 2025. Year-over-year growth in 2025 was +7.64% overall, with disproportionate growth from countries with historical maritime connections to the route: UK starts up 58% YoY, Irish starts up 33%."
+    },
+    "comparisonWithOthers": {
+      "en": "At ~123 km, the Inglés is the shortest of the major Caminos and the easiest to fit into a single week of vacation. Among 2025 Compostelas, the Inglés ranks 4th by volume (5.7%) behind Frances (45.6%), Portugués Central (19.0%), and Portugués Coastal (16.9%)."
+    }
+  },
+  "sources": [
+    {
+      "name": "Solvitur Ambulando — Yearly Demographics API",
+      "url": "https://solviturambulando.es/api/yearly-demographics.json?year={YEAR}&v=5",
+      "accessDate": "2026-04-10",
+      "notes": "Primary source for 2003-2025 per-route counts and demographics. Mirrors and extends Oficina del Peregrino data with per-route age, gender, motivation, and nationality breakdowns. See docs/data-sources.md."
+    },
+    {
+      "name": "Camino Inglés Galicia (official)",
+      "url": "https://www.caminoingles.gal/en/o-camino-ingles-supera-as-30-000-compostelas-en-2025",
+      "accessDate": "2026-04-10",
+      "notes": "Official Galician tourism board article confirming 2025 record + UK/Irish growth percentages."
+    },
+    {
+      "name": "Wikipedia: English Way",
+      "url": "https://en.wikipedia.org/wiki/English_Way",
+      "accessDate": "2026-04-10",
+      "notes": "Historical context, route description, A Coruña / 100 km rule explanation."
+    }
+  ]
+}

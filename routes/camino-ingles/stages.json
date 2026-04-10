@@ -1,0 +1,273 @@
+{
+  "schemaVersion": "1.0.0",
+  "routeId": "camino-ingles",
+  "stageCount": 6,
+  "stages": [
+    {
+      "index": 0,
+      "name": {
+        "en": "Ferrol to Neda",
+        "gl": "Ferrol a Neda"
+      },
+      "start": {
+        "name": { "en": "Curuxeiras pier, Ferrol", "gl": "Peirao de Curuxeiras, Ferrol" },
+        "coordinates": [-8.233, 43.484, 26]
+      },
+      "end": {
+        "name": { "en": "Neda" },
+        "coordinates": [-8.159, 43.500, 5]
+      },
+      "distanceKm": 15.5,
+      "elevationGainMeters": 90,
+      "elevationLossMeters": 110,
+      "highPointMeters": 60,
+      "lowPointMeters": 2,
+      "estimatedHours": { "min": 4, "max": 5 },
+      "difficulty": "easy",
+      "terrainTypes": ["urban", "paved", "coastal"],
+      "terrainNotes": {
+        "en": "Mostly flat coastal walk along the south shore of the Ría de Ferrol. Leaves Ferrol's old town through the naval shipyards, follows the bay east, crosses several inlets on small bridges. Some pilgrims continue past Neda to Pontedeume (combining stages 0 and 1) — this is the 5-stage variant."
+      },
+      "accommodationDensity": "moderate",
+      "waterSources": 5,
+      "services": { "atm": true, "pharmacy": true, "grocery": true, "restaurant": true },
+      "interior": {
+        "theme": { "en": "Embarkation" },
+        "narrative": {
+          "en": "You begin where pilgrims have always begun on this route: at the water. The Curuxeiras pier in Ferrol is where medieval English, Irish, Scandinavian, and Flemish pilgrims stepped off boats and started walking south. There is no inland border to cross, no mountain pass to climb out of. The Camino Inglés begins with the smell of salt and the sound of seagulls. You leave Ferrol through the naval shipyards where the Spanish navy still builds frigates, and the path traces the south shore of the Ría de Ferrol. By midday you arrive in Neda, a quiet fishing town that has welcomed pilgrims for nine centuries."
+        },
+        "commonExperiences": [
+          { "en": "Touching the water at the Curuxeiras pier before starting" },
+          { "en": "Walking past the active Navantia naval shipyards" },
+          { "en": "First view across the Ría toward the Punta da Promontoira lighthouse" },
+          { "en": "Shorter than expected — many pilgrims arrive in Neda by early afternoon" }
+        ],
+        "reflection": {
+          "en": "What does it mean to begin a journey at the edge of the sea instead of at the edge of a continent?"
+        }
+      }
+    },
+    {
+      "index": 1,
+      "name": {
+        "en": "Neda to Pontedeume",
+        "gl": "Neda a Pontedeume"
+      },
+      "start": {
+        "name": { "en": "Neda" },
+        "coordinates": [-8.159, 43.500, 5]
+      },
+      "end": {
+        "name": { "en": "Pontedeume" },
+        "coordinates": [-8.170, 43.413, 2]
+      },
+      "distanceKm": 16.0,
+      "elevationGainMeters": 230,
+      "elevationLossMeters": 250,
+      "highPointMeters": 180,
+      "lowPointMeters": 2,
+      "estimatedHours": { "min": 4, "max": 5 },
+      "difficulty": "easy",
+      "terrainTypes": ["dirt", "paved", "forest", "coastal", "cobblestone"],
+      "accommodationDensity": "moderate",
+      "waterSources": 4,
+      "services": { "atm": true, "pharmacy": true, "grocery": true, "restaurant": true },
+      "interior": {
+        "theme": { "en": "Rhythm" },
+        "narrative": {
+          "en": "Today the route starts to feel like a pilgrimage rather than a city walk. You leave the Neda waterfront, climb gently through eucalyptus and pine, cross small streams on Roman-style stone bridges. The Atlantic stays on your right and the path winds inland and back to the coast in turn. By afternoon you cross the long medieval bridge over the Río Eume into Pontedeume — a town named for that bridge, with the eight-century-old tower of the Andrade family rising above the rooftops. Pontedeume's old town is one of the better-preserved medieval centres in Galicia."
+        },
+        "commonExperiences": [
+          { "en": "Finding a walking pace that the body can sustain" },
+          { "en": "First Galician forest — eucalyptus, pine, and oak in mixed stands" },
+          { "en": "The medieval bridge into Pontedeume — built originally in the 14th century" },
+          { "en": "Discovering Pontedeume's old town with its arcaded streets" }
+        ],
+        "reflection": {
+          "en": "What pace does the route ask of you, and what pace did you arrive with?"
+        }
+      }
+    },
+    {
+      "index": 2,
+      "name": {
+        "en": "Pontedeume to Betanzos",
+        "gl": "Pontedeume a Betanzos"
+      },
+      "start": {
+        "name": { "en": "Pontedeume" },
+        "coordinates": [-8.170, 43.413, 2]
+      },
+      "end": {
+        "name": { "en": "Betanzos" },
+        "coordinates": [-8.211, 43.279, 36]
+      },
+      "distanceKm": 20.7,
+      "elevationGainMeters": 380,
+      "elevationLossMeters": 350,
+      "highPointMeters": 250,
+      "lowPointMeters": 2,
+      "estimatedHours": { "min": 5, "max": 7 },
+      "difficulty": "moderate",
+      "terrainTypes": ["dirt", "paved", "forest", "cobblestone", "urban"],
+      "terrainNotes": {
+        "en": "Out of Pontedeume the path climbs steeply through eucalyptus to a ridgeline and then drops gradually toward the Mandeo river valley. The descent into Betanzos along the river is on cobbled lanes through several small villages."
+      },
+      "accommodationDensity": "moderate",
+      "waterSources": 5,
+      "services": { "atm": true, "pharmacy": true, "grocery": true, "restaurant": true },
+      "interior": {
+        "theme": { "en": "Inland" },
+        "narrative": {
+          "en": "Today the path leaves the coast for good. Out of Pontedeume the climb is sharper than expected — eucalyptus forest, the smell of menthol, the sound of wind through tall thin trees. By midday you crest a ridge and see Galicia opening south toward Santiago. The descent into Betanzos follows the Mandeo river and brings you into one of the most-preserved medieval towns in Galicia. Betanzos is a Gothic town: three 15th-century churches anchor its streets, the old town walls partially survive, and the air smells of fried squid from the local tabernas. By tradition, pilgrims stop at the Igrexa de Santiago for a stamp before finding lodging."
+        },
+        "commonExperiences": [
+          { "en": "The sharp climb out of Pontedeume in eucalyptus forest" },
+          { "en": "First view of inland Galicia from the ridgeline" },
+          { "en": "Walking into the medieval old town through the Porta da Vila" },
+          { "en": "The Igrexa de Santiago de Betanzos with its Gothic basilica plan" },
+          { "en": "Galician fried squid (chocos) and red wine from a Betanzos taberna" }
+        ],
+        "reflection": {
+          "en": "When you turn away from the sea, what part of you is being asked to turn with it?"
+        }
+      }
+    },
+    {
+      "index": 3,
+      "name": {
+        "en": "Betanzos to Hospital de Bruma",
+        "gl": "Betanzos a Hospital de Bruma"
+      },
+      "start": {
+        "name": { "en": "Betanzos" },
+        "coordinates": [-8.211, 43.279, 36]
+      },
+      "end": {
+        "name": { "en": "Hospital de Bruma" },
+        "coordinates": [-8.363, 43.150, 394]
+      },
+      "distanceKm": 28.4,
+      "elevationGainMeters": 620,
+      "elevationLossMeters": 260,
+      "highPointMeters": 410,
+      "lowPointMeters": 30,
+      "estimatedHours": { "min": 7, "max": 9 },
+      "difficulty": "hard",
+      "terrainTypes": ["dirt", "forest", "cobblestone", "mountain"],
+      "terrainNotes": {
+        "en": "The longest and toughest day of the Camino Inglés. Sustained climb out of Betanzos through small villages and forest, gaining ~400 m to the highland of Bruma. Limited services between Betanzos and Hospital de Bruma — carry water and food. Hospital de Bruma's albergue has only ~22 beds; book ahead in peak season."
+      },
+      "accommodationDensity": "very_low",
+      "waterSources": 3,
+      "services": { "atm": false, "pharmacy": false, "grocery": false, "restaurant": false },
+      "warnings": [
+        { "en": "Longest stage of the route at 28+ km. Limited services between Betanzos and Bruma. Carry water and food, start early." },
+        { "en": "The Hospital de Bruma albergue has limited beds (~22). In peak season book ahead — there is no nearby alternative lodging." }
+      ],
+      "interior": {
+        "theme": { "en": "Climb" },
+        "narrative": {
+          "en": "This is the day the Camino Inglés earns its difficulty. Twenty-eight kilometres, sustained climbing, almost no services between Betanzos and Hospital de Bruma. You leave the Mandeo river valley and start working uphill through small Galician villages — Cos, Limiñón, Vilacoba — gaining four hundred metres to the highland where the historic pilgrim hospital stood. By late afternoon you reach Bruma, a place that exists for one reason: it is the meeting point of the historic Ferrol path and the historic A Coruña path. The albergue today sits on the ridge that medieval hospitalers chose because both groups of pilgrims would arrive there exhausted on the same day. You feel the convergence even now."
+        },
+        "commonExperiences": [
+          { "en": "The sustained climb out of Betanzos that does not let up" },
+          { "en": "Long stretches with no village in sight" },
+          { "en": "Hitting the wall around kilometre 20" },
+          { "en": "Arriving in Bruma in the late afternoon, the highland wind cool even in summer" },
+          { "en": "Meeting pilgrims who walked from A Coruña — they joined the route only here" }
+        ],
+        "reflection": {
+          "en": "What does it feel like to walk toward a place whose only purpose is to receive walkers?"
+        }
+      }
+    },
+    {
+      "index": 4,
+      "name": {
+        "en": "Hospital de Bruma to Sigüeiro",
+        "gl": "Hospital de Bruma a Sigüeiro"
+      },
+      "start": {
+        "name": { "en": "Hospital de Bruma" },
+        "coordinates": [-8.363, 43.150, 394]
+      },
+      "end": {
+        "name": { "en": "Sigüeiro" },
+        "coordinates": [-8.442, 42.969, 228]
+      },
+      "distanceKm": 25.2,
+      "elevationGainMeters": 320,
+      "elevationLossMeters": 480,
+      "highPointMeters": 410,
+      "lowPointMeters": 200,
+      "estimatedHours": { "min": 6, "max": 8 },
+      "difficulty": "moderate",
+      "terrainTypes": ["dirt", "forest", "paved", "cobblestone"],
+      "accommodationDensity": "low",
+      "waterSources": 4,
+      "services": { "atm": true, "pharmacy": true, "grocery": true, "restaurant": true },
+      "interior": {
+        "theme": { "en": "Descent" },
+        "narrative": {
+          "en": "From Bruma the route heads steadily south, mostly downhill, through pine and eucalyptus and small Galician hamlets. The terrain settles. The light changes — Galicia's notoriously soft, grey light gives the forest a green-blue cast. By afternoon you cross the Tambre river and enter Sigüeiro, the last town before Santiago. Many pilgrims linger here longer than they expected. Sigüeiro's pilgrim albergue is comfortable, the river is pleasant, and tomorrow Santiago waits. Some pilgrims feel a strange reluctance to finish."
+        },
+        "commonExperiences": [
+          { "en": "Long forest walking with the body finally finding its rhythm" },
+          { "en": "Crossing the Tambre river bridge into Sigüeiro" },
+          { "en": "The first pilgrims you see who are walking only the last day from Sigüeiro to Santiago" },
+          { "en": "An unexpected reluctance to finish the journey" }
+        ],
+        "reflection": {
+          "en": "Why is it sometimes harder to arrive than to walk?"
+        }
+      }
+    },
+    {
+      "index": 5,
+      "name": {
+        "en": "Sigüeiro to Santiago de Compostela",
+        "gl": "Sigüeiro a Santiago de Compostela"
+      },
+      "start": {
+        "name": { "en": "Sigüeiro" },
+        "coordinates": [-8.442, 42.969, 228]
+      },
+      "end": {
+        "name": { "en": "Santiago de Compostela" },
+        "coordinates": [-8.544, 42.881, 260]
+      },
+      "distanceKm": 17.2,
+      "elevationGainMeters": 210,
+      "elevationLossMeters": 180,
+      "highPointMeters": 310,
+      "lowPointMeters": 200,
+      "estimatedHours": { "min": 4, "max": 6 },
+      "difficulty": "easy",
+      "terrainTypes": ["dirt", "paved", "forest", "urban", "cobblestone"],
+      "terrainNotes": {
+        "en": "Final day. Out of Sigüeiro the route runs south through forest and farmland, crosses the Sionlla and Sar river valleys, and climbs the last hill into the northern outskirts of Santiago. The arrival is into the historic centre via the Porta do Camiño on the north side of the old town."
+      },
+      "accommodationDensity": "high",
+      "waterSources": 5,
+      "services": { "atm": true, "pharmacy": true, "grocery": true, "restaurant": true },
+      "interior": {
+        "theme": { "en": "Arrival" },
+        "narrative": {
+          "en": "Seventeen kilometres. The shortest day. You wake before dawn in Sigüeiro and walk south through forest in the half-light. The Galician countryside gives way to suburbs and then the suburbs give way to the old north gate of Santiago, the Porta do Camiño. You walk under the arch and the cobbled streets of the old town wrap around you and you are climbing the last small hills toward the cathedral. The Praza do Obradoiro opens like a held breath. Pilgrims from Frances, Portugués, Norte, Primitivo, Inglés all arrive in this same square, by different roads, on different days, exhausted in slightly different ways. The cathedral does not care which route you walked. It is here for all of them."
+        },
+        "commonExperiences": [
+          { "en": "Walking the last kilometres in quiet, alone or with chosen companions" },
+          { "en": "First view of the cathedral spires from the outskirts" },
+          { "en": "Entering Santiago through the Porta do Camiño on the north side" },
+          { "en": "Standing in the Praza do Obradoiro and not knowing what to do with the moment" },
+          { "en": "Receiving the Compostela at the Pilgrim's Office" },
+          { "en": "Finding a quiet bench in the cathedral garden afterward" }
+        ],
+        "reflection": {
+          "en": "Walking only six days is no less arrival than walking thirty. What did this short pilgrimage teach you that a longer one might not have?"
+        }
+      }
+    }
+  ]
+}
