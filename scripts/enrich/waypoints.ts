@@ -4,7 +4,10 @@ import {
   queryOverpass, buildPoiQuery, classifyNode, extractName,
   extractNameLocalized, type OsmNode,
 } from "./osm.js";
-import { haversineKm, minDistanceToLineKm, projectOntoLine, type Coord } from "./geo-utils.js";
+import {
+  haversineKm, minDistanceToLineKm, projectOntoLine,
+  pointToSegmentDistanceKm, type Coord,
+} from "./geo-utils.js";
 
 const ROOT = join(import.meta.dirname, "../..");
 const BUFFER_KM = 0.5;
@@ -18,28 +21,109 @@ function getRouteCoords(routeDir: string): Coord[] {
   const route = loadJson(join(routeDir, "route.geojson"));
   const allCoords: Coord[] = [];
   for (const feature of route.features) {
-    allCoords.push(...(feature.geometry.coordinates as Coord[]));
+    const geom = feature.geometry;
+    if (geom.type === "LineString") {
+      allCoords.push(...(geom.coordinates as Coord[]));
+    } else if (geom.type === "MultiLineString") {
+      for (const line of geom.coordinates as Coord[][]) {
+        allCoords.push(...line);
+      }
+    } else {
+      console.warn(`  ⚠ Unsupported geometry type '${geom.type}' in feature — skipping`);
+    }
   }
   return allCoords;
 }
 
-function getStageRanges(routeDir: string): Array<{ cumulativeKm: number }> {
-  const stages = loadJson(join(routeDir, "stages.json"));
-  const ranges: Array<{ cumulativeKm: number }> = [];
-  let cumulative = 0;
-  for (const s of stages.stages) {
-    cumulative += s.distanceKm;
-    ranges.push({ cumulativeKm: cumulative });
-  }
-  return ranges;
+interface StageRange {
+  startIdx: number;
+  endIdx: number;
+  startCoord: Coord;
+  endCoord: Coord;
+  distanceKm: number;
+  cumulativeStartKm: number;
 }
 
-function findStageIndex(kmAlong: number, ranges: Array<{ cumulativeKm: number }>): number {
-  if (ranges.length === 0) return 0;
-  for (let i = 0; i < ranges.length; i++) {
-    if (kmAlong <= ranges[i].cumulativeKm) return i;
+interface StageRangeInfo {
+  ranges: StageRange[];
+  useGeographicFallback: boolean;
+}
+
+function getStageRanges(routeDir: string, routeCoords: Coord[]): StageRangeInfo {
+  const stages = loadJson(join(routeDir, "stages.json"));
+  const ranges: StageRange[] = [];
+  let cumulative = 0;
+
+  const boundaryIdxs: number[] = [];
+  for (const s of stages.stages) {
+    const startCoord = s.start.coordinates as Coord;
+    const { segmentIndex } = projectOntoLine(startCoord, routeCoords);
+    boundaryIdxs.push(segmentIndex);
   }
-  return ranges.length - 1;
+  boundaryIdxs.push(routeCoords.length - 1);
+
+  const monotonic = boundaryIdxs.every((v, i) => i === 0 || v >= boundaryIdxs[i - 1]);
+  if (!monotonic) {
+    console.warn(
+      `  ⚠ Stage boundary indexes are NOT monotonic — route geometry is not in walking order ` +
+      `(common for circular/network topologies). Falling back to geographic nearest-segment assignment.`,
+    );
+  }
+
+  for (let i = 0; i < stages.stages.length; i++) {
+    const distanceKm = stages.stages[i].distanceKm;
+    ranges.push({
+      startIdx: boundaryIdxs[i],
+      endIdx: boundaryIdxs[i + 1],
+      startCoord: stages.stages[i].start.coordinates as Coord,
+      endCoord: stages.stages[i].end.coordinates as Coord,
+      distanceKm,
+      cumulativeStartKm: cumulative,
+    });
+    cumulative += distanceKm;
+  }
+  return { ranges, useGeographicFallback: !monotonic };
+}
+
+function assignStageByIndex(
+  coordIdx: number,
+  ranges: StageRange[],
+): { stageIndex: number; kmFromStart: number } {
+  let stageIdx = ranges.length - 1;
+  for (let i = 0; i < ranges.length; i++) {
+    if (coordIdx >= ranges[i].startIdx && coordIdx < ranges[i].endIdx) {
+      stageIdx = i;
+      break;
+    }
+  }
+  const r = ranges[stageIdx];
+  const span = r.endIdx - r.startIdx;
+  const fraction = span > 0 ? Math.max(0, Math.min(1, (coordIdx - r.startIdx) / span)) : 0;
+  const kmFromStart = r.cumulativeStartKm + fraction * r.distanceKm;
+  return { stageIndex: stageIdx, kmFromStart };
+}
+
+function assignStageByGeography(
+  wpCoord: Coord,
+  ranges: StageRange[],
+): { stageIndex: number; kmFromStart: number } {
+  let bestStage = 0;
+  let bestDist = Infinity;
+  for (let i = 0; i < ranges.length; i++) {
+    const d = pointToSegmentDistanceKm(wpCoord, ranges[i].startCoord, ranges[i].endCoord);
+    if (d < bestDist) {
+      bestDist = d;
+      bestStage = i;
+    }
+  }
+  const r = ranges[bestStage];
+  const dAB = haversineKm(r.startCoord, r.endCoord);
+  const dAP = haversineKm(r.startCoord, wpCoord);
+  const dBP = haversineKm(r.endCoord, wpCoord);
+  const projLen = dAB < 0.001 ? 0 : (dAP * dAP + dAB * dAB - dBP * dBP) / (2 * dAB);
+  const fraction = Math.max(0, Math.min(1, projLen / Math.max(dAB, 0.001)));
+  const kmFromStart = r.cumulativeStartKm + fraction * r.distanceKm;
+  return { stageIndex: bestStage, kmFromStart };
 }
 
 async function main() {
@@ -65,7 +149,7 @@ async function main() {
   }
 
   const routeCoords = getRouteCoords(routeDir);
-  const stageRanges = getStageRanges(routeDir);
+  const { ranges: stageRanges, useGeographicFallback } = getStageRanges(routeDir, routeCoords);
   const bbox = meta.overview.bbox as [number, number, number, number];
 
   const curated = existing.features.filter((f: any) => f.properties.source !== "osm");
@@ -103,8 +187,14 @@ async function main() {
       continue;
     }
 
-    const { kmAlong } = projectOntoLine(coord, routeCoords);
-    const stageIndex = findStageIndex(kmAlong, stageRanges);
+    let stageIndex: number;
+    let kmFromStart: number;
+    if (useGeographicFallback) {
+      ({ stageIndex, kmFromStart } = assignStageByGeography(coord, stageRanges));
+    } else {
+      const { segmentIndex } = projectOntoLine(coord, routeCoords);
+      ({ stageIndex, kmFromStart } = assignStageByIndex(segmentIndex, stageRanges));
+    }
     const name = extractName(node.tags);
     const nameLocalized = extractNameLocalized(node.tags);
 
@@ -119,7 +209,7 @@ async function main() {
         type: classification.type,
         subtype: classification.subtype,
         stageIndex,
-        kmFromStart: Math.round(kmAlong * 10) / 10,
+        kmFromStart: Math.round(kmFromStart * 10) / 10,
         icon: classification.subtype,
         source: "osm",
         osmId: `node/${node.id}`,

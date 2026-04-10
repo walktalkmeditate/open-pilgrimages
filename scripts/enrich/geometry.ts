@@ -1,6 +1,7 @@
 import { readFileSync, writeFileSync, existsSync } from "fs";
 import { join } from "path";
 import { queryOverpass, buildRelationGeomQuery, type OsmRelation } from "./osm.js";
+import { haversineKm, type Coord } from "./geo-utils.js";
 
 const ROOT = join(import.meta.dirname, "../..");
 
@@ -86,10 +87,32 @@ async function main() {
       });
     }
   } else {
-    const allCoords: Array<[number, number]> = [];
+    let allCoords: Array<[number, number]> = [];
     for (const rel of relations) {
       allCoords.push(...extractLineCoords(rel));
     }
+
+    const trimStart = osmConfig.trimStart?.coordinates as [number, number] | undefined;
+    if (trimStart && allCoords.length > 0) {
+      let bestIdx = 0;
+      let bestDist = Infinity;
+      for (let i = 0; i < allCoords.length; i++) {
+        const d = haversineKm(allCoords[i] as Coord, trimStart as Coord);
+        if (d < bestDist) {
+          bestDist = d;
+          bestIdx = i;
+        }
+      }
+      if (bestIdx > 0) {
+        const before = allCoords.length;
+        allCoords = allCoords.slice(bestIdx);
+        console.log(
+          `Trimmed ${before - allCoords.length} pre-start coordinates ` +
+          `(closest match ${bestDist.toFixed(3)} km from trim target [${trimStart.join(", ")}])`,
+        );
+      }
+    }
+
     features.push({
       type: "Feature",
       id: `${routeId}-main`,
