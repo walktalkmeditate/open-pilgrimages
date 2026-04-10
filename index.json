@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-04-10T02:39:29.498Z",
+  "generatedAt": "2026-04-10T03:20:14.696Z",
   "routes": [
     {
       "id": "camino-frances",
@@ -46,6 +46,23 @@
       ]
     },
     {
+      "id": "camino-norte",
+      "name": {
+        "en": "Camino del Norte (Northern Way)",
+        "es": "Camino del Norte",
+        "eu": "Kostaldeko Donejakue bidea",
+        "gl": "Camiño do Norte",
+        "fr": "Chemin du Nord",
+        "ja": "北の道"
+      },
+      "region": "Europe",
+      "country": "ES",
+      "distanceKm": 820,
+      "topology": "linear",
+      "tradition": "christian",
+      "path": "routes/camino-norte"
+    },
+    {
       "id": "camino-portugues",
       "name": {
         "en": "Camino Portugués (Central)",
@@ -64,12 +81,12 @@
         {
           "id": "coastal",
           "name": {
-            "en": "Camino Portugués da Costa (Coastal Way)",
-            "pt": "Caminho Português da Costa",
-            "es": "Camino Portugués de la Costa",
-            "gl": "Camiño Portugués da Costa"
+            "en": "Camino Portugués da Costa (Coastal — Portuguese section)",
+            "pt": "Caminho Português da Costa (trecho português)",
+            "es": "Camino Portugués de la Costa (tramo portugués)",
+            "gl": "Camiño Portugués da Costa (treito portugués)"
           },
-          "distanceKm": 280,
+          "distanceKm": 130,
           "path": "routes/camino-portugues/variants/coastal"
         },
         {

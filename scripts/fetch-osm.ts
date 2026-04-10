@@ -54,6 +54,13 @@ out geom;`,
 relation(id:2163938,19586861,19586860,19586862,19586859,19586857,19586856,19586855,19586854,19586853,10526092);
 out geom;`,
   },
+  {
+    id: "camino-norte",
+    description: "Camino del Norte (Northern Way) — 4 sub-relations of superroute 19001007 (Irún → Arzúa)",
+    query: `[out:json][timeout:300];
+relation(id:1116809,360167,2201058,1554697);
+out geom;`,
+  },
 ];
 
 async function fetchOverpass(query: string): Promise<unknown> {

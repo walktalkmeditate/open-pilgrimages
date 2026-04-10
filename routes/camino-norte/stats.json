@@ -1,0 +1,105 @@
+{
+  "schemaVersion": "1.0.0",
+  "routeId": "camino-norte",
+  "lastUpdated": "2026-04-10",
+  "dataYear": 2025,
+  "annualPilgrims": {
+    "latest": {
+      "year": 2025,
+      "count": 21521,
+      "note": "Camino del Norte; 4.1% of 531,000 total Compostelas in 2025. The longest non-Francés Camino but less walked than the Primitivo — demanding, less serviced, and favoured by experienced pilgrims."
+    },
+    "trend": [
+      { "year": 2003, "count": 2383 },
+      { "year": 2004, "count": 6970, "note": "Holy Year" },
+      { "year": 2005, "count": 3780 },
+      { "year": 2006, "count": 5197 },
+      { "year": 2007, "count": 5708 },
+      { "year": 2008, "count": 6954 },
+      { "year": 2009, "count": 8899 },
+      { "year": 2010, "count": 17662, "note": "Holy Year" },
+      { "year": 2011, "count": 11520 },
+      { "year": 2012, "count": 12637 },
+      { "year": 2013, "count": 13314 },
+      { "year": 2014, "count": 15008 },
+      { "year": 2015, "count": 15808, "note": "First year after UNESCO inscription (2015)" },
+      { "year": 2016, "count": 17289 },
+      { "year": 2017, "count": 17836 },
+      { "year": 2018, "count": 19040 },
+      { "year": 2019, "count": 19021 },
+      { "year": 2020, "count": 3804, "note": "COVID-19" },
+      { "year": 2021, "count": 9595, "note": "Holy Year (extended)" },
+      { "year": 2022, "count": 20868, "note": "Extended Holy Year" },
+      { "year": 2023, "count": 20583 },
+      { "year": 2024, "count": 21418 },
+      { "year": 2025, "count": 21521, "note": "Record year — slight growth over 2024" }
+    ],
+    "source": "https://solviturambulando.es/api/yearly-demographics.json?year={YEAR}&v=5",
+    "sourceNotes": "All counts from Solvitur Ambulando which mirrors Oficina del Peregrino. The Norte has plateaued at ~21,000 pilgrims per year since 2022, a contrast with the dramatic growth seen on the Portugués Coastal over the same period. The 2015 UNESCO inscription produced a small bump but did not change the route's overall demographic profile. See docs/data-sources.md."
+  },
+  "demographics": {
+    "dataYear": 2024,
+    "totalPilgrims": 21418,
+    "topNationalities": [
+      { "country": "ES", "name": "Spain", "count": 9105, "percentage": 42.51 },
+      { "country": "DE", "name": "Germany", "count": 1686, "percentage": 7.87 },
+      { "country": "US", "name": "United States", "count": 1572, "percentage": 7.34 },
+      { "country": "IT", "name": "Italy", "count": 1302, "percentage": 6.08 },
+      { "country": "FR", "name": "France", "count": 1284, "percentage": 5.99 },
+      { "country": "GB", "name": "United Kingdom", "count": 559, "percentage": 2.61 },
+      { "country": "NL", "name": "Netherlands", "count": 485, "percentage": 2.26 },
+      { "country": "PL", "name": "Poland", "count": 444, "percentage": 2.07 },
+      { "country": "PT", "name": "Portugal", "count": 323, "percentage": 1.51 },
+      { "country": "CA", "name": "Canada", "count": 306, "percentage": 1.43 },
+      { "country": "AU", "name": "Australia", "count": 298, "percentage": 1.39 },
+      { "country": "MX", "name": "Mexico", "count": 293, "percentage": 1.37 },
+      { "country": "IE", "name": "Ireland", "count": 188, "percentage": 0.88 },
+      { "country": "KR", "name": "South Korea", "count": 184, "percentage": 0.86 },
+      { "country": "BR", "name": "Brazil", "count": 129, "percentage": 0.60 }
+    ],
+    "topNationalitiesNote": "Per-route 2024 figures from Solvitur Ambulando. The Norte has a noticeably higher French representation (6.0%) than most Caminos because it is the natural coastal continuation from France and is walked by French pilgrims starting at the Bidasoa border. 'Others' (~15.2%) not individually listed.",
+    "genderSplit": {
+      "female": 0.4336,
+      "male": 0.6652,
+      "unknown": 0.0012,
+      "counts": { "female": 9287, "male": 12106, "unknown": 25 }
+    },
+    "genderNote": "Male majority of 56.5% (vs 43.4% female) — similar to the Primitivo's mountain-difficult demographic. The Norte's length, terrain variety, and reputation for being physically demanding correlate with an older-male skew compared to the Frances or Portugués.",
+    "ageGroups": [
+      { "group": "Under 18", "count": 1484, "percentage": 6.93 },
+      { "group": "18-45", "count": 9318, "percentage": 43.51 },
+      { "group": "46-65", "count": 7753, "percentage": 36.20 },
+      { "group": "Over 65", "count": 2863, "percentage": 13.37 }
+    ],
+    "source": "https://solviturambulando.es/api/yearly-demographics.json?year=2024&v=5"
+  },
+  "motivation": [
+    { "type": "religious", "count": 8811, "percentage": 41.14 },
+    { "type": "religious_and_other", "count": 7470, "percentage": 34.88 },
+    { "type": "non_religious", "count": 4197, "percentage": 19.60 },
+    { "type": "not_stated", "count": 940, "percentage": 4.39 }
+  ],
+  "motivationNote": "Per-route 2024 figures from Solvitur Ambulando. Motivation distribution is broadly similar to the other major Caminos, with slightly higher non-religious share than Frances or Portugués.",
+  "routeContext": {
+    "comparisonWithFrances": {
+      "en": "In 2025 the Norte accounted for 4.1% of all Compostelas (21,521 pilgrims). It is the third-longest Camino after the Vía de la Plata and the Camino Francés, but only the 6th-most-walked — reflecting its reputation as physically demanding, less serviced than the Francés or Portugués, and requiring more self-sufficiency. Compared to other Caminos, Norte pilgrims skew older, more male, more European, and have a higher proportion of French walkers because the Bidasoa border crossing is a natural continuation from the French Camino network."
+    },
+    "difficulty": {
+      "en": "The Norte accumulates more total elevation gain than either the Frances or the Primitivo because of constant short climbs and descents across coastal headlands — there is no single dramatic pass, just 34 days of up-and-down. The Bay of Biscay has the most variable weather of any Camino region; Atlantic storms can arrive suddenly in any month. Albergue density is significantly lower than on the Frances, and some stages have only one or two pilgrim-specific beds. The Norte is generally not recommended as a first-time pilgrim's Camino."
+    }
+  },
+  "sources": [
+    {
+      "name": "Solvitur Ambulando — Yearly Demographics API",
+      "url": "https://solviturambulando.es/api/yearly-demographics.json?year={YEAR}&v=5",
+      "accessDate": "2026-04-10",
+      "notes": "Primary source for 2003-2025 per-route counts and demographics. See docs/data-sources.md."
+    },
+    {
+      "name": "Wikipedia: Northern Way (Camino de Santiago)",
+      "url": "https://en.wikipedia.org/wiki/Northern_Way_(Camino_de_Santiago)",
+      "accessDate": "2026-04-10",
+      "notes": "Historical context and route description."
+    }
+  ]
+}

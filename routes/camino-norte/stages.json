@@ -1,0 +1,1202 @@
+{
+  "schemaVersion": "1.0.0",
+  "routeId": "camino-norte",
+  "stageCount": 34,
+  "stages": [
+    {
+      "index": 0,
+      "name": { "en": "Irún to San Sebastián", "es": "Irún a San Sebastián", "eu": "Irundik Donostiara" },
+      "start": { "name": { "en": "Irún", "eu": "Irun" }, "coordinates": [-1.789, 43.338, 20] },
+      "end": { "name": { "en": "San Sebastián", "eu": "Donostia" }, "coordinates": [-1.986, 43.321, 6] },
+      "distanceKm": 24.7,
+      "elevationGainMeters": 720,
+      "elevationLossMeters": 735,
+      "highPointMeters": 425,
+      "lowPointMeters": 0,
+      "estimatedHours": { "min": 6, "max": 8 },
+      "difficulty": "moderate",
+      "terrainTypes": ["coastal", "mountain", "forest", "paved", "dirt", "urban"],
+      "terrainNotes": {
+        "en": "A demanding first day. The climb up Monte Jaizkibel begins almost immediately out of Irún and reaches ~425 m with sweeping views back toward France. The descent into Pasaia crosses a small passenger ferry over the natural harbour, then climbs again over Monte Ulía before dropping into the Parte Vieja of San Sebastián. Many pilgrims split this stage at Pasaia (~10 km) or Hondarribia."
+      },
+      "accommodationDensity": "high",
+      "waterSources": 6,
+      "services": { "atm": true, "pharmacy": true, "grocery": true, "restaurant": true },
+      "interior": {
+        "theme": { "en": "The border" },
+        "narrative": {
+          "en": "You begin at the Bidasoa river where France becomes Spain. Irún is quiet in the early morning and the sea is close but not yet visible. Within an hour the climb up Monte Jaizkibel has pushed the pulse into your ears and the Bay of Biscay appears below — grey or blue depending on the day, never still. The Santuario de Guadalupe above Hondarribia is where medieval pilgrims paused for the first prayer. By noon you drop into Pasaia, cross the harbour by a small passenger boat that has run for centuries, and climb again over Monte Ulía. San Sebastián reveals itself from above: the perfect arc of La Concha, the Urgull hill, the old town pressed against the water. The first day is harder than you expected. It is supposed to be."
+        },
+        "commonExperiences": [
+          { "en": "Surprise at how steep Jaizkibel is after a flat Irún morning" },
+          { "en": "The Santuario de Guadalupe at Hondarribia — the first Marian sanctuary" },
+          { "en": "Pasaia ferry — a thirty-second boat ride across the harbour mouth" },
+          { "en": "First sight of La Concha bay from Monte Ulía" },
+          { "en": "Arriving in Donostia's Parte Vieja and feeling like the Camino hasn't really started yet" }
+        ],
+        "reflection": {
+          "en": "You have chosen the hardest of the Caminos. What does beginning feel like when the first day already tells you the truth about what you are in for?"
+        }
+      }
+    },
+    {
+      "index": 1,
+      "name": { "en": "San Sebastián to Zarautz", "eu": "Donostiatik Zarautzera" },
+      "start": { "name": { "en": "San Sebastián", "eu": "Donostia" }, "coordinates": [-1.986, 43.321, 6] },
+      "end": { "name": { "en": "Zarautz" }, "coordinates": [-2.175, 43.286, 4] },
+      "distanceKm": 22.1,
+      "elevationGainMeters": 620,
+      "elevationLossMeters": 625,
+      "highPointMeters": 250,
+      "lowPointMeters": 0,
+      "estimatedHours": { "min": 5, "max": 7 },
+      "difficulty": "moderate",
+      "terrainTypes": ["coastal", "forest", "paved", "dirt", "urban"],
+      "terrainNotes": {
+        "en": "Leaves San Sebastián via the Antiguo district and climbs Monte Igueldo (coastal ridge), then tracks the Basque coast through Orio — a fishing town at the mouth of the Oria river — before reaching Zarautz, the Basque Country's most famous surf beach."
+      },
+      "accommodationDensity": "high",
+      "waterSources": 5,
+      "services": { "atm": true, "pharmacy": true, "grocery": true, "restaurant": true },
+      "interior": {
+        "theme": { "en": "Basque coast" },
+        "narrative": {
+          "en": "Today is when the Basque coast becomes real. You climb out of San Sebastián past the funicular to Monte Igueldo and the Parisian-style amusement park at the top, then drop to a ridge path that alternates forest and sea views for hours. Orio smells of fried sardines. Zarautz appears as a long golden beach full of surfers — the European Surfing Championship is held here — and the old walled quarter sits at the east end above the promenade. The rhythm of the Norte is establishing itself: climb a headland, drop to a bay, cross a river, repeat."
+        },
+        "commonExperiences": [
+          { "en": "The funicular to Monte Igueldo — most pilgrims walk past rather than up" },
+          { "en": "First eucalyptus forest smell of the route" },
+          { "en": "Orio's waterfront and the smell of charcoal-grilled fish" },
+          { "en": "Zarautz beach full of surfers even in autumn" }
+        ],
+        "reflection": {
+          "en": "The route is settling into a pattern of climbs and bays. What rhythm did you arrive with, and does it match what the coast is asking?"
+        }
+      }
+    },
+    {
+      "index": 2,
+      "name": { "en": "Zarautz to Deba", "eu": "Zarautzetik Debara" },
+      "start": { "name": { "en": "Zarautz" }, "coordinates": [-2.175, 43.286, 4] },
+      "end": { "name": { "en": "Deba" }, "coordinates": [-2.354, 43.296, 10] },
+      "distanceKm": 21.0,
+      "elevationGainMeters": 540,
+      "elevationLossMeters": 545,
+      "highPointMeters": 280,
+      "lowPointMeters": 0,
+      "estimatedHours": { "min": 5, "max": 6 },
+      "difficulty": "moderate",
+      "terrainTypes": ["coastal", "forest", "dirt", "paved", "cobblestone"],
+      "terrainNotes": {
+        "en": "Inland route via Askizu and Itziar is standard; a coastal variant via Zumaia and the UNESCO flysch cliffs is slightly longer but more dramatic. Getaria with its Elcano monument (the first man to complete a circumnavigation) is ~4 km in."
+      },
+      "accommodationDensity": "moderate",
+      "waterSources": 4,
+      "services": { "atm": true, "pharmacy": true, "grocery": true, "restaurant": true },
+      "interior": {
+        "theme": { "en": "Flysch" },
+        "narrative": {
+          "en": "If you take the coastal variant you reach the Zumaia flysch: cliffs of layered sedimentary rock pushed vertical by geological time, a UNESCO Global Geopark. The rock is the age of the dinosaur extinction and the layers read like a book. Whether you take flysch or the inland route, the day ends in Deba, a small town where the Camino crosses the Deba river on a medieval bridge and climbs into a 13th-century church with a rose window that no photograph prepares you for. The Church of Santa María de Deba was built by pilgrims for pilgrims."
+        },
+        "commonExperiences": [
+          { "en": "Getaria and Juan Sebastián Elcano — the first circumnavigator" },
+          { "en": "The flysch cliffs at Zumaia if you take the coastal variant" },
+          { "en": "The rose window at Santa María de Deba" },
+          { "en": "First time your shoulders start to accept the pack without complaint" }
+        ],
+        "reflection": {
+          "en": "The cliffs at Zumaia are 65 million years old. What does your tiredness feel like measured against that?"
+        }
+      }
+    },
+    {
+      "index": 3,
+      "name": { "en": "Deba to Markina-Xemein", "eu": "Debatik Markina-Xemeinera" },
+      "start": { "name": { "en": "Deba" }, "coordinates": [-2.354, 43.296, 10] },
+      "end": { "name": { "en": "Markina-Xemein" }, "coordinates": [-2.496, 43.269, 85] },
+      "distanceKm": 24.0,
+      "elevationGainMeters": 820,
+      "elevationLossMeters": 745,
+      "highPointMeters": 430,
+      "lowPointMeters": 10,
+      "estimatedHours": { "min": 6, "max": 8 },
+      "difficulty": "hard",
+      "terrainTypes": ["mountain", "forest", "dirt", "paved"],
+      "terrainNotes": {
+        "en": "The Norte turns inland for a full day of Basque mountain country. Climbs over several small passes through pine and eucalyptus forest, passes the 11th-century hermitage of Calvario at Arnoate and the pilgrim village of Olatz. No large towns en route — carry food and water. The day ends at Markina-Xemein, a small Basque valley town."
+        },
+      "accommodationDensity": "low",
+      "waterSources": 3,
+      "services": { "atm": true, "pharmacy": true, "grocery": true, "restaurant": true },
+      "interior": {
+        "theme": { "en": "Inland" },
+        "narrative": {
+          "en": "Today the sea leaves you. The route turns inland and climbs into Basque farmland and mountain forest — the interior of Gipuzkoa and Bizkaia that most coastal visitors never see. Small farms with wooden balconies, cattle grazing on impossibly steep pasture, the crack of a falling chestnut in October. You will not see another pilgrim for hours. The village of Olatz is the pilgrim's oasis — two houses, a fountain, and a small albergue. By afternoon you drop into Markina-Xemein, the historical heart of the Basque pelota tradition and home to the Convento de la Merced where pilgrims still stay. The first day without the sea is harder to walk than the coastal days."
+        },
+        "commonExperiences": [
+          { "en": "Climbing above the tree line and seeing Basque mountain farms with painted wooden balconies" },
+          { "en": "The hermitage at Calvario — small, old, locked" },
+          { "en": "Olatz and its fountain — the only water on the stage" },
+          { "en": "First day without seeing the Atlantic — disorienting" },
+          { "en": "The Convento de la Merced in Markina — pilgrim albergue inside a 16th-century convent" }
+        ],
+        "reflection": {
+          "en": "You left the coast for a day. Did you miss it, or was the silence of the forest a gift?"
+        }
+      }
+    },
+    {
+      "index": 4,
+      "name": { "en": "Markina-Xemein to Gernika", "eu": "Markina-Xemeindik Gernikara" },
+      "start": { "name": { "en": "Markina-Xemein" }, "coordinates": [-2.496, 43.269, 85] },
+      "end": { "name": { "en": "Gernika-Lumo", "es": "Guernica" }, "coordinates": [-2.667, 43.317, 10] },
+      "distanceKm": 25.4,
+      "elevationGainMeters": 620,
+      "elevationLossMeters": 695,
+      "highPointMeters": 380,
+      "lowPointMeters": 10,
+      "estimatedHours": { "min": 6, "max": 8 },
+      "difficulty": "hard",
+      "terrainTypes": ["mountain", "forest", "dirt", "paved"],
+      "terrainNotes": {
+        "en": "Still inland. Crosses a series of forested ridges through Bolibar, the Collegiate Church of Zenarruza (12th century, one of the oldest pilgrim churches on the Norte), Munitibar, and into Gernika. The terrain is constant up-and-down with no long flat sections."
+      },
+      "accommodationDensity": "low",
+      "waterSources": 4,
+      "services": { "atm": true, "pharmacy": true, "grocery": true, "restaurant": true },
+      "interior": {
+        "theme": { "en": "Gernika" },
+        "narrative": {
+          "en": "You pass the Colegiata de Zenarruza, a 12th-century pilgrim church with Cistercian ties, where the scallop shell carvings on the portal have been touched by nine hundred years of pilgrims. The path drops through Munitibar and climbs a final ridge before Gernika. And then you arrive in Gernika, which is impossible to enter without thinking of what happened here on April 26, 1937. The Casa de Juntas with its thousand-year-old oak tree — the symbol of Basque liberty since medieval times — survived the bombing. Picasso's painting did not come from here; it came from what was destroyed. Most pilgrims take an afternoon hour at the Museo de la Paz."
+        },
+        "commonExperiences": [
+          { "en": "Touching the scallop carvings at Zenarruza" },
+          { "en": "The moment of recognition on entering Gernika — the name carries more weight than the town" },
+          { "en": "The Oak of Gernika at the Casa de Juntas — still growing, still symbolic" },
+          { "en": "Visiting the Museo de la Paz in the afternoon" }
+        ],
+        "reflection": {
+          "en": "You arrived at a place whose name was already in your head before you saw it. What does walking into history feel like when the history is recent?"
+        }
+      }
+    },
+    {
+      "index": 5,
+      "name": { "en": "Gernika to Lezama", "eu": "Gernikatik Lezamara" },
+      "start": { "name": { "en": "Gernika-Lumo" }, "coordinates": [-2.667, 43.317, 10] },
+      "end": { "name": { "en": "Lezama" }, "coordinates": [-2.832, 43.276, 68] },
+      "distanceKm": 19.8,
+      "elevationGainMeters": 580,
+      "elevationLossMeters": 520,
+      "highPointMeters": 310,
+      "lowPointMeters": 10,
+      "estimatedHours": { "min": 5, "max": 6 },
+      "difficulty": "moderate",
+      "terrainTypes": ["forest", "dirt", "paved"],
+      "terrainNotes": {
+        "en": "The approach to Bilbao. Climbs over Bizkargi hill (320 m), passes the small town of Goikolexea and Morga, and descends to Lezama on the northeastern outskirts of Bilbao. Lezama is small but has pilgrim accommodation."
+      },
+      "accommodationDensity": "low",
+      "waterSources": 3,
+      "services": { "atm": false, "pharmacy": true, "grocery": true, "restaurant": true },
+      "interior": {
+        "theme": { "en": "The approach" },
+        "narrative": {
+          "en": "A shorter day, by Norte standards. You climb Bizkargi through mixed forest, pass hamlets too small to appear on maps, and by early afternoon you are in Lezama, a suburban village with a pilgrim albergue, a bar, and a church. The rhythm of the past three inland days — climb, forest, village, descent, village — is about to be broken by the arrival in Bilbao tomorrow. Use the quiet of Lezama."
+        },
+        "commonExperiences": [
+          { "en": "The last forest day before Bilbao breaks the rhythm" },
+          { "en": "Small Basque hamlets with nothing open at midday" },
+          { "en": "The strange feeling of knowing tomorrow is a city day" }
+        ],
+        "reflection": {
+          "en": "Four days into an inland section. What is the forest teaching that the coast could not?"
+        }
+      }
+    },
+    {
+      "index": 6,
+      "name": { "en": "Lezama to Bilbao", "eu": "Lezamatik Bilbora" },
+      "start": { "name": { "en": "Lezama" }, "coordinates": [-2.832, 43.276, 68] },
+      "end": { "name": { "en": "Bilbao", "eu": "Bilbo" }, "coordinates": [-2.924, 43.257, 19] },
+      "distanceKm": 11.0,
+      "elevationGainMeters": 280,
+      "elevationLossMeters": 330,
+      "highPointMeters": 240,
+      "lowPointMeters": 10,
+      "estimatedHours": { "min": 2, "max": 3 },
+      "difficulty": "easy",
+      "terrainTypes": ["urban", "paved", "forest"],
+      "terrainNotes": {
+        "en": "The short entry day into Bilbao. Descends from Lezama through suburban forest to the Mount Avril viewpoint, then drops via stairs into the Casco Viejo old town. Most pilgrims use the afternoon for the Guggenheim or the old town."
+      },
+      "accommodationDensity": "high",
+      "waterSources": 5,
+      "services": { "atm": true, "pharmacy": true, "grocery": true, "restaurant": true },
+      "interior": {
+        "theme": { "en": "Bilbao" },
+        "narrative": {
+          "en": "A short walking day, and then Bilbao. You enter the city from above — from Mount Avril where the Guggenheim suddenly appears in the valley below, a metallic shape that looks nothing like anything else in your Camino so far. The descent is by stairs. You arrive in the Casco Viejo, the old Gothic quarter, and the rest of the day is yours. Most pilgrims take a rest day. The Guggenheim, Puente Colgante, the Cathedral, the Basílica de Begoña on the hill, tapas in Plaza Nueva — Bilbao deserves more than one night."
+        },
+        "commonExperiences": [
+          { "en": "The first glimpse of the Guggenheim from above — not what anyone expects on a pilgrimage" },
+          { "en": "The descent by stairs into the old city" },
+          { "en": "Rest-day indecision: Guggenheim or old town, pintxos or full meal" },
+          { "en": "Basílica de Begoña on the hill — the Marian heart of Biscay" }
+        ],
+        "reflection": {
+          "en": "You walked from an oak tree to a Frank Gehry museum in two days. What does the Camino do with that kind of contrast?"
+        }
+      }
+    },
+    {
+      "index": 7,
+      "name": { "en": "Bilbao to Portugalete", "eu": "Bilbotik Portugaletera" },
+      "start": { "name": { "en": "Bilbao", "eu": "Bilbo" }, "coordinates": [-2.924, 43.257, 19] },
+      "end": { "name": { "en": "Portugalete" }, "coordinates": [-3.019, 43.319, 26] },
+      "distanceKm": 19.2,
+      "elevationGainMeters": 430,
+      "elevationLossMeters": 420,
+      "highPointMeters": 220,
+      "lowPointMeters": 5,
+      "estimatedHours": { "min": 4, "max": 6 },
+      "difficulty": "moderate",
+      "terrainTypes": ["urban", "paved", "forest", "dirt"],
+      "terrainNotes": {
+        "en": "The official route climbs the Kobetas ridge west of Bilbao through forest and industrial outskirts. The shorter riverside variant (10B) follows the Ría del Nervión for 13 km — less scenic, less climbing, more walking on sidewalks past old ironworks."
+      },
+      "accommodationDensity": "high",
+      "waterSources": 5,
+      "services": { "atm": true, "pharmacy": true, "grocery": true, "restaurant": true },
+      "interior": {
+        "theme": { "en": "Industrial heritage" },
+        "narrative": {
+          "en": "Today the Camino walks through the industrial memory of Biscay. The Nervión estuary was once one of Europe's major iron-producing regions — British coal came in, Basque iron went out, and the wealth of the 19th century built Bilbao. The Altos Hornos de Vizcaya blast furnaces closed in 1996. You pass their skeletons. The Puente Colgante at Portugalete is the inheritance: the world's first transporter bridge, designed by a student of Eiffel, completed in 1893, a UNESCO World Heritage Site since 2006. You can ride the gondola across the Ría for half a euro. Many pilgrims do — it is part of the route."
+        },
+        "commonExperiences": [
+          { "en": "Walking past the old ironworks and blast-furnace ruins" },
+          { "en": "First sight of the Puente Colgante — a surprise of Victorian engineering" },
+          { "en": "Riding the transporter gondola across the Ría" },
+          { "en": "Realizing the Camino passes through working-class industrial memory, not just cathedrals" }
+        ],
+        "reflection": {
+          "en": "The pilgrimage tradition and the industrial revolution usually live in different books. What does it mean to walk through both on the same afternoon?"
+        }
+      }
+    },
+    {
+      "index": 8,
+      "name": { "en": "Portugalete to Castro Urdiales", "eu": "Portugaletetik Castro Urdialesera" },
+      "start": { "name": { "en": "Portugalete" }, "coordinates": [-3.019, 43.319, 26] },
+      "end": { "name": { "en": "Castro Urdiales" }, "coordinates": [-3.215, 43.384, 19] },
+      "distanceKm": 32.1,
+      "elevationGainMeters": 640,
+      "elevationLossMeters": 655,
+      "highPointMeters": 280,
+      "lowPointMeters": 0,
+      "estimatedHours": { "min": 7, "max": 9 },
+      "difficulty": "hard",
+      "terrainTypes": ["coastal", "forest", "paved", "dirt"],
+      "terrainNotes": {
+        "en": "The longest stage so far. Climbs out of Portugalete through La Arena beach and the Kobaron coastal ridge, crosses into Cantabria at the Ontón pass, and descends to Castro Urdiales. Most pilgrims split this stage at Pobeña (~10 km) where there is pilgrim accommodation at the albergue in Santa Maria de Abanto."
+      },
+      "accommodationDensity": "moderate",
+      "waterSources": 4,
+      "services": { "atm": true, "pharmacy": true, "grocery": true, "restaurant": true },
+      "interior": {
+        "theme": { "en": "Crossing into Cantabria" },
+        "narrative": {
+          "en": "You cross a provincial border today but not a cultural one — the Basque-speaking world ends somewhere around Kobaron. By midday you are in Cantabria and the road signs are only in Spanish. Castro Urdiales is your reward: a perfect medieval port with a 13th-century Gothic church (Santa María de la Asunción) sitting on a rock above the harbour, looking exactly like a fortress-church should. The sun on the church at the end of a 32 km day is one of the Norte's great moments."
+        },
+        "commonExperiences": [
+          { "en": "Crossing out of the Basque Country without a sign marking it" },
+          { "en": "The fatigue that sets in at 25 km of a 32 km stage" },
+          { "en": "First sight of Santa María de la Asunción at Castro Urdiales — Gothic on a rock" },
+          { "en": "Eating anchovies (bonito or bocarte) at the Castro harbourfront — the local specialty" }
+        ],
+        "reflection": {
+          "en": "Three regions now — Gipuzkoa, Bizkaia, Cantabria — and you have not yet walked a thousandth of the Camino. What is the long walk teaching that a short one could not?"
+        }
+      }
+    },
+    {
+      "index": 9,
+      "name": { "en": "Castro Urdiales to Laredo" },
+      "start": { "name": { "en": "Castro Urdiales" }, "coordinates": [-3.215, 43.384, 19] },
+      "end": { "name": { "en": "Laredo" }, "coordinates": [-3.410, 43.414, 5] },
+      "distanceKm": 30.5,
+      "elevationGainMeters": 610,
+      "elevationLossMeters": 625,
+      "highPointMeters": 220,
+      "lowPointMeters": 0,
+      "estimatedHours": { "min": 7, "max": 9 },
+      "difficulty": "hard",
+      "terrainTypes": ["coastal", "forest", "dirt", "paved"],
+      "terrainNotes": {
+        "en": "Another long coastal day. The route climbs and drops across a series of small headlands, passing Islares, Oriñón (with its medieval beach), and the quiet village of Liendo before dropping into Laredo's long straight beach (La Salvé, 5 km). Many pilgrims split this stage at Islares or Liendo."
+      },
+      "accommodationDensity": "moderate",
+      "waterSources": 4,
+      "services": { "atm": true, "pharmacy": true, "grocery": true, "restaurant": true },
+      "interior": {
+        "theme": { "en": "Cantabrian coast" },
+        "narrative": {
+          "en": "The Cantabrian coast is gentler than the Basque coast — softer hills, longer beaches, smaller drops between bays. But today is still 30 km and by mid-afternoon the legs are complaining. Oriñón beach is where many pilgrims take their shoes off for the first time. Liendo is a pretty valley with nothing but houses and cows. Laredo arrives as a long beachside town with a medieval walled quarter (the Puebla Vieja) at its northern end and 5 km of straight beach running south from it."
+        },
+        "commonExperiences": [
+          { "en": "Taking shoes off at Oriñón for the first beach crossing" },
+          { "en": "Liendo valley — cows and silence" },
+          { "en": "Walking the last 2 km along Laredo's promenade with the beach on one side and holiday apartments on the other" },
+          { "en": "Finding the Puebla Vieja hidden at the north end of a seemingly modern beach town" }
+        ],
+        "reflection": {
+          "en": "Your body is now doing something it could not do two weeks ago. What is the work of the long Camino?"
+        }
+      }
+    },
+    {
+      "index": 10,
+      "name": { "en": "Laredo to Güemes" },
+      "start": { "name": { "en": "Laredo" }, "coordinates": [-3.410, 43.414, 5] },
+      "end": { "name": { "en": "Güemes" }, "coordinates": [-3.640, 43.447, 60] },
+      "distanceKm": 28.7,
+      "elevationGainMeters": 540,
+      "elevationLossMeters": 495,
+      "highPointMeters": 180,
+      "lowPointMeters": 0,
+      "estimatedHours": { "min": 7, "max": 8 },
+      "difficulty": "hard",
+      "terrainTypes": ["coastal", "forest", "dirt", "paved"],
+      "terrainNotes": {
+        "en": "Starts with a short passenger ferry across the Santoña-Santander bay from Laredo to Santoña (ferry runs frequently in summer, check schedule in winter). Climbs over the Monte Buciero headland past a 19th-century lighthouse and the Trenga viewpoint, then follows small cliffs past Berria beach, Noja, and into the rural interior to Güemes. Ernesto Bustio's legendary albergue at La Cabaña del Abuelo Peuto in Güemes is a Camino institution."
+      },
+      "accommodationDensity": "low",
+      "waterSources": 4,
+      "services": { "atm": true, "pharmacy": true, "grocery": true, "restaurant": true },
+      "interior": {
+        "theme": { "en": "The ferryman and the dreamer" },
+        "narrative": {
+          "en": "Today begins with a ferry — a small boat from Laredo across the bay to Santoña, the anchovy capital of Spain. The crossing takes fifteen minutes and skips a 20 km road walk. From Santoña you climb Monte Buciero, descend to Berria beach, and spend the afternoon walking inland to Güemes. The reason to stop in Güemes is Ernesto Bustio — the 'Abuelo Peuto', a Catholic priest and traveller who has run an albergue here for decades, where pilgrims share a communal meal and a talk by Ernesto in the evening about pilgrimage, generosity, and the world. The talk is in Spanish but the ideas translate."
+        },
+        "commonExperiences": [
+          { "en": "The Laredo-Santoña ferry — the second water crossing of the Norte after Pasaia" },
+          { "en": "Anchovies in Santoña — buying a tin to take home" },
+          { "en": "Arriving at La Cabaña del Abuelo Peuto in Güemes" },
+          { "en": "The evening talk by Ernesto — an unrepeatable Camino experience" }
+        ],
+        "reflection": {
+          "en": "A stranger has been welcoming walkers like you for forty years. What does that kind of quiet commitment look like in your own life?"
+        }
+      }
+    },
+    {
+      "index": 11,
+      "name": { "en": "Güemes to Santander" },
+      "start": { "name": { "en": "Güemes" }, "coordinates": [-3.640, 43.447, 60] },
+      "end": { "name": { "en": "Santander" }, "coordinates": [-3.805, 43.463, 15] },
+      "distanceKm": 15.3,
+      "elevationGainMeters": 210,
+      "elevationLossMeters": 250,
+      "highPointMeters": 120,
+      "lowPointMeters": 0,
+      "estimatedHours": { "min": 4, "max": 5 },
+      "difficulty": "easy",
+      "terrainTypes": ["coastal", "forest", "paved", "urban"],
+      "terrainNotes": {
+        "en": "Drops from Güemes through Galizano and Loredo to the beach at Somo, then takes a short passenger ferry across Santander bay to the Santander waterfront (the ferry runs every 30 minutes in daytime). The walk from the Santander ferry dock to the cathedral is ~1 km."
+      },
+      "accommodationDensity": "high",
+      "waterSources": 4,
+      "services": { "atm": true, "pharmacy": true, "grocery": true, "restaurant": true },
+      "interior": {
+        "theme": { "en": "Boat into the city" },
+        "narrative": {
+          "en": "A short day ending with your third ferry of the Camino — the Somo-Santander crossing, a 10-minute trip across the Bahía de Santander. Most pilgrims reach Santander by noon and have the rest of the day to wander: the Cathedral (rebuilt after the 1941 fire that burned much of the old town), the Palacio de la Magdalena (the former royal summer palace), the Paseo de Pereda waterfront. Santander's beaches are some of the best in Spain. The city is modern because of the fire, but the rhythm of a port city is ancient."
+        },
+        "commonExperiences": [
+          { "en": "Somo beach in the morning, often with surfers" },
+          { "en": "The ferry into Santander with the city skyline approaching" },
+          { "en": "A slow afternoon in a city after four long rural days" },
+          { "en": "The Cathedral's crypt — older than the rest of the cathedral by centuries" }
+        ],
+        "reflection": {
+          "en": "You arrived by water instead of by foot. What does entering a city by boat change about first impressions?"
+        }
+      }
+    },
+    {
+      "index": 12,
+      "name": { "en": "Santander to Santillana del Mar" },
+      "start": { "name": { "en": "Santander" }, "coordinates": [-3.805, 43.463, 15] },
+      "end": { "name": { "en": "Santillana del Mar" }, "coordinates": [-4.105, 43.393, 82] },
+      "distanceKm": 36.3,
+      "elevationGainMeters": 540,
+      "elevationLossMeters": 470,
+      "highPointMeters": 150,
+      "lowPointMeters": 0,
+      "estimatedHours": { "min": 8, "max": 10 },
+      "difficulty": "hard",
+      "terrainTypes": ["urban", "paved", "coastal", "forest", "dirt"],
+      "terrainNotes": {
+        "en": "The longest single stage of the Norte in most guides — 36.3 km from the Santander Cathedral to Santillana del Mar. Urban exit through Peñacastillo and Bezana, then rural farmland through Mogro (with its ferry across the Pas river), Boo, Requejada, and into Santillana. Most pilgrims split this at Boo de Piélagos (~20 km) where the train station allows a legal rail connection to skip the bridge-less Pas river crossing."
+      },
+      "accommodationDensity": "moderate",
+      "waterSources": 6,
+      "services": { "atm": true, "pharmacy": true, "grocery": true, "restaurant": true },
+      "interior": {
+        "theme": { "en": "Santillana the beautiful" },
+        "narrative": {
+          "en": "The longest day of the Norte deserves the prettiest ending. Santillana del Mar is a medieval stone village preserved in amber — Unamuno famously called it 'the town of three lies' because it is neither holy (santa), nor flat (llana), nor on the sea (mar). But the Colegiata de Santa Juliana, a 12th-century Romanesque collegiate church with a cloister that is one of the finest in Spain, is real. The whole village is a national monument and part of the 2015 UNESCO inscription. In summer it is overrun with tourists; in April or October it is perfect."
+        },
+        "commonExperiences": [
+          { "en": "The long urban exit from Santander in the morning light" },
+          { "en": "The Mogro dilemma: train to skip the bridge-less crossing, or commit to the full 36 km" },
+          { "en": "First sight of Santillana's stone village at the end of a 10-hour day" },
+          { "en": "The Colegiata cloister in late afternoon light" },
+          { "en": "Unamuno's quote: the village of three lies" }
+        ],
+        "reflection": {
+          "en": "You walked 36 km to a village that is beautiful because nothing has changed in 900 years. What does preservation mean on a Camino whose whole point is movement?"
+        }
+      }
+    },
+    {
+      "index": 13,
+      "name": { "en": "Santillana del Mar to Comillas" },
+      "start": { "name": { "en": "Santillana del Mar" }, "coordinates": [-4.105, 43.393, 82] },
+      "end": { "name": { "en": "Comillas" }, "coordinates": [-4.289, 43.387, 23] },
+      "distanceKm": 22.2,
+      "elevationGainMeters": 380,
+      "elevationLossMeters": 440,
+      "highPointMeters": 170,
+      "lowPointMeters": 0,
+      "estimatedHours": { "min": 5, "max": 7 },
+      "difficulty": "moderate",
+      "terrainTypes": ["coastal", "forest", "paved", "dirt"],
+      "terrainNotes": {
+        "en": "Descends from Santillana through Cóbreces (with its striking Cistercian abbey), Oreña, and Cuchía, then tracks the Cantabrian coast through a succession of small bays. Comillas is known for its Gaudí building — El Capricho de Gaudí — and the UNESCO-listed Pontifical University."
+      },
+      "accommodationDensity": "moderate",
+      "waterSources": 5,
+      "services": { "atm": true, "pharmacy": true, "grocery": true, "restaurant": true },
+      "interior": {
+        "theme": { "en": "Gaudí by the sea" },
+        "narrative": {
+          "en": "Comillas is the surprise of Cantabria. El Capricho de Gaudí (1885) is one of only three Gaudí buildings outside Catalonia — a small Mudéjar-fantasy summer villa with sunflower-tile walls, built for a local indiano (a Spaniard returned rich from Cuba). It sits just below the Pontifical University, a 19th-century neo-Gothic seminary building that looks more like a castle. The combination of Gaudí, the Comillas town, and the Cantabrian beach is one of the Norte's least-expected reveals."
+        },
+        "commonExperiences": [
+          { "en": "The Cistercian abbey at Cóbreces — unexpected among the fields" },
+          { "en": "First sight of El Capricho through the trees" },
+          { "en": "The sunflower tiles on El Capricho's walls" },
+          { "en": "The Pontifical University looming over the beach" }
+        ],
+        "reflection": {
+          "en": "Gaudí and the Camino do not belong to the same century, but they share a village. What does encountering the unexpected do to the shape of a pilgrimage?"
+        }
+      }
+    },
+    {
+      "index": 14,
+      "name": { "en": "Comillas to Colombres" },
+      "start": { "name": { "en": "Comillas" }, "coordinates": [-4.289, 43.387, 23] },
+      "end": { "name": { "en": "Colombres" }, "coordinates": [-4.565, 43.402, 60] },
+      "distanceKm": 28.0,
+      "elevationGainMeters": 530,
+      "elevationLossMeters": 490,
+      "highPointMeters": 180,
+      "lowPointMeters": 0,
+      "estimatedHours": { "min": 7, "max": 9 },
+      "difficulty": "hard",
+      "terrainTypes": ["coastal", "forest", "paved", "dirt"],
+      "terrainNotes": {
+        "en": "Leaves Comillas along the beach to San Vicente de la Barquera — a small fishing town with a 13th-century castle and a Gothic church on a rocky promontory — then climbs inland through Serdio, Unquera (where it crosses from Cantabria into Asturias), and into Colombres, the 'Indianos' village of Asturias."
+      },
+      "accommodationDensity": "moderate",
+      "waterSources": 4,
+      "services": { "atm": true, "pharmacy": true, "grocery": true, "restaurant": true },
+      "interior": {
+        "theme": { "en": "Into Asturias" },
+        "narrative": {
+          "en": "At Unquera you cross a small bridge and enter Asturias. The first town on the Asturian side is Colombres, founded by indianos — Asturians who returned from Cuba, Mexico, or Argentina with fortunes and built palatial homes in their native villages. The Archivo de Indianos (Indianos Archive) in Colombres documents this strange 19th-century diaspora and return. Before Colombres, San Vicente de la Barquera is one of the Cantabrian coast's most photogenic towns — a fortress church on a promontory above a fishing harbour, with the Picos de Europa visible inland on clear days."
+        },
+        "commonExperiences": [
+          { "en": "San Vicente de la Barquera from the long bridge into town — the fortress church silhouette" },
+          { "en": "First sight of the Picos de Europa snow-capped inland" },
+          { "en": "Crossing into Asturias at Unquera with no fanfare — just a small road sign" },
+          { "en": "The colourful indianos houses in Colombres" }
+        ],
+        "reflection": {
+          "en": "The indianos left Asturias poor and came back rich. What do you carry back from your own long journey?"
+        }
+      }
+    },
+    {
+      "index": 15,
+      "name": { "en": "Colombres to Llanes" },
+      "start": { "name": { "en": "Colombres" }, "coordinates": [-4.565, 43.402, 60] },
+      "end": { "name": { "en": "Llanes" }, "coordinates": [-4.756, 43.421, 5] },
+      "distanceKm": 22.9,
+      "elevationGainMeters": 380,
+      "elevationLossMeters": 435,
+      "highPointMeters": 120,
+      "lowPointMeters": 0,
+      "estimatedHours": { "min": 5, "max": 7 },
+      "difficulty": "moderate",
+      "terrainTypes": ["coastal", "forest", "paved", "dirt"],
+      "terrainNotes": {
+        "en": "Drops from Colombres along the coast through Buelna, Pendueles, and Vidiago, passing the dramatic 'bufones' (blowholes where the Atlantic erupts through sea caves) at Pría. Llanes is a medieval Asturian port with a walled old town."
+      },
+      "accommodationDensity": "high",
+      "waterSources": 5,
+      "services": { "atm": true, "pharmacy": true, "grocery": true, "restaurant": true },
+      "interior": {
+        "theme": { "en": "Bufones and cliffs" },
+        "narrative": {
+          "en": "The Asturian cliff coast is the most dramatic coastal section of the whole Camino del Norte. Between Pendueles and Vidiago you pass the bufones — blowholes where, at the right tide and sea state, the Atlantic erupts vertically out of limestone cracks in the meadow, sometimes 20 metres high. The sound is a low growl building to a boom. Llanes, at the end of the day, is a walled medieval port with a modern art installation — the Cubos de la Memoria by Agustín Ibarrola, concrete blocks painted with colours and symbols that have become the town's identity."
+        },
+        "commonExperiences": [
+          { "en": "Standing at the bufones waiting for the sea to erupt" },
+          { "en": "The old meadow walk between Pendueles and Pría, sea on the left, cows on the right" },
+          { "en": "The Cubos de la Memoria at Llanes harbour" },
+          { "en": "Cider houses (sidrerías) for the first time — the Asturian evening ritual" }
+        ],
+        "reflection": {
+          "en": "A blowhole is a place where what is hidden comes out with force. What have you been carrying that the Camino has not yet let loose?"
+        }
+      }
+    },
+    {
+      "index": 16,
+      "name": { "en": "Llanes to Ribadesella" },
+      "start": { "name": { "en": "Llanes" }, "coordinates": [-4.756, 43.421, 5] },
+      "end": { "name": { "en": "Ribadesella" }, "coordinates": [-5.058, 43.463, 6] },
+      "distanceKm": 30.0,
+      "elevationGainMeters": 490,
+      "elevationLossMeters": 490,
+      "highPointMeters": 150,
+      "lowPointMeters": 0,
+      "estimatedHours": { "min": 7, "max": 9 },
+      "difficulty": "hard",
+      "terrainTypes": ["coastal", "forest", "paved", "dirt"],
+      "terrainNotes": {
+        "en": "Long coastal stage through Cuerres, Nueva de Llanes, and the Playa de Gulpiyuri (an inland beach — a natural sink where the tide flows in through an underground tunnel). The Sella river at Ribadesella is crossed by a bridge into the old town."
+      },
+      "accommodationDensity": "moderate",
+      "waterSources": 5,
+      "services": { "atm": true, "pharmacy": true, "grocery": true, "restaurant": true },
+      "interior": {
+        "theme": { "en": "The inland beach" },
+        "narrative": {
+          "en": "The Playa de Gulpiyuri is 100 metres from the Atlantic but separated from it by a limestone wall. The tide enters through an underground tunnel. It is a perfect crescent of sand with waves, sitting in a meadow. You walk past it without expecting it and then you stop. Ribadesella at the end of the stage is the Sella river mouth — the Sella is the river of the Descenso del Sella, a famous international kayak race in August, and Ribadesella is where it finishes. The Tito Bustillo cave with its Paleolithic paintings (UNESCO inscribed separately) is on the far side of the bridge."
+        },
+        "commonExperiences": [
+          { "en": "Stopping at Gulpiyuri beach in disbelief" },
+          { "en": "First sight of the Sella river mouth from the cliff approach" },
+          { "en": "The bridge into Ribadesella old town in afternoon light" },
+          { "en": "Cider and fabada at a Ribadesella sidrería — the Asturian national dish" }
+        ],
+        "reflection": {
+          "en": "A beach inside a meadow. A cave with 15,000-year-old art. What does it mean to be surprised every day for three weeks?"
+        }
+      }
+    },
+    {
+      "index": 17,
+      "name": { "en": "Ribadesella to Colunga" },
+      "start": { "name": { "en": "Ribadesella" }, "coordinates": [-5.058, 43.463, 6] },
+      "end": { "name": { "en": "Colunga" }, "coordinates": [-5.268, 43.481, 50] },
+      "distanceKm": 20.1,
+      "elevationGainMeters": 350,
+      "elevationLossMeters": 310,
+      "highPointMeters": 150,
+      "lowPointMeters": 0,
+      "estimatedHours": { "min": 5, "max": 6 },
+      "difficulty": "moderate",
+      "terrainTypes": ["coastal", "forest", "dirt", "paved"],
+      "terrainNotes": {
+        "en": "Continues along the Asturian coast through small villages (Berbes, La Espasa, El Barrigón) with intermittent cliff views and interior forest crossings. Colunga is a small inland town with the Jurassic Museum of Asturias (MUJA) nearby — this region has the highest density of dinosaur footprints in Spain."
+      },
+      "accommodationDensity": "moderate",
+      "waterSources": 4,
+      "services": { "atm": true, "pharmacy": true, "grocery": true, "restaurant": true },
+      "interior": {
+        "theme": { "en": "The Jurassic coast" },
+        "narrative": {
+          "en": "The Asturian coast between Ribadesella and Gijón is known as the Costa Jurásica because dinosaur footprints are visible in the intertidal rocks at several beaches. MUJA (Museo del Jurásico de Asturias), on a hilltop between Colunga and Lastres, holds casts of the prints and a good dinosaur skeleton collection. If you have time, the museum is worth the short detour. The walking today is gentle — a recovery day after the Llanes-Ribadesella double."
+        },
+        "commonExperiences": [
+          { "en": "Quiet forest walking after two long days" },
+          { "en": "Dinosaur footprints visible at low tide on certain beaches" },
+          { "en": "The MUJA detour — ~1 km off the route" },
+          { "en": "Colunga's small-town calm in the evening" }
+        ],
+        "reflection": {
+          "en": "You are walking over 140-million-year-old footprints. What is the scale of your journey measured against that?"
+        }
+      }
+    },
+    {
+      "index": 18,
+      "name": { "en": "Colunga to Villaviciosa" },
+      "start": { "name": { "en": "Colunga" }, "coordinates": [-5.268, 43.481, 50] },
+      "end": { "name": { "en": "Villaviciosa" }, "coordinates": [-5.433, 43.483, 7] },
+      "distanceKm": 17.5,
+      "elevationGainMeters": 330,
+      "elevationLossMeters": 360,
+      "highPointMeters": 200,
+      "lowPointMeters": 5,
+      "estimatedHours": { "min": 4, "max": 5 },
+      "difficulty": "easy",
+      "terrainTypes": ["forest", "dirt", "paved"],
+      "terrainNotes": {
+        "en": "Short day through farmland and forest, with the inland village of Priesca and its 10th-century church (San Salvador de Priesca, pre-Romanesque Asturian). Villaviciosa is the cider capital of Asturias and the point where the Camino Primitivo branches off toward Oviedo (via the Camino del Salvador)."
+      },
+      "accommodationDensity": "moderate",
+      "waterSources": 4,
+      "services": { "atm": true, "pharmacy": true, "grocery": true, "restaurant": true },
+      "interior": {
+        "theme": { "en": "The fork" },
+        "narrative": {
+          "en": "Villaviciosa is where a Camino decision happens. Pilgrims who want to walk the Camino Primitivo branch off here, heading south to Oviedo (via the Camino del Salvador, ~30 km) and then west over the Asturian mountains to Santiago. Pilgrims continuing on the Norte go west through Gijón and Avilés. Many do not know about the decision until they arrive. The Cicerone guidebook covers both so many pilgrims carry the options with them. Villaviciosa itself is a calm Asturian town where cider (sidra, poured from above the head to aerate) is the local obsession. San Salvador de Priesca, the pre-Romanesque church just before the town, is one of the oldest intact buildings on the whole Camino."
+        },
+        "commonExperiences": [
+          { "en": "San Salvador de Priesca — 10th-century and still in use" },
+          { "en": "Arriving at Villaviciosa and realizing the Primitivo is an option" },
+          { "en": "The decision: stay on the Norte or turn south to Oviedo" },
+          { "en": "Cider poured from above the head — the Asturian escanciador tradition" }
+        ],
+        "reflection": {
+          "en": "A Camino fork is an old decision, older than roads. What is the logic that tells you which path to take?"
+        }
+      }
+    },
+    {
+      "index": 19,
+      "name": { "en": "Villaviciosa to Gijón" },
+      "start": { "name": { "en": "Villaviciosa" }, "coordinates": [-5.433, 43.483, 7] },
+      "end": { "name": { "en": "Gijón", "ast": "Xixón" }, "coordinates": [-5.700, 43.533, 3] },
+      "distanceKm": 29.8,
+      "elevationGainMeters": 560,
+      "elevationLossMeters": 560,
+      "highPointMeters": 290,
+      "lowPointMeters": 0,
+      "estimatedHours": { "min": 7, "max": 9 },
+      "difficulty": "hard",
+      "terrainTypes": ["forest", "mountain", "paved", "dirt", "urban"],
+      "terrainNotes": {
+        "en": "Climbs over the Alto de la Cruz and the Monte Areo ridge (~300 m) before descending to Gijón. Mostly forest and farmland with a long suburban approach to Gijón. The urban entry is through Deva and the Universidad Laboral — the largest building in Spain, built under Franco as a trade school."
+      },
+      "accommodationDensity": "high",
+      "waterSources": 5,
+      "services": { "atm": true, "pharmacy": true, "grocery": true, "restaurant": true },
+      "interior": {
+        "theme": { "en": "Xixón" },
+        "narrative": {
+          "en": "Gijón is the largest city in Asturias — a Roman port that became an industrial port that became a post-industrial beach town. Playa de San Lorenzo is 1.5 km of beach in the middle of the city, with the old town (Cimadevilla) on a rocky headland at one end. The Universidad Laboral is worth seeing on the outskirts — a Franco-era monument that is both beautiful and uncomfortable history. Like Bilbao, Gijón is a rest-day candidate."
+        },
+        "commonExperiences": [
+          { "en": "The long climb out of Villaviciosa through forest" },
+          { "en": "First sight of Gijón and the Playa de San Lorenzo from the ridge" },
+          { "en": "The Universidad Laboral's scale — the largest building in Spain" },
+          { "en": "Cimadevilla old town on the rocky headland" }
+        ],
+        "reflection": {
+          "en": "Roman port, Franco monument, post-industrial beach. What is the right way to walk through layered history in a single afternoon?"
+        }
+      }
+    },
+    {
+      "index": 20,
+      "name": { "en": "Gijón to Avilés" },
+      "start": { "name": { "en": "Gijón", "ast": "Xixón" }, "coordinates": [-5.700, 43.533, 3] },
+      "end": { "name": { "en": "Avilés" }, "coordinates": [-5.908, 43.556, 10] },
+      "distanceKm": 25.4,
+      "elevationGainMeters": 320,
+      "elevationLossMeters": 315,
+      "highPointMeters": 180,
+      "lowPointMeters": 0,
+      "estimatedHours": { "min": 6, "max": 7 },
+      "difficulty": "moderate",
+      "terrainTypes": ["urban", "paved", "coastal", "dirt"],
+      "terrainNotes": {
+        "en": "An industrial day. Leaves Gijón along the beach and climbs around the Aboño and Arcelor-Mittal steel plants (a gritty but fascinating stretch through Asturian industrial landscape), passes Piedras Blancas, and drops to Avilés. Avilés has one of the most perfectly preserved medieval old towns in northern Spain, sitting in an unpromising industrial setting."
+      },
+      "accommodationDensity": "high",
+      "waterSources": 4,
+      "services": { "atm": true, "pharmacy": true, "grocery": true, "restaurant": true },
+      "interior": {
+        "theme": { "en": "Industrial beauty" },
+        "narrative": {
+          "en": "The walk from Gijón to Avilés goes through heavy industry — Arcelor-Mittal steelworks, the Aboño coal-fired power station, the port of El Musel. It is the hardest stretch of the Norte to love on first sight. And then you arrive in Avilés and the contrast is total: the old town is a medieval gem with arcaded streets, a Gothic church (San Nicolás), and the Palacio de Camposagrado. Oscar Niemeyer's bright-white cultural centre (Centro Niemeyer, 2011) sits across the ría — the great Brazilian architect's only European work, built when he was 99."
+        },
+        "commonExperiences": [
+          { "en": "The steelworks and power plant — unusual pilgrimage scenery" },
+          { "en": "The moment of surprise on entering Avilés old town" },
+          { "en": "The Niemeyer Centre across the Ría — bright white, curved, obviously Brazilian" },
+          { "en": "Understanding that the Camino passes through working places, not just beautiful ones" }
+        ],
+        "reflection": {
+          "en": "Industrial beauty is a difficult phrase. Is it a contradiction or a reality?"
+        }
+      }
+    },
+    {
+      "index": 21,
+      "name": { "en": "Avilés to Muros de Nalón" },
+      "start": { "name": { "en": "Avilés" }, "coordinates": [-5.908, 43.556, 10] },
+      "end": { "name": { "en": "Muros de Nalón" }, "coordinates": [-6.113, 43.542, 90] },
+      "distanceKm": 23.2,
+      "elevationGainMeters": 500,
+      "elevationLossMeters": 420,
+      "highPointMeters": 210,
+      "lowPointMeters": 0,
+      "estimatedHours": { "min": 6, "max": 7 },
+      "difficulty": "moderate",
+      "terrainTypes": ["forest", "dirt", "paved", "coastal"],
+      "terrainNotes": {
+        "en": "Leaves Avilés through the industrial outskirts and climbs into rural Asturias through Salinas, El Castillo, and the village of Muros de Nalón, sitting above the Nalón river. The Salinas beach is long and wide, with an art-installation walkway along the dune crest."
+      },
+      "accommodationDensity": "moderate",
+      "waterSources": 4,
+      "services": { "atm": true, "pharmacy": true, "grocery": true, "restaurant": true },
+      "interior": {
+        "theme": { "en": "Leaving the city" },
+        "narrative": {
+          "en": "The last day of the big-city cluster (Bilbao, Santander, Gijón, Avilés) before the quiet western Asturian coast takes over. Salinas beach is enormous and often nearly empty — hours of walking on hard-packed sand. Muros de Nalón is a sleepy village above the river mouth where the Nalón meets the sea. The pilgrim albergue is small. The evening is quiet in a way the last few towns have not been."
+        },
+        "commonExperiences": [
+          { "en": "Salinas beach — long, wide, wind-blown" },
+          { "en": "The shift from post-industrial to rural in a single afternoon" },
+          { "en": "The Nalón river mouth from Muros" },
+          { "en": "Falling asleep to silence after nights of city noise" }
+        ],
+        "reflection": {
+          "en": "The Camino has a rhythm of city and silence. Which of the two asks more of you?"
+        }
+      }
+    },
+    {
+      "index": 22,
+      "name": { "en": "Muros de Nalón to Soto de Luiña" },
+      "start": { "name": { "en": "Muros de Nalón" }, "coordinates": [-6.113, 43.542, 90] },
+      "end": { "name": { "en": "Soto de Luiña" }, "coordinates": [-6.231, 43.561, 16] },
+      "distanceKm": 15.3,
+      "elevationGainMeters": 320,
+      "elevationLossMeters": 380,
+      "highPointMeters": 180,
+      "lowPointMeters": 5,
+      "estimatedHours": { "min": 4, "max": 5 },
+      "difficulty": "easy",
+      "terrainTypes": ["forest", "coastal", "dirt", "paved"],
+      "terrainNotes": {
+        "en": "Short and easy, through Cudillero (a famously photogenic fishing village climbing up a ravine) and the Cabo Vidio cliffs. Soto de Luiña is a small parish with a pilgrim albergue and a 17th-century church."
+      },
+      "accommodationDensity": "low",
+      "waterSources": 3,
+      "services": { "atm": false, "pharmacy": true, "grocery": true, "restaurant": true },
+      "interior": {
+        "theme": { "en": "Cudillero" },
+        "narrative": {
+          "en": "Cudillero is the most photographed fishing village in Asturias — a white-house amphitheatre climbing up a steep ravine from a tiny harbour. It is a tourist town now but still a working fishing port. The Camino passes through or above it depending on the variant. The day is short enough to spend an extra hour at Cudillero's harbour eating grilled octopus or arroz marinero. Soto de Luiña at the end is quiet farming country."
+        },
+        "commonExperiences": [
+          { "en": "The vertical white houses of Cudillero above the harbour" },
+          { "en": "A long lunch at a Cudillero harbourside restaurant" },
+          { "en": "Cabo Vidio cliffs in afternoon light" },
+          { "en": "The calm parish church at Soto de Luiña" }
+        ],
+        "reflection": {
+          "en": "A short day after many long ones is a gift. What do you do with a gift of time on a Camino?"
+        }
+      }
+    },
+    {
+      "index": 23,
+      "name": { "en": "Soto de Luiña to Cadavedo" },
+      "start": { "name": { "en": "Soto de Luiña" }, "coordinates": [-6.231, 43.561, 16] },
+      "end": { "name": { "en": "Cadavedo" }, "coordinates": [-6.386, 43.548, 45] },
+      "distanceKm": 18.5,
+      "elevationGainMeters": 460,
+      "elevationLossMeters": 425,
+      "highPointMeters": 280,
+      "lowPointMeters": 0,
+      "estimatedHours": { "min": 5, "max": 6 },
+      "difficulty": "moderate",
+      "terrainTypes": ["coastal", "forest", "dirt", "paved"],
+      "terrainNotes": {
+        "en": "Follows the cliff coast through Novellana and Ballota, with dramatic sea views. Cadavedo (Cadavéu in Asturian) is a small parish famous for its 17th-century Regalina chapel (Ermita de la Regalina) on a cliff above the sea."
+      },
+      "accommodationDensity": "low",
+      "waterSources": 3,
+      "services": { "atm": false, "pharmacy": true, "grocery": true, "restaurant": true },
+      "interior": {
+        "theme": { "en": "Regalina" },
+        "narrative": {
+          "en": "The Ermita de la Regalina is one of the most photogenic chapels in Asturias — a small whitewashed hermitage on a grassy cliff above the sea, with hórreos (traditional Asturian wooden granaries on stone stilts) scattered around it. On August 29 there is a pilgrimage (romería) to the chapel with traditional Asturian music, dancing, and cider. On any other day it is quiet. Cadavedo itself is a small parish with a pilgrim albergue."
+        },
+        "commonExperiences": [
+          { "en": "First sight of the Regalina chapel on its cliff" },
+          { "en": "Hórreos scattered across the meadow around the chapel" },
+          { "en": "Sitting on the cliff with the Atlantic below" },
+          { "en": "The pilgrim dinner at the Cadavedo albergue — often communal" }
+        ],
+        "reflection": {
+          "en": "A small chapel on a cliff is a place people keep building. What does this kind of building stand for?"
+        }
+      }
+    },
+    {
+      "index": 24,
+      "name": { "en": "Cadavedo to Luarca" },
+      "start": { "name": { "en": "Cadavedo" }, "coordinates": [-6.386, 43.548, 45] },
+      "end": { "name": { "en": "Luarca" }, "coordinates": [-6.536, 43.542, 10] },
+      "distanceKm": 15.3,
+      "elevationGainMeters": 360,
+      "elevationLossMeters": 390,
+      "highPointMeters": 220,
+      "lowPointMeters": 0,
+      "estimatedHours": { "min": 4, "max": 5 },
+      "difficulty": "easy",
+      "terrainTypes": ["coastal", "forest", "dirt", "paved"],
+      "terrainNotes": {
+        "en": "Short day through rural Asturias to Luarca, a fishing town in a deep natural harbour with a distinctive white-and-black cemetery on the clifftop (the 'white village of the Green Coast')."
+      },
+      "accommodationDensity": "moderate",
+      "waterSources": 3,
+      "services": { "atm": true, "pharmacy": true, "grocery": true, "restaurant": true },
+      "interior": {
+        "theme": { "en": "Luarca" },
+        "narrative": {
+          "en": "Luarca is a small fishing town tucked into a deep natural harbour. The Capilla de la Atalaya (16th-century watchtower chapel) and the town cemetery sit on the clifftop above the harbour — the cemetery holds the grave of Severo Ochoa, the Luarca-born Nobel laureate in physiology (1959). The town is known as 'the white village of the Green Coast' for its whitewashed fishermen's houses climbing up from the harbour. The pilgrim accommodation is good."
+        },
+        "commonExperiences": [
+          { "en": "Descending into Luarca and seeing the hidden harbour" },
+          { "en": "The clifftop chapel and cemetery at sunset" },
+          { "en": "Seafood dinner at the harbourside — Luarca is a working fishing port" },
+          { "en": "Severo Ochoa's grave — a Nobel laureate in a village cemetery" }
+        ],
+        "reflection": {
+          "en": "A hidden harbour, a Nobel laureate buried in his home village. What does home mean to someone who leaves and comes back?"
+        }
+      }
+    },
+    {
+      "index": 25,
+      "name": { "en": "Luarca to La Caridad" },
+      "start": { "name": { "en": "Luarca" }, "coordinates": [-6.536, 43.542, 10] },
+      "end": { "name": { "en": "La Caridad", "ast": "A Caridá" }, "coordinates": [-6.820, 43.553, 100] },
+      "distanceKm": 30.5,
+      "elevationGainMeters": 570,
+      "elevationLossMeters": 490,
+      "highPointMeters": 220,
+      "lowPointMeters": 0,
+      "estimatedHours": { "min": 7, "max": 9 },
+      "difficulty": "hard",
+      "terrainTypes": ["coastal", "forest", "dirt", "paved"],
+      "terrainNotes": {
+        "en": "Long day through the western Asturian coast — Villapedre, Piñera, Navia (a medium-sized town, possible split point), and Tapia de Casariego (a fishing village with surf). La Caridad (A Caridá in Asturian Galician) is a quiet parish inland."
+      },
+      "accommodationDensity": "moderate",
+      "waterSources": 5,
+      "services": { "atm": true, "pharmacy": true, "grocery": true, "restaurant": true },
+      "interior": {
+        "theme": { "en": "The last coastal stretch" },
+        "narrative": {
+          "en": "Tomorrow you cross into Galicia at Ribadeo. Today is the last long day of the Asturian coast. Navia is a surprisingly lively small town in the middle of the stage. Tapia de Casariego is a surf beach at the end of a long fishing harbour. La Caridad, at the end of the day, is a quiet inland parish — the Camino turns slightly inland to avoid the Ría de Ribadeo's bigger road detours. The old frontier between Asturias and Galicia has been drawing near all week and now it is tomorrow."
+        },
+        "commonExperiences": [
+          { "en": "Passing through Navia at midday — more life than most Asturian villages" },
+          { "en": "Surfers at Tapia de Casariego — unexpected in October" },
+          { "en": "Realizing that after Ribadeo the route leaves the sea for good" },
+          { "en": "Quiet evening at La Caridad — the last Asturian overnight" }
+        ],
+        "reflection": {
+          "en": "The coast has been your companion for nearly three weeks. How do you say goodbye to a landscape that walked with you?"
+        }
+      }
+    },
+    {
+      "index": 26,
+      "name": { "en": "La Caridad to Ribadeo" },
+      "start": { "name": { "en": "La Caridad", "ast": "A Caridá" }, "coordinates": [-6.820, 43.553, 100] },
+      "end": { "name": { "en": "Ribadeo" }, "coordinates": [-7.040, 43.534, 40] },
+      "distanceKm": 21.3,
+      "elevationGainMeters": 380,
+      "elevationLossMeters": 440,
+      "highPointMeters": 180,
+      "lowPointMeters": 0,
+      "estimatedHours": { "min": 5, "max": 6 },
+      "difficulty": "moderate",
+      "terrainTypes": ["coastal", "forest", "dirt", "paved", "urban"],
+      "terrainNotes": {
+        "en": "The crossing into Galicia. Leaves La Caridad, passes through Tol and the Eo estuary, then crosses the Puente de los Santos — a 1.5 km road bridge with a pedestrian walkway — into Ribadeo, Galicia. Ribadeo is the first Galician town on the route."
+      },
+      "accommodationDensity": "high",
+      "waterSources": 4,
+      "services": { "atm": true, "pharmacy": true, "grocery": true, "restaurant": true },
+      "interior": {
+        "theme": { "en": "Into Galicia" },
+        "narrative": {
+          "en": "The Puente de los Santos crosses the Ría de Ribadeo — the Eo river mouth — from Asturias into Galicia. The bridge is 1.5 km long and was completed in 1987. Before the bridge, pilgrims crossed by ferry. Halfway across, the provincial sign marks the frontier. Ribadeo on the Galician side is a port town with a rich indiano heritage, a beach (Playa de las Catedrales is 10 km away but famous for its sea-arch formations), and the end of the Cantabrian-coastal section of the Camino. From here the route turns inland and stays inland. You say goodbye to the Atlantic here."
+        },
+        "commonExperiences": [
+          { "en": "The long walk across the Puente de los Santos — the Ría below, traffic beside" },
+          { "en": "Crossing into Galicia and seeing Galician signage for the first time (Ribadeo, not Ribadeu)" },
+          { "en": "Looking back at the Atlantic from Ribadeo's harbour for the last time" },
+          { "en": "First taste of Galician empanada or pulpo" }
+        ],
+        "reflection": {
+          "en": "You crossed four regions on foot in four weeks. What did each one take from you, and what did each one add?"
+        }
+      }
+    },
+    {
+      "index": 27,
+      "name": { "en": "Ribadeo to Gondán" },
+      "start": { "name": { "en": "Ribadeo" }, "coordinates": [-7.040, 43.534, 40] },
+      "end": { "name": { "en": "Gondán" }, "coordinates": [-7.199, 43.476, 120] },
+      "distanceKm": 20.9,
+      "elevationGainMeters": 490,
+      "elevationLossMeters": 370,
+      "highPointMeters": 290,
+      "lowPointMeters": 40,
+      "estimatedHours": { "min": 5, "max": 6 },
+      "difficulty": "moderate",
+      "terrainTypes": ["forest", "dirt", "paved", "mountain"],
+      "terrainNotes": {
+        "en": "Leaves Ribadeo inland through Vilela and Villamartín Pequeño. Passes the medieval Lourenzá monastery complex at the end of the stage — the Monasterio de San Salvador de Lourenzá (10th-century foundation). Gondán is a small parish with a pilgrim albergue."
+      },
+      "accommodationDensity": "low",
+      "waterSources": 3,
+      "services": { "atm": false, "pharmacy": false, "grocery": true, "restaurant": true },
+      "interior": {
+        "theme": { "en": "Lourenzá" },
+        "narrative": {
+          "en": "The Camino turns inland for the rest of the journey. The Galician interior is different from the coast — smaller villages, Celtic hórreos, oak and chestnut forests, and the Galician language everywhere. The Monasterio de San Salvador de Lourenzá is a 10th-century Benedictine foundation that became the Bishop's palace. It is beside the village of Vilanova de Lourenzá. The Osera family chapel inside holds the tomb of Oseiro Gutiérrez, the founder (d. 985). Gondán at the end of the stage is a quiet parish — you can hear cows in the evening."
+        },
+        "commonExperiences": [
+          { "en": "First Galician hórreos — wooden granaries on stone stilts, different from Asturian ones" },
+          { "en": "The San Salvador de Lourenzá monastery appearing among the fields" },
+          { "en": "Galician spoken around you for the first time — a different sound from Spanish or Asturian" },
+          { "en": "The quiet of Gondán at the albergue" }
+        ],
+        "reflection": {
+          "en": "The sea is gone. What fills the space that the sound of the sea used to fill?"
+        }
+      }
+    },
+    {
+      "index": 28,
+      "name": { "en": "Gondán to Mondoñedo" },
+      "start": { "name": { "en": "Gondán" }, "coordinates": [-7.199, 43.476, 120] },
+      "end": { "name": { "en": "Mondoñedo" }, "coordinates": [-7.363, 43.428, 141] },
+      "distanceKm": 15.6,
+      "elevationGainMeters": 340,
+      "elevationLossMeters": 330,
+      "highPointMeters": 430,
+      "lowPointMeters": 120,
+      "estimatedHours": { "min": 4, "max": 5 },
+      "difficulty": "moderate",
+      "terrainTypes": ["forest", "dirt", "paved", "mountain"],
+      "terrainNotes": {
+        "en": "Short day into Mondoñedo, one of the historical seven 'capital' cities of Galicia and an episcopal see. The Cathedral of Mondoñedo is a 13th-century Gothic church with a small but important cloister and museum. The climb out of Gondán crosses the Alto da Xesta before dropping into the Mondoñedo valley."
+      },
+      "accommodationDensity": "moderate",
+      "waterSources": 3,
+      "services": { "atm": true, "pharmacy": true, "grocery": true, "restaurant": true },
+      "interior": {
+        "theme": { "en": "Mondoñedo" },
+        "narrative": {
+          "en": "Mondoñedo is one of the 'seven capital cities' of Galicia — small medieval episcopal seats that together governed Galicia before the modern province of A Coruña was established. Its cathedral is small but beautiful: 13th-century Gothic with a 15th-century cloister and a museum housing medieval choir books. The old town is a short, perfect little square of stone houses. The local specialty is tarta de Mondoñedo, a sweet almond cake. Stop, rest, walk the cloister, buy a tarta."
+        },
+        "commonExperiences": [
+          { "en": "First Gothic cathedral since Laredo" },
+          { "en": "The Mondoñedo cloister — tiny but perfect" },
+          { "en": "Tarta de Mondoñedo at a local pastry shop" },
+          { "en": "The quiet of the medieval square in the afternoon" }
+        ],
+        "reflection": {
+          "en": "A small city was once a capital. What does smallness mean when it is built with weight?"
+        }
+      }
+    },
+    {
+      "index": 29,
+      "name": { "en": "Mondoñedo to Abadín" },
+      "start": { "name": { "en": "Mondoñedo" }, "coordinates": [-7.363, 43.428, 141] },
+      "end": { "name": { "en": "Abadín" }, "coordinates": [-7.497, 43.355, 470] },
+      "distanceKm": 16.6,
+      "elevationGainMeters": 580,
+      "elevationLossMeters": 255,
+      "highPointMeters": 520,
+      "lowPointMeters": 140,
+      "estimatedHours": { "min": 4, "max": 6 },
+      "difficulty": "moderate",
+      "terrainTypes": ["forest", "dirt", "paved", "mountain"],
+      "terrainNotes": {
+        "en": "A climb out of the Mondoñedo valley onto the Galician meseta. Passes the village of Lousada and the Capilla de Gontán before reaching Abadín on the high plateau. This is where the Camino leaves the Cantabrian hills and enters the inland Galician tableland."
+      },
+      "accommodationDensity": "low",
+      "waterSources": 3,
+      "services": { "atm": false, "pharmacy": false, "grocery": true, "restaurant": true },
+      "interior": {
+        "theme": { "en": "Onto the plateau" },
+        "narrative": {
+          "en": "Today is a climb day. You leave the Mondoñedo valley and climb onto the Terra Chá — the 'flat land' of interior Galicia, a high plateau that feels more like Castile than like the Cantabrian coast. The weather changes: cooler, more wind, frequent rain. The villages thin out. Abadín is small. The evening feels like the countryside of Galicia rather than the coast of Spain. Tomorrow is Vilalba."
+        },
+        "commonExperiences": [
+          { "en": "The climb out of Mondoñedo into the plateau air" },
+          { "en": "First Galician meseta sensation — flat, windy, bright" },
+          { "en": "Small villages with nothing open at lunchtime" },
+          { "en": "The colder evening in Abadín compared to the coastal towns" }
+        ],
+        "reflection": {
+          "en": "The plateau is different from the coast in a way that takes a whole day to understand. What have you learned that you can only articulate in retrospect?"
+        }
+      }
+    },
+    {
+      "index": 30,
+      "name": { "en": "Abadín to Vilalba" },
+      "start": { "name": { "en": "Abadín" }, "coordinates": [-7.497, 43.355, 470] },
+      "end": { "name": { "en": "Vilalba" }, "coordinates": [-7.679, 43.296, 480] },
+      "distanceKm": 20.8,
+      "elevationGainMeters": 280,
+      "elevationLossMeters": 290,
+      "highPointMeters": 560,
+      "lowPointMeters": 440,
+      "estimatedHours": { "min": 5, "max": 6 },
+      "difficulty": "moderate",
+      "terrainTypes": ["forest", "dirt", "paved"],
+      "terrainNotes": {
+        "en": "Rolling Galician plateau walking through Goiriz and Ponte Grande to Vilalba. Vilalba is a medium-sized town with an octagonal medieval tower (Torre dos Andrade) that is now a Parador (luxury hotel). This is roughly the 120 km to Santiago mark — many pilgrims start here or nearby for the Compostela minimum."
+      },
+      "accommodationDensity": "moderate",
+      "waterSources": 4,
+      "services": { "atm": true, "pharmacy": true, "grocery": true, "restaurant": true },
+      "interior": {
+        "theme": { "en": "Vilalba and the tower" },
+        "narrative": {
+          "en": "Vilalba is the first town of the final week. The medieval Torre dos Andrade dominates the town — a square-plan octagonal tower from the 15th century, home of the Andrade family, now a Parador hotel where travellers sleep inside the tower walls. The last 100 km to Santiago begins around here. The albergues fill up with new pilgrims who started in Vilalba or Baamonde for the Compostela-minimum. The energy shifts: you are no longer alone. The Camino feels more like a shared project for the final week."
+        },
+        "commonExperiences": [
+          { "en": "First sight of the Torre dos Andrade rising above Vilalba" },
+          { "en": "Meeting new pilgrims who started yesterday — and remembering your first day" },
+          { "en": "The Parador in the tower — accessible but expensive" },
+          { "en": "Feeling the arrival of Santiago in the air for the first time" }
+        ],
+        "reflection": {
+          "en": "New pilgrims are starting the journey you are ending. What would you tell them if they asked?"
+        }
+      }
+    },
+    {
+      "index": 31,
+      "name": { "en": "Vilalba to Baamonde" },
+      "start": { "name": { "en": "Vilalba" }, "coordinates": [-7.679, 43.296, 480] },
+      "end": { "name": { "en": "Baamonde" }, "coordinates": [-7.759, 43.193, 430] },
+      "distanceKm": 18.5,
+      "elevationGainMeters": 240,
+      "elevationLossMeters": 290,
+      "highPointMeters": 540,
+      "lowPointMeters": 420,
+      "estimatedHours": { "min": 4, "max": 5 },
+      "difficulty": "easy",
+      "terrainTypes": ["forest", "dirt", "paved"],
+      "terrainNotes": {
+        "en": "Rolling plateau through Román, Goiriz, and into Baamonde, a small town on the Parga river. Baamonde is the second-most-common Compostela-minimum starting point (102 km to Santiago)."
+      },
+      "accommodationDensity": "moderate",
+      "waterSources": 3,
+      "services": { "atm": true, "pharmacy": true, "grocery": true, "restaurant": true },
+      "interior": {
+        "theme": { "en": "The qualifying start" },
+        "narrative": {
+          "en": "Baamonde is the 102 km mark, just over the Compostela minimum. New pilgrims arrive here by bus today to start walking tomorrow. The tree-lined square by the Parga river is quiet, the church (San Pedro Fiz) is worn and loved, and the albergue is full. The atmosphere for long-distance pilgrims is bittersweet — the end is close but so is the crowding. You are a veteran now, whether or not you knew that was coming."
+        },
+        "commonExperiences": [
+          { "en": "Seeing brand-new pilgrims arrive by bus" },
+          { "en": "The Parga river and the old bridge" },
+          { "en": "Realizing that in six days you will be in Santiago" },
+          { "en": "The crowded albergue — the first time since Laredo" }
+        ],
+        "reflection": {
+          "en": "You were a new pilgrim 30 days ago. What would the version of you who arrives in Baamonde by bus need from the version of you who walked here?"
+        }
+      }
+    },
+    {
+      "index": 32,
+      "name": { "en": "Baamonde to Sobrado dos Monxes" },
+      "start": { "name": { "en": "Baamonde" }, "coordinates": [-7.759, 43.193, 430] },
+      "end": { "name": { "en": "Sobrado dos Monxes" }, "coordinates": [-8.014, 43.022, 510] },
+      "distanceKm": 39.8,
+      "elevationGainMeters": 760,
+      "elevationLossMeters": 680,
+      "highPointMeters": 710,
+      "lowPointMeters": 380,
+      "estimatedHours": { "min": 9, "max": 12 },
+      "difficulty": "hard",
+      "terrainTypes": ["forest", "dirt", "paved", "mountain"],
+      "terrainNotes": {
+        "en": "The longest single stage of the Norte — 39.8 km from Baamonde to Sobrado dos Monxes. Crosses rolling plateau through Miraz, Lagoa, and Roxica. Many pilgrims split this stage at Miraz (~15 km, old Templar albergue) or avoid it entirely by taking the 35A variant via Sobrado. The climb to ~710 m on the Serra do Careón is the highest point of the whole Norte. Carry food and water — services are sparse."
+      },
+      "accommodationDensity": "low",
+      "waterSources": 3,
+      "services": { "atm": false, "pharmacy": false, "grocery": true, "restaurant": true },
+      "interior": {
+        "theme": { "en": "The longest day, the oldest monastery" },
+        "narrative": {
+          "en": "40 kilometres is a lot on day 33 of a pilgrimage. Most pilgrims split the stage at Miraz, where the old Templar-era albergue is run by English volunteers and has a reputation for kindness. Those who continue the full distance reach Sobrado dos Monxes in the late afternoon — and the reward is the monastery itself. Santa María de Sobrado was founded in 952 AD and joined the Cistercian order in 1142, making it the first Cistercian house in Spain. The monastery is still an active community of about ten monks. The pilgrim albergue is inside the monastery walls. Compline is sung at 20:00 and pilgrims are welcome to attend. The great baroque church (rebuilt in the 17th century after a fire) has a cloister and a chapter room that feel heavy with age."
+        },
+        "commonExperiences": [
+          { "en": "The decision at Baamonde: 15 km to Miraz or 40 km to Sobrado" },
+          { "en": "Miraz albergue with its English volunteers — one of the best on the Camino" },
+          { "en": "The climb to the Serra do Careón high point at 710 m" },
+          { "en": "First sight of Sobrado's church towers above the trees" },
+          { "en": "Compline with the Cistercian community at 20:00" },
+          { "en": "Sleeping inside the monastery walls" }
+        ],
+        "reflection": {
+          "en": "You are staying in a house that has welcomed pilgrims for a thousand years. What do you bring to it, and what does it give back?"
+        }
+      }
+    },
+    {
+      "index": 33,
+      "name": { "en": "Sobrado dos Monxes to Arzúa (joins Camino Francés)" },
+      "start": { "name": { "en": "Sobrado dos Monxes" }, "coordinates": [-8.014, 43.022, 510] },
+      "end": { "name": { "en": "Arzúa" }, "coordinates": [-8.160, 42.930, 389] },
+      "distanceKm": 22.0,
+      "elevationGainMeters": 350,
+      "elevationLossMeters": 470,
+      "highPointMeters": 560,
+      "lowPointMeters": 380,
+      "estimatedHours": { "min": 5, "max": 7 },
+      "difficulty": "moderate",
+      "terrainTypes": ["forest", "dirt", "paved"],
+      "terrainNotes": {
+        "en": "The final native Norte stage. Rolling Galician countryside through Boimorto to Arzúa, where the Norte meets the Camino Francés. At Arzúa the two routes merge and the final 39 km to Santiago follows the Francés path. From here the density of pilgrims increases dramatically."
+      },
+      "accommodationDensity": "high",
+      "waterSources": 5,
+      "services": { "atm": true, "pharmacy": true, "grocery": true, "restaurant": true },
+      "interior": {
+        "theme": { "en": "The junction" },
+        "narrative": {
+          "en": "At Arzúa the Camino del Norte ends. The yellow arrows merge with the arrows of the Camino Francés and from here the two routes are one. The density of walkers triples in a single afternoon. Pilgrims who have come from Ferrol on the Inglés, from Oviedo on the Primitivo, from Irún on the Norte, from St. Jean Pied de Port on the Francés — all arrive in Arzúa within days of each other. The cafés are crowded. The albergues fill by 14:00. It can feel overwhelming after thirty quiet days on the Norte. But this is the old shape of the Camino: many rivers into one. From Arzúa it is two days to Santiago on the shared path (19.3 km to O Pedrouzo, then 19.4 km to Santiago), documented in routes/camino-frances/stages.json stages 31-32. The Norte proper ends here, at the junction."
+        },
+        "commonExperiences": [
+          { "en": "The moment the Norte arrows meet the Francés arrows" },
+          { "en": "Entering Arzúa and seeing three times as many pilgrims as yesterday" },
+          { "en": "Arzúa's famous queso — a round soft cow's-milk cheese, part of the Camino food tradition" },
+          { "en": "The strange feeling of ending a route that is not yet in Santiago" },
+          { "en": "Looking at Santiago on the map for the first time with the distance in tens of kilometres, not hundreds" }
+        ],
+        "reflection": {
+          "en": "Your solitary Camino has just merged with thousands of others. What does belonging feel like after so much solitude?"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,340 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "camino-norte",
+  "lastUpdated": "2026-04-10T00:00:00Z",
+
+  "name": {
+    "en": "Camino del Norte (Northern Way)",
+    "es": "Camino del Norte",
+    "eu": "Kostaldeko Donejakue bidea",
+    "gl": "Camiño do Norte",
+    "fr": "Chemin du Nord",
+    "ja": "北の道"
+  },
+  "description": {
+    "en": "The coastal Camino de Santiago along the Bay of Biscay from Irún on the French border, through the Basque Country, Cantabria, Asturias, and into Galicia where it joins the Camino Francés at Arzúa for the final approach to Santiago de Compostela. Approximately 820 km in 34 stages. Among the oldest Caminos — walked when inland Iberia was under Moorish control and the Atlantic coast remained the safer Christian corridor. The longest non-Francés Camino and the only major Camino that stays within sight of the sea for most of its length. UNESCO inscribed in 2015 as part of the Routes of Northern Spain extension.",
+    "es": "El Camino de Santiago costero desde Irún por el Cantábrico a través del País Vasco, Cantabria, Asturias y Galicia, uniéndose al Camino Francés en Arzúa.",
+    "eu": "Donejakue bidea kostaldetik, Irundik hasita Bizkaiko Golkoaren ondotik, Euskal Herria, Kantabria, Asturias eta Galiziatik igarotzen dena."
+  },
+
+  "overview": {
+    "distanceKm": 820,
+    "distanceNote": "Sum of 34 Gronze-numbered stages Irún → Arzúa (where the Norte joins the Camino Francés) plus 2 shared Francés stages to Santiago. Cicerone's 3rd edition (Whitson/Perazzoli, 2019) reports 820 km / 32 stages; Gronze itemizes 823 km across 36 stages (counting Bayonne → Irún as the first 2 stages, which this dataset omits). This release covers the native Norte from Irún to Arzúa (~784 km); the final 39 km on the shared Francés path is documented in routes/camino-frances/stages.json stages 31-32.",
+    "estimatedDays": { "min": 30, "max": 38, "typical": 34 },
+    "topology": "linear",
+    "direction": "west",
+    "startPoint": {
+      "name": {
+        "en": "Irún, Spain (French border)",
+        "es": "Irún",
+        "eu": "Irun"
+      },
+      "coordinates": [-1.789, 43.338, 20]
+    },
+    "endPoint": {
+      "name": {
+        "en": "Santiago de Compostela",
+        "es": "Santiago de Compostela",
+        "gl": "Santiago de Compostela"
+      },
+      "coordinates": [-8.544, 42.881, 260]
+    },
+    "elevationRange": {
+      "minMeters": 0,
+      "maxMeters": 710,
+      "totalAscentMeters": 14500,
+      "totalDescentMeters": 14450,
+      "elevationNote": "The Norte has no single dramatic mountain pass like the Primitivo's Puerto del Palo or the Francés's Pyrenean crossing, but it accumulates more total elevation gain than either because of constant short climbs and descents across coastal headlands. The highest points are in Galicia on the approach to Sobrado dos Monxes (~710 m)."
+    },
+    "difficulty": "hard",
+    "terrainTypes": ["coastal", "paved", "cobblestone", "dirt", "forest", "mountain", "urban"],
+    "bestMonths": [5, 6, 9],
+    "peakMonths": [7, 8],
+    "countries": ["ES"],
+    "bbox": [-8.55, 42.87, -1.78, 43.58]
+  },
+
+  "tradition": {
+    "type": "christian",
+    "primaryFaith": "Roman Catholic",
+    "otherFaiths": ["secular"],
+    "saint": {
+      "en": "Saint James the Great",
+      "es": "Santiago Apóstol",
+      "eu": "Santio Apostolua"
+    },
+    "origin": {
+      "en": "The Camino del Norte is among the earliest Jacobean pilgrimage routes, emerging in the 9th century shortly after the discovery of the apostle's tomb at Iria Flavia (c. 820). It follows segments of the old Roman Via Agrippa along the Cantabrian coast. During the 9th and 10th centuries, when much of the Iberian interior was under Moorish control and the inland Camino Francés was dangerous, the coastal north remained under Christian rule — centred on the Kingdom of Asturias with its capital at Oviedo — making the northern corridor the safer route for pilgrims, especially European nobility arriving by ship at Cantabrian ports. With the southward Reconquista and the royal promotion of the Camino Francés from the late 11th century onward, the Norte declined in favour of the better-infrastructured French Way, though it remained in continuous use and was formally revived in the 20th century. Modern pilgrim numbers grew dramatically after the 2015 UNESCO inscription."
+    },
+    "unescoStatus": "World Heritage Site",
+    "unescoYear": 2015,
+    "unescoNote": "Inscribed in 2015 as part of the 'Routes of Santiago de Compostela: Camino Francés and Routes of Northern Spain' extension (UNESCO ref 669bis), which added four Northern routes — Camino del Norte, Camino Primitivo, Camino Lebaniego, and Camino Vasco del Interior — to the original 1993 Camino Francés inscription.",
+    "credentialSystem": {
+      "name": {
+        "en": "Pilgrim Credential",
+        "es": "Credencial del Peregrino"
+      },
+      "description": {
+        "en": "Standard Camino credential, stamped at churches, albergues, cafés, and tourism offices along the route. Required for the Compostela. Must be stamped at least twice per day on the qualifying distance. The Diocesan Cathedral of Irún, the Basilica of Begoña in Bilbao, the Cathedral of Santander, the Cathedral of Oviedo (via the San Salvador detour), and the Pilgrim's Office in Santiago all issue credentials."
+      },
+      "completionCertificate": {
+        "en": "Compostela",
+        "es": "Compostela"
+      },
+      "minimumDistanceKm": 100,
+      "minimumDistanceNote": {
+        "en": "From Sobrado dos Monxes to Santiago is ~100 km, making it the canonical last-100-km starting point for pilgrims walking the Norte's qualifying distance. Many pilgrims walking just the minimum Compostela distance on the Norte start from Vilalba (~120 km) or Baamonde (~105 km)."
+      },
+      "obtainableAt": [
+        {
+          "name": {
+            "en": "Parroquia de Nuestra Señora del Juncal, Irún",
+            "es": "Parroquia del Juncal, Irún"
+          },
+          "coordinates": [-1.789, 43.338]
+        },
+        {
+          "name": {
+            "en": "Basílica de Begoña, Bilbao",
+            "es": "Basílica de Begoña"
+          },
+          "coordinates": [-2.919, 43.265]
+        },
+        {
+          "name": {
+            "en": "Monasterio de Sobrado dos Monxes",
+            "gl": "Mosteiro de Sobrado"
+          },
+          "coordinates": [-8.014, 43.022]
+        }
+      ]
+    }
+  },
+
+  "cultural": {
+    "practices": [
+      {
+        "name": {
+          "en": "Ferry crossing at Portugalete",
+          "es": "Travesía del ferry en Portugalete"
+        },
+        "description": {
+          "en": "From Bilbao pilgrims can follow the Ría del Nervión north to Portugalete, crossing the estuary via the Vizcaya Bridge (Puente Colgante), the world's oldest transporter bridge (1893) and itself a UNESCO World Heritage Site. An alternative inland route via Kobaron is slightly shorter. The transporter bridge crossing takes ~1 minute and costs around €0.50 for pedestrians."
+        },
+        "location": { "coordinates": [-3.019, 43.323], "stageIndex": 7 }
+      },
+      {
+        "name": {
+          "en": "Ribadeo border crossing",
+          "es": "Cruce de la ría de Ribadeo"
+        },
+        "description": {
+          "en": "At Ribadeo the Norte crosses the Ría de Ribadeo from Asturias into Galicia, either via the Puente de los Santos road bridge (pedestrians permitted) or — historically — by ferry before the bridge opened in 1987. This is the symbolic crossing from the Asturian coast into Galicia; from here the route turns inland and leaves the Bay of Biscay for the final inland approach to Santiago."
+        },
+        "location": { "coordinates": [-7.040, 43.534], "stageIndex": 26 }
+      },
+      {
+        "name": {
+          "en": "Sobrado dos Monxes hospitality",
+          "es": "Hospitalidad de Sobrado dos Monxes"
+        },
+        "description": {
+          "en": "The Cistercian monastery at Sobrado dos Monxes (founded 952 AD, joined the Cistercian order in 1142 — the first Cistercian house in Spain) offers traditional pilgrim hospitality in its albergue within the monastery walls. Compline with the community is open to pilgrims. The monastery is itself part of the 2015 UNESCO inscription."
+        },
+        "location": { "coordinates": [-8.014, 43.022], "stageIndex": 32 }
+      },
+      {
+        "name": { "en": "Pilgrim Scallop Shell" },
+        "description": {
+          "en": "Standard Camino waymarker — yellow arrows and blue-and-yellow scallop shells. The Norte is well-marked throughout by regional signage: Basque Country (Gipuzkoa + Bizkaia), Cantabria, Asturias, and Galicia each use slightly different shell motifs but the yellow-arrow-and-blue-shell system is consistent."
+        }
+      }
+    ],
+    "etiquette": [
+      {
+        "en": "Basque, Galician, and Asturian are spoken alongside Spanish. In the Basque Country many signs are bilingual (Euskara + Spanish). Greetings: 'Kaixo' (Basque hello), 'Ola' (Galician/Asturian hello)."
+      },
+      {
+        "en": "Albergue density is significantly lower than on the Francés. Some stages have only one or two albergues. Book ahead in peak season (July-August), especially in smaller towns like Markina-Xemein, Güemes, Deba, Colombres, and Vilalba."
+      },
+      {
+        "en": "The Bay of Biscay has notoriously variable weather. Atlantic storms can arrive suddenly in any month. Rain gear is mandatory even in summer."
+      },
+      {
+        "en": "Several stages follow narrow coastal cliff paths. These are spectacular but require attention — do not walk them while tired or in poor visibility."
+      },
+      {
+        "en": "The Norte has frequent road walking, more than the Francés or Primitivo. Hi-vis gear and attention to traffic are useful, particularly near towns."
+      }
+    ],
+    "associatedLiterature": [
+      {
+        "title": "The Camino del Norte and Camino Primitivo: To Santiago de Compostela and Finisterre from Irun or Oviedo",
+        "author": "Dave Whitson, Laura Perazzoli",
+        "isbn": "978-1786310149",
+        "type": "guidebook",
+        "relevance": {
+          "en": "Cicerone Press, 3rd edition (2019, reprinted 2024). The canonical English-language guidebook for both the Camino del Norte and Primitivo. Covers the Norte in 32 stages from Irún to Santiago, ~820 km total."
+        }
+      },
+      {
+        "title": "Camino del Norte: Irún to Santiago along Spain's Northern Coast",
+        "author": "Matthew Harms, Anna Dintaman, David Landis",
+        "isbn": "978-1947474253",
+        "type": "guidebook",
+        "relevance": {
+          "en": "Village to Village Press, 2023 edition. Dedicated Norte guidebook with stage-by-stage maps, accommodation lists, and GPS tracks. More visual than Cicerone and popular with North American pilgrims."
+        }
+      }
+    ],
+    "events": [
+      {
+        "name": { "en": "Feast of Saint James", "es": "Fiesta de Santiago Apóstol" },
+        "date": { "month": 7, "day": 25 },
+        "recurrence": "annual",
+        "description": {
+          "en": "The patron saint's feast day. Special masses at Santiago Cathedral, fireworks, and cultural events throughout the city. Holy Year when July 25 is a Sunday; next Holy Year 2027."
+        }
+      },
+      {
+        "name": { "en": "Semana Grande, Bilbao", "es": "Semana Grande / Aste Nagusia" },
+        "date": { "month": 8, "day": 15 },
+        "recurrence": "annual",
+        "description": {
+          "en": "Bilbao's week-long festival starting the Saturday after August 15. Concerts, fireworks over the Ría, street food, and traditional Basque rural sports. Pilgrims passing through Bilbao during the festival should expect crowded accommodation and should book ahead."
+        }
+      },
+      {
+        "name": { "en": "Semana Grande, Donostia", "es": "Aste Nagusia" },
+        "date": { "month": 8, "day": 15 },
+        "recurrence": "annual",
+        "description": {
+          "en": "San Sebastián's equivalent festival, famous for the International Fireworks Competition over the Bay of La Concha. Accommodation in Donostia during Semana Grande is extremely limited."
+        }
+      }
+    ],
+    "historicalSignificance": {
+      "en": "The Camino del Norte is the longest of the non-Francés Caminos and one of the oldest — walked in the 9th and 10th centuries when the Camino Francés crossed contested territory and the Cantabrian coast was the safer Christian route. It passes through the Basque Country, Cantabria, Asturias, and Galicia, sampling four distinct regional cultures, languages, and cuisines. Notable sites include the Vizcaya Bridge at Portugalete (UNESCO 2006), the Colegiata de Santa Juliana in Santillana del Mar (UNESCO 2015), and the Cistercian Monastery of Sobrado dos Monxes (UNESCO 2015). In 2025 it was walked by 21,521 pilgrims (4.1% of all Compostelas) — fewer than the Primitivo despite being much longer, reflecting its reputation as a demanding and less-serviced route compared to the Francés or Portugués."
+    }
+  },
+
+  "logistics": {
+    "seasonalAvailability": {
+      "openMonths": [4, 5, 6, 7, 8, 9, 10],
+      "notes": {
+        "en": "Open year-round but the full Irún → Santiago walk is best between May and September. The Bay of Biscay is wet and windy from October to April; the Galician inland stages at elevation can see snow December-February. July and August are crowded at San Sebastián, Bilbao, and Santander but quieter on the walking stages themselves. June and September are the sweet spots."
+      }
+    },
+    "accommodationTypes": ["albergue", "hotel", "pension", "casa_rural", "hostel"],
+    "accommodationNotes": {
+      "en": "Albergue density is significantly lower than on the Francés or Portugués. Some stages have only one or two pilgrim-specific beds. The Basque coast has abundant tourism infrastructure (pensiones, hotels, Airbnb) that supplements the albergue network. In Asturias the small coastal villages can be very limited — book ahead. The Galician inland section (Ribadeo → Arzúa) has more albergues because it is the 100-km qualifying section for many pilgrims."
+    },
+    "currency": "EUR",
+    "languages": ["es", "eu", "gl", "ast"],
+    "cellularCoverage": "good",
+    "cellularNotes": {
+      "en": "Coverage is generally strong along the coast. Inland Galicia and the mountain sections of Asturias have some weak spots but towns have reliable service."
+    },
+    "waterAvailability": "abundant",
+    "waterNotes": {
+      "en": "Public fountains in most coastal towns. The Galician inland section has fewer fountains between towns — carry 1-1.5 L between Ribadeo and Arzúa. Tap water is potable throughout unless marked 'agua no potable' / 'auga non potable'."
+    },
+    "emergencyNumber": "112",
+    "transportLinks": [
+      {
+        "type": "airport",
+        "name": { "en": "San Sebastián Airport (Hondarribia)" },
+        "code": "EAS",
+        "nearStage": 0,
+        "notes": {
+          "en": "Small regional airport 2 km from Hondarribia and 8 km from the Irún start. Limited connections (mostly Madrid and Barcelona). Most pilgrims arrive via Bilbao or Biarritz (France) instead."
+        }
+      },
+      {
+        "type": "airport",
+        "name": { "en": "Bilbao Airport" },
+        "code": "BIO",
+        "nearStage": 6,
+        "notes": {
+          "en": "Major regional airport with European connections. ~11 km from Bilbao centre; Bizkaibus A3247 runs to Bilbao bus station every 20-30 minutes."
+        }
+      },
+      {
+        "type": "airport",
+        "name": { "en": "Santiago–Rosalía de Castro Airport" },
+        "code": "SCQ",
+        "nearStage": 34,
+        "notes": {
+          "en": "About 12 km from Santiago de Compostela in Lavacolla. Direct flights to many European cities. The most common return airport for pilgrims completing the Norte."
+        }
+      },
+      {
+        "type": "train",
+        "name": { "en": "Renfe: Hendaya ↔ Irún" },
+        "nearStage": 0,
+        "notes": {
+          "en": "Irún connects directly to Hendaya (France) via a short local train or walk across the Santiago Bridge. From Hendaya, SNCF TGV/Ouigo serves Paris in ~4.5 hours. Renfe also runs long-distance trains from Irún to Madrid via Burgos."
+        }
+      },
+      {
+        "type": "train",
+        "name": { "en": "FEVE: Santander ↔ Oviedo ↔ Ferrol (narrow-gauge Cantabrian coast line)" },
+        "notes": {
+          "en": "The historic FEVE narrow-gauge line follows the Cantabrian coast parallel to much of the Camino del Norte. Pilgrims can use it to skip stages, return from an early-exit point, or catch up after injury. Service is slow but scenic."
+        }
+      }
+    ]
+  },
+
+  "provenance": {
+    "sources": [
+      {
+        "name": "OpenStreetMap",
+        "url": "https://www.openstreetmap.org/relation/19001007",
+        "license": "ODbL-1.0",
+        "dataTypes": ["geometry", "waypoints"],
+        "accessDate": "2026-04-10",
+        "notes": "Camino del Norte superroute 19001007 with 4 sub-relations (Basque Country, Cantabria, Asturias, Galicia)."
+      },
+      {
+        "name": "Solvitur Ambulando — Yearly Demographics API",
+        "url": "https://solviturambulando.es/api/yearly-demographics.json",
+        "license": "reference",
+        "dataTypes": ["statistics"],
+        "accessDate": "2026-04-10"
+      },
+      {
+        "name": "Gronze.com — Camino del Norte",
+        "url": "https://www.gronze.com/camino-norte",
+        "license": "reference",
+        "dataTypes": ["stages", "distances"],
+        "accessDate": "2026-04-10"
+      },
+      {
+        "name": "Wikipedia: Northern Way (Camino de Santiago)",
+        "url": "https://en.wikipedia.org/wiki/Northern_Way_(Camino_de_Santiago)",
+        "license": "reference",
+        "dataTypes": ["historical"],
+        "accessDate": "2026-04-10"
+      }
+    ],
+    "contributors": [
+      {
+        "name": "walk · talk · meditate",
+        "role": "initial_author",
+        "url": "https://github.com/walktalkmeditate"
+      }
+    ],
+    "license": "ODbL-1.0"
+  },
+
+  "osm": {
+    "relations": [1116809, 360167, 2201058, 1554697],
+    "superroute": 19001007,
+    "trimStart": {
+      "name": "Irún, Spain",
+      "coordinates": [-1.789, 43.338],
+      "note": "The Basque Country sub-relation 1116809 extends across the French border to Hendaye. Trim to Irún where the canonical Spanish Camino del Norte begins."
+    }
+  }
+}
