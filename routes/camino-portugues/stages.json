@@ -1,0 +1,490 @@
+{
+  "schemaVersion": "1.0.0",
+  "routeId": "camino-portugues",
+  "stageCount": 11,
+  "stages": [
+    {
+      "index": 0,
+      "name": {
+        "en": "Porto to Vairão",
+        "pt": "Porto a Vairão"
+      },
+      "start": {
+        "name": { "en": "Porto Cathedral (Sé do Porto)", "pt": "Sé do Porto" },
+        "coordinates": [-8.611, 41.143, 80]
+      },
+      "end": {
+        "name": { "en": "Vairão" },
+        "coordinates": [-8.669, 41.333, 50]
+      },
+      "distanceKm": 25.0,
+      "elevationGainMeters": 240,
+      "elevationLossMeters": 270,
+      "highPointMeters": 120,
+      "lowPointMeters": 10,
+      "estimatedHours": { "min": 6, "max": 8 },
+      "difficulty": "moderate",
+      "terrainTypes": ["urban", "paved", "cobblestone", "dirt"],
+      "terrainNotes": {
+        "en": "The first hours are urban as you leave Porto northward through Matosinhos and suburban Vila do Conde. The route eventually transitions into forest tracks and quiet country lanes. Start early to avoid the worst of the Porto traffic."
+      },
+      "accommodationDensity": "moderate",
+      "waterSources": 4,
+      "services": { "atm": true, "pharmacy": true, "grocery": true, "restaurant": true },
+      "interior": {
+        "theme": { "en": "Beginning" },
+        "narrative": {
+          "en": "Leaving Porto is slower than you expect. The tiled riverside city does not release you quickly. You descend through narrow lanes, cross the Douro, and climb northward through Matosinhos into a suburban sprawl that feels more like commute than pilgrimage. Only in the afternoon do you break out of the city into forests of eucalyptus and vineyards. This is the day you discover what your pack actually weighs — and what you might have to let go of. Most pilgrims arrive in Vairão quieter than they began."
+        },
+        "commonExperiences": [
+          { "en": "Frustration with the urban exit — it takes longer than the map suggests" },
+          { "en": "First blisters forming on the cobbled streets of the Porto suburbs" },
+          { "en": "The first moment of realising your pack is too heavy" },
+          { "en": "The relief of leaving concrete for forest trails north of Vila do Conde" }
+        ],
+        "reflection": {
+          "en": "What did you pack that you are already wondering whether you actually need?"
+        }
+      }
+    },
+    {
+      "index": 1,
+      "name": {
+        "en": "Vairão to Barcelos",
+        "pt": "Vairão a Barcelos"
+      },
+      "start": {
+        "name": { "en": "Vairão" },
+        "coordinates": [-8.669, 41.333, 50]
+      },
+      "end": {
+        "name": { "en": "Barcelos" },
+        "coordinates": [-8.620, 41.532, 40]
+      },
+      "distanceKm": 30.0,
+      "elevationGainMeters": 280,
+      "elevationLossMeters": 290,
+      "highPointMeters": 180,
+      "lowPointMeters": 30,
+      "estimatedHours": { "min": 7, "max": 9 },
+      "difficulty": "moderate",
+      "terrainTypes": ["dirt", "paved", "cobblestone", "forest"],
+      "accommodationDensity": "moderate",
+      "waterSources": 5,
+      "services": { "atm": true, "pharmacy": true, "grocery": true, "restaurant": true },
+      "interior": {
+        "theme": { "en": "Rhythm" },
+        "narrative": {
+          "en": "The rhythm of the Portuguese Way reveals itself today. Old Roman roads, medieval stone bridges, tiny villages where the parish church is still the tallest building. The land rolls gently. You find a pace that does not hurt, or hurts less. By late afternoon you arrive in Barcelos — famous for its painted ceramic rooster, a symbol of improbable justice that became the unofficial emblem of Portugal."
+        },
+        "commonExperiences": [
+          { "en": "Finding your walking pace for the first time" },
+          { "en": "A quiet moment at a village fountain, refilling water in silence" },
+          { "en": "The first recognition of other pilgrims you may see for days" },
+          { "en": "Arriving in Barcelos during the afternoon market (Thursdays) or the quiet of other days" }
+        ],
+        "reflection": {
+          "en": "What pace does your body actually want, when you stop imposing one?"
+        }
+      }
+    },
+    {
+      "index": 2,
+      "name": {
+        "en": "Barcelos to Ponte de Lima",
+        "pt": "Barcelos a Ponte de Lima"
+      },
+      "start": {
+        "name": { "en": "Barcelos" },
+        "coordinates": [-8.620, 41.532, 40]
+      },
+      "end": {
+        "name": { "en": "Ponte de Lima" },
+        "coordinates": [-8.567, 41.767, 25]
+      },
+      "distanceKm": 33.0,
+      "elevationGainMeters": 420,
+      "elevationLossMeters": 435,
+      "highPointMeters": 280,
+      "lowPointMeters": 20,
+      "estimatedHours": { "min": 8, "max": 10 },
+      "difficulty": "hard",
+      "terrainTypes": ["dirt", "forest", "paved", "cobblestone"],
+      "terrainNotes": {
+        "en": "The longest day of the Central Way. Some pilgrims split it by overnighting in Vitorino dos Piães or Balugães. Carry extra water — villages are spaced further apart than earlier stages."
+      },
+      "accommodationDensity": "low",
+      "waterSources": 4,
+      "services": { "atm": true, "pharmacy": true, "grocery": true, "restaurant": true },
+      "warnings": [
+        { "en": "At 33 km, this is the longest day on the Central Camino Portugués. Many pilgrims underestimate it. Consider splitting at Vitorino dos Piães (about halfway)." }
+      ],
+      "interior": {
+        "theme": { "en": "Length" },
+        "narrative": {
+          "en": "Thirty-three kilometers of forest tracks and small hamlets. The Minho countryside opens: vineyards trained on granite posts, old stone cruzeiros at every crossroads, chapels with their doors propped open for the passing pilgrim. By the final kilometers your body is arguing with you. Then the Lima river appears and you cross the medieval bridge into Ponte de Lima — a town older than Portugal itself. The Romans called this river Lethes, the river of forgetting. They refused to cross it. You cross it without hesitation."
+        },
+        "commonExperiences": [
+          { "en": "Hitting the wall around kilometer 22, then walking through it" },
+          { "en": "The temptation to stop in Vitorino dos Piães and cut the day short" },
+          { "en": "Arriving in Ponte de Lima in the late afternoon light on the medieval bridge" },
+          { "en": "A long rest by the Lima river with other pilgrims" }
+        ],
+        "reflection": {
+          "en": "What in your life have you been refusing to cross, the way the Romans refused to cross the Lethes?"
+        }
+      }
+    },
+    {
+      "index": 3,
+      "name": {
+        "en": "Ponte de Lima to Rubiães",
+        "pt": "Ponte de Lima a Rubiães"
+      },
+      "start": {
+        "name": { "en": "Ponte de Lima" },
+        "coordinates": [-8.567, 41.767, 25]
+      },
+      "end": {
+        "name": { "en": "Rubiães" },
+        "coordinates": [-8.625, 41.896, 160]
+      },
+      "distanceKm": 18.0,
+      "elevationGainMeters": 450,
+      "elevationLossMeters": 320,
+      "highPointMeters": 410,
+      "lowPointMeters": 25,
+      "estimatedHours": { "min": 5, "max": 7 },
+      "difficulty": "moderate",
+      "terrainTypes": ["forest", "dirt", "cobblestone", "mountain"],
+      "terrainNotes": {
+        "en": "The first real climb of the Portuguese Way — up the Alto da Portela Grande (about 410 m). Modest by Pyrenean standards but the steepest ascent you will face. Stone waymarker crosses line the climb."
+      },
+      "accommodationDensity": "low",
+      "waterSources": 3,
+      "services": { "atm": false, "pharmacy": false, "grocery": true, "restaurant": true },
+      "interior": {
+        "theme": { "en": "Climb" },
+        "narrative": {
+          "en": "Out of Ponte de Lima the path turns upward. Through Arcozelo and Arca the climb begins in earnest, past stone crucifixes and old farmhouses. The ascent to the Alto da Portela Grande is the first real climb of the Portuguese Way — modest compared to the Pyrenees, but the steepest you will face. At the top you rest, then the path descends through eucalyptus and cork oak forest to the tiny village of Rubiães, where the 12th-century Romanesque church of São Pedro stands at the end of the stage, its carved portal weathered by nearly nine centuries of weather and passing pilgrims."
+        },
+        "commonExperiences": [
+          { "en": "The first real breath-catching climb of the Portuguese Way" },
+          { "en": "Noticing the old stone crucifixes at regular intervals" },
+          { "en": "Catching your breath at the top of the Portela Grande" },
+          { "en": "Touching the Romanesque stonework of São Pedro de Rubiães church at the end of the stage" },
+          { "en": "Arriving at Rubiães quietly — it is a tiny village with limited services" }
+        ],
+        "reflection": {
+          "en": "What burden did you notice on the climb that you had not noticed on the flat?"
+        }
+      }
+    },
+    {
+      "index": 4,
+      "name": {
+        "en": "Rubiães to Tui",
+        "pt": "Rubiães a Tui",
+        "es": "Rubiães a Tui"
+      },
+      "start": {
+        "name": { "en": "Rubiães" },
+        "coordinates": [-8.625, 41.896, 160]
+      },
+      "end": {
+        "name": { "en": "Tui", "es": "Tui", "gl": "Tui" },
+        "coordinates": [-8.645, 42.046, 40]
+      },
+      "distanceKm": 20.0,
+      "elevationGainMeters": 180,
+      "elevationLossMeters": 295,
+      "highPointMeters": 180,
+      "lowPointMeters": 10,
+      "estimatedHours": { "min": 5, "max": 7 },
+      "difficulty": "moderate",
+      "terrainTypes": ["forest", "dirt", "paved", "urban"],
+      "terrainNotes": {
+        "en": "Descent through Valença to the Miño river, then across the Ponte Internacional into Tui, Spain. Valença's 17th-century star fortress is worth the brief detour inside the walls."
+      },
+      "accommodationDensity": "moderate",
+      "waterSources": 4,
+      "services": { "atm": true, "pharmacy": true, "grocery": true, "restaurant": true },
+      "interior": {
+        "theme": { "en": "Crossing" },
+        "narrative": {
+          "en": "The border day. You descend from Rubiães through forest and farmland into Valença, a fortified Portuguese town built to face Spain with its star-shaped walls. Then the Ponte Internacional — a wrought-iron lattice bridge built in the 1880s and inaugurated in 1886. The midpoint of the bridge is the border. One step Portuguese, the next Spanish. On the far side, Tui cathedral rises directly from the riverbank, stone walls glowing in afternoon light. The air changes. The language changes. The shell markers that said Bom Caminho in Portugal now say Buen Camino in Galicia. Something about crossing a river on foot, out of one country and into another, is older than the maps."
+        },
+        "commonExperiences": [
+          { "en": "Walking the walls of Valença and looking out at Spain across the river" },
+          { "en": "Photographs at the midpoint of the Ponte Internacional" },
+          { "en": "The moment of crossing the border on foot — quieter than expected" },
+          { "en": "Climbing up to Tui cathedral and touching its stone walls" }
+        ],
+        "reflection": {
+          "en": "When has a border in your life turned out to be smaller than you thought it would be?"
+        }
+      }
+    },
+    {
+      "index": 5,
+      "name": {
+        "en": "Tui to O Porriño",
+        "es": "Tui a O Porriño",
+        "gl": "Tui a O Porriño"
+      },
+      "start": {
+        "name": { "en": "Tui" },
+        "coordinates": [-8.645, 42.046, 40]
+      },
+      "end": {
+        "name": { "en": "O Porriño", "gl": "O Porriño" },
+        "coordinates": [-8.617, 42.167, 30]
+      },
+      "distanceKm": 18.0,
+      "elevationGainMeters": 150,
+      "elevationLossMeters": 155,
+      "highPointMeters": 80,
+      "lowPointMeters": 20,
+      "estimatedHours": { "min": 4, "max": 6 },
+      "difficulty": "easy",
+      "terrainTypes": ["forest", "dirt", "paved", "urban"],
+      "terrainNotes": {
+        "en": "The route follows the Louro river valley through eucalyptus forests, then enters the industrial outskirts of O Porriño. Some pilgrims take the alternative forest variant (about 1 km longer) to avoid the industrial zone."
+      },
+      "accommodationDensity": "moderate",
+      "waterSources": 5,
+      "services": { "atm": true, "pharmacy": true, "grocery": true, "restaurant": true },
+      "interior": {
+        "theme": { "en": "Transition" },
+        "narrative": {
+          "en": "The first Spanish day. You leave Tui through eucalyptus forest — fragrant, loud with birds, nothing like the cobbled Portuguese lanes of yesterday. Then the path unexpectedly feeds you into the industrial edge of O Porriño: factories, highway overpasses, concrete pavement. The Camino does not curate what it passes through. This dissonance is part of it — the ancient and the industrial sharing the same waymarkers. You learn to carry the contemplative mood across both."
+        },
+        "commonExperiences": [
+          { "en": "The first Spanish fountain (fuente) marked for pilgrims" },
+          { "en": "The surprise of the industrial approach to O Porriño" },
+          { "en": "Choosing between the shorter paved route and the longer forest variant" },
+          { "en": "First Spanish bar/café experience — tapas culture begins" }
+        ],
+        "reflection": {
+          "en": "Can you carry the quiet of a forest into a factory zone? What does that take?"
+        }
+      }
+    },
+    {
+      "index": 6,
+      "name": {
+        "en": "O Porriño to Redondela",
+        "gl": "O Porriño a Redondela"
+      },
+      "start": {
+        "name": { "en": "O Porriño" },
+        "coordinates": [-8.617, 42.167, 30]
+      },
+      "end": {
+        "name": { "en": "Redondela" },
+        "coordinates": [-8.617, 42.283, 20]
+      },
+      "distanceKm": 16.0,
+      "elevationGainMeters": 230,
+      "elevationLossMeters": 240,
+      "highPointMeters": 250,
+      "lowPointMeters": 10,
+      "estimatedHours": { "min": 4, "max": 5 },
+      "difficulty": "easy",
+      "terrainTypes": ["forest", "dirt", "paved", "cobblestone"],
+      "terrainNotes": {
+        "en": "Pine forest trails over the hills into Redondela. Pass Mos with its small church and stone cruceiro. Short day — many pilgrims arrive before midday."
+      },
+      "accommodationDensity": "moderate",
+      "waterSources": 3,
+      "services": { "atm": true, "pharmacy": true, "grocery": true, "restaurant": true },
+      "interior": {
+        "theme": { "en": "Return" },
+        "narrative": {
+          "en": "A short day. Sixteen kilometers through pine forests, past the stone cruceiro at Mos, and down into Redondela on the Ría de Vigo. Here the Central route and the Coastal route finally merge. Pilgrims who chose different paths from Porto find each other again in the plaza. There is a particular quality to these reunions — the quiet comparing of notes between people who have walked the same days in different landscapes."
+        },
+        "commonExperiences": [
+          { "en": "Arriving before midday and having the whole afternoon in Redondela" },
+          { "en": "Running into pilgrims you last saw in Porto" },
+          { "en": "First glimpse of the Ría de Vigo — salt air after days of forest" },
+          { "en": "The small stone cruceiro at Mos, one of many in Galicia" }
+        ],
+        "reflection": {
+          "en": "Who do you think of when you imagine arriving in Santiago?"
+        }
+      }
+    },
+    {
+      "index": 7,
+      "name": {
+        "en": "Redondela to Pontevedra",
+        "gl": "Redondela a Pontevedra"
+      },
+      "start": {
+        "name": { "en": "Redondela" },
+        "coordinates": [-8.617, 42.283, 20]
+      },
+      "end": {
+        "name": { "en": "Pontevedra" },
+        "coordinates": [-8.644, 42.431, 20]
+      },
+      "distanceKm": 20.0,
+      "elevationGainMeters": 290,
+      "elevationLossMeters": 290,
+      "highPointMeters": 155,
+      "lowPointMeters": 5,
+      "estimatedHours": { "min": 5, "max": 6 },
+      "difficulty": "moderate",
+      "terrainTypes": ["forest", "dirt", "paved", "cobblestone"],
+      "terrainNotes": {
+        "en": "Via Arcade — famous for oysters and the medieval Ponte Sampaio over the Verdugo river. Pontevedra has one of the best-preserved medieval old towns in Galicia."
+      },
+      "accommodationDensity": "moderate",
+      "waterSources": 5,
+      "services": { "atm": true, "pharmacy": true, "grocery": true, "restaurant": true },
+      "interior": {
+        "theme": { "en": "Galicia" },
+        "narrative": {
+          "en": "Now you are in Galicia proper. Granite cruceiros stand at every crossroads. The forests are chestnut and oak, darker and wetter than anything in Portugal. You pass Arcade, known for its oysters and for the medieval bridge at Ponte Sampaio where a Napoleonic battle was fought in 1809. By afternoon the old town of Pontevedra welcomes you — arcaded squares, Romanesque churches, the smell of grilled sardines in small tabernas. This is one of the best-preserved medieval centers in Spain and you walk straight through it on the Camino."
+        },
+        "commonExperiences": [
+          { "en": "Stopping in Arcade for oysters, if in season" },
+          { "en": "The medieval Ponte Sampaio — one of the oldest bridges on the Portuguese Way" },
+          { "en": "Entering Pontevedra's old town through the Peregrina chapel" },
+          { "en": "Dinner in a small Pontevedra taberna, perhaps the first of your trip that feels like celebration" }
+        ],
+        "reflection": {
+          "en": "Where on this route have you felt most like a guest, and where most like you belong?"
+        }
+      }
+    },
+    {
+      "index": 8,
+      "name": {
+        "en": "Pontevedra to Caldas de Reis",
+        "gl": "Pontevedra a Caldas de Reis"
+      },
+      "start": {
+        "name": { "en": "Pontevedra" },
+        "coordinates": [-8.644, 42.431, 20]
+      },
+      "end": {
+        "name": { "en": "Caldas de Reis" },
+        "coordinates": [-8.639, 42.603, 40]
+      },
+      "distanceKm": 19.0,
+      "elevationGainMeters": 310,
+      "elevationLossMeters": 290,
+      "highPointMeters": 185,
+      "lowPointMeters": 20,
+      "estimatedHours": { "min": 5, "max": 6 },
+      "difficulty": "moderate",
+      "terrainTypes": ["forest", "dirt", "paved", "cobblestone"],
+      "accommodationDensity": "moderate",
+      "waterSources": 5,
+      "services": { "atm": true, "pharmacy": true, "grocery": true, "restaurant": true },
+      "interior": {
+        "theme": { "en": "Water" },
+        "narrative": {
+          "en": "The Romans called this town Aquae Celenae — the waters of Celenae. The thermal springs of Caldas de Reis have been drawing pilgrims since imperial times. Before the day ends, the route crosses the Rio Umia and enters the town where steam rises from public fountains and the water itself is too hot to touch. Pilgrims soak their feet in the thermal waters of A Burga, in the middle of the street, and something about hot mineral water on aching feet feels like a direct inheritance from two thousand years of road-weary travellers."
+        },
+        "commonExperiences": [
+          { "en": "The free thermal fountain A Burga, in the center of Caldas de Reis, where pilgrims soak their feet" },
+          { "en": "The smell of sulphur in the town center" },
+          { "en": "Relief in the feet for the first time in days" },
+          { "en": "Realising you are now close enough to Santiago to count the remaining stages on one hand" }
+        ],
+        "reflection": {
+          "en": "What has been carrying you, the way hot water has been carrying Roman soldiers' feet for two thousand years?"
+        }
+      }
+    },
+    {
+      "index": 9,
+      "name": {
+        "en": "Caldas de Reis to Padrón",
+        "gl": "Caldas de Reis a Padrón"
+      },
+      "start": {
+        "name": { "en": "Caldas de Reis" },
+        "coordinates": [-8.639, 42.603, 40]
+      },
+      "end": {
+        "name": { "en": "Padrón" },
+        "coordinates": [-8.660, 42.740, 25]
+      },
+      "distanceKm": 19.0,
+      "elevationGainMeters": 220,
+      "elevationLossMeters": 235,
+      "highPointMeters": 135,
+      "lowPointMeters": 20,
+      "estimatedHours": { "min": 5, "max": 6 },
+      "difficulty": "easy",
+      "terrainTypes": ["forest", "dirt", "paved", "cobblestone"],
+      "accommodationDensity": "moderate",
+      "waterSources": 4,
+      "services": { "atm": true, "pharmacy": true, "grocery": true, "restaurant": true },
+      "interior": {
+        "theme": { "en": "Arrival" },
+        "narrative": {
+          "en": "This is the day you meet the legend. In Padrón, beneath the altar of the church of Santiago, rests the pedrón — the stone pillar to which, the story says, the disciples moored the boat carrying the body of Saint James from Jerusalem. The town's name comes from the stone. Pilgrims touch it. Some weep. Others stand very still with their hands resting on centuries of worn granite. The last piece of the legend arrives under your hand. Tomorrow you walk to Santiago itself, but something has already arrived today."
+        },
+        "commonExperiences": [
+          { "en": "Touching the pedrón under the altar at the Igrexa de Santiago in Padrón" },
+          { "en": "Pimientos de Padrón — the local green peppers, some spicy, some not" },
+          { "en": "A quiet afternoon in Padrón knowing tomorrow is the last day" },
+          { "en": "The Rosalía de Castro museum, if you have the energy" }
+        ],
+        "reflection": {
+          "en": "What piece of your own story have you been waiting to touch with your own hands?"
+        }
+      }
+    },
+    {
+      "index": 10,
+      "name": {
+        "en": "Padrón to Santiago de Compostela",
+        "gl": "Padrón a Santiago de Compostela"
+      },
+      "start": {
+        "name": { "en": "Padrón" },
+        "coordinates": [-8.660, 42.740, 25]
+      },
+      "end": {
+        "name": { "en": "Santiago de Compostela" },
+        "coordinates": [-8.544, 42.881, 260]
+      },
+      "distanceKm": 25.0,
+      "elevationGainMeters": 430,
+      "elevationLossMeters": 200,
+      "highPointMeters": 300,
+      "lowPointMeters": 20,
+      "estimatedHours": { "min": 6, "max": 8 },
+      "difficulty": "moderate",
+      "terrainTypes": ["forest", "dirt", "paved", "cobblestone", "urban"],
+      "terrainNotes": {
+        "en": "The final climb into Santiago through forest and then the old city streets. The Praza do Obradoiro, the cathedral's main square, is the traditional arrival point."
+      },
+      "accommodationDensity": "high",
+      "waterSources": 6,
+      "services": { "atm": true, "pharmacy": true, "grocery": true, "restaurant": true },
+      "interior": {
+        "theme": { "en": "Completion" },
+        "narrative": {
+          "en": "The final twenty-five kilometers. You wake before dawn in Padrón. The road crosses the Sar river, winds through small hamlets on the outskirts of the city, and climbs the last hills into Santiago. Then suddenly a narrow street opens and you are standing in the Praza do Obradoiro looking up at the cathedral. Whatever you expected to feel may or may not happen. Some pilgrims weep. Some laugh. Some sit on the granite pavement and stare. The Way ends here. You have arrived. The Compostela — the certificate of your walk — waits at the Pilgrim's Office a short walk away. But that is paperwork. The real thing is this: you walked here."
+        },
+        "commonExperiences": [
+          { "en": "Walking the last kilometers in quiet, alone or with a chosen companion" },
+          { "en": "The first sight of the cathedral spires from the outskirts" },
+          { "en": "Entering the Praza do Obradoiro and not knowing what to do with the moment" },
+          { "en": "The Pilgrim's Mass at noon or 19:30 at Santiago Cathedral" },
+          { "en": "Receiving the Compostela at the Pilgrim's Office" },
+          { "en": "The traditional hug of the statue of Saint James behind the altar" }
+        ],
+        "reflection": {
+          "en": "Not 'what did you learn?' — that question usually comes too early. Just: what are you grateful for, at this moment, standing in this square?"
+        }
+      }
+    }
+  ]
+}

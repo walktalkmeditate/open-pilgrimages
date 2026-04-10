@@ -1,0 +1,319 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "camino-portugues",
+  "lastUpdated": "2026-04-09T00:00:00Z",
+
+  "name": {
+    "en": "Camino Portugués (Central)",
+    "pt": "Caminho Português (Central)",
+    "es": "Camino Portugués (Central)",
+    "gl": "Camiño Portugués (Central)",
+    "ja": "ポルトガル人の道（中央ルート）"
+  },
+  "description": {
+    "en": "The second most-walked route to Santiago de Compostela, traversing the Minho region of northern Portugal before crossing the Miño river border at Tui and continuing through Galicia. Walked since the 12th century. Shorter, flatter, and less crowded than the Camino Francés, with a distinctive sequence of Romanesque churches, medieval stone villages, and the iconic river-crossing from Portugal into Spain.",
+    "pt": "A segunda rota mais percorrida até Santiago de Compostela, atravessando a região do Minho no norte de Portugal antes de cruzar o rio Minho em Tui e continuar pela Galiza.",
+    "es": "La segunda ruta más caminada hacia Santiago de Compostela, atravesando la región del Miño en el norte de Portugal antes de cruzar el río Miño en Tui y continuar por Galicia."
+  },
+
+  "overview": {
+    "distanceKm": 243,
+    "estimatedDays": { "min": 11, "max": 14, "typical": 12 },
+    "topology": "linear",
+    "direction": "north",
+    "startPoint": {
+      "name": {
+        "en": "Porto Cathedral (Sé do Porto)",
+        "pt": "Sé do Porto",
+        "es": "Catedral de Oporto"
+      },
+      "coordinates": [-8.611, 41.143, 80]
+    },
+    "endPoint": {
+      "name": {
+        "en": "Santiago de Compostela",
+        "es": "Santiago de Compostela",
+        "gl": "Santiago de Compostela"
+      },
+      "coordinates": [-8.544, 42.881, 260]
+    },
+    "elevationRange": {
+      "minMeters": 10,
+      "maxMeters": 420,
+      "totalAscentMeters": 3100,
+      "totalDescentMeters": 2920
+    },
+    "difficulty": "easy",
+    "terrainTypes": ["paved", "cobblestone", "dirt", "forest", "urban", "gravel"],
+    "bestMonths": [4, 5, 6, 9, 10],
+    "peakMonths": [7, 8],
+    "countries": ["PT", "ES"],
+    "bbox": [-8.69, 41.14, -8.54, 42.89]
+  },
+
+  "tradition": {
+    "type": "christian",
+    "primaryFaith": "Roman Catholic",
+    "otherFaiths": ["secular"],
+    "saint": {
+      "en": "Saint James the Great",
+      "pt": "Santiago Maior",
+      "es": "Santiago Apóstol",
+      "gl": "Santiago Apóstolo"
+    },
+    "origin": {
+      "en": "Medieval pilgrimage route from Portugal to the shrine of the apostle Saint James in Santiago de Compostela. Documented pilgrim traffic grew from the 12th century onward, following Portuguese independence in 1139 and reusing sections of the Roman Via XIX (the Itinerarium Antonini road from Bracara Augusta to Asturica Augusta, which passed through Ponte de Lima, Tui, and Caldas de Reis). Queen Isabel of Portugal (1271-1336), later canonized as Saint Isabel, walked to Santiago in 1325 after the death of her husband King Dinis; she was originally buried at the Convent of Santa Clara-a-Velha in Coimbra and later moved to Santa Clara-a-Nova after flooding of the Mondego river, where she rests today. The Portuguese Way became one of the most important routes to Santiago after the Camino Francés, and today is the second most-walked route by a wide margin."
+    },
+    "credentialSystem": {
+      "name": {
+        "en": "Pilgrim Credential",
+        "pt": "Credencial do Peregrino",
+        "es": "Credencial del Peregrino"
+      },
+      "description": {
+        "en": "A passport-like booklet stamped (sellos in Spain, carimbos in Portugal) at churches, albergues, cafés, and town halls along the route. Required for the Compostela certificate. Must be stamped at least twice per day for the qualifying distance. The Portuguese cathedrals of Porto, Braga, and Coimbra all issue credentials, as does the Confraria de Santiago and the Confraternity of Saint James UK."
+      },
+      "completionCertificate": {
+        "en": "Compostela",
+        "pt": "Compostela",
+        "es": "Compostela"
+      },
+      "minimumDistanceKm": 100,
+      "minimumDistanceNote": {
+        "en": "Walk at least 100 km (or cycle 200 km) on a recognized route ending in Santiago de Compostela. From the Portuguese border at Tui, it is 115 km to Santiago — just enough to qualify. This makes Tui the most common starting point for pilgrims walking the minimum distance to earn a Compostela."
+      },
+      "obtainableAt": [
+        {
+          "name": {
+            "en": "Porto Cathedral (Sé do Porto)",
+            "pt": "Sé do Porto"
+          },
+          "coordinates": [-8.611, 41.143]
+        },
+        {
+          "name": {
+            "en": "Cathedral Pilgrim Office, Tui",
+            "es": "Oficina del Peregrino, Catedral de Tui"
+          },
+          "coordinates": [-8.645, 42.046]
+        },
+        {
+          "name": { "en": "Confraria de Santiago, Porto" }
+        },
+        {
+          "name": { "en": "Confraternity of Saint James, UK" }
+        }
+      ]
+    }
+  },
+
+  "cultural": {
+    "practices": [
+      {
+        "name": { "en": "Bom Caminho", "pt": "Bom Caminho" },
+        "description": {
+          "en": "The Portuguese greeting exchanged between pilgrims, meaning 'Good Way'. Crossing into Spain at Tui, it shifts to 'Buen Camino'. The change of language on the same path, mid-route, is itself part of the experience."
+        }
+      },
+      {
+        "name": {
+          "en": "Crossing the Ponte Internacional",
+          "pt": "Travessia da Ponte Internacional"
+        },
+        "description": {
+          "en": "Between Valença (Portugal) and Tui (Spain), pilgrims cross the Miño river on the Ponte Internacional, a wrought-iron lattice bridge designed by Spanish engineer Pelayo Mancebo y Ágreda and inaugurated on 25 March 1886. The midpoint of the bridge marks the border — one step in Portugal, the next in Spain. Many pilgrims mark the moment with a photograph at the central plaque. The Spanish side greets you with the cathedral of Tui rising directly above the river."
+        },
+        "location": { "coordinates": [-8.645, 42.046], "stageIndex": 4 }
+      },
+      {
+        "name": { "en": "The Padrón Stone", "es": "El Pedrón de Padrón", "gl": "O Pedrón de Padrón" },
+        "description": {
+          "en": "In the church of Santiago in Padrón rests the pedrón — a stone pillar to which, according to legend, the disciples moored the boat carrying the body of Saint James from Jerusalem. The name of the town derives from it. Pilgrims touch the stone beneath the altar, a tradition older than the route itself."
+        },
+        "location": { "coordinates": [-8.661, 42.738], "stageIndex": 9 }
+      },
+      {
+        "name": { "en": "Pilgrim Scallop Shell", "pt": "Vieira do Peregrino" },
+        "description": {
+          "en": "The scallop shell (vieira) is the universal symbol of the Camino. On the Portuguese Way, shell markers and yellow arrows guide pilgrims north along country roads, through forests, across Roman bridges, and into every village. Blue and yellow tiles with the shell motif are common in Portuguese waymarking."
+        }
+      },
+      {
+        "name": {
+          "en": "Igreja Românica de São Pedro de Rubiães",
+          "pt": "Igreja Românica de São Pedro de Rubiães"
+        },
+        "description": {
+          "en": "At the end of the climb over the Alto da Portela Grande, pilgrims arrive at the 12th-century Romanesque church of São Pedro de Rubiães (classified a Portuguese National Monument in 1913). Its axial portico with four archivolts, carved column capitals, and weathered granite mark the descent into the village where many pilgrims overnight."
+        },
+        "location": { "coordinates": [-8.625, 41.896], "stageIndex": 3 }
+      }
+    ],
+    "etiquette": [
+      {
+        "en": "Portugal has fewer public albergues than Spain. Many pilgrims mix hostels, pensões, and casas rurais on the Portuguese side. Albergue density rises sharply after crossing the border at Tui."
+      },
+      {
+        "en": "Albergue quiet hours begin around 22:00. Portuguese hosts often serve a communal dinner around 19:30 — a more leisurely pace than the Spanish albergue tradition."
+      },
+      {
+        "en": "Portuguese is widely understood alongside Galician in the Galicia region. A few words of Portuguese go a long way in Portugal, and Galician often bridges both sides of the border."
+      },
+      {
+        "en": "Respect the pace of others. On the Portuguese Way, pilgrims often form small walking groups that endure for days — conversations deepen across the border."
+      }
+    ],
+    "associatedLiterature": [
+      {
+        "title": "The Camino Portugués: From Lisbon and Porto to Santiago – Central, Coastal and Spiritual Caminos",
+        "author": "Kat Davis, Howard Miller",
+        "isbn": "978-1786311962",
+        "type": "guidebook",
+        "relevance": {
+          "en": "Cicerone Press, 2nd edition (2023). The most widely used English-language guidebook for the Portuguese Way. Covers Central, Coastal, Litoral, and Spiritual variants with detailed stage breakdowns, accommodation lists, and historical context. The 11-stage Porto-to-Santiago breakdown used in this dataset follows Cicerone's standard stages."
+        }
+      },
+      {
+        "title": "A Pilgrim's Guide to the Camino Portugués",
+        "author": "John Brierley",
+        "isbn": "978-1912216758",
+        "type": "guidebook",
+        "relevance": {
+          "en": "Camino Guides / Findhorn Press. Brierley's Portuguese Way guide follows his signature format: detailed maps, stage-by-stage spiritual reflections, and practical logistics. Brierley's stage breakdown differs slightly from Cicerone's — he uses Vilarinho (Rates) instead of Vairão as the first stage endpoint out of Porto."
+        }
+      }
+    ],
+    "events": [
+      {
+        "name": {
+          "en": "Feast of Saint James",
+          "pt": "Festa de São Tiago",
+          "es": "Fiesta de Santiago Apóstol"
+        },
+        "date": { "month": 7, "day": 25 },
+        "recurrence": "annual",
+        "description": {
+          "en": "The patron saint's feast day. Special masses at Santiago Cathedral, fireworks, and cultural events throughout the city. When July 25 falls on a Sunday, it is declared a Holy Year (Año Xacobeo) and the cathedral's Holy Door opens. Next Holy Year: 2027."
+        }
+      },
+      {
+        "name": { "en": "Tapetes Floridos de Corpo de Deus, Ponte de Lima", "pt": "Tapetes Floridos de Corpo de Deus" },
+        "recurrence": "annual",
+        "description": {
+          "en": "In Ponte de Lima, the streets leading to the medieval bridge are carpeted with fresh flower petals and dyed sawdust arranged in intricate patterns for the Corpus Christi procession — a tradition documented since the early 18th century. Corpus Christi is a movable feast (Thursday after Trinity Sunday), falling in late May or June each year. Pilgrims passing through in early summer often witness the preparation or the procession itself."
+        }
+      }
+    ],
+    "historicalSignificance": {
+      "en": "The Portuguese Way is one of the oldest documented Caminos, with pilgrim records dating from the 12th century. Queen Isabel of Portugal (1271–1336), later canonized as Saint Isabel, is the most famous historical pilgrim on the route: she walked to Santiago in 1325 after the death of her husband King Dinis and left her pilgrim staff at the cathedral. She rests today at the Monastery of Santa Clara-a-Nova in Coimbra. King Manuel I of Portugal also walked to Santiago in 1502 following his victory over Castile. During the medieval period, the route facilitated cultural exchange between the emerging Kingdom of Portugal and the Galician heartland of the Santiago cult. In modern times, it has grown to become the second most-walked Camino by a significant margin — as of 2025, Portugués Central and Coastal together account for 36% of all Compostelas, behind only the Francés at 46%. The revival of the Portuguese Way is one of the most striking pilgrimage trends of the past two decades."
+    }
+  },
+
+  "logistics": {
+    "seasonalAvailability": {
+      "openMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+      "notes": {
+        "en": "Open year-round. Unlike the Francés, there are no mountain crossings that close seasonally. Winter months (November through March) are cooler and wetter, with many albergues closed — pilgrims rely more on pensões and hotels. Summer (July-August) is hot and crowded. April-June and September-October are the most popular months."
+      }
+    },
+    "accommodationTypes": ["albergue", "hotel", "pension", "casa_rural", "hostel"],
+    "accommodationNotes": {
+      "en": "Municipal and parish albergues: 5-12 EUR in Portugal, 8-15 EUR in Spain. Private albergues and hostels: 15-25 EUR. Pensões and casas rurais: 25-50 EUR. Hotels: 40-100 EUR. Portugal has significantly fewer dedicated pilgrim albergues than Spain — most Portuguese stages rely on a mix of hostels, pensões, and private rooms. Once across the border at Tui, Spanish albergue density rises dramatically and the logistics resemble the Francés."
+    },
+    "currency": "EUR",
+    "languages": ["pt", "gl", "es", "en"],
+    "cellularCoverage": "good",
+    "cellularNotes": {
+      "en": "Reliable mobile coverage on both sides of the border. Portuguese and Spanish SIM cards both work across the EU. Most albergues, pensões, and cafés offer WiFi."
+    },
+    "waterAvailability": "abundant",
+    "waterNotes": {
+      "en": "Fountains (fontes in Portuguese, fuentes in Spanish) are common in villages on both sides of the border. Tap water is potable throughout Portugal and Spain unless marked 'água não potável' or 'agua no potable'. Carry 1-1.5 L between villages."
+    },
+    "emergencyNumber": "112",
+    "transportLinks": [
+      {
+        "type": "airport",
+        "name": { "en": "Porto Airport (Francisco Sá Carneiro)" },
+        "code": "OPO",
+        "nearStage": 0,
+        "notes": {
+          "en": "The main arrival airport for pilgrims starting in Porto. Metro Line E (Violeta) connects the airport to central Porto in 30 minutes — exit at Trindade or São Bento for Porto Cathedral."
+        }
+      },
+      {
+        "type": "train",
+        "name": { "en": "CP Alfa Pendular: Lisbon-Porto" },
+        "nearStage": 0,
+        "notes": {
+          "en": "Portugal's high-speed rail connects Lisbon Oriente to Porto Campanhã in 2h45. Pilgrims starting in Porto often arrive by this train from Lisbon."
+        }
+      },
+      {
+        "type": "train",
+        "name": { "en": "Regional rail: Vigo-Tui-Porto" },
+        "notes": {
+          "en": "Regional trains on the Porto-Vigo line stop at Valença (Portugal) and Tui (Spain), allowing pilgrims to join or leave mid-route at the border."
+        }
+      },
+      {
+        "type": "airport",
+        "name": { "en": "Santiago de Compostela Airport" },
+        "code": "SCQ",
+        "nearStage": 10,
+        "notes": {
+          "en": "10 km from the city centre. Direct flights to many European cities. Bus connection to the city centre every 30 minutes."
+        }
+      }
+    ]
+  },
+
+  "provenance": {
+    "sources": [
+      {
+        "name": "OpenStreetMap",
+        "url": "https://www.openstreetmap.org",
+        "license": "ODbL-1.0",
+        "dataTypes": ["geometry", "waypoints"],
+        "accessDate": "2026-04-09"
+      },
+      {
+        "name": "Gronze.com",
+        "url": "https://www.gronze.com/camino-portugues",
+        "license": "reference",
+        "dataTypes": ["stages", "distances", "elevation"],
+        "accessDate": "2026-04-09"
+      },
+      {
+        "name": "Santiago Pilgrim's Office",
+        "url": "https://oficinadelperegrino.com",
+        "license": "public-data",
+        "dataTypes": ["credential", "statistics"],
+        "accessDate": "2026-04-09"
+      },
+      {
+        "name": "Confraria de Santiago",
+        "url": "https://www.confrariadesantiago.com",
+        "license": "reference",
+        "dataTypes": ["credential", "cultural"],
+        "accessDate": "2026-04-09"
+      }
+    ],
+    "contributors": [
+      {
+        "name": "walk · talk · meditate",
+        "role": "initial_author",
+        "url": "https://github.com/walktalkmeditate"
+      }
+    ],
+    "license": "ODbL-1.0"
+  },
+
+  "osm": {
+    "relations": [12786090],
+    "trimStart": {
+      "coordinates": [-8.611, 41.143],
+      "reason": "OSM relation 12786090 (Caminho Português de Santiago, wikidata Q1029533) models the canonical Portuguese Way from the Coimbra area to Santiago (~605 km of waymarked path). The most-walked pilgrimage is from Porto to Santiago, which is the route shipped here. Geometry is trimmed to begin at the closest point to Porto Sé cathedral, removing the less-walked Coimbra-to-Porto extension."
+    }
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "lisboa",
+  "parentRouteId": "camino-portugues",
+  "lastUpdated": "2026-04-09T00:00:00Z",
+  "name": {
+    "en": "Camino Portugués from Lisbon",
+    "pt": "Caminho Português desde Lisboa",
+    "es": "Camino Portugués desde Lisboa",
+    "gl": "Camiño Portugués desde Lisboa"
+  },
+  "description": {
+    "en": "The full Portuguese Way from Lisbon to Santiago de Compostela, approximately 620 km. Passes through Santarém, Tomar (with its UNESCO Convent of Christ), Coimbra (Queen Isabel of Portugal's burial place), before joining the Central route at Porto. The longest of the Portuguese Caminos, walked by a small minority of pilgrims who typically take three weeks or more. Historically the most traditional starting point — Lisbon's Cathedral of Santa Maria Maior is one of the oldest pilgrim departure points on the Portuguese side. v1 of open-pilgrimages ships this variant as a metadata stub; full geometry, stages, and waypoints are planned for a future release."
+  },
+  "overview": {
+    "distanceKm": 620,
+    "estimatedDays": { "min": 24, "max": 32, "typical": 28 },
+    "topology": "linear",
+    "direction": "north",
+    "startPoint": {
+      "name": {
+        "en": "Lisbon Cathedral (Sé de Lisboa)",
+        "pt": "Sé de Lisboa"
+      },
+      "coordinates": [-9.133, 38.710, 40]
+    },
+    "endPoint": {
+      "name": { "en": "Santiago de Compostela" },
+      "coordinates": [-8.544, 42.881, 260]
+    },
+    "difficulty": "moderate",
+    "terrainTypes": ["paved", "cobblestone", "dirt", "forest", "urban"],
+    "bestMonths": [4, 5, 9, 10],
+    "countries": ["PT", "ES"]
+  },
+  "tradition": {
+    "type": "christian",
+    "primaryFaith": "Roman Catholic",
+    "saint": { "en": "Saint James the Great" }
+  },
+  "provenance": {
+    "sources": [
+      {
+        "name": "OpenStreetMap",
+        "url": "https://www.openstreetmap.org/relation/7684546",
+        "license": "ODbL-1.0",
+        "dataTypes": ["geometry"],
+        "accessDate": "2026-04-09"
+      }
+    ],
+    "contributors": [
+      {
+        "name": "walk · talk · meditate",
+        "role": "initial_author",
+        "url": "https://github.com/walktalkmeditate"
+      }
+    ],
+    "license": "ODbL-1.0"
+  },
+  "osm": {
+    "relations": [7684546, 12786090]
+  }
+}

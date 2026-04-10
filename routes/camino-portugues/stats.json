@@ -1,0 +1,149 @@
+{
+  "schemaVersion": "1.0.0",
+  "routeId": "camino-portugues",
+  "lastUpdated": "2026-04-09",
+  "dataYear": 2025,
+  "annualPilgrims": {
+    "latest": { "year": 2025, "count": 100839, "note": "Camino Portugués Central only; the Coastal route is tracked as a sibling variant" },
+    "trend": [
+      { "year": 2003, "count": 3297 },
+      { "year": 2004, "count": 15024, "note": "Holy Year" },
+      { "year": 2005, "count": 5420 },
+      { "year": 2006, "count": 6472 },
+      { "year": 2007, "count": 8042 },
+      { "year": 2008, "count": 9573 },
+      { "year": 2009, "count": 11953 },
+      { "year": 2010, "count": 33140, "note": "Holy Year" },
+      { "year": 2011, "count": 21819 },
+      { "year": 2012, "count": 25068 },
+      { "year": 2013, "count": 28804 },
+      { "year": 2014, "count": 34715 },
+      { "year": 2015, "count": 41664 },
+      { "year": 2016, "count": 49538 },
+      { "year": 2017, "count": 59233 },
+      { "year": 2018, "count": 67822 },
+      { "year": 2019, "count": 72355 },
+      { "year": 2020, "count": 10252, "note": "COVID-19" },
+      { "year": 2021, "count": 34248, "note": "Holy Year (extended)" },
+      { "year": 2022, "count": 93195, "note": "Extended Holy Year" },
+      { "year": 2023, "count": 88729 },
+      { "year": 2024, "count": 95495 },
+      { "year": 2025, "count": 100839, "note": "Record year" }
+    ],
+    "source": "https://solviturambulando.es/api/yearly-demographics.json?year={YEAR}&v=5",
+    "sourceNotes": "Counts are sourced from the Solvitur Ambulando JSON API, which mirrors and extends the Oficina del Peregrino (Pilgrim's Office of the Cathedral of Santiago) per-route Compostela data. Solvitur provides coverage for 2003-2025 with route-specific breakdowns including the Camino Portugués Central. Note: pre-2016, the Oficina del Peregrino's official annual PDFs combined Central and Coastal under a single 'Portugués' line; Solvitur back-attributes the Coastal portion using their own classification — see coastalSiblingTrend below for the matching Coastal counts. See docs/data-sources.md for the complete refresh procedure."
+  },
+  "coastalSiblingTrend": {
+    "description": "The Camino Portugués Coastal (Camino Portugués da Costa) is a sibling variant of the Central route. Before 2016 the Coastal route had very few walkers and the Oficina del Peregrino did not separate it from Central in their official PDFs; Solvitur Ambulando's data reflects retroactive separation for those years.",
+    "trend": [
+      { "year": 2003, "count": 229 },
+      { "year": 2004, "count": 810 },
+      { "year": 2005, "count": 87 },
+      { "year": 2006, "count": 47 },
+      { "year": 2007, "count": 98 },
+      { "year": 2008, "count": 242 },
+      { "year": 2009, "count": 108 },
+      { "year": 2010, "count": 1114 },
+      { "year": 2011, "count": 243 },
+      { "year": 2012, "count": 556 },
+      { "year": 2013, "count": 746 },
+      { "year": 2014, "count": 779 },
+      { "year": 2015, "count": 1474 },
+      { "year": 2016, "count": 2600, "note": "First year tracked separately by Oficina del Peregrino" },
+      { "year": 2017, "count": 7329 },
+      { "year": 2018, "count": 13841 },
+      { "year": 2019, "count": 22291 },
+      { "year": 2020, "count": 2736, "note": "COVID-19" },
+      { "year": 2021, "count": 7942, "note": "Holy Year (extended)" },
+      { "year": 2022, "count": 30607, "note": "Extended Holy Year" },
+      { "year": 2023, "count": 52757, "note": "Highest year-over-year growth of any major route" },
+      { "year": 2024, "count": 74755 },
+      { "year": 2025, "count": 89511 }
+    ]
+  },
+  "demographics": {
+    "dataYear": 2024,
+    "totalPilgrims": 95495,
+    "topNationalities": [
+      { "country": "ES", "name": "Spain", "count": 35120, "percentage": 36.78 },
+      { "country": "PT", "name": "Portugal", "count": 12279, "percentage": 12.86 },
+      { "country": "US", "name": "United States", "count": 6935, "percentage": 7.26 },
+      { "country": "DE", "name": "Germany", "count": 5926, "percentage": 6.21 },
+      { "country": "IT", "name": "Italy", "count": 4887, "percentage": 5.12 },
+      { "country": "BR", "name": "Brazil", "count": 2784, "percentage": 2.92 },
+      { "country": "GB", "name": "United Kingdom", "count": 2691, "percentage": 2.82 },
+      { "country": "CA", "name": "Canada", "count": 1862, "percentage": 1.95 },
+      { "country": "NL", "name": "Netherlands", "count": 1696, "percentage": 1.78 },
+      { "country": "IE", "name": "Ireland", "count": 1650, "percentage": 1.73 },
+      { "country": "AU", "name": "Australia", "count": 1519, "percentage": 1.59 },
+      { "country": "PL", "name": "Poland", "count": 1519, "percentage": 1.59 },
+      { "country": "MX", "name": "Mexico", "count": 1330, "percentage": 1.39 },
+      { "country": "FR", "name": "France", "count": 1187, "percentage": 1.24 },
+      { "country": "KR", "name": "South Korea", "count": 546, "percentage": 0.57 }
+    ],
+    "topNationalitiesNote": "Per-route nationality breakdown for the Camino Portugués Central in 2024, sourced from Solvitur Ambulando. 'Others' (~14.2%) is not listed individually. Note that the Portugués Central attracts proportionally more Portuguese pilgrims than the all-Camino aggregate.",
+    "genderSplit": {
+      "female": 0.5634,
+      "male": 0.4359,
+      "unknown": 0.0008,
+      "counts": { "female": 53799, "male": 41623, "unknown": 73 }
+    },
+    "ageGroups": [
+      { "group": "Under 18", "count": 6383, "percentage": 6.68 },
+      { "group": "18-45", "count": 38431, "percentage": 40.24 },
+      { "group": "46-65", "count": 40123, "percentage": 42.02 },
+      { "group": "Over 65", "count": 10558, "percentage": 11.06 }
+    ],
+    "source": "https://solviturambulando.es/api/yearly-demographics.json?year=2024&v=5"
+  },
+  "motivation": [
+    { "type": "religious", "count": 41955, "percentage": 43.93 },
+    { "type": "religious_and_other", "count": 30288, "percentage": 31.72 },
+    { "type": "non_religious", "count": 19791, "percentage": 20.72 },
+    { "type": "not_stated", "count": 3461, "percentage": 3.62 }
+  ],
+  "motivationNote": "Per-route motivation breakdown for the Camino Portugués Central in 2024, sourced from Solvitur Ambulando.",
+  "modeOfTravel": [
+    { "mode": "foot", "percentage": 93.75 },
+    { "mode": "bicycle", "percentage": 6.03 },
+    { "mode": "horseback", "percentage": 0.11 },
+    { "mode": "sailboat", "percentage": 0.09 },
+    { "mode": "wheelchair", "percentage": 0.02 }
+  ],
+  "modeOfTravelNote": "All-Camino aggregate, 2021 (most recent year with published mode breakdown). Oficina del Peregrino does not publish mode-of-travel by individual route.",
+  "startingPointsNote": "Per-route starting-point counts are not available at the Portugués-Central-only level. Aggregate Oficina del Peregrino starting-point data for 2021 (the most recent published year): Porto/Camino Portugués Central 8,724; Tui 15,169; Valença do Minho 4,888; Caminha 291; Ponte de Lima 710; Lisboa 924; Coimbra 103. These counts include both Central and Coastal pilgrims and cannot be cleanly separated.",
+  "routeContext": {
+    "comparisonWithFrances": {
+      "en": "In 2025, the Camino Portugués Central (19.0% of all Compostelas) and Portugués Coastal (16.9%) together accounted for 35.9% of all pilgrims — behind only the Francés at 45.6%. The Portuguese routes have grown faster than the Francés over the past two decades. In 2003, the Portugués (Central+Coastal) was just 4.7% of all pilgrims (3,526 out of 74,324); by 2025 the Central route alone was 19.0% (100,839 out of 531,000) and the combined Portuguese routes were 35.9%."
+    },
+    "seasonalCharacter": {
+      "en": "Unlike the Francés, the Portugués has no seasonal closures — there are no high mountain crossings. However, the Minho region is among the rainiest in Iberia, so winter months bring significant rainfall. Most pilgrims walk between April and October."
+    }
+  },
+  "sources": [
+    {
+      "name": "Solvitur Ambulando — Yearly Demographics API",
+      "url": "https://solviturambulando.es/api/yearly-demographics.json?year={YEAR}&v=5",
+      "accessDate": "2026-04-09",
+      "notes": "Primary source for 2003-2025 per-route counts and demographics. Solvitur Ambulando mirrors and extends Oficina del Peregrino's official Compostela data with per-route breakdowns of age, gender, motivation, and nationality. JSON API; gzip-encoded; requires browser User-Agent and Referer headers. See docs/data-sources.md for the fetch procedure."
+    },
+    {
+      "name": "Oficina del Peregrino (Santiago Pilgrim's Office) — Annual Reports (PDF)",
+      "url": "https://catedral.df-server.info/est/index.html",
+      "accessDate": "2026-04-09",
+      "notes": "Underlying primary source. Oficina del Peregrino publishes annual PDF statistical reports for 2004-2021. The Spanish-language PDFs include per-route breakdowns. Solvitur Ambulando re-publishes this data in machine-readable form and adds 2003 + 2022-2025."
+    },
+    {
+      "name": "Solvitur Ambulando — Per-year HTML pages",
+      "url": "https://solviturambulando.es/statistics/{YEAR}",
+      "accessDate": "2026-04-09",
+      "notes": "Human-readable per-year statistics pages with charts and tables, useful for visual cross-reference."
+    },
+    {
+      "name": "Wikipedia: Portuguese Way",
+      "url": "https://en.wikipedia.org/wiki/Portuguese_Way",
+      "accessDate": "2026-04-09",
+      "notes": "Secondary reference for context and route descriptions."
+    }
+  ]
+}

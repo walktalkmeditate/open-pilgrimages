@@ -1,0 +1,60 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "espiritual",
+  "parentRouteId": "camino-portugues",
+  "lastUpdated": "2026-04-09T00:00:00Z",
+  "name": {
+    "en": "Variante Espiritual (Spiritual Variant)",
+    "pt": "Variante Espiritual",
+    "es": "Variante Espiritual",
+    "gl": "Variante Espiritual"
+  },
+  "description": {
+    "en": "A roughly 73 km spiritual detour from Pontevedra through Combarro, the Monasterio de Santa María de Armenteira, Vilanova de Arousa, and Pontecesures, rejoining the Central route near Padrón. Walkers follow the traditional maritime arrival route of the apostle Saint James's remains, with the option to replace the final stage with a boat trip (Traslatio) up the Arousa and Ulla rivers. Officially established as a signposted alternative in 2012 and growing quickly. v1 of open-pilgrimages ships this variant as a metadata stub; full geometry, stages, and waypoints are planned for a future release."
+  },
+  "overview": {
+    "distanceKm": 73,
+    "estimatedDays": { "min": 3, "max": 4, "typical": 3 },
+    "topology": "linear",
+    "direction": "north",
+    "startPoint": {
+      "name": { "en": "Pontevedra" },
+      "coordinates": [-8.644, 42.431, 20]
+    },
+    "endPoint": {
+      "name": { "en": "Pontecesures / Padrón" },
+      "coordinates": [-8.661, 42.724, 15]
+    },
+    "difficulty": "moderate",
+    "terrainTypes": ["coastal", "forest", "dirt", "paved", "mountain"],
+    "bestMonths": [4, 5, 6, 9, 10],
+    "countries": ["ES"]
+  },
+  "tradition": {
+    "type": "christian",
+    "primaryFaith": "Roman Catholic",
+    "saint": { "en": "Saint James the Great" }
+  },
+  "provenance": {
+    "sources": [
+      {
+        "name": "OpenStreetMap",
+        "url": "https://www.openstreetmap.org/relation/6259246",
+        "license": "ODbL-1.0",
+        "dataTypes": ["geometry"],
+        "accessDate": "2026-04-09"
+      }
+    ],
+    "contributors": [
+      {
+        "name": "walk · talk · meditate",
+        "role": "initial_author",
+        "url": "https://github.com/walktalkmeditate"
+      }
+    ],
+    "license": "ODbL-1.0"
+  },
+  "osm": {
+    "relations": [6259246]
+  }
+}

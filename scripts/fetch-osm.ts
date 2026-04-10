@@ -33,6 +33,13 @@ out geom;`,
 relation["name"~"熊野古道"]["type"="route"];
 out geom;`,
   },
+  {
+    id: "camino-portugues",
+    description: "Camino Portugués (Central) — OSM relation 12786090, trimmed to start at Porto",
+    query: `[out:json][timeout:300];
+relation(id:12786090);
+out geom;`,
+  },
 ];
 
 async function fetchOverpass(query: string): Promise<unknown> {

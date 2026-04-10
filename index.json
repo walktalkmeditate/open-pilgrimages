@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-03-26T19:20:05.836Z",
+  "generatedAt": "2026-04-10T00:54:20.231Z",
   "routes": [
     {
       "id": "camino-frances",
@@ -13,10 +13,61 @@
       },
       "region": "Europe",
       "country": "ES",
-      "distanceKm": 790,
+      "distanceKm": 764,
       "topology": "linear",
       "tradition": "christian",
       "path": "routes/camino-frances"
+    },
+    {
+      "id": "camino-portugues",
+      "name": {
+        "en": "Camino Portugués (Central)",
+        "pt": "Caminho Português (Central)",
+        "es": "Camino Portugués (Central)",
+        "gl": "Camiño Portugués (Central)",
+        "ja": "ポルトガル人の道（中央ルート）"
+      },
+      "region": "Europe",
+      "country": "ES",
+      "distanceKm": 243,
+      "topology": "linear",
+      "tradition": "christian",
+      "path": "routes/camino-portugues",
+      "variants": [
+        {
+          "id": "coastal",
+          "name": {
+            "en": "Camino Portugués da Costa (Coastal Way)",
+            "pt": "Caminho Português da Costa",
+            "es": "Camino Portugués de la Costa",
+            "gl": "Camiño Portugués da Costa"
+          },
+          "distanceKm": 280,
+          "path": "routes/camino-portugues/variants/coastal"
+        },
+        {
+          "id": "espiritual",
+          "name": {
+            "en": "Variante Espiritual (Spiritual Variant)",
+            "pt": "Variante Espiritual",
+            "es": "Variante Espiritual",
+            "gl": "Variante Espiritual"
+          },
+          "distanceKm": 73,
+          "path": "routes/camino-portugues/variants/espiritual"
+        },
+        {
+          "id": "lisboa",
+          "name": {
+            "en": "Camino Portugués from Lisbon",
+            "pt": "Caminho Português desde Lisboa",
+            "es": "Camino Portugués desde Lisboa",
+            "gl": "Camiño Portugués desde Lisboa"
+          },
+          "distanceKm": 620,
+          "path": "routes/camino-portugues/variants/lisboa"
+        }
+      ]
     },
     {
       "id": "kumano-kodo",
@@ -26,7 +77,7 @@
       },
       "region": "Asia",
       "country": "JP",
-      "distanceKm": 38,
+      "distanceKm": 39,
       "topology": "network",
       "tradition": "mixed",
       "path": "routes/kumano-kodo",

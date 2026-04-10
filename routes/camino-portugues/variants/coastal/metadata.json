@@ -1,0 +1,60 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "coastal",
+  "parentRouteId": "camino-portugues",
+  "lastUpdated": "2026-04-09T00:00:00Z",
+  "name": {
+    "en": "Camino Portugués da Costa (Coastal Way)",
+    "pt": "Caminho Português da Costa",
+    "es": "Camino Portugués de la Costa",
+    "gl": "Camiño Portugués da Costa"
+  },
+  "description": {
+    "en": "The Coastal variant of the Camino Portugués, running along the Atlantic shoreline from Porto through Vila do Conde, Póvoa de Varzim, Esposende, Viana do Castelo, and Caminha before crossing into Galicia at A Guarda and rejoining the Central route near Redondela. Approximately 280 km. Grew rapidly in popularity during the 2010s and now accounts for roughly 17% of all Compostelas — nearly as many pilgrims as the Central route. v1 of open-pilgrimages ships this variant as a metadata stub; full geometry, stages, and waypoints are planned for a future release."
+  },
+  "overview": {
+    "distanceKm": 280,
+    "estimatedDays": { "min": 12, "max": 15, "typical": 13 },
+    "topology": "linear",
+    "direction": "north",
+    "startPoint": {
+      "name": { "en": "Porto Cathedral (Sé do Porto)", "pt": "Sé do Porto" },
+      "coordinates": [-8.611, 41.143, 80]
+    },
+    "endPoint": {
+      "name": { "en": "Santiago de Compostela" },
+      "coordinates": [-8.544, 42.881, 260]
+    },
+    "difficulty": "easy",
+    "terrainTypes": ["coastal", "paved", "cobblestone", "sand", "boardwalk", "urban"],
+    "bestMonths": [4, 5, 6, 9, 10],
+    "countries": ["PT", "ES"]
+  },
+  "tradition": {
+    "type": "christian",
+    "primaryFaith": "Roman Catholic",
+    "saint": { "en": "Saint James the Great" }
+  },
+  "provenance": {
+    "sources": [
+      {
+        "name": "OpenStreetMap",
+        "url": "https://www.openstreetmap.org/relation/6100606",
+        "license": "ODbL-1.0",
+        "dataTypes": ["geometry"],
+        "accessDate": "2026-04-09"
+      }
+    ],
+    "contributors": [
+      {
+        "name": "walk · talk · meditate",
+        "role": "initial_author",
+        "url": "https://github.com/walktalkmeditate"
+      }
+    ],
+    "license": "ODbL-1.0"
+  },
+  "osm": {
+    "relations": [6100606]
+  }
+}
