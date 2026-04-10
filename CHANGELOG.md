@@ -6,6 +6,76 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 The moving tag `v1` always points to the latest `v1.x.x` release. CDN consumers using `https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1/...` automatically receive the latest minor/patch on the v1 line.
 
+## [1.5.0] — 2026-04-10
+
+The "Top 4 Missing Caminos" release. Adds three new Camino routes (Inglés, Primitivo, Norte) and upgrades the Camino Portugués Coastal stub to a full route for its Portuguese section. Together these cover ~149,000 of the non-Frances/non-Portugués-Central annual Compostelas. Extends the dataset from 4 to 7 routes. Every fact was verified by two independent agent rounds plus 12 deep local checks.
+
+### Added
+
+- **Camino Inglés (English Way)** as the fifth pilgrimage route — 6 stages, ~112 km from Ferrol to Santiago de Compostela, 482 OSM-sourced waypoints, complete editorial interior journey content per stage. The shortest major Camino and the most distinctively maritime; historically walked by English, Irish, Scandinavian, and Flemish pilgrims arriving by sea. 30,204 pilgrims in 2025 (5.7% of all Compostelas). One A Coruña start variant stub.
+- **Camino Primitivo (Original Way)** as the sixth pilgrimage route — 11 stages, 263 km from Oviedo to Melide (where it joins the Francés), 732 OSM-sourced waypoints, full editorial content. The oldest Camino — walked by King Alfonso II of Asturias from his capital Oviedo to Santiago in 814 CE — and the most physically demanding, crossing the Asturian mountains via Puerto del Palo (1,146 m, the highest point of any Camino). UNESCO inscribed in the 2015 Northern Spain extension. 27,871 pilgrims in 2025 (5.2%).
+- **Camino del Norte (Northern Way)** as the seventh pilgrimage route — 34 stages, ~784 km from Irún on the French border to Arzúa (where it joins the Francés), 3,634 OSM-sourced waypoints, full editorial content. The longest non-Francés Camino and among the oldest, walked when inland Iberia was under Moorish control. Spans four regions: Basque Country, Cantabria, Asturias, and Galicia. UNESCO inscribed 2015. 21,521 pilgrims in 2025 (4.1%).
+- **Camino Portugués da Costa (Coastal)** upgraded from stub to full route for the Portuguese section — 5 stages, 110 km from Porto along the Atlantic through Vila do Conde, Esposende, Viana do Castelo, and Caminha to the A Guarda ferry crossing, 1,043 OSM-sourced waypoints, full editorial content. The fastest-growing major Camino by percentage, jumping from 2,600 pilgrims in 2016 to 89,511 in 2025 (16.9% of all Compostelas). The Spanish continuation through Oia/Baiona/Vigo/Redondela is deferred to a future release.
+- **New OSM infrastructure**: added `camino-ingles`, `camino-primitivo`, and `camino-norte` entries to `scripts/fetch-osm.ts` (the Coastal upgrade uses the existing Portugués variant path). Primitivo uses 11 sub-relations under OSM superroute 19298101; Norte uses 4 regional sub-relations (one per autonomous community) under superroute 19001007.
+
+### Fixed
+
+#### Pipeline (`scripts/enrich/`)
+- **`waypoints.ts` pre-stage-0 geometry handling:** the stage assignment logic was dumping any geometry coordinates before the projected stage 0 start into the last stage as a fallthrough default. Affected routes where the OSM relation has a short prefix before the canonical start point (Camino Inglés: ~50 waypoints around Ferrol were being assigned to stage 5). Fixed by forcing stage 0 to claim from coord index 0.
+- **`geometry.ts` relation ordering:** when fetching multi-relation routes, Overpass returns relations in document order rather than the order requested in `osm.relations`. This scrambled the geometry for the Camino Primitivo (11 Etapas). Fixed by reordering returned relations to match the requested `osm.relations` array before concatenation.
+
+#### Factual corrections (Inglés)
+- Distance: 123 km → 112 km (matches OSM relation 1102966 distance tag; stages now follow Gronze.com's canonical breakdown).
+- Ferrol start coordinate: corrected to the actual Curuxeiras pier (-8.2436, 43.4777).
+- Cicerone ISBN corrected: 978-1786310323 → 978-1786310064; missing co-author Laura Perazzoli added.
+- Brierley publisher updated: Findhorn Press → Kaminn Media Ltd (correct since 2017).
+- Removed incorrect Nikulás Bergsson / Leiðarvísir claim — that itinerary describes pilgrimages to Rome and Jerusalem, not Santiago.
+- Removed nonexistent "Punta da Promontoira lighthouse" reference.
+- Corrected Santiago de Betanzos church attribution to Fernán Pérez de Andrade "o Mozo" (the Younger, early 15th c.) per Galician Wikipedia dedicated article.
+- Celtic Camino rule wording corrected: geography-of-home-route-based, not citizenship-based.
+- Os Caneiros festival description: now correctly notes both fixed dates (Aug 18 and Aug 25) rather than "varies year to year".
+
+#### Factual corrections (Primitivo)
+- Salas coordinate: longitude 1.87 km off → -6.2569, 43.4082 (OSM town node).
+- La Mesa elevation: 950 m → 860 m; Grandas de Salime: 591 m → 557 m.
+- Share of all 2025 Compostelas: 5.3% → 5.2% (three places — 27871/531000 = 5.25%).
+- Cámara Santa UNESCO inscription: corrected to the 1998 boundary extension (the original 1985 inscription ref 312 covered only three churches — Santa María del Naranco, San Miguel de Lillo, Santa Cristina de Lena; Cámara Santa and San Julián de los Prados were added in the 1998 extension).
+- Lugo Roman walls height: 10-15 m → 8-12 m (Wikipedia).
+- Madrid → Oviedo AVE timing clarified: the fastest ~3h06-3h15m services apply from May 2024 onwards (not November 2023 opening).
+
+#### Factual corrections (Norte)
+- Distance: 820 → 784 km (matches sum of shipped stages Irún → Arzúa; distanceNote explains that the full Irún → Santiago distance of ~820 km per Cicerone includes the shared Francés continuation already documented in `routes/camino-frances/stages.json`).
+- **`genderSplit.male` typo: 0.6652 → 0.5652** (12106/21418 = 56.52%; the counts field was already correct, only the decimal had a digit-off typo that made gender percentages sum to 110%).
+- Eight stage coordinates corrected to OSM `place=town/village/hamlet` node values (largest correction: Gondán 3.46 km off, in empty countryside; others: Sobrado dos Monxes 2.5 km, Avilés 1.15 km, Güemes 1.07 km, Gernika-Lumo 928 m, Abadín 1.2 km, Muros de Nalón 865 m, A Caridá 759 m, Laredo 700 m, Colunga 505 m).
+- Stage 4 Gernika narrative: "thousand-year-old oak tree" rewritten — the current Gernikako Arbola was planted in March 2015; the "father" tree (14th century) lasted 450 years; no tree in the lineage was ever 1,000 years old.
+- Stage 4 Colegiata de Zenarruza: "12th-century with Cistercian ties" dropped — the Gothic building fabric is 14th-15th century, and Cistercian monks only arrived in 1988.
+- Stage 7 Vizcaya Bridge designer: "student of Eiffel" → Alberto Palacio (the actual Basque architect who designed the bridge).
+- Stage 13 Comillas Pontifical University clarified: the university moved to Madrid in 1969; the Comillas building is the former Pontifical Seminary.
+- Stage 20 Oscar Niemeyer cultural centre: "only European work" → "only work in Spain" (Niemeyer has several other European works including the French Communist Party HQ).
+- Stage 26 Puente de los Santos: "1.5 km road bridge" → "612-metre road bridge" (off by a factor of ~2.5).
+- Stage 27 Lourenzá founder: "Oseiro Gutiérrez / Osera family chapel" → "Count Osorio Gutiérrez (the 'Conde Santo' or Holy Count) / chapel of Valdeflores"; founded around 969; 6th-century Paleochristian marble sarcophagus from Aquitaine. The Lourenzá narrative was also moved from stage 27 (which ends at Gondán, before Lourenzá) to stage 28 (which actually passes through Vilanova de Lourenzá).
+- Stage 31 Baamonde parish church: "San Pedro Fiz" → "Santiago de Baamonde" (12th-century Romanesque, dedicated to Saint James himself — fitting for a pilgrim church).
+- Stage 32 Miraz albergue: "old Templar" connection dropped (unsupported by any source); clarified as Albergue San Martín in the old parsonage, run by the UK Confraternity of Saint James since 2005.
+
+#### Factual corrections (Coastal)
+- Distance: 130 → 110 km (matches sum of the 5 shipped stages; Gronze.com confirms).
+- Caminha ferry details completely updated: the original municipal ferry Santa Rita de Cássia has been suspended since 2020. Current crossings are operated by two private services — Xacobeo Transfer (~07:30-15:30) and Taxi Boat Peregrinos (~07:00-17:00 every 30 min). Corrected pricing (~€6, not €2-3), crossing time (~10 minutes, not ~20 minutes), and Tui bridge detour distance (~30 km, not ~20 km).
+- Ponte Eiffel attribution: "built by a student of Gustave Eiffel" → "built by Eiffel & Cie, the firm Gustave Eiffel co-founded with his partner Théophile Seyrig in 1868" (Wikipedia credits Eiffel alone for the Viana bridge).
+- Revival date: "around 2014" → "officially recognized by the Cathedral of Santiago in 2016 and fully marked by 2017" (matches the trend data showing real takeoff in 2017).
+- Stage 3 Dólmen da Barrosa location: named explicitly and corrected to near Vila Praia de Âncora (not Afife).
+
+### Changed
+
+- All four new routes' `stats.json` use verified Solvitur Ambulando data for 2003-2025 annual counts and per-route 2024 demographics (gender, age, motivation, top 14-15 nationalities). Every numeric value was re-verified against a live Solvitur API fetch on 2026-04-10 during the final review pass.
+- `scripts/fetch-osm.ts` — appended entries for Inglés, Primitivo, and Norte for legacy fetch consistency.
+- `index.json` auto-regenerated: now lists 7 routes.
+
+### Documentation
+- README hero line and stats refreshed: 159,624 GPS points, 12,576 waypoints, 109 stages across 7 routes and 3 traditions.
+- "What's In the Box" table now lists all 7 main routes plus the Coastal upgrade.
+- "Waypoint Coverage" table expanded with Norte, Primitivo, Coastal, and Inglés columns.
+- Per-route stats section in the README now includes one-line summaries of all 7 routes.
+
 ## [1.4.0] — 2026-04-09
 
 The largest release since the initial v1.0. Adds a fourth pilgrimage route, fixes pre-existing pipeline bugs that affected stage assignment in all routes, replaces estimated stats with verified data from an authoritative source, and corrects ~40 factual errors caught across three rounds of fact-checking.
@@ -87,6 +157,7 @@ Each route ships with `metadata.json` (overview, tradition, cultural, logistics)
 
 ---
 
+[1.5.0]: https://github.com/walktalkmeditate/open-pilgrimages/compare/v1.4.0...v1.5.0
 [1.4.0]: https://github.com/walktalkmeditate/open-pilgrimages/compare/v1.3.0...v1.4.0
 [1.3.0]: https://github.com/walktalkmeditate/open-pilgrimages/compare/v1.2.0...v1.3.0
 [1.2.0]: https://github.com/walktalkmeditate/open-pilgrimages/compare/v1.1.0...v1.2.0

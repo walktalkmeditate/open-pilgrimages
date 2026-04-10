@@ -2,46 +2,54 @@
 
 A canonical, open-source dataset of pilgrimage routes worldwide.
 
-102,858 GPS points. 7,728 waypoints. 58 stages. 4 routes across 3 traditions. All structured as JSON and GeoJSON.
+159,624 GPS points. 12,576 waypoints. 109 stages. 7 routes across 3 traditions. All structured as JSON and GeoJSON.
 
 ## What's In the Box
 
 | Route | Distance | Topology | Tradition | Route Points | Waypoints | Stats |
 |-------|----------|----------|-----------|-------------|-----------|-------|
 | [Camino Frances](routes/camino-frances/) | 764 km | Linear | Christian | 33,192 | 2,957 | 41 years (1985-2025) |
+| [Camino del Norte](routes/camino-norte/) | 784 km | Linear | Christian | 38,640 | 3,634 | 23 years (2003-2025) |
+| [Camino Primitivo](routes/camino-primitivo/) | 263 km | Linear | Christian | 13,303 | 732 | 23 years (2003-2025) |
 | [Camino Portugués (Central)](routes/camino-portugues/) | 243 km | Linear | Christian | 13,722 | 1,634 | 23 years (2003-2025) |
+| [Camino Portugués da Costa (Coastal)](routes/camino-portugues/variants/coastal/) | 110 km | Linear | Christian | 5,546 | 1,043 | 23 years (2003-2025) |
+| [Camino Inglés](routes/camino-ingles/) | 112 km | Linear | Christian | 4,823 | 482 | 23 years (2003-2025) |
 | [Shikoku 88](routes/shikoku-88/) | 1,200 km | Circular | Buddhist | 49,097 | 2,980 | 21 years (2005-2025) |
 | [Kumano Kodo](routes/kumano-kodo/) | 39-170 km | Network | Shinto/Buddhist | 6,847 | 157 | 22 years (2003-2024) |
 
-The Camino Portugués also ships three sibling variant stubs (Coastal, Espiritual, Lisboa) — each with metadata only, with full geometry/stages planned for future releases.
+The Camino Portugués da Costa entry above covers the Portuguese section (Porto → Caminha ferry → A Guarda); the Spanish continuation through Oia/Baiona/Vigo/Redondela is planned for a future release. The Camino Inglés also ships an A Coruña start variant stub, and the Camino Portugués ships Espiritual and Lisboa variant stubs — each with metadata only, full geometry/stages planned for future releases.
 
 ### Three Layers of Data
 
-**Layer 1 — Geometry:** Full-resolution GPS trails from OpenStreetMap. Not simplified stage endpoints — actual trail paths with 33k-49k coordinate points per route.
+**Layer 1 — Geometry:** Full-resolution GPS trails from OpenStreetMap. Not simplified stage endpoints — actual trail paths with 4k-49k coordinate points per route.
 
-**Layer 2 — Logistics:** 7,700+ waypoints including water sources, pharmacies, hospitals, accommodation, restaurants, convenience stores, bus stops, and train stations. Each tagged with `stageIndex` and `kmFromStart` for route-aware queries.
+**Layer 2 — Logistics:** 12,500+ waypoints including water sources, pharmacies, hospitals, accommodation, restaurants, convenience stores, bus stops, and train stations. Each tagged with `stageIndex` and `kmFromStart` for route-aware queries.
 
 **Layer 3 — Cultural & Spiritual:** Credential systems (Compostela, nokyocho, Dual Pilgrim), sacred site protocols, cultural practices, associated literature, and interior journey narratives per stage.
 
 ### Waypoint Coverage
 
-| Type | Frances | Portugués | Shikoku | Kumano |
-|------|---------|-----------|---------|--------|
-| Water sources | 788 | 177 | 13 | 1 |
-| Medical (pharmacy/hospital) | 172 | 112 | 214 | 1 |
-| Accommodation | 532 | 180 | 124 | 31 |
-| Food (restaurant/cafe) | 713 | 600 | 456 | 13 |
-| Transport (bus/train) | 511 | 431 | 1,395 | 39 |
-| Supply (convenience/toilet) | 189 | 134 | 690 | 52 |
-| Sacred sites | 9 | — | 88 | 18 |
-| Towns | 36 | — | — | 2 |
+| Type | Frances | Norte | Primitivo | Portugués | Coastal | Inglés | Shikoku | Kumano |
+|------|---------|-------|-----------|-----------|---------|--------|---------|--------|
+| Water sources | 788 | 863 | 96 | 177 | 52 | 85 | 13 | 1 |
+| Medical (pharmacy/hospital) | 172 | 279 | 63 | 112 | 50 | 44 | 214 | 1 |
+| Accommodation | 532 | 301 | 75 | 180 | 92 | 39 | 124 | 31 |
+| Food (restaurant/cafe) | 713 | 997 | 265 | 600 | 425 | 152 | 456 | 13 |
+| Transport (bus/train) | 511 | 900 | 180 | 431 | 302 | 136 | 1,395 | 39 |
+| Supply (convenience/toilet) | 189 | 294 | 53 | 134 | 122 | 26 | 690 | 52 |
+| Sacred sites | 9 | — | — | — | — | — | 88 | 18 |
+| Towns | 36 | — | — | — | — | — | — | 2 |
 
 ### Statistics (`stats.json`)
 
 Each route includes historical statistics sourced from official pilgrimage organizations. See [docs/data-sources.md](docs/data-sources.md) for the canonical source per route and how to refresh annually.
 
-- **Camino Frances:** 41-year pilgrim count series (1985-2025) from the Oficina del Peregrino via Solvitur Ambulando JSON API. 242,179 pilgrims walked the Frances route in 2025 (45.6% of 531,000 total Compostelas). Per-route 2024 demographics for Frances specifically (Spain 51.31%, USA 8.34%, Italy 5.44%, etc.).
-- **Camino Portugués (Central):** 23-year pilgrim count series (2003-2025) from the same Solvitur Ambulando source. 100,839 pilgrims in 2025 (19.0% of all Compostelas), making it the second most-walked Camino. Per-route 2024 demographics (Spain 36.78%, Portugal 12.86%, US 7.26%, etc.). Coastal sibling trend included separately.
+- **Camino Frances:** 41-year pilgrim count series (1985-2025) from the Oficina del Peregrino via Solvitur Ambulando JSON API. 242,179 pilgrims walked the Frances route in 2025 (45.6% of 531,000 total Compostelas). Per-route 2024 demographics (Spain 51.31%, USA 8.34%, Italy 5.44%, etc.).
+- **Camino Portugués (Central):** 23-year pilgrim count series (2003-2025) from Solvitur Ambulando. 100,839 pilgrims in 2025 (19.0% of all Compostelas) — the second most-walked Camino.
+- **Camino Portugués da Costa (Coastal):** 23-year series. 89,511 pilgrims in 2025 (16.9%) — the fastest-growing major Camino, jumping from 2,600 in 2016 to nearly 90,000 in 2025. Strongest female majority of any major Camino (61.3%).
+- **Camino Inglés:** 23-year series. 30,204 pilgrims in 2025 (5.7%) — the shortest major Camino at ~112 km from Ferrol. Historic maritime arrival route for English, Irish, Scandinavian, and Flemish pilgrims.
+- **Camino Primitivo:** 23-year series. 27,871 pilgrims in 2025 (5.2%) — the oldest Camino, walked by Alfonso II of Asturias in 814 CE. Most physically demanding with Puerto del Palo at 1,146 m.
+- **Camino del Norte:** 23-year series. 21,521 pilgrims in 2025 (4.1%) — the longest non-Frances Camino at ~784 km, along the Bay of Biscay from Irún through the Basque Country, Cantabria, Asturias, and Galicia.
 - **Shikoku 88:** 21-year walking completion series (2005-2025) from the Omotenashi Network. Foreign pilgrim share grew from 0.6% to 33%.
 - **Kumano Kodo:** 22-year foreign visitor series (2003-2024) from Tanabe City. Dual Pilgrim program data (14,238 registered from 78 countries).
 
