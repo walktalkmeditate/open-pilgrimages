@@ -1,6 +1,6 @@
 {
   "name": "open-pilgrimages",
-  "version": "1.0.0",
+  "version": "1.4.0",
   "description": "Canonical open-source pilgrimage route dataset",
   "type": "module",
   "scripts": {
