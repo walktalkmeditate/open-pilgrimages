@@ -1,0 +1,882 @@
+{
+  "schemaVersion": "1.0.0",
+  "routeId": "camino-primitivo",
+  "stageCount": 11,
+  "stages": [
+    {
+      "index": 0,
+      "name": {
+        "en": "Oviedo to Grado",
+        "es": "Oviedo a Grado",
+        "ast": "Uviéu a Grau"
+      },
+      "start": {
+        "name": {
+          "en": "Cathedral of San Salvador, Oviedo"
+        },
+        "coordinates": [
+          -5.845,
+          43.36,
+          232
+        ]
+      },
+      "end": {
+        "name": {
+          "en": "Grado",
+          "ast": "Grau"
+        },
+        "coordinates": [
+          -6.074,
+          43.388,
+          76
+        ]
+      },
+      "distanceKm": 25.2,
+      "elevationGainMeters": 380,
+      "elevationLossMeters": 540,
+      "highPointMeters": 350,
+      "lowPointMeters": 76,
+      "estimatedHours": {
+        "min": 6,
+        "max": 8
+      },
+      "difficulty": "moderate",
+      "terrainTypes": [
+        "urban",
+        "paved",
+        "dirt",
+        "forest"
+      ],
+      "accommodationDensity": "moderate",
+      "waterSources": 5,
+      "services": {
+        "atm": true,
+        "pharmacy": true,
+        "grocery": true,
+        "restaurant": true
+      },
+      "interior": {
+        "theme": {
+          "en": "Origin"
+        },
+        "narrative": {
+          "en": "You begin where Alfonso II began. The Cathedral of San Salvador in Oviedo was his palace church, and the Cámara Santa where you can stand today is the same 9th-century chapel he built. In 814 — within a year of the discovery of the apostle's tomb at Iria Flavia — this king walked out the cathedral doors and west into the mountains to visit the new shrine. He had no Camino Francés to follow because there was no Camino yet. He made the path. You leave Oviedo's old town through the suburbs, climb out of the river valley, and find yourself in green Asturian countryside before midday. By afternoon you cross the Nalón river and enter Grado — Grau in Asturian — a small market town with an unhurried pace that sets the tone for the route ahead."
+        },
+        "commonExperiences": [
+          {
+            "en": "Touching the Cámara Santa before leaving Oviedo Cathedral"
+          },
+          {
+            "en": "Walking out through Oviedo's old town in the early light"
+          },
+          {
+            "en": "First Asturian forests — eucalyptus and oak in mixed stands"
+          },
+          {
+            "en": "Realising how green Asturias is — much greener than imagined"
+          }
+        ],
+        "reflection": {
+          "en": "What does it mean to walk a path that someone else made by walking it first?"
+        }
+      }
+    },
+    {
+      "index": 1,
+      "name": {
+        "en": "Grado to Salas",
+        "ast": "Grau a Salas"
+      },
+      "start": {
+        "name": {
+          "en": "Grado",
+          "ast": "Grau"
+        },
+        "coordinates": [
+          -6.074,
+          43.388,
+          76
+        ]
+      },
+      "end": {
+        "name": {
+          "en": "Salas"
+        },
+        "coordinates": [
+          -6.28,
+          43.41,
+          239
+        ]
+      },
+      "distanceKm": 22.0,
+      "elevationGainMeters": 720,
+      "elevationLossMeters": 560,
+      "highPointMeters": 540,
+      "lowPointMeters": 76,
+      "estimatedHours": {
+        "min": 6,
+        "max": 8
+      },
+      "difficulty": "moderate",
+      "terrainTypes": [
+        "dirt",
+        "forest",
+        "paved",
+        "mountain"
+      ],
+      "accommodationDensity": "moderate",
+      "waterSources": 4,
+      "services": {
+        "atm": true,
+        "pharmacy": true,
+        "grocery": true,
+        "restaurant": true
+      },
+      "interior": {
+        "theme": {
+          "en": "Climb"
+        },
+        "narrative": {
+          "en": "Today the mountains start. You leave Grado on a steady climb through small Asturian villages — Cabruñana, San Marcelo, La Doriga — each one with a stone church that has stood since the Reconquest. The forest is denser than yesterday. By midday you crest a low pass and look back east to Oviedo's distant hills. The descent into Salas is on cobbled lanes through farmhouses where elderly Asturians watch from doorways and call out 'buen camino' in accents you have never heard. Salas is a quiet medieval town with a tower house in its centre and a stone bridge over the Nonaya river."
+        },
+        "commonExperiences": [
+          {
+            "en": "The steady climb out of Grado in the morning cool"
+          },
+          {
+            "en": "First small Asturian village stops — coffee from a battered espresso machine"
+          },
+          {
+            "en": "Realising the Primitivo is harder than expected"
+          },
+          {
+            "en": "Arriving in Salas tired but not exhausted"
+          }
+        ],
+        "reflection": {
+          "en": "What does it feel like to be greeted by people whose accent you cannot place?"
+        }
+      }
+    },
+    {
+      "index": 2,
+      "name": {
+        "en": "Salas to Tineo",
+        "ast": "Salas a Tinéu"
+      },
+      "start": {
+        "name": {
+          "en": "Salas"
+        },
+        "coordinates": [
+          -6.28,
+          43.41,
+          239
+        ]
+      },
+      "end": {
+        "name": {
+          "en": "Tineo",
+          "ast": "Tinéu"
+        },
+        "coordinates": [
+          -6.417,
+          43.333,
+          673
+        ]
+      },
+      "distanceKm": 20.0,
+      "elevationGainMeters": 850,
+      "elevationLossMeters": 420,
+      "highPointMeters": 760,
+      "lowPointMeters": 220,
+      "estimatedHours": {
+        "min": 6,
+        "max": 8
+      },
+      "difficulty": "hard",
+      "terrainTypes": [
+        "dirt",
+        "forest",
+        "mountain",
+        "paved"
+      ],
+      "terrainNotes": {
+        "en": "Significant climb of ~600 m net to reach Tineo at 673 m. The hardest day so far. The path passes through ancient chestnut and oak forest, with several long ascents and a few steep stretches."
+      },
+      "accommodationDensity": "moderate",
+      "waterSources": 3,
+      "services": {
+        "atm": true,
+        "pharmacy": true,
+        "grocery": true,
+        "restaurant": true
+      },
+      "interior": {
+        "theme": {
+          "en": "Forest"
+        },
+        "narrative": {
+          "en": "Twenty kilometres of forest. The path leaves Salas and climbs slowly through chestnut groves that have stood for centuries. The Asturian forests are darker than the Galician forests you have read about — older trees, more lichen on the trunks, the kind of forest where you can imagine medieval pilgrims walking single file because the path is too narrow for two. By afternoon you climb the final approach to Tineo, a town that sits on a ridge at 673 m with views in every direction. Tineo has a famous Camino tradition: pilgrims who pass through receive a special blessing from the town's confraternity. Many stay an extra night here just to rest before the harder days ahead."
+        },
+        "commonExperiences": [
+          {
+            "en": "The realization that you will be walking through forest for hours with no village"
+          },
+          {
+            "en": "Passing centuries-old chestnut trees on stone paths"
+          },
+          {
+            "en": "Reaching the Tineo ridge and seeing Asturias open in all directions"
+          },
+          {
+            "en": "The pilgrim blessing at Tineo — informal, not religious if you don't want it to be"
+          }
+        ],
+        "reflection": {
+          "en": "What does it feel like to walk in a forest where humans have not been the dominant presence for thousands of years?"
+        }
+      }
+    },
+    {
+      "index": 3,
+      "name": {
+        "en": "Tineo to Pola de Allande",
+        "ast": "Tinéu a Pola d'Ayande"
+      },
+      "start": {
+        "name": {
+          "en": "Tineo"
+        },
+        "coordinates": [
+          -6.417,
+          43.333,
+          673
+        ]
+      },
+      "end": {
+        "name": {
+          "en": "Pola de Allande"
+        },
+        "coordinates": [
+          -6.617,
+          43.267,
+          524
+        ]
+      },
+      "distanceKm": 28.0,
+      "elevationGainMeters": 720,
+      "elevationLossMeters": 870,
+      "highPointMeters": 870,
+      "lowPointMeters": 410,
+      "estimatedHours": {
+        "min": 7,
+        "max": 10
+      },
+      "difficulty": "hard",
+      "terrainTypes": [
+        "dirt",
+        "forest",
+        "mountain"
+      ],
+      "terrainNotes": {
+        "en": "Long stage with rolling mountain terrain. The path passes through Borres and Campiello — the latter being where the Hospitales variant diverges from the main path the next day. Multiple climbs and descents make this feel longer than its 28 km."
+      },
+      "accommodationDensity": "low",
+      "waterSources": 4,
+      "services": {
+        "atm": true,
+        "pharmacy": true,
+        "grocery": true,
+        "restaurant": true
+      },
+      "warnings": [
+        {
+          "en": "Long stage with sustained climbs. Start early. Limited services between Tineo and Pola de Allande."
+        }
+      ],
+      "interior": {
+        "theme": {
+          "en": "Length"
+        },
+        "narrative": {
+          "en": "Today is the longest day so far. Twenty-eight kilometres of mountain walking, multiple climbs, the body learning what the Primitivo really is. You leave Tineo on a forest path that climbs and descends in turn — never flat for long. Past Borres and Campiello, the route enters the high country. By the final descent into Pola de Allande your legs are arguing with you in earnest. Pola de Allande is a small town at 524 m, in a valley between two ranges. Tomorrow is the famous decision day: do you take the Hospitales variant over the high ridge, or the safer Pola de Allande route over Puerto del Palo?"
+        },
+        "commonExperiences": [
+          {
+            "en": "Deciding the night before whether to take the Hospitales variant tomorrow"
+          },
+          {
+            "en": "Asking the albergue host about the weather forecast for the highlands"
+          },
+          {
+            "en": "First seeing other pilgrims at the same dilemma"
+          },
+          {
+            "en": "A long evening rest in Pola de Allande, knowing tomorrow will be the route's hardest day"
+          }
+        ],
+        "reflection": {
+          "en": "When the choice is between the hard scenic route and the safe ordinary route, which version of yourself chooses?"
+        }
+      }
+    },
+    {
+      "index": 4,
+      "name": {
+        "en": "Pola de Allande to La Mesa",
+        "ast": "Pola d'Ayande a La Mesa"
+      },
+      "start": {
+        "name": {
+          "en": "Pola de Allande"
+        },
+        "coordinates": [
+          -6.617,
+          43.267,
+          524
+        ]
+      },
+      "end": {
+        "name": {
+          "en": "La Mesa"
+        },
+        "coordinates": [
+          -6.804,
+          43.218,
+          950
+        ]
+      },
+      "distanceKm": 21.7,
+      "elevationGainMeters": 1100,
+      "elevationLossMeters": 650,
+      "highPointMeters": 1146,
+      "lowPointMeters": 524,
+      "estimatedHours": {
+        "min": 7,
+        "max": 10
+      },
+      "difficulty": "expert",
+      "terrainTypes": [
+        "mountain",
+        "rock",
+        "dirt",
+        "forest"
+      ],
+      "terrainNotes": {
+        "en": "The famous Hospitales/Puerto del Palo day. The standard route climbs from Pola de Allande over the Puerto del Palo (1,146 m — the highest point of the entire Camino Primitivo) and descends to Berducedo before continuing to La Mesa. The Hospitales variant is the high alternative: starting back at Borres/Campiello (yesterday), it follows a high ridge through several ruined medieval pilgrim hospitals at 1,000-1,225 m, then converges with the standard route at Berducedo. Hospitales is more scenic, more dangerous, and should not be attempted in fog, wind, or storms."
+      },
+      "accommodationDensity": "very_low",
+      "waterSources": 2,
+      "services": {
+        "atm": false,
+        "pharmacy": false,
+        "grocery": false,
+        "restaurant": true
+      },
+      "warnings": [
+        {
+          "en": "Highest point of the Camino Primitivo at Puerto del Palo (1,146 m). The Hospitales variant should not be attempted in bad weather — exposed ridge, no shelter for ~10 km."
+        },
+        {
+          "en": "Very limited services between Pola de Allande and La Mesa. Carry water and food."
+        }
+      ],
+      "interior": {
+        "theme": {
+          "en": "Threshold"
+        },
+        "narrative": {
+          "en": "The hardest day on the hardest Camino. You climb out of Pola de Allande in the dawn cold, the air sharp at 600 m and getting sharper. Up the Puerto del Palo: 1,146 m, the roof of the Primitivo. From the pass you can see for fifty kilometres in every direction — Asturian peaks to the north, the Sierra de los Lagos to the south. Pilgrims who took the Hospitales variant at Campiello are walking the high ridge somewhere to your right, passing the ruined medieval hospitals at Paradiella, Fonfaraón, Valparaíso, Freita. Both routes converge at Berducedo and continue through forest to the small village of La Mesa, where the only albergue holds maybe twenty pilgrims. Tonight you sleep at altitude. Tonight you have crossed something."
+        },
+        "commonExperiences": [
+          {
+            "en": "The pre-dawn start to give yourself time on the climb"
+          },
+          {
+            "en": "The view from Puerto del Palo — fifty kilometres in every direction"
+          },
+          {
+            "en": "Meeting pilgrims at Berducedo who took the other variant"
+          },
+          {
+            "en": "Feeling the altitude in your breathing for the first time"
+          },
+          {
+            "en": "The strange quiet of La Mesa at night, the wind moving through the only village for miles"
+          }
+        ],
+        "reflection": {
+          "en": "What does it mean to spend a day above the everyday — and what do you bring back down with you?"
+        }
+      }
+    },
+    {
+      "index": 5,
+      "name": {
+        "en": "La Mesa to Grandas de Salime"
+      },
+      "start": {
+        "name": {
+          "en": "La Mesa"
+        },
+        "coordinates": [
+          -6.804,
+          43.218,
+          950
+        ]
+      },
+      "end": {
+        "name": {
+          "en": "Grandas de Salime"
+        },
+        "coordinates": [
+          -6.876,
+          43.218,
+          591
+        ]
+      },
+      "distanceKm": 16.3,
+      "elevationGainMeters": 280,
+      "elevationLossMeters": 640,
+      "highPointMeters": 1000,
+      "lowPointMeters": 530,
+      "estimatedHours": {
+        "min": 4,
+        "max": 6
+      },
+      "difficulty": "moderate",
+      "terrainTypes": [
+        "mountain",
+        "dirt",
+        "forest"
+      ],
+      "accommodationDensity": "low",
+      "waterSources": 3,
+      "services": {
+        "atm": true,
+        "pharmacy": true,
+        "grocery": true,
+        "restaurant": true
+      },
+      "interior": {
+        "theme": {
+          "en": "Descent"
+        },
+        "narrative": {
+          "en": "Sixteen kilometres of descending. After yesterday's climb the body is grateful. You leave La Mesa in the morning cool and drop steadily through forest and small farms. The route follows a valley west, the path soft underfoot, the temperature rising as you lose altitude. By early afternoon you arrive in Grandas de Salime, a town that sits above a large reservoir (Embalse de Salime) created in the 1950s. The town's ethnographic museum is small but worth a visit — it documents the Asturian rural life that has been disappearing for generations. The albergue is comfortable and the wine is cheap. After yesterday this feels like a holiday."
+        },
+        "commonExperiences": [
+          {
+            "en": "The relief of a downhill day after the climb"
+          },
+          {
+            "en": "Finding wild blackberries along the path in late summer"
+          },
+          {
+            "en": "Visiting the Grandas de Salime ethnographic museum"
+          },
+          {
+            "en": "Realising you are now closer to Galicia than to Oviedo"
+          }
+        ],
+        "reflection": {
+          "en": "How do you feel about descent? Is it always a relief, or does some part of you miss the climbing?"
+        }
+      }
+    },
+    {
+      "index": 6,
+      "name": {
+        "en": "Grandas de Salime to A Fonsagrada",
+        "gl": "Grandas de Salime a A Fonsagrada"
+      },
+      "start": {
+        "name": {
+          "en": "Grandas de Salime"
+        },
+        "coordinates": [
+          -6.876,
+          43.218,
+          591
+        ]
+      },
+      "end": {
+        "name": {
+          "en": "A Fonsagrada"
+        },
+        "coordinates": [
+          -7.067,
+          43.133,
+          965
+        ]
+      },
+      "distanceKm": 26.3,
+      "elevationGainMeters": 950,
+      "elevationLossMeters": 580,
+      "highPointMeters": 1030,
+      "lowPointMeters": 480,
+      "estimatedHours": {
+        "min": 7,
+        "max": 9
+      },
+      "difficulty": "hard",
+      "terrainTypes": [
+        "mountain",
+        "dirt",
+        "forest",
+        "paved"
+      ],
+      "terrainNotes": {
+        "en": "Crosses the Asturias-Galicia border. Steady climb out of Grandas de Salime to the Alto del Acebo, then descent into Galicia and another climb into A Fonsagrada at 965 m. The border crossing is unmarked except for a small stone marker."
+      },
+      "accommodationDensity": "moderate",
+      "waterSources": 4,
+      "services": {
+        "atm": true,
+        "pharmacy": true,
+        "grocery": true,
+        "restaurant": true
+      },
+      "interior": {
+        "theme": {
+          "en": "Border"
+        },
+        "narrative": {
+          "en": "Today you cross from Asturias into Galicia. The border is unmarked except for a small stone post on a high ridge. There is no town, no festival, no bridge — just a quiet moment when the language people speak in the next farmhouse will be different. The climb out of Grandas is sustained, and once in Galicia the rain becomes more likely. You enter A Fonsagrada in the late afternoon, a small Galician town at 965 m sitting on a hilltop. The legend says a pilgrim once asked for water at a fountain here, the fountain ran dry, and the pilgrim turned out to be the Virgin Mary. The town is named for the 'Sacred Fountain' the Virgin restored. Whether you believe it or not, the fountain is still here, still flowing."
+        },
+        "commonExperiences": [
+          {
+            "en": "Walking past the small stone marker that marks Asturias-Galicia"
+          },
+          {
+            "en": "The first time you hear Galician spoken as a daily language"
+          },
+          {
+            "en": "The legend of the sacred fountain told by an A Fonsagrada local"
+          },
+          {
+            "en": "Finding the rain feels different in Galicia — softer, more constant"
+          }
+        ],
+        "reflection": {
+          "en": "What changes when you cross a border that has no fence?"
+        }
+      }
+    },
+    {
+      "index": 7,
+      "name": {
+        "en": "A Fonsagrada to O Cádavo",
+        "gl": "A Fonsagrada a O Cádavo"
+      },
+      "start": {
+        "name": {
+          "en": "A Fonsagrada"
+        },
+        "coordinates": [
+          -7.067,
+          43.133,
+          965
+        ]
+      },
+      "end": {
+        "name": {
+          "en": "O Cádavo (Baleira)"
+        },
+        "coordinates": [
+          -7.246,
+          43.017,
+          720
+        ]
+      },
+      "distanceKm": 25.2,
+      "elevationGainMeters": 530,
+      "elevationLossMeters": 770,
+      "highPointMeters": 1020,
+      "lowPointMeters": 580,
+      "estimatedHours": {
+        "min": 6,
+        "max": 8
+      },
+      "difficulty": "moderate",
+      "terrainTypes": [
+        "dirt",
+        "forest",
+        "mountain",
+        "paved"
+      ],
+      "accommodationDensity": "low",
+      "waterSources": 3,
+      "services": {
+        "atm": true,
+        "pharmacy": false,
+        "grocery": true,
+        "restaurant": true
+      },
+      "interior": {
+        "theme": {
+          "en": "Galicia"
+        },
+        "narrative": {
+          "en": "Now you are walking in Galicia properly. The forest is wetter than Asturias, the green deeper, the silence more total. You pass through small hamlets where the slate roofs are darkened by centuries of damp and the cows graze at the edge of the road. Stone cruceiros (Galician wayside crosses) appear at every crossroads — they are the first sign you are in pilgrim country. By afternoon you descend into O Cádavo, a small town in the Baleira municipality with a single albergue and two bars. The Primitivo's quietest stretches are around here. Many pilgrims fall in love with this section precisely because there is so little to see except trees and weather."
+        },
+        "commonExperiences": [
+          {
+            "en": "First Galician cruceiro on the path — granite, weathered, sometimes covered in moss"
+          },
+          {
+            "en": "Slate-roofed villages where laundry hangs in the rain"
+          },
+          {
+            "en": "The taste of pulpo a feira (Galician octopus) for the first time"
+          },
+          {
+            "en": "A surprisingly contemplative day with little distraction"
+          }
+        ],
+        "reflection": {
+          "en": "What does it feel like to walk through landscape that seems to want nothing from you?"
+        }
+      }
+    },
+    {
+      "index": 8,
+      "name": {
+        "en": "O Cádavo to Lugo",
+        "gl": "O Cádavo a Lugo"
+      },
+      "start": {
+        "name": {
+          "en": "O Cádavo (Baleira)"
+        },
+        "coordinates": [
+          -7.246,
+          43.017,
+          720
+        ]
+      },
+      "end": {
+        "name": {
+          "en": "Lugo"
+        },
+        "coordinates": [
+          -7.55,
+          43.017,
+          465
+        ]
+      },
+      "distanceKm": 30.5,
+      "elevationGainMeters": 380,
+      "elevationLossMeters": 640,
+      "highPointMeters": 760,
+      "lowPointMeters": 460,
+      "estimatedHours": {
+        "min": 8,
+        "max": 10
+      },
+      "difficulty": "hard",
+      "terrainTypes": [
+        "dirt",
+        "forest",
+        "paved",
+        "urban"
+      ],
+      "terrainNotes": {
+        "en": "Longest day of the Camino Primitivo at 30.5 km. Some pilgrims split it by overnighting in Castroverde (about halfway). Mostly downhill but with sustained walking through forest, ending with the dramatic entry into walled Roman Lugo."
+      },
+      "accommodationDensity": "moderate",
+      "waterSources": 5,
+      "services": {
+        "atm": true,
+        "pharmacy": true,
+        "grocery": true,
+        "restaurant": true
+      },
+      "warnings": [
+        {
+          "en": "Longest day on the Primitivo (30.5 km). Many pilgrims split it at Castroverde to avoid exhaustion."
+        }
+      ],
+      "interior": {
+        "theme": {
+          "en": "Rome"
+        },
+        "narrative": {
+          "en": "Thirty kilometres. The longest day. You leave O Cádavo before dawn and walk west through Galician forest for hours, through Castroverde where many pilgrims stop, and then on the final long approach to Lugo. You see the city walls before you see the city. They rise out of the modern outskirts: ten metres tall, two kilometres long, seventy-one towers, the only complete Roman walls left in the world. You walk under one of the gates and into a Roman city that has been continuously inhabited for 2,000 years. The cathedral is a few minutes from the gate. The albergue is just inside the wall. You climb the walls themselves at sunset — it's free, they're open all the time — and walk the entire two-kilometre circuit looking down at the city Alfonso II would have known."
+        },
+        "commonExperiences": [
+          {
+            "en": "The first sight of the Roman walls rising above the modern city"
+          },
+          {
+            "en": "Walking under one of Lugo's gates and into the Roman heart of Galicia"
+          },
+          {
+            "en": "Climbing the walls at sunset and walking the full 2 km circuit"
+          },
+          {
+            "en": "Pulpo a feira and Galician wine in a Lugo bar after a thirty-kilometre day"
+          }
+        ],
+        "reflection": {
+          "en": "How does it feel to enter a city through walls built before Christianity reached Spain?"
+        }
+      }
+    },
+    {
+      "index": 9,
+      "name": {
+        "en": "Lugo to San Romao da Retorta",
+        "gl": "Lugo a San Romao da Retorta"
+      },
+      "start": {
+        "name": {
+          "en": "Lugo"
+        },
+        "coordinates": [
+          -7.55,
+          43.017,
+          465
+        ]
+      },
+      "end": {
+        "name": {
+          "en": "San Romao da Retorta"
+        },
+        "coordinates": [
+          -7.736,
+          42.956,
+          577
+        ]
+      },
+      "distanceKm": 19.2,
+      "elevationGainMeters": 320,
+      "elevationLossMeters": 210,
+      "highPointMeters": 620,
+      "lowPointMeters": 460,
+      "estimatedHours": {
+        "min": 5,
+        "max": 7
+      },
+      "difficulty": "easy",
+      "terrainTypes": [
+        "paved",
+        "dirt",
+        "forest"
+      ],
+      "accommodationDensity": "low",
+      "waterSources": 4,
+      "services": {
+        "atm": false,
+        "pharmacy": false,
+        "grocery": true,
+        "restaurant": true
+      },
+      "interior": {
+        "theme": {
+          "en": "Quiet"
+        },
+        "narrative": {
+          "en": "After yesterday's thirty kilometres and Lugo's stones, today is gentle. You leave Lugo through the south gate, cross the Miño river, and walk into open Galician countryside. The path is flatter than the days before. Small farms, low stone walls, oak forests. By early afternoon you arrive in San Romao da Retorta, a tiny village whose albergue is one of the smallest on the Primitivo — maybe twelve beds in a converted farmhouse. Many pilgrims feel a strange shift here: Santiago is suddenly close. The mountain stages are behind you. The end is real."
+        },
+        "commonExperiences": [
+          {
+            "en": "Leaving Lugo through the south gate, crossing the Miño bridge"
+          },
+          {
+            "en": "The first day that doesn't physically hurt"
+          },
+          {
+            "en": "Recognizing pilgrims you have walked beside since Pola de Allande"
+          },
+          {
+            "en": "The realisation that Santiago is two days away"
+          }
+        ],
+        "reflection": {
+          "en": "When the hardest part is behind you, what part of you misses it?"
+        }
+      }
+    },
+    {
+      "index": 10,
+      "name": {
+        "en": "San Romao da Retorta to Melide",
+        "gl": "San Romao da Retorta a Melide"
+      },
+      "start": {
+        "name": {
+          "en": "San Romao da Retorta"
+        },
+        "coordinates": [
+          -7.736,
+          42.956,
+          577
+        ]
+      },
+      "end": {
+        "name": {
+          "en": "Melide"
+        },
+        "coordinates": [
+          -8.017,
+          42.917,
+          456
+        ]
+      },
+      "distanceKm": 28.5,
+      "elevationGainMeters": 430,
+      "elevationLossMeters": 550,
+      "highPointMeters": 670,
+      "lowPointMeters": 420,
+      "estimatedHours": {
+        "min": 7,
+        "max": 9
+      },
+      "difficulty": "moderate",
+      "terrainTypes": [
+        "dirt",
+        "forest",
+        "paved",
+        "cobblestone"
+      ],
+      "terrainNotes": {
+        "en": "The final day on the Primitivo proper. From here on, Primitivo pilgrims walk the same path as Camino Francés pilgrims. Long but mostly gentle terrain through Galician farmland."
+      },
+      "accommodationDensity": "moderate",
+      "waterSources": 5,
+      "services": {
+        "atm": true,
+        "pharmacy": true,
+        "grocery": true,
+        "restaurant": true
+      },
+      "interior": {
+        "theme": {
+          "en": "Convergence"
+        },
+        "narrative": {
+          "en": "Today is the day the Primitivo ends and the Francés begins. You walk through forest and farmland for most of the morning, the path quiet, the forest the same Galician green as the past three days. By afternoon you enter Melide and meet the Camino Francés. Suddenly the path is busy — pilgrims you have not seen for weeks, faces from albergues you stayed in fifty kilometres ago, new pilgrims who started in Sarria this morning and have only walked the last day. Melide is famous for pulpo a feira: octopus boiled in copper cauldrons in the street, served on wooden plates with paprika and rough wine. Tonight you eat it. Tomorrow you start walking with the Frances tide toward Santiago — three days, three stages — but tonight, this is still your route."
+        },
+        "commonExperiences": [
+          {
+            "en": "The first Frances pilgrims you encounter at the merge point"
+          },
+          {
+            "en": "Pulpo a feira at one of Melide's pulperias — the famous Galician octopus tradition"
+          },
+          {
+            "en": "A strange sense of loss as the quiet Primitivo becomes the busy Francés"
+          },
+          {
+            "en": "The relief of being on a well-known path with frequent services"
+          }
+        ],
+        "reflection": {
+          "en": "When your path joins someone else's, who do you become?"
+        }
+      }
+    }
+  ]
+}

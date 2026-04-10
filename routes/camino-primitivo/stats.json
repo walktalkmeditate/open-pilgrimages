@@ -1,0 +1,101 @@
+{
+  "schemaVersion": "1.0.0",
+  "routeId": "camino-primitivo",
+  "lastUpdated": "2026-04-10",
+  "dataYear": 2025,
+  "annualPilgrims": {
+    "latest": { "year": 2025, "count": 27871, "note": "Camino Primitivo; 5.3% of 531,000 total Compostelas in 2025" },
+    "trend": [
+      { "year": 2003, "count": 778 },
+      { "year": 2004, "count": 5581, "note": "Holy Year" },
+      { "year": 2005, "count": 1215 },
+      { "year": 2006, "count": 1817 },
+      { "year": 2007, "count": 2747 },
+      { "year": 2008, "count": 2853 },
+      { "year": 2009, "count": 3783 },
+      { "year": 2010, "count": 8043, "note": "Holy Year" },
+      { "year": 2011, "count": 5714 },
+      { "year": 2012, "count": 6604 },
+      { "year": 2013, "count": 6879 },
+      { "year": 2014, "count": 8320 },
+      { "year": 2015, "count": 11472, "note": "First year after UNESCO inscription (2015)" },
+      { "year": 2016, "count": 12089 },
+      { "year": 2017, "count": 13684 },
+      { "year": 2018, "count": 15038 },
+      { "year": 2019, "count": 15715 },
+      { "year": 2020, "count": 3399, "note": "COVID-19" },
+      { "year": 2021, "count": 10143, "note": "Holy Year (extended)" },
+      { "year": 2022, "count": 21360, "note": "Extended Holy Year" },
+      { "year": 2023, "count": 20714 },
+      { "year": 2024, "count": 24471 },
+      { "year": 2025, "count": 27871, "note": "Record year" }
+    ],
+    "source": "https://solviturambulando.es/api/yearly-demographics.json?year={YEAR}&v=5",
+    "sourceNotes": "All counts from Solvitur Ambulando which mirrors Oficina del Peregrino. The Primitivo's growth accelerated noticeably after the 2015 UNESCO Northern Spain inscription. See docs/data-sources.md."
+  },
+  "demographics": {
+    "dataYear": 2024,
+    "totalPilgrims": 24471,
+    "topNationalities": [
+      { "country": "ES", "name": "Spain", "count": 11926, "percentage": 48.74 },
+      { "country": "IT", "name": "Italy", "count": 1614, "percentage": 6.60 },
+      { "country": "US", "name": "United States", "count": 1527, "percentage": 6.24 },
+      { "country": "DE", "name": "Germany", "count": 1119, "percentage": 4.57 },
+      { "country": "PL", "name": "Poland", "count": 768, "percentage": 3.14 },
+      { "country": "PT", "name": "Portugal", "count": 631, "percentage": 2.58 },
+      { "country": "GB", "name": "United Kingdom", "count": 555, "percentage": 2.27 },
+      { "country": "MX", "name": "Mexico", "count": 485, "percentage": 1.98 },
+      { "country": "FR", "name": "France", "count": 424, "percentage": 1.73 },
+      { "country": "NL", "name": "Netherlands", "count": 407, "percentage": 1.66 },
+      { "country": "BR", "name": "Brazil", "count": 251, "percentage": 1.03 },
+      { "country": "CA", "name": "Canada", "count": 245, "percentage": 1.00 },
+      { "country": "AU", "name": "Australia", "count": 218, "percentage": 0.89 },
+      { "country": "IE", "name": "Ireland", "count": 217, "percentage": 0.89 },
+      { "country": "KR", "name": "South Korea", "count": 77, "percentage": 0.31 }
+    ],
+    "topNationalitiesNote": "Per-route 2024 figures from Solvitur Ambulando. The Primitivo's mountain difficulty correlates with a different demographic mix than the easier Caminos: more European pilgrims, fewer first-time walkers, higher Polish representation than other Caminos.",
+    "genderSplit": {
+      "female": 0.4538,
+      "male": 0.5451,
+      "unknown": 0.0011,
+      "counts": { "female": 11107, "male": 13337, "unknown": 27 }
+    },
+    "genderNote": "Notably more male than female — the only major Camino with a male majority. Likely reflects the route's mountain difficulty and reputation for being physically demanding.",
+    "ageGroups": [
+      { "group": "Under 18", "count": 951, "percentage": 3.89 },
+      { "group": "18-45", "count": 11032, "percentage": 45.08 },
+      { "group": "46-65", "count": 10037, "percentage": 41.02 },
+      { "group": "Over 65", "count": 2451, "percentage": 10.02 }
+    ],
+    "source": "https://solviturambulando.es/api/yearly-demographics.json?year=2024&v=5"
+  },
+  "motivation": [
+    { "type": "religious", "count": 10510, "percentage": 42.95 },
+    { "type": "religious_and_other", "count": 8248, "percentage": 33.71 },
+    { "type": "non_religious", "count": 4587, "percentage": 18.74 },
+    { "type": "not_stated", "count": 1126, "percentage": 4.60 }
+  ],
+  "motivationNote": "Per-route 2024 figures from Solvitur Ambulando.",
+  "routeContext": {
+    "comparisonWithFrances": {
+      "en": "The Camino Primitivo accounted for 5.3% of all 2025 Compostelas (27,871 pilgrims). This is the third-largest non-Frances Camino after the two Portugués routes. Growth has been steady since the 2015 UNESCO inscription. Compared to other Caminos, Primitivo pilgrims skew slightly older, more European (especially Polish), and slightly more male — a mix that correlates with the route's mountain difficulty."
+    },
+    "difficulty": {
+      "en": "The Primitivo is widely considered the most physically demanding Camino. Its high point at Puerto del Palo (1,146 m) is the highest of any Camino route, and the Hospitales variant adds exposure risk in bad weather. The 30.5 km O Cádavo → Lugo stage is the longest single day on any major Camino. The route is not recommended for first-time pilgrims or anyone uncomfortable with sustained mountain walking."
+    }
+  },
+  "sources": [
+    {
+      "name": "Solvitur Ambulando — Yearly Demographics API",
+      "url": "https://solviturambulando.es/api/yearly-demographics.json?year={YEAR}&v=5",
+      "accessDate": "2026-04-10",
+      "notes": "Primary source for 2003-2025 per-route counts and demographics. See docs/data-sources.md."
+    },
+    {
+      "name": "Wikipedia: Camino Primitivo",
+      "url": "https://en.wikipedia.org/wiki/Camino_Primitivo",
+      "accessDate": "2026-04-10",
+      "notes": "Historical context and route description."
+    }
+  ]
+}

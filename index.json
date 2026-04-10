@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-04-10T02:18:05.551Z",
+  "generatedAt": "2026-04-10T02:39:29.498Z",
   "routes": [
     {
       "id": "camino-frances",
@@ -95,6 +95,22 @@
           "path": "routes/camino-portugues/variants/lisboa"
         }
       ]
+    },
+    {
+      "id": "camino-primitivo",
+      "name": {
+        "en": "Camino Primitivo (Original Way)",
+        "es": "Camino Primitivo",
+        "ast": "Camín Primitivu",
+        "gl": "Camiño Primitivo",
+        "ja": "プリミティーボの道"
+      },
+      "region": "Europe",
+      "country": "ES",
+      "distanceKm": 263,
+      "topology": "linear",
+      "tradition": "christian",
+      "path": "routes/camino-primitivo"
     },
     {
       "id": "kumano-kodo",

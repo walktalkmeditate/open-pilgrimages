@@ -47,6 +47,13 @@ out geom;`,
 relation(id:1102966);
 out geom;`,
   },
+  {
+    id: "camino-primitivo",
+    description: "Camino Primitivo (Original Way) — 11 sub-relations of superroute 19298101 (Oviedo → Melide)",
+    query: `[out:json][timeout:300];
+relation(id:2163938,19586861,19586860,19586862,19586859,19586857,19586856,19586855,19586854,19586853,10526092);
+out geom;`,
+  },
 ];
 
 async function fetchOverpass(query: string): Promise<unknown> {

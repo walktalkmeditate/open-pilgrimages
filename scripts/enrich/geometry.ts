@@ -57,10 +57,28 @@ async function main() {
   console.log(`Fetching geometry for ${routeId}...`);
   const data = await queryOverpass(query, `geom-${routeId}`) as { elements: OsmRelation[] };
 
-  const relations = data.elements.filter((e): e is OsmRelation => e.type === "relation");
+  let relations = data.elements.filter((e): e is OsmRelation => e.type === "relation");
   if (relations.length === 0) {
     console.error("No relations returned from Overpass. Aborting to preserve existing data.");
     process.exit(1);
+  }
+
+  // Preserve the order from osm.relations so concatenation walks in the
+  // intended sequence (Overpass returns relations in document order, which
+  // does not match the requested order for multi-relation routes).
+  if (osmConfig.relations && Array.isArray(osmConfig.relations)) {
+    const requestedOrder = osmConfig.relations as number[];
+    const byId = new Map(relations.map((r) => [r.id, r]));
+    const ordered: OsmRelation[] = [];
+    for (const id of requestedOrder) {
+      const rel = byId.get(id);
+      if (rel) ordered.push(rel);
+    }
+    // Append any relations the API returned that weren't in the requested list
+    for (const rel of relations) {
+      if (!requestedOrder.includes(rel.id)) ordered.push(rel);
+    }
+    relations = ordered;
   }
   console.log(`Received ${relations.length} relations`);
 

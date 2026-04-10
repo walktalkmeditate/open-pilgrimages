@@ -1,0 +1,322 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "camino-primitivo",
+  "lastUpdated": "2026-04-10T00:00:00Z",
+
+  "name": {
+    "en": "Camino Primitivo (Original Way)",
+    "es": "Camino Primitivo",
+    "ast": "Camín Primitivu",
+    "gl": "Camiño Primitivo",
+    "ja": "プリミティーボの道"
+  },
+  "description": {
+    "en": "The original Camino — the route walked by King Alfonso II of Asturias from Oviedo to Santiago in 814 CE shortly after the discovery of the apostle's tomb. The most physically demanding of the major Caminos, crossing the Asturian and Galician mountains via the high Hospitales/Puerto del Palo route (1,146 m), through the walled Roman city of Lugo, before joining the Camino Francés at Melide for the final descent to Santiago. UNESCO inscribed (2015 Northern Spain extension to the 1993 Camino Francés inscription).",
+    "es": "El Camino original — la ruta caminada por el rey Alfonso II de Asturias desde Oviedo hasta Santiago en 814, poco después del descubrimiento del sepulcro del apóstol. El más exigente físicamente de los Caminos principales.",
+    "gl": "O Camiño orixinal — a ruta percorrida polo rei Alfonso II de Asturias desde Oviedo ata Santiago no 814."
+  },
+
+  "overview": {
+    "distanceKm": 263,
+    "distanceNote": "Sum of 11 native Primitivo stages from Oviedo to Melide. From Melide, pilgrims continue ~53 km on the shared Camino Francés path (3 stages: Melide → Arzúa → O Pedrouzo → Santiago) — see routes/camino-frances/stages.json stages 30-32 for that section. Including the shared section the full Oviedo → Santiago walk is ~316 km, commonly cited as 311 km (Wikipedia) or 321 km (Stingy Nomads/Eroski). The OSM superroute 19298101 ends at Melide which is where the Primitivo proper ends.",
+    "estimatedDays": { "min": 10, "max": 13, "typical": 11 },
+    "topology": "linear",
+    "direction": "west",
+    "startPoint": {
+      "name": {
+        "en": "Cathedral of San Salvador, Oviedo (Cámara Santa)",
+        "es": "Catedral de San Salvador, Oviedo",
+        "ast": "Catedral de San Salvador, Uviéu"
+      },
+      "coordinates": [-5.845, 43.360, 232]
+    },
+    "endPoint": {
+      "name": {
+        "en": "Santiago de Compostela",
+        "es": "Santiago de Compostela",
+        "gl": "Santiago de Compostela"
+      },
+      "coordinates": [-8.544, 42.881, 260]
+    },
+    "elevationRange": {
+      "minMeters": 76,
+      "maxMeters": 1146,
+      "totalAscentMeters": 7800,
+      "totalDescentMeters": 7770,
+      "elevationNote": "The highest point is Puerto del Palo (1,146 m) on the Pola de Allande to La Mesa stage, optionally reached via the high-altitude Hospitales variant which crosses several ruined medieval pilgrim hospitals at 1,000-1,225 m. The Hospitales route is more scenic but exposed in bad weather; the lower Pola de Allande variant via Berducedo is the alternative."
+    },
+    "difficulty": "hard",
+    "terrainTypes": ["paved", "dirt", "mountain", "forest", "cobblestone", "rock"],
+    "bestMonths": [5, 6, 9],
+    "peakMonths": [7, 8],
+    "countries": ["ES"],
+    "bbox": [-8.55, 42.88, -5.83, 43.42]
+  },
+
+  "tradition": {
+    "type": "christian",
+    "primaryFaith": "Roman Catholic",
+    "otherFaiths": ["secular"],
+    "saint": {
+      "en": "Saint James the Great",
+      "es": "Santiago Apóstol",
+      "ast": "Santiagu Apóstol"
+    },
+    "origin": {
+      "en": "The Camino Primitivo is the oldest documented Camino. After the discovery of the tomb of the apostle Saint James at Iria Flavia in 813 (or 814 by some accounts), King Alfonso II of Asturias (r. 791-842) departed from his capital, Oviedo, to visit the tomb in 814. His journey established the route from Oviedo through the Asturian and Galician mountains as the first organized pilgrimage to Santiago. For nearly two centuries — until the Reconquista pushed the borders south and made the Camino Francés safer — the Primitivo was the main pilgrim route. After the 11th century, the Francés eclipsed it, and the Primitivo became a secondary route walked mainly by pilgrims with a taste for mountain terrain and a wish to follow Alfonso II's path. Modern revival of the Primitivo accelerated after its 2015 UNESCO inscription as part of the Routes of Northern Spain."
+    },
+    "unescoStatus": "World Heritage Site",
+    "unescoYear": 2015,
+    "unescoNote": "Inscribed in 2015 as part of the extension to the 1993 'Route of Santiago de Compostela' inscription, renamed 'Routes of Santiago de Compostela: Camino Francés and Routes of Northern Spain' (UNESCO ref 669bis). The 2015 extension added four routes: Camino del Norte (Coastal), Camino Primitivo, Camino Lebaniego, and the Interior Way through the Basque Country and La Rioja. Note: the pre-Romanesque monuments of Oviedo (Cámara Santa, Santa María del Naranco, San Miguel de Lillo) are inscribed under a separate 1985 UNESCO listing (ref 312, 'Monuments of Oviedo and the Kingdom of the Asturias').",
+    "credentialSystem": {
+      "name": {
+        "en": "Pilgrim Credential",
+        "es": "Credencial del Peregrino"
+      },
+      "description": {
+        "en": "Standard Camino credential, stamped at churches, albergues, cafés, and tourism offices along the route. Required for the Compostela. Must be stamped at least twice per day on the qualifying distance. The Cathedral of San Salvador in Oviedo, the Cathedral of Lugo, and the Pilgrim's Office in Santiago all issue credentials."
+      },
+      "completionCertificate": {
+        "en": "Compostela",
+        "es": "Compostela"
+      },
+      "minimumDistanceKm": 100,
+      "minimumDistanceNote": {
+        "en": "From Lugo it is ~101 km to Santiago — just over the 100 km Compostela minimum. This makes Lugo a popular start point for pilgrims walking the minimum distance."
+      },
+      "obtainableAt": [
+        {
+          "name": {
+            "en": "Cathedral of San Salvador, Oviedo",
+            "es": "Catedral de San Salvador, Oviedo"
+          },
+          "coordinates": [-5.842, 43.362]
+        },
+        {
+          "name": {
+            "en": "Cathedral of Santa María, Lugo",
+            "es": "Catedral de Santa María, Lugo"
+          },
+          "coordinates": [-7.557, 43.010]
+        }
+      ]
+    }
+  },
+
+  "cultural": {
+    "practices": [
+      {
+        "name": {
+          "en": "Touching the Cámara Santa",
+          "es": "Tocar la Cámara Santa"
+        },
+        "description": {
+          "en": "Many pilgrims begin the Primitivo by visiting the Cámara Santa of Oviedo Cathedral, the 9th-century pre-Romanesque palace chapel built by Alfonso II — the same king who walked to Santiago in 814 to inaugurate the route. The chapel houses the Holy Ark (Arca Santa) and the Cross of Victory. Pilgrims symbolically begin Alfonso's journey here. The Cámara Santa is itself a UNESCO World Heritage Site (1985, ref 312)."
+        },
+        "location": { "coordinates": [-5.842, 43.362], "stageIndex": 0 }
+      },
+      {
+        "name": {
+          "en": "Hospitales Route",
+          "es": "Ruta de los Hospitales"
+        },
+        "description": {
+          "en": "Between Borres/Campiello and Berducedo, pilgrims can choose between two paths. The standard route descends through Pola de Allande and climbs back over the Puerto del Palo (1,146 m). The Hospitales route (named for several ruined medieval pilgrim hospitals at altitude) follows a high ridgeline through Paradiella, Fonfaraón, Valparaíso, and Freita, all at 1,000-1,225 m. The Hospitales is more scenic and historically older, but exposed and dangerous in fog or storms. Local advice: do not take Hospitales in bad weather."
+        },
+        "location": { "coordinates": [-6.717, 43.250], "stageIndex": 4 }
+      },
+      {
+        "name": {
+          "en": "Lugo Roman Wall",
+          "es": "Muralla Romana de Lugo"
+        },
+        "description": {
+          "en": "Lugo is the only city in the world completely surrounded by intact Roman walls — over 2 km of 3rd-century AD masonry, 10-15 m high, with 71 towers. The walls are themselves a UNESCO World Heritage Site (2000). Pilgrims enter through one of the gates and walk into the Roman heart of Galicia. Climbing the walls (free, accessible 24h) is a Primitivo tradition."
+        },
+        "location": { "coordinates": [-7.557, 43.012], "stageIndex": 9 }
+      },
+      {
+        "name": { "en": "Pilgrim Scallop Shell" },
+        "description": {
+          "en": "Standard Camino waymarker — yellow arrows and shell tiles installed by the Xunta de Galicia from the Galician border onwards, and by the Principado de Asturias on the Asturian section. Generally well-marked throughout, though Hospitales variant signage may be sparser."
+        }
+      }
+    ],
+    "etiquette": [
+      {
+        "en": "The Hospitales variant has no shelter for ~10 km. Check weather before starting and turn back if conditions deteriorate. Locals will tell pilgrims when not to attempt it."
+      },
+      {
+        "en": "Asturian and Galician are spoken alongside Spanish. Asturian (or 'bable') is the regional language of Asturias; Galician begins after the border at Grandas de Salime."
+      },
+      {
+        "en": "Bed availability is much lower than on the Francés or Portugués. Albergues fill quickly in peak season. Book ahead, especially in Pola de Allande, La Mesa, A Fonsagrada, and Lugo."
+      },
+      {
+        "en": "The mountain stages (3-7) are no joke. Pace yourself, drink plenty of water, and carry food. Several stages have very limited services between towns."
+      }
+    ],
+    "associatedLiterature": [
+      {
+        "title": "The Camino del Norte and Camino Primitivo: To Santiago de Compostela and Finisterre from Irún or Oviedo",
+        "author": "Dave Whitson, Laura Perazzoli",
+        "isbn": "978-1786310149",
+        "type": "guidebook",
+        "relevance": {
+          "en": "Cicerone Press, 3rd edition (2019, reprinted 2022). The canonical English-language guidebook for both the Camino del Norte and Primitivo. Covers the Primitivo in 12 stages from Villaviciosa (where it branches off the Norte) to Santiago, ~355 km total, including detailed coverage of the Hospitales variant."
+        }
+      },
+      {
+        "title": "Camino Primitivo: Oviedo to Santiago",
+        "author": "Matthew Harms, Anna Dintaman, David Landis",
+        "isbn": "978-1947474260",
+        "type": "guidebook",
+        "relevance": {
+          "en": "Village to Village Guides — Primitivo-specific guidebook with stage-by-stage maps, accommodation lists, and historical context. Useful complement to Cicerone for pilgrims who want a dedicated Primitivo guide."
+        }
+      }
+    ],
+    "events": [
+      {
+        "name": { "en": "Feast of Saint James", "es": "Fiesta de Santiago Apóstol" },
+        "date": { "month": 7, "day": 25 },
+        "recurrence": "annual",
+        "description": {
+          "en": "The patron saint's feast day. Special masses at Santiago Cathedral, fireworks, and cultural events throughout the city. Holy Year when July 25 is a Sunday; next Holy Year 2027."
+        }
+      },
+      {
+        "name": { "en": "San Mateo, Oviedo", "es": "Fiestas de San Mateo" },
+        "date": { "month": 9, "day": 19 },
+        "recurrence": "annual",
+        "description": {
+          "en": "Oviedo's patron saint festival, mid-to-late September. Pilgrims starting the Primitivo during this period encounter the city in full festive mode — concerts, processions, street markets, and the famous bóllu bread festival."
+        }
+      },
+      {
+        "name": { "en": "San Froilán, Lugo", "es": "Fiestas de San Froilán" },
+        "date": { "month": 10, "day": 5 },
+        "recurrence": "annual",
+        "description": {
+          "en": "Lugo's patron saint festival, early October. Octopus stalls (pulpo a feira) line the Roman walls, traditional Galician music plays, and the city becomes one large celebration. Pilgrims passing through during the festival should expect crowded accommodation."
+        }
+      }
+    ],
+    "historicalSignificance": {
+      "en": "The Camino Primitivo is the original Camino de Santiago. King Alfonso II of Asturias departed from Oviedo in 814 — within a year of the discovery of the apostle's tomb at Iria Flavia — to visit the new shrine, establishing the route that bears his footsteps. For nearly two centuries the Primitivo was the main pilgrim path; only after the Reconquista pushed the borders south in the late 11th century did the Camino Francés become the safer and more popular route. The Primitivo passes through Oviedo, Asturias's capital and the birthplace of Asturian pre-Romanesque architecture (Santa María del Naranco, San Miguel de Lillo, both UNESCO inscribed); over the Puerto del Palo at 1,146 m; through walled Roman Lugo (UNESCO inscribed for its complete Roman walls); and joins the Camino Francés at Melide for the final shared descent to Santiago. The route was inscribed as part of the 2015 UNESCO Northern Spain extension. In 2025 it was walked by 27,871 pilgrims (5.3% of all Compostelas), a record year reflecting steady growth as alternative-route popularity rises."
+    }
+  },
+
+  "logistics": {
+    "seasonalAvailability": {
+      "openMonths": [4, 5, 6, 7, 8, 9, 10],
+      "notes": {
+        "en": "Open year-round but the mountain stages (3-7) are not recommended in winter. The Hospitales variant should not be attempted in fog, wind, or snow. May-September is the safe window for the high mountain crossings; October is possible but increasingly risky as autumn weather rolls in. December-March many albergues in Asturias close."
+      }
+    },
+    "accommodationTypes": ["albergue", "hotel", "pension", "casa_rural", "hostel"],
+    "accommodationNotes": {
+      "en": "Albergue density is significantly lower than on the Francés or Portugués. Some stages have only one or two albergues — book ahead in peak season. Pola de Allande, La Mesa, A Fonsagrada, and O Cádavo all have limited beds. Lugo has hotels in addition to albergues; once on the shared Francés section after Melide, the density rises sharply."
+    },
+    "currency": "EUR",
+    "languages": ["es", "ast", "gl"],
+    "cellularCoverage": "fair",
+    "cellularNotes": {
+      "en": "Coverage is patchy on the mountain stages between Tineo and Lugo, especially on the Hospitales variant. Major towns (Oviedo, Lugo, Melide, Arzúa, Santiago) have full coverage."
+    },
+    "waterAvailability": "abundant",
+    "waterNotes": {
+      "en": "Fountains in towns are common throughout. The mountain stages have fewer water sources between towns — carry at least 1.5 L especially on the Pola de Allande → La Mesa and La Mesa → Grandas stages. Tap water is potable throughout Asturias and Galicia unless marked 'agua no potable'."
+    },
+    "emergencyNumber": "112",
+    "transportLinks": [
+      {
+        "type": "airport",
+        "name": { "en": "Asturias Airport (Oviedo)" },
+        "code": "OVD",
+        "nearStage": 0,
+        "notes": {
+          "en": "About 47 km from Oviedo. Domestic and limited European connections. Bus service from the airport to Oviedo bus station (~50 minutes)."
+        }
+      },
+      {
+        "type": "train",
+        "name": { "en": "AVE high-speed: Madrid → Oviedo" },
+        "nearStage": 0,
+        "notes": {
+          "en": "The Madrid-Asturias high-speed line opened in November 2023, cutting Madrid-Oviedo to ~3 hours 10 minutes (previously ~5 hours via the old Pajares route). Renfe AVE/Avant services run multiple times daily from Madrid Chamartín."
+        }
+      },
+      {
+        "type": "bus",
+        "name": { "en": "ALSA: Santiago de Compostela ↔ Oviedo" },
+        "notes": {
+          "en": "Direct ALSA buses run multiple times daily. Travel time varies 5-6.5 hours depending on the service (Premium/Comfort vs standard). The most common return option for pilgrims completing the Primitivo and flying home from Santiago."
+        }
+      },
+      {
+        "type": "airport",
+        "name": { "en": "Santiago–Rosalía de Castro Airport" },
+        "code": "SCQ",
+        "nearStage": 10,
+        "notes": {
+          "en": "About 12 km from Santiago de Compostela in Lavacolla. Direct flights to many European cities. Bus connection to the city centre every 30 minutes."
+        }
+      }
+    ]
+  },
+
+  "provenance": {
+    "sources": [
+      {
+        "name": "OpenStreetMap",
+        "url": "https://www.openstreetmap.org/relation/19298101",
+        "license": "ODbL-1.0",
+        "dataTypes": ["geometry", "waypoints"],
+        "accessDate": "2026-04-10",
+        "notes": "Camino Primitivo superroute (11 sub-relations). The shared section to Santiago uses Camino Francés OSM data."
+      },
+      {
+        "name": "Solvitur Ambulando — Yearly Demographics API",
+        "url": "https://solviturambulando.es/api/yearly-demographics.json",
+        "license": "reference",
+        "dataTypes": ["statistics"],
+        "accessDate": "2026-04-10"
+      },
+      {
+        "name": "Gronze.com — Camino Primitivo",
+        "url": "https://www.gronze.com/camino-primitivo",
+        "license": "reference",
+        "dataTypes": ["stages", "distances"],
+        "accessDate": "2026-04-10"
+      },
+      {
+        "name": "Asociación Empresarios Camino Primitivo",
+        "url": "https://www.caminoprimitivo.org/",
+        "license": "reference",
+        "dataTypes": ["cultural", "logistics"],
+        "accessDate": "2026-04-10"
+      },
+      {
+        "name": "Wikipedia: Camino Primitivo",
+        "url": "https://en.wikipedia.org/wiki/Camino_Primitivo",
+        "license": "reference",
+        "dataTypes": ["historical"],
+        "accessDate": "2026-04-10"
+      }
+    ],
+    "contributors": [
+      {
+        "name": "walk · talk · meditate",
+        "role": "initial_author",
+        "url": "https://github.com/walktalkmeditate"
+      }
+    ],
+    "license": "ODbL-1.0"
+  },
+
+  "osm": {
+    "relations": [2163938, 19586861, 19586860, 19586862, 19586859, 19586857, 19586856, 19586855, 19586854, 19586853, 10526092],
+    "superroute": 19298101
+  }
+}
