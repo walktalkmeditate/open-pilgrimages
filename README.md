@@ -2,43 +2,47 @@
 
 A canonical, open-source dataset of pilgrimage routes worldwide.
 
-89,136 GPS points. 5,976 waypoints. 47 stages. 3 traditions. All structured as JSON and GeoJSON.
+102,858 GPS points. 7,728 waypoints. 58 stages. 4 routes across 3 traditions. All structured as JSON and GeoJSON.
 
 ## What's In the Box
 
 | Route | Distance | Topology | Tradition | Route Points | Waypoints | Stats |
 |-------|----------|----------|-----------|-------------|-----------|-------|
-| [Camino Frances](routes/camino-frances/) | 790 km | Linear | Christian | 33,192 | 2,953 | 41 years (1985-2025) |
-| [Shikoku 88](routes/shikoku-88/) | 1,200 km | Circular | Buddhist | 49,097 | 2,976 | 21 years (2005-2025) |
-| [Kumano Kodo](routes/kumano-kodo/) | 38-170 km | Network | Shinto/Buddhist | 6,847 | 47 | 22 years (2003-2024) |
+| [Camino Frances](routes/camino-frances/) | 764 km | Linear | Christian | 33,192 | 2,957 | 41 years (1985-2025) |
+| [Camino Portugués (Central)](routes/camino-portugues/) | 243 km | Linear | Christian | 13,722 | 1,634 | 23 years (2003-2025) |
+| [Shikoku 88](routes/shikoku-88/) | 1,200 km | Circular | Buddhist | 49,097 | 2,980 | 21 years (2005-2025) |
+| [Kumano Kodo](routes/kumano-kodo/) | 39-170 km | Network | Shinto/Buddhist | 6,847 | 157 | 22 years (2003-2024) |
+
+The Camino Portugués also ships three sibling variant stubs (Coastal, Espiritual, Lisboa) — each with metadata only, with full geometry/stages planned for future releases.
 
 ### Three Layers of Data
 
 **Layer 1 — Geometry:** Full-resolution GPS trails from OpenStreetMap. Not simplified stage endpoints — actual trail paths with 33k-49k coordinate points per route.
 
-**Layer 2 — Logistics:** 5,900+ waypoints including water sources, pharmacies, hospitals, accommodation, restaurants, convenience stores, bus stops, and train stations. Each tagged with `stageIndex` and `kmFromStart` for route-aware queries.
+**Layer 2 — Logistics:** 7,700+ waypoints including water sources, pharmacies, hospitals, accommodation, restaurants, convenience stores, bus stops, and train stations. Each tagged with `stageIndex` and `kmFromStart` for route-aware queries.
 
 **Layer 3 — Cultural & Spiritual:** Credential systems (Compostela, nokyocho, Dual Pilgrim), sacred site protocols, cultural practices, associated literature, and interior journey narratives per stage.
 
 ### Waypoint Coverage
 
-| Type | Camino | Shikoku | Kumano |
-|------|--------|---------|--------|
-| Water sources | 786 | 13 | 1 |
-| Medical (pharmacy/hospital) | 172 | 214 | 2 |
-| Accommodation | 529 | 124 | 1 |
-| Food (restaurant/cafe) | 712 | 453 | 17 |
-| Transport (bus/train) | 513 | 1,395 | — |
-| Supply (convenience/toilet) | 189 | 689 | 6 |
-| Sacred sites | 9 | 88 | 18 |
-| Towns | 36 | — | 2 |
+| Type | Frances | Portugués | Shikoku | Kumano |
+|------|---------|-----------|---------|--------|
+| Water sources | 788 | 177 | 13 | 1 |
+| Medical (pharmacy/hospital) | 172 | 112 | 214 | 1 |
+| Accommodation | 532 | 180 | 124 | 31 |
+| Food (restaurant/cafe) | 713 | 600 | 456 | 13 |
+| Transport (bus/train) | 511 | 431 | 1,395 | 39 |
+| Supply (convenience/toilet) | 189 | 134 | 690 | 52 |
+| Sacred sites | 9 | — | 88 | 18 |
+| Towns | 36 | — | — | 2 |
 
 ### Statistics (`stats.json`)
 
-Each route includes historical statistics sourced from official pilgrimage organizations:
+Each route includes historical statistics sourced from official pilgrimage organizations. See [docs/data-sources.md](docs/data-sources.md) for the canonical source per route and how to refresh annually.
 
-- **Camino:** 41-year pilgrim count series (1985-2025) from the Oficina del Peregrino. 530,919 pilgrims in 2025. Demographics, monthly distribution, starting points, route breakdown, mode of travel.
-- **Shikoku:** 21-year walking completion series (2005-2025) from the Omotenashi Network. Foreign pilgrim share grew from 0.6% to 33%.
+- **Camino Frances:** 41-year pilgrim count series (1985-2025) from the Oficina del Peregrino via Solvitur Ambulando JSON API. 242,179 pilgrims walked the Frances route in 2025 (45.6% of 531,000 total Compostelas). Per-route 2024 demographics for Frances specifically (Spain 51.31%, USA 8.34%, Italy 5.44%, etc.).
+- **Camino Portugués (Central):** 23-year pilgrim count series (2003-2025) from the same Solvitur Ambulando source. 100,839 pilgrims in 2025 (19.0% of all Compostelas), making it the second most-walked Camino. Per-route 2024 demographics (Spain 36.78%, Portugal 12.86%, US 7.26%, etc.). Coastal sibling trend included separately.
+- **Shikoku 88:** 21-year walking completion series (2005-2025) from the Omotenashi Network. Foreign pilgrim share grew from 0.6% to 33%.
 - **Kumano Kodo:** 22-year foreign visitor series (2003-2024) from Tanabe City. Dual Pilgrim program data (14,238 registered from 78 countries).
 
 ## Quick Start
