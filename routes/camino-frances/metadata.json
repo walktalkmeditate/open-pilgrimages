@@ -16,7 +16,8 @@
   },
 
   "overview": {
-    "distanceKm": 790,
+    "distanceKm": 764,
+    "distanceNote": "Sum of the 33 Brierley stages in stages.json. Common rounded published values are 780-800 km depending on source/edition; the canonical Brierley total of ~790 km includes some optional variants and detours not captured in the standard 33-stage breakdown.",
     "estimatedDays": { "min": 28, "max": 35, "typical": 31 },
     "topology": "linear",
     "direction": "west",
@@ -29,10 +30,11 @@
       "coordinates": [-8.544, 42.881, 260]
     },
     "elevationRange": {
-      "minMeters": 50,
+      "minMeters": 172,
       "maxMeters": 1505,
-      "totalAscentMeters": 13331,
-      "totalDescentMeters": 13246
+      "totalAscentMeters": 11024,
+      "totalDescentMeters": 10680,
+      "elevationNote": "Totals are the sum of stages.json per-stage gain/loss values. The widely-cited Brierley figure of ~13,300 m total ascent/descent reflects micro-climbs along the route that are not captured in simple per-stage start/end deltas."
     },
     "difficulty": "moderate",
     "terrainTypes": ["paved", "gravel", "dirt", "cobblestone", "mountain", "forest", "urban"],
@@ -52,6 +54,7 @@
     },
     "unescoStatus": "World Heritage Site",
     "unescoYear": 1993,
+    "unescoNote": "The 1993 inscription 'Route of Santiago de Compostela' originally covered the Spanish portion of the Camino Francés only. The French portion was inscribed separately in 1998 as 'Routes of Santiago de Compostela in France'. In 2015 the 1993 inscription was expanded and renamed to 'Routes of Santiago de Compostela: Camino Francés and Routes of Northern Spain', adding Camino del Norte, Primitivo, Interior Basque Country–La Rioja, and Liébana.",
     "credentialSystem": {
       "name": {
         "en": "Pilgrim Credential",
@@ -118,9 +121,9 @@
       {
         "name": { "en": "Irache Wine Fountain", "es": "Fuente del Vino de Irache" },
         "description": {
-          "en": "A fountain dispensing free red wine for pilgrims, provided by Bodegas Irache near Estella. Two taps: one for wine, one for water. A webcam streams the fountain live."
+          "en": "A fountain dispensing free red wine for pilgrims, built in 1991 by Bodegas Irache (founded 1891) at the Monastery of Irache, just outside Ayegui near Estella. Two taps: one for wine, one for water. About 100 litres of young wine flow daily; open 8:00–20:00. A webcam streams the fountain live."
         },
-        "location": { "coordinates": [-2.02, 42.66], "stageIndex": 5 }
+        "location": { "coordinates": [-2.0327, 42.6610], "stageIndex": 5 }
       }
     ],
     "etiquette": [
@@ -139,12 +142,12 @@
     ],
     "associatedLiterature": [
       {
-        "title": "The Art of Pilgrimage",
+        "title": "The Art of Pilgrimage: The Seeker's Guide to Making Travel Sacred",
         "author": "Phil Cousineau",
-        "isbn": "978-1573245654",
+        "isbn": "978-1573245937",
         "type": "nonfiction",
         "relevance": {
-          "en": "Foundational text on pilgrimage as spiritual practice. Not Camino-specific but widely read by pilgrims preparing for any route."
+          "en": "Foundational text on pilgrimage as spiritual practice (current Conari Press paperback edition with foreword by Huston Smith). Not Camino-specific but widely read by pilgrims preparing for any route."
         }
       },
       {
@@ -175,12 +178,12 @@
         }
       },
       {
-        "title": "The Way Is Made by Walking",
+        "title": "The Way Is Made by Walking: A Pilgrimage Along the Camino de Santiago",
         "author": "Arthur Paul Boers",
-        "isbn": "978-0830835065",
+        "isbn": "978-0830835072",
         "type": "memoir",
         "relevance": {
-          "en": "A Christian pastor's reflections on walking the Camino and what it reveals about faith, community, and simplicity."
+          "en": "IVP Books, 2007. A Christian pastor's reflections on walking the Camino and what it reveals about faith, community, and simplicity."
         }
       }
     ],
@@ -195,15 +198,15 @@
       },
       {
         "name": { "en": "Running of the Bulls, Pamplona", "es": "San Fermín" },
-        "date": { "month": 7, "day": 7 },
+        "date": { "month": 7, "day": 6 },
         "recurrence": "annual",
         "description": {
-          "en": "The festival of San Fermín runs July 6-14 in Pamplona (Stage 3-4). The city is extremely crowded and accommodation nearly impossible to find. Plan accordingly."
+          "en": "The festival of San Fermín runs July 6 (chupinazo at noon) through July 14 in Pamplona (Stage 3-4). The encierro (running of the bulls) takes place each morning at 8:00 from July 7 to July 14. The city is extremely crowded and accommodation nearly impossible to find. Plan accordingly."
         }
       }
     ],
     "historicalSignificance": {
-      "en": "One of three major medieval Christian pilgrimages alongside Rome and Jerusalem. The route has been continuously walked since the 9th century, when the tomb of Saint James was discovered. At its medieval peak, 500,000 pilgrims walked annually. The route was instrumental in the cultural exchange between Christian Europe and the Iberian Peninsula during the Reconquista."
+      "en": "One of three major medieval Christian pilgrimages alongside Rome and Jerusalem (formally declared the 'three great pilgrimages of Christendom' by Pope Alexander VI in 1492). The route has been continuously walked since the 9th century, when the tomb of Saint James was discovered. At its medieval peak — typically dated to the 12th-13th centuries — historians estimate hundreds of thousands of pilgrims walked annually, with figures cited ranging from ~250,000 to over 500,000 per year (estimates vary widely and lack modern documentation). The route was instrumental in the cultural exchange between Christian Europe and the Iberian Peninsula during the Reconquista."
     }
   },
 
@@ -241,7 +244,7 @@
         "type": "train",
         "name": { "en": "SNCF to Saint-Jean-Pied-de-Port" },
         "nearStage": 0,
-        "notes": { "en": "Train from Bayonne to SJPP (1h15). Bayonne connects to Paris TGV and Bordeaux." }
+        "notes": { "en": "Train from Bayonne to SJPP (about 1 hour, 57 km). Bayonne connects to Paris TGV and Bordeaux." }
       },
       {
         "type": "train",
@@ -250,10 +253,10 @@
       },
       {
         "type": "airport",
-        "name": { "en": "Santiago de Compostela Airport" },
+        "name": { "en": "Santiago–Rosalía de Castro Airport" },
         "code": "SCQ",
         "nearStage": 32,
-        "notes": { "en": "10 km from the city center. Direct flights to many European cities. Bus to city center every 30 minutes." }
+        "notes": { "en": "About 12 km from Santiago de Compostela city center, in the parish of Lavacolla. Direct flights to many European cities. Bus to city center every 30 minutes." }
       }
     ]
   },

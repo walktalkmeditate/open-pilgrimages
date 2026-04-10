@@ -14,6 +14,7 @@
 
   "overview": {
     "distanceKm": 1200,
+    "distanceNote": { "en": "The traditional ~1,200 km figure refers to the full walked Shikoku 88 pilgrimage circuit including all 88 temples, traditional spur paths, mountain segments, and the closing return to Temple 1. The 10-stage simplified breakdown in stages.json sums to ~907 km — it captures the main path between regional temple clusters but omits some side-trip distances and rejoin loops. Curated temple kmFromStart values use the canonical 1,200 km reference. Modern walked totals range from ~1,140 km (most efficient) to ~1,400 km (with all variant paths)." },
     "estimatedDays": { "min": 30, "max": 60, "typical": 45 },
     "topology": "circular",
     "direction": "clockwise",
@@ -27,16 +28,18 @@
     },
     "elevationRange": {
       "minMeters": 0,
-      "maxMeters": 1400,
-      "totalAscentMeters": 18000,
-      "totalDescentMeters": 18000
+      "maxMeters": 911,
+      "maxMetersNote": "Highest temple on the circuit is Temple 66 Unpen-ji at 911 m. Pilgrims may cross higher mountain passes between temples (especially in the Iya/Mt. Tsurugi region of Tokushima), but no temple is above 950 m.",
+      "totalAscentMeters": 16780,
+      "totalDescentMeters": 14470,
+      "elevationNote": "Total ascent/descent values are the sum of stages.json per-stage gain/loss. The 10-stage simplified breakdown does not capture every micro-climb on the 1,200 km traditional route, so the true cumulative figures over the full circuit are higher (commonly cited as ~18,000 m each)."
     },
     "difficulty": "hard",
     "terrainTypes": ["paved", "mountain", "forest", "coastal", "urban"],
     "bestMonths": [3, 4, 5, 10, 11],
     "peakMonths": [4, 10],
     "countries": ["JP"],
-    "bbox": [132.01, 32.72, 134.61, 34.36]
+    "bbox": [132.49, 32.72, 134.61, 34.36]
   },
 
   "tradition": {
@@ -73,7 +76,7 @@
       {
         "name": { "en": "Henro Attire" },
         "description": {
-          "en": "Traditional pilgrim outfit: white jacket (hakue) symbolizing purity and readiness for death, sedge hat (sugegasa), walking staff (kongōzue) representing Kōbō Daishi himself, stole (wagesa), prayer beads (juzu), and name slips (osamefuda) deposited at each temple."
+          "en": "Traditional pilgrim outfit: white jacket (hakui, 白衣) symbolizing purity and readiness for death, sedge hat (sugegasa), walking staff (kongōzue) representing Kōbō Daishi himself, stole (wagesa), prayer beads (juzu), and name slips (osamefuda) deposited at each temple."
         }
       },
       {

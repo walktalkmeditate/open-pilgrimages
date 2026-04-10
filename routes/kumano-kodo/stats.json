@@ -73,7 +73,7 @@
     { "season": "winter", "months": [12, 1, 2], "intensity": "low", "note": "Cold, short days. Fewest visitors." }
   ],
   "infrastructure": {
-    "unescoInscription": { "date": "2004-07-07", "criteria": ["ii", "iv", "vi"], "area": "506.4 ha + 12,100 ha buffer" },
+    "unescoInscription": { "date": "2004-07-07", "criteria": ["ii", "iii", "iv", "vi"], "area": "506.4 ha + 12,100 ha buffer", "name": "Sacred Sites and Pilgrimage Routes in the Kii Mountain Range" },
     "honguAreaTotalVisitors": { "year": 2024, "count": 1617365, "note": "All nationalities, day + overnight" },
     "bookingLeadTime": "30+ days for processing, 10-12 months advance for peak season"
   },

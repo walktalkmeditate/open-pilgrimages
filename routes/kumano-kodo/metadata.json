@@ -8,13 +8,13 @@
     "ja": "熊野古道"
   },
   "description": {
-    "en": "A network of ancient pilgrimage routes through the mountains of the Kii Peninsula, leading to the three Grand Shrines of Kumano (Kumano Sanzan). UNESCO World Heritage Site since 2004. One of only two pilgrimage routes in the world with UNESCO designation (the other being the Camino de Santiago).",
+    "en": "A network of ancient pilgrimage routes through the mountains of the Kii Peninsula, leading to the three Grand Shrines of Kumano (Kumano Sanzan). UNESCO World Heritage Site since 2004. The Kumano Kodo and the Camino de Santiago are the only two pilgrimage routes in the world with a formal sister-route relationship — both UNESCO-inscribed and linked through the Dual Pilgrim program established in 2015.",
     "ja": "紀伊半島の山々を通る古代の巡礼路ネットワーク。熊野三山に至る。2004年よりユネスコ世界遺産。"
   },
 
   "overview": {
-    "distanceKm": 38,
-    "distanceNote": { "en": "Distance shown is for the Nakahechi (main route). Kohechi variant: 70 km. Iseji variant: 170 km." },
+    "distanceKm": 39,
+    "distanceNote": { "en": "Distance is for the Nakahechi (main route, ~38.5 km from Takijiri-oji to Kumano Hongu Taisha). Kohechi variant: 70 km. Iseji variant: 170 km." },
     "estimatedDays": { "min": 3, "max": 6, "typical": 4 },
     "topology": "network",
     "startPoint": {
@@ -29,14 +29,14 @@
       "minMeters": 50,
       "maxMeters": 870,
       "totalAscentMeters": 2230,
-      "totalDescentMeters": 2290
+      "totalDescentMeters": 2100
     },
     "difficulty": "moderate",
     "terrainTypes": ["forest", "mountain", "cobblestone", "dirt"],
     "bestMonths": [3, 4, 5, 10, 11],
     "peakMonths": [4, 5, 10, 11],
     "countries": ["JP"],
-    "bbox": [135.40, 33.60, 136.50, 34.40]
+    "bbox": [135.49, 33.60, 135.94, 34.22]
   },
 
   "tradition": {
@@ -88,7 +88,7 @@
       {
         "name": { "en": "Tsuboyu Onsen", "ja": "つぼ湯" },
         "description": {
-          "en": "The only bathing facility in the world with UNESCO World Heritage status. A tiny natural hot spring at Yunomine Onsen where pilgrims have purified themselves for over 1,800 years. 30-minute private sessions, 800 JPY."
+          "en": "The only hot spring on a UNESCO World Heritage pilgrimage route — a tiny natural hot spring at Yunomine Onsen where pilgrims have purified themselves for over 1,800 years. 30-minute private sessions, 800 JPY."
         },
         "location": { "coordinates": [135.758, 33.829], "stageIndex": 3 }
       }
