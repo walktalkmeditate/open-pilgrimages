@@ -78,11 +78,11 @@
   "startingPoints": [
     {
       "name": "Ferrol",
-      "note": "The most common modern start. ~123 km to Santiago — comfortably above the 100 km Compostela minimum. About 96% of pilgrims start here."
+      "note": "The most common modern start. ~112 km to Santiago — comfortably above the 100 km Compostela minimum. About 96% of pilgrims start here."
     },
     {
       "name": "A Coruña",
-      "note": "The historically older starting point. ~75 km to Santiago — below the 100 km minimum. Since December 2016, A Coruña pilgrims can qualify for the Compostela by walking an additional 25 km on another connected Camino."
+      "note": "The historically older starting point. ~75 km to Santiago — below the 100 km minimum. Since December 2016, A Coruña pilgrims can qualify for the Compostela via the Celtic Camino program (EU citizens walking a certified 25 km Jacobean route in their home country before continuing from A Coruña)."
     }
   ],
   "startingPointsNote": "Per-starting-point breakdown is published by Oficina del Peregrino but not exposed in the Solvitur API at the per-route level. The split is approximately 96% Ferrol / 4% A Coruña in modern years.",
@@ -91,7 +91,7 @@
       "en": "The Camino Inglés is the fastest-growing major Camino by percentage in recent years. From a low base of just 267 pilgrims in 2003, the route has grown to over 30,000 in 2025. Year-over-year growth in 2025 was +7.64% overall, with disproportionate growth from countries with historical maritime connections to the route: UK starts up 58% YoY, Irish starts up 33%."
     },
     "comparisonWithOthers": {
-      "en": "At ~123 km, the Inglés is the shortest of the major Caminos and the easiest to fit into a single week of vacation. Among 2025 Compostelas, the Inglés ranks 4th by volume (5.7%) behind Frances (45.6%), Portugués Central (19.0%), and Portugués Coastal (16.9%)."
+      "en": "At ~112 km, the Inglés is the shortest of the major Caminos and the easiest to fit into a single week of vacation. Among 2025 Compostelas, the Inglés ranks 4th by volume (5.7%) behind Frances (45.6%), Portugués Central (19.0%), and Portugués Coastal (16.9%)."
     }
   },
   "sources": [

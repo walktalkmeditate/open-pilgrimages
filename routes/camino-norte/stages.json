@@ -149,7 +149,7 @@
       "index": 4,
       "name": { "en": "Markina-Xemein to Gernika", "eu": "Markina-Xemeindik Gernikara" },
       "start": { "name": { "en": "Markina-Xemein" }, "coordinates": [-2.496, 43.269, 85] },
-      "end": { "name": { "en": "Gernika-Lumo", "es": "Guernica" }, "coordinates": [-2.667, 43.317, 10] },
+      "end": { "name": { "en": "Gernika-Lumo", "es": "Guernica" }, "coordinates": [-2.6779, 43.3144, 10] },
       "distanceKm": 25.4,
       "elevationGainMeters": 620,
       "elevationLossMeters": 695,
@@ -159,7 +159,7 @@
       "difficulty": "hard",
       "terrainTypes": ["mountain", "forest", "dirt", "paved"],
       "terrainNotes": {
-        "en": "Still inland. Crosses a series of forested ridges through Bolibar, the Collegiate Church of Zenarruza (12th century, one of the oldest pilgrim churches on the Norte), Munitibar, and into Gernika. The terrain is constant up-and-down with no long flat sections."
+        "en": "Still inland. Crosses a series of forested ridges through Bolibar, the Collegiate Church of Zenarruza (erected as a collegiate in 1379, Gothic 14th-15th centuries, now a small Cistercian monastery since 1988), Munitibar, and into Gernika. The terrain is constant up-and-down with no long flat sections."
       },
       "accommodationDensity": "low",
       "waterSources": 4,
@@ -167,7 +167,7 @@
       "interior": {
         "theme": { "en": "Gernika" },
         "narrative": {
-          "en": "You pass the Colegiata de Zenarruza, a 12th-century pilgrim church with Cistercian ties, where the scallop shell carvings on the portal have been touched by nine hundred years of pilgrims. The path drops through Munitibar and climbs a final ridge before Gernika. And then you arrive in Gernika, which is impossible to enter without thinking of what happened here on April 26, 1937. The Casa de Juntas with its thousand-year-old oak tree — the symbol of Basque liberty since medieval times — survived the bombing. Picasso's painting did not come from here; it came from what was destroyed. Most pilgrims take an afternoon hour at the Museo de la Paz."
+          "en": "You pass the Colegiata de Zenarruza, a late-medieval pilgrim church (erected as a collegiate in 1379, Gothic fabric of the 14th-15th centuries, now home to a small Cistercian community since 1988) where the scallop shell carvings on the portal have been touched by centuries of pilgrims. The path drops through Munitibar and climbs a final ridge before Gernika. And then you arrive in Gernika, which is impossible to enter without thinking of what happened here on April 26, 1937. The Casa de Juntas with its ancient oak of Gernika — a symbol of Basque liberty since medieval times, periodically renewed from the same lineage — still stands where the old tree witnessed centuries of Basque assemblies. Picasso's painting did not come from here; it came from what was destroyed. Most pilgrims take an afternoon hour at the Museo de la Paz."
         },
         "commonExperiences": [
           { "en": "Touching the scallop carvings at Zenarruza" },
@@ -183,7 +183,7 @@
     {
       "index": 5,
       "name": { "en": "Gernika to Lezama", "eu": "Gernikatik Lezamara" },
-      "start": { "name": { "en": "Gernika-Lumo" }, "coordinates": [-2.667, 43.317, 10] },
+      "start": { "name": { "en": "Gernika-Lumo" }, "coordinates": [-2.6779, 43.3144, 10] },
       "end": { "name": { "en": "Lezama" }, "coordinates": [-2.832, 43.276, 68] },
       "distanceKm": 19.8,
       "elevationGainMeters": 580,
@@ -271,7 +271,7 @@
       "interior": {
         "theme": { "en": "Industrial heritage" },
         "narrative": {
-          "en": "Today the Camino walks through the industrial memory of Biscay. The Nervión estuary was once one of Europe's major iron-producing regions — British coal came in, Basque iron went out, and the wealth of the 19th century built Bilbao. The Altos Hornos de Vizcaya blast furnaces closed in 1996. You pass their skeletons. The Puente Colgante at Portugalete is the inheritance: the world's first transporter bridge, designed by a student of Eiffel, completed in 1893, a UNESCO World Heritage Site since 2006. You can ride the gondola across the Ría for half a euro. Many pilgrims do — it is part of the route."
+          "en": "Today the Camino walks through the industrial memory of Biscay. The Nervión estuary was once one of Europe's major iron-producing regions — British coal came in, Basque iron went out, and the wealth of the 19th century built Bilbao. The Altos Hornos de Vizcaya blast furnaces closed in 1996. You pass their skeletons. The Puente Colgante at Portugalete is the inheritance: the world's first transporter bridge, designed by the Basque architect Alberto Palacio, completed in 1893, a UNESCO World Heritage Site since 2006. You can ride the gondola across the Ría for half a euro. Many pilgrims do — it is part of the route."
         },
         "commonExperiences": [
           { "en": "Walking past the old ironworks and blast-furnace ruins" },
@@ -323,7 +323,7 @@
       "index": 9,
       "name": { "en": "Castro Urdiales to Laredo" },
       "start": { "name": { "en": "Castro Urdiales" }, "coordinates": [-3.215, 43.384, 19] },
-      "end": { "name": { "en": "Laredo" }, "coordinates": [-3.410, 43.414, 5] },
+      "end": { "name": { "en": "Laredo" }, "coordinates": [-3.4173, 43.4106, 5] },
       "distanceKm": 30.5,
       "elevationGainMeters": 610,
       "elevationLossMeters": 625,
@@ -357,8 +357,8 @@
     {
       "index": 10,
       "name": { "en": "Laredo to Güemes" },
-      "start": { "name": { "en": "Laredo" }, "coordinates": [-3.410, 43.414, 5] },
-      "end": { "name": { "en": "Güemes" }, "coordinates": [-3.640, 43.447, 60] },
+      "start": { "name": { "en": "Laredo" }, "coordinates": [-3.4173, 43.4106, 5] },
+      "end": { "name": { "en": "Güemes" }, "coordinates": [-3.6348, 43.4558, 60] },
       "distanceKm": 28.7,
       "elevationGainMeters": 540,
       "elevationLossMeters": 495,
@@ -392,7 +392,7 @@
     {
       "index": 11,
       "name": { "en": "Güemes to Santander" },
-      "start": { "name": { "en": "Güemes" }, "coordinates": [-3.640, 43.447, 60] },
+      "start": { "name": { "en": "Güemes" }, "coordinates": [-3.6348, 43.4558, 60] },
       "end": { "name": { "en": "Santander" }, "coordinates": [-3.805, 43.463, 15] },
       "distanceKm": 15.3,
       "elevationGainMeters": 210,
@@ -474,7 +474,7 @@
       "difficulty": "moderate",
       "terrainTypes": ["coastal", "forest", "paved", "dirt"],
       "terrainNotes": {
-        "en": "Descends from Santillana through Cóbreces (with its striking Cistercian abbey), Oreña, and Cuchía, then tracks the Cantabrian coast through a succession of small bays. Comillas is known for its Gaudí building — El Capricho de Gaudí — and the UNESCO-listed Pontifical University."
+        "en": "Descends from Santillana through Cóbreces (with its striking Cistercian abbey), Oreña, and Cuchía, then tracks the Cantabrian coast through a succession of small bays. Comillas is known for its Gaudí building (El Capricho de Gaudí) and the imposing former Pontifical Seminary that housed the Comillas Pontifical University until 1969."
       },
       "accommodationDensity": "moderate",
       "waterSources": 5,
@@ -482,13 +482,13 @@
       "interior": {
         "theme": { "en": "Gaudí by the sea" },
         "narrative": {
-          "en": "Comillas is the surprise of Cantabria. El Capricho de Gaudí (1885) is one of only three Gaudí buildings outside Catalonia — a small Mudéjar-fantasy summer villa with sunflower-tile walls, built for a local indiano (a Spaniard returned rich from Cuba). It sits just below the Pontifical University, a 19th-century neo-Gothic seminary building that looks more like a castle. The combination of Gaudí, the Comillas town, and the Cantabrian beach is one of the Norte's least-expected reveals."
+          "en": "Comillas is the surprise of Cantabria. El Capricho de Gaudí (1885) is one of only three Gaudí buildings outside Catalonia — a small Mudéjar-fantasy summer villa with sunflower-tile walls, built for a local indiano (a Spaniard returned rich from Cuba). It sits just below the former Pontifical Seminary, a 19th-century neo-Gothic building that housed the Comillas Pontifical University until 1969, when the university moved to Madrid. The combination of Gaudí, the Comillas town, and the Cantabrian beach is one of the Norte's least-expected reveals."
         },
         "commonExperiences": [
           { "en": "The Cistercian abbey at Cóbreces — unexpected among the fields" },
           { "en": "First sight of El Capricho through the trees" },
           { "en": "The sunflower tiles on El Capricho's walls" },
-          { "en": "The Pontifical University looming over the beach" }
+          { "en": "The former Pontifical Seminary looming over the beach" }
         ],
         "reflection": {
           "en": "Gaudí and the Camino do not belong to the same century, but they share a village. What does encountering the unexpected do to the shape of a pilgrimage?"
@@ -499,7 +499,7 @@
       "index": 14,
       "name": { "en": "Comillas to Colombres" },
       "start": { "name": { "en": "Comillas" }, "coordinates": [-4.289, 43.387, 23] },
-      "end": { "name": { "en": "Colombres" }, "coordinates": [-4.565, 43.402, 60] },
+      "end": { "name": { "en": "Colombres" }, "coordinates": [-4.541, 43.375, 60] },
       "distanceKm": 28.0,
       "elevationGainMeters": 530,
       "elevationLossMeters": 490,
@@ -533,7 +533,7 @@
     {
       "index": 15,
       "name": { "en": "Colombres to Llanes" },
-      "start": { "name": { "en": "Colombres" }, "coordinates": [-4.565, 43.402, 60] },
+      "start": { "name": { "en": "Colombres" }, "coordinates": [-4.541, 43.375, 60] },
       "end": { "name": { "en": "Llanes" }, "coordinates": [-4.756, 43.421, 5] },
       "distanceKm": 22.9,
       "elevationGainMeters": 380,
@@ -604,7 +604,7 @@
       "index": 17,
       "name": { "en": "Ribadesella to Colunga" },
       "start": { "name": { "en": "Ribadesella" }, "coordinates": [-5.058, 43.463, 6] },
-      "end": { "name": { "en": "Colunga" }, "coordinates": [-5.268, 43.481, 50] },
+      "end": { "name": { "en": "Colunga" }, "coordinates": [-5.2707, 43.4851, 50] },
       "distanceKm": 20.1,
       "elevationGainMeters": 350,
       "elevationLossMeters": 310,
@@ -638,7 +638,7 @@
     {
       "index": 18,
       "name": { "en": "Colunga to Villaviciosa" },
-      "start": { "name": { "en": "Colunga" }, "coordinates": [-5.268, 43.481, 50] },
+      "start": { "name": { "en": "Colunga" }, "coordinates": [-5.2707, 43.4851, 50] },
       "end": { "name": { "en": "Villaviciosa" }, "coordinates": [-5.433, 43.483, 7] },
       "distanceKm": 17.5,
       "elevationGainMeters": 330,
@@ -674,7 +674,7 @@
       "index": 19,
       "name": { "en": "Villaviciosa to Gijón" },
       "start": { "name": { "en": "Villaviciosa" }, "coordinates": [-5.433, 43.483, 7] },
-      "end": { "name": { "en": "Gijón", "ast": "Xixón" }, "coordinates": [-5.700, 43.533, 3] },
+      "end": { "name": { "en": "Gijón", "ast": "Xixón" }, "coordinates": [-5.663, 43.545, 3] },
       "distanceKm": 29.8,
       "elevationGainMeters": 560,
       "elevationLossMeters": 560,
@@ -708,8 +708,8 @@
     {
       "index": 20,
       "name": { "en": "Gijón to Avilés" },
-      "start": { "name": { "en": "Gijón", "ast": "Xixón" }, "coordinates": [-5.700, 43.533, 3] },
-      "end": { "name": { "en": "Avilés" }, "coordinates": [-5.908, 43.556, 10] },
+      "start": { "name": { "en": "Gijón", "ast": "Xixón" }, "coordinates": [-5.663, 43.545, 3] },
+      "end": { "name": { "en": "Avilés" }, "coordinates": [-5.9222, 43.5554, 10] },
       "distanceKm": 25.4,
       "elevationGainMeters": 320,
       "elevationLossMeters": 315,
@@ -727,7 +727,7 @@
       "interior": {
         "theme": { "en": "Industrial beauty" },
         "narrative": {
-          "en": "The walk from Gijón to Avilés goes through heavy industry — Arcelor-Mittal steelworks, the Aboño coal-fired power station, the port of El Musel. It is the hardest stretch of the Norte to love on first sight. And then you arrive in Avilés and the contrast is total: the old town is a medieval gem with arcaded streets, a Gothic church (San Nicolás), and the Palacio de Camposagrado. Oscar Niemeyer's bright-white cultural centre (Centro Niemeyer, 2011) sits across the ría — the great Brazilian architect's only European work, built when he was 99."
+          "en": "The walk from Gijón to Avilés goes through heavy industry — Arcelor-Mittal steelworks, the Aboño coal-fired power station, the port of El Musel. It is the hardest stretch of the Norte to love on first sight. And then you arrive in Avilés and the contrast is total: the old town is a medieval gem with arcaded streets, a Gothic church (San Nicolás), and the Palacio de Camposagrado. Oscar Niemeyer's bright-white cultural centre (Centro Niemeyer, 2011) sits across the ría — the great Brazilian architect's only work in Spain, commissioned when he was 99."
         },
         "commonExperiences": [
           { "en": "The steelworks and power plant — unusual pilgrimage scenery" },
@@ -743,8 +743,8 @@
     {
       "index": 21,
       "name": { "en": "Avilés to Muros de Nalón" },
-      "start": { "name": { "en": "Avilés" }, "coordinates": [-5.908, 43.556, 10] },
-      "end": { "name": { "en": "Muros de Nalón" }, "coordinates": [-6.113, 43.542, 90] },
+      "start": { "name": { "en": "Avilés" }, "coordinates": [-5.9222, 43.5554, 10] },
+      "end": { "name": { "en": "Muros de Nalón" }, "coordinates": [-6.1046, 43.5430, 90] },
       "distanceKm": 23.2,
       "elevationGainMeters": 500,
       "elevationLossMeters": 420,
@@ -778,7 +778,7 @@
     {
       "index": 22,
       "name": { "en": "Muros de Nalón to Soto de Luiña" },
-      "start": { "name": { "en": "Muros de Nalón" }, "coordinates": [-6.113, 43.542, 90] },
+      "start": { "name": { "en": "Muros de Nalón" }, "coordinates": [-6.1046, 43.5430, 90] },
       "end": { "name": { "en": "Soto de Luiña" }, "coordinates": [-6.231, 43.561, 16] },
       "distanceKm": 15.3,
       "elevationGainMeters": 320,
@@ -884,7 +884,7 @@
       "index": 25,
       "name": { "en": "Luarca to La Caridad" },
       "start": { "name": { "en": "Luarca" }, "coordinates": [-6.536, 43.542, 10] },
-      "end": { "name": { "en": "La Caridad", "ast": "A Caridá" }, "coordinates": [-6.820, 43.553, 100] },
+      "end": { "name": { "en": "La Caridad", "ast": "A Caridá" }, "coordinates": [-6.8290, 43.5510, 100] },
       "distanceKm": 30.5,
       "elevationGainMeters": 570,
       "elevationLossMeters": 490,
@@ -918,7 +918,7 @@
     {
       "index": 26,
       "name": { "en": "La Caridad to Ribadeo" },
-      "start": { "name": { "en": "La Caridad", "ast": "A Caridá" }, "coordinates": [-6.820, 43.553, 100] },
+      "start": { "name": { "en": "La Caridad", "ast": "A Caridá" }, "coordinates": [-6.8290, 43.5510, 100] },
       "end": { "name": { "en": "Ribadeo" }, "coordinates": [-7.040, 43.534, 40] },
       "distanceKm": 21.3,
       "elevationGainMeters": 380,
@@ -929,7 +929,7 @@
       "difficulty": "moderate",
       "terrainTypes": ["coastal", "forest", "dirt", "paved", "urban"],
       "terrainNotes": {
-        "en": "The crossing into Galicia. Leaves La Caridad, passes through Tol and the Eo estuary, then crosses the Puente de los Santos — a 1.5 km road bridge with a pedestrian walkway — into Ribadeo, Galicia. Ribadeo is the first Galician town on the route."
+        "en": "The crossing into Galicia. Leaves La Caridad, passes through Tol and the Eo estuary, then crosses the Puente de los Santos — a 612-metre road bridge with a pedestrian walkway — into Ribadeo, Galicia. Ribadeo is the first Galician town on the route."
       },
       "accommodationDensity": "high",
       "waterSources": 4,
@@ -954,7 +954,7 @@
       "index": 27,
       "name": { "en": "Ribadeo to Gondán" },
       "start": { "name": { "en": "Ribadeo" }, "coordinates": [-7.040, 43.534, 40] },
-      "end": { "name": { "en": "Gondán" }, "coordinates": [-7.199, 43.476, 120] },
+      "end": { "name": { "en": "Gondán" }, "coordinates": [-7.239, 43.487, 120] },
       "distanceKm": 20.9,
       "elevationGainMeters": 490,
       "elevationLossMeters": 370,
@@ -964,19 +964,19 @@
       "difficulty": "moderate",
       "terrainTypes": ["forest", "dirt", "paved", "mountain"],
       "terrainNotes": {
-        "en": "Leaves Ribadeo inland through Vilela and Villamartín Pequeño. Passes the medieval Lourenzá monastery complex at the end of the stage — the Monasterio de San Salvador de Lourenzá (10th-century foundation). Gondán is a small parish with a pilgrim albergue."
+        "en": "Leaves Ribadeo inland through Vilela and Villamartín Pequeño, then turns south through Barreiros countryside to the small hamlet of Gondán. Moderate climbs and descents on country lanes and forest tracks. Gondán has a pilgrim albergue (converted old school, ~30 beds) and a merendero area."
       },
       "accommodationDensity": "low",
       "waterSources": 3,
       "services": { "atm": false, "pharmacy": false, "grocery": true, "restaurant": true },
       "interior": {
-        "theme": { "en": "Lourenzá" },
+        "theme": { "en": "Inland at last" },
         "narrative": {
-          "en": "The Camino turns inland for the rest of the journey. The Galician interior is different from the coast — smaller villages, Celtic hórreos, oak and chestnut forests, and the Galician language everywhere. The Monasterio de San Salvador de Lourenzá is a 10th-century Benedictine foundation that became the Bishop's palace. It is beside the village of Vilanova de Lourenzá. The Osera family chapel inside holds the tomb of Oseiro Gutiérrez, the founder (d. 985). Gondán at the end of the stage is a quiet parish — you can hear cows in the evening."
+          "en": "The Camino turns inland for the rest of the journey. After 26 days of the Cantabrian coast, the sea is now behind you for good. The Galician interior is different from the coast — smaller villages, Celtic hórreos (wooden granaries on stone stilts, distinctive from Asturian ones), oak and chestnut forests, and the Galician language everywhere. You walk through Vilela and small Barreiros hamlets, climb a low ridge, and drop into Gondán in the late afternoon. The albergue is quiet, set beside a merendero and a small chapel dedicated to the Virgen del Pilar. A bar ~500 m away stamps credentials. The evening is the quietest of the whole Camino so far."
         },
         "commonExperiences": [
           { "en": "First Galician hórreos — wooden granaries on stone stilts, different from Asturian ones" },
-          { "en": "The San Salvador de Lourenzá monastery appearing among the fields" },
+          { "en": "The shift in landscape from Cantabrian coast to inland Galicia" },
           { "en": "Galician spoken around you for the first time — a different sound from Spanish or Asturian" },
           { "en": "The quiet of Gondán at the albergue" }
         ],
@@ -988,7 +988,7 @@
     {
       "index": 28,
       "name": { "en": "Gondán to Mondoñedo" },
-      "start": { "name": { "en": "Gondán" }, "coordinates": [-7.199, 43.476, 120] },
+      "start": { "name": { "en": "Gondán" }, "coordinates": [-7.239, 43.487, 120] },
       "end": { "name": { "en": "Mondoñedo" }, "coordinates": [-7.363, 43.428, 141] },
       "distanceKm": 15.6,
       "elevationGainMeters": 340,
@@ -999,17 +999,19 @@
       "difficulty": "moderate",
       "terrainTypes": ["forest", "dirt", "paved", "mountain"],
       "terrainNotes": {
-        "en": "Short day into Mondoñedo, one of the historical seven 'capital' cities of Galicia and an episcopal see. The Cathedral of Mondoñedo is a 13th-century Gothic church with a small but important cloister and museum. The climb out of Gondán crosses the Alto da Xesta before dropping into the Mondoñedo valley."
+        "en": "Short day into Mondoñedo, one of the historical seven 'capital' cities of Galicia and an episcopal see. Passes through Vilanova de Lourenzá with its imposing Benedictine monastery (San Salvador de Lourenzá, founded c. 969). Climbs out of the Lourenzá valley over the Alto da Xesta before dropping into Mondoñedo, whose 13th-century Gothic cathedral is small but important."
       },
       "accommodationDensity": "moderate",
       "waterSources": 3,
       "services": { "atm": true, "pharmacy": true, "grocery": true, "restaurant": true },
       "interior": {
-        "theme": { "en": "Mondoñedo" },
+        "theme": { "en": "Lourenzá and Mondoñedo" },
         "narrative": {
-          "en": "Mondoñedo is one of the 'seven capital cities' of Galicia — small medieval episcopal seats that together governed Galicia before the modern province of A Coruña was established. Its cathedral is small but beautiful: 13th-century Gothic with a 15th-century cloister and a museum housing medieval choir books. The old town is a short, perfect little square of stone houses. The local specialty is tarta de Mondoñedo, a sweet almond cake. Stop, rest, walk the cloister, buy a tarta."
+          "en": "Today you pass two medieval foundations in one stage. First, Vilanova de Lourenzá — the village grew up around the Benedictine Monasterio de San Salvador de Lourenzá, founded around 969 by Count Osorio Gutiérrez, the 'Conde Santo' or Holy Count, whose tomb rests inside the chapel of Valdeflores in a 6th-century Paleochristian marble sarcophagus from Aquitaine. Then, after the climb over Alto da Xesta, you descend into Mondoñedo — one of the 'seven capital cities' of Galicia, small medieval episcopal seats that together governed Galicia before the modern province of A Coruña was established. Its cathedral is 13th-century Gothic with a 15th-century cloister and a museum of medieval choir books. The local specialty is tarta de Mondoñedo, a sweet almond cake. Stop, rest, walk the cloister, buy a tarta."
         },
         "commonExperiences": [
+          { "en": "The San Salvador de Lourenzá monastery appearing among the fields at Vilanova de Lourenzá" },
+          { "en": "Standing in the chapel of Valdeflores at Lourenzá looking at the Holy Count's Paleochristian sarcophagus" },
           { "en": "First Gothic cathedral since Laredo" },
           { "en": "The Mondoñedo cloister — tiny but perfect" },
           { "en": "Tarta de Mondoñedo at a local pastry shop" },
@@ -1024,7 +1026,7 @@
       "index": 29,
       "name": { "en": "Mondoñedo to Abadín" },
       "start": { "name": { "en": "Mondoñedo" }, "coordinates": [-7.363, 43.428, 141] },
-      "end": { "name": { "en": "Abadín" }, "coordinates": [-7.497, 43.355, 470] },
+      "end": { "name": { "en": "Abadín" }, "coordinates": [-7.4753, 43.3637, 470] },
       "distanceKm": 16.6,
       "elevationGainMeters": 580,
       "elevationLossMeters": 255,
@@ -1058,7 +1060,7 @@
     {
       "index": 30,
       "name": { "en": "Abadín to Vilalba" },
-      "start": { "name": { "en": "Abadín" }, "coordinates": [-7.497, 43.355, 470] },
+      "start": { "name": { "en": "Abadín" }, "coordinates": [-7.4753, 43.3637, 470] },
       "end": { "name": { "en": "Vilalba" }, "coordinates": [-7.679, 43.296, 480] },
       "distanceKm": 20.8,
       "elevationGainMeters": 280,
@@ -1094,7 +1096,7 @@
       "index": 31,
       "name": { "en": "Vilalba to Baamonde" },
       "start": { "name": { "en": "Vilalba" }, "coordinates": [-7.679, 43.296, 480] },
-      "end": { "name": { "en": "Baamonde" }, "coordinates": [-7.759, 43.193, 430] },
+      "end": { "name": { "en": "Baamonde" }, "coordinates": [-7.756, 43.175, 430] },
       "distanceKm": 18.5,
       "elevationGainMeters": 240,
       "elevationLossMeters": 290,
@@ -1112,7 +1114,7 @@
       "interior": {
         "theme": { "en": "The qualifying start" },
         "narrative": {
-          "en": "Baamonde is the 102 km mark, just over the Compostela minimum. New pilgrims arrive here by bus today to start walking tomorrow. The tree-lined square by the Parga river is quiet, the church (San Pedro Fiz) is worn and loved, and the albergue is full. The atmosphere for long-distance pilgrims is bittersweet — the end is close but so is the crowding. You are a veteran now, whether or not you knew that was coming."
+          "en": "Baamonde is the 102 km mark, just over the Compostela minimum. New pilgrims arrive here by bus today to start walking tomorrow. The tree-lined square by the Parga river is quiet, the 12th-century Romanesque church (Santiago de Baamonde — a Saint James church welcoming pilgrims walking his way) is worn and loved, and the albergue is full. The atmosphere for long-distance pilgrims is bittersweet — the end is close but so is the crowding. You are a veteran now, whether or not you knew that was coming."
         },
         "commonExperiences": [
           { "en": "Seeing brand-new pilgrims arrive by bus" },
@@ -1128,8 +1130,8 @@
     {
       "index": 32,
       "name": { "en": "Baamonde to Sobrado dos Monxes" },
-      "start": { "name": { "en": "Baamonde" }, "coordinates": [-7.759, 43.193, 430] },
-      "end": { "name": { "en": "Sobrado dos Monxes" }, "coordinates": [-8.014, 43.022, 510] },
+      "start": { "name": { "en": "Baamonde" }, "coordinates": [-7.756, 43.175, 430] },
+      "end": { "name": { "en": "Sobrado dos Monxes" }, "coordinates": [-8.023, 43.042, 510] },
       "distanceKm": 39.8,
       "elevationGainMeters": 760,
       "elevationLossMeters": 680,
@@ -1139,7 +1141,7 @@
       "difficulty": "hard",
       "terrainTypes": ["forest", "dirt", "paved", "mountain"],
       "terrainNotes": {
-        "en": "The longest single stage of the Norte — 39.8 km from Baamonde to Sobrado dos Monxes. Crosses rolling plateau through Miraz, Lagoa, and Roxica. Many pilgrims split this stage at Miraz (~15 km, old Templar albergue) or avoid it entirely by taking the 35A variant via Sobrado. The climb to ~710 m on the Serra do Careón is the highest point of the whole Norte. Carry food and water — services are sparse."
+        "en": "The longest single stage of the Norte — 39.8 km from Baamonde to Sobrado dos Monxes. Crosses rolling plateau through Miraz, Lagoa, and Roxica. Many pilgrims split this stage at Miraz (~15 km, Albergue San Martín in the old parsonage) or avoid it entirely by taking the 35A variant via Sobrado. The climb to ~710 m on the Serra do Careón is the highest point of the whole Norte. Carry food and water — services are sparse."
       },
       "accommodationDensity": "low",
       "waterSources": 3,
@@ -1147,11 +1149,11 @@
       "interior": {
         "theme": { "en": "The longest day, the oldest monastery" },
         "narrative": {
-          "en": "40 kilometres is a lot on day 33 of a pilgrimage. Most pilgrims split the stage at Miraz, where the old Templar-era albergue is run by English volunteers and has a reputation for kindness. Those who continue the full distance reach Sobrado dos Monxes in the late afternoon — and the reward is the monastery itself. Santa María de Sobrado was founded in 952 AD and joined the Cistercian order in 1142, making it the first Cistercian house in Spain. The monastery is still an active community of about ten monks. The pilgrim albergue is inside the monastery walls. Compline is sung at 20:00 and pilgrims are welcome to attend. The great baroque church (rebuilt in the 17th century after a fire) has a cloister and a chapter room that feel heavy with age."
+          "en": "40 kilometres is a lot on day 33 of a pilgrimage. Most pilgrims split the stage at Miraz, where the Albergue San Martín — housed in the old parsonage and staffed by the UK Confraternity of Saint James since 2005 — is known for its kindness. Those who continue the full distance reach Sobrado dos Monxes in the late afternoon — and the reward is the monastery itself. Santa María de Sobrado was founded in 952 AD and joined the Cistercian order in 1142, making it the first Cistercian house in Spain. The monastery is still an active community of about ten monks. The pilgrim albergue is inside the monastery walls. Compline is sung at 20:00 and pilgrims are welcome to attend. The great baroque church (rebuilt in the 17th century after a fire) has a cloister and a chapter room that feel heavy with age."
         },
         "commonExperiences": [
           { "en": "The decision at Baamonde: 15 km to Miraz or 40 km to Sobrado" },
-          { "en": "Miraz albergue with its English volunteers — one of the best on the Camino" },
+          { "en": "Albergue San Martín at Miraz with its UK-Confraternity volunteers — one of the best on the Camino" },
           { "en": "The climb to the Serra do Careón high point at 710 m" },
           { "en": "First sight of Sobrado's church towers above the trees" },
           { "en": "Compline with the Cistercian community at 20:00" },
@@ -1165,7 +1167,7 @@
     {
       "index": 33,
       "name": { "en": "Sobrado dos Monxes to Arzúa (joins Camino Francés)" },
-      "start": { "name": { "en": "Sobrado dos Monxes" }, "coordinates": [-8.014, 43.022, 510] },
+      "start": { "name": { "en": "Sobrado dos Monxes" }, "coordinates": [-8.023, 43.042, 510] },
       "end": { "name": { "en": "Arzúa" }, "coordinates": [-8.160, 42.930, 389] },
       "distanceKm": 22.0,
       "elevationGainMeters": 350,

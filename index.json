@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-04-10T03:20:14.696Z",
+  "generatedAt": "2026-04-10T10:17:02.403Z",
   "routes": [
     {
       "id": "camino-frances",
@@ -28,7 +28,7 @@
       },
       "region": "Europe",
       "country": "ES",
-      "distanceKm": 123,
+      "distanceKm": 112,
       "topology": "linear",
       "tradition": "christian",
       "path": "routes/camino-ingles",
@@ -57,7 +57,7 @@
       },
       "region": "Europe",
       "country": "ES",
-      "distanceKm": 820,
+      "distanceKm": 784,
       "topology": "linear",
       "tradition": "christian",
       "path": "routes/camino-norte"
@@ -86,7 +86,7 @@
             "es": "Camino Portugués de la Costa (tramo portugués)",
             "gl": "Camiño Portugués da Costa (treito portugués)"
           },
-          "distanceKm": 130,
+          "distanceKm": 110,
           "path": "routes/camino-portugues/variants/coastal"
         },
         {

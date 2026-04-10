@@ -85,7 +85,7 @@
       "en": "In 2025 the Coastal route saw 89,511 walkers vs the Central's 100,839 — only 11,328 fewer. Coastal accounts for 16.9% of all Compostelas and Central for 19.0%, together 35.9% — nearly tied with the Frances. The Coastal pilgrim demographic skews more international, younger on average, and more female than the Central. Most dramatic difference: Coastal has grown from 2,600 walkers in 2016 to 89,511 in 2025, a 34x increase — the fastest-growing major Camino by percentage in the history of Oficina del Peregrino statistics."
     },
     "dataScope": {
-      "en": "This stats file covers the full Coastal route (Porto → Santiago) since Solvitur Ambulando tracks it as a single Camino regardless of starting point. However, this dataset release covers only the Portuguese section (Porto → Caminha ferry → A Guarda, ~130 km). The Spanish continuation through Oia, Baiona, Vigo, and Redondela is planned for a future release when the fragmented Spanish-side OSM relations can be integrated cleanly."
+      "en": "This stats file covers the full Coastal route (Porto → Santiago) since Solvitur Ambulando tracks it as a single Camino regardless of starting point. However, this dataset release covers only the Portuguese section (Porto → Caminha ferry → A Guarda, ~110 km). The Spanish continuation through Oia, Baiona, Vigo, and Redondela is planned for a future release when the fragmented Spanish-side OSM relations can be integrated cleanly."
     }
   },
   "sources": [

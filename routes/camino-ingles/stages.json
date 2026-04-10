@@ -11,13 +11,13 @@
       },
       "start": {
         "name": { "en": "Curuxeiras pier, Ferrol", "gl": "Peirao de Curuxeiras, Ferrol" },
-        "coordinates": [-8.233, 43.484, 26]
+        "coordinates": [-8.2436, 43.4777, 2]
       },
       "end": {
         "name": { "en": "Neda" },
         "coordinates": [-8.159, 43.500, 5]
       },
-      "distanceKm": 15.5,
+      "distanceKm": 12.4,
       "elevationGainMeters": 90,
       "elevationLossMeters": 110,
       "highPointMeters": 60,
@@ -34,12 +34,12 @@
       "interior": {
         "theme": { "en": "Embarkation" },
         "narrative": {
-          "en": "You begin where pilgrims have always begun on this route: at the water. The Curuxeiras pier in Ferrol is where medieval English, Irish, Scandinavian, and Flemish pilgrims stepped off boats and started walking south. There is no inland border to cross, no mountain pass to climb out of. The Camino Inglés begins with the smell of salt and the sound of seagulls. You leave Ferrol through the naval shipyards where the Spanish navy still builds frigates, and the path traces the south shore of the Ría de Ferrol. By midday you arrive in Neda, a quiet fishing town that has welcomed pilgrims for nine centuries."
+          "en": "You begin where pilgrims have always begun on this route: at the water. The Curuxeiras pier in Ferrol is where medieval English, Irish, Scandinavian, and Flemish pilgrims stepped off boats and started walking south. There is no inland border to cross, no mountain pass to climb out of. The Camino Inglés begins with the smell of salt and the sound of seagulls. You leave Ferrol through the naval shipyards where the Spanish navy still builds frigates, and the path traces the south shore of the Ría de Ferrol. By midday you arrive in Neda, a quiet fishing town whose pilgrim hospital has been welcoming walkers since medieval times."
         },
         "commonExperiences": [
           { "en": "Touching the water at the Curuxeiras pier before starting" },
           { "en": "Walking past the active Navantia naval shipyards" },
-          { "en": "First view across the Ría toward the Punta da Promontoira lighthouse" },
+          { "en": "Looking across the Ría de Ferrol toward Mugardos on the far shore" },
           { "en": "Shorter than expected — many pilgrims arrive in Neda by early afternoon" }
         ],
         "reflection": {
@@ -59,9 +59,9 @@
       },
       "end": {
         "name": { "en": "Pontedeume" },
-        "coordinates": [-8.170, 43.413, 2]
+        "coordinates": [-8.1705, 43.4065, 2]
       },
-      "distanceKm": 16.0,
+      "distanceKm": 15.3,
       "elevationGainMeters": 230,
       "elevationLossMeters": 250,
       "highPointMeters": 180,
@@ -75,7 +75,7 @@
       "interior": {
         "theme": { "en": "Rhythm" },
         "narrative": {
-          "en": "Today the route starts to feel like a pilgrimage rather than a city walk. You leave the Neda waterfront, climb gently through eucalyptus and pine, cross small streams on Roman-style stone bridges. The Atlantic stays on your right and the path winds inland and back to the coast in turn. By afternoon you cross the long medieval bridge over the Río Eume into Pontedeume — a town named for that bridge, with the eight-century-old tower of the Andrade family rising above the rooftops. Pontedeume's old town is one of the better-preserved medieval centres in Galicia."
+          "en": "Today the route starts to feel like a pilgrimage rather than a city walk. You leave the Neda waterfront, climb gently through eucalyptus and pine, cross small streams on Roman-style stone bridges. The Atlantic stays on your right and the path winds inland and back to the coast in turn. By afternoon you cross the long medieval bridge over the Río Eume into Pontedeume — a town named for that bridge, with the Torreón dos Andrade (the 14th-century keep of the Andrade family) rising above the rooftops. Pontedeume's old town is one of the better-preserved medieval centres in Galicia."
         },
         "commonExperiences": [
           { "en": "Finding a walking pace that the body can sustain" },
@@ -96,13 +96,13 @@
       },
       "start": {
         "name": { "en": "Pontedeume" },
-        "coordinates": [-8.170, 43.413, 2]
+        "coordinates": [-8.1705, 43.4065, 2]
       },
       "end": {
         "name": { "en": "Betanzos" },
         "coordinates": [-8.211, 43.279, 36]
       },
-      "distanceKm": 20.7,
+      "distanceKm": 19.7,
       "elevationGainMeters": 380,
       "elevationLossMeters": 350,
       "highPointMeters": 250,
@@ -147,12 +147,12 @@
         "name": { "en": "Hospital de Bruma" },
         "coordinates": [-8.363, 43.150, 394]
       },
-      "distanceKm": 28.4,
-      "elevationGainMeters": 620,
-      "elevationLossMeters": 260,
+      "distanceKm": 24.0,
+      "elevationGainMeters": 560,
+      "elevationLossMeters": 210,
       "highPointMeters": 410,
       "lowPointMeters": 30,
-      "estimatedHours": { "min": 7, "max": 9 },
+      "estimatedHours": { "min": 6, "max": 8 },
       "difficulty": "hard",
       "terrainTypes": ["dirt", "forest", "cobblestone", "mountain"],
       "terrainNotes": {
@@ -162,18 +162,18 @@
       "waterSources": 3,
       "services": { "atm": false, "pharmacy": false, "grocery": false, "restaurant": false },
       "warnings": [
-        { "en": "Longest stage of the route at 28+ km. Limited services between Betanzos and Bruma. Carry water and food, start early." },
+        { "en": "Longest stage of the route at 24 km. Limited services between Betanzos and Bruma. Carry water and food, start early." },
         { "en": "The Hospital de Bruma albergue has limited beds (~22). In peak season book ahead — there is no nearby alternative lodging." }
       ],
       "interior": {
         "theme": { "en": "Climb" },
         "narrative": {
-          "en": "This is the day the Camino Inglés earns its difficulty. Twenty-eight kilometres, sustained climbing, almost no services between Betanzos and Hospital de Bruma. You leave the Mandeo river valley and start working uphill through small Galician villages — Cos, Limiñón, Vilacoba — gaining four hundred metres to the highland where the historic pilgrim hospital stood. By late afternoon you reach Bruma, a place that exists for one reason: it is the meeting point of the historic Ferrol path and the historic A Coruña path. The albergue today sits on the ridge that medieval hospitalers chose because both groups of pilgrims would arrive there exhausted on the same day. You feel the convergence even now."
+          "en": "This is the day the Camino Inglés earns its difficulty. Twenty-four kilometres, sustained climbing, almost no services between Betanzos and Hospital de Bruma. You leave the Mandeo river valley and start working uphill through small Galician villages — Cos, Limiñón, Vilacoba — gaining four hundred metres to the highland where the historic pilgrim hospital stood. By late afternoon you reach Bruma, a place that exists for one reason: it is the meeting point of the historic Ferrol path and the historic A Coruña path. The albergue today sits on the ridge that medieval hospitalers chose because both groups of pilgrims would arrive there exhausted on the same day. You feel the convergence even now."
         },
         "commonExperiences": [
           { "en": "The sustained climb out of Betanzos that does not let up" },
           { "en": "Long stretches with no village in sight" },
-          { "en": "Hitting the wall around kilometre 20" },
+          { "en": "Hitting the wall around kilometre 18" },
           { "en": "Arriving in Bruma in the late afternoon, the highland wind cool even in summer" },
           { "en": "Meeting pilgrims who walked from A Coruña — they joined the route only here" }
         ],
@@ -196,7 +196,7 @@
         "name": { "en": "Sigüeiro" },
         "coordinates": [-8.442, 42.969, 228]
       },
-      "distanceKm": 25.2,
+      "distanceKm": 24.5,
       "elevationGainMeters": 320,
       "elevationLossMeters": 480,
       "highPointMeters": 410,
@@ -237,12 +237,12 @@
         "name": { "en": "Santiago de Compostela" },
         "coordinates": [-8.544, 42.881, 260]
       },
-      "distanceKm": 17.2,
+      "distanceKm": 15.7,
       "elevationGainMeters": 210,
       "elevationLossMeters": 180,
       "highPointMeters": 310,
       "lowPointMeters": 200,
-      "estimatedHours": { "min": 4, "max": 6 },
+      "estimatedHours": { "min": 4, "max": 5 },
       "difficulty": "easy",
       "terrainTypes": ["dirt", "paved", "forest", "urban", "cobblestone"],
       "terrainNotes": {
@@ -254,7 +254,7 @@
       "interior": {
         "theme": { "en": "Arrival" },
         "narrative": {
-          "en": "Seventeen kilometres. The shortest day. You wake before dawn in Sigüeiro and walk south through forest in the half-light. The Galician countryside gives way to suburbs and then the suburbs give way to the old north gate of Santiago, the Porta do Camiño. You walk under the arch and the cobbled streets of the old town wrap around you and you are climbing the last small hills toward the cathedral. The Praza do Obradoiro opens like a held breath. Pilgrims from Frances, Portugués, Norte, Primitivo, Inglés all arrive in this same square, by different roads, on different days, exhausted in slightly different ways. The cathedral does not care which route you walked. It is here for all of them."
+          "en": "Fifteen kilometres. The shortest day. You wake before dawn in Sigüeiro and walk south through forest in the half-light. The Galician countryside gives way to suburbs and then the suburbs give way to the old north gate of Santiago, the Porta do Camiño. You walk under the arch and the cobbled streets of the old town wrap around you and you are climbing the last small hills toward the cathedral. The Praza do Obradoiro opens like a held breath. Pilgrims from Frances, Portugués, Norte, Primitivo, Inglés all arrive in this same square, by different roads, on different days, exhausted in slightly different ways. The cathedral does not care which route you walked. It is here for all of them."
         },
         "commonExperiences": [
           { "en": "Walking the last kilometres in quiet, alone or with chosen companions" },

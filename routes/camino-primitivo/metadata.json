@@ -67,7 +67,7 @@
     },
     "unescoStatus": "World Heritage Site",
     "unescoYear": 2015,
-    "unescoNote": "Inscribed in 2015 as part of the extension to the 1993 'Route of Santiago de Compostela' inscription, renamed 'Routes of Santiago de Compostela: Camino Francés and Routes of Northern Spain' (UNESCO ref 669bis). The 2015 extension added four routes: Camino del Norte (Coastal), Camino Primitivo, Camino Lebaniego, and the Interior Way through the Basque Country and La Rioja. Note: the pre-Romanesque monuments of Oviedo (Cámara Santa, Santa María del Naranco, San Miguel de Lillo) are inscribed under a separate 1985 UNESCO listing (ref 312, 'Monuments of Oviedo and the Kingdom of the Asturias').",
+    "unescoNote": "Inscribed in 2015 as part of the extension to the 1993 'Route of Santiago de Compostela' inscription, renamed 'Routes of Santiago de Compostela: Camino Francés and Routes of Northern Spain' (UNESCO ref 669bis). The 2015 extension added four routes: Camino del Norte (Coastal), Camino Primitivo, Camino Lebaniego, and the Interior Way through the Basque Country and La Rioja. Note: the pre-Romanesque monuments of Oviedo are inscribed under a separate UNESCO listing (ref 312, 'Monuments of Oviedo and the Kingdom of the Asturias'). Santa María del Naranco and San Miguel de Lillo were part of the original 1985 inscription; the Cámara Santa of Oviedo Cathedral and San Julián de los Prados were added in the 1998 boundary extension.",
     "credentialSystem": {
       "name": {
         "en": "Pilgrim Credential",
@@ -111,7 +111,7 @@
           "es": "Tocar la Cámara Santa"
         },
         "description": {
-          "en": "Many pilgrims begin the Primitivo by visiting the Cámara Santa of Oviedo Cathedral, the 9th-century pre-Romanesque palace chapel built by Alfonso II — the same king who walked to Santiago in 814 to inaugurate the route. The chapel houses the Holy Ark (Arca Santa) and the Cross of Victory. Pilgrims symbolically begin Alfonso's journey here. The Cámara Santa is itself a UNESCO World Heritage Site (1985, ref 312)."
+          "en": "Many pilgrims begin the Primitivo by visiting the Cámara Santa of Oviedo Cathedral, the 9th-century pre-Romanesque palace chapel built by Alfonso II — the same king who walked to Santiago in 814 to inaugurate the route. The chapel houses the Holy Ark (Arca Santa) and the Cross of Victory. Pilgrims symbolically begin Alfonso's journey here. The Cámara Santa is itself a UNESCO World Heritage Site (added in the 1998 extension to the 1985 'Monuments of Oviedo and the Kingdom of the Asturias' inscription, ref 312)."
         },
         "location": { "coordinates": [-5.842, 43.362], "stageIndex": 0 }
       },
@@ -131,7 +131,7 @@
           "es": "Muralla Romana de Lugo"
         },
         "description": {
-          "en": "Lugo is the only city in the world completely surrounded by intact Roman walls — over 2 km of 3rd-century AD masonry, 10-15 m high, with 71 towers. The walls are themselves a UNESCO World Heritage Site (2000). Pilgrims enter through one of the gates and walk into the Roman heart of Galicia. Climbing the walls (free, accessible 24h) is a Primitivo tradition."
+          "en": "Lugo is the only city in the world completely surrounded by intact Roman walls — over 2 km of 3rd-century AD masonry, 8-12 m high, with 71 towers. The walls are themselves a UNESCO World Heritage Site (2000). Pilgrims enter through one of the gates and walk into the Roman heart of Galicia. Climbing the walls (free, accessible 24h) is a Primitivo tradition."
         },
         "location": { "coordinates": [-7.557, 43.012], "stageIndex": 9 }
       },
@@ -167,12 +167,12 @@
         }
       },
       {
-        "title": "Camino Primitivo: Oviedo to Santiago",
+        "title": "Camino Primitivo, Oviedo to Santiago on Spain's Original Way (Village to Village Map Guide)",
         "author": "Matthew Harms, Anna Dintaman, David Landis",
         "isbn": "978-1947474260",
         "type": "guidebook",
         "relevance": {
-          "en": "Village to Village Guides — Primitivo-specific guidebook with stage-by-stage maps, accommodation lists, and historical context. Useful complement to Cicerone for pilgrims who want a dedicated Primitivo guide."
+          "en": "Village to Village Press, 2023. Companion Map Guide to the main Village to Village Primitivo guidebook. Stage-by-stage maps, GPS tracks, and elevation profiles. Useful complement to Cicerone for pilgrims who want a dedicated Primitivo-specific map set."
         }
       }
     ],
@@ -203,7 +203,7 @@
       }
     ],
     "historicalSignificance": {
-      "en": "The Camino Primitivo is the original Camino de Santiago. King Alfonso II of Asturias departed from Oviedo in 814 — within a year of the discovery of the apostle's tomb at Iria Flavia — to visit the new shrine, establishing the route that bears his footsteps. For nearly two centuries the Primitivo was the main pilgrim path; only after the Reconquista pushed the borders south in the late 11th century did the Camino Francés become the safer and more popular route. The Primitivo passes through Oviedo, Asturias's capital and the birthplace of Asturian pre-Romanesque architecture (Santa María del Naranco, San Miguel de Lillo, both UNESCO inscribed); over the Puerto del Palo at 1,146 m; through walled Roman Lugo (UNESCO inscribed for its complete Roman walls); and joins the Camino Francés at Melide for the final shared descent to Santiago. The route was inscribed as part of the 2015 UNESCO Northern Spain extension. In 2025 it was walked by 27,871 pilgrims (5.3% of all Compostelas), a record year reflecting steady growth as alternative-route popularity rises."
+      "en": "The Camino Primitivo is the original Camino de Santiago. King Alfonso II of Asturias departed from Oviedo in 814 — within a year of the discovery of the apostle's tomb at Iria Flavia — to visit the new shrine, establishing the route that bears his footsteps. For nearly two centuries the Primitivo was the main pilgrim path; only after the Reconquista pushed the borders south in the late 11th century did the Camino Francés become the safer and more popular route. The Primitivo passes through Oviedo, Asturias's capital and the birthplace of Asturian pre-Romanesque architecture (Santa María del Naranco, San Miguel de Lillo, both UNESCO inscribed); over the Puerto del Palo at 1,146 m; through walled Roman Lugo (UNESCO inscribed for its complete Roman walls); and joins the Camino Francés at Melide for the final shared descent to Santiago. The route was inscribed as part of the 2015 UNESCO Northern Spain extension. In 2025 it was walked by 27,871 pilgrims (5.2% of all Compostelas), a record year reflecting steady growth as alternative-route popularity rises."
     }
   },
 
@@ -244,14 +244,14 @@
         "name": { "en": "AVE high-speed: Madrid → Oviedo" },
         "nearStage": 0,
         "notes": {
-          "en": "The Madrid-Asturias high-speed line opened in November 2023, cutting Madrid-Oviedo to ~3 hours 10 minutes (previously ~5 hours via the old Pajares route). Renfe AVE/Avant services run multiple times daily from Madrid Chamartín."
+          "en": "The Madrid-Asturias high-speed line opened 30 November 2023, cutting Madrid-Oviedo travel time substantially from the old ~5-hour Pajares route. Current fastest services (since May 2024 with Class 106 trains) run in about 3 hours 6 minutes to 3 hours 15 minutes. Renfe AVE/Avant services run multiple times daily from Madrid Chamartín."
         }
       },
       {
         "type": "bus",
         "name": { "en": "ALSA: Santiago de Compostela ↔ Oviedo" },
         "notes": {
-          "en": "Direct ALSA buses run multiple times daily. Travel time varies 5-6.5 hours depending on the service (Premium/Comfort vs standard). The most common return option for pilgrims completing the Primitivo and flying home from Santiago."
+          "en": "Direct ALSA buses run multiple times daily. Travel time varies ~4h50m to 6.5 hours depending on the service (Premium/Comfort is fastest; standard services with more stops run longer). The most common return option for pilgrims completing the Primitivo and flying home from Santiago."
         }
       },
       {

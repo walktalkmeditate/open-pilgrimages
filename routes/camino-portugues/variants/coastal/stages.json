@@ -34,7 +34,7 @@
       "interior": {
         "theme": { "en": "The turn seaward" },
         "narrative": {
-          "en": "You leave the Sé do Porto the same way every Portuguese pilgrim does — down the hill toward the Douro, past the azulejo-clad São Bento station, under the trams. But at Foz you make a choice the Central pilgrims do not: you turn right along the Atlantic. The boardwalks begin almost immediately and run for hours. Waves on your left, dunes and pine on your right, and the rhythm of your feet on timber. By late afternoon you cross the Ave river into Vila do Conde, a fishing and shipbuilding town whose pilgrim tradition is as old as the Central route. The day is long but the ocean never leaves you."
+          "en": "You leave the Sé do Porto westward, descending through the old city toward the Douro and Foz, where the river meets the Atlantic. At Foz you make a choice the Central pilgrims do not: you turn right along the ocean. The boardwalks begin almost immediately and run for hours. Waves on your left, dunes and pine on your right, and the rhythm of your feet on timber. By late afternoon you cross the Ave river into Vila do Conde, a fishing and shipbuilding town whose pilgrim tradition is as old as the Central route. The day is long but the ocean never leaves you."
         },
         "commonExperiences": [
           { "en": "The first sight of the Atlantic at Foz — the moment the Camino turns maritime" },
@@ -116,7 +116,7 @@
       "difficulty": "moderate",
       "terrainTypes": ["coastal", "boardwalk", "forest", "paved", "cobblestone"],
       "terrainNotes": {
-        "en": "The landscape begins to shift. Past Marinhas and Castelo do Neiva the path climbs a low coastal ridge through pine forest — the first real climb on the route — before dropping back to the Atlantic at Chafé. The approach to Viana do Castelo crosses the long Eiffel bridge (Ponte Eiffel, 1878) over the Lima river. Viana is the largest town since Porto and the cultural heart of the Minho region."
+        "en": "The landscape begins to shift. Past Marinhas and Castelo do Neiva the path climbs a low coastal ridge through pine forest — the first real climb on the route — before dropping back to the Atlantic at Chafé. The approach to Viana do Castelo crosses the long Eiffel Bridge (Ponte Eiffel, 1878) over the Lima river — built by Eiffel & Cie, the firm Gustave Eiffel co-founded with his partner Théophile Seyrig in 1868. Viana is the largest town since Porto and the cultural heart of the Minho region."
       },
       "accommodationDensity": "high",
       "waterSources": 6,
@@ -124,7 +124,7 @@
       "interior": {
         "theme": { "en": "The coast climbs" },
         "narrative": {
-          "en": "Today the Atlantic shows you that it has moods. The first half of the stage is still the boardwalk you know — surf on the left, pines on the right — but after Castelo do Neiva the path turns inland and climbs into a coastal forest. For the first time since Porto you lose sight of the sea. The pine resin smells clean and sharp and the trail is soft underfoot. When you drop back down to the coast at Chafé the Atlantic seems to greet you with a colder wind. You walk into Viana do Castelo across the Eiffel bridge — built by a student of Gustave Eiffel in 1878, the same decade as the Garabit viaduct — and the city opens up around you. The Basilica of Santa Luzia watches from the hill above, visible from most of the old town. Viana is where most pilgrims take a rest day."
+          "en": "Today the Atlantic shows you that it has moods. The first half of the stage is still the boardwalk you know — surf on the left, pines on the right — but after Castelo do Neiva the path turns inland and climbs into a coastal forest. For the first time since Porto you lose sight of the sea. The pine resin smells clean and sharp and the trail is soft underfoot. When you drop back down to the coast at Chafé the Atlantic seems to greet you with a colder wind. You walk into Viana do Castelo across the Eiffel Bridge (Ponte Eiffel) — completed in 1878 by Gustave Eiffel's firm Eiffel & Cie — and the city opens up around you. The Basilica of Santa Luzia watches from the hill above, visible from most of the old town. Viana is where most pilgrims take a rest day."
         },
         "commonExperiences": [
           { "en": "The first climb that makes the legs notice the pack weight" },
@@ -169,11 +169,11 @@
       "interior": {
         "theme": { "en": "Toward the border" },
         "narrative": {
-          "en": "Today the Camino gives you its most generous day. You walk north from Viana with the sea close on your left for hours. At Afife the beach is so long you lose track of distance. The dolmens hidden in the pine forest are older than any cathedral. By afternoon the coast begins to bend westward and the first glimpse of Spain appears across the water — mountains rising out of the sea, the first real mountains you have seen since leaving Porto. That is the Serra da Groba, and beneath it is A Guarda, tomorrow's destination. You arrive in Caminha in the late afternoon. The town is small, walled, and utterly quiet in the evening. The ferry crossing is tomorrow morning. You stand on the riverbank and look across the Miño and for the first time the journey feels real, because the border is visible."
+          "en": "Today the Camino gives you its most generous day. You walk north from Viana with the sea close on your left for hours. At Afife the beach is so long you lose track of distance. Near Vila Praia de Âncora, the Dólmen da Barrosa sits hidden in the pine forest — a Neolithic megalithic monument older than any cathedral, declared a Portuguese National Monument in 1910. By afternoon the coast begins to bend westward and the first glimpse of Spain appears across the water — the cone of Monte de Santa Trega rising out of the sea. Beyond it inland is the Serra da Groba, and beneath the mountain is A Guarda, tomorrow's destination. You arrive in Caminha in the late afternoon. The town is small, walled, and utterly quiet in the evening. The river crossing is tomorrow morning. You stand on the riverbank and look across the Minho and for the first time the journey feels real, because the border is visible."
         },
         "commonExperiences": [
           { "en": "The beach at Afife — flat, endless, hypnotic" },
-          { "en": "Megalithic dolmens in the pine forest — older than the pilgrimage itself" },
+          { "en": "The Dólmen da Barrosa near Vila Praia de Âncora — Neolithic, older than the pilgrimage itself" },
           { "en": "First sight of Spain across the Miño, Monte de Santa Trega rising from A Guarda" },
           { "en": "The quiet of Caminha in the evening — a border town that empties after dark" },
           { "en": "Checking the ferry schedule three times before going to bed" }
@@ -206,7 +206,7 @@
       "difficulty": "easy",
       "terrainTypes": ["urban", "paved", "coastal"],
       "terrainNotes": {
-        "en": "Short transitional stage centred on the ferry crossing. Walk from the Caminha waterfront to the ferry dock (~500 m), cross the Miño by small passenger ferry (~20 minutes, €2-3), then walk from the A Guarda ferry dock into the town centre (~1.5 km). The ferry runs only when tide and weather permit — typically 09:00-19:00 in summer with reduced winter schedules. Pilgrims who miss the last ferry overnight in Caminha or detour ~20 km inland to cross by the Tui international bridge. This is the end of the Portuguese section in this dataset release."
+        "en": "Short transitional stage centred on the river crossing. Walk from the Caminha waterfront to the boat dock (~500 m), cross the Minho/Miño by small boat (~10 minutes, ~€6), then walk from the A Guarda dock into the town centre (~1.5 km). The original municipal ferry (Santa Rita de Cássia) has been suspended since 2020; two private operators — Xacobeo Transfer (~07:30-15:30) and Taxi Boat Peregrinos (~07:00-17:00 every 30 minutes) — now run the crossing in peak April-October season, with much reduced winter schedules (1-2 morning crossings). Pilgrims who miss the last boat overnight in Caminha or detour ~30 km inland to cross by the Tui international bridge. This is the end of the Portuguese section in this dataset release."
       },
       "accommodationDensity": "moderate",
       "waterSources": 3,
@@ -214,7 +214,7 @@
       "interior": {
         "theme": { "en": "Crossing" },
         "narrative": {
-          "en": "The ferry is small — room for maybe twenty pilgrims and a bicycle or two. The crossing takes twenty minutes. In the middle of the river you are neither in Portugal nor in Spain and the current pulls the boat slightly east toward the open Atlantic. Monte de Santa Trega rises from the Spanish bank, crowned with a Celtic castro whose circular stone foundations are two thousand years old. When you step off the ferry at A Guarda you step onto Galician soil for the first time — a land that speaks its own language, that feels closer to Santiago than anywhere you have been so far. For most pilgrims this is the shortest walking day of the whole Camino, and the most symbolically weighted. This dataset release ends here. The walk onward through Oia, Baiona, Vigo, and Redondela to merge with the Central route is planned for a future release; for now, A Guarda is the border post and the pause."
+          "en": "The boat is small — room for maybe ten pilgrims and a bicycle or two. The crossing takes about ten minutes. In the middle of the river you are neither in Portugal nor in Spain and the current pulls slightly east toward the open Atlantic. Monte de Santa Trega rises from the Spanish bank, crowned with a Celtic castro whose circular stone foundations are about two thousand years old. When you step off the boat at A Guarda you step onto Galician soil for the first time — a land that speaks its own language, that feels closer to Santiago than anywhere you have been so far. For most pilgrims this is the shortest walking day of the whole Camino, and the most symbolically weighted. This dataset release ends here. The walk onward through Oia, Baiona, Vigo, and Redondela to merge with the Central route is planned for a future release; for now, A Guarda is the border post and the pause."
         },
         "commonExperiences": [
           { "en": "Waiting at the Caminha ferry dock with other pilgrims, checking watches" },

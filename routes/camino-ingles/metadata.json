@@ -10,24 +10,24 @@
     "ja": "イギリス人の道"
   },
   "description": {
-    "en": "The shortest of the major Caminos to Santiago de Compostela, walked since the medieval period by English, Irish, Scandinavian, and Flemish pilgrims who arrived by sea at the Galician ports of Ferrol and A Coruña. The standard 6-stage route from Ferrol covers ~123 km along the Ría de Ferrol coast, through the medieval Gothic town of Betanzos, over the Bruma highlands, and down into Santiago. Modern revival began in earnest in the 2000s; in 2025 over 30,000 pilgrims walked it.",
+    "en": "The shortest of the major Caminos to Santiago de Compostela, walked since the medieval period by English, Irish, Scandinavian, and Flemish pilgrims who arrived by sea at the Galician ports of Ferrol and A Coruña. The standard route from Ferrol covers approximately 112 km along the Ría de Ferrol coast, through the medieval Gothic town of Betanzos, over the Bruma highlands, and down into Santiago. Modern revival began in earnest in the 2000s; in 2025 over 30,000 pilgrims walked it.",
     "gl": "O camiño máis curto a Santiago de Compostela polo norte, percorrido desde a Idade Media por peregrinos ingleses, irlandeses, escandinavos e flamengos que chegaban por mar aos portos galegos de Ferrol e A Coruña.",
     "es": "El más corto de los Caminos principales a Santiago de Compostela, recorrido desde la época medieval por peregrinos ingleses, irlandeses, escandinavos y flamencos que llegaban por mar a los puertos gallegos de Ferrol y La Coruña."
   },
 
   "overview": {
-    "distanceKm": 123,
-    "distanceNote": "Sum of the 6 Brierley stages from Ferrol. Other commonly cited figures: 110 km (Wikipedia), 116 km (Galicia tourism board). Variation reflects waymarking differences along the alternative paths between Ferrol and Hospital de Bruma.",
+    "distanceKm": 112,
+    "distanceNote": "Sum of 6-stage breakdown from Ferrol to Santiago, following Gronze.com's stage distances: Ferrol → Neda 12.4 km, Neda → Pontedeume 15.3 km, Pontedeume → Betanzos 19.7 km, Betanzos → Hospital de Bruma 24.0 km, Bruma → Sigüeiro 24.5 km, Sigüeiro → Santiago 15.7 km (total 111.6 km, rounded to 112). Matches OSM relation 1102966 distance tag (112 km). Cicerone's guidebook gives 116 km; Wikipedia cites 110 km — all within normal waymarking variance.",
     "estimatedDays": { "min": 5, "max": 7, "typical": 6 },
     "topology": "linear",
     "direction": "south",
     "startPoint": {
       "name": {
-        "en": "Curuxeiras, Ferrol (historic port of arrival)",
-        "es": "Curuxeiras, Ferrol",
-        "gl": "Curuxeiras, Ferrol"
+        "en": "Curuxeiras pier, Ferrol (historic port of arrival)",
+        "es": "Muelle de Curuxeiras, Ferrol",
+        "gl": "Peirao de Curuxeiras, Ferrol"
       },
-      "coordinates": [-8.233, 43.484, 26]
+      "coordinates": [-8.2436, 43.4777, 2]
     },
     "endPoint": {
       "name": {
@@ -61,7 +61,7 @@
       "gl": "Santiago Apóstolo"
     },
     "origin": {
-      "en": "The Camino Inglés takes its name from medieval pilgrims who arrived by sea at the Galician ports of Ferrol and A Coruña, primarily from England, Ireland, Scandinavia, and Flanders. The earliest documented pilgrim is the Icelandic Benedictine monk Nikulás Bergsson (Níkulás of Munkaþverá), whose 12th-century itinerary 'Leiðarvísir' (c. 1154) describes a maritime journey to Santiago via Iceland. The route's peak use occurred during the Hundred Years' War (1337-1453), when English pilgrims and traders accessed Galician ports under royal license. The two historic starting cities — A Coruña (closer, ~75 km) and Ferrol (further, ~123 km) — diverge but converge at Hospital de Bruma. Modern pilgrims overwhelmingly start from Ferrol because A Coruña falls below the 100 km Compostela minimum walking distance."
+      "en": "The Camino Inglés takes its name from medieval pilgrims who arrived by sea at the Galician ports of Ferrol and A Coruña, primarily from England, Ireland, Scandinavia, and Flanders. The route's peak use occurred during the Hundred Years' War (1337-1453), when English pilgrims and traders accessed Galician ports under royal license. The two historic starting cities — A Coruña (closer, ~75 km) and Ferrol (further, ~112 km) — diverge but converge at Hospital de Bruma. Modern pilgrims overwhelmingly start from Ferrol because A Coruña falls below the 100 km Compostela minimum walking distance."
     },
     "credentialSystem": {
       "name": {
@@ -70,7 +70,7 @@
         "gl": "Credencial do Peregrino"
       },
       "description": {
-        "en": "Standard Camino credential, stamped (sello) at churches, albergues, cafés, and tourism offices along the route. Required for the Compostela certificate. Must be stamped at least twice per day for the qualifying distance. Since December 2016, pilgrims starting in A Coruña can also obtain the Compostela by walking a minimum certified 25 km on another connected Camino in addition to the A Coruña route — addressing the historical inequity of the shorter A Coruña start."
+        "en": "Standard Camino credential, stamped (sello) at churches, albergues, cafés, and tourism offices along the route. Required for the Compostela certificate. Must be stamped at least twice per day for the qualifying distance. Since December 2016, pilgrims starting in A Coruña may qualify for the Compostela via the Celtic Camino program: pilgrims whose country of origin hosts a certified Jacobean pilgrimage route can walk a minimum 25 km on that home-country route before continuing from A Coruña. The program was created to address the historical inequity of the shorter A Coruña arrival point."
       },
       "completionCertificate": {
         "en": "Compostela",
@@ -78,7 +78,7 @@
       },
       "minimumDistanceKm": 100,
       "minimumDistanceNote": {
-        "en": "From Ferrol it is ~123 km to Santiago — comfortably above the 100 km Compostela minimum. From A Coruña it is only ~75 km, which historically did not qualify alone; the 2016 rule change allows A Coruña pilgrims to qualify by combining with at least 25 km on another Camino."
+        "en": "From Ferrol it is ~112 km to Santiago — comfortably above the 100 km Compostela minimum. From A Coruña it is only ~75 km, which does not qualify on its own; the December 2016 Celtic Camino rule change allows pilgrims to qualify by walking at least 25 km on a certified Jacobean pilgrimage route in their country of origin before continuing from A Coruña."
       },
       "obtainableAt": [
         {
@@ -93,7 +93,7 @@
             "en": "Tourism office, Curuxeiras pier, Ferrol",
             "gl": "Oficina de turismo, Curuxeiras"
           },
-          "coordinates": [-8.233, 43.484]
+          "coordinates": [-8.2436, 43.4777]
         },
         {
           "name": { "en": "Confraternity of Saint James, UK" }
@@ -109,7 +109,7 @@
         "description": {
           "en": "Unlike the inland Caminos, the Camino Inglés begins at the sea. Medieval pilgrims arrived by ship at the Curuxeiras pier in Ferrol or at the port of A Coruña. The act of stepping off a boat onto the muelle and beginning the walk replaces the more common Camino opening of leaving a inland border town. Many modern pilgrims still touch the waters of the Ría de Ferrol or take a photograph at Curuxeiras before starting south."
         },
-        "location": { "coordinates": [-8.233, 43.484], "stageIndex": 0 }
+        "location": { "coordinates": [-8.2436, 43.4777], "stageIndex": 0 }
       },
       {
         "name": { "en": "Hospital de Bruma — confluence point", "gl": "Hospital de Bruma" },
@@ -124,7 +124,7 @@
           "gl": "Igrexa de Santiago de Betanzos"
         },
         "description": {
-          "en": "15th-century Gothic church in Betanzos, one of the 'Gothic trio' of Betanzos churches alongside Santa María del Azogue and San Francisco. Begun by Fernán Pérez de Andrade 'O Bo' (d. 1397) and completed by his descendants. The basilica plan with three naves features a Santiago Matamoros statue. A traditional credential stamp point."
+          "en": "Early 15th-century Gothic church in Betanzos built by Fernán Pérez de Andrade 'o Mozo' (the Younger — a descendant of the better-known Fernán Pérez de Andrade 'O Bo' who commissioned the nearby San Francisco in 1387). One of the 'Gothic trio' of Betanzos churches alongside Santa María del Azogue and San Francisco. The basilica plan with three naves features a Santiago Matamoros statue above the main portal. A traditional credential stamp point."
         },
         "location": { "coordinates": [-8.211, 43.279], "stageIndex": 3 }
       },
@@ -152,11 +152,11 @@
     "associatedLiterature": [
       {
         "title": "The Camino Inglés and Ruta do Mar",
-        "author": "Dave Whitson",
-        "isbn": "978-1786310323",
+        "author": "Dave Whitson, Laura Perazzoli",
+        "isbn": "978-1786310064",
         "type": "guidebook",
         "relevance": {
-          "en": "Cicerone Press dedicated guide. Covers the Camino Inglés from both Ferrol and A Coruña starts, plus the Ruta do Mar maritime alternative. The most detailed English-language guidebook for this route."
+          "en": "Cicerone Press dedicated guide (published 2019). Covers the Camino Inglés from both Ferrol and A Coruña starts, plus the Ruta do Mar maritime alternative. The most detailed English-language guidebook for this route."
         }
       },
       {
@@ -164,15 +164,7 @@
         "author": "John Brierley",
         "type": "guidebook",
         "relevance": {
-          "en": "Camino Guides / Findhorn Press. Brierley's signature format applied to the Camino Inglés: 1:200,000 maps, stage-by-stage spiritual reflections, practical logistics. Defines the standard 6-stage breakdown from Ferrol used by most English-speaking pilgrims."
-        }
-      },
-      {
-        "title": "Leiðarvísir og borgarskipan",
-        "author": "Nikulás Bergsson",
-        "type": "nonfiction",
-        "relevance": {
-          "en": "12th-century Icelandic pilgrim itinerary (c. 1154) by Abbot Nikulás of Munkaþverá. The earliest documented Scandinavian pilgrimage account to Santiago, describing a maritime arrival. A primary source for the Camino Inglés's medieval origins; available in modern Old Norse editions and partial English translations."
+          "en": "Kaminn Media (publisher of the Brierley Camino Guides since 2017). Brierley's signature format applied to the Camino Inglés: 1:200,000 maps, stage-by-stage spiritual reflections, practical logistics. Defines a 6-stage breakdown from Ferrol used by many English-speaking pilgrims."
         }
       }
     ],
@@ -190,12 +182,12 @@
         "date": { "month": 8, "day": 18 },
         "recurrence": "annual",
         "description": {
-          "en": "Riverboat festival held in late August in Betanzos. Pilgrims passing through during this period encounter a town in full festive mode, with decorated boats sailing the Mendo river. Date varies year to year."
+          "en": "Riverboat festival held in Betanzos on two fixed dates each August: the 18th and the 25th. Pilgrims passing through during these days encounter a town in full festive mode, with decorated boats sailing along the Mandeo river to the nearby Os Caneiros meadow. The festival is part of the broader Betanzos August celebrations."
         }
       }
     ],
     "historicalSignificance": {
-      "en": "The Camino Inglés is the most distinctively maritime of the major Caminos. Unlike the Francés or Norte, which begin at inland border crossings, the Inglés begins where pilgrims stepped off boats — Ferrol's Curuxeiras pier and A Coruña's old harbor. From the 12th century onwards, English, Irish, Scandinavian, and Flemish pilgrims used the route as a 'path of convenience' that avoided the long overland journey through France. Use peaked during the Hundred Years' War (1337-1453) when English kings issued royal licenses for Santiago pilgrimage despite the conflict with France. The route was largely forgotten after the Reformation reduced English Catholic pilgrimage in the 16th-17th centuries, then revived in the late 20th century. In 2025, 30,203 pilgrims walked it (5.7% of all Compostelas) — small relative to Frances (45.6%) but the fastest-growing percentage among the major Caminos in recent years (+58% UK starts year-on-year, +33% Irish starts). The Camino Inglés is NOT UNESCO inscribed, unlike the Francés (1993), Norte, Primitivo, and Lebaniego (all added in the 2015 Northern Spain extension)."
+      "en": "The Camino Inglés is the most distinctively maritime of the major Caminos. Unlike the Francés or Norte, which begin at inland border crossings, the Inglés begins where pilgrims stepped off boats — Ferrol's Curuxeiras pier and A Coruña's old harbor. From the 12th century onwards, English, Irish, Scandinavian, and Flemish pilgrims used the route as a 'path of convenience' that avoided the long overland journey through France. Use peaked during the Hundred Years' War (1337-1453) when English kings issued royal licenses for Santiago pilgrimage despite the conflict with France. The route was largely forgotten after the Reformation reduced English Catholic pilgrimage in the 16th-17th centuries, then revived in the late 20th century. In 2025, 30,204 pilgrims walked it (5.7% of all Compostelas) — small relative to Frances (45.6%) but among the fastest-growing major Caminos in percentage terms. The Camino Inglés is NOT UNESCO inscribed, unlike the Francés (1993), Norte, Primitivo, and Lebaniego (all added in the 2015 Northern Spain extension)."
     }
   },
 

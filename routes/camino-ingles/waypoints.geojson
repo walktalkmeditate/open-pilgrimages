@@ -3,6 +3,28 @@
   "features": [
     {
       "type": "Feature",
+      "id": "wp-osm-medical-node3773155498",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.2437994,
+          43.478517
+        ]
+      },
+      "properties": {
+        "routeId": "camino-ingles",
+        "name": "Farmacia Muelle",
+        "type": "medical",
+        "subtype": "pharmacy",
+        "stageIndex": 0,
+        "kmFromStart": 0,
+        "icon": "pharmacy",
+        "source": "osm",
+        "osmId": "node/3773155498"
+      }
+    },
+    {
+      "type": "Feature",
       "id": "wp-osm-transport-node3693679101",
       "geometry": {
         "type": "Point",
@@ -21,28 +43,6 @@
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/3693679101"
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "wp-osm-medical-node3773155498",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -8.2437994,
-          43.478517
-        ]
-      },
-      "properties": {
-        "routeId": "camino-ingles",
-        "name": "Farmacia Muelle",
-        "type": "medical",
-        "subtype": "pharmacy",
-        "stageIndex": 0,
-        "kmFromStart": 0.1,
-        "icon": "pharmacy",
-        "source": "osm",
-        "osmId": "node/3773155498"
       }
     },
     {
@@ -151,7 +151,7 @@
         "type": "food",
         "subtype": "restaurant",
         "stageIndex": 0,
-        "kmFromStart": 0.3,
+        "kmFromStart": 0.2,
         "icon": "restaurant",
         "source": "osm",
         "osmId": "node/4707227931"
@@ -200,7 +200,7 @@
         "type": "water_source",
         "subtype": "fountain",
         "stageIndex": 0,
-        "kmFromStart": 0.5,
+        "kmFromStart": 0.4,
         "icon": "fountain",
         "source": "osm",
         "osmId": "node/409726943"
@@ -222,7 +222,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 0,
-        "kmFromStart": 0.5,
+        "kmFromStart": 0.4,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/3693658662"
@@ -244,7 +244,7 @@
         "type": "food",
         "subtype": "restaurant",
         "stageIndex": 0,
-        "kmFromStart": 0.5,
+        "kmFromStart": 0.4,
         "icon": "restaurant",
         "source": "osm",
         "osmId": "node/5680228738",
@@ -267,188 +267,11 @@
         "type": "medical",
         "subtype": "pharmacy",
         "stageIndex": 0,
-        "kmFromStart": 0.6,
+        "kmFromStart": 0.5,
         "icon": "pharmacy",
         "source": "osm",
         "osmId": "node/4101920370",
         "hours": "Mo-Fr 09:00-14:30,16:30-21:00; Sa 10:00-14:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "wp-osm-medical-node4101924187",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -8.2375712,
-          43.4820491
-        ]
-      },
-      "properties": {
-        "routeId": "camino-ingles",
-        "name": "Farmacia Almodóvar",
-        "type": "medical",
-        "subtype": "pharmacy",
-        "stageIndex": 0,
-        "kmFromStart": 0.6,
-        "icon": "pharmacy",
-        "source": "osm",
-        "osmId": "node/4101924187",
-        "hours": "Mo-Fr 09:30-14:00,16:30-20:30; Sa 10:00-14:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "wp-osm-supply-node4936332649",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -8.2389403,
-          43.4828011
-        ]
-      },
-      "properties": {
-        "routeId": "camino-ingles",
-        "name": "Unnamed",
-        "type": "supply",
-        "subtype": "vending_machine",
-        "stageIndex": 0,
-        "kmFromStart": 0.6,
-        "icon": "vending_machine",
-        "source": "osm",
-        "osmId": "node/4936332649"
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "wp-osm-food-node4947856481",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -8.2400884,
-          43.4826737
-        ]
-      },
-      "properties": {
-        "routeId": "camino-ingles",
-        "name": "Rolen",
-        "type": "food",
-        "subtype": "cafe",
-        "stageIndex": 0,
-        "kmFromStart": 0.6,
-        "icon": "cafe",
-        "source": "osm",
-        "osmId": "node/4947856481"
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "wp-osm-food-node6061202237",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -8.240775,
-          43.484284
-        ]
-      },
-      "properties": {
-        "routeId": "camino-ingles",
-        "name": "A Cándida",
-        "type": "food",
-        "subtype": "restaurant",
-        "stageIndex": 0,
-        "kmFromStart": 0.6,
-        "icon": "restaurant",
-        "source": "osm",
-        "osmId": "node/6061202237"
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "wp-osm-food-node7006351889",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -8.2395269,
-          43.4815006
-        ]
-      },
-      "properties": {
-        "routeId": "camino-ingles",
-        "name": "O Xantar",
-        "type": "food",
-        "subtype": "restaurant",
-        "stageIndex": 0,
-        "kmFromStart": 0.6,
-        "icon": "restaurant",
-        "source": "osm",
-        "osmId": "node/7006351889"
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "wp-osm-food-node11725480992",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -8.2376717,
-          43.4811262
-        ]
-      },
-      "properties": {
-        "routeId": "camino-ingles",
-        "name": "Cafetín Amor",
-        "type": "food",
-        "subtype": "cafe",
-        "stageIndex": 0,
-        "kmFromStart": 0.6,
-        "icon": "cafe",
-        "source": "osm",
-        "osmId": "node/11725480992"
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "wp-osm-transport-node3693675800",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -8.2351375,
-          43.4818056
-        ]
-      },
-      "properties": {
-        "routeId": "camino-ingles",
-        "name": "Mercado Magdalena",
-        "type": "transport",
-        "subtype": "bus_stop",
-        "stageIndex": 0,
-        "kmFromStart": 0.7,
-        "icon": "bus_stop",
-        "source": "osm",
-        "osmId": "node/3693675800"
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "wp-osm-medical-node4101920327",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -8.2386376,
-          43.486498
-        ]
-      },
-      "properties": {
-        "routeId": "camino-ingles",
-        "name": "Ana Fraga Usero",
-        "type": "medical",
-        "subtype": "pharmacy",
-        "stageIndex": 0,
-        "kmFromStart": 0.7,
-        "icon": "pharmacy",
-        "source": "osm",
-        "osmId": "node/4101920327"
       }
     },
     {
@@ -467,7 +290,7 @@
         "type": "medical",
         "subtype": "pharmacy",
         "stageIndex": 0,
-        "kmFromStart": 0.7,
+        "kmFromStart": 0.5,
         "icon": "pharmacy",
         "source": "osm",
         "osmId": "node/4101923362",
@@ -476,25 +299,25 @@
     },
     {
       "type": "Feature",
-      "id": "wp-osm-medical-node4101925522",
+      "id": "wp-osm-medical-node4101924187",
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -8.2356735,
-          43.4828412
+          -8.2375712,
+          43.4820491
         ]
       },
       "properties": {
         "routeId": "camino-ingles",
-        "name": "María del Carmen Martínez Villar",
+        "name": "Farmacia Almodóvar",
         "type": "medical",
         "subtype": "pharmacy",
         "stageIndex": 0,
-        "kmFromStart": 0.7,
+        "kmFromStart": 0.5,
         "icon": "pharmacy",
         "source": "osm",
-        "osmId": "node/4101925522",
-        "hours": "Mo-Su 09:00-22:00"
+        "osmId": "node/4101924187",
+        "hours": "Mo-Fr 09:30-14:00,16:30-20:30; Sa 10:00-14:00"
       }
     },
     {
@@ -516,7 +339,7 @@
         "type": "food",
         "subtype": "cafe",
         "stageIndex": 0,
-        "kmFromStart": 0.7,
+        "kmFromStart": 0.5,
         "icon": "cafe",
         "source": "osm",
         "osmId": "node/4484388296"
@@ -524,46 +347,46 @@
     },
     {
       "type": "Feature",
-      "id": "wp-osm-medical-node4937759387",
+      "id": "wp-osm-supply-node4936332649",
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -8.2356835,
-          43.483691
+          -8.2389403,
+          43.4828011
         ]
       },
       "properties": {
         "routeId": "camino-ingles",
-        "name": "Quirón",
-        "type": "medical",
-        "subtype": "clinic",
+        "name": "Unnamed",
+        "type": "supply",
+        "subtype": "vending_machine",
         "stageIndex": 0,
-        "kmFromStart": 0.7,
-        "icon": "clinic",
+        "kmFromStart": 0.5,
+        "icon": "vending_machine",
         "source": "osm",
-        "osmId": "node/4937759387"
+        "osmId": "node/4936332649"
       }
     },
     {
       "type": "Feature",
-      "id": "wp-osm-food-node4950084829",
+      "id": "wp-osm-food-node4947856481",
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -8.2367089,
-          43.4849141
+          -8.2400884,
+          43.4826737
         ]
       },
       "properties": {
         "routeId": "camino-ingles",
-        "name": "Bitácora",
+        "name": "Rolen",
         "type": "food",
         "subtype": "cafe",
         "stageIndex": 0,
-        "kmFromStart": 0.7,
+        "kmFromStart": 0.5,
         "icon": "cafe",
         "source": "osm",
-        "osmId": "node/4950084829"
+        "osmId": "node/4947856481"
       }
     },
     {
@@ -585,10 +408,32 @@
         "type": "food",
         "subtype": "restaurant",
         "stageIndex": 0,
-        "kmFromStart": 0.7,
+        "kmFromStart": 0.5,
         "icon": "restaurant",
         "source": "osm",
         "osmId": "node/5035810922"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-food-node6061202237",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.240775,
+          43.484284
+        ]
+      },
+      "properties": {
+        "routeId": "camino-ingles",
+        "name": "A Cándida",
+        "type": "food",
+        "subtype": "restaurant",
+        "stageIndex": 0,
+        "kmFromStart": 0.5,
+        "icon": "restaurant",
+        "source": "osm",
+        "osmId": "node/6061202237"
       }
     },
     {
@@ -607,11 +452,408 @@
         "type": "food",
         "subtype": "cafe",
         "stageIndex": 0,
-        "kmFromStart": 0.7,
+        "kmFromStart": 0.5,
         "icon": "cafe",
         "source": "osm",
         "osmId": "node/6983282768",
         "hours": "Mo-Su 07:00-00:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-food-node7006351889",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.2395269,
+          43.4815006
+        ]
+      },
+      "properties": {
+        "routeId": "camino-ingles",
+        "name": "O Xantar",
+        "type": "food",
+        "subtype": "restaurant",
+        "stageIndex": 0,
+        "kmFromStart": 0.5,
+        "icon": "restaurant",
+        "source": "osm",
+        "osmId": "node/7006351889"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-food-node11725480992",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.2376717,
+          43.4811262
+        ]
+      },
+      "properties": {
+        "routeId": "camino-ingles",
+        "name": "Cafetín Amor",
+        "type": "food",
+        "subtype": "cafe",
+        "stageIndex": 0,
+        "kmFromStart": 0.5,
+        "icon": "cafe",
+        "source": "osm",
+        "osmId": "node/11725480992"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-food-node405435666",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.2341172,
+          43.4843677
+        ]
+      },
+      "properties": {
+        "routeId": "camino-ingles",
+        "name": "O Pincho",
+        "type": "food",
+        "subtype": "restaurant",
+        "stageIndex": 0,
+        "kmFromStart": 0.6,
+        "icon": "restaurant",
+        "source": "osm",
+        "osmId": "node/405435666"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-medical-node429418244",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.2327958,
+          43.4833545
+        ]
+      },
+      "properties": {
+        "routeId": "camino-ingles",
+        "name": "Carlos Rodríguez-Tenreiro Romero-Mella",
+        "type": "medical",
+        "subtype": "pharmacy",
+        "stageIndex": 0,
+        "kmFromStart": 0.6,
+        "icon": "pharmacy",
+        "source": "osm",
+        "osmId": "node/429418244"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-medical-node429418245",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.2342377,
+          43.485452
+        ]
+      },
+      "properties": {
+        "routeId": "camino-ingles",
+        "name": "Raimundo Martínez Martínez",
+        "type": "medical",
+        "subtype": "pharmacy",
+        "stageIndex": 0,
+        "kmFromStart": 0.6,
+        "icon": "pharmacy",
+        "source": "osm",
+        "osmId": "node/429418245"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-medical-node429418247",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.2341279,
+          43.4836445
+        ]
+      },
+      "properties": {
+        "routeId": "camino-ingles",
+        "name": "Farmacia Punín",
+        "type": "medical",
+        "subtype": "pharmacy",
+        "stageIndex": 0,
+        "kmFromStart": 0.6,
+        "icon": "pharmacy",
+        "source": "osm",
+        "osmId": "node/429418247"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-water_source-node3010276674",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.2326729,
+          43.4847275
+        ]
+      },
+      "properties": {
+        "routeId": "camino-ingles",
+        "name": "Unnamed",
+        "type": "water_source",
+        "subtype": "fountain",
+        "stageIndex": 0,
+        "kmFromStart": 0.6,
+        "icon": "fountain",
+        "source": "osm",
+        "osmId": "node/3010276674"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-transport-node3693675800",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.2351375,
+          43.4818056
+        ]
+      },
+      "properties": {
+        "routeId": "camino-ingles",
+        "name": "Mercado Magdalena",
+        "type": "transport",
+        "subtype": "bus_stop",
+        "stageIndex": 0,
+        "kmFromStart": 0.6,
+        "icon": "bus_stop",
+        "source": "osm",
+        "osmId": "node/3693675800"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-medical-node4101920327",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.2386376,
+          43.486498
+        ]
+      },
+      "properties": {
+        "routeId": "camino-ingles",
+        "name": "Ana Fraga Usero",
+        "type": "medical",
+        "subtype": "pharmacy",
+        "stageIndex": 0,
+        "kmFromStart": 0.6,
+        "icon": "pharmacy",
+        "source": "osm",
+        "osmId": "node/4101920327"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-medical-node4101925522",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.2356735,
+          43.4828412
+        ]
+      },
+      "properties": {
+        "routeId": "camino-ingles",
+        "name": "María del Carmen Martínez Villar",
+        "type": "medical",
+        "subtype": "pharmacy",
+        "stageIndex": 0,
+        "kmFromStart": 0.6,
+        "icon": "pharmacy",
+        "source": "osm",
+        "osmId": "node/4101925522",
+        "hours": "Mo-Su 09:00-22:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-medical-node4937759387",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.2356835,
+          43.483691
+        ]
+      },
+      "properties": {
+        "routeId": "camino-ingles",
+        "name": "Quirón",
+        "type": "medical",
+        "subtype": "clinic",
+        "stageIndex": 0,
+        "kmFromStart": 0.6,
+        "icon": "clinic",
+        "source": "osm",
+        "osmId": "node/4937759387"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-food-node4950084829",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.2367089,
+          43.4849141
+        ]
+      },
+      "properties": {
+        "routeId": "camino-ingles",
+        "name": "Bitácora",
+        "type": "food",
+        "subtype": "cafe",
+        "stageIndex": 0,
+        "kmFromStart": 0.6,
+        "icon": "cafe",
+        "source": "osm",
+        "osmId": "node/4950084829"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-medical-node5536406351",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.2351324,
+          43.4866656
+        ]
+      },
+      "properties": {
+        "routeId": "camino-ingles",
+        "name": "Centro Médico Adeslas",
+        "type": "medical",
+        "subtype": "clinic",
+        "stageIndex": 0,
+        "kmFromStart": 0.6,
+        "icon": "clinic",
+        "source": "osm",
+        "osmId": "node/5536406351"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-transport-node6321876733",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.2306062,
+          43.4873592
+        ]
+      },
+      "properties": {
+        "routeId": "camino-ingles",
+        "name": "Estación de Ferrocarril",
+        "type": "transport",
+        "subtype": "bus_stop",
+        "stageIndex": 0,
+        "kmFromStart": 0.6,
+        "icon": "bus_stop",
+        "source": "osm",
+        "osmId": "node/6321876733"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-transport-node6321876734",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.2316141,
+          43.4878641
+        ]
+      },
+      "properties": {
+        "routeId": "camino-ingles",
+        "name": "Estación de Ferrocarril",
+        "type": "transport",
+        "subtype": "bus_stop",
+        "stageIndex": 0,
+        "kmFromStart": 0.6,
+        "icon": "bus_stop",
+        "source": "osm",
+        "osmId": "node/6321876734"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-medical-node6328893645",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.2331964,
+          43.4838908
+        ]
+      },
+      "properties": {
+        "routeId": "camino-ingles",
+        "name": "Francisco J. Fernández García",
+        "type": "medical",
+        "subtype": "pharmacy",
+        "stageIndex": 0,
+        "kmFromStart": 0.6,
+        "icon": "pharmacy",
+        "source": "osm",
+        "osmId": "node/6328893645"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-accommodation-node6355690410",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.2344982,
+          43.4865166
+        ]
+      },
+      "properties": {
+        "routeId": "camino-ingles",
+        "name": "Hotel Almendra",
+        "type": "accommodation",
+        "subtype": "hotel",
+        "stageIndex": 0,
+        "kmFromStart": 0.6,
+        "icon": "hotel",
+        "source": "osm",
+        "osmId": "node/6355690410"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-food-node6813099374",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.2357272,
+          43.4875326
+        ]
+      },
+      "properties": {
+        "routeId": "camino-ingles",
+        "name": "Café-Bar Seijo",
+        "type": "food",
+        "subtype": "cafe",
+        "stageIndex": 0,
+        "kmFromStart": 0.6,
+        "icon": "cafe",
+        "source": "osm",
+        "osmId": "node/6813099374"
       }
     },
     {
@@ -630,7 +872,7 @@
         "type": "supply",
         "subtype": "convenience_store",
         "stageIndex": 0,
-        "kmFromStart": 0.7,
+        "kmFromStart": 0.6,
         "icon": "convenience_store",
         "source": "osm",
         "osmId": "node/6983282770",
@@ -653,298 +895,11 @@
         "type": "food",
         "subtype": "cafe",
         "stageIndex": 0,
-        "kmFromStart": 0.7,
+        "kmFromStart": 0.6,
         "icon": "cafe",
         "source": "osm",
         "osmId": "node/7169078258",
         "hours": "Mo-Sa 08:00-21:00; Su 08:30-14:30,18:00-21:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "wp-osm-medical-node11084287982",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -8.2353132,
-          43.4844061
-        ]
-      },
-      "properties": {
-        "routeId": "camino-ingles",
-        "name": "Policlínica Sol",
-        "type": "medical",
-        "subtype": "clinic",
-        "stageIndex": 0,
-        "kmFromStart": 0.7,
-        "icon": "clinic",
-        "source": "osm",
-        "osmId": "node/11084287982",
-        "hours": "Mo-Fr 08:30-13:30,16:30-21:00; Sa,Su,PH off"
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "wp-osm-transport-node11918403383",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -8.2345255,
-          43.4822962
-        ]
-      },
-      "properties": {
-        "routeId": "camino-ingles",
-        "name": "Unnamed",
-        "type": "transport",
-        "subtype": "bus_stop",
-        "stageIndex": 0,
-        "kmFromStart": 0.7,
-        "icon": "bus_stop",
-        "source": "osm",
-        "osmId": "node/11918403383"
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "wp-osm-food-node405435666",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -8.2341172,
-          43.4843677
-        ]
-      },
-      "properties": {
-        "routeId": "camino-ingles",
-        "name": "O Pincho",
-        "type": "food",
-        "subtype": "restaurant",
-        "stageIndex": 0,
-        "kmFromStart": 0.8,
-        "icon": "restaurant",
-        "source": "osm",
-        "osmId": "node/405435666"
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "wp-osm-medical-node429418244",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -8.2327958,
-          43.4833545
-        ]
-      },
-      "properties": {
-        "routeId": "camino-ingles",
-        "name": "Carlos Rodríguez-Tenreiro Romero-Mella",
-        "type": "medical",
-        "subtype": "pharmacy",
-        "stageIndex": 0,
-        "kmFromStart": 0.8,
-        "icon": "pharmacy",
-        "source": "osm",
-        "osmId": "node/429418244"
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "wp-osm-medical-node429418245",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -8.2342377,
-          43.485452
-        ]
-      },
-      "properties": {
-        "routeId": "camino-ingles",
-        "name": "Raimundo Martínez Martínez",
-        "type": "medical",
-        "subtype": "pharmacy",
-        "stageIndex": 0,
-        "kmFromStart": 0.8,
-        "icon": "pharmacy",
-        "source": "osm",
-        "osmId": "node/429418245"
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "wp-osm-medical-node429418247",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -8.2341279,
-          43.4836445
-        ]
-      },
-      "properties": {
-        "routeId": "camino-ingles",
-        "name": "Farmacia Punín",
-        "type": "medical",
-        "subtype": "pharmacy",
-        "stageIndex": 0,
-        "kmFromStart": 0.8,
-        "icon": "pharmacy",
-        "source": "osm",
-        "osmId": "node/429418247"
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "wp-osm-water_source-node3010276674",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -8.2326729,
-          43.4847275
-        ]
-      },
-      "properties": {
-        "routeId": "camino-ingles",
-        "name": "Unnamed",
-        "type": "water_source",
-        "subtype": "fountain",
-        "stageIndex": 0,
-        "kmFromStart": 0.8,
-        "icon": "fountain",
-        "source": "osm",
-        "osmId": "node/3010276674"
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "wp-osm-medical-node5536406351",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -8.2351324,
-          43.4866656
-        ]
-      },
-      "properties": {
-        "routeId": "camino-ingles",
-        "name": "Centro Médico Adeslas",
-        "type": "medical",
-        "subtype": "clinic",
-        "stageIndex": 0,
-        "kmFromStart": 0.8,
-        "icon": "clinic",
-        "source": "osm",
-        "osmId": "node/5536406351"
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "wp-osm-transport-node6321876733",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -8.2306062,
-          43.4873592
-        ]
-      },
-      "properties": {
-        "routeId": "camino-ingles",
-        "name": "Estación de Ferrocarril",
-        "type": "transport",
-        "subtype": "bus_stop",
-        "stageIndex": 0,
-        "kmFromStart": 0.8,
-        "icon": "bus_stop",
-        "source": "osm",
-        "osmId": "node/6321876733"
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "wp-osm-transport-node6321876734",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -8.2316141,
-          43.4878641
-        ]
-      },
-      "properties": {
-        "routeId": "camino-ingles",
-        "name": "Estación de Ferrocarril",
-        "type": "transport",
-        "subtype": "bus_stop",
-        "stageIndex": 0,
-        "kmFromStart": 0.8,
-        "icon": "bus_stop",
-        "source": "osm",
-        "osmId": "node/6321876734"
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "wp-osm-medical-node6328893645",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -8.2331964,
-          43.4838908
-        ]
-      },
-      "properties": {
-        "routeId": "camino-ingles",
-        "name": "Francisco J. Fernández García",
-        "type": "medical",
-        "subtype": "pharmacy",
-        "stageIndex": 0,
-        "kmFromStart": 0.8,
-        "icon": "pharmacy",
-        "source": "osm",
-        "osmId": "node/6328893645"
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "wp-osm-accommodation-node6355690410",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -8.2344982,
-          43.4865166
-        ]
-      },
-      "properties": {
-        "routeId": "camino-ingles",
-        "name": "Hotel Almendra",
-        "type": "accommodation",
-        "subtype": "hotel",
-        "stageIndex": 0,
-        "kmFromStart": 0.8,
-        "icon": "hotel",
-        "source": "osm",
-        "osmId": "node/6355690410"
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "wp-osm-food-node6813099374",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -8.2357272,
-          43.4875326
-        ]
-      },
-      "properties": {
-        "routeId": "camino-ingles",
-        "name": "Café-Bar Seijo",
-        "type": "food",
-        "subtype": "cafe",
-        "stageIndex": 0,
-        "kmFromStart": 0.8,
-        "icon": "cafe",
-        "source": "osm",
-        "osmId": "node/6813099374"
       }
     },
     {
@@ -963,7 +918,7 @@
         "type": "food",
         "subtype": "cafe",
         "stageIndex": 0,
-        "kmFromStart": 0.8,
+        "kmFromStart": 0.6,
         "icon": "cafe",
         "source": "osm",
         "osmId": "node/7181934050"
@@ -985,10 +940,33 @@
         "type": "food",
         "subtype": "cafe",
         "stageIndex": 0,
-        "kmFromStart": 0.8,
+        "kmFromStart": 0.6,
         "icon": "cafe",
         "source": "osm",
         "osmId": "node/7960197888"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-medical-node11084287982",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.2353132,
+          43.4844061
+        ]
+      },
+      "properties": {
+        "routeId": "camino-ingles",
+        "name": "Policlínica Sol",
+        "type": "medical",
+        "subtype": "clinic",
+        "stageIndex": 0,
+        "kmFromStart": 0.6,
+        "icon": "clinic",
+        "source": "osm",
+        "osmId": "node/11084287982",
+        "hours": "Mo-Fr 08:30-13:30,16:30-21:00; Sa,Su,PH off"
       }
     },
     {
@@ -1007,11 +985,33 @@
         "type": "food",
         "subtype": "restaurant",
         "stageIndex": 0,
-        "kmFromStart": 0.8,
+        "kmFromStart": 0.6,
         "icon": "restaurant",
         "source": "osm",
         "osmId": "node/11700266099",
         "hours": "Mo-Sa 11:00-17:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-transport-node11918403383",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.2345255,
+          43.4822962
+        ]
+      },
+      "properties": {
+        "routeId": "camino-ingles",
+        "name": "Unnamed",
+        "type": "transport",
+        "subtype": "bus_stop",
+        "stageIndex": 0,
+        "kmFromStart": 0.6,
+        "icon": "bus_stop",
+        "source": "osm",
+        "osmId": "node/11918403383"
       }
     },
     {
@@ -1030,7 +1030,7 @@
         "type": "water_source",
         "subtype": "fountain",
         "stageIndex": 0,
-        "kmFromStart": 0.8,
+        "kmFromStart": 0.6,
         "icon": "fountain",
         "source": "osm",
         "osmId": "node/12153463632"
@@ -1052,7 +1052,7 @@
         "type": "food",
         "subtype": "restaurant",
         "stageIndex": 0,
-        "kmFromStart": 0.9,
+        "kmFromStart": 0.7,
         "icon": "restaurant",
         "source": "osm",
         "osmId": "node/405429564",
@@ -1079,7 +1079,7 @@
         "type": "medical",
         "subtype": "pharmacy",
         "stageIndex": 0,
-        "kmFromStart": 0.9,
+        "kmFromStart": 0.7,
         "icon": "pharmacy",
         "source": "osm",
         "osmId": "node/5536406369"
@@ -1101,7 +1101,7 @@
         "type": "medical",
         "subtype": "pharmacy",
         "stageIndex": 0,
-        "kmFromStart": 1,
+        "kmFromStart": 0.8,
         "icon": "pharmacy",
         "source": "osm",
         "osmId": "node/429274680"
@@ -1123,7 +1123,7 @@
         "type": "medical",
         "subtype": "pharmacy",
         "stageIndex": 0,
-        "kmFromStart": 1,
+        "kmFromStart": 0.8,
         "icon": "pharmacy",
         "source": "osm",
         "osmId": "node/429418241",
@@ -1146,7 +1146,7 @@
         "type": "food",
         "subtype": "restaurant",
         "stageIndex": 0,
-        "kmFromStart": 1,
+        "kmFromStart": 0.8,
         "icon": "restaurant",
         "source": "osm",
         "osmId": "node/1509702998",
@@ -1169,7 +1169,7 @@
         "type": "food",
         "subtype": "cafe",
         "stageIndex": 0,
-        "kmFromStart": 1,
+        "kmFromStart": 0.8,
         "icon": "cafe",
         "source": "osm",
         "osmId": "node/2394471402",
@@ -1192,7 +1192,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 0,
-        "kmFromStart": 1,
+        "kmFromStart": 0.8,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/3693675796"
@@ -1217,7 +1217,7 @@
         "type": "food",
         "subtype": "cafe",
         "stageIndex": 0,
-        "kmFromStart": 1,
+        "kmFromStart": 0.8,
         "icon": "cafe",
         "source": "osm",
         "osmId": "node/4484388289"
@@ -1239,7 +1239,7 @@
         "type": "food",
         "subtype": "restaurant",
         "stageIndex": 0,
-        "kmFromStart": 1,
+        "kmFromStart": 0.8,
         "icon": "restaurant",
         "source": "osm",
         "osmId": "node/4946785064"
@@ -1261,7 +1261,7 @@
         "type": "medical",
         "subtype": "pharmacy",
         "stageIndex": 0,
-        "kmFromStart": 1,
+        "kmFromStart": 0.8,
         "icon": "pharmacy",
         "source": "osm",
         "osmId": "node/4948715626",
@@ -1284,7 +1284,7 @@
         "type": "food",
         "subtype": "restaurant",
         "stageIndex": 0,
-        "kmFromStart": 1,
+        "kmFromStart": 0.8,
         "icon": "restaurant",
         "source": "osm",
         "osmId": "node/4949797935"
@@ -1306,7 +1306,7 @@
         "type": "food",
         "subtype": "cafe",
         "stageIndex": 0,
-        "kmFromStart": 1,
+        "kmFromStart": 0.8,
         "icon": "cafe",
         "source": "osm",
         "osmId": "node/5553272179"
@@ -1328,7 +1328,7 @@
         "type": "food",
         "subtype": "cafe",
         "stageIndex": 0,
-        "kmFromStart": 1,
+        "kmFromStart": 0.8,
         "icon": "cafe",
         "source": "osm",
         "osmId": "node/5557410467"
@@ -1350,7 +1350,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 0,
-        "kmFromStart": 1,
+        "kmFromStart": 0.8,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/6334589255"
@@ -1376,7 +1376,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 0,
-        "kmFromStart": 1,
+        "kmFromStart": 0.8,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/6334589256"
@@ -1402,7 +1402,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 0,
-        "kmFromStart": 1,
+        "kmFromStart": 0.8,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/6334589257"
@@ -1424,7 +1424,7 @@
         "type": "food",
         "subtype": "cafe",
         "stageIndex": 0,
-        "kmFromStart": 1,
+        "kmFromStart": 0.8,
         "icon": "cafe",
         "source": "osm",
         "osmId": "node/6336692687"
@@ -1446,7 +1446,7 @@
         "type": "supply",
         "subtype": "vending_machine",
         "stageIndex": 0,
-        "kmFromStart": 1,
+        "kmFromStart": 0.8,
         "icon": "vending_machine",
         "source": "osm",
         "osmId": "node/6486288625"
@@ -1468,7 +1468,7 @@
         "type": "food",
         "subtype": "restaurant",
         "stageIndex": 0,
-        "kmFromStart": 1,
+        "kmFromStart": 0.8,
         "icon": "restaurant",
         "source": "osm",
         "osmId": "node/6793723067"
@@ -1490,7 +1490,7 @@
         "type": "food",
         "subtype": "restaurant",
         "stageIndex": 0,
-        "kmFromStart": 1,
+        "kmFromStart": 0.8,
         "icon": "restaurant",
         "source": "osm",
         "osmId": "node/7239407969",
@@ -1513,7 +1513,7 @@
         "type": "food",
         "subtype": "restaurant",
         "stageIndex": 0,
-        "kmFromStart": 1,
+        "kmFromStart": 0.8,
         "icon": "restaurant",
         "source": "osm",
         "osmId": "node/10743586917"
@@ -1535,7 +1535,7 @@
         "type": "water_source",
         "subtype": "fountain",
         "stageIndex": 0,
-        "kmFromStart": 1,
+        "kmFromStart": 0.8,
         "icon": "fountain",
         "source": "osm",
         "osmId": "node/11159300223"
@@ -1557,7 +1557,7 @@
         "type": "food",
         "subtype": "cafe",
         "stageIndex": 0,
-        "kmFromStart": 1,
+        "kmFromStart": 0.8,
         "icon": "cafe",
         "source": "osm",
         "osmId": "node/13617409798",
@@ -1580,7 +1580,7 @@
         "type": "medical",
         "subtype": "pharmacy",
         "stageIndex": 0,
-        "kmFromStart": 1.1,
+        "kmFromStart": 0.9,
         "icon": "pharmacy",
         "source": "osm",
         "osmId": "node/1857510077"
@@ -1602,7 +1602,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 0,
-        "kmFromStart": 1.1,
+        "kmFromStart": 0.9,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/1857556411"
@@ -1624,7 +1624,7 @@
         "type": "accommodation",
         "subtype": "guesthouse",
         "stageIndex": 0,
-        "kmFromStart": 1.1,
+        "kmFromStart": 0.9,
         "icon": "guesthouse",
         "source": "osm",
         "osmId": "node/2007218576"
@@ -1646,7 +1646,7 @@
         "type": "food",
         "subtype": "cafe",
         "stageIndex": 0,
-        "kmFromStart": 1.1,
+        "kmFromStart": 0.9,
         "icon": "cafe",
         "source": "osm",
         "osmId": "node/6426193264"
@@ -1668,7 +1668,7 @@
         "type": "supply",
         "subtype": "vending_machine",
         "stageIndex": 0,
-        "kmFromStart": 1.2,
+        "kmFromStart": 1,
         "icon": "vending_machine",
         "source": "osm",
         "osmId": "node/1737357049"
@@ -1690,7 +1690,7 @@
         "type": "accommodation",
         "subtype": "guesthouse",
         "stageIndex": 0,
-        "kmFromStart": 1.3,
+        "kmFromStart": 1,
         "icon": "guesthouse",
         "source": "osm",
         "osmId": "node/2007218135"
@@ -1712,7 +1712,7 @@
         "type": "food",
         "subtype": "cafe",
         "stageIndex": 0,
-        "kmFromStart": 1.3,
+        "kmFromStart": 1,
         "icon": "cafe",
         "source": "osm",
         "osmId": "node/4282322490"
@@ -1734,7 +1734,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 0,
-        "kmFromStart": 1.3,
+        "kmFromStart": 1,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/4822945880"
@@ -1756,7 +1756,7 @@
         "type": "food",
         "subtype": "restaurant",
         "stageIndex": 0,
-        "kmFromStart": 1.3,
+        "kmFromStart": 1,
         "icon": "restaurant",
         "source": "osm",
         "osmId": "node/6424367217"
@@ -1778,7 +1778,7 @@
         "type": "food",
         "subtype": "cafe",
         "stageIndex": 0,
-        "kmFromStart": 1.5,
+        "kmFromStart": 1.2,
         "icon": "cafe",
         "source": "osm",
         "osmId": "node/6426302984",
@@ -1801,7 +1801,7 @@
         "type": "food",
         "subtype": "cafe",
         "stageIndex": 0,
-        "kmFromStart": 1.5,
+        "kmFromStart": 1.2,
         "icon": "cafe",
         "source": "osm",
         "osmId": "node/6426322143",
@@ -1824,7 +1824,7 @@
         "type": "food",
         "subtype": "cafe",
         "stageIndex": 0,
-        "kmFromStart": 1.7,
+        "kmFromStart": 1.4,
         "icon": "cafe",
         "source": "osm",
         "osmId": "node/10830021137"
@@ -1846,7 +1846,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 0,
-        "kmFromStart": 1.8,
+        "kmFromStart": 1.5,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/6428131937"
@@ -1868,7 +1868,7 @@
         "type": "water_source",
         "subtype": "fountain",
         "stageIndex": 0,
-        "kmFromStart": 2,
+        "kmFromStart": 1.6,
         "icon": "fountain",
         "source": "osm",
         "osmId": "node/13541393201"
@@ -1890,7 +1890,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 0,
-        "kmFromStart": 2.1,
+        "kmFromStart": 1.7,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/6428137559"
@@ -1912,10 +1912,33 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 0,
-        "kmFromStart": 2.4,
+        "kmFromStart": 1.9,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/1857561695"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-food-node1479476573",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.224154,
+          43.4850822
+        ]
+      },
+      "properties": {
+        "routeId": "camino-ingles",
+        "name": "Los Mariachis",
+        "type": "food",
+        "subtype": "restaurant",
+        "stageIndex": 0,
+        "kmFromStart": 2,
+        "icon": "restaurant",
+        "source": "osm",
+        "osmId": "node/1479476573",
+        "hours": "Mo, We-Su 20:00-23:30; Mo, Th-Su 13:30-16:00"
       }
     },
     {
@@ -1934,7 +1957,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 0,
-        "kmFromStart": 2.5,
+        "kmFromStart": 2,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/6321876744"
@@ -1960,7 +1983,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 0,
-        "kmFromStart": 2.5,
+        "kmFromStart": 2,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/6369223765"
@@ -1968,25 +1991,24 @@
     },
     {
       "type": "Feature",
-      "id": "wp-osm-food-node1479476573",
+      "id": "wp-osm-transport-node1814896708",
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -8.224154,
-          43.4850822
+          -8.2228529,
+          43.4874695
         ]
       },
       "properties": {
         "routeId": "camino-ingles",
-        "name": "Los Mariachis",
-        "type": "food",
-        "subtype": "restaurant",
+        "name": "Barrio do Pilar",
+        "type": "transport",
+        "subtype": "bus_stop",
         "stageIndex": 0,
-        "kmFromStart": 2.6,
-        "icon": "restaurant",
+        "kmFromStart": 2.1,
+        "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/1479476573",
-        "hours": "Mo, We-Su 20:00-23:30; Mo, Th-Su 13:30-16:00"
+        "osmId": "node/1814896708"
       }
     },
     {
@@ -2008,7 +2030,7 @@
         "type": "food",
         "subtype": "restaurant",
         "stageIndex": 0,
-        "kmFromStart": 2.6,
+        "kmFromStart": 2.1,
         "icon": "restaurant",
         "source": "osm",
         "osmId": "node/4484388189"
@@ -2030,7 +2052,7 @@
         "type": "medical",
         "subtype": "clinic",
         "stageIndex": 0,
-        "kmFromStart": 2.6,
+        "kmFromStart": 2.1,
         "icon": "clinic",
         "source": "osm",
         "osmId": "node/4955664457"
@@ -2052,32 +2074,10 @@
         "type": "medical",
         "subtype": "clinic",
         "stageIndex": 0,
-        "kmFromStart": 2.6,
+        "kmFromStart": 2.1,
         "icon": "clinic",
         "source": "osm",
         "osmId": "node/12526979271"
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "wp-osm-transport-node1814896708",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -8.2228529,
-          43.4874695
-        ]
-      },
-      "properties": {
-        "routeId": "camino-ingles",
-        "name": "Barrio do Pilar",
-        "type": "transport",
-        "subtype": "bus_stop",
-        "stageIndex": 0,
-        "kmFromStart": 2.7,
-        "icon": "bus_stop",
-        "source": "osm",
-        "osmId": "node/1814896708"
       }
     },
     {
@@ -2096,7 +2096,7 @@
         "type": "supply",
         "subtype": "vending_machine",
         "stageIndex": 0,
-        "kmFromStart": 2.9,
+        "kmFromStart": 2.3,
         "icon": "vending_machine",
         "source": "osm",
         "osmId": "node/1706546439"
@@ -2121,7 +2121,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 0,
-        "kmFromStart": 2.9,
+        "kmFromStart": 2.3,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/1857563247"
@@ -2143,7 +2143,7 @@
         "type": "accommodation",
         "subtype": "hostel",
         "stageIndex": 0,
-        "kmFromStart": 2.9,
+        "kmFromStart": 2.3,
         "icon": "hostel",
         "source": "osm",
         "osmId": "node/4285801589"
@@ -2165,7 +2165,7 @@
         "type": "food",
         "subtype": "restaurant",
         "stageIndex": 0,
-        "kmFromStart": 2.9,
+        "kmFromStart": 2.3,
         "icon": "restaurant",
         "source": "osm",
         "osmId": "node/4998169786"
@@ -2187,7 +2187,7 @@
         "type": "food",
         "subtype": "restaurant",
         "stageIndex": 0,
-        "kmFromStart": 2.9,
+        "kmFromStart": 2.3,
         "icon": "restaurant",
         "source": "osm",
         "osmId": "node/5614998188"
@@ -2209,7 +2209,7 @@
         "type": "water_source",
         "subtype": "fountain",
         "stageIndex": 0,
-        "kmFromStart": 2.9,
+        "kmFromStart": 2.3,
         "icon": "fountain",
         "source": "osm",
         "osmId": "node/6335871611"
@@ -2231,7 +2231,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 0,
-        "kmFromStart": 2.9,
+        "kmFromStart": 2.3,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/6347814235"
@@ -2253,7 +2253,7 @@
         "type": "medical",
         "subtype": "pharmacy",
         "stageIndex": 0,
-        "kmFromStart": 2.9,
+        "kmFromStart": 2.3,
         "icon": "pharmacy",
         "source": "osm",
         "osmId": "node/6708392502",
@@ -2276,7 +2276,7 @@
         "type": "food",
         "subtype": "restaurant",
         "stageIndex": 0,
-        "kmFromStart": 2.9,
+        "kmFromStart": 2.3,
         "icon": "restaurant",
         "source": "osm",
         "osmId": "node/8720151455",
@@ -2299,7 +2299,7 @@
         "type": "water_source",
         "subtype": "fountain",
         "stageIndex": 0,
-        "kmFromStart": 2.9,
+        "kmFromStart": 2.3,
         "icon": "fountain",
         "source": "osm",
         "osmId": "node/13031834956"
@@ -2321,7 +2321,7 @@
         "type": "food",
         "subtype": "cafe",
         "stageIndex": 0,
-        "kmFromStart": 3,
+        "kmFromStart": 2.4,
         "icon": "cafe",
         "source": "osm",
         "osmId": "node/1584596061",
@@ -2344,11 +2344,55 @@
         "type": "supply",
         "subtype": "convenience_store",
         "stageIndex": 0,
-        "kmFromStart": 3,
+        "kmFromStart": 2.4,
         "icon": "convenience_store",
         "source": "osm",
         "osmId": "node/1672155906",
         "hours": "Mo-Fr 10:30-13:30,17:30-20:30; Sa 10:30-13:30; Su,PH off"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-accommodation-node2007217307",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.217509,
+          43.4874812
+        ]
+      },
+      "properties": {
+        "routeId": "camino-ingles",
+        "name": "Hotel América",
+        "type": "accommodation",
+        "subtype": "hotel",
+        "stageIndex": 0,
+        "kmFromStart": 2.4,
+        "icon": "hotel",
+        "source": "osm",
+        "osmId": "node/2007217307"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-food-node4998159137",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.2170743,
+          43.4893135
+        ]
+      },
+      "properties": {
+        "routeId": "camino-ingles",
+        "name": "Yatte",
+        "type": "food",
+        "subtype": "cafe",
+        "stageIndex": 0,
+        "kmFromStart": 2.4,
+        "icon": "cafe",
+        "source": "osm",
+        "osmId": "node/4998159137"
       }
     },
     {
@@ -2367,7 +2411,7 @@
         "type": "food",
         "subtype": "restaurant",
         "stageIndex": 0,
-        "kmFromStart": 3,
+        "kmFromStart": 2.4,
         "icon": "restaurant",
         "source": "osm",
         "osmId": "node/4998159140"
@@ -2393,7 +2437,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 0,
-        "kmFromStart": 3,
+        "kmFromStart": 2.4,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/6369223761"
@@ -2415,7 +2459,7 @@
         "type": "medical",
         "subtype": "clinic",
         "stageIndex": 0,
-        "kmFromStart": 3,
+        "kmFromStart": 2.4,
         "icon": "clinic",
         "source": "osm",
         "osmId": "node/6968440302",
@@ -2438,7 +2482,7 @@
         "type": "food",
         "subtype": "restaurant",
         "stageIndex": 0,
-        "kmFromStart": 3,
+        "kmFromStart": 2.4,
         "icon": "restaurant",
         "source": "osm",
         "osmId": "node/9834755723"
@@ -2460,32 +2504,10 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 0,
-        "kmFromStart": 3.1,
+        "kmFromStart": 2.5,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/1714296212"
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "wp-osm-accommodation-node2007217307",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -8.217509,
-          43.4874812
-        ]
-      },
-      "properties": {
-        "routeId": "camino-ingles",
-        "name": "Hotel América",
-        "type": "accommodation",
-        "subtype": "hotel",
-        "stageIndex": 0,
-        "kmFromStart": 3.1,
-        "icon": "hotel",
-        "source": "osm",
-        "osmId": "node/2007217307"
       }
     },
     {
@@ -2504,7 +2526,7 @@
         "type": "food",
         "subtype": "cafe",
         "stageIndex": 0,
-        "kmFromStart": 3.1,
+        "kmFromStart": 2.5,
         "icon": "cafe",
         "source": "osm",
         "osmId": "node/3497905668"
@@ -2526,32 +2548,10 @@
         "type": "medical",
         "subtype": "clinic",
         "stageIndex": 0,
-        "kmFromStart": 3.1,
+        "kmFromStart": 2.5,
         "icon": "clinic",
         "source": "osm",
         "osmId": "node/4811963940"
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "wp-osm-food-node4998159137",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -8.2170743,
-          43.4893135
-        ]
-      },
-      "properties": {
-        "routeId": "camino-ingles",
-        "name": "Yatte",
-        "type": "food",
-        "subtype": "cafe",
-        "stageIndex": 0,
-        "kmFromStart": 3.1,
-        "icon": "cafe",
-        "source": "osm",
-        "osmId": "node/4998159137"
       }
     },
     {
@@ -2570,7 +2570,7 @@
         "type": "food",
         "subtype": "cafe",
         "stageIndex": 0,
-        "kmFromStart": 3.1,
+        "kmFromStart": 2.5,
         "icon": "cafe",
         "source": "osm",
         "osmId": "node/6067310865"
@@ -2596,7 +2596,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 0,
-        "kmFromStart": 3.1,
+        "kmFromStart": 2.5,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/6369223760"
@@ -2622,7 +2622,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 0,
-        "kmFromStart": 3.1,
+        "kmFromStart": 2.5,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/6369223762"
@@ -2644,7 +2644,7 @@
         "type": "food",
         "subtype": "cafe",
         "stageIndex": 0,
-        "kmFromStart": 3.1,
+        "kmFromStart": 2.5,
         "icon": "cafe",
         "source": "osm",
         "osmId": "node/7358965777"
@@ -2666,7 +2666,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 0,
-        "kmFromStart": 3.2,
+        "kmFromStart": 2.6,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/6369223763"
@@ -2688,7 +2688,7 @@
         "type": "food",
         "subtype": "cafe",
         "stageIndex": 0,
-        "kmFromStart": 3.4,
+        "kmFromStart": 2.7,
         "icon": "cafe",
         "source": "osm",
         "osmId": "node/6906144902"
@@ -2710,7 +2710,7 @@
         "type": "medical",
         "subtype": "pharmacy",
         "stageIndex": 0,
-        "kmFromStart": 3.6,
+        "kmFromStart": 2.9,
         "icon": "pharmacy",
         "source": "osm",
         "osmId": "node/4101923320",
@@ -2733,7 +2733,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 0,
-        "kmFromStart": 3.6,
+        "kmFromStart": 2.9,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/6498278410"
@@ -2755,7 +2755,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 0,
-        "kmFromStart": 3.7,
+        "kmFromStart": 3,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/1712096581"
@@ -2777,7 +2777,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 0,
-        "kmFromStart": 3.7,
+        "kmFromStart": 3,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/1714296114"
@@ -2799,7 +2799,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 0,
-        "kmFromStart": 3.7,
+        "kmFromStart": 3,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/6334589268"
@@ -2821,7 +2821,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 0,
-        "kmFromStart": 3.7,
+        "kmFromStart": 3,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/6334589270"
@@ -2843,7 +2843,7 @@
         "type": "supply",
         "subtype": "vending_machine",
         "stageIndex": 0,
-        "kmFromStart": 3.9,
+        "kmFromStart": 3.1,
         "icon": "vending_machine",
         "source": "osm",
         "osmId": "node/1707777961"
@@ -2865,7 +2865,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 0,
-        "kmFromStart": 3.9,
+        "kmFromStart": 3.1,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/1712099356"
@@ -2887,7 +2887,7 @@
         "type": "medical",
         "subtype": "pharmacy",
         "stageIndex": 0,
-        "kmFromStart": 3.9,
+        "kmFromStart": 3.1,
         "icon": "pharmacy",
         "source": "osm",
         "osmId": "node/4101920806",
@@ -2910,7 +2910,7 @@
         "type": "medical",
         "subtype": "pharmacy",
         "stageIndex": 0,
-        "kmFromStart": 3.9,
+        "kmFromStart": 3.1,
         "icon": "pharmacy",
         "source": "osm",
         "osmId": "node/4101920863"
@@ -2936,7 +2936,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 0,
-        "kmFromStart": 3.9,
+        "kmFromStart": 3.1,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/6334589272"
@@ -2958,7 +2958,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 0,
-        "kmFromStart": 3.9,
+        "kmFromStart": 3.1,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/6498278412"
@@ -2980,7 +2980,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 0,
-        "kmFromStart": 4,
+        "kmFromStart": 3.2,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/6498278422"
@@ -3002,7 +3002,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 0,
-        "kmFromStart": 4,
+        "kmFromStart": 3.2,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/6498278425"
@@ -3028,7 +3028,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 0,
-        "kmFromStart": 4,
+        "kmFromStart": 3.2,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/6575672282"
@@ -3050,7 +3050,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 0,
-        "kmFromStart": 4.3,
+        "kmFromStart": 3.4,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/6334589266"
@@ -3076,7 +3076,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 0,
-        "kmFromStart": 4.6,
+        "kmFromStart": 3.7,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/6334589264"
@@ -3098,7 +3098,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 0,
-        "kmFromStart": 4.6,
+        "kmFromStart": 3.7,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/6498278423"
@@ -3120,7 +3120,7 @@
         "type": "water_source",
         "subtype": "fountain",
         "stageIndex": 0,
-        "kmFromStart": 4.6,
+        "kmFromStart": 3.7,
         "icon": "fountain",
         "source": "osm",
         "osmId": "node/11048253108"
@@ -3146,7 +3146,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 0,
-        "kmFromStart": 4.7,
+        "kmFromStart": 3.8,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/6575676288"
@@ -3172,7 +3172,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 0,
-        "kmFromStart": 4.9,
+        "kmFromStart": 3.9,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/6334589262"
@@ -3194,7 +3194,7 @@
         "type": "food",
         "subtype": "cafe",
         "stageIndex": 0,
-        "kmFromStart": 5,
+        "kmFromStart": 4,
         "icon": "cafe",
         "source": "osm",
         "osmId": "node/9148443811"
@@ -3216,7 +3216,7 @@
         "type": "food",
         "subtype": "cafe",
         "stageIndex": 0,
-        "kmFromStart": 5.1,
+        "kmFromStart": 4.1,
         "icon": "cafe",
         "source": "osm",
         "osmId": "node/4892063784"
@@ -3238,7 +3238,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 0,
-        "kmFromStart": 5.1,
+        "kmFromStart": 4.1,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/6334589260"
@@ -3260,36 +3260,10 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 0,
-        "kmFromStart": 5.1,
+        "kmFromStart": 4.1,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/6334589261"
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "wp-osm-transport-node6575676286",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -8.2015478,
-          43.4803017
-        ]
-      },
-      "properties": {
-        "routeId": "camino-ingles",
-        "name": "Hospital Xeral",
-        "nameLocalized": {
-          "es": "Hospital General",
-          "gl": "Hospital Xeral"
-        },
-        "type": "transport",
-        "subtype": "bus_stop",
-        "stageIndex": 0,
-        "kmFromStart": 5.1,
-        "icon": "bus_stop",
-        "source": "osm",
-        "osmId": "node/6575676286"
       }
     },
     {
@@ -3312,10 +3286,36 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 0,
-        "kmFromStart": 5.2,
+        "kmFromStart": 4.1,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/6575672284"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-transport-node6575676286",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.2015478,
+          43.4803017
+        ]
+      },
+      "properties": {
+        "routeId": "camino-ingles",
+        "name": "Hospital Xeral",
+        "nameLocalized": {
+          "es": "Hospital General",
+          "gl": "Hospital Xeral"
+        },
+        "type": "transport",
+        "subtype": "bus_stop",
+        "stageIndex": 0,
+        "kmFromStart": 4.1,
+        "icon": "bus_stop",
+        "source": "osm",
+        "osmId": "node/6575676286"
       }
     },
     {
@@ -3334,7 +3334,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 0,
-        "kmFromStart": 5.3,
+        "kmFromStart": 4.3,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/6334589259"
@@ -3356,7 +3356,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 0,
-        "kmFromStart": 5.5,
+        "kmFromStart": 4.4,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/6334589258"
@@ -3378,7 +3378,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 0,
-        "kmFromStart": 5.5,
+        "kmFromStart": 4.4,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/6575676285"
@@ -3400,7 +3400,7 @@
         "type": "food",
         "subtype": "restaurant",
         "stageIndex": 0,
-        "kmFromStart": 6.3,
+        "kmFromStart": 5,
         "icon": "restaurant",
         "source": "osm",
         "osmId": "node/405416926",
@@ -3423,7 +3423,7 @@
         "type": "food",
         "subtype": "restaurant",
         "stageIndex": 0,
-        "kmFromStart": 6.3,
+        "kmFromStart": 5,
         "icon": "restaurant",
         "source": "osm",
         "osmId": "node/2783714868"
@@ -3445,7 +3445,7 @@
         "type": "supply",
         "subtype": "vending_machine",
         "stageIndex": 0,
-        "kmFromStart": 6.3,
+        "kmFromStart": 5,
         "icon": "vending_machine",
         "source": "osm",
         "osmId": "node/4890547848"
@@ -3467,7 +3467,7 @@
         "type": "food",
         "subtype": "cafe",
         "stageIndex": 0,
-        "kmFromStart": 6.3,
+        "kmFromStart": 5.1,
         "icon": "cafe",
         "source": "osm",
         "osmId": "node/6838991173"
@@ -3489,7 +3489,7 @@
         "type": "accommodation",
         "subtype": "hotel",
         "stageIndex": 0,
-        "kmFromStart": 6.3,
+        "kmFromStart": 5.1,
         "icon": "hotel",
         "source": "osm",
         "osmId": "node/11064022372"
@@ -3511,7 +3511,7 @@
         "type": "food",
         "subtype": "restaurant",
         "stageIndex": 0,
-        "kmFromStart": 6.3,
+        "kmFromStart": 5.1,
         "icon": "restaurant",
         "source": "osm",
         "osmId": "node/12043621795",
@@ -3534,7 +3534,7 @@
         "type": "water_source",
         "subtype": "fountain",
         "stageIndex": 0,
-        "kmFromStart": 6.7,
+        "kmFromStart": 5.3,
         "icon": "fountain",
         "source": "osm",
         "osmId": "node/3495907129"
@@ -3556,7 +3556,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 0,
-        "kmFromStart": 6.7,
+        "kmFromStart": 5.3,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/4205042941"
@@ -3578,7 +3578,7 @@
         "type": "food",
         "subtype": "cafe",
         "stageIndex": 0,
-        "kmFromStart": 6.8,
+        "kmFromStart": 5.4,
         "icon": "cafe",
         "source": "osm",
         "osmId": "node/1592423946"
@@ -3600,7 +3600,7 @@
         "type": "food",
         "subtype": "restaurant",
         "stageIndex": 0,
-        "kmFromStart": 6.8,
+        "kmFromStart": 5.4,
         "icon": "restaurant",
         "source": "osm",
         "osmId": "node/7549529817"
@@ -3626,7 +3626,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 0,
-        "kmFromStart": 6.9,
+        "kmFromStart": 5.5,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/5927838338"
@@ -3648,7 +3648,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 0,
-        "kmFromStart": 7.1,
+        "kmFromStart": 5.6,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/5927838340"
@@ -3670,7 +3670,7 @@
         "type": "food",
         "subtype": "cafe",
         "stageIndex": 0,
-        "kmFromStart": 7.6,
+        "kmFromStart": 6.1,
         "icon": "cafe",
         "source": "osm",
         "osmId": "node/1533075906"
@@ -3692,7 +3692,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 0,
-        "kmFromStart": 8.2,
+        "kmFromStart": 6.5,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/5927838344"
@@ -3714,7 +3714,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 0,
-        "kmFromStart": 8.2,
+        "kmFromStart": 6.5,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/5927838346"
@@ -3736,7 +3736,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 0,
-        "kmFromStart": 8.4,
+        "kmFromStart": 6.7,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/4782994662"
@@ -3758,7 +3758,7 @@
         "type": "food",
         "subtype": "restaurant",
         "stageIndex": 0,
-        "kmFromStart": 8.5,
+        "kmFromStart": 6.8,
         "icon": "restaurant",
         "source": "osm",
         "osmId": "node/1382676531"
@@ -3780,7 +3780,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 0,
-        "kmFromStart": 8.7,
+        "kmFromStart": 7,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/4783032717"
@@ -3802,7 +3802,7 @@
         "type": "transport",
         "subtype": "train_station",
         "stageIndex": 1,
-        "kmFromStart": 16,
+        "kmFromStart": 12.8,
         "icon": "train_station",
         "source": "osm",
         "osmId": "node/362214339"
@@ -3824,7 +3824,7 @@
         "type": "accommodation",
         "subtype": "hotel",
         "stageIndex": 1,
-        "kmFromStart": 16.5,
+        "kmFromStart": 13.3,
         "icon": "hotel",
         "source": "osm",
         "osmId": "node/1459002354"
@@ -3846,7 +3846,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 1,
-        "kmFromStart": 16.6,
+        "kmFromStart": 13.4,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/981251277"
@@ -3868,7 +3868,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 1,
-        "kmFromStart": 17.4,
+        "kmFromStart": 14.1,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/6786402209"
@@ -3890,32 +3890,10 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 1,
-        "kmFromStart": 17.5,
+        "kmFromStart": 14.2,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/8069451425"
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "wp-osm-water_source-node1595603488",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -8.1647222,
-          43.4773003
-        ]
-      },
-      "properties": {
-        "routeId": "camino-ingles",
-        "name": "Unnamed",
-        "type": "water_source",
-        "subtype": "fountain",
-        "stageIndex": 1,
-        "kmFromStart": 18.6,
-        "icon": "fountain",
-        "source": "osm",
-        "osmId": "node/1595603488"
       }
     },
     {
@@ -3934,10 +3912,32 @@
         "type": "supply",
         "subtype": "convenience_store",
         "stageIndex": 1,
-        "kmFromStart": 18.6,
+        "kmFromStart": 15.1,
         "icon": "convenience_store",
         "source": "osm",
         "osmId": "node/4823531995"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-water_source-node1595603488",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.1647222,
+          43.4773003
+        ]
+      },
+      "properties": {
+        "routeId": "camino-ingles",
+        "name": "Unnamed",
+        "type": "water_source",
+        "subtype": "fountain",
+        "stageIndex": 1,
+        "kmFromStart": 15.2,
+        "icon": "fountain",
+        "source": "osm",
+        "osmId": "node/1595603488"
       }
     },
     {
@@ -3956,7 +3956,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 1,
-        "kmFromStart": 18.9,
+        "kmFromStart": 15.3,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/1595615940"
@@ -3978,7 +3978,7 @@
         "type": "food",
         "subtype": "restaurant",
         "stageIndex": 1,
-        "kmFromStart": 18.9,
+        "kmFromStart": 15.3,
         "icon": "restaurant",
         "source": "osm",
         "osmId": "node/5766695409"
@@ -4000,7 +4000,7 @@
         "type": "food",
         "subtype": "restaurant",
         "stageIndex": 1,
-        "kmFromStart": 18.9,
+        "kmFromStart": 15.3,
         "icon": "restaurant",
         "source": "osm",
         "osmId": "node/8988017140"
@@ -4022,7 +4022,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 1,
-        "kmFromStart": 19.3,
+        "kmFromStart": 15.7,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/1595617063"
@@ -4044,7 +4044,7 @@
         "type": "food",
         "subtype": "cafe",
         "stageIndex": 1,
-        "kmFromStart": 19.4,
+        "kmFromStart": 15.8,
         "icon": "cafe",
         "source": "osm",
         "osmId": "node/981251722"
@@ -4066,7 +4066,7 @@
         "type": "food",
         "subtype": "restaurant",
         "stageIndex": 1,
-        "kmFromStart": 19.6,
+        "kmFromStart": 16,
         "icon": "restaurant",
         "source": "osm",
         "osmId": "node/981251225"
@@ -4088,7 +4088,7 @@
         "type": "medical",
         "subtype": "pharmacy",
         "stageIndex": 1,
-        "kmFromStart": 19.8,
+        "kmFromStart": 16.1,
         "icon": "pharmacy",
         "source": "osm",
         "osmId": "node/1595601708"
@@ -4110,7 +4110,7 @@
         "type": "food",
         "subtype": "cafe",
         "stageIndex": 1,
-        "kmFromStart": 19.8,
+        "kmFromStart": 16.1,
         "icon": "cafe",
         "source": "osm",
         "osmId": "node/5699102133",
@@ -4133,7 +4133,7 @@
         "type": "water_source",
         "subtype": "fountain",
         "stageIndex": 1,
-        "kmFromStart": 20.9,
+        "kmFromStart": 17.2,
         "icon": "fountain",
         "source": "osm",
         "osmId": "node/10046844934"
@@ -4155,7 +4155,7 @@
         "type": "water_source",
         "subtype": "fountain",
         "stageIndex": 1,
-        "kmFromStart": 21.3,
+        "kmFromStart": 17.5,
         "icon": "fountain",
         "source": "osm",
         "osmId": "node/10020406952"
@@ -4177,7 +4177,7 @@
         "type": "food",
         "subtype": "restaurant",
         "stageIndex": 1,
-        "kmFromStart": 24.9,
+        "kmFromStart": 20.6,
         "icon": "restaurant",
         "source": "osm",
         "osmId": "node/981251899"
@@ -4199,7 +4199,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 1,
-        "kmFromStart": 27.2,
+        "kmFromStart": 22.6,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/4280451341"
@@ -4224,7 +4224,7 @@
         "type": "food",
         "subtype": "cafe",
         "stageIndex": 1,
-        "kmFromStart": 27.4,
+        "kmFromStart": 22.8,
         "icon": "cafe",
         "source": "osm",
         "osmId": "node/11138776205"
@@ -4246,7 +4246,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 1,
-        "kmFromStart": 28,
+        "kmFromStart": 23.3,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/4280406526"
@@ -4268,7 +4268,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 1,
-        "kmFromStart": 29.8,
+        "kmFromStart": 24.9,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/4981229481"
@@ -4290,7 +4290,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 1,
-        "kmFromStart": 30.1,
+        "kmFromStart": 25.2,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/4837472039"
@@ -4312,7 +4312,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 1,
-        "kmFromStart": 30.4,
+        "kmFromStart": 25.5,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/4268667080"
@@ -4334,7 +4334,7 @@
         "type": "accommodation",
         "subtype": "hostel",
         "stageIndex": 1,
-        "kmFromStart": 30.8,
+        "kmFromStart": 25.8,
         "icon": "hostel",
         "source": "osm",
         "osmId": "node/11207021675"
@@ -4356,7 +4356,7 @@
         "type": "water_source",
         "subtype": "fountain",
         "stageIndex": 1,
-        "kmFromStart": 31.1,
+        "kmFromStart": 26,
         "icon": "fountain",
         "source": "osm",
         "osmId": "node/10046877755"
@@ -4377,8 +4377,8 @@
         "name": "El Pinar",
         "type": "food",
         "subtype": "restaurant",
-        "stageIndex": 2,
-        "kmFromStart": 31.7,
+        "stageIndex": 1,
+        "kmFromStart": 26.6,
         "icon": "restaurant",
         "source": "osm",
         "osmId": "node/470078631"
@@ -4399,8 +4399,8 @@
         "name": "Unnamed",
         "type": "water_source",
         "subtype": "fountain",
-        "stageIndex": 2,
-        "kmFromStart": 31.7,
+        "stageIndex": 1,
+        "kmFromStart": 26.6,
         "icon": "fountain",
         "source": "osm",
         "osmId": "node/12151733575"
@@ -4421,34 +4421,11 @@
         "name": "Unnamed",
         "type": "supply",
         "subtype": "vending_machine",
-        "stageIndex": 2,
-        "kmFromStart": 31.7,
+        "stageIndex": 1,
+        "kmFromStart": 26.6,
         "icon": "vending_machine",
         "source": "osm",
         "osmId": "node/13032097017"
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "wp-osm-medical-node4101927219",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -8.1676895,
-          43.4135731
-        ]
-      },
-      "properties": {
-        "routeId": "camino-ingles",
-        "name": "Unnamed",
-        "type": "medical",
-        "subtype": "pharmacy",
-        "stageIndex": 2,
-        "kmFromStart": 31.8,
-        "icon": "pharmacy",
-        "source": "osm",
-        "osmId": "node/4101927219",
-        "hours": "Mo-Su 09:15-14:00,16:30-21:00"
       }
     },
     {
@@ -4466,12 +4443,35 @@
         "name": "La Solana",
         "type": "food",
         "subtype": "restaurant",
-        "stageIndex": 2,
-        "kmFromStart": 31.8,
+        "stageIndex": 1,
+        "kmFromStart": 26.7,
         "icon": "restaurant",
         "source": "osm",
         "osmId": "node/11343887600",
         "hours": "Tu-Su 10:00-00:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-medical-node4101927219",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.1676895,
+          43.4135731
+        ]
+      },
+      "properties": {
+        "routeId": "camino-ingles",
+        "name": "Unnamed",
+        "type": "medical",
+        "subtype": "pharmacy",
+        "stageIndex": 1,
+        "kmFromStart": 26.8,
+        "icon": "pharmacy",
+        "source": "osm",
+        "osmId": "node/4101927219",
+        "hours": "Mo-Su 09:15-14:00,16:30-21:00"
       }
     },
     {
@@ -4489,8 +4489,8 @@
         "name": "Unnamed",
         "type": "water_source",
         "subtype": "fountain",
-        "stageIndex": 2,
-        "kmFromStart": 31.8,
+        "stageIndex": 1,
+        "kmFromStart": 26.8,
         "icon": "fountain",
         "source": "osm",
         "osmId": "node/12104334748"
@@ -4511,8 +4511,8 @@
         "name": "Unnamed",
         "type": "transport",
         "subtype": "bus_stop",
-        "stageIndex": 2,
-        "kmFromStart": 32.4,
+        "stageIndex": 1,
+        "kmFromStart": 27.3,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/280500288"
@@ -4533,8 +4533,8 @@
         "name": "Unnamed",
         "type": "water_source",
         "subtype": "fountain",
-        "stageIndex": 2,
-        "kmFromStart": 32.4,
+        "stageIndex": 1,
+        "kmFromStart": 27.4,
         "icon": "fountain",
         "source": "osm",
         "osmId": "node/11049932291"
@@ -4555,8 +4555,8 @@
         "name": "Unnamed",
         "type": "water_source",
         "subtype": "fountain",
-        "stageIndex": 2,
-        "kmFromStart": 32.5,
+        "stageIndex": 1,
+        "kmFromStart": 27.5,
         "icon": "fountain",
         "source": "osm",
         "osmId": "node/283397215"
@@ -4577,8 +4577,8 @@
         "name": "Fonte de Porto",
         "type": "water_source",
         "subtype": "fountain",
-        "stageIndex": 2,
-        "kmFromStart": 32.5,
+        "stageIndex": 1,
+        "kmFromStart": 27.5,
         "icon": "fountain",
         "source": "osm",
         "osmId": "node/283398398"
@@ -4599,8 +4599,8 @@
         "name": "Unnamed",
         "type": "medical",
         "subtype": "pharmacy",
-        "stageIndex": 2,
-        "kmFromStart": 32.5,
+        "stageIndex": 1,
+        "kmFromStart": 27.5,
         "icon": "pharmacy",
         "source": "osm",
         "osmId": "node/4101928296",
@@ -4622,8 +4622,8 @@
         "name": "Os Cen Pasos",
         "type": "food",
         "subtype": "restaurant",
-        "stageIndex": 2,
-        "kmFromStart": 32.5,
+        "stageIndex": 1,
+        "kmFromStart": 27.5,
         "icon": "restaurant",
         "source": "osm",
         "osmId": "node/11309815450",
@@ -4645,8 +4645,8 @@
         "name": "Viuda de Díaz Zamorano",
         "type": "medical",
         "subtype": "pharmacy",
-        "stageIndex": 2,
-        "kmFromStart": 32.7,
+        "stageIndex": 1,
+        "kmFromStart": 27.7,
         "icon": "pharmacy",
         "source": "osm",
         "osmId": "node/280707525"
@@ -4668,7 +4668,7 @@
         "type": "supply",
         "subtype": "convenience_store",
         "stageIndex": 2,
-        "kmFromStart": 32.7,
+        "kmFromStart": 27.7,
         "icon": "convenience_store",
         "source": "osm",
         "osmId": "node/280708688"
@@ -4689,8 +4689,8 @@
         "name": "Fonte de San Agostiño",
         "type": "water_source",
         "subtype": "fountain",
-        "stageIndex": 2,
-        "kmFromStart": 32.7,
+        "stageIndex": 1,
+        "kmFromStart": 27.7,
         "icon": "fountain",
         "source": "osm",
         "osmId": "node/283396839"
@@ -4712,7 +4712,7 @@
         "type": "accommodation",
         "subtype": "hotel",
         "stageIndex": 2,
-        "kmFromStart": 32.7,
+        "kmFromStart": 27.7,
         "icon": "hotel",
         "source": "osm",
         "osmId": "node/9788116917"
@@ -4734,7 +4734,7 @@
         "type": "food",
         "subtype": "restaurant",
         "stageIndex": 2,
-        "kmFromStart": 32.7,
+        "kmFromStart": 27.7,
         "icon": "restaurant",
         "source": "osm",
         "osmId": "node/13048783351"
@@ -4756,7 +4756,7 @@
         "type": "water_source",
         "subtype": "fountain",
         "stageIndex": 2,
-        "kmFromStart": 32.8,
+        "kmFromStart": 27.8,
         "icon": "fountain",
         "source": "osm",
         "osmId": "node/283400129"
@@ -4778,7 +4778,7 @@
         "type": "water_source",
         "subtype": "fountain",
         "stageIndex": 2,
-        "kmFromStart": 32.8,
+        "kmFromStart": 27.8,
         "icon": "fountain",
         "source": "osm",
         "osmId": "node/283455288"
@@ -4800,7 +4800,7 @@
         "type": "medical",
         "subtype": "pharmacy",
         "stageIndex": 2,
-        "kmFromStart": 32.9,
+        "kmFromStart": 27.9,
         "icon": "pharmacy",
         "source": "osm",
         "osmId": "node/4101923289"
@@ -4822,7 +4822,7 @@
         "type": "accommodation",
         "subtype": "guesthouse",
         "stageIndex": 2,
-        "kmFromStart": 32.9,
+        "kmFromStart": 27.9,
         "icon": "guesthouse",
         "source": "osm",
         "osmId": "node/9788339017"
@@ -4844,7 +4844,7 @@
         "type": "water_source",
         "subtype": "fountain",
         "stageIndex": 2,
-        "kmFromStart": 33,
+        "kmFromStart": 28.1,
         "icon": "fountain",
         "source": "osm",
         "osmId": "node/456385641"
@@ -4866,7 +4866,7 @@
         "type": "accommodation",
         "subtype": "guesthouse",
         "stageIndex": 2,
-        "kmFromStart": 33.2,
+        "kmFromStart": 28.3,
         "icon": "guesthouse",
         "source": "osm",
         "osmId": "node/9804417017"
@@ -4888,7 +4888,7 @@
         "type": "accommodation",
         "subtype": "guesthouse",
         "stageIndex": 2,
-        "kmFromStart": 33.6,
+        "kmFromStart": 28.7,
         "icon": "guesthouse",
         "source": "osm",
         "osmId": "node/9788690318"
@@ -4910,7 +4910,7 @@
         "type": "food",
         "subtype": "restaurant",
         "stageIndex": 2,
-        "kmFromStart": 33.9,
+        "kmFromStart": 28.9,
         "icon": "restaurant",
         "source": "osm",
         "osmId": "node/1741429936"
@@ -4932,7 +4932,7 @@
         "type": "water_source",
         "subtype": "fountain",
         "stageIndex": 2,
-        "kmFromStart": 34.3,
+        "kmFromStart": 29.3,
         "icon": "fountain",
         "source": "osm",
         "osmId": "node/8994105017"
@@ -4954,7 +4954,7 @@
         "type": "water_source",
         "subtype": "fountain",
         "stageIndex": 2,
-        "kmFromStart": 34.9,
+        "kmFromStart": 29.9,
         "icon": "fountain",
         "source": "osm",
         "osmId": "node/7618548489"
@@ -4976,7 +4976,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 2,
-        "kmFromStart": 36,
+        "kmFromStart": 31,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/4808412488"
@@ -4998,7 +4998,7 @@
         "type": "accommodation",
         "subtype": "guesthouse",
         "stageIndex": 2,
-        "kmFromStart": 37.1,
+        "kmFromStart": 32.2,
         "icon": "guesthouse",
         "source": "osm",
         "osmId": "node/9788274617"
@@ -5020,7 +5020,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 2,
-        "kmFromStart": 38.7,
+        "kmFromStart": 33.7,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/4751071121"
@@ -5042,7 +5042,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 2,
-        "kmFromStart": 38.7,
+        "kmFromStart": 33.7,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/4751071122"
@@ -5064,7 +5064,7 @@
         "type": "food",
         "subtype": "cafe",
         "stageIndex": 2,
-        "kmFromStart": 39.4,
+        "kmFromStart": 34.5,
         "icon": "cafe",
         "source": "osm",
         "osmId": "node/11994735648",
@@ -5087,7 +5087,7 @@
         "type": "accommodation",
         "subtype": "hostel",
         "stageIndex": 2,
-        "kmFromStart": 40.9,
+        "kmFromStart": 36,
         "icon": "hostel",
         "source": "osm",
         "osmId": "node/837172368",
@@ -5110,7 +5110,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 2,
-        "kmFromStart": 40.9,
+        "kmFromStart": 36,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/5279602628"
@@ -5132,7 +5132,7 @@
         "type": "water_source",
         "subtype": "fountain",
         "stageIndex": 2,
-        "kmFromStart": 41.6,
+        "kmFromStart": 36.7,
         "icon": "fountain",
         "source": "osm",
         "osmId": "node/5586524283"
@@ -5154,7 +5154,7 @@
         "type": "transport",
         "subtype": "train_station",
         "stageIndex": 2,
-        "kmFromStart": 41.7,
+        "kmFromStart": 36.8,
         "icon": "train_station",
         "source": "osm",
         "osmId": "node/2475737415"
@@ -5176,7 +5176,7 @@
         "type": "food",
         "subtype": "restaurant",
         "stageIndex": 2,
-        "kmFromStart": 41.7,
+        "kmFromStart": 36.8,
         "icon": "restaurant",
         "source": "osm",
         "osmId": "node/4552160008"
@@ -5198,7 +5198,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 2,
-        "kmFromStart": 41.8,
+        "kmFromStart": 36.9,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/3416345274"
@@ -5220,7 +5220,7 @@
         "type": "food",
         "subtype": "restaurant",
         "stageIndex": 2,
-        "kmFromStart": 41.8,
+        "kmFromStart": 36.9,
         "icon": "restaurant",
         "source": "osm",
         "osmId": "node/11994747023",
@@ -5243,7 +5243,7 @@
         "type": "medical",
         "subtype": "pharmacy",
         "stageIndex": 2,
-        "kmFromStart": 41.9,
+        "kmFromStart": 37,
         "icon": "pharmacy",
         "source": "osm",
         "osmId": "node/4101925493",
@@ -5266,7 +5266,7 @@
         "type": "food",
         "subtype": "cafe",
         "stageIndex": 2,
-        "kmFromStart": 42.4,
+        "kmFromStart": 37.5,
         "icon": "cafe",
         "source": "osm",
         "osmId": "node/3416355284"
@@ -5288,7 +5288,7 @@
         "type": "supply",
         "subtype": "toilet",
         "stageIndex": 2,
-        "kmFromStart": 43.6,
+        "kmFromStart": 38.7,
         "icon": "toilet",
         "source": "osm",
         "osmId": "node/3423055701"
@@ -5310,7 +5310,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 2,
-        "kmFromStart": 43.7,
+        "kmFromStart": 38.9,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/3773411853"
@@ -5332,7 +5332,7 @@
         "type": "water_source",
         "subtype": "fountain",
         "stageIndex": 2,
-        "kmFromStart": 43.8,
+        "kmFromStart": 39,
         "icon": "fountain",
         "source": "osm",
         "osmId": "node/3423053841"
@@ -5354,7 +5354,7 @@
         "type": "water_source",
         "subtype": "fountain",
         "stageIndex": 2,
-        "kmFromStart": 44.8,
+        "kmFromStart": 40,
         "icon": "fountain",
         "source": "osm",
         "osmId": "node/8581784417"
@@ -5376,7 +5376,7 @@
         "type": "water_source",
         "subtype": "fountain",
         "stageIndex": 2,
-        "kmFromStart": 47.1,
+        "kmFromStart": 42.3,
         "icon": "fountain",
         "source": "osm",
         "osmId": "node/7618543385"
@@ -5398,10 +5398,32 @@
         "type": "water_source",
         "subtype": "fountain",
         "stageIndex": 2,
-        "kmFromStart": 49.4,
+        "kmFromStart": 44.6,
         "icon": "fountain",
         "source": "osm",
         "osmId": "node/9368480205"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-water_source-node2382738236",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.2074756,
+          43.2830076
+        ]
+      },
+      "properties": {
+        "routeId": "camino-ingles",
+        "name": "Unnamed",
+        "type": "water_source",
+        "subtype": "fountain",
+        "stageIndex": 2,
+        "kmFromStart": 45.8,
+        "icon": "fountain",
+        "source": "osm",
+        "osmId": "node/2382738236"
       }
     },
     {
@@ -5420,7 +5442,7 @@
         "type": "food",
         "subtype": "cafe",
         "stageIndex": 2,
-        "kmFromStart": 50.6,
+        "kmFromStart": 45.8,
         "icon": "cafe",
         "source": "osm",
         "osmId": "node/8420172617"
@@ -5442,32 +5464,10 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 2,
-        "kmFromStart": 50.6,
+        "kmFromStart": 45.8,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/13476745086"
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "wp-osm-water_source-node2382738236",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -8.2074756,
-          43.2830076
-        ]
-      },
-      "properties": {
-        "routeId": "camino-ingles",
-        "name": "Unnamed",
-        "type": "water_source",
-        "subtype": "fountain",
-        "stageIndex": 2,
-        "kmFromStart": 50.7,
-        "icon": "fountain",
-        "source": "osm",
-        "osmId": "node/2382738236"
       }
     },
     {
@@ -5486,7 +5486,7 @@
         "type": "food",
         "subtype": "cafe",
         "stageIndex": 2,
-        "kmFromStart": 50.8,
+        "kmFromStart": 45.9,
         "icon": "cafe",
         "source": "osm",
         "osmId": "node/6717361001"
@@ -5511,7 +5511,7 @@
         "type": "water_source",
         "subtype": "fountain",
         "stageIndex": 2,
-        "kmFromStart": 51.1,
+        "kmFromStart": 46.3,
         "icon": "fountain",
         "source": "osm",
         "osmId": "node/4264282687"
@@ -5533,7 +5533,7 @@
         "type": "accommodation",
         "subtype": "guesthouse",
         "stageIndex": 2,
-        "kmFromStart": 51.3,
+        "kmFromStart": 46.5,
         "icon": "guesthouse",
         "source": "osm",
         "osmId": "node/9788688117"
@@ -5555,7 +5555,7 @@
         "type": "food",
         "subtype": "restaurant",
         "stageIndex": 2,
-        "kmFromStart": 51.4,
+        "kmFromStart": 46.6,
         "icon": "restaurant",
         "source": "osm",
         "osmId": "node/3810135311"
@@ -5577,7 +5577,7 @@
         "type": "food",
         "subtype": "restaurant",
         "stageIndex": 2,
-        "kmFromStart": 51.5,
+        "kmFromStart": 46.7,
         "icon": "restaurant",
         "source": "osm",
         "osmId": "node/3633130179",
@@ -5600,7 +5600,7 @@
         "type": "water_source",
         "subtype": "fountain",
         "stageIndex": 2,
-        "kmFromStart": 51.5,
+        "kmFromStart": 46.7,
         "icon": "fountain",
         "source": "osm",
         "osmId": "node/4914559321"
@@ -5622,7 +5622,7 @@
         "type": "water_source",
         "subtype": "fountain",
         "stageIndex": 2,
-        "kmFromStart": 51.5,
+        "kmFromStart": 46.7,
         "icon": "fountain",
         "source": "osm",
         "osmId": "node/6315051638"
@@ -5644,7 +5644,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 2,
-        "kmFromStart": 51.5,
+        "kmFromStart": 46.7,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/11279681576"
@@ -5666,7 +5666,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 2,
-        "kmFromStart": 51.5,
+        "kmFromStart": 46.7,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/13476745080"
@@ -5688,7 +5688,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 2,
-        "kmFromStart": 51.5,
+        "kmFromStart": 46.7,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/13476745081"
@@ -5710,7 +5710,7 @@
         "type": "water_source",
         "subtype": "fountain",
         "stageIndex": 2,
-        "kmFromStart": 51.7,
+        "kmFromStart": 46.9,
         "icon": "fountain",
         "source": "osm",
         "osmId": "node/7956367685"
@@ -5732,7 +5732,7 @@
         "type": "water_source",
         "subtype": "fountain",
         "stageIndex": 2,
-        "kmFromStart": 51.7,
+        "kmFromStart": 46.9,
         "icon": "fountain",
         "source": "osm",
         "osmId": "node/9029360896"
@@ -5754,7 +5754,7 @@
         "type": "food",
         "subtype": "cafe",
         "stageIndex": 2,
-        "kmFromStart": 51.9,
+        "kmFromStart": 47.1,
         "icon": "cafe",
         "source": "osm",
         "osmId": "node/1928835149",
@@ -5777,7 +5777,7 @@
         "type": "medical",
         "subtype": "pharmacy",
         "stageIndex": 2,
-        "kmFromStart": 51.9,
+        "kmFromStart": 47.1,
         "icon": "pharmacy",
         "source": "osm",
         "osmId": "node/3809849041",
@@ -5800,7 +5800,7 @@
         "type": "food",
         "subtype": "cafe",
         "stageIndex": 2,
-        "kmFromStart": 52,
+        "kmFromStart": 47.2,
         "icon": "cafe",
         "source": "osm",
         "osmId": "node/981055520"
@@ -5822,7 +5822,7 @@
         "type": "food",
         "subtype": "cafe",
         "stageIndex": 2,
-        "kmFromStart": 52,
+        "kmFromStart": 47.2,
         "icon": "cafe",
         "source": "osm",
         "osmId": "node/1928835135"
@@ -5844,7 +5844,7 @@
         "type": "food",
         "subtype": "restaurant",
         "stageIndex": 2,
-        "kmFromStart": 52,
+        "kmFromStart": 47.2,
         "icon": "restaurant",
         "source": "osm",
         "osmId": "node/1928835141"
@@ -5866,7 +5866,7 @@
         "type": "food",
         "subtype": "cafe",
         "stageIndex": 2,
-        "kmFromStart": 52,
+        "kmFromStart": 47.2,
         "icon": "cafe",
         "source": "osm",
         "osmId": "node/1928835152"
@@ -5891,7 +5891,7 @@
         "type": "water_source",
         "subtype": "fountain",
         "stageIndex": 2,
-        "kmFromStart": 52,
+        "kmFromStart": 47.2,
         "icon": "fountain",
         "source": "osm",
         "osmId": "node/5578424677"
@@ -5913,7 +5913,7 @@
         "type": "food",
         "subtype": "restaurant",
         "stageIndex": 2,
-        "kmFromStart": 52,
+        "kmFromStart": 47.2,
         "icon": "restaurant",
         "source": "osm",
         "osmId": "node/12083746127"
@@ -5935,7 +5935,7 @@
         "type": "medical",
         "subtype": "pharmacy",
         "stageIndex": 2,
-        "kmFromStart": 52.2,
+        "kmFromStart": 47.4,
         "icon": "pharmacy",
         "source": "osm",
         "osmId": "node/3792752876",
@@ -5958,7 +5958,7 @@
         "type": "supply",
         "subtype": "toilet",
         "stageIndex": 2,
-        "kmFromStart": 52.2,
+        "kmFromStart": 47.4,
         "icon": "toilet",
         "source": "osm",
         "osmId": "node/3794172880"
@@ -5980,7 +5980,7 @@
         "type": "food",
         "subtype": "restaurant",
         "stageIndex": 3,
-        "kmFromStart": 52.2,
+        "kmFromStart": 47.4,
         "icon": "restaurant",
         "source": "osm",
         "osmId": "node/3831992560"
@@ -6002,7 +6002,7 @@
         "type": "food",
         "subtype": "restaurant",
         "stageIndex": 3,
-        "kmFromStart": 52.2,
+        "kmFromStart": 47.4,
         "icon": "restaurant",
         "source": "osm",
         "osmId": "node/9434715017"
@@ -6024,7 +6024,7 @@
         "type": "food",
         "subtype": "restaurant",
         "stageIndex": 3,
-        "kmFromStart": 52.3,
+        "kmFromStart": 47.5,
         "icon": "restaurant",
         "source": "osm",
         "osmId": "node/1928835154"
@@ -6046,7 +6046,7 @@
         "type": "food",
         "subtype": "restaurant",
         "stageIndex": 3,
-        "kmFromStart": 52.3,
+        "kmFromStart": 47.5,
         "icon": "restaurant",
         "source": "osm",
         "osmId": "node/9029359343"
@@ -6068,32 +6068,10 @@
         "type": "supply",
         "subtype": "vending_machine",
         "stageIndex": 3,
-        "kmFromStart": 52.4,
+        "kmFromStart": 47.6,
         "icon": "vending_machine",
         "source": "osm",
         "osmId": "node/1594951236"
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "wp-osm-food-node3831989560",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -8.2118833,
-          43.2782445
-        ]
-      },
-      "properties": {
-        "routeId": "camino-ingles",
-        "name": "Unnamed",
-        "type": "food",
-        "subtype": "restaurant",
-        "stageIndex": 3,
-        "kmFromStart": 52.4,
-        "icon": "restaurant",
-        "source": "osm",
-        "osmId": "node/3831989560"
       }
     },
     {
@@ -6112,10 +6090,32 @@
         "type": "food",
         "subtype": "cafe",
         "stageIndex": 3,
-        "kmFromStart": 52.5,
+        "kmFromStart": 47.6,
         "icon": "cafe",
         "source": "osm",
         "osmId": "node/1928835142"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-food-node3831989560",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.2118833,
+          43.2782445
+        ]
+      },
+      "properties": {
+        "routeId": "camino-ingles",
+        "name": "Unnamed",
+        "type": "food",
+        "subtype": "restaurant",
+        "stageIndex": 3,
+        "kmFromStart": 47.6,
+        "icon": "restaurant",
+        "source": "osm",
+        "osmId": "node/3831989560"
       }
     },
     {
@@ -6134,7 +6134,7 @@
         "type": "accommodation",
         "subtype": "hostel",
         "stageIndex": 3,
-        "kmFromStart": 52.5,
+        "kmFromStart": 47.6,
         "icon": "hostel",
         "source": "osm",
         "osmId": "node/12412575445"
@@ -6156,7 +6156,7 @@
         "type": "accommodation",
         "subtype": "hotel",
         "stageIndex": 3,
-        "kmFromStart": 52.8,
+        "kmFromStart": 47.9,
         "icon": "hotel",
         "source": "osm",
         "osmId": "node/1594951227"
@@ -6178,7 +6178,7 @@
         "type": "food",
         "subtype": "cafe",
         "stageIndex": 3,
-        "kmFromStart": 52.8,
+        "kmFromStart": 47.9,
         "icon": "cafe",
         "source": "osm",
         "osmId": "node/3877384369"
@@ -6200,7 +6200,7 @@
         "type": "food",
         "subtype": "cafe",
         "stageIndex": 3,
-        "kmFromStart": 53.1,
+        "kmFromStart": 48.1,
         "icon": "cafe",
         "source": "osm",
         "osmId": "node/6715822585"
@@ -6222,7 +6222,7 @@
         "type": "medical",
         "subtype": "pharmacy",
         "stageIndex": 3,
-        "kmFromStart": 53.2,
+        "kmFromStart": 48.2,
         "icon": "pharmacy",
         "source": "osm",
         "osmId": "node/3792752164",
@@ -6245,7 +6245,7 @@
         "type": "food",
         "subtype": "restaurant",
         "stageIndex": 3,
-        "kmFromStart": 53.5,
+        "kmFromStart": 48.5,
         "icon": "restaurant",
         "source": "osm",
         "osmId": "node/3792422605"
@@ -6267,7 +6267,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 3,
-        "kmFromStart": 53.5,
+        "kmFromStart": 48.5,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/13476745091"
@@ -6289,32 +6289,10 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 3,
-        "kmFromStart": 53.5,
+        "kmFromStart": 48.5,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/13591579328"
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "wp-osm-transport-node13591579326",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -8.2152151,
-          43.2717367
-        ]
-      },
-      "properties": {
-        "routeId": "camino-ingles",
-        "name": "Unnamed",
-        "type": "transport",
-        "subtype": "bus_stop",
-        "stageIndex": 3,
-        "kmFromStart": 54.4,
-        "icon": "bus_stop",
-        "source": "osm",
-        "osmId": "node/13591579326"
       }
     },
     {
@@ -6333,10 +6311,32 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 3,
-        "kmFromStart": 54.5,
+        "kmFromStart": 49.3,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/13591579325"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-transport-node13591579326",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.2152151,
+          43.2717367
+        ]
+      },
+      "properties": {
+        "routeId": "camino-ingles",
+        "name": "Unnamed",
+        "type": "transport",
+        "subtype": "bus_stop",
+        "stageIndex": 3,
+        "kmFromStart": 49.3,
+        "icon": "bus_stop",
+        "source": "osm",
+        "osmId": "node/13591579326"
       }
     },
     {
@@ -6355,7 +6355,7 @@
         "type": "food",
         "subtype": "restaurant",
         "stageIndex": 3,
-        "kmFromStart": 55.2,
+        "kmFromStart": 50,
         "icon": "restaurant",
         "source": "osm",
         "osmId": "node/3808392221"
@@ -6377,7 +6377,7 @@
         "type": "water_source",
         "subtype": "fountain",
         "stageIndex": 3,
-        "kmFromStart": 56.2,
+        "kmFromStart": 50.8,
         "icon": "fountain",
         "source": "osm",
         "osmId": "node/8565890717"
@@ -6399,7 +6399,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 3,
-        "kmFromStart": 61.5,
+        "kmFromStart": 55.3,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/8018777218"
@@ -6421,7 +6421,7 @@
         "type": "water_source",
         "subtype": "fountain",
         "stageIndex": 3,
-        "kmFromStart": 63.6,
+        "kmFromStart": 57,
         "icon": "fountain",
         "source": "osm",
         "osmId": "node/8018342595"
@@ -6443,7 +6443,7 @@
         "type": "water_source",
         "subtype": "fountain",
         "stageIndex": 3,
-        "kmFromStart": 64.4,
+        "kmFromStart": 57.7,
         "icon": "fountain",
         "source": "osm",
         "osmId": "node/5918572852"
@@ -6465,7 +6465,7 @@
         "type": "accommodation",
         "subtype": "hostel",
         "stageIndex": 3,
-        "kmFromStart": 66.9,
+        "kmFromStart": 59.8,
         "icon": "hostel",
         "source": "osm",
         "osmId": "node/3010889027"
@@ -6487,7 +6487,7 @@
         "type": "supply",
         "subtype": "convenience_store",
         "stageIndex": 3,
-        "kmFromStart": 66.9,
+        "kmFromStart": 59.8,
         "icon": "convenience_store",
         "source": "osm",
         "osmId": "node/3949031908"
@@ -6509,7 +6509,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 3,
-        "kmFromStart": 66.9,
+        "kmFromStart": 59.8,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/3950040820"
@@ -6531,7 +6531,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 3,
-        "kmFromStart": 67.1,
+        "kmFromStart": 60,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/3950040821"
@@ -6553,7 +6553,7 @@
         "type": "food",
         "subtype": "restaurant",
         "stageIndex": 3,
-        "kmFromStart": 67.3,
+        "kmFromStart": 60.2,
         "icon": "restaurant",
         "source": "osm",
         "osmId": "node/3949035532"
@@ -6575,7 +6575,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 3,
-        "kmFromStart": 68.9,
+        "kmFromStart": 61.5,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/3048769562"
@@ -6597,7 +6597,7 @@
         "type": "water_source",
         "subtype": "fountain",
         "stageIndex": 3,
-        "kmFromStart": 68.9,
+        "kmFromStart": 61.5,
         "icon": "fountain",
         "source": "osm",
         "osmId": "node/3637003801"
@@ -6619,7 +6619,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 3,
-        "kmFromStart": 69.9,
+        "kmFromStart": 62.4,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/3048765818"
@@ -6641,7 +6641,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 3,
-        "kmFromStart": 71.2,
+        "kmFromStart": 63.5,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/8810011045"
@@ -6663,7 +6663,7 @@
         "type": "water_source",
         "subtype": "fountain",
         "stageIndex": 3,
-        "kmFromStart": 72.2,
+        "kmFromStart": 64.3,
         "icon": "fountain",
         "source": "osm",
         "osmId": "node/4935156734"
@@ -6685,7 +6685,7 @@
         "type": "water_source",
         "subtype": "fountain",
         "stageIndex": 3,
-        "kmFromStart": 72.3,
+        "kmFromStart": 64.4,
         "icon": "fountain",
         "source": "osm",
         "osmId": "node/4921196721"
@@ -6707,7 +6707,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 3,
-        "kmFromStart": 72.4,
+        "kmFromStart": 64.5,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/8786866693"
@@ -6729,7 +6729,7 @@
         "type": "water_source",
         "subtype": "fountain",
         "stageIndex": 3,
-        "kmFromStart": 73.6,
+        "kmFromStart": 65.5,
         "icon": "fountain",
         "source": "osm",
         "osmId": "node/8652683617"
@@ -6751,7 +6751,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 3,
-        "kmFromStart": 74.1,
+        "kmFromStart": 65.9,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/8779928367"
@@ -6773,7 +6773,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 3,
-        "kmFromStart": 77.5,
+        "kmFromStart": 68.8,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/8051600435"
@@ -6795,7 +6795,7 @@
         "type": "water_source",
         "subtype": "fountain",
         "stageIndex": 3,
-        "kmFromStart": 78.5,
+        "kmFromStart": 69.6,
         "icon": "fountain",
         "source": "osm",
         "osmId": "node/8051600330"
@@ -6817,7 +6817,7 @@
         "type": "water_source",
         "subtype": "fountain",
         "stageIndex": 3,
-        "kmFromStart": 80.3,
+        "kmFromStart": 71.2,
         "icon": "fountain",
         "source": "osm",
         "osmId": "node/3529281371"
@@ -6839,7 +6839,7 @@
         "type": "food",
         "subtype": "restaurant",
         "stageIndex": 3,
-        "kmFromStart": 80.5,
+        "kmFromStart": 71.3,
         "icon": "restaurant",
         "source": "osm",
         "osmId": "node/5366587257",
@@ -6862,7 +6862,7 @@
         "type": "water_source",
         "subtype": "fountain",
         "stageIndex": 4,
-        "kmFromStart": 82.1,
+        "kmFromStart": 72.9,
         "icon": "fountain",
         "source": "osm",
         "osmId": "node/8652683717"
@@ -6884,7 +6884,7 @@
         "type": "water_source",
         "subtype": "fountain",
         "stageIndex": 4,
-        "kmFromStart": 82.6,
+        "kmFromStart": 73.3,
         "icon": "fountain",
         "source": "osm",
         "osmId": "node/5918551649"
@@ -6906,7 +6906,7 @@
         "type": "accommodation",
         "subtype": "guesthouse",
         "stageIndex": 4,
-        "kmFromStart": 85.6,
+        "kmFromStart": 76.3,
         "icon": "guesthouse",
         "source": "osm",
         "osmId": "node/988266512"
@@ -6928,7 +6928,7 @@
         "type": "accommodation",
         "subtype": "hostel",
         "stageIndex": 4,
-        "kmFromStart": 88.7,
+        "kmFromStart": 79.2,
         "icon": "hostel",
         "source": "osm",
         "osmId": "node/6600806573"
@@ -6950,7 +6950,7 @@
         "type": "water_source",
         "subtype": "fountain",
         "stageIndex": 4,
-        "kmFromStart": 91,
+        "kmFromStart": 81.5,
         "icon": "fountain",
         "source": "osm",
         "osmId": "node/9543496640"
@@ -6972,7 +6972,7 @@
         "type": "water_source",
         "subtype": "fountain",
         "stageIndex": 4,
-        "kmFromStart": 92.1,
+        "kmFromStart": 82.6,
         "icon": "fountain",
         "source": "osm",
         "osmId": "node/3709638600"
@@ -6994,7 +6994,7 @@
         "type": "water_source",
         "subtype": "fountain",
         "stageIndex": 4,
-        "kmFromStart": 100.3,
+        "kmFromStart": 90.6,
         "icon": "fountain",
         "source": "osm",
         "osmId": "node/3533427384"
@@ -7016,7 +7016,7 @@
         "type": "water_source",
         "subtype": "fountain",
         "stageIndex": 4,
-        "kmFromStart": 103.8,
+        "kmFromStart": 94,
         "icon": "fountain",
         "source": "osm",
         "osmId": "node/3533387999"
@@ -7038,7 +7038,7 @@
         "type": "accommodation",
         "subtype": "hostel",
         "stageIndex": 4,
-        "kmFromStart": 104.8,
+        "kmFromStart": 94.9,
         "icon": "hostel",
         "source": "osm",
         "osmId": "node/11793846862"
@@ -7060,7 +7060,7 @@
         "type": "water_source",
         "subtype": "fountain",
         "stageIndex": 4,
-        "kmFromStart": 105.8,
+        "kmFromStart": 95.9,
         "icon": "fountain",
         "source": "osm",
         "osmId": "node/4921147193"
@@ -7082,7 +7082,7 @@
         "type": "food",
         "subtype": "cafe",
         "stageIndex": 5,
-        "kmFromStart": 106,
+        "kmFromStart": 96,
         "icon": "cafe",
         "source": "osm",
         "osmId": "node/988407845"
@@ -7104,7 +7104,7 @@
         "type": "medical",
         "subtype": "pharmacy",
         "stageIndex": 5,
-        "kmFromStart": 106,
+        "kmFromStart": 96.1,
         "icon": "pharmacy",
         "source": "osm",
         "osmId": "node/4101928300"
@@ -7126,7 +7126,7 @@
         "type": "food",
         "subtype": "cafe",
         "stageIndex": 5,
-        "kmFromStart": 106,
+        "kmFromStart": 96.1,
         "icon": "cafe",
         "source": "osm",
         "osmId": "node/13078797760"
@@ -7148,7 +7148,7 @@
         "type": "accommodation",
         "subtype": "hostel",
         "stageIndex": 5,
-        "kmFromStart": 106.1,
+        "kmFromStart": 96.2,
         "icon": "hostel",
         "source": "osm",
         "osmId": "node/2954966077"
@@ -7170,7 +7170,7 @@
         "type": "food",
         "subtype": "cafe",
         "stageIndex": 5,
-        "kmFromStart": 106.3,
+        "kmFromStart": 96.3,
         "icon": "cafe",
         "source": "osm",
         "osmId": "node/988407686"
@@ -7192,7 +7192,7 @@
         "type": "accommodation",
         "subtype": "hostel",
         "stageIndex": 5,
-        "kmFromStart": 106.3,
+        "kmFromStart": 96.3,
         "icon": "hostel",
         "source": "osm",
         "osmId": "node/4338049932"
@@ -7214,7 +7214,7 @@
         "type": "accommodation",
         "subtype": "hotel",
         "stageIndex": 5,
-        "kmFromStart": 106.5,
+        "kmFromStart": 96.5,
         "icon": "hotel",
         "source": "osm",
         "osmId": "node/988408143"
@@ -7236,7 +7236,7 @@
         "type": "accommodation",
         "subtype": "hostel",
         "stageIndex": 5,
-        "kmFromStart": 106.5,
+        "kmFromStart": 96.5,
         "icon": "hostel",
         "source": "osm",
         "osmId": "node/10307803170"
@@ -7258,7 +7258,7 @@
         "type": "accommodation",
         "subtype": "hotel",
         "stageIndex": 5,
-        "kmFromStart": 106.9,
+        "kmFromStart": 96.9,
         "icon": "hotel",
         "source": "osm",
         "osmId": "node/5102184421",
@@ -7281,7 +7281,7 @@
         "type": "food",
         "subtype": "restaurant",
         "stageIndex": 5,
-        "kmFromStart": 107.4,
+        "kmFromStart": 97.3,
         "icon": "restaurant",
         "source": "osm",
         "osmId": "node/988349587"
@@ -7303,7 +7303,7 @@
         "type": "food",
         "subtype": "restaurant",
         "stageIndex": 5,
-        "kmFromStart": 107.5,
+        "kmFromStart": 97.5,
         "icon": "restaurant",
         "source": "osm",
         "osmId": "node/5834340588"
@@ -7325,7 +7325,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 5,
-        "kmFromStart": 108,
+        "kmFromStart": 97.9,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/10989184198"
@@ -7347,7 +7347,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 5,
-        "kmFromStart": 108.7,
+        "kmFromStart": 98.6,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/3681415488"
@@ -7369,7 +7369,7 @@
         "type": "accommodation",
         "subtype": "hotel",
         "stageIndex": 5,
-        "kmFromStart": 109.2,
+        "kmFromStart": 99,
         "icon": "hotel",
         "source": "osm",
         "osmId": "node/836776252"
@@ -7391,7 +7391,7 @@
         "type": "food",
         "subtype": "cafe",
         "stageIndex": 5,
-        "kmFromStart": 109.2,
+        "kmFromStart": 99,
         "icon": "cafe",
         "source": "osm",
         "osmId": "node/4338058103"
@@ -7413,7 +7413,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 5,
-        "kmFromStart": 109.4,
+        "kmFromStart": 99.2,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/11211172926"
@@ -7435,7 +7435,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 5,
-        "kmFromStart": 109.4,
+        "kmFromStart": 99.2,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/11211172927"
@@ -7457,7 +7457,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 5,
-        "kmFromStart": 109.8,
+        "kmFromStart": 99.6,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/3681415482"
@@ -7479,7 +7479,7 @@
         "type": "water_source",
         "subtype": "fountain",
         "stageIndex": 5,
-        "kmFromStart": 110,
+        "kmFromStart": 99.7,
         "icon": "fountain",
         "source": "osm",
         "osmId": "node/9020058164"
@@ -7501,7 +7501,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 5,
-        "kmFromStart": 110.4,
+        "kmFromStart": 100.1,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/1021091475"
@@ -7523,7 +7523,7 @@
         "type": "food",
         "subtype": "restaurant",
         "stageIndex": 5,
-        "kmFromStart": 110.7,
+        "kmFromStart": 100.3,
         "icon": "restaurant",
         "source": "osm",
         "osmId": "node/3790533001"
@@ -7545,7 +7545,7 @@
         "type": "food",
         "subtype": "restaurant",
         "stageIndex": 5,
-        "kmFromStart": 111.8,
+        "kmFromStart": 101.4,
         "icon": "restaurant",
         "source": "osm",
         "osmId": "node/12441697840"
@@ -7567,7 +7567,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 5,
-        "kmFromStart": 112.4,
+        "kmFromStart": 102,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/3790535698"
@@ -7589,7 +7589,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 5,
-        "kmFromStart": 113.2,
+        "kmFromStart": 102.6,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/2614096571"
@@ -7611,7 +7611,7 @@
         "type": "food",
         "subtype": "restaurant",
         "stageIndex": 5,
-        "kmFromStart": 113.3,
+        "kmFromStart": 102.7,
         "icon": "restaurant",
         "source": "osm",
         "osmId": "node/5340408600"
@@ -7633,7 +7633,7 @@
         "type": "food",
         "subtype": "cafe",
         "stageIndex": 5,
-        "kmFromStart": 113.7,
+        "kmFromStart": 103.1,
         "icon": "cafe",
         "source": "osm",
         "osmId": "node/3406266091"
@@ -7655,7 +7655,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 5,
-        "kmFromStart": 113.8,
+        "kmFromStart": 103.2,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/3272579817"
@@ -7677,7 +7677,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 5,
-        "kmFromStart": 113.9,
+        "kmFromStart": 103.3,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/1341694574"
@@ -7699,7 +7699,7 @@
         "type": "supply",
         "subtype": "toilet",
         "stageIndex": 5,
-        "kmFromStart": 113.9,
+        "kmFromStart": 103.3,
         "icon": "toilet",
         "source": "osm",
         "osmId": "node/10108742399"
@@ -7721,7 +7721,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 5,
-        "kmFromStart": 114,
+        "kmFromStart": 103.4,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/1588820241"
@@ -7743,7 +7743,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 5,
-        "kmFromStart": 114.4,
+        "kmFromStart": 103.7,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/5344837014"
@@ -7765,7 +7765,7 @@
         "type": "food",
         "subtype": "restaurant",
         "stageIndex": 5,
-        "kmFromStart": 114.9,
+        "kmFromStart": 104.2,
         "icon": "restaurant",
         "source": "osm",
         "osmId": "node/11843739358"
@@ -7787,7 +7787,7 @@
         "type": "water_source",
         "subtype": "fountain",
         "stageIndex": 5,
-        "kmFromStart": 115.2,
+        "kmFromStart": 104.5,
         "icon": "fountain",
         "source": "osm",
         "osmId": "node/2127709675"
@@ -7809,7 +7809,7 @@
         "type": "water_source",
         "subtype": "fountain",
         "stageIndex": 5,
-        "kmFromStart": 115.4,
+        "kmFromStart": 104.7,
         "icon": "fountain",
         "source": "osm",
         "osmId": "node/3740203475"
@@ -7831,7 +7831,7 @@
         "type": "food",
         "subtype": "restaurant",
         "stageIndex": 5,
-        "kmFromStart": 115.5,
+        "kmFromStart": 104.8,
         "icon": "restaurant",
         "source": "osm",
         "osmId": "node/10971451083"
@@ -7853,7 +7853,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 5,
-        "kmFromStart": 115.9,
+        "kmFromStart": 105.1,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/9955132808"
@@ -7875,7 +7875,7 @@
         "type": "water_source",
         "subtype": "fountain",
         "stageIndex": 5,
-        "kmFromStart": 116.3,
+        "kmFromStart": 105.5,
         "icon": "fountain",
         "source": "osm",
         "osmId": "node/12057733761"
@@ -7897,32 +7897,10 @@
         "type": "food",
         "subtype": "cafe",
         "stageIndex": 5,
-        "kmFromStart": 116.4,
+        "kmFromStart": 105.6,
         "icon": "cafe",
         "source": "osm",
         "osmId": "node/11417843630"
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "wp-osm-medical-node10200574092",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -8.532168,
-          42.8983835
-        ]
-      },
-      "properties": {
-        "routeId": "camino-ingles",
-        "name": "CEGADI",
-        "type": "medical",
-        "subtype": "clinic",
-        "stageIndex": 5,
-        "kmFromStart": 116.6,
-        "icon": "clinic",
-        "source": "osm",
-        "osmId": "node/10200574092"
       }
     },
     {
@@ -7941,11 +7919,33 @@
         "type": "medical",
         "subtype": "pharmacy",
         "stageIndex": 5,
-        "kmFromStart": 116.6,
+        "kmFromStart": 105.7,
         "icon": "pharmacy",
         "source": "osm",
         "osmId": "node/12057793427",
         "hours": "Mo-Fr 09:00-21:00; Sa 09:30-14:00; Su off"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-medical-node10200574092",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.532168,
+          42.8983835
+        ]
+      },
+      "properties": {
+        "routeId": "camino-ingles",
+        "name": "CEGADI",
+        "type": "medical",
+        "subtype": "clinic",
+        "stageIndex": 5,
+        "kmFromStart": 105.8,
+        "icon": "clinic",
+        "source": "osm",
+        "osmId": "node/10200574092"
       }
     },
     {
@@ -7964,7 +7964,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 5,
-        "kmFromStart": 117.1,
+        "kmFromStart": 106.2,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/2030521229"
@@ -7986,7 +7986,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 5,
-        "kmFromStart": 117.2,
+        "kmFromStart": 106.3,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/9955169152"
@@ -8008,32 +8008,10 @@
         "type": "medical",
         "subtype": "pharmacy",
         "stageIndex": 5,
-        "kmFromStart": 117.7,
+        "kmFromStart": 106.8,
         "icon": "pharmacy",
         "source": "osm",
         "osmId": "node/4101924823"
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "wp-osm-medical-node4101924163",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -8.5331041,
-          42.8960545
-        ]
-      },
-      "properties": {
-        "routeId": "camino-ingles",
-        "name": "María Azucena Ferreiro Blanco",
-        "type": "medical",
-        "subtype": "pharmacy",
-        "stageIndex": 5,
-        "kmFromStart": 117.8,
-        "icon": "pharmacy",
-        "source": "osm",
-        "osmId": "node/4101924163"
       }
     },
     {
@@ -8052,10 +8030,32 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 5,
-        "kmFromStart": 117.8,
+        "kmFromStart": 106.8,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/9955169153"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-medical-node4101924163",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.5331041,
+          42.8960545
+        ]
+      },
+      "properties": {
+        "routeId": "camino-ingles",
+        "name": "María Azucena Ferreiro Blanco",
+        "type": "medical",
+        "subtype": "pharmacy",
+        "stageIndex": 5,
+        "kmFromStart": 106.9,
+        "icon": "pharmacy",
+        "source": "osm",
+        "osmId": "node/4101924163"
       }
     },
     {
@@ -8074,7 +8074,7 @@
         "type": "food",
         "subtype": "restaurant",
         "stageIndex": 5,
-        "kmFromStart": 118,
+        "kmFromStart": 107,
         "icon": "restaurant",
         "source": "osm",
         "osmId": "node/1463032217"
@@ -8096,7 +8096,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 5,
-        "kmFromStart": 118.1,
+        "kmFromStart": 107.2,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/2030521223"
@@ -8118,7 +8118,7 @@
         "type": "water_source",
         "subtype": "fountain",
         "stageIndex": 5,
-        "kmFromStart": 118.3,
+        "kmFromStart": 107.3,
         "icon": "fountain",
         "source": "osm",
         "osmId": "node/2429947762"
@@ -8140,32 +8140,10 @@
         "type": "water_source",
         "subtype": "fountain",
         "stageIndex": 5,
-        "kmFromStart": 118.3,
+        "kmFromStart": 107.3,
         "icon": "fountain",
         "source": "osm",
         "osmId": "node/2430813511"
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "wp-osm-supply-node13241590086",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -8.5265801,
-          42.8898951
-        ]
-      },
-      "properties": {
-        "routeId": "camino-ingles",
-        "name": "Unnamed",
-        "type": "supply",
-        "subtype": "toilet",
-        "stageIndex": 5,
-        "kmFromStart": 118.3,
-        "icon": "toilet",
-        "source": "osm",
-        "osmId": "node/13241590086"
       }
     },
     {
@@ -8184,7 +8162,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 5,
-        "kmFromStart": 118.4,
+        "kmFromStart": 107.4,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/2429947769"
@@ -8206,7 +8184,7 @@
         "type": "water_source",
         "subtype": "fountain",
         "stageIndex": 5,
-        "kmFromStart": 118.4,
+        "kmFromStart": 107.4,
         "icon": "fountain",
         "source": "osm",
         "osmId": "node/5638288795"
@@ -8228,10 +8206,32 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 5,
-        "kmFromStart": 118.4,
+        "kmFromStart": 107.4,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/8944615617"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node13241590086",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.5265801,
+          42.8898951
+        ]
+      },
+      "properties": {
+        "routeId": "camino-ingles",
+        "name": "Unnamed",
+        "type": "supply",
+        "subtype": "toilet",
+        "stageIndex": 5,
+        "kmFromStart": 107.4,
+        "icon": "toilet",
+        "source": "osm",
+        "osmId": "node/13241590086"
       }
     },
     {
@@ -8250,7 +8250,7 @@
         "type": "water_source",
         "subtype": "fountain",
         "stageIndex": 5,
-        "kmFromStart": 118.5,
+        "kmFromStart": 107.5,
         "icon": "fountain",
         "source": "osm",
         "osmId": "node/2419982509"
@@ -8272,7 +8272,7 @@
         "type": "water_source",
         "subtype": "fountain",
         "stageIndex": 5,
-        "kmFromStart": 118.5,
+        "kmFromStart": 107.5,
         "icon": "fountain",
         "source": "osm",
         "osmId": "node/7741391458"
@@ -8294,7 +8294,7 @@
         "type": "water_source",
         "subtype": "fountain",
         "stageIndex": 5,
-        "kmFromStart": 118.7,
+        "kmFromStart": 107.7,
         "icon": "fountain",
         "source": "osm",
         "osmId": "node/2429947763"
@@ -8316,7 +8316,7 @@
         "type": "water_source",
         "subtype": "fountain",
         "stageIndex": 5,
-        "kmFromStart": 118.7,
+        "kmFromStart": 107.7,
         "icon": "fountain",
         "source": "osm",
         "osmId": "node/2429947766"
@@ -8338,7 +8338,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 5,
-        "kmFromStart": 118.9,
+        "kmFromStart": 107.9,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/5237927366"
@@ -8360,7 +8360,7 @@
         "type": "water_source",
         "subtype": "fountain",
         "stageIndex": 5,
-        "kmFromStart": 118.9,
+        "kmFromStart": 107.9,
         "icon": "fountain",
         "source": "osm",
         "osmId": "node/5638286893"
@@ -8382,7 +8382,7 @@
         "type": "water_source",
         "subtype": "fountain",
         "stageIndex": 5,
-        "kmFromStart": 118.9,
+        "kmFromStart": 107.9,
         "icon": "fountain",
         "source": "osm",
         "osmId": "node/9005390218"
@@ -8404,7 +8404,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 5,
-        "kmFromStart": 118.9,
+        "kmFromStart": 107.9,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/9955378313"
@@ -8426,7 +8426,7 @@
         "type": "water_source",
         "subtype": "fountain",
         "stageIndex": 5,
-        "kmFromStart": 118.9,
+        "kmFromStart": 107.9,
         "icon": "fountain",
         "source": "osm",
         "osmId": "node/11006025147"
@@ -8448,7 +8448,7 @@
         "type": "water_source",
         "subtype": "fountain",
         "stageIndex": 5,
-        "kmFromStart": 118.9,
+        "kmFromStart": 107.9,
         "icon": "fountain",
         "source": "osm",
         "osmId": "node/11862629174"
@@ -8470,7 +8470,7 @@
         "type": "water_source",
         "subtype": "fountain",
         "stageIndex": 5,
-        "kmFromStart": 119.2,
+        "kmFromStart": 108.1,
         "icon": "fountain",
         "source": "osm",
         "osmId": "node/10553791043"
@@ -8492,7 +8492,7 @@
         "type": "food",
         "subtype": "cafe",
         "stageIndex": 5,
-        "kmFromStart": 119.4,
+        "kmFromStart": 108.3,
         "icon": "cafe",
         "source": "osm",
         "osmId": "node/6749829881"
@@ -8514,7 +8514,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 5,
-        "kmFromStart": 119.5,
+        "kmFromStart": 108.4,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/2030272584"
@@ -8536,7 +8536,7 @@
         "type": "water_source",
         "subtype": "fountain",
         "stageIndex": 5,
-        "kmFromStart": 119.6,
+        "kmFromStart": 108.5,
         "icon": "fountain",
         "source": "osm",
         "osmId": "node/3090767586"
@@ -8558,7 +8558,7 @@
         "type": "supply",
         "subtype": "convenience_store",
         "stageIndex": 5,
-        "kmFromStart": 119.6,
+        "kmFromStart": 108.5,
         "icon": "convenience_store",
         "source": "osm",
         "osmId": "node/10276233058"
@@ -8580,7 +8580,7 @@
         "type": "water_source",
         "subtype": "fountain",
         "stageIndex": 5,
-        "kmFromStart": 119.6,
+        "kmFromStart": 108.5,
         "icon": "fountain",
         "source": "osm",
         "osmId": "node/12397420883"
@@ -8602,7 +8602,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 5,
-        "kmFromStart": 119.7,
+        "kmFromStart": 108.6,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/1704894193"
@@ -8624,7 +8624,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 5,
-        "kmFromStart": 119.8,
+        "kmFromStart": 108.6,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/9655992092"
@@ -8646,7 +8646,7 @@
         "type": "food",
         "subtype": "cafe",
         "stageIndex": 5,
-        "kmFromStart": 119.8,
+        "kmFromStart": 108.6,
         "icon": "cafe",
         "source": "osm",
         "osmId": "node/11874179006"
@@ -8668,7 +8668,7 @@
         "type": "medical",
         "subtype": "pharmacy",
         "stageIndex": 5,
-        "kmFromStart": 120,
+        "kmFromStart": 108.9,
         "icon": "pharmacy",
         "source": "osm",
         "osmId": "node/4101932589"
@@ -8690,7 +8690,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 5,
-        "kmFromStart": 120,
+        "kmFromStart": 108.9,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/4187071007"
@@ -8712,7 +8712,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 5,
-        "kmFromStart": 120,
+        "kmFromStart": 108.9,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/4255397160"
@@ -8734,7 +8734,7 @@
         "type": "food",
         "subtype": "restaurant",
         "stageIndex": 5,
-        "kmFromStart": 120,
+        "kmFromStart": 108.9,
         "icon": "restaurant",
         "source": "osm",
         "osmId": "node/6709448335"
@@ -8756,7 +8756,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 5,
-        "kmFromStart": 120,
+        "kmFromStart": 108.9,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/9955644804"
@@ -8778,7 +8778,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 5,
-        "kmFromStart": 120,
+        "kmFromStart": 108.9,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/9988540602"
@@ -8800,7 +8800,7 @@
         "type": "food",
         "subtype": "cafe",
         "stageIndex": 5,
-        "kmFromStart": 120,
+        "kmFromStart": 108.9,
         "icon": "cafe",
         "source": "osm",
         "osmId": "node/10249708210"
@@ -8822,7 +8822,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 5,
-        "kmFromStart": 120,
+        "kmFromStart": 108.9,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/11081938786"
@@ -8844,34 +8844,11 @@
         "type": "medical",
         "subtype": "pharmacy",
         "stageIndex": 5,
-        "kmFromStart": 120,
+        "kmFromStart": 108.9,
         "icon": "pharmacy",
         "source": "osm",
         "osmId": "node/11407994268",
         "hours": "Mo-Fr 09:30-14:30,16:30-21:00; Sa 10:00-14:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "wp-osm-food-node3949641389",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -8.5339114,
-          42.8864215
-        ]
-      },
-      "properties": {
-        "routeId": "camino-ingles",
-        "name": "Aturuxo",
-        "type": "food",
-        "subtype": "cafe",
-        "stageIndex": 5,
-        "kmFromStart": 120.1,
-        "icon": "cafe",
-        "source": "osm",
-        "osmId": "node/3949641389",
-        "hours": "Mo-Fr 07:00-16:00"
       }
     },
     {
@@ -8890,7 +8867,7 @@
         "type": "food",
         "subtype": "cafe",
         "stageIndex": 5,
-        "kmFromStart": 120.2,
+        "kmFromStart": 109,
         "icon": "cafe",
         "source": "osm",
         "osmId": "node/2421843484"
@@ -8912,10 +8889,33 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 5,
-        "kmFromStart": 120.2,
+        "kmFromStart": 109,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/2421843486"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-food-node3949641389",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.5339114,
+          42.8864215
+        ]
+      },
+      "properties": {
+        "routeId": "camino-ingles",
+        "name": "Aturuxo",
+        "type": "food",
+        "subtype": "cafe",
+        "stageIndex": 5,
+        "kmFromStart": 109,
+        "icon": "cafe",
+        "source": "osm",
+        "osmId": "node/3949641389",
+        "hours": "Mo-Fr 07:00-16:00"
       }
     },
     {
@@ -8934,7 +8934,7 @@
         "type": "accommodation",
         "subtype": "hostel",
         "stageIndex": 5,
-        "kmFromStart": 120.2,
+        "kmFromStart": 109,
         "icon": "hostel",
         "source": "osm",
         "osmId": "node/6434225128"
@@ -8956,7 +8956,7 @@
         "type": "food",
         "subtype": "restaurant",
         "stageIndex": 5,
-        "kmFromStart": 120.2,
+        "kmFromStart": 109,
         "icon": "restaurant",
         "source": "osm",
         "osmId": "node/10538062852"
@@ -8978,32 +8978,10 @@
         "type": "supply",
         "subtype": "convenience_store",
         "stageIndex": 5,
-        "kmFromStart": 120.2,
+        "kmFromStart": 109,
         "icon": "convenience_store",
         "source": "osm",
         "osmId": "node/10836982151"
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "wp-osm-transport-node1997560115",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -8.5373064,
-          42.8879242
-        ]
-      },
-      "properties": {
-        "routeId": "camino-ingles",
-        "name": "Pastoriza nº 22",
-        "type": "transport",
-        "subtype": "bus_stop",
-        "stageIndex": 5,
-        "kmFromStart": 120.4,
-        "icon": "bus_stop",
-        "source": "osm",
-        "osmId": "node/1997560115"
       }
     },
     {
@@ -9022,7 +9000,7 @@
         "type": "water_source",
         "subtype": "fountain",
         "stageIndex": 5,
-        "kmFromStart": 120.4,
+        "kmFromStart": 109.2,
         "icon": "fountain",
         "source": "osm",
         "osmId": "node/10157435028"
@@ -9044,10 +9022,32 @@
         "type": "food",
         "subtype": "cafe",
         "stageIndex": 5,
-        "kmFromStart": 120.4,
+        "kmFromStart": 109.2,
         "icon": "cafe",
         "source": "osm",
         "osmId": "node/10275613803"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-transport-node1997560115",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.5373064,
+          42.8879242
+        ]
+      },
+      "properties": {
+        "routeId": "camino-ingles",
+        "name": "Pastoriza nº 22",
+        "type": "transport",
+        "subtype": "bus_stop",
+        "stageIndex": 5,
+        "kmFromStart": 109.3,
+        "icon": "bus_stop",
+        "source": "osm",
+        "osmId": "node/1997560115"
       }
     },
     {
@@ -9066,7 +9066,7 @@
         "type": "water_source",
         "subtype": "fountain",
         "stageIndex": 5,
-        "kmFromStart": 120.5,
+        "kmFromStart": 109.3,
         "icon": "fountain",
         "source": "osm",
         "osmId": "node/2899162431"
@@ -9088,7 +9088,7 @@
         "type": "water_source",
         "subtype": "fountain",
         "stageIndex": 5,
-        "kmFromStart": 120.5,
+        "kmFromStart": 109.3,
         "icon": "fountain",
         "source": "osm",
         "osmId": "node/5638282765"
@@ -9110,7 +9110,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 5,
-        "kmFromStart": 120.7,
+        "kmFromStart": 109.5,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/3822553547"
@@ -9132,7 +9132,7 @@
         "type": "water_source",
         "subtype": "fountain",
         "stageIndex": 5,
-        "kmFromStart": 120.7,
+        "kmFromStart": 109.5,
         "icon": "fountain",
         "source": "osm",
         "osmId": "node/3950316754"
@@ -9154,7 +9154,7 @@
         "type": "water_source",
         "subtype": "fountain",
         "stageIndex": 5,
-        "kmFromStart": 120.8,
+        "kmFromStart": 109.6,
         "icon": "fountain",
         "source": "osm",
         "osmId": "node/12152466539"
@@ -9176,7 +9176,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 5,
-        "kmFromStart": 121,
+        "kmFromStart": 109.8,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/2424036283"
@@ -9198,7 +9198,7 @@
         "type": "accommodation",
         "subtype": "hostel",
         "stageIndex": 5,
-        "kmFromStart": 121.1,
+        "kmFromStart": 109.8,
         "icon": "hostel",
         "source": "osm",
         "osmId": "node/6609802063"
@@ -9220,7 +9220,7 @@
         "type": "water_source",
         "subtype": "fountain",
         "stageIndex": 5,
-        "kmFromStart": 121.2,
+        "kmFromStart": 109.9,
         "icon": "fountain",
         "source": "osm",
         "osmId": "node/3090772655"
@@ -9242,7 +9242,7 @@
         "type": "food",
         "subtype": "cafe",
         "stageIndex": 5,
-        "kmFromStart": 121.2,
+        "kmFromStart": 109.9,
         "icon": "cafe",
         "source": "osm",
         "osmId": "node/4225978944"
@@ -9264,7 +9264,7 @@
         "type": "supply",
         "subtype": "convenience_store",
         "stageIndex": 5,
-        "kmFromStart": 121.2,
+        "kmFromStart": 109.9,
         "icon": "convenience_store",
         "source": "osm",
         "osmId": "node/4904649783"
@@ -9286,7 +9286,7 @@
         "type": "water_source",
         "subtype": "fountain",
         "stageIndex": 5,
-        "kmFromStart": 121.2,
+        "kmFromStart": 109.9,
         "icon": "fountain",
         "source": "osm",
         "osmId": "node/5464574816"
@@ -9308,7 +9308,7 @@
         "type": "food",
         "subtype": "cafe",
         "stageIndex": 5,
-        "kmFromStart": 121.2,
+        "kmFromStart": 109.9,
         "icon": "cafe",
         "source": "osm",
         "osmId": "node/11829212130"
@@ -9330,7 +9330,7 @@
         "type": "water_source",
         "subtype": "fountain",
         "stageIndex": 5,
-        "kmFromStart": 121.3,
+        "kmFromStart": 110,
         "icon": "fountain",
         "source": "osm",
         "osmId": "node/3719475320"
@@ -9352,7 +9352,7 @@
         "type": "medical",
         "subtype": "pharmacy",
         "stageIndex": 5,
-        "kmFromStart": 121.3,
+        "kmFromStart": 110,
         "icon": "pharmacy",
         "source": "osm",
         "osmId": "node/4101921249",
@@ -9375,7 +9375,7 @@
         "type": "water_source",
         "subtype": "fountain",
         "stageIndex": 5,
-        "kmFromStart": 121.3,
+        "kmFromStart": 110,
         "icon": "fountain",
         "source": "osm",
         "osmId": "node/9665916875"
@@ -9397,7 +9397,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 5,
-        "kmFromStart": 121.3,
+        "kmFromStart": 110,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/12297679537"
@@ -9419,10 +9419,32 @@
         "type": "water_source",
         "subtype": "fountain",
         "stageIndex": 5,
-        "kmFromStart": 121.4,
+        "kmFromStart": 110.2,
         "icon": "fountain",
         "source": "osm",
         "osmId": "node/9626505916"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-transport-node2424150084",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.5411879,
+          42.8851657
+        ]
+      },
+      "properties": {
+        "routeId": "camino-ingles",
+        "name": "Santa Clara",
+        "type": "transport",
+        "subtype": "bus_stop",
+        "stageIndex": 5,
+        "kmFromStart": 110.3,
+        "icon": "bus_stop",
+        "source": "osm",
+        "osmId": "node/2424150084"
       }
     },
     {
@@ -9441,7 +9463,7 @@
         "type": "food",
         "subtype": "cafe",
         "stageIndex": 5,
-        "kmFromStart": 121.5,
+        "kmFromStart": 110.3,
         "icon": "cafe",
         "source": "osm",
         "osmId": "node/5599009479"
@@ -9463,7 +9485,7 @@
         "type": "food",
         "subtype": "cafe",
         "stageIndex": 5,
-        "kmFromStart": 121.5,
+        "kmFromStart": 110.3,
         "icon": "cafe",
         "source": "osm",
         "osmId": "node/11040476060"
@@ -9485,76 +9507,10 @@
         "type": "supply",
         "subtype": "vending_machine",
         "stageIndex": 5,
-        "kmFromStart": 121.5,
+        "kmFromStart": 110.3,
         "icon": "vending_machine",
         "source": "osm",
         "osmId": "node/12250250828"
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "wp-osm-transport-node2424150084",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -8.5411879,
-          42.8851657
-        ]
-      },
-      "properties": {
-        "routeId": "camino-ingles",
-        "name": "Santa Clara",
-        "type": "transport",
-        "subtype": "bus_stop",
-        "stageIndex": 5,
-        "kmFromStart": 121.6,
-        "icon": "bus_stop",
-        "source": "osm",
-        "osmId": "node/2424150084"
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "wp-osm-accommodation-node2465541934",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -8.5404106,
-          42.8846101
-        ]
-      },
-      "properties": {
-        "routeId": "camino-ingles",
-        "name": "Loop INN Santiago de Compostela",
-        "type": "accommodation",
-        "subtype": "hostel",
-        "stageIndex": 5,
-        "kmFromStart": 121.6,
-        "icon": "hostel",
-        "source": "osm",
-        "osmId": "node/2465541934"
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "wp-osm-supply-node12250240327",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -8.5426088,
-          42.8853319
-        ]
-      },
-      "properties": {
-        "routeId": "camino-ingles",
-        "name": "Unnamed",
-        "type": "supply",
-        "subtype": "vending_machine",
-        "stageIndex": 5,
-        "kmFromStart": 121.6,
-        "icon": "vending_machine",
-        "source": "osm",
-        "osmId": "node/12250240327"
       }
     },
     {
@@ -9573,7 +9529,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 5,
-        "kmFromStart": 121.7,
+        "kmFromStart": 110.4,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/1539053870"
@@ -9595,10 +9551,32 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 5,
-        "kmFromStart": 121.7,
+        "kmFromStart": 110.4,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/1539053881"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-accommodation-node2465541934",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.5404106,
+          42.8846101
+        ]
+      },
+      "properties": {
+        "routeId": "camino-ingles",
+        "name": "Loop INN Santiago de Compostela",
+        "type": "accommodation",
+        "subtype": "hostel",
+        "stageIndex": 5,
+        "kmFromStart": 110.4,
+        "icon": "hostel",
+        "source": "osm",
+        "osmId": "node/2465541934"
       }
     },
     {
@@ -9617,7 +9595,7 @@
         "type": "water_source",
         "subtype": "fountain",
         "stageIndex": 5,
-        "kmFromStart": 121.7,
+        "kmFromStart": 110.4,
         "icon": "fountain",
         "source": "osm",
         "osmId": "node/3719475319"
@@ -9639,10 +9617,32 @@
         "type": "food",
         "subtype": "cafe",
         "stageIndex": 5,
-        "kmFromStart": 121.7,
+        "kmFromStart": 110.4,
         "icon": "cafe",
         "source": "osm",
         "osmId": "node/5599014278"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node12250240327",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.5426088,
+          42.8853319
+        ]
+      },
+      "properties": {
+        "routeId": "camino-ingles",
+        "name": "Unnamed",
+        "type": "supply",
+        "subtype": "vending_machine",
+        "stageIndex": 5,
+        "kmFromStart": 110.4,
+        "icon": "vending_machine",
+        "source": "osm",
+        "osmId": "node/12250240327"
       }
     },
     {
@@ -9661,7 +9661,7 @@
         "type": "food",
         "subtype": "cafe",
         "stageIndex": 5,
-        "kmFromStart": 121.7,
+        "kmFromStart": 110.4,
         "icon": "cafe",
         "source": "osm",
         "osmId": "node/12386643284",
@@ -9684,7 +9684,7 @@
         "type": "food",
         "subtype": "restaurant",
         "stageIndex": 5,
-        "kmFromStart": 121.8,
+        "kmFromStart": 110.5,
         "icon": "restaurant",
         "source": "osm",
         "osmId": "node/828077587"
@@ -9706,7 +9706,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 5,
-        "kmFromStart": 121.8,
+        "kmFromStart": 110.5,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/3518813430"
@@ -9728,7 +9728,7 @@
         "type": "water_source",
         "subtype": "fountain",
         "stageIndex": 5,
-        "kmFromStart": 121.8,
+        "kmFromStart": 110.5,
         "icon": "fountain",
         "source": "osm",
         "osmId": "node/3719475318"
@@ -9750,7 +9750,7 @@
         "type": "accommodation",
         "subtype": "hotel",
         "stageIndex": 5,
-        "kmFromStart": 121.8,
+        "kmFromStart": 110.5,
         "icon": "hotel",
         "source": "osm",
         "osmId": "node/4216442891"
@@ -9776,33 +9776,10 @@
         "type": "accommodation",
         "subtype": "hostel",
         "stageIndex": 5,
-        "kmFromStart": 121.8,
+        "kmFromStart": 110.5,
         "icon": "hostel",
         "source": "osm",
         "osmId": "node/5775911316"
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "wp-osm-food-node6580505053",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -8.541368,
-          42.8827842
-        ]
-      },
-      "properties": {
-        "routeId": "camino-ingles",
-        "name": "A Corre Vexeta",
-        "type": "food",
-        "subtype": "restaurant",
-        "stageIndex": 5,
-        "kmFromStart": 121.9,
-        "icon": "restaurant",
-        "source": "osm",
-        "osmId": "node/6580505053",
-        "hours": "Tu-Sa 13:00-15:30,20:00-23:00"
       }
     },
     {
@@ -9821,10 +9798,33 @@
         "type": "food",
         "subtype": "cafe",
         "stageIndex": 5,
-        "kmFromStart": 122,
+        "kmFromStart": 110.6,
         "icon": "cafe",
         "source": "osm",
         "osmId": "node/1849980594"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-food-node6580505053",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.541368,
+          42.8827842
+        ]
+      },
+      "properties": {
+        "routeId": "camino-ingles",
+        "name": "A Corre Vexeta",
+        "type": "food",
+        "subtype": "restaurant",
+        "stageIndex": 5,
+        "kmFromStart": 110.6,
+        "icon": "restaurant",
+        "source": "osm",
+        "osmId": "node/6580505053",
+        "hours": "Tu-Sa 13:00-15:30,20:00-23:00"
       }
     },
     {
@@ -9843,7 +9843,7 @@
         "type": "accommodation",
         "subtype": "hostel",
         "stageIndex": 5,
-        "kmFromStart": 122,
+        "kmFromStart": 110.7,
         "icon": "hostel",
         "source": "osm",
         "osmId": "node/2465494569",
@@ -9866,54 +9866,10 @@
         "type": "food",
         "subtype": "cafe",
         "stageIndex": 5,
-        "kmFromStart": 122,
+        "kmFromStart": 110.7,
         "icon": "cafe",
         "source": "osm",
         "osmId": "node/4244909230"
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "wp-osm-food-node5247030327",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -8.5455742,
-          42.8833125
-        ]
-      },
-      "properties": {
-        "routeId": "camino-ingles",
-        "name": "Restaurante San Francisco",
-        "type": "food",
-        "subtype": "restaurant",
-        "stageIndex": 5,
-        "kmFromStart": 122,
-        "icon": "restaurant",
-        "source": "osm",
-        "osmId": "node/5247030327"
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "wp-osm-food-node11461272191",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -8.5451847,
-          42.8828236
-        ]
-      },
-      "properties": {
-        "routeId": "camino-ingles",
-        "name": "Café-Bar Bello",
-        "type": "food",
-        "subtype": "cafe",
-        "stageIndex": 5,
-        "kmFromStart": 122,
-        "icon": "cafe",
-        "source": "osm",
-        "osmId": "node/11461272191"
       }
     },
     {
@@ -9935,10 +9891,54 @@
         "type": "water_source",
         "subtype": "fountain",
         "stageIndex": 5,
-        "kmFromStart": 122.1,
+        "kmFromStart": 110.7,
         "icon": "fountain",
         "source": "osm",
         "osmId": "node/5042882623"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-food-node5247030327",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.5455742,
+          42.8833125
+        ]
+      },
+      "properties": {
+        "routeId": "camino-ingles",
+        "name": "Restaurante San Francisco",
+        "type": "food",
+        "subtype": "restaurant",
+        "stageIndex": 5,
+        "kmFromStart": 110.7,
+        "icon": "restaurant",
+        "source": "osm",
+        "osmId": "node/5247030327"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-food-node11461272191",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.5451847,
+          42.8828236
+        ]
+      },
+      "properties": {
+        "routeId": "camino-ingles",
+        "name": "Café-Bar Bello",
+        "type": "food",
+        "subtype": "cafe",
+        "stageIndex": 5,
+        "kmFromStart": 110.7,
+        "icon": "cafe",
+        "source": "osm",
+        "osmId": "node/11461272191"
       }
     },
     {
@@ -9957,7 +9957,7 @@
         "type": "food",
         "subtype": "restaurant",
         "stageIndex": 5,
-        "kmFromStart": 122.1,
+        "kmFromStart": 110.8,
         "icon": "restaurant",
         "source": "osm",
         "osmId": "node/6514149089"
@@ -9979,7 +9979,7 @@
         "type": "food",
         "subtype": "cafe",
         "stageIndex": 5,
-        "kmFromStart": 122.1,
+        "kmFromStart": 110.8,
         "icon": "cafe",
         "source": "osm",
         "osmId": "node/11042958849"
@@ -10001,7 +10001,7 @@
         "type": "food",
         "subtype": "cafe",
         "stageIndex": 5,
-        "kmFromStart": 122.1,
+        "kmFromStart": 110.8,
         "icon": "cafe",
         "source": "osm",
         "osmId": "node/11457784413"
@@ -10023,7 +10023,7 @@
         "type": "accommodation",
         "subtype": "hotel",
         "stageIndex": 5,
-        "kmFromStart": 122.3,
+        "kmFromStart": 111,
         "icon": "hotel",
         "source": "osm",
         "osmId": "node/766499552"
@@ -10045,7 +10045,7 @@
         "type": "food",
         "subtype": "restaurant",
         "stageIndex": 5,
-        "kmFromStart": 122.3,
+        "kmFromStart": 111,
         "icon": "restaurant",
         "source": "osm",
         "osmId": "node/766499622"
@@ -10067,7 +10067,7 @@
         "type": "accommodation",
         "subtype": "guesthouse",
         "stageIndex": 5,
-        "kmFromStart": 122.3,
+        "kmFromStart": 111,
         "icon": "guesthouse",
         "source": "osm",
         "osmId": "node/1446887421"
@@ -10089,7 +10089,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 5,
-        "kmFromStart": 122.3,
+        "kmFromStart": 111,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/1539053851"
@@ -10111,7 +10111,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 5,
-        "kmFromStart": 122.3,
+        "kmFromStart": 111,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/1539053862"
@@ -10133,7 +10133,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 5,
-        "kmFromStart": 122.3,
+        "kmFromStart": 111,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/1539053865"
@@ -10155,7 +10155,7 @@
         "type": "food",
         "subtype": "restaurant",
         "stageIndex": 5,
-        "kmFromStart": 122.3,
+        "kmFromStart": 111,
         "icon": "restaurant",
         "source": "osm",
         "osmId": "node/1779504621"
@@ -10177,10 +10177,32 @@
         "type": "food",
         "subtype": "cafe",
         "stageIndex": 5,
-        "kmFromStart": 122.3,
+        "kmFromStart": 111,
         "icon": "cafe",
         "source": "osm",
         "osmId": "node/1849974010"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-accommodation-node2598611555",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.5435017,
+          42.8811892
+        ]
+      },
+      "properties": {
+        "routeId": "camino-ingles",
+        "name": "Albergue Azabache",
+        "type": "accommodation",
+        "subtype": "hostel",
+        "stageIndex": 5,
+        "kmFromStart": 111,
+        "icon": "hostel",
+        "source": "osm",
+        "osmId": "node/2598611555"
       }
     },
     {
@@ -10199,7 +10221,7 @@
         "type": "water_source",
         "subtype": "fountain",
         "stageIndex": 5,
-        "kmFromStart": 122.3,
+        "kmFromStart": 111,
         "icon": "fountain",
         "source": "osm",
         "osmId": "node/3004002415"
@@ -10221,7 +10243,7 @@
         "type": "medical",
         "subtype": "pharmacy",
         "stageIndex": 5,
-        "kmFromStart": 122.3,
+        "kmFromStart": 111,
         "icon": "pharmacy",
         "source": "osm",
         "osmId": "node/4101931695",
@@ -10244,7 +10266,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 5,
-        "kmFromStart": 122.3,
+        "kmFromStart": 111,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/4998660157"
@@ -10266,7 +10288,7 @@
         "type": "accommodation",
         "subtype": "hotel",
         "stageIndex": 5,
-        "kmFromStart": 122.3,
+        "kmFromStart": 111,
         "icon": "hotel",
         "source": "osm",
         "osmId": "node/5599933976"
@@ -10288,7 +10310,7 @@
         "type": "supply",
         "subtype": "convenience_store",
         "stageIndex": 5,
-        "kmFromStart": 122.3,
+        "kmFromStart": 111,
         "icon": "convenience_store",
         "source": "osm",
         "osmId": "node/5648985524"
@@ -10310,7 +10332,7 @@
         "type": "food",
         "subtype": "restaurant",
         "stageIndex": 5,
-        "kmFromStart": 122.3,
+        "kmFromStart": 111,
         "icon": "restaurant",
         "source": "osm",
         "osmId": "node/7526030653"
@@ -10332,7 +10354,7 @@
         "type": "water_source",
         "subtype": "fountain",
         "stageIndex": 5,
-        "kmFromStart": 122.3,
+        "kmFromStart": 111,
         "icon": "fountain",
         "source": "osm",
         "osmId": "node/10979112998"
@@ -10354,7 +10376,7 @@
         "type": "food",
         "subtype": "restaurant",
         "stageIndex": 5,
-        "kmFromStart": 122.3,
+        "kmFromStart": 111,
         "icon": "restaurant",
         "source": "osm",
         "osmId": "node/11454402773"
@@ -10376,32 +10398,10 @@
         "type": "food",
         "subtype": "cafe",
         "stageIndex": 5,
-        "kmFromStart": 122.3,
+        "kmFromStart": 111,
         "icon": "cafe",
         "source": "osm",
         "osmId": "node/11457784417"
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "wp-osm-accommodation-node2598611555",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -8.5435017,
-          42.8811892
-        ]
-      },
-      "properties": {
-        "routeId": "camino-ingles",
-        "name": "Albergue Azabache",
-        "type": "accommodation",
-        "subtype": "hostel",
-        "stageIndex": 5,
-        "kmFromStart": 122.4,
-        "icon": "hostel",
-        "source": "osm",
-        "osmId": "node/2598611555"
       }
     },
     {
@@ -10423,32 +10423,10 @@
         "type": "food",
         "subtype": "cafe",
         "stageIndex": 5,
-        "kmFromStart": 122.4,
+        "kmFromStart": 111.1,
         "icon": "cafe",
         "source": "osm",
         "osmId": "node/4910182328"
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "wp-osm-accommodation-node10873286105",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          -8.5447713,
-          42.8813508
-        ]
-      },
-      "properties": {
-        "routeId": "camino-ingles",
-        "name": "Hospedería San Martin Pinario",
-        "type": "accommodation",
-        "subtype": "hostel",
-        "stageIndex": 5,
-        "kmFromStart": 122.6,
-        "icon": "hostel",
-        "source": "osm",
-        "osmId": "node/10873286105"
       }
     },
     {
@@ -10467,10 +10445,32 @@
         "type": "food",
         "subtype": "cafe",
         "stageIndex": 5,
-        "kmFromStart": 122.6,
+        "kmFromStart": 111.2,
         "icon": "cafe",
         "source": "osm",
         "osmId": "node/11461272184"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-accommodation-node10873286105",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -8.5447713,
+          42.8813508
+        ]
+      },
+      "properties": {
+        "routeId": "camino-ingles",
+        "name": "Hospedería San Martin Pinario",
+        "type": "accommodation",
+        "subtype": "hostel",
+        "stageIndex": 5,
+        "kmFromStart": 111.3,
+        "icon": "hostel",
+        "source": "osm",
+        "osmId": "node/10873286105"
       }
     },
     {
@@ -10489,7 +10489,7 @@
         "type": "food",
         "subtype": "cafe",
         "stageIndex": 5,
-        "kmFromStart": 122.9,
+        "kmFromStart": 111.5,
         "icon": "cafe",
         "source": "osm",
         "osmId": "node/1440124862"
@@ -10511,7 +10511,7 @@
         "type": "supply",
         "subtype": "toilet",
         "stageIndex": 5,
-        "kmFromStart": 122.9,
+        "kmFromStart": 111.5,
         "icon": "toilet",
         "source": "osm",
         "osmId": "node/2458105196"
@@ -10533,7 +10533,7 @@
         "type": "food",
         "subtype": "restaurant",
         "stageIndex": 5,
-        "kmFromStart": 122.9,
+        "kmFromStart": 111.5,
         "icon": "restaurant",
         "source": "osm",
         "osmId": "node/3941545377"
@@ -10555,7 +10555,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 5,
-        "kmFromStart": 122.9,
+        "kmFromStart": 111.5,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/3955872125"
@@ -10577,7 +10577,7 @@
         "type": "food",
         "subtype": "restaurant",
         "stageIndex": 5,
-        "kmFromStart": 122.9,
+        "kmFromStart": 111.5,
         "icon": "restaurant",
         "source": "osm",
         "osmId": "node/9922502676"
@@ -10599,7 +10599,7 @@
         "type": "supply",
         "subtype": "toilet",
         "stageIndex": 5,
-        "kmFromStart": 122.9,
+        "kmFromStart": 111.5,
         "icon": "toilet",
         "source": "osm",
         "osmId": "node/11059507927"
@@ -10621,7 +10621,7 @@
         "type": "accommodation",
         "subtype": "hostel",
         "stageIndex": 5,
-        "kmFromStart": 122.9,
+        "kmFromStart": 111.5,
         "icon": "hostel",
         "source": "osm",
         "osmId": "node/12090095469"
@@ -10643,7 +10643,7 @@
         "type": "food",
         "subtype": "restaurant",
         "stageIndex": 5,
-        "kmFromStart": 123,
+        "kmFromStart": 111.6,
         "icon": "restaurant",
         "source": "osm",
         "osmId": "node/772403742"
@@ -10665,7 +10665,7 @@
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 5,
-        "kmFromStart": 123,
+        "kmFromStart": 111.6,
         "icon": "bus_stop",
         "source": "osm",
         "osmId": "node/2030272519"
@@ -10690,7 +10690,7 @@
         "type": "food",
         "subtype": "restaurant",
         "stageIndex": 5,
-        "kmFromStart": 123,
+        "kmFromStart": 111.6,
         "icon": "restaurant",
         "source": "osm",
         "osmId": "node/4947523323"
@@ -10712,7 +10712,7 @@
         "type": "food",
         "subtype": "cafe",
         "stageIndex": 5,
-        "kmFromStart": 123,
+        "kmFromStart": 111.6,
         "icon": "cafe",
         "source": "osm",
         "osmId": "node/5649800822"
@@ -10734,7 +10734,7 @@
         "type": "food",
         "subtype": "cafe",
         "stageIndex": 5,
-        "kmFromStart": 123,
+        "kmFromStart": 111.6,
         "icon": "cafe",
         "source": "osm",
         "osmId": "node/5649800823"
@@ -10756,7 +10756,7 @@
         "type": "food",
         "subtype": "cafe",
         "stageIndex": 5,
-        "kmFromStart": 123,
+        "kmFromStart": 111.6,
         "icon": "cafe",
         "source": "osm",
         "osmId": "node/5784774406",

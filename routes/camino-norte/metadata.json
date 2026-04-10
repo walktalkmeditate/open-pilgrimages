@@ -12,14 +12,14 @@
     "ja": "北の道"
   },
   "description": {
-    "en": "The coastal Camino de Santiago along the Bay of Biscay from Irún on the French border, through the Basque Country, Cantabria, Asturias, and into Galicia where it joins the Camino Francés at Arzúa for the final approach to Santiago de Compostela. Approximately 820 km in 34 stages. Among the oldest Caminos — walked when inland Iberia was under Moorish control and the Atlantic coast remained the safer Christian corridor. The longest non-Francés Camino and the only major Camino that stays within sight of the sea for most of its length. UNESCO inscribed in 2015 as part of the Routes of Northern Spain extension.",
+    "en": "The coastal Camino de Santiago along the Bay of Biscay from Irún on the French border, through the Basque Country, Cantabria, Asturias, and into Galicia where it joins the Camino Francés at Arzúa for the final approach to Santiago de Compostela. Approximately 784 km in 34 native stages plus a 39 km shared run on the Francés to Santiago (~820 km total Irún → Santiago per Cicerone). Among the oldest Caminos — walked when inland Iberia was under Moorish control and the Atlantic coast remained the safer Christian corridor. The longest non-Francés Camino and the only major Camino that stays within sight of the sea for most of its length. UNESCO inscribed in 2015 as part of the Routes of Northern Spain extension.",
     "es": "El Camino de Santiago costero desde Irún por el Cantábrico a través del País Vasco, Cantabria, Asturias y Galicia, uniéndose al Camino Francés en Arzúa.",
     "eu": "Donejakue bidea kostaldetik, Irundik hasita Bizkaiko Golkoaren ondotik, Euskal Herria, Kantabria, Asturias eta Galiziatik igarotzen dena."
   },
 
   "overview": {
-    "distanceKm": 820,
-    "distanceNote": "Sum of 34 Gronze-numbered stages Irún → Arzúa (where the Norte joins the Camino Francés) plus 2 shared Francés stages to Santiago. Cicerone's 3rd edition (Whitson/Perazzoli, 2019) reports 820 km / 32 stages; Gronze itemizes 823 km across 36 stages (counting Bayonne → Irún as the first 2 stages, which this dataset omits). This release covers the native Norte from Irún to Arzúa (~784 km); the final 39 km on the shared Francés path is documented in routes/camino-frances/stages.json stages 31-32.",
+    "distanceKm": 784,
+    "distanceNote": "Sum of 34 Gronze-itemized native Norte stages from Irún to Arzúa, where the Norte joins the Camino Francés. The full canonical Irún → Santiago distance is ~820 km per Cicerone's 3rd edition (Whitson/Perazzoli, 2019) / ~823 km per Gronze, including a final 38.7 km on the shared Francés path (Arzúa → O Pedrouzo → Santiago). That shared section is documented in routes/camino-frances/stages.json stages 31-32 and is not duplicated here. This mirrors the camino-primitivo dataset pattern where distanceKm matches the sum of stages.json entries and the shared Francés continuation is referenced in the distanceNote.",
     "estimatedDays": { "min": 30, "max": 38, "typical": 34 },
     "topology": "linear",
     "direction": "west",
@@ -105,7 +105,7 @@
             "en": "Monasterio de Sobrado dos Monxes",
             "gl": "Mosteiro de Sobrado"
           },
-          "coordinates": [-8.014, 43.022]
+          "coordinates": [-8.023, 43.042]
         }
       ]
     }
@@ -141,7 +141,7 @@
         "description": {
           "en": "The Cistercian monastery at Sobrado dos Monxes (founded 952 AD, joined the Cistercian order in 1142 — the first Cistercian house in Spain) offers traditional pilgrim hospitality in its albergue within the monastery walls. Compline with the community is open to pilgrims. The monastery is itself part of the 2015 UNESCO inscription."
         },
-        "location": { "coordinates": [-8.014, 43.022], "stageIndex": 32 }
+        "location": { "coordinates": [-8.023, 43.042], "stageIndex": 32 }
       },
       {
         "name": { "en": "Pilgrim Scallop Shell" },
