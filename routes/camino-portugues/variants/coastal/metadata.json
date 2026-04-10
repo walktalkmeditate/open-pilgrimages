@@ -2,19 +2,20 @@
   "schemaVersion": "1.0.0",
   "id": "coastal",
   "parentRouteId": "camino-portugues",
-  "lastUpdated": "2026-04-09T00:00:00Z",
+  "lastUpdated": "2026-04-10T00:00:00Z",
   "name": {
-    "en": "Camino Portugués da Costa (Coastal Way)",
-    "pt": "Caminho Português da Costa",
-    "es": "Camino Portugués de la Costa",
-    "gl": "Camiño Portugués da Costa"
+    "en": "Camino Portugués da Costa (Coastal — Portuguese section)",
+    "pt": "Caminho Português da Costa (trecho português)",
+    "es": "Camino Portugués de la Costa (tramo portugués)",
+    "gl": "Camiño Portugués da Costa (treito portugués)"
   },
   "description": {
-    "en": "The Coastal variant of the Camino Portugués, running along the Atlantic shoreline from Porto through Vila do Conde, Póvoa de Varzim, Esposende, Viana do Castelo, and Caminha before crossing into Galicia at A Guarda and rejoining the Central route near Redondela. Approximately 280 km. Grew rapidly in popularity during the 2010s and now accounts for roughly 17% of all Compostelas — nearly as many pilgrims as the Central route. v1 of open-pilgrimages ships this variant as a metadata stub; full geometry, stages, and waypoints are planned for a future release."
+    "en": "The Portuguese coastal section of the Camino Portugués da Costa, running from Porto along the Atlantic coast through Vila do Conde, Esposende, Viana do Castelo, and Caminha to the border ferry crossing at A Guarda. Approximately 130 km in 5 stages. The Spanish continuation through Oia, Baiona, Vigo, and Redondela (where it merges with the Central route to Santiago) is currently a stub — full Spanish-side data is planned for a future release. The Coastal Way is the second-most-walked Camino Portugués route after the Central, accounting for ~17% of all 2025 Compostelas — nearly tied with Central. Grew from very small numbers in the 2010s to 89,511 pilgrims in 2025."
   },
   "overview": {
-    "distanceKm": 280,
-    "estimatedDays": { "min": 12, "max": 15, "typical": 13 },
+    "distanceKm": 130,
+    "distanceNote": "This release covers the Portuguese section only (Porto → Caminha ferry → A Guarda). The full traditional Coastal route is ~280 km Porto → Santiago. The Spanish continuation through Oia, Baiona, Vigo, and Redondela uses fragmented OSM relations not yet integrated. From A Guarda or Vigo, pilgrims continuing to Santiago can join the Central route at Redondela for the final ~80 km via Pontevedra and Padrón.",
+    "estimatedDays": { "min": 5, "max": 7, "typical": 6 },
     "topology": "linear",
     "direction": "north",
     "startPoint": {
@@ -22,18 +23,108 @@
       "coordinates": [-8.611, 41.143, 80]
     },
     "endPoint": {
-      "name": { "en": "Santiago de Compostela" },
-      "coordinates": [-8.544, 42.881, 260]
+      "name": { "en": "A Guarda, Spain (border ferry crossing from Caminha)", "es": "A Guarda" },
+      "coordinates": [-8.876, 41.903, 5]
+    },
+    "elevationRange": {
+      "minMeters": 0,
+      "maxMeters": 100,
+      "totalAscentMeters": 600,
+      "totalDescentMeters": 580
     },
     "difficulty": "easy",
     "terrainTypes": ["coastal", "paved", "cobblestone", "sand", "boardwalk", "urban"],
     "bestMonths": [4, 5, 6, 9, 10],
-    "countries": ["PT", "ES"]
+    "peakMonths": [7, 8],
+    "countries": ["PT", "ES"],
+    "bbox": [-8.90, 41.10, -8.60, 41.91]
   },
   "tradition": {
     "type": "christian",
     "primaryFaith": "Roman Catholic",
-    "saint": { "en": "Saint James the Great" }
+    "saint": { "en": "Saint James the Great", "pt": "Santiago Maior" },
+    "origin": {
+      "en": "The Coastal Way (Caminho da Costa) is the historically older Atlantic-shore variant of the Camino Portugués, walked since at least the 12th century by pilgrims who preferred the seaward route. The Senda Litoral (strict beachfront path) and the slightly inland 'official' Coastal route both run from Porto north along the Portuguese Atlantic coast to the Miño river border at Caminha, where pilgrims cross by ferry to A Guarda in Spain. The Coastal route saw a major modern revival starting around 2014; from 2,600 pilgrims in 2016 it has grown to 89,511 in 2025, the fastest-growing major Camino by percentage."
+    }
+  },
+  "cultural": {
+    "practices": [
+      {
+        "name": { "en": "Caminha Ferry Crossing", "pt": "Travessia do ferry de Caminha" },
+        "description": {
+          "en": "At Caminha, the Coastal Camino crosses the Miño river by small ferry to A Guarda in Spain — the equivalent of the Central route's Ponte Internacional crossing at Tui/Valença. The ferry runs only when river conditions allow; storms and tides can delay crossings. Pilgrims who arrive late may need to overnight in Caminha. Some pilgrims walk an inland detour via the Tui international bridge instead."
+        },
+        "location": { "coordinates": [-8.838, 41.873], "stageIndex": 4 }
+      },
+      {
+        "name": { "en": "Atlantic walking", "pt": "Caminhar atlântico" },
+        "description": {
+          "en": "Unlike the inland Central route, the Coastal Camino is on or near the Atlantic Ocean for most of its length. Pilgrims walk along boardwalks at Esposende, beach paths at Apúlia, harbour-fronts at Viana do Castelo, and cliff trails near Caminha. The constant sound of surf is part of the experience and distinguishes this Camino from any other."
+        }
+      }
+    ],
+    "etiquette": [
+      { "en": "The Caminha ferry runs limited hours (typically 09:00-19:00 in summer, fewer winter sailings). Check the schedule on arrival in Caminha. The crossing takes ~20 minutes." },
+      { "en": "Coastal weather is highly variable. Atlantic storms can roll in suddenly. Boardwalks and beach paths can be slippery in rain." },
+      { "en": "The route has more Portuguese-only signage than the Central, which has Galician translations from Tui onwards." }
+    ],
+    "associatedLiterature": [
+      {
+        "title": "The Camino Portugués: From Lisbon and Porto to Santiago – Central, Coastal and Spiritual Caminos",
+        "author": "Kat Davis, Howard Miller",
+        "isbn": "978-1786311962",
+        "type": "guidebook",
+        "relevance": {
+          "en": "Cicerone Press, 2nd edition (2023). Covers the Coastal Way alongside the Central and Spiritual variants. The most detailed English-language guide for the Coastal route."
+        }
+      }
+    ],
+    "historicalSignificance": {
+      "en": "The Coastal Way is the second-most-walked Camino Portugués and the third-most-walked Camino overall after the Frances and the Portugués Central. In 2025 it had 89,511 walkers (16.9% of all Compostelas), only 11,328 fewer than the Central. The dramatic growth from <3,000 walkers in 2016 to ~90,000 in 2025 makes it the fastest-growing major Camino by percentage in recent years. Despite its popularity, the Coastal route is not separately UNESCO inscribed; the Camino Portugués routes are not currently on the UNESCO World Heritage list (only on the Tentative List as a Portugal-side proposal)."
+    }
+  },
+  "logistics": {
+    "seasonalAvailability": {
+      "openMonths": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+      "notes": {
+        "en": "Open year-round. Atlantic weather is highly variable. The Caminha ferry has reduced winter schedules. Best months are April-June and September-October."
+      }
+    },
+    "accommodationTypes": ["albergue", "hotel", "pension", "casa_rural", "hostel"],
+    "accommodationNotes": {
+      "en": "Coastal towns have abundant tourism infrastructure (this is a major Portuguese vacation coast). Pensões, hotels, and Airbnb-style rentals are everywhere. Pilgrim albergues are present but less dense than on the Central route."
+    },
+    "currency": "EUR",
+    "languages": ["pt", "gl", "es", "en"],
+    "cellularCoverage": "good",
+    "waterAvailability": "abundant",
+    "emergencyNumber": "112",
+    "transportLinks": [
+      {
+        "type": "airport",
+        "name": { "en": "Porto Airport (Francisco Sá Carneiro)" },
+        "code": "OPO",
+        "nearStage": 0,
+        "notes": {
+          "en": "The starting airport for both Camino Portugués variants. Metro Line E (Violeta) connects to central Porto in 30 minutes."
+        }
+      },
+      {
+        "type": "ferry",
+        "name": { "en": "Caminha ↔ A Guarda ferry" },
+        "nearStage": 4,
+        "notes": {
+          "en": "Small passenger ferry across the Miño river border. Typically operates 09:00-19:00 in summer. The signature crossing of the Coastal Camino — pilgrims who miss the last ferry must overnight in Caminha or detour to the Tui international bridge."
+        }
+      },
+      {
+        "type": "train",
+        "name": { "en": "CP regional: Porto-Viana-Caminha" },
+        "notes": {
+          "en": "Comboios de Portugal regional trains run along the Coastal route, allowing pilgrims to start mid-route or skip sections."
+        }
+      }
+    ]
   },
   "provenance": {
     "sources": [
@@ -42,7 +133,15 @@
         "url": "https://www.openstreetmap.org/relation/6100606",
         "license": "ODbL-1.0",
         "dataTypes": ["geometry"],
-        "accessDate": "2026-04-09"
+        "accessDate": "2026-04-10",
+        "notes": "Caminho Português da Costa (Portuguese-side main relation)"
+      },
+      {
+        "name": "Solvitur Ambulando — Yearly Demographics API",
+        "url": "https://solviturambulando.es/api/yearly-demographics.json",
+        "license": "reference",
+        "dataTypes": ["statistics"],
+        "accessDate": "2026-04-10"
       }
     ],
     "contributors": [

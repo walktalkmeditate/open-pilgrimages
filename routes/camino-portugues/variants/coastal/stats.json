@@ -1,0 +1,105 @@
+{
+  "schemaVersion": "1.0.0",
+  "routeId": "coastal",
+  "parentRouteId": "camino-portugues",
+  "lastUpdated": "2026-04-10",
+  "dataYear": 2025,
+  "annualPilgrims": {
+    "latest": {
+      "year": 2025,
+      "count": 89511,
+      "note": "Camino Portugués da Costa; 16.9% of 531,000 total Compostelas in 2025. Second-most-walked Camino Portugués variant after Central."
+    },
+    "trend": [
+      { "year": 2003, "count": 229 },
+      { "year": 2004, "count": 810, "note": "Holy Year" },
+      { "year": 2005, "count": 87 },
+      { "year": 2006, "count": 47 },
+      { "year": 2007, "count": 98 },
+      { "year": 2008, "count": 242 },
+      { "year": 2009, "count": 108 },
+      { "year": 2010, "count": 1114, "note": "Holy Year" },
+      { "year": 2011, "count": 243 },
+      { "year": 2012, "count": 556 },
+      { "year": 2013, "count": 746 },
+      { "year": 2014, "count": 779 },
+      { "year": 2015, "count": 1474 },
+      { "year": 2016, "count": 2600, "note": "First year tracked separately by Oficina del Peregrino" },
+      { "year": 2017, "count": 7329 },
+      { "year": 2018, "count": 13841 },
+      { "year": 2019, "count": 22291 },
+      { "year": 2020, "count": 2736, "note": "COVID-19" },
+      { "year": 2021, "count": 7942, "note": "Holy Year (extended)" },
+      { "year": 2022, "count": 30607, "note": "Extended Holy Year" },
+      { "year": 2023, "count": 52757, "note": "Largest year-over-year jump of any major Camino" },
+      { "year": 2024, "count": 74755 },
+      { "year": 2025, "count": 89511, "note": "Record year" }
+    ],
+    "source": "https://solviturambulando.es/api/yearly-demographics.json?year={YEAR}&v=5",
+    "sourceNotes": "All counts from Solvitur Ambulando which mirrors Oficina del Peregrino. Pre-2016 the Oficina del Peregrino combined Central and Coastal into a single 'Portugués' line in official PDFs; Solvitur Ambulando back-attributes Coastal walkers for those years using their own classification. The Coastal Way grew from under 3,000 walkers in 2016 to nearly 90,000 in 2025 — the fastest-growing major Camino by percentage. See docs/data-sources.md for the refresh procedure."
+  },
+  "demographics": {
+    "dataYear": 2024,
+    "totalPilgrims": 74755,
+    "topNationalities": [
+      { "country": "ES", "name": "Spain", "count": 15701, "percentage": 21.00 },
+      { "country": "DE", "name": "Germany", "count": 8665, "percentage": 11.59 },
+      { "country": "US", "name": "United States", "count": 8347, "percentage": 11.17 },
+      { "country": "IT", "name": "Italy", "count": 5517, "percentage": 7.38 },
+      { "country": "PT", "name": "Portugal", "count": 4479, "percentage": 5.99 },
+      { "country": "PL", "name": "Poland", "count": 3474, "percentage": 4.65 },
+      { "country": "GB", "name": "United Kingdom", "count": 2565, "percentage": 3.43 },
+      { "country": "CA", "name": "Canada", "count": 2110, "percentage": 2.82 },
+      { "country": "IE", "name": "Ireland", "count": 1710, "percentage": 2.29 },
+      { "country": "AU", "name": "Australia", "count": 1604, "percentage": 2.15 },
+      { "country": "NL", "name": "Netherlands", "count": 1247, "percentage": 1.67 },
+      { "country": "MX", "name": "Mexico", "count": 956, "percentage": 1.28 },
+      { "country": "BR", "name": "Brazil", "count": 923, "percentage": 1.23 },
+      { "country": "FR", "name": "France", "count": 775, "percentage": 1.04 }
+    ],
+    "topNationalitiesNote": "Per-route nationality breakdown for the Camino Portugués da Costa in 2024, sourced from Solvitur Ambulando. Notable: the Coastal route has the lowest percentage of Spanish pilgrims (21%) of any major Camino, and the highest share of Germans (11.6%) and Americans (11.2%) — it is the most internationally diverse major Camino in the Solvitur dataset. 'Others' (21.5%) not individually listed.",
+    "genderSplit": {
+      "female": 0.6129,
+      "male": 0.3864,
+      "unknown": 0.0007,
+      "counts": { "female": 45817, "male": 28889, "unknown": 49 }
+    },
+    "genderNote": "Strongest female majority of any major Camino (61.3% female vs the all-Camino average of ~54%). The Coastal's combination of comfortable tourism infrastructure, flat terrain, and dramatic scenery has made it particularly popular with female solo walkers and female friend groups.",
+    "ageGroups": [
+      { "group": "Under 18", "count": 2981, "percentage": 3.99 },
+      { "group": "18-45", "count": 30676, "percentage": 41.04 },
+      { "group": "46-65", "count": 31753, "percentage": 42.48 },
+      { "group": "Over 65", "count": 9345, "percentage": 12.50 }
+    ],
+    "source": "https://solviturambulando.es/api/yearly-demographics.json?year=2024&v=5"
+  },
+  "motivation": [
+    { "type": "religious", "count": 30627, "percentage": 40.97 },
+    { "type": "religious_and_other", "count": 24727, "percentage": 33.08 },
+    { "type": "non_religious", "count": 15888, "percentage": 21.25 },
+    { "type": "not_stated", "count": 3513, "percentage": 4.70 }
+  ],
+  "motivationNote": "Per-route 2024 figures from Solvitur Ambulando. The Coastal Way has a slightly lower 'religious only' share than the Central route (41% vs 44%) — consistent with its reputation as the more leisure-oriented of the two Portuguese routes.",
+  "routeContext": {
+    "comparisonWithCentral": {
+      "en": "In 2025 the Coastal route saw 89,511 walkers vs the Central's 100,839 — only 11,328 fewer. Coastal accounts for 16.9% of all Compostelas and Central for 19.0%, together 35.9% — nearly tied with the Frances. The Coastal pilgrim demographic skews more international, younger on average, and more female than the Central. Most dramatic difference: Coastal has grown from 2,600 walkers in 2016 to 89,511 in 2025, a 34x increase — the fastest-growing major Camino by percentage in the history of Oficina del Peregrino statistics."
+    },
+    "dataScope": {
+      "en": "This stats file covers the full Coastal route (Porto → Santiago) since Solvitur Ambulando tracks it as a single Camino regardless of starting point. However, this dataset release covers only the Portuguese section (Porto → Caminha ferry → A Guarda, ~130 km). The Spanish continuation through Oia, Baiona, Vigo, and Redondela is planned for a future release when the fragmented Spanish-side OSM relations can be integrated cleanly."
+    }
+  },
+  "sources": [
+    {
+      "name": "Solvitur Ambulando — Yearly Demographics API",
+      "url": "https://solviturambulando.es/api/yearly-demographics.json?year={YEAR}&v=5",
+      "accessDate": "2026-04-10",
+      "notes": "Primary source for 2003-2025 per-route counts and demographics. See docs/data-sources.md."
+    },
+    {
+      "name": "Oficina del Peregrino — Annual Reports",
+      "url": "https://catedral.df-server.info/est/index.html",
+      "accessDate": "2026-04-10",
+      "notes": "Underlying source. Coastal was first tracked separately by the Oficina del Peregrino in 2016; earlier counts come from Solvitur's back-attribution."
+    }
+  ]
+}

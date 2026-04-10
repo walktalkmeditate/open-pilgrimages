@@ -1,0 +1,232 @@
+{
+  "schemaVersion": "1.0.0",
+  "routeId": "coastal",
+  "stageCount": 5,
+  "stages": [
+    {
+      "index": 0,
+      "name": {
+        "en": "Porto to Vila do Conde",
+        "pt": "Porto a Vila do Conde"
+      },
+      "start": {
+        "name": { "en": "Porto Cathedral (Sé do Porto)", "pt": "Sé do Porto" },
+        "coordinates": [-8.611, 41.143, 80]
+      },
+      "end": {
+        "name": { "en": "Vila do Conde", "pt": "Vila do Conde" },
+        "coordinates": [-8.744, 41.353, 5]
+      },
+      "distanceKm": 27.5,
+      "elevationGainMeters": 180,
+      "elevationLossMeters": 250,
+      "highPointMeters": 85,
+      "lowPointMeters": 0,
+      "estimatedHours": { "min": 6, "max": 8 },
+      "difficulty": "moderate",
+      "terrainTypes": ["urban", "paved", "cobblestone", "boardwalk", "coastal"],
+      "terrainNotes": {
+        "en": "Long first day. Leaves Porto along the Douro riverfront to Foz, then tracks the Atlantic coast north through Matosinhos, Leça da Palmeira, and a long succession of wooden boardwalks (passadiços) past Perafita, Labruge, and Vila Chã to Vila do Conde. Mostly flat with constant ocean views, but exposed to Atlantic wind and sun. Many pilgrims split this stage at Matosinhos (~10 km) or Labruge (~20 km)."
+      },
+      "accommodationDensity": "high",
+      "waterSources": 8,
+      "services": { "atm": true, "pharmacy": true, "grocery": true, "restaurant": true },
+      "interior": {
+        "theme": { "en": "The turn seaward" },
+        "narrative": {
+          "en": "You leave the Sé do Porto the same way every Portuguese pilgrim does — down the hill toward the Douro, past the azulejo-clad São Bento station, under the trams. But at Foz you make a choice the Central pilgrims do not: you turn right along the Atlantic. The boardwalks begin almost immediately and run for hours. Waves on your left, dunes and pine on your right, and the rhythm of your feet on timber. By late afternoon you cross the Ave river into Vila do Conde, a fishing and shipbuilding town whose pilgrim tradition is as old as the Central route. The day is long but the ocean never leaves you."
+        },
+        "commonExperiences": [
+          { "en": "The first sight of the Atlantic at Foz — the moment the Camino turns maritime" },
+          { "en": "Hours of boardwalk walking, the sound of the surf constant in the background" },
+          { "en": "Sea spray, salt on the lips, wind that pushes from the north" },
+          { "en": "Blisters earlier than expected — the boardwalks are flat but the day is long" },
+          { "en": "The convent and aqueduct of Santa Clara rising above Vila do Conde" }
+        ],
+        "reflection": {
+          "en": "You chose the sea over the inland way. What were you hoping the water would give you that the hills would not?"
+        }
+      }
+    },
+    {
+      "index": 1,
+      "name": {
+        "en": "Vila do Conde to Esposende",
+        "pt": "Vila do Conde a Esposende"
+      },
+      "start": {
+        "name": { "en": "Vila do Conde" },
+        "coordinates": [-8.744, 41.353, 5]
+      },
+      "end": {
+        "name": { "en": "Esposende" },
+        "coordinates": [-8.782, 41.535, 5]
+      },
+      "distanceKm": 24.5,
+      "elevationGainMeters": 130,
+      "elevationLossMeters": 130,
+      "highPointMeters": 40,
+      "lowPointMeters": 0,
+      "estimatedHours": { "min": 5, "max": 7 },
+      "difficulty": "easy",
+      "terrainTypes": ["coastal", "boardwalk", "sand", "paved", "urban"],
+      "terrainNotes": {
+        "en": "Almost entirely flat. More boardwalks past Mindelo, Vila Chã de Areia, and Apúlia, interrupted by short stretches of actual beach walking. Cross the Cávado river by pedestrian bridge into Esposende. The Senda Litoral (strict beachfront variant) runs parallel for most of this stage. Limited shade — start early in summer."
+      },
+      "accommodationDensity": "moderate",
+      "waterSources": 5,
+      "services": { "atm": true, "pharmacy": true, "grocery": true, "restaurant": true },
+      "interior": {
+        "theme": { "en": "The body begins to accept" },
+        "narrative": {
+          "en": "The second day is where the Coastal Camino teaches you what it actually is. Yesterday was a turn; today is a commitment. You walk past fishermen mending nets on the beach at Mindelo, past the windmills of Apúlia, across the long wooden walkways where the Atlantic stretches to the horizon on one side and small dune-garden plots hide on the other. The Portuguese call this stretch the Costa Verde — green coast — and in April or September the Atlantic haar rolls in for hours and turns everything grey and hushed. By afternoon you cross the Cávado into Esposende, a quiet town where most pilgrims are outnumbered by weekend beachgoers. The first soreness shows up in the hips and shoulders, not the feet. Your body is learning."
+        },
+        "commonExperiences": [
+          { "en": "Windmills at Apúlia — the only ones on any Camino" },
+          { "en": "Walking on actual beach sand for the first time" },
+          { "en": "Atlantic fog that muffles sound and hides the horizon" },
+          { "en": "Recognizing the same faces from yesterday's boardwalks" },
+          { "en": "The first evening in a small Portuguese town where pilgrims are a minority" }
+        ],
+        "reflection": {
+          "en": "Your body has started adapting without asking permission. What is it telling you that your head has not admitted yet?"
+        }
+      }
+    },
+    {
+      "index": 2,
+      "name": {
+        "en": "Esposende to Viana do Castelo",
+        "pt": "Esposende a Viana do Castelo"
+      },
+      "start": {
+        "name": { "en": "Esposende" },
+        "coordinates": [-8.782, 41.535, 5]
+      },
+      "end": {
+        "name": { "en": "Viana do Castelo", "pt": "Viana do Castelo" },
+        "coordinates": [-8.831, 41.696, 10]
+      },
+      "distanceKm": 25.0,
+      "elevationGainMeters": 220,
+      "elevationLossMeters": 215,
+      "highPointMeters": 70,
+      "lowPointMeters": 0,
+      "estimatedHours": { "min": 6, "max": 7 },
+      "difficulty": "moderate",
+      "terrainTypes": ["coastal", "boardwalk", "forest", "paved", "cobblestone"],
+      "terrainNotes": {
+        "en": "The landscape begins to shift. Past Marinhas and Castelo do Neiva the path climbs a low coastal ridge through pine forest — the first real climb on the route — before dropping back to the Atlantic at Chafé. The approach to Viana do Castelo crosses the long Eiffel bridge (Ponte Eiffel, 1878) over the Lima river. Viana is the largest town since Porto and the cultural heart of the Minho region."
+      },
+      "accommodationDensity": "high",
+      "waterSources": 6,
+      "services": { "atm": true, "pharmacy": true, "grocery": true, "restaurant": true },
+      "interior": {
+        "theme": { "en": "The coast climbs" },
+        "narrative": {
+          "en": "Today the Atlantic shows you that it has moods. The first half of the stage is still the boardwalk you know — surf on the left, pines on the right — but after Castelo do Neiva the path turns inland and climbs into a coastal forest. For the first time since Porto you lose sight of the sea. The pine resin smells clean and sharp and the trail is soft underfoot. When you drop back down to the coast at Chafé the Atlantic seems to greet you with a colder wind. You walk into Viana do Castelo across the Eiffel bridge — built by a student of Gustave Eiffel in 1878, the same decade as the Garabit viaduct — and the city opens up around you. The Basilica of Santa Luzia watches from the hill above, visible from most of the old town. Viana is where most pilgrims take a rest day."
+        },
+        "commonExperiences": [
+          { "en": "The first climb that makes the legs notice the pack weight" },
+          { "en": "Pine forest after days of open coast — the shift in smell is dramatic" },
+          { "en": "Crossing the Eiffel bridge with the river Lima beneath and the Monte de Santa Luzia above" },
+          { "en": "Arriving in a city and feeling both relief and reluctance" },
+          { "en": "Climbing (or taking the funicular) to the Basilica for the view" }
+        ],
+        "reflection": {
+          "en": "The sea finally let you go inland for a few hours. Did you miss it, or was the silence a relief?"
+        }
+      }
+    },
+    {
+      "index": 3,
+      "name": {
+        "en": "Viana do Castelo to Caminha",
+        "pt": "Viana do Castelo a Caminha"
+      },
+      "start": {
+        "name": { "en": "Viana do Castelo" },
+        "coordinates": [-8.831, 41.696, 10]
+      },
+      "end": {
+        "name": { "en": "Caminha" },
+        "coordinates": [-8.838, 41.873, 5]
+      },
+      "distanceKm": 27.5,
+      "elevationGainMeters": 280,
+      "elevationLossMeters": 285,
+      "highPointMeters": 95,
+      "lowPointMeters": 0,
+      "estimatedHours": { "min": 7, "max": 9 },
+      "difficulty": "moderate",
+      "terrainTypes": ["coastal", "boardwalk", "forest", "paved", "cobblestone", "dirt"],
+      "terrainNotes": {
+        "en": "The longest stage of the Portuguese section and arguably the most beautiful. Leaves Viana along the coast, passes Carreço and Afife with their long Atlantic beaches, crosses a series of small coastal headlands, then reaches Âncora and finally Caminha at the mouth of the Miño river. The views across the Miño to Spain become visible near the end. Caminha is the last Portuguese town on the route."
+      },
+      "accommodationDensity": "moderate",
+      "waterSources": 7,
+      "services": { "atm": true, "pharmacy": true, "grocery": true, "restaurant": true },
+      "interior": {
+        "theme": { "en": "Toward the border" },
+        "narrative": {
+          "en": "Today the Camino gives you its most generous day. You walk north from Viana with the sea close on your left for hours. At Afife the beach is so long you lose track of distance. The dolmens hidden in the pine forest are older than any cathedral. By afternoon the coast begins to bend westward and the first glimpse of Spain appears across the water — mountains rising out of the sea, the first real mountains you have seen since leaving Porto. That is the Serra da Groba, and beneath it is A Guarda, tomorrow's destination. You arrive in Caminha in the late afternoon. The town is small, walled, and utterly quiet in the evening. The ferry crossing is tomorrow morning. You stand on the riverbank and look across the Miño and for the first time the journey feels real, because the border is visible."
+        },
+        "commonExperiences": [
+          { "en": "The beach at Afife — flat, endless, hypnotic" },
+          { "en": "Megalithic dolmens in the pine forest — older than the pilgrimage itself" },
+          { "en": "First sight of Spain across the Miño, Monte de Santa Trega rising from A Guarda" },
+          { "en": "The quiet of Caminha in the evening — a border town that empties after dark" },
+          { "en": "Checking the ferry schedule three times before going to bed" }
+        ],
+        "reflection": {
+          "en": "The other country is close enough to see. What did you think the border would feel like, and what does it actually feel like now that it is in front of you?"
+        }
+      }
+    },
+    {
+      "index": 4,
+      "name": {
+        "en": "Caminha to A Guarda (ferry crossing)",
+        "pt": "Caminha a A Guarda (travessia do ferry)"
+      },
+      "start": {
+        "name": { "en": "Caminha" },
+        "coordinates": [-8.838, 41.873, 5]
+      },
+      "end": {
+        "name": { "en": "A Guarda, Spain", "es": "A Guarda" },
+        "coordinates": [-8.876, 41.903, 5]
+      },
+      "distanceKm": 5.5,
+      "elevationGainMeters": 10,
+      "elevationLossMeters": 15,
+      "highPointMeters": 10,
+      "lowPointMeters": 0,
+      "estimatedHours": { "min": 1, "max": 2 },
+      "difficulty": "easy",
+      "terrainTypes": ["urban", "paved", "coastal"],
+      "terrainNotes": {
+        "en": "Short transitional stage centred on the ferry crossing. Walk from the Caminha waterfront to the ferry dock (~500 m), cross the Miño by small passenger ferry (~20 minutes, €2-3), then walk from the A Guarda ferry dock into the town centre (~1.5 km). The ferry runs only when tide and weather permit — typically 09:00-19:00 in summer with reduced winter schedules. Pilgrims who miss the last ferry overnight in Caminha or detour ~20 km inland to cross by the Tui international bridge. This is the end of the Portuguese section in this dataset release."
+      },
+      "accommodationDensity": "moderate",
+      "waterSources": 3,
+      "services": { "atm": true, "pharmacy": true, "grocery": true, "restaurant": true },
+      "interior": {
+        "theme": { "en": "Crossing" },
+        "narrative": {
+          "en": "The ferry is small — room for maybe twenty pilgrims and a bicycle or two. The crossing takes twenty minutes. In the middle of the river you are neither in Portugal nor in Spain and the current pulls the boat slightly east toward the open Atlantic. Monte de Santa Trega rises from the Spanish bank, crowned with a Celtic castro whose circular stone foundations are two thousand years old. When you step off the ferry at A Guarda you step onto Galician soil for the first time — a land that speaks its own language, that feels closer to Santiago than anywhere you have been so far. For most pilgrims this is the shortest walking day of the whole Camino, and the most symbolically weighted. This dataset release ends here. The walk onward through Oia, Baiona, Vigo, and Redondela to merge with the Central route is planned for a future release; for now, A Guarda is the border post and the pause."
+        },
+        "commonExperiences": [
+          { "en": "Waiting at the Caminha ferry dock with other pilgrims, checking watches" },
+          { "en": "The moment the Portuguese coast slides behind you and the Spanish coast slides forward" },
+          { "en": "Stepping off the boat in A Guarda and hearing Galician for the first time" },
+          { "en": "Seeing Monte de Santa Trega up close — the Celtic castro unmistakable" },
+          { "en": "Eating fresh lobster or percebes in A Guarda — the town's signature" }
+        ],
+        "reflection": {
+          "en": "You crossed a border by boat instead of by bridge. What does the water have to say about borders that the land does not?"
+        }
+      }
+    }
+  ]
+}
