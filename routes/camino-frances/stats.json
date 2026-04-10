@@ -1,12 +1,12 @@
 {
   "schemaVersion": "1.0.0",
   "routeId": "camino-frances",
-  "lastUpdated": "2026-03-26",
+  "lastUpdated": "2026-04-09",
   "dataYear": 2025,
   "annualPilgrims": {
-    "latest": { "year": 2025, "count": 530919 },
+    "latest": { "year": 2025, "count": 242179, "note": "Camino Francés only; 45.6% of 531,000 total Compostelas in 2025" },
     "trend": [
-      { "year": 1985, "count": 690 },
+      { "year": 1985, "count": 690, "note": "Pre-2003 figures predate per-route tracking; essentially all-Camino since other routes were minimal" },
       { "year": 1986, "count": 1801 },
       { "year": 1987, "count": 2905 },
       { "year": 1988, "count": 3501 },
@@ -24,54 +24,92 @@
       { "year": 2000, "count": 55004 },
       { "year": 2001, "count": 61418 },
       { "year": 2002, "count": 68952 },
-      { "year": 2003, "count": 74614 },
-      { "year": 2004, "count": 179944, "note": "Holy Year" },
-      { "year": 2005, "count": 93924 },
-      { "year": 2006, "count": 100377 },
-      { "year": 2007, "count": 114026 },
-      { "year": 2008, "count": 125141 },
-      { "year": 2009, "count": 145877 },
-      { "year": 2010, "count": 272703, "note": "Holy Year" },
-      { "year": 2011, "count": 179919 },
-      { "year": 2012, "count": 192488 },
-      { "year": 2013, "count": 215880 },
-      { "year": 2014, "count": 237886 },
-      { "year": 2015, "count": 262458 },
-      { "year": 2016, "count": 277915 },
-      { "year": 2017, "count": 301036 },
-      { "year": 2018, "count": 327378 },
-      { "year": 2019, "count": 347578 },
-      { "year": 2020, "count": 54144, "note": "COVID-19" },
-      { "year": 2021, "count": 178912, "note": "Holy Year (extended)" },
-      { "year": 2022, "count": 437507, "note": "Extended Holy Year" },
-      { "year": 2023, "count": 446035 },
-      { "year": 2024, "count": 499239 },
-      { "year": 2025, "count": 530919, "note": "Record year" }
+      { "year": 2003, "count": 65453, "note": "First year with per-route data via Solvitur Ambulando" },
+      { "year": 2004, "count": 138637, "note": "Holy Year" },
+      { "year": 2005, "count": 79410 },
+      { "year": 2006, "count": 82955 },
+      { "year": 2007, "count": 92167 },
+      { "year": 2008, "count": 99066 },
+      { "year": 2009, "count": 114076 },
+      { "year": 2010, "count": 189278, "note": "Holy Year" },
+      { "year": 2011, "count": 132696 },
+      { "year": 2012, "count": 134984 },
+      { "year": 2013, "count": 151818 },
+      { "year": 2014, "count": 162010 },
+      { "year": 2015, "count": 172222 },
+      { "year": 2016, "count": 176075 },
+      { "year": 2017, "count": 180738 },
+      { "year": 2018, "count": 186199 },
+      { "year": 2019, "count": 189928 },
+      { "year": 2020, "count": 28906, "note": "COVID-19" },
+      { "year": 2021, "count": 98091, "note": "Holy Year (extended)" },
+      { "year": 2022, "count": 226863, "note": "Extended Holy Year" },
+      { "year": 2023, "count": 219802 },
+      { "year": 2024, "count": 236263 },
+      { "year": 2025, "count": 242179, "note": "Record year" }
     ],
-    "source": "https://oficinadelperegrino.com/en/statistics/"
+    "source": "https://solviturambulando.es/api/yearly-demographics.json?year={YEAR}&v=5",
+    "sourceNotes": "Years 1985-2002 predate per-route tracking and represent total Camino pilgrims (essentially all Francés since other routes had minimal traffic). Years 2003-2025 are sourced from the Solvitur Ambulando JSON API, which mirrors and extends the Oficina del Peregrino official annual statistics with per-route Compostela counts. See docs/data-sources.md for the refresh procedure."
+  },
+  "totalCaminoContext": {
+    "description": "Total Compostela counts across ALL Camino routes (not just Francés), useful for measuring the Francés share of overall pilgrimage traffic over time.",
+    "trend": [
+      { "year": 2003, "total": 74324, "francesShare": 0.881 },
+      { "year": 2004, "total": 179870, "francesShare": 0.771, "note": "Holy Year" },
+      { "year": 2010, "total": 272385, "francesShare": 0.695, "note": "Holy Year" },
+      { "year": 2015, "total": 262444, "francesShare": 0.656 },
+      { "year": 2019, "total": 347566, "francesShare": 0.547 },
+      { "year": 2020, "total": 54144, "francesShare": 0.534, "note": "COVID-19" },
+      { "year": 2021, "total": 178914, "francesShare": 0.548, "note": "Holy Year (extended)" },
+      { "year": 2022, "total": 438307, "francesShare": 0.518 },
+      { "year": 2023, "total": 446092, "francesShare": 0.493 },
+      { "year": 2024, "total": 499180, "francesShare": 0.473 },
+      { "year": 2025, "total": 531000, "francesShare": 0.456 }
+    ],
+    "note": "The Francés share has steadily declined from ~88% in 2003 to ~46% in 2025 as alternative routes (Portugués, Inglés, Primitivo, Norte) have grown faster."
   },
   "demographics": {
+    "dataYear": 2024,
+    "totalPilgrims": 236263,
     "topNationalities": [
-      { "country": "ES", "name": "Spain", "count": 228527, "percentage": 43.0 },
-      { "country": "US", "name": "United States", "count": 43964, "percentage": 8.3 },
-      { "country": "IT", "name": "Italy", "count": 26626, "percentage": 5.0 },
-      { "country": "DE", "name": "Germany", "count": 24335, "percentage": 4.6 },
-      { "country": "PT", "name": "Portugal", "count": 22813, "percentage": 4.3 },
-      { "country": "GB", "name": "United Kingdom", "count": 14643, "percentage": 2.8 },
-      { "country": "MX", "name": "Mexico", "count": 12088, "percentage": 2.3 },
-      { "country": "IE", "name": "Ireland", "count": 10792, "percentage": 2.0 },
-      { "country": "FR", "name": "France", "count": 9999, "percentage": 1.9 },
-      { "country": "AU", "name": "Australia", "count": 9407, "percentage": 1.8 }
+      { "country": "ES", "name": "Spain", "count": 121221, "percentage": 51.31 },
+      { "country": "US", "name": "United States", "count": 19712, "percentage": 8.34 },
+      { "country": "IT", "name": "Italy", "count": 12854, "percentage": 5.44 },
+      { "country": "KR", "name": "South Korea", "count": 6568, "percentage": 2.78 },
+      { "country": "FR", "name": "France", "count": 6476, "percentage": 2.74 },
+      { "country": "MX", "name": "Mexico", "count": 6452, "percentage": 2.73 },
+      { "country": "IE", "name": "Ireland", "count": 6078, "percentage": 2.57 },
+      { "country": "DE", "name": "Germany", "count": 5707, "percentage": 2.42 },
+      { "country": "GB", "name": "United Kingdom", "count": 5483, "percentage": 2.32 },
+      { "country": "AU", "name": "Australia", "count": 4023, "percentage": 1.70 },
+      { "country": "CA", "name": "Canada", "count": 3256, "percentage": 1.38 },
+      { "country": "BR", "name": "Brazil", "count": 3035, "percentage": 1.28 },
+      { "country": "NL", "name": "Netherlands", "count": 2138, "percentage": 0.90 },
+      { "country": "PT", "name": "Portugal", "count": 1621, "percentage": 0.69 },
+      { "country": "PL", "name": "Poland", "count": 1025, "percentage": 0.43 }
     ],
-    "genderSplit": { "female": 0.5367, "male": 0.4633 },
+    "topNationalitiesNote": "Per-route nationality breakdown for the Camino Francés in 2024, sourced from Solvitur Ambulando. 'Others' (~13.0%) is not listed individually.",
+    "genderSplit": {
+      "female": 0.5385,
+      "male": 0.4609,
+      "unknown": 0.0006,
+      "counts": { "female": 127217, "male": 108905, "unknown": 141 }
+    },
     "ageGroups": [
-      { "group": "Under 18", "percentage": 11.3 },
-      { "group": "18-45", "percentage": 44.4 },
-      { "group": "46-65", "percentage": 39.3 },
-      { "group": "Over 65", "percentage": 5.1 }
+      { "group": "Under 18", "count": 24986, "percentage": 10.58 },
+      { "group": "18-45", "count": 95637, "percentage": 40.48 },
+      { "group": "46-65", "count": 90045, "percentage": 38.11 },
+      { "group": "Over 65", "count": 25595, "percentage": 10.83 }
     ],
-    "source": "https://americanpilgrims.org/statistics/"
+    "source": "https://solviturambulando.es/api/yearly-demographics.json?year=2024&v=5"
   },
+  "motivation": [
+    { "type": "religious", "count": 108901, "percentage": 46.09 },
+    { "type": "religious_and_other", "count": 75352, "percentage": 31.89 },
+    { "type": "non_religious", "count": 42680, "percentage": 18.06 },
+    { "type": "not_stated", "count": 9330, "percentage": 3.95 }
+  ],
+  "motivationNote": "Per-route motivation breakdown for the Camino Francés in 2024, sourced from Solvitur Ambulando.",
   "seasonalDistribution": [
     { "month": 1, "count": 2907, "percentage": 0.5 },
     { "month": 2, "count": 3537, "percentage": 0.7 },
@@ -86,46 +124,59 @@
     { "month": 11, "count": 11073, "percentage": 2.1 },
     { "month": 12, "count": 3304, "percentage": 0.6 }
   ],
+  "seasonalDistributionNote": "All-Camino aggregate, 2025. Per-route seasonal breakdown is not exposed by Solvitur Ambulando's current API.",
   "modeOfTravel": [
-    { "mode": "foot", "count": 469546, "percentage": 93.0 },
+    { "mode": "foot", "percentage": 93.0 },
     { "mode": "bicycle", "percentage": 4.0 },
     { "mode": "horseback", "percentage": 0.1 },
     { "mode": "sailboat", "percentage": 0.05 },
     { "mode": "wheelchair", "percentage": 0.04 }
   ],
-  "motivation": [
-    { "type": "religious", "count": 233182, "percentage": 44.0 },
-    { "type": "religious_and_other", "count": 169061, "percentage": 32.0 },
-    { "type": "non_religious", "count": 97798, "percentage": 18.0 },
-    { "type": "not_stated", "count": 30878, "percentage": 6.0 }
-  ],
+  "modeOfTravelNote": "All-Camino aggregate (Oficina del Peregrino does not publish mode by individual route). 2025 figures.",
   "startingPoints": [
-    { "name": "Sarria", "count": 162076, "percentage": 30.5 },
-    { "name": "Porto", "count": 51572, "percentage": 9.7 },
-    { "name": "Tui", "count": 41664, "percentage": 7.8 },
-    { "name": "Saint-Jean-Pied-de-Port", "count": 30345, "percentage": 5.7 },
-    { "name": "Ferrol", "count": 28885, "percentage": 5.5 },
-    { "name": "Vigo", "count": 18678, "percentage": 3.5 },
-    { "name": "Valenca", "count": 18147, "percentage": 3.4 },
-    { "name": "Oviedo", "count": 15353, "percentage": 2.9 },
-    { "name": "Baiona", "count": 10261, "percentage": 1.9 },
+    { "name": "Sarria", "count": 162076, "percentage": 30.5, "note": "100km mark — minimum distance for Compostela" },
+    { "name": "Saint-Jean-Pied-de-Port", "count": 30345, "percentage": 5.7, "note": "Traditional full-route start" },
+    { "name": "Ferrol", "count": 28885, "percentage": 5.5, "note": "Camino Inglés starting point" },
+    { "name": "Oviedo", "count": 15353, "percentage": 2.9, "note": "Camino Primitivo starting point" },
     { "name": "Lugo", "count": 9392, "percentage": 1.8 }
   ],
+  "startingPointsNote": "All-Camino aggregate, 2025. Of the listed points, Sarria and Saint-Jean-Pied-de-Port are the primary starting points specifically for the Camino Francés (others belong to alternative routes).",
   "routeBreakdown": [
-    { "route": "Frances", "count": 242175, "percentage": 45.6 },
-    { "route": "Portugues Central", "count": 100835, "percentage": 19.0 },
-    { "route": "Portugues Coastal", "count": 89509, "percentage": 16.9 },
-    { "route": "Ingles", "count": 30203, "percentage": 5.7 },
-    { "route": "Primitivo", "count": 27868, "percentage": 5.3 },
-    { "route": "Norte", "count": 21482, "percentage": 4.0 },
-    { "route": "Via de la Plata", "count": 8833, "percentage": 1.7 }
+    { "route": "Frances", "count": 242179, "percentage": 45.61 },
+    { "route": "Portugues Central", "count": 100839, "percentage": 18.99 },
+    { "route": "Portugues Coastal", "count": 89511, "percentage": 16.86 },
+    { "route": "Ingles", "count": 30204, "percentage": 5.69 },
+    { "route": "Primitivo", "count": 27871, "percentage": 5.25 },
+    { "route": "Norte", "count": 21521, "percentage": 4.05 },
+    { "route": "Via de la Plata", "count": 8837, "percentage": 1.66 },
+    { "route": "De Invierno", "count": 2758, "percentage": 0.52 },
+    { "route": "Muxia-Finisterre", "count": 2382, "percentage": 0.45 }
   ],
+  "routeBreakdownNote": "2025 split of all 531,000 Compostelas across the major Camino routes, sourced from Solvitur Ambulando.",
   "sources": [
-    { "name": "Oficina del Peregrino", "url": "https://oficinadelperegrino.com/en/statistics/", "accessDate": "2026-03-26" },
-    { "name": "American Pilgrims on the Camino", "url": "https://americanpilgrims.org/statistics/", "accessDate": "2026-03-26" },
-    { "name": "Follow the Camino", "url": "https://followthecamino.com/en/camino-statistics-for-2025-the-year-a-pilgrimage-confirmed-its-global-dimension/", "accessDate": "2026-03-26" },
-    { "name": "Solvitur Ambulando", "url": "https://solviturambulando.es/statistics/2025", "accessDate": "2026-03-26" },
-    { "name": "Your Camino", "url": "https://your-camino.com/philosophical/camino-statistics-2025/", "accessDate": "2026-03-26" },
-    { "name": "Wikipedia: Camino de Santiago", "url": "https://en.wikipedia.org/wiki/Camino_de_Santiago", "accessDate": "2026-03-26" }
+    {
+      "name": "Solvitur Ambulando — Yearly Demographics API",
+      "url": "https://solviturambulando.es/api/yearly-demographics.json?year={YEAR}&v=5",
+      "accessDate": "2026-04-09",
+      "notes": "Primary source for 2003-2025 per-route counts and demographics. Mirrors and extends Oficina del Peregrino with per-route age, gender, motivation, and nationality breakdowns. JSON API; gzip-encoded; requires browser User-Agent and Referer headers. See docs/data-sources.md for the fetch procedure."
+    },
+    {
+      "name": "Oficina del Peregrino (Santiago Pilgrim's Office) — Annual Reports (PDF)",
+      "url": "https://catedral.df-server.info/est/index.html",
+      "accessDate": "2026-04-09",
+      "notes": "Underlying primary source. Annual PDFs cover 2004-2021. Solvitur Ambulando re-publishes these in machine-readable form and adds 2003 + 2022-2025."
+    },
+    {
+      "name": "Solvitur Ambulando — Per-year HTML pages",
+      "url": "https://solviturambulando.es/statistics/{YEAR}",
+      "accessDate": "2026-04-09",
+      "notes": "Human-readable per-year statistics pages with charts and tables."
+    },
+    {
+      "name": "Wikipedia: Camino de Santiago",
+      "url": "https://en.wikipedia.org/wiki/Camino_de_Santiago",
+      "accessDate": "2026-04-09",
+      "notes": "Secondary reference for context and pre-2003 historical totals."
+    }
   ]
 }
