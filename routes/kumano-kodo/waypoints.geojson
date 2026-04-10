@@ -254,6 +254,31 @@
     },
     {
       "type": "Feature",
+      "id": "wp-osm-transport-node5106701651",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.5058908,
+          33.7819559
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Todo",
+        "nameLocalized": {
+          "ja": "戸土"
+        },
+        "type": "transport",
+        "subtype": "bus_stop",
+        "stageIndex": 0,
+        "kmFromStart": 0.8,
+        "icon": "bus_stop",
+        "source": "osm",
+        "osmId": "node/5106701651"
+      }
+    },
+    {
+      "type": "Feature",
       "id": "wp-takahara",
       "geometry": {
         "type": "Point",
@@ -279,6 +304,28 @@
           "town",
           "accommodation"
         ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node3207115278",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.5304671,
+          33.7950382
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Unnamed",
+        "type": "supply",
+        "subtype": "toilet",
+        "stageIndex": 1,
+        "kmFromStart": 5.3,
+        "icon": "toilet",
+        "source": "osm",
+        "osmId": "node/3207115278"
       }
     },
     {
@@ -341,6 +388,28 @@
     },
     {
       "type": "Feature",
+      "id": "wp-osm-supply-node3207115281",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.5591289,
+          33.7999888
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Unnamed",
+        "type": "supply",
+        "subtype": "toilet",
+        "stageIndex": 1,
+        "kmFromStart": 8.6,
+        "icon": "toilet",
+        "source": "osm",
+        "osmId": "node/3207115281"
+      }
+    },
+    {
+      "type": "Feature",
       "id": "wp-oosakamoto-oji",
       "geometry": {
         "type": "Point",
@@ -370,49 +439,99 @@
     },
     {
       "type": "Feature",
-      "id": "wp-osm-food-node11245043242",
+      "id": "wp-osm-supply-node3207275612",
       "geometry": {
         "type": "Point",
         "coordinates": [
-          135.5948386,
-          33.8120907
+          135.5950104,
+          33.8121203
         ]
       },
       "properties": {
         "routeId": "kumano-kodo",
         "name": "Unnamed",
-        "type": "food",
-        "subtype": "cafe",
+        "type": "supply",
+        "subtype": "toilet",
         "stageIndex": 1,
-        "kmFromStart": 13.3,
-        "icon": "cafe",
+        "kmFromStart": 14.1,
+        "icon": "toilet",
         "source": "osm",
-        "osmId": "node/11245043242"
+        "osmId": "node/3207275612"
       }
     },
     {
       "type": "Feature",
-      "id": "wp-osm-food-node11247011997",
+      "id": "wp-osm-accommodation-node11809392249",
       "geometry": {
         "type": "Point",
         "coordinates": [
-          135.606258,
-          33.8145913
+          135.6057622,
+          33.8102354
         ]
       },
       "properties": {
         "routeId": "kumano-kodo",
-        "name": "Cabelo Coffee",
+        "name": "Kodo-no-Yado Kakidaira",
         "nameLocalized": {
-          "ja": "かベロ"
+          "ja": "古道の宿柿平"
         },
-        "type": "food",
-        "subtype": "cafe",
+        "type": "accommodation",
+        "subtype": "guesthouse",
         "stageIndex": 1,
-        "kmFromStart": 15.2,
-        "icon": "cafe",
+        "kmFromStart": 15.9,
+        "icon": "guesthouse",
         "source": "osm",
-        "osmId": "node/11247011997"
+        "osmId": "node/11809392249"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-accommodation-node11810297548",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.603945,
+          33.8139364
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Cherry Garden",
+        "nameLocalized": {
+          "ja": "近露桜の園"
+        },
+        "type": "accommodation",
+        "subtype": "guesthouse",
+        "stageIndex": 1,
+        "kmFromStart": 16.7,
+        "icon": "guesthouse",
+        "source": "osm",
+        "osmId": "node/11810297548"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-accommodation-node11810297553",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.6035762,
+          33.8165995
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "SORA Chikatsuyu",
+        "nameLocalized": {
+          "ja": "近露そら"
+        },
+        "type": "accommodation",
+        "subtype": "guesthouse",
+        "stageIndex": 1,
+        "kmFromStart": 16.7,
+        "icon": "guesthouse",
+        "source": "osm",
+        "osmId": "node/11810297553"
       }
     },
     {
@@ -478,6 +597,244 @@
     },
     {
       "type": "Feature",
+      "id": "wp-osm-food-node11247011997",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.606258,
+          33.8145913
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Cabelo Coffee",
+        "nameLocalized": {
+          "ja": "かベロ"
+        },
+        "type": "food",
+        "subtype": "cafe",
+        "stageIndex": 2,
+        "kmFromStart": 17,
+        "icon": "cafe",
+        "source": "osm",
+        "osmId": "node/11247011997"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node11810297782",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.6064562,
+          33.8126272
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Unnamed",
+        "type": "supply",
+        "subtype": "toilet",
+        "stageIndex": 2,
+        "kmFromStart": 17,
+        "icon": "toilet",
+        "source": "osm",
+        "osmId": "node/11810297782"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-transport-node4451475691",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.6070087,
+          33.814641
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Chikatsuyu-oji",
+        "nameLocalized": {
+          "ja": "近露王子"
+        },
+        "type": "transport",
+        "subtype": "bus_stop",
+        "stageIndex": 2,
+        "kmFromStart": 17.1,
+        "icon": "bus_stop",
+        "source": "osm",
+        "osmId": "node/4451475691"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-transport-node5106701441",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.6087869,
+          33.8104078
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Kodo Aruki-no-Sato Chikatsuyu",
+        "nameLocalized": {
+          "ja": "古道歩きの里ちかつゆ"
+        },
+        "type": "transport",
+        "subtype": "bus_stop",
+        "stageIndex": 2,
+        "kmFromStart": 17.1,
+        "icon": "bus_stop",
+        "source": "osm",
+        "osmId": "node/5106701441"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-transport-node5106701649",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.6071343,
+          33.8130704
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Nakahechi Museum",
+        "nameLocalized": {
+          "ja": "中辺美術館前"
+        },
+        "type": "transport",
+        "subtype": "bus_stop",
+        "stageIndex": 2,
+        "kmFromStart": 17.1,
+        "icon": "bus_stop",
+        "source": "osm",
+        "osmId": "node/5106701649"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-accommodation-node11810297552",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.6092497,
+          33.8152769
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Minshuku Momiji no sato",
+        "nameLocalized": {
+          "ja": "民宿もみじの里"
+        },
+        "type": "accommodation",
+        "subtype": "guesthouse",
+        "stageIndex": 2,
+        "kmFromStart": 17.5,
+        "icon": "guesthouse",
+        "source": "osm",
+        "osmId": "node/11810297552"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-transport-node11810297791",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.6117632,
+          33.8129628
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Miyanoue",
+        "nameLocalized": {
+          "ja": "宮の上"
+        },
+        "type": "transport",
+        "subtype": "bus_stop",
+        "stageIndex": 2,
+        "kmFromStart": 17.5,
+        "icon": "bus_stop",
+        "source": "osm",
+        "osmId": "node/11810297791"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-accommodation-node3207304715",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.6223186,
+          33.821451
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Irorian Minshuku",
+        "type": "accommodation",
+        "subtype": "guesthouse",
+        "stageIndex": 2,
+        "kmFromStart": 19.1,
+        "icon": "guesthouse",
+        "source": "osm",
+        "osmId": "node/3207304715"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-accommodation-node11290719891",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.6257735,
+          33.8227039
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Hitotoki",
+        "type": "accommodation",
+        "subtype": "guesthouse",
+        "stageIndex": 2,
+        "kmFromStart": 19.5,
+        "icon": "guesthouse",
+        "source": "osm",
+        "osmId": "node/11290719891"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-transport-node4451512291",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.6309479,
+          33.8226489
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Nonaka-no-ipposugi",
+        "type": "transport",
+        "subtype": "bus_stop",
+        "stageIndex": 2,
+        "kmFromStart": 20.2,
+        "icon": "bus_stop",
+        "source": "osm",
+        "osmId": "node/4451512291"
+      }
+    },
+    {
+      "type": "Feature",
       "id": "wp-osm-food-node10904114319",
       "geometry": {
         "type": "Point",
@@ -492,7 +849,7 @@
         "type": "food",
         "subtype": "cafe",
         "stageIndex": 2,
-        "kmFromStart": 20.3,
+        "kmFromStart": 20.7,
         "icon": "cafe",
         "source": "osm",
         "osmId": "node/10904114319"
@@ -514,7 +871,7 @@
         "type": "food",
         "subtype": "cafe",
         "stageIndex": 2,
-        "kmFromStart": 20.4,
+        "kmFromStart": 20.8,
         "icon": "cafe",
         "source": "osm",
         "osmId": "node/11299858719"
@@ -554,6 +911,94 @@
     },
     {
       "type": "Feature",
+      "id": "wp-osm-supply-node11571347342",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.6358995,
+          33.8287659
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Unnamed",
+        "type": "supply",
+        "subtype": "toilet",
+        "stageIndex": 2,
+        "kmFromStart": 21,
+        "icon": "toilet",
+        "source": "osm",
+        "osmId": "node/11571347342"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-accommodation-node6683250886",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.64033,
+          33.8299568
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Guesthouse MUI",
+        "type": "accommodation",
+        "subtype": "hostel",
+        "stageIndex": 2,
+        "kmFromStart": 21.3,
+        "icon": "hostel",
+        "source": "osm",
+        "osmId": "node/6683250886"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-transport-node8397052817",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.6525749,
+          33.833278
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Kobiro-oji-guchi 小広王子口",
+        "type": "transport",
+        "subtype": "bus_stop",
+        "stageIndex": 2,
+        "kmFromStart": 22.9,
+        "icon": "bus_stop",
+        "source": "osm",
+        "osmId": "node/8397052817"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node3207312196",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.658758,
+          33.8358313
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Unnamed",
+        "type": "supply",
+        "subtype": "toilet",
+        "stageIndex": 2,
+        "kmFromStart": 23.9,
+        "icon": "toilet",
+        "source": "osm",
+        "osmId": "node/3207312196"
+      }
+    },
+    {
+      "type": "Feature",
       "id": "wp-kobiro-oji",
       "geometry": {
         "type": "Point",
@@ -579,6 +1024,72 @@
         "tags": [
           "oji"
         ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-transport-node8397039517",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.6622399,
+          33.8336136
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Kobiro-toge 小広峠",
+        "type": "transport",
+        "subtype": "bus_stop",
+        "stageIndex": 2,
+        "kmFromStart": 24.1,
+        "icon": "bus_stop",
+        "source": "osm",
+        "osmId": "node/8397039517"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node3208986605",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.6971253,
+          33.848514
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Mikoshi-toge Pass rest area",
+        "type": "supply",
+        "subtype": "toilet",
+        "stageIndex": 2,
+        "kmFromStart": 27.9,
+        "icon": "toilet",
+        "source": "osm",
+        "osmId": "node/3208986605"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node3209076958",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.7174969,
+          33.8565933
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Unnamed",
+        "type": "supply",
+        "subtype": "toilet",
+        "stageIndex": 2,
+        "kmFromStart": 29.9,
+        "icon": "toilet",
+        "source": "osm",
+        "osmId": "node/3209076958"
       }
     },
     {
@@ -645,6 +1156,776 @@
     },
     {
       "type": "Feature",
+      "id": "wp-osm-supply-node2430676324",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.7234915,
+          33.8613869
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Unnamed",
+        "type": "supply",
+        "subtype": "toilet",
+        "stageIndex": 3,
+        "kmFromStart": 31,
+        "icon": "toilet",
+        "source": "osm",
+        "osmId": "node/2430676324"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-transport-node4451596589",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.50284,
+          33.7750376
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Takijiri",
+        "nameLocalized": {
+          "ja": "滝尻"
+        },
+        "type": "transport",
+        "subtype": "bus_stop",
+        "stageIndex": 3,
+        "kmFromStart": 31,
+        "icon": "bus_stop",
+        "source": "osm",
+        "osmId": "node/4451596589"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node2430696184",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.7375626,
+          33.8586131
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Unnamed",
+        "type": "supply",
+        "subtype": "toilet",
+        "stageIndex": 3,
+        "kmFromStart": 31.1,
+        "icon": "toilet",
+        "source": "osm",
+        "osmId": "node/2430696184"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-transport-node4856331621",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.7454795,
+          33.8593322
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Fushiogami-guchi",
+        "nameLocalized": {
+          "es": "Fushiogami-guchi",
+          "ja": "伏拝口"
+        },
+        "type": "transport",
+        "subtype": "bus_stop",
+        "stageIndex": 3,
+        "kmFromStart": 31.1,
+        "icon": "bus_stop",
+        "source": "osm",
+        "osmId": "node/4856331621"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-transport-node5429741830",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.7295889,
+          33.8610948
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "発心門口;Hosshinmonguchi",
+        "nameLocalized": {
+          "es": "Hosshinmonguchi",
+          "ja": "発心門口"
+        },
+        "type": "transport",
+        "subtype": "bus_stop",
+        "stageIndex": 3,
+        "kmFromStart": 31.1,
+        "icon": "bus_stop",
+        "source": "osm",
+        "osmId": "node/5429741830"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node10936209205",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.7639971,
+          33.8551386
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Unnamed",
+        "type": "supply",
+        "subtype": "toilet",
+        "stageIndex": 3,
+        "kmFromStart": 31.3,
+        "icon": "toilet",
+        "source": "osm",
+        "osmId": "node/10936209205"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node13100087952",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.7707198,
+          33.8549147
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Unnamed",
+        "type": "supply",
+        "subtype": "vending_machine",
+        "stageIndex": 3,
+        "kmFromStart": 31.3,
+        "icon": "vending_machine",
+        "source": "osm",
+        "osmId": "node/13100087952"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-transport-node3584262360",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.9364572,
+          33.6441612
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Nachi station",
+        "type": "transport",
+        "subtype": "bus_stop",
+        "stageIndex": 3,
+        "kmFromStart": 31.4,
+        "icon": "bus_stop",
+        "source": "osm",
+        "osmId": "node/3584262360"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node4437427603",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.9331879,
+          33.6417772
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "LAWSON",
+        "nameLocalized": {
+          "ja": "ローソン",
+          "ko": "로손"
+        },
+        "type": "supply",
+        "subtype": "convenience_store",
+        "stageIndex": 3,
+        "kmFromStart": 31.4,
+        "icon": "convenience_store",
+        "source": "osm",
+        "osmId": "node/4437427603",
+        "hours": "24/7"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-transport-node4456079589",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.9351511,
+          33.6423101
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Amanomya",
+        "type": "transport",
+        "subtype": "bus_stop",
+        "stageIndex": 3,
+        "kmFromStart": 31.4,
+        "icon": "bus_stop",
+        "source": "osm",
+        "osmId": "node/4456079589"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node4836368277",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.9339243,
+          33.6406446
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "FamilyMart",
+        "nameLocalized": {
+          "ja": "ファミリーマート 那智勝浦店"
+        },
+        "type": "supply",
+        "subtype": "convenience_store",
+        "stageIndex": 3,
+        "kmFromStart": 31.4,
+        "icon": "convenience_store",
+        "source": "osm",
+        "osmId": "node/4836368277",
+        "hours": "24/7"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-food-node4836368282",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.9358893,
+          33.6448183
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Bistro Bonheur",
+        "type": "food",
+        "subtype": "restaurant",
+        "stageIndex": 3,
+        "kmFromStart": 31.4,
+        "icon": "restaurant",
+        "source": "osm",
+        "osmId": "node/4836368282"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-transport-node5114931423",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.8404768,
+          33.7582994
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Koguchi Bus stop",
+        "type": "transport",
+        "subtype": "bus_stop",
+        "stageIndex": 3,
+        "kmFromStart": 31.4,
+        "icon": "bus_stop",
+        "source": "osm",
+        "osmId": "node/5114931423"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-food-node6710271450",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.7741539,
+          33.8389918
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Unnamed",
+        "type": "food",
+        "subtype": "cafe",
+        "stageIndex": 3,
+        "kmFromStart": 31.4,
+        "icon": "cafe",
+        "source": "osm",
+        "osmId": "node/6710271450",
+        "hours": "We-Mo 09:00-16:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-food-node6842876887",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.9374052,
+          33.6460733
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Cafe Pilina",
+        "type": "food",
+        "subtype": "cafe",
+        "stageIndex": 3,
+        "kmFromStart": 31.4,
+        "icon": "cafe",
+        "source": "osm",
+        "osmId": "node/6842876887"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-transport-node4456061991",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.9205213,
+          33.6527741
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Iseki",
+        "type": "transport",
+        "subtype": "bus_stop",
+        "stageIndex": 3,
+        "kmFromStart": 31.5,
+        "icon": "bus_stop",
+        "source": "osm",
+        "osmId": "node/4456061991"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-transport-node4456079489",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.9285948,
+          33.6469716
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Kawaseki",
+        "type": "transport",
+        "subtype": "bus_stop",
+        "stageIndex": 3,
+        "kmFromStart": 31.5,
+        "icon": "bus_stop",
+        "source": "osm",
+        "osmId": "node/4456079489"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node2724708392",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.9030294,
+          33.668507
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Unnamed",
+        "type": "supply",
+        "subtype": "toilet",
+        "stageIndex": 3,
+        "kmFromStart": 31.6,
+        "icon": "toilet",
+        "source": "osm",
+        "osmId": "node/2724708392"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node3780423058",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.9025506,
+          33.6691183
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Unnamed",
+        "type": "supply",
+        "subtype": "toilet",
+        "stageIndex": 3,
+        "kmFromStart": 31.6,
+        "icon": "toilet",
+        "source": "osm",
+        "osmId": "node/3780423058"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-food-node10780183507",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.9060395,
+          33.6669848
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Nachi Neboke-do",
+        "type": "food",
+        "subtype": "restaurant",
+        "stageIndex": 3,
+        "kmFromStart": 31.6,
+        "icon": "restaurant",
+        "source": "osm",
+        "osmId": "node/10780183507",
+        "hours": "Mo-Su 08:15-17:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-transport-node3578364302",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.8925835,
+          33.6690911
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Nachisan",
+        "type": "transport",
+        "subtype": "bus_stop",
+        "stageIndex": 3,
+        "kmFromStart": 31.7,
+        "icon": "bus_stop",
+        "source": "osm",
+        "osmId": "node/3578364302"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-transport-node4836059645",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.8973717,
+          33.6715585
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Kumano Kodo",
+        "type": "transport",
+        "subtype": "bus_stop",
+        "stageIndex": 3,
+        "kmFromStart": 31.7,
+        "icon": "bus_stop",
+        "source": "osm",
+        "osmId": "node/4836059645"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node6702287785",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.8909335,
+          33.6696976
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Unnamed",
+        "type": "supply",
+        "subtype": "toilet",
+        "stageIndex": 3,
+        "kmFromStart": 31.7,
+        "icon": "toilet",
+        "source": "osm",
+        "osmId": "node/6702287785"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-transport-node8316893332",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.9013138,
+          33.6706886
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Daimonzaka",
+        "type": "transport",
+        "subtype": "bus_stop",
+        "stageIndex": 3,
+        "kmFromStart": 31.7,
+        "icon": "bus_stop",
+        "source": "osm",
+        "osmId": "node/8316893332"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-food-node9672933992",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.8925962,
+          33.6700253
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Unnamed",
+        "type": "food",
+        "subtype": "cafe",
+        "stageIndex": 3,
+        "kmFromStart": 31.7,
+        "icon": "cafe",
+        "source": "osm",
+        "osmId": "node/9672933992"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node2724708384",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.8893727,
+          33.6726627
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Unnamed",
+        "type": "supply",
+        "subtype": "toilet",
+        "stageIndex": 3,
+        "kmFromStart": 31.8,
+        "icon": "toilet",
+        "source": "osm",
+        "osmId": "node/2724708384"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node6702256886",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.8893995,
+          33.6696695
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Unnamed",
+        "type": "supply",
+        "subtype": "toilet",
+        "stageIndex": 3,
+        "kmFromStart": 31.8,
+        "icon": "toilet",
+        "source": "osm",
+        "osmId": "node/6702256886"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node6702256888",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.8892234,
+          33.6705668
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Unnamed",
+        "type": "supply",
+        "subtype": "toilet",
+        "stageIndex": 3,
+        "kmFromStart": 31.8,
+        "icon": "toilet",
+        "source": "osm",
+        "osmId": "node/6702256888"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node6710340586",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.8884039,
+          33.6735892
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Unnamed",
+        "type": "supply",
+        "subtype": "toilet",
+        "stageIndex": 3,
+        "kmFromStart": 31.8,
+        "icon": "toilet",
+        "source": "osm",
+        "osmId": "node/6710340586"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node3780418661",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.8814103,
+          33.6689624
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Unnamed",
+        "type": "supply",
+        "subtype": "toilet",
+        "stageIndex": 3,
+        "kmFromStart": 31.9,
+        "icon": "toilet",
+        "source": "osm",
+        "osmId": "node/3780418661"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node5104319736",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.8822447,
+          33.6686999
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Unnamed",
+        "type": "supply",
+        "subtype": "toilet",
+        "stageIndex": 3,
+        "kmFromStart": 31.9,
+        "icon": "toilet",
+        "source": "osm",
+        "osmId": "node/5104319736"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node11842974308",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.851371,
+          33.7145323
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Unnamed",
+        "type": "supply",
+        "subtype": "vending_machine",
+        "stageIndex": 3,
+        "kmFromStart": 32.3,
+        "icon": "vending_machine",
+        "source": "osm",
+        "osmId": "node/11842974308"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node5104280650",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.8427349,
+          33.7580756
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Unnamed",
+        "type": "supply",
+        "subtype": "toilet",
+        "stageIndex": 3,
+        "kmFromStart": 32.8,
+        "icon": "toilet",
+        "source": "osm",
+        "osmId": "node/5104280650"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-food-node5104407334",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.7869682,
+          33.8206799
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Aimi",
+        "type": "food",
+        "subtype": "cafe",
+        "stageIndex": 3,
+        "kmFromStart": 32.8,
+        "icon": "cafe",
+        "source": "osm",
+        "osmId": "node/5104407334"
+      }
+    },
+    {
+      "type": "Feature",
       "id": "wp-mizunomi-oji",
       "geometry": {
         "type": "Point",
@@ -677,6 +1958,1438 @@
     },
     {
       "type": "Feature",
+      "id": "wp-osm-transport-node5104537590",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.7636271,
+          33.8173879
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Watarase Onsen",
+        "nameLocalized": {
+          "es": "Wataze Onsen"
+        },
+        "type": "transport",
+        "subtype": "bus_stop",
+        "stageIndex": 3,
+        "kmFromStart": 33.1,
+        "icon": "bus_stop",
+        "source": "osm",
+        "osmId": "node/5104537590"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-transport-node5284528820",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.7553248,
+          33.8237252
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Shimoyunomine",
+        "nameLocalized": {
+          "es": "Shimoyunomine"
+        },
+        "type": "transport",
+        "subtype": "bus_stop",
+        "stageIndex": 3,
+        "kmFromStart": 33.1,
+        "icon": "bus_stop",
+        "source": "osm",
+        "osmId": "node/5284528820"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node11279132687",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.7625252,
+          33.8209119
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "正八",
+        "type": "supply",
+        "subtype": "convenience_store",
+        "stageIndex": 3,
+        "kmFromStart": 33.1,
+        "icon": "convenience_store",
+        "source": "osm",
+        "osmId": "node/11279132687"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node11568705160",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.7650518,
+          33.8198518
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Unnamed",
+        "type": "supply",
+        "subtype": "vending_machine",
+        "stageIndex": 3,
+        "kmFromStart": 33.1,
+        "icon": "vending_machine",
+        "source": "osm",
+        "osmId": "node/11568705160"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node4384815766",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.7567384,
+          33.8276683
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Unnamed",
+        "type": "supply",
+        "subtype": "toilet",
+        "stageIndex": 3,
+        "kmFromStart": 33.2,
+        "icon": "toilet",
+        "source": "osm",
+        "osmId": "node/4384815766"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-transport-node4855716621",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.7708741,
+          33.8130352
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Kawayu Onsen",
+        "type": "transport",
+        "subtype": "bus_stop",
+        "stageIndex": 3,
+        "kmFromStart": 33.2,
+        "icon": "bus_stop",
+        "source": "osm",
+        "osmId": "node/4855716621"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-accommodation-node5104405372",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.7732516,
+          33.8130073
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Minshuku Sumiya",
+        "type": "accommodation",
+        "subtype": "guesthouse",
+        "stageIndex": 3,
+        "kmFromStart": 33.2,
+        "icon": "guesthouse",
+        "source": "osm",
+        "osmId": "node/5104405372"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-transport-node5104407337",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.7754477,
+          33.8129268
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Fujiyamae",
+        "type": "transport",
+        "subtype": "bus_stop",
+        "stageIndex": 3,
+        "kmFromStart": 33.2,
+        "icon": "bus_stop",
+        "source": "osm",
+        "osmId": "node/5104407337"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-accommodation-node6699996187",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.7720313,
+          33.8133503
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "民宿 立石",
+        "type": "accommodation",
+        "subtype": "guesthouse",
+        "stageIndex": 3,
+        "kmFromStart": 33.2,
+        "icon": "guesthouse",
+        "source": "osm",
+        "osmId": "node/6699996187"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-accommodation-node6699999687",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.7727183,
+          33.813115
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Tabinoyado Shiba",
+        "type": "accommodation",
+        "subtype": "guesthouse",
+        "stageIndex": 3,
+        "kmFromStart": 33.2,
+        "icon": "guesthouse",
+        "source": "osm",
+        "osmId": "node/6699999687"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-accommodation-node10892238599",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.7743552,
+          33.8128214
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Ashita-no-Mori",
+        "type": "accommodation",
+        "subtype": "hotel",
+        "stageIndex": 3,
+        "kmFromStart": 33.2,
+        "icon": "hotel",
+        "source": "osm",
+        "osmId": "node/10892238599"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node11569251346",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.8408066,
+          33.7597865
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Unnamed",
+        "type": "supply",
+        "subtype": "toilet",
+        "stageIndex": 3,
+        "kmFromStart": 33.2,
+        "icon": "toilet",
+        "source": "osm",
+        "osmId": "node/11569251346"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-water_source-node13105384222",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.7700072,
+          33.8130637
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Unnamed",
+        "type": "water_source",
+        "subtype": "fountain",
+        "stageIndex": 3,
+        "kmFromStart": 33.2,
+        "icon": "fountain",
+        "source": "osm",
+        "osmId": "node/13105384222"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node3212482194",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.8456081,
+          33.7630108
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Unnamed",
+        "type": "supply",
+        "subtype": "toilet",
+        "stageIndex": 3,
+        "kmFromStart": 33.3,
+        "icon": "toilet",
+        "source": "osm",
+        "osmId": "node/3212482194"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node3210797196",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.8216972,
+          33.7978725
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Unnamed",
+        "type": "supply",
+        "subtype": "toilet",
+        "stageIndex": 3,
+        "kmFromStart": 33.5,
+        "icon": "toilet",
+        "source": "osm",
+        "osmId": "node/3210797196"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node13100107299",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.7993717,
+          33.8252661
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Unnamed",
+        "type": "supply",
+        "subtype": "vending_machine",
+        "stageIndex": 3,
+        "kmFromStart": 33.6,
+        "icon": "vending_machine",
+        "source": "osm",
+        "osmId": "node/13100107299"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node2822836598",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.7574471,
+          33.828966
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Unnamed",
+        "type": "supply",
+        "subtype": "vending_machine",
+        "stageIndex": 3,
+        "kmFromStart": 33.7,
+        "icon": "vending_machine",
+        "source": "osm",
+        "osmId": "node/2822836598"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-transport-node4187376206",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.7886382,
+          33.8216701
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Ukegawa",
+        "type": "transport",
+        "subtype": "bus_stop",
+        "stageIndex": 3,
+        "kmFromStart": 33.7,
+        "icon": "bus_stop",
+        "source": "osm",
+        "osmId": "node/4187376206"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-transport-node5104319955",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.7912396,
+          33.8211849
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Shimojibashi",
+        "type": "transport",
+        "subtype": "bus_stop",
+        "stageIndex": 3,
+        "kmFromStart": 33.7,
+        "icon": "bus_stop",
+        "source": "osm",
+        "osmId": "node/5104319955"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node5385786693",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.7926573,
+          33.8217216
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "請川公衆トイレ",
+        "type": "supply",
+        "subtype": "toilet",
+        "stageIndex": 3,
+        "kmFromStart": 33.7,
+        "icon": "toilet",
+        "source": "osm",
+        "osmId": "node/5385786693"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node13100116299",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.7919323,
+          33.8214939
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Unnamed",
+        "type": "supply",
+        "subtype": "vending_machine",
+        "stageIndex": 3,
+        "kmFromStart": 33.7,
+        "icon": "vending_machine",
+        "source": "osm",
+        "osmId": "node/13100116299"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-food-node13715123396",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.7860386,
+          33.8222487
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Bond Bento",
+        "type": "food",
+        "subtype": "restaurant",
+        "stageIndex": 3,
+        "kmFromStart": 33.7,
+        "icon": "restaurant",
+        "source": "osm",
+        "osmId": "node/13715123396",
+        "hours": "Mo-Su 09:30-13:30"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-accommodation-node13093970001",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.7582022,
+          33.8296502
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "j hoppers",
+        "type": "accommodation",
+        "subtype": "hotel",
+        "stageIndex": 3,
+        "kmFromStart": 33.8,
+        "icon": "hotel",
+        "source": "osm",
+        "osmId": "node/13093970001"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-transport-node5106434162",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.771498,
+          33.8337031
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Kumanohongu",
+        "nameLocalized": {
+          "es": "Kumano Hongu"
+        },
+        "type": "transport",
+        "subtype": "bus_stop",
+        "stageIndex": 3,
+        "kmFromStart": 33.9,
+        "icon": "bus_stop",
+        "source": "osm",
+        "osmId": "node/5106434162"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node5106434843",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.7726024,
+          33.834239
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Unnamed",
+        "type": "supply",
+        "subtype": "vending_machine",
+        "stageIndex": 3,
+        "kmFromStart": 33.9,
+        "icon": "vending_machine",
+        "source": "osm",
+        "osmId": "node/5106434843"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-accommodation-node7366087985",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.771961,
+          33.8364622
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Lemon guest house",
+        "type": "accommodation",
+        "subtype": "guesthouse",
+        "stageIndex": 3,
+        "kmFromStart": 33.9,
+        "icon": "guesthouse",
+        "source": "osm",
+        "osmId": "node/7366087985"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node7472496586",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.7722083,
+          33.8337734
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Unnamed",
+        "type": "supply",
+        "subtype": "convenience_store",
+        "stageIndex": 3,
+        "kmFromStart": 33.9,
+        "icon": "convenience_store",
+        "source": "osm",
+        "osmId": "node/7472496586"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-accommodation-node7595302589",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.7720702,
+          33.8358923
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Lemon guest house",
+        "type": "accommodation",
+        "subtype": "guesthouse",
+        "stageIndex": 3,
+        "kmFromStart": 33.9,
+        "icon": "guesthouse",
+        "source": "osm",
+        "osmId": "node/7595302589"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node5106578579",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.7754818,
+          33.838681
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Unnamed",
+        "type": "supply",
+        "subtype": "toilet",
+        "stageIndex": 3,
+        "kmFromStart": 34,
+        "icon": "toilet",
+        "source": "osm",
+        "osmId": "node/5106578579"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-transport-node5115806145",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.7750038,
+          33.8389588
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Hongu Taisha-mae",
+        "nameLocalized": {
+          "es": "Hongu Taisha-mae"
+        },
+        "type": "transport",
+        "subtype": "bus_stop",
+        "stageIndex": 3,
+        "kmFromStart": 34,
+        "icon": "bus_stop",
+        "source": "osm",
+        "osmId": "node/5115806145"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-transport-node6411696146",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.7739481,
+          33.8371354
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Unnamed",
+        "type": "transport",
+        "subtype": "bus_stop",
+        "stageIndex": 3,
+        "kmFromStart": 34,
+        "icon": "bus_stop",
+        "source": "osm",
+        "osmId": "node/6411696146"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node6710271421",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.7755849,
+          33.838211
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Unnamed",
+        "type": "supply",
+        "subtype": "toilet",
+        "stageIndex": 3,
+        "kmFromStart": 34,
+        "icon": "toilet",
+        "source": "osm",
+        "osmId": "node/6710271421"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node7472478786",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.7745326,
+          33.8377525
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Yamazaki",
+        "type": "supply",
+        "subtype": "convenience_store",
+        "stageIndex": 3,
+        "kmFromStart": 34,
+        "icon": "convenience_store",
+        "source": "osm",
+        "osmId": "node/7472478786"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-accommodation-node11807104108",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.7752508,
+          33.8396414
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Kumano Backpackers",
+        "type": "accommodation",
+        "subtype": "hostel",
+        "stageIndex": 3,
+        "kmFromStart": 34,
+        "icon": "hostel",
+        "source": "osm",
+        "osmId": "node/11807104108"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-medical-node1423077141",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.5867031,
+          34.2163645
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Koyasan Hospital",
+        "type": "medical",
+        "subtype": "hospital",
+        "stageIndex": 3,
+        "kmFromStart": 34.3,
+        "icon": "hospital",
+        "source": "osm",
+        "osmId": "node/1423077141"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-transport-node1898351685",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.5867383,
+          34.2130201
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "6 Senjuinbashi E",
+        "nameLocalized": {
+          "es": "6 Senjuinbashi E",
+          "ja": "6 千手院橋"
+        },
+        "type": "transport",
+        "subtype": "bus_stop",
+        "stageIndex": 3,
+        "kmFromStart": 34.3,
+        "icon": "bus_stop",
+        "source": "osm",
+        "osmId": "node/1898351685"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-transport-node1898351688",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.585832,
+          34.2132705
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "15 Senjuinbashi W",
+        "nameLocalized": {
+          "es": "15 Senjuinbashi W",
+          "ja": "千手院橋"
+        },
+        "type": "transport",
+        "subtype": "bus_stop",
+        "stageIndex": 3,
+        "kmFromStart": 34.3,
+        "icon": "bus_stop",
+        "source": "osm",
+        "osmId": "node/1898351688"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-transport-node1898531942",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.5930056,
+          34.2127171
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "9 Karukayado-mae",
+        "nameLocalized": {
+          "es": "9 Karukayado-mae",
+          "ja": "苅萱堂前"
+        },
+        "type": "transport",
+        "subtype": "bus_stop",
+        "stageIndex": 3,
+        "kmFromStart": 34.3,
+        "icon": "bus_stop",
+        "source": "osm",
+        "osmId": "node/1898531942"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-transport-node1900629294",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.5884619,
+          34.2127338
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "7 Odawaradori",
+        "nameLocalized": {
+          "es": "7 Odawaradori",
+          "ja": "小田原通り"
+        },
+        "type": "transport",
+        "subtype": "bus_stop",
+        "stageIndex": 3,
+        "kmFromStart": 34.3,
+        "icon": "bus_stop",
+        "source": "osm",
+        "osmId": "node/1900629294"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-accommodation-node2508059058",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.5848344,
+          34.2159297
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Fukuchi-in",
+        "nameLocalized": {
+          "fr": "Fukuchiin"
+        },
+        "type": "accommodation",
+        "subtype": "hotel",
+        "stageIndex": 3,
+        "kmFromStart": 34.3,
+        "icon": "hotel",
+        "source": "osm",
+        "osmId": "node/2508059058"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-food-node2722914025",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.5890906,
+          34.2127794
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Café Hirugashi",
+        "nameLocalized": {
+          "es": "Bon On Sha",
+          "ja": "ひぐらし"
+        },
+        "type": "food",
+        "subtype": "cafe",
+        "stageIndex": 3,
+        "kmFromStart": 34.3,
+        "icon": "cafe",
+        "source": "osm",
+        "osmId": "node/2722914025",
+        "hours": "We, Fr-Mo 11:00-18:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-accommodation-node3696771536",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.5872302,
+          34.2153366
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Hongakuin Temple",
+        "type": "accommodation",
+        "subtype": "hotel",
+        "stageIndex": 3,
+        "kmFromStart": 34.3,
+        "icon": "hotel",
+        "source": "osm",
+        "osmId": "node/3696771536"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-accommodation-node4198573943",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.5903393,
+          34.2124563
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Jimyo-in Shukubo",
+        "nameLocalized": {
+          "es": "Jimyo-in",
+          "ja": "持明院"
+        },
+        "type": "accommodation",
+        "subtype": "hotel",
+        "stageIndex": 3,
+        "kmFromStart": 34.3,
+        "icon": "hotel",
+        "source": "osm",
+        "osmId": "node/4198573943"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node4198797789",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.7002014,
+          33.9649604
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Unnamed",
+        "type": "supply",
+        "subtype": "toilet",
+        "stageIndex": 3,
+        "kmFromStart": 34.3,
+        "icon": "toilet",
+        "source": "osm",
+        "osmId": "node/4198797789"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-accommodation-node4780805021",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.5864419,
+          34.2149759
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Muryoko-in",
+        "nameLocalized": {
+          "es": "Muryoko-in",
+          "fr": "Muryoko-in"
+        },
+        "type": "accommodation",
+        "subtype": "hotel",
+        "stageIndex": 3,
+        "kmFromStart": 34.3,
+        "icon": "hotel",
+        "source": "osm",
+        "osmId": "node/4780805021"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-accommodation-node5025094923",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.5860281,
+          34.2142932
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Ichijo-in",
+        "nameLocalized": {
+          "es": "Ichijo-in",
+          "fr": "Ichijo-in"
+        },
+        "type": "accommodation",
+        "subtype": "hotel",
+        "stageIndex": 3,
+        "kmFromStart": 34.3,
+        "icon": "hotel",
+        "source": "osm",
+        "osmId": "node/5025094923"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-accommodation-node5092538151",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.5867455,
+          34.2144129
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Fumon-in",
+        "nameLocalized": {
+          "es": "Fumon-in"
+        },
+        "type": "accommodation",
+        "subtype": "hotel",
+        "stageIndex": 3,
+        "kmFromStart": 34.3,
+        "icon": "hotel",
+        "source": "osm",
+        "osmId": "node/5092538151"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-food-node6412021145",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.5861553,
+          34.2136963
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Chuoshokudo Sanbo 中央食堂 さんぼう",
+        "type": "food",
+        "subtype": "restaurant",
+        "stageIndex": 3,
+        "kmFromStart": 34.3,
+        "icon": "restaurant",
+        "source": "osm",
+        "osmId": "node/6412021145"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-transport-node6426517378",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.5857228,
+          34.2154178
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "5 Koyakeisatu-mae",
+        "type": "transport",
+        "subtype": "bus_stop",
+        "stageIndex": 3,
+        "kmFromStart": 34.3,
+        "icon": "bus_stop",
+        "source": "osm",
+        "osmId": "node/6426517378"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-accommodation-node6852828607",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.5907217,
+          34.211597
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Fudo-in",
+        "nameLocalized": {
+          "es": "Fudo-in"
+        },
+        "type": "accommodation",
+        "subtype": "hotel",
+        "stageIndex": 3,
+        "kmFromStart": 34.3,
+        "icon": "hotel",
+        "source": "osm",
+        "osmId": "node/6852828607"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-accommodation-node12737811921",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.5918615,
+          34.2128382
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Henjoko-in",
+        "type": "accommodation",
+        "subtype": "guesthouse",
+        "stageIndex": 3,
+        "kmFromStart": 34.3,
+        "icon": "guesthouse",
+        "source": "osm",
+        "osmId": "node/12737811921"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-transport-node1900629322",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.5838267,
+          34.2131319
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "16 Kongobuji-mae",
+        "nameLocalized": {
+          "es": "16 Kongobuji-mae",
+          "ja": "金剛峯寺前"
+        },
+        "type": "transport",
+        "subtype": "bus_stop",
+        "stageIndex": 3,
+        "kmFromStart": 34.4,
+        "icon": "bus_stop",
+        "source": "osm",
+        "osmId": "node/1900629322"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node2984492821",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.5873851,
+          34.2123802
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Daily Yamazaki",
+        "nameLocalized": {
+          "ja": "デイリーヤマザキ"
+        },
+        "type": "supply",
+        "subtype": "convenience_store",
+        "stageIndex": 3,
+        "kmFromStart": 34.4,
+        "icon": "convenience_store",
+        "source": "osm",
+        "osmId": "node/2984492821"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-accommodation-node5046470091",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.5840161,
+          34.2120395
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Tentoku-in",
+        "type": "accommodation",
+        "subtype": "hotel",
+        "stageIndex": 3,
+        "kmFromStart": 34.4,
+        "icon": "hotel",
+        "source": "osm",
+        "osmId": "node/5046470091"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-accommodation-node5046470092",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.5821225,
+          34.2113164
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Jojuin",
+        "type": "accommodation",
+        "subtype": "hotel",
+        "stageIndex": 3,
+        "kmFromStart": 34.4,
+        "icon": "hotel",
+        "source": "osm",
+        "osmId": "node/5046470092"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-accommodation-node5046470093",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.5825275,
+          34.2117334
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Shakamonin",
+        "type": "accommodation",
+        "subtype": "hotel",
+        "stageIndex": 3,
+        "kmFromStart": 34.4,
+        "icon": "hotel",
+        "source": "osm",
+        "osmId": "node/5046470093"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-accommodation-node5046470094",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.58146,
+          34.2124676
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Zofuku-in",
+        "nameLocalized": {
+          "es": "Zofuku-in"
+        },
+        "type": "accommodation",
+        "subtype": "hotel",
+        "stageIndex": 3,
+        "kmFromStart": 34.4,
+        "icon": "hotel",
+        "source": "osm",
+        "osmId": "node/5046470094"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-accommodation-node5046470095",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.5830103,
+          34.2129777
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Jokiin",
+        "nameLocalized": {
+          "es": "Jokiin"
+        },
+        "type": "accommodation",
+        "subtype": "hotel",
+        "stageIndex": 3,
+        "kmFromStart": 34.4,
+        "icon": "hotel",
+        "source": "osm",
+        "osmId": "node/5046470095"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-accommodation-node5629787721",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.5869612,
+          34.2116732
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Koyasan Guesthouse Kiminoya",
+        "type": "accommodation",
+        "subtype": "guesthouse",
+        "stageIndex": 3,
+        "kmFromStart": 34.4,
+        "icon": "guesthouse",
+        "source": "osm",
+        "osmId": "node/5629787721"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-transport-node6435899686",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.5846231,
+          34.2114697
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Unnamed",
+        "type": "transport",
+        "subtype": "bus_stop",
+        "stageIndex": 3,
+        "kmFromStart": 34.4,
+        "icon": "bus_stop",
+        "source": "osm",
+        "osmId": "node/6435899686"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node7738725345",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.5814183,
+          34.2116727
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Unnamed",
+        "type": "supply",
+        "subtype": "vending_machine",
+        "stageIndex": 3,
+        "kmFromStart": 34.4,
+        "icon": "vending_machine",
+        "source": "osm",
+        "osmId": "node/7738725345"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-food-node13245189701",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.5833396,
+          34.2123323
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Café Shizuku",
+        "type": "food",
+        "subtype": "cafe",
+        "stageIndex": 3,
+        "kmFromStart": 34.4,
+        "icon": "cafe",
+        "source": "osm",
+        "osmId": "node/13245189701"
+      }
+    },
+    {
+      "type": "Feature",
       "id": "wp-fushiogami-oji",
       "geometry": {
         "type": "Point",
@@ -705,6 +3418,229 @@
           "oji",
           "viewpoint"
         ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-accommodation-node5517964451",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.6947762,
+          34.0348528
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Mandokoro",
+        "nameLocalized": {
+          "ja": "農家民宿　政所"
+        },
+        "type": "accommodation",
+        "subtype": "guesthouse",
+        "stageIndex": 3,
+        "kmFromStart": 36.2,
+        "icon": "guesthouse",
+        "source": "osm",
+        "osmId": "node/5517964451"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node7475989893",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.6932937,
+          34.0372118
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Unnamed",
+        "type": "supply",
+        "subtype": "toilet",
+        "stageIndex": 3,
+        "kmFromStart": 36.2,
+        "icon": "toilet",
+        "source": "osm",
+        "osmId": "node/7475989893"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node4483811890",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.711999,
+          34.0175567
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "三浦峠公衆トイレ",
+        "type": "supply",
+        "subtype": "toilet",
+        "stageIndex": 3,
+        "kmFromStart": 36.6,
+        "icon": "toilet",
+        "source": "osm",
+        "osmId": "node/4483811890"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node4593922890",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.7287227,
+          33.9827769
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Unnamed",
+        "type": "supply",
+        "subtype": "toilet",
+        "stageIndex": 3,
+        "kmFromStart": 36.9,
+        "icon": "toilet",
+        "source": "osm",
+        "osmId": "node/4593922890"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node4198794189",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.7363188,
+          33.9723171
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Unnamed",
+        "type": "supply",
+        "subtype": "toilet",
+        "stageIndex": 3,
+        "kmFromStart": 37.1,
+        "icon": "toilet",
+        "source": "osm",
+        "osmId": "node/4198794189"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node4198823959",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.7537157,
+          33.9391343
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Unnamed",
+        "type": "supply",
+        "subtype": "toilet",
+        "stageIndex": 3,
+        "kmFromStart": 37.7,
+        "icon": "toilet",
+        "source": "osm",
+        "osmId": "node/4198823959"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node5702249821",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.7580674,
+          33.9302539
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Unnamed",
+        "type": "supply",
+        "subtype": "toilet",
+        "stageIndex": 3,
+        "kmFromStart": 37.8,
+        "icon": "toilet",
+        "source": "osm",
+        "osmId": "node/5702249821"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-transport-node5705929361",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.7584603,
+          33.9308065
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "世界遺産石碑前",
+        "type": "transport",
+        "subtype": "bus_stop",
+        "stageIndex": 3,
+        "kmFromStart": 37.8,
+        "icon": "bus_stop",
+        "source": "osm",
+        "osmId": "node/5705929361"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-transport-node6402047385",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.7618418,
+          33.9321266
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "いちざこ",
+        "type": "transport",
+        "subtype": "bus_stop",
+        "stageIndex": 3,
+        "kmFromStart": 37.8,
+        "icon": "bus_stop",
+        "source": "osm",
+        "osmId": "node/6402047385"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node6405915085",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.7472802,
+          33.914494
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo",
+        "name": "Unnamed",
+        "type": "supply",
+        "subtype": "toilet",
+        "stageIndex": 3,
+        "kmFromStart": 37.9,
+        "icon": "toilet",
+        "source": "osm",
+        "osmId": "node/6405915085"
       }
     },
     {
@@ -744,512 +3680,93 @@
     },
     {
       "type": "Feature",
-      "id": "wp-osm-food-node6710271450",
+      "id": "wp-osm-transport-node5702788724",
       "geometry": {
         "type": "Point",
         "coordinates": [
-          135.7741539,
-          33.8389918
+          135.7590132,
+          33.8756084
         ]
       },
       "properties": {
         "routeId": "kumano-kodo",
-        "name": "Unnamed",
-        "type": "food",
-        "subtype": "cafe",
+        "name": "八木尾 Yakio bus stop",
+        "type": "transport",
+        "subtype": "bus_stop",
         "stageIndex": 3,
-        "kmFromStart": 46.8,
-        "icon": "cafe",
+        "kmFromStart": 38.3,
+        "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/6710271450",
-        "hours": "We-Mo 09:00-16:00"
+        "osmId": "node/5702788724"
       }
     },
     {
       "type": "Feature",
-      "id": "wp-osm-food-node4836368282",
+      "id": "wp-osm-supply-node6405915286",
       "geometry": {
         "type": "Point",
         "coordinates": [
-          135.9358893,
-          33.6448183
-        ]
-      },
-      "properties": {
-        "routeId": "kumano-kodo",
-        "name": "Bistro Bonheur",
-        "type": "food",
-        "subtype": "restaurant",
-        "stageIndex": 3,
-        "kmFromStart": 73.1,
-        "icon": "restaurant",
-        "source": "osm",
-        "osmId": "node/4836368282"
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "wp-osm-food-node6842876887",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          135.9374052,
-          33.6460733
-        ]
-      },
-      "properties": {
-        "routeId": "kumano-kodo",
-        "name": "Cafe Pilina",
-        "type": "food",
-        "subtype": "cafe",
-        "stageIndex": 3,
-        "kmFromStart": 73.1,
-        "icon": "cafe",
-        "source": "osm",
-        "osmId": "node/6842876887"
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "wp-osm-food-node6843661485",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          135.9360917,
-          33.6439443
-        ]
-      },
-      "properties": {
-        "routeId": "kumano-kodo",
-        "name": "smart cafe",
-        "type": "food",
-        "subtype": "cafe",
-        "stageIndex": 3,
-        "kmFromStart": 73.1,
-        "icon": "cafe",
-        "source": "osm",
-        "osmId": "node/6843661485"
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "wp-osm-supply-node4437427603",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          135.9331879,
-          33.6417772
-        ]
-      },
-      "properties": {
-        "routeId": "kumano-kodo",
-        "name": "LAWSON",
-        "nameLocalized": {
-          "ja": "ローソン",
-          "ko": "로손"
-        },
-        "type": "supply",
-        "subtype": "convenience_store",
-        "stageIndex": 3,
-        "kmFromStart": 73.5,
-        "icon": "convenience_store",
-        "source": "osm",
-        "osmId": "node/4437427603",
-        "hours": "24/7"
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "wp-osm-supply-node4836368277",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          135.9339243,
-          33.6406446
-        ]
-      },
-      "properties": {
-        "routeId": "kumano-kodo",
-        "name": "FamilyMart",
-        "nameLocalized": {
-          "ja": "ファミリーマート 那智勝浦店"
-        },
-        "type": "supply",
-        "subtype": "convenience_store",
-        "stageIndex": 3,
-        "kmFromStart": 73.5,
-        "icon": "convenience_store",
-        "source": "osm",
-        "osmId": "node/4836368277",
-        "hours": "24/7"
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "wp-osm-food-node10780183507",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          135.9060395,
-          33.6669848
-        ]
-      },
-      "properties": {
-        "routeId": "kumano-kodo",
-        "name": "Nachi Neboke-do",
-        "type": "food",
-        "subtype": "restaurant",
-        "stageIndex": 3,
-        "kmFromStart": 81.3,
-        "icon": "restaurant",
-        "source": "osm",
-        "osmId": "node/10780183507",
-        "hours": "Mo-Su 08:15-17:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "wp-osm-food-node9672933992",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          135.8925962,
-          33.6700253
-        ]
-      },
-      "properties": {
-        "routeId": "kumano-kodo",
-        "name": "Unnamed",
-        "type": "food",
-        "subtype": "cafe",
-        "stageIndex": 3,
-        "kmFromStart": 83.9,
-        "icon": "cafe",
-        "source": "osm",
-        "osmId": "node/9672933992"
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "wp-osm-food-node5104407334",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          135.7869682,
-          33.8206799
-        ]
-      },
-      "properties": {
-        "routeId": "kumano-kodo",
-        "name": "Aimi",
-        "type": "food",
-        "subtype": "cafe",
-        "stageIndex": 3,
-        "kmFromStart": 115,
-        "icon": "cafe",
-        "source": "osm",
-        "osmId": "node/5104407334"
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "wp-osm-supply-node11279132687",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          135.7625252,
-          33.8209119
-        ]
-      },
-      "properties": {
-        "routeId": "kumano-kodo",
-        "name": "正八",
-        "type": "supply",
-        "subtype": "convenience_store",
-        "stageIndex": 3,
-        "kmFromStart": 121.7,
-        "icon": "convenience_store",
-        "source": "osm",
-        "osmId": "node/11279132687"
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "wp-osm-water_source-node13105384222",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          135.7700072,
-          33.8130637
-        ]
-      },
-      "properties": {
-        "routeId": "kumano-kodo",
-        "name": "Unnamed",
-        "type": "water_source",
-        "subtype": "fountain",
-        "stageIndex": 3,
-        "kmFromStart": 126.4,
-        "icon": "fountain",
-        "source": "osm",
-        "osmId": "node/13105384222"
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "wp-osm-food-node6699999688",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          135.7728722,
-          33.8130758
-        ]
-      },
-      "properties": {
-        "routeId": "kumano-kodo",
-        "name": "Oshokujidokoro Tokiwaya",
-        "type": "food",
-        "subtype": "restaurant",
-        "stageIndex": 3,
-        "kmFromStart": 126.6,
-        "icon": "restaurant",
-        "source": "osm",
-        "osmId": "node/6699999688"
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "wp-osm-food-node5694272317",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          135.7725432,
-          33.8344239
-        ]
-      },
-      "properties": {
-        "routeId": "kumano-kodo",
-        "name": "kumanoco restaurant",
-        "type": "food",
-        "subtype": "restaurant",
-        "stageIndex": 3,
-        "kmFromStart": 168.3,
-        "icon": "restaurant",
-        "source": "osm",
-        "osmId": "node/5694272317",
-        "hours": "Mo-Su 11:00-15:00, 17:00-22:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "wp-osm-supply-node7472496586",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          135.7722083,
-          33.8337734
+          135.7598608,
+          33.8778243
         ]
       },
       "properties": {
         "routeId": "kumano-kodo",
         "name": "Unnamed",
         "type": "supply",
-        "subtype": "convenience_store",
+        "subtype": "toilet",
         "stageIndex": 3,
-        "kmFromStart": 168.3,
-        "icon": "convenience_store",
+        "kmFromStart": 38.3,
+        "icon": "toilet",
         "source": "osm",
-        "osmId": "node/7472496586"
+        "osmId": "node/6405915286"
       }
     },
     {
       "type": "Feature",
-      "id": "wp-osm-supply-node7472478786",
+      "id": "wp-osm-supply-node13100148616",
       "geometry": {
         "type": "Point",
         "coordinates": [
-          135.7745326,
-          33.8377525
+          135.7618256,
+          33.8653134
         ]
       },
       "properties": {
         "routeId": "kumano-kodo",
-        "name": "Yamazaki",
+        "name": "Unnamed",
         "type": "supply",
-        "subtype": "convenience_store",
+        "subtype": "vending_machine",
         "stageIndex": 3,
-        "kmFromStart": 170,
-        "icon": "convenience_store",
+        "kmFromStart": 38.3,
+        "icon": "vending_machine",
         "source": "osm",
-        "osmId": "node/7472478786"
+        "osmId": "node/13100148616"
       }
     },
     {
       "type": "Feature",
-      "id": "wp-osm-food-node2722914025",
+      "id": "wp-osm-transport-node11803558883",
       "geometry": {
         "type": "Point",
         "coordinates": [
-          135.5890906,
-          34.2127794
+          135.7618386,
+          33.8645382
         ]
       },
       "properties": {
         "routeId": "kumano-kodo",
-        "name": "Café Hirugashi",
+        "name": "Michi-no-eki Okukumano",
         "nameLocalized": {
-          "es": "Bon On Sha",
-          "ja": "ひぐらし"
+          "ja": "道の駅 奥熊野"
         },
-        "type": "food",
-        "subtype": "cafe",
+        "type": "transport",
+        "subtype": "bus_stop",
         "stageIndex": 3,
-        "kmFromStart": 231.3,
-        "icon": "cafe",
+        "kmFromStart": 38.4,
+        "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/2722914025",
-        "hours": "We, Fr-Mo 11:00-18:00"
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "wp-osm-food-node4994907321",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          135.5882433,
-          34.2128208
-        ]
-      },
-      "properties": {
-        "routeId": "kumano-kodo",
-        "name": "udon restaurant",
-        "nameLocalized": {
-          "fr": "restaurant udon"
-        },
-        "type": "food",
-        "subtype": "restaurant",
-        "stageIndex": 3,
-        "kmFromStart": 231.3,
-        "icon": "restaurant",
-        "source": "osm",
-        "osmId": "node/4994907321"
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "wp-osm-medical-node1423077141",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          135.5867031,
-          34.2163645
-        ]
-      },
-      "properties": {
-        "routeId": "kumano-kodo",
-        "name": "Koyasan Hospital",
-        "type": "medical",
-        "subtype": "hospital",
-        "stageIndex": 3,
-        "kmFromStart": 231.4,
-        "icon": "hospital",
-        "source": "osm",
-        "osmId": "node/1423077141"
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "wp-osm-medical-node4795891627",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          135.5861406,
-          34.2133133
-        ]
-      },
-      "properties": {
-        "routeId": "kumano-kodo",
-        "name": "順敬堂薬局",
-        "type": "medical",
-        "subtype": "pharmacy",
-        "stageIndex": 3,
-        "kmFromStart": 231.4,
-        "icon": "pharmacy",
-        "source": "osm",
-        "osmId": "node/4795891627"
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "wp-osm-food-node4916163221",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          135.5869001,
-          34.2127617
-        ]
-      },
-      "properties": {
-        "routeId": "kumano-kodo",
-        "name": "Hanabishi",
-        "nameLocalized": {
-          "ja": "花菱"
-        },
-        "type": "food",
-        "subtype": "restaurant",
-        "stageIndex": 3,
-        "kmFromStart": 231.4,
-        "icon": "restaurant",
-        "source": "osm",
-        "osmId": "node/4916163221"
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "wp-osm-food-node13245189701",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          135.5833396,
-          34.2123323
-        ]
-      },
-      "properties": {
-        "routeId": "kumano-kodo",
-        "name": "Café Shizuku",
-        "type": "food",
-        "subtype": "cafe",
-        "stageIndex": 3,
-        "kmFromStart": 232.6,
-        "icon": "cafe",
-        "source": "osm",
-        "osmId": "node/13245189701"
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "wp-osm-supply-node2984492821",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          135.5873851,
-          34.2123802
-        ]
-      },
-      "properties": {
-        "routeId": "kumano-kodo",
-        "name": "Daily Yamazaki",
-        "nameLocalized": {
-          "ja": "デイリーヤマザキ"
-        },
-        "type": "supply",
-        "subtype": "convenience_store",
-        "stageIndex": 3,
-        "kmFromStart": 232.8,
-        "icon": "convenience_store",
-        "source": "osm",
-        "osmId": "node/2984492821"
+        "osmId": "node/11803558883"
       }
     }
   ]
