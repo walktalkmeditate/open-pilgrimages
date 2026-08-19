@@ -13,3 +13,4 @@ Thumbs.db
 .claude/*
 !.claude/commands/
 .superpowers/
+.build-index-test-*/
