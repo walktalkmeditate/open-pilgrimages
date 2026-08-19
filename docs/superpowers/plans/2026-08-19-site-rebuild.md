@@ -86,7 +86,7 @@ Create `scripts/site/project.test.ts`:
 ```ts
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { mercator, simplify, fitToBox, toPathData, type Point } from "./project.ts";
+import { mercator, simplify, fitToBox, toPathData, type Point } from "./project.js";
 
 test("mercator maps the origin to zero and is monotonic in both axes", () => {
   const [x0, y0] = mercator(0, 0);
@@ -296,7 +296,7 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "fs";
 import { join } from "path";
-import { GLYPH_BOX, glyphFrom, segmentsOf } from "./glyphs.ts";
+import { GLYPH_BOX, glyphFrom, segmentsOf } from "./glyphs.js";
 
 const ROOT = join(import.meta.dirname, "..", "..");
 
@@ -356,7 +356,7 @@ Expected: FAIL — cannot resolve `./glyphs.ts`.
 - [ ] **Step 3: Implement `scripts/site/glyphs.ts`**
 
 ```ts
-import { fitToBox, mercator, simplify, toPathData, type Box, type Point } from "./project.ts";
+import { fitToBox, mercator, simplify, toPathData, type Box, type Point } from "./project.js";
 
 export const GLYPH_BOX: Box = { size: 200, padding: 12 };
 
@@ -459,7 +459,7 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "fs";
 import { join } from "path";
-import { profileSvg, stagesOf, type ProfileStage } from "./profiles.ts";
+import { profileSvg, stagesOf, type ProfileStage } from "./profiles.js";
 
 const ROOT = join(import.meta.dirname, "..", "..");
 
@@ -623,7 +623,7 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "fs";
 import { join } from "path";
-import { sparklineSvg, trendOf, type TrendPoint } from "./sparklines.ts";
+import { sparklineSvg, trendOf, type TrendPoint } from "./sparklines.js";
 
 const ROOT = join(import.meta.dirname, "..", "..");
 
@@ -795,7 +795,7 @@ Create `scripts/stats.test.ts`. These are the exact numbers the hero and README 
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { join } from "path";
-import { computeStats } from "./stats.ts";
+import { computeStats } from "./stats.js";
 
 const ROOT = join(import.meta.dirname, "..");
 
@@ -915,7 +915,7 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import { existsSync, readFileSync } from "fs";
 import { join } from "path";
-import { buildAssets } from "./build-assets.ts";
+import { buildAssets } from "./build-assets.js";
 
 const ROOT = join(import.meta.dirname, "..", "..");
 const ASSETS = join(ROOT, "docs", "assets");
@@ -984,9 +984,9 @@ Expected: FAIL — cannot resolve `./build-assets.ts`.
 ```ts
 import { existsSync, mkdirSync, readFileSync, readdirSync, statSync, writeFileSync } from "fs";
 import { join } from "path";
-import { GLYPH_BOX, glyphFrom } from "./glyphs.ts";
-import { profileSvg, stagesOf } from "./profiles.ts";
-import { sparklineSvg, trendOf } from "./sparklines.ts";
+import { GLYPH_BOX, glyphFrom } from "./glyphs.js";
+import { profileSvg, stagesOf } from "./profiles.js";
+import { sparklineSvg, trendOf } from "./sparklines.js";
 
 const ROOT = join(import.meta.dirname, "..", "..");
 
@@ -1160,7 +1160,7 @@ Create `scripts/site/check-site.test.ts`:
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { join } from "path";
-import { checkSite } from "./check-site.ts";
+import { checkSite } from "./check-site.js";
 
 const ROOT = join(import.meta.dirname, "..", "..");
 
@@ -1212,7 +1212,7 @@ Expected: FAIL — cannot resolve `./check-site.ts`. The first test will also fa
 ```ts
 import { existsSync, readFileSync, readdirSync } from "fs";
 import { join } from "path";
-import { computeStats } from "../stats.ts";
+import { computeStats } from "../stats.js";
 
 const ROOT = join(import.meta.dirname, "..", "..");
 
