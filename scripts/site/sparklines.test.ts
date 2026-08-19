@@ -75,3 +75,35 @@ test("sparklineSvg returns an empty string for fewer than two points", () => {
   assert.equal(sparklineSvg([], 120, 30), "");
   assert.equal(sparklineSvg([{ year: 2000, count: 1 }], 120, 30), "");
 });
+
+test("trendOf falls back to walkingCompletions.trend for shikoku-88's real stats.json", () => {
+  const trend = trendOf(statsJson("shikoku-88"));
+
+  assert.equal(trend.length, 21);
+  assert.deepEqual(trend[0], { year: 2005, count: 1740 });
+});
+
+test("trendOf still reads camino-frances's real stats.json with the fallback in place", () => {
+  const trend = trendOf(statsJson("camino-frances"));
+
+  assert.equal(trend.length, 41);
+  assert.deepEqual(trend[0], { year: 1985, count: 690 });
+});
+
+test("trendOf prefers the top-level trend over walkingCompletions.trend when both are present", () => {
+  const trend = trendOf({
+    annualPilgrims: {
+      trend: [{ year: 2000, count: 1 }],
+      walkingCompletions: { trend: [{ year: 1999, count: 999 }] },
+    },
+  });
+
+  assert.deepEqual(trend, [{ year: 2000, count: 1 }]);
+});
+
+test("trendOf gracefully degrades when walkingCompletions.trend is not an array", () => {
+  assert.deepEqual(
+    trendOf({ annualPilgrims: { walkingCompletions: { trend: "not-an-array" } } }),
+    [],
+  );
+});
