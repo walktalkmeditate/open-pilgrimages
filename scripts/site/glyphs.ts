@@ -20,7 +20,7 @@ interface GeoJsonLike {
 }
 
 export function segmentsOf(geojson: unknown): Point[][] {
-  const features = (geojson as GeoJsonLike).features ?? [];
+  const features = ((geojson as GeoJsonLike) ?? {}).features ?? [];
   const segments: Point[][] = [];
 
   for (const feature of features) {
@@ -29,9 +29,9 @@ export function segmentsOf(geojson: unknown): Point[][] {
 
     const raw =
       geometry.type === "MultiLineString"
-        ? (geometry.coordinates as number[][][])
+        ? ((geometry.coordinates as number[][][]) ?? [])
         : geometry.type === "LineString"
-          ? [geometry.coordinates as number[][]]
+          ? (geometry.coordinates ? [(geometry.coordinates as number[][])] : [])
           : [];
 
     for (const line of raw) {
