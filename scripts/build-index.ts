@@ -1,4 +1,4 @@
-import { readFileSync, writeFileSync, existsSync, readdirSync, statSync } from "fs";
+import { readFileSync, writeFileSync, existsSync, readdirSync, statSync, realpathSync } from "fs";
 import { join, relative } from "path";
 
 const ROOT = join(import.meta.dirname, "..");
@@ -125,11 +125,12 @@ export function buildIndex(
   };
 }
 
-function readPrevious(indexPath: string): RouteIndex | null {
+export function readPrevious(indexPath: string): RouteIndex | null {
   if (!existsSync(indexPath)) return null;
   try {
     return JSON.parse(readFileSync(indexPath, "utf-8")) as RouteIndex;
-  } catch {
+  } catch (error) {
+    console.warn(`Could not read previous index at ${indexPath}, treating as absent:`, error);
     return null;
   }
 }
@@ -154,6 +155,15 @@ function main() {
   }
 }
 
-if (process.argv[1] && import.meta.filename === process.argv[1]) {
+function resolveInvokedPath(argv1: string | undefined): string | null {
+  if (!argv1) return null;
+  try {
+    return realpathSync(argv1);
+  } catch {
+    return null;
+  }
+}
+
+if (import.meta.filename === resolveInvokedPath(process.argv[1])) {
   main();
 }
