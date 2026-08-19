@@ -191,7 +191,6 @@ function main(): void {
   } catch (error) {
     console.error(error instanceof Error ? error.message : String(error));
     process.exit(1);
-    return;
   }
 
   for (const problem of problems) {
