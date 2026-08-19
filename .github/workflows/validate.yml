@@ -38,6 +38,9 @@ jobs:
       - run: npm test
       - run: npx tsc --noEmit
       - name: Build index
+        # shell: bash sets -o pipefail. Without it the default `bash -e` takes
+        # tee's exit code, so a failing generator would pass this step.
+        shell: bash
         run: npm run build-index | tee /tmp/build-index.log
       - name: Assert the generator actually ran
         run: grep -q "Generated index.json" /tmp/build-index.log
