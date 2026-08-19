@@ -113,3 +113,27 @@ test("segmentsOf gracefully degrades on null input", () => {
   const result = segmentsOf(null);
   assert.deepEqual(result, []);
 });
+
+test("segmentsOf tolerates a declared type with wrongly-shaped coordinates", () => {
+  // Nullish-guarding alone left these throwing several calls deeper.
+  const cases: unknown[] = [
+    { type: "FeatureCollection", features: [{ geometry: { type: "LineString", coordinates: "nope" } }] },
+    { type: "FeatureCollection", features: [{ geometry: { type: "LineString", coordinates: 5 } }] },
+    { type: "FeatureCollection", features: [{ geometry: { type: "MultiLineString", coordinates: "nope" } }] },
+    { type: "FeatureCollection", features: [{ geometry: { type: "MultiLineString", coordinates: 5 } }] },
+    { type: "FeatureCollection", features: [{ geometry: { type: "MultiLineString", coordinates: [1, 2, 3] } }] },
+  ];
+
+  for (const input of cases) {
+    assert.deepEqual(segmentsOf(input), [], `threw or mis-parsed: ${JSON.stringify(input)}`);
+  }
+});
+
+test("segmentsOf drops non-array coordinate entries inside a LineString", () => {
+  const input = {
+    type: "FeatureCollection",
+    features: [{ geometry: { type: "LineString", coordinates: [[1, 2], 7, [3, 4]] } }],
+  };
+
+  assert.deepEqual(segmentsOf(input), [[[1, 2], [3, 4]]]);
+});
