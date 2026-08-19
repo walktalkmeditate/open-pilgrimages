@@ -196,7 +196,9 @@ Draw and exit are therefore one continuous motion with no seam between them. The
 - **Per frame, only `stroke-dashoffset` and `opacity` are written**, on at most two paths. No layout, no reflow, no per-frame DOM construction. The caption's text changes once per route, not once per frame.
 - **No layout shift**, anywhere in the cycle.
 
-**Known limitation, accepted:** `shikoku-88` and `kumano-kodo` are MultiLineStrings, so the trace draws them subpath by subpath and the pen jumps between disconnected segments. On the Camino routes the walk is continuous. Reviewed in the prototype and accepted as-is. If it later grates, the fallbacks are simultaneous per-segment draw, or bloom (fade in place) for network topologies only.
+**Known limitation, accepted:** `shikoku-88` and `kumano-kodo` both draw as multiple disconnected subpaths, so the trace advances segment by segment and the pen jumps between them. On the Camino routes the walk is continuous. Reviewed in the prototype and accepted as-is. If it later grates, the fallbacks are simultaneous per-segment draw, or bloom (fade in place) for network topologies only.
+
+Note the two arrive at that shape differently, which an earlier draft of this spec got wrong: `shikoku-88` is a single `MultiLineString`, while `kumano-kodo` is **seven separate `LineString` features**. `segmentsOf` flattens both to the same segment list, so rendering is unaffected — but anything reasoning about geometry types must handle both encodings.
 
 **Mobile:** below 700px the constellation collapses to a single centered glyph, still cycling with trace, caption beneath it.
 
