@@ -178,3 +178,16 @@ test("a malformed index.json fails fast with a message naming the file, not a do
     rmSync(root, { recursive: true, force: true });
   }
 });
+
+test("index.json with invalid JSON syntax fails fast naming the file, not the wrong shape message", () => {
+  // #given an index.json that is not parseable JSON at all
+  const root = mkdtempSync(join(tmpdir(), "check-site-test-"));
+  writeFileSync(join(root, "index.json"), "{ this is not json");
+
+  try {
+    // #when / #then checkSite throws immediately, naming index.json and the JSON error
+    assert.throws(() => checkSite(root), /index\.json.*not valid JSON/);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
