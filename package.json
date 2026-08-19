@@ -8,7 +8,8 @@
     "build-index": "tsx scripts/build-index.ts",
     "fetch": "tsx scripts/fetch-osm.ts",
     "pipeline": "npm run fetch && npm run build-index && npm run validate",
-    "stats": "tsx scripts/stats.ts"
+    "stats": "tsx scripts/stats.ts",
+    "test": "node --import tsx --test \"scripts/**/*.test.ts\""
   },
   "keywords": [
     "pilgrimage",
