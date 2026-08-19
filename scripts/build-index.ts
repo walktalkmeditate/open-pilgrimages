@@ -7,14 +7,14 @@ function loadJson(path: string) {
   return JSON.parse(readFileSync(path, "utf-8"));
 }
 
-interface VariantEntry {
+export interface VariantEntry {
   id: string;
   name: Record<string, string>;
   distanceKm: number;
   path: string;
 }
 
-interface RouteEntry {
+export interface RouteEntry {
   id: string;
   name: Record<string, string>;
   region: string;
@@ -26,7 +26,7 @@ interface RouteEntry {
   variants?: VariantEntry[];
 }
 
-function scanVariants(routeDir: string): VariantEntry[] {
+function scanVariants(routeDir: string, root: string): VariantEntry[] {
   const variantsDir = join(routeDir, "variants");
   if (!existsSync(variantsDir) || !statSync(variantsDir).isDirectory()) {
     return [];
@@ -43,15 +43,22 @@ function scanVariants(routeDir: string): VariantEntry[] {
       id: meta.id,
       name: meta.name,
       distanceKm: meta.overview?.distanceKm ?? 0,
-      path: relative(ROOT, varDir),
+      path: relative(root, varDir),
     });
   }
 
   return variants;
 }
 
-function main() {
-  const routesDir = join(ROOT, "routes");
+const REGION_BY_COUNTRY: Record<string, string> = {
+  ES: "Europe", FR: "Europe", PT: "Europe", IT: "Europe", DE: "Europe",
+  NO: "Europe", SE: "Europe", GB: "Europe",
+  JP: "Asia", IN: "Asia", CN: "Asia", KR: "Asia", NP: "Asia",
+  US: "Americas", MX: "Americas", CA: "Americas",
+  IL: "Middle East", TR: "Middle East",
+};
+
+export function scanRoutes(routesDir: string, root: string): RouteEntry[] {
   const routes: RouteEntry[] = [];
 
   for (const entry of readdirSync(routesDir)) {
@@ -61,39 +68,34 @@ function main() {
 
     const meta = loadJson(metaPath);
     const countries: string[] = meta.overview?.countries ?? [];
-    const primaryCountry = countries.length > 1 ? countries[countries.length - 1] : countries[0] ?? "";
-
-    const regionMap: Record<string, string> = {
-      ES: "Europe", FR: "Europe", PT: "Europe", IT: "Europe", DE: "Europe",
-      NO: "Europe", SE: "Europe", GB: "Europe",
-      JP: "Asia", IN: "Asia", CN: "Asia", KR: "Asia", NP: "Asia",
-      US: "Americas", MX: "Americas", CA: "Americas",
-      IL: "Middle East", TR: "Middle East",
-    };
+    const primaryCountry =
+      countries.length > 1 ? countries[countries.length - 1] : countries[0] ?? "";
 
     const routeEntry: RouteEntry = {
       id: meta.id,
       name: meta.name,
-      region: regionMap[primaryCountry] ?? "Other",
+      region: REGION_BY_COUNTRY[primaryCountry] ?? "Other",
       country: primaryCountry,
       distanceKm: meta.overview?.distanceKm ?? 0,
       topology: meta.overview?.topology ?? "",
       tradition: meta.tradition?.type ?? "",
-      path: relative(ROOT, routeDir),
+      path: relative(root, routeDir),
     };
 
-    const variants = scanVariants(routeDir);
+    const variants = scanVariants(routeDir, root);
     if (variants.length > 0) {
-      routeEntry.variants = variants.map((v) => ({
-        id: v.id,
-        name: v.name,
-        distanceKm: v.distanceKm,
-        path: v.path,
-      }));
+      routeEntry.variants = variants;
     }
 
     routes.push(routeEntry);
   }
+
+  return routes;
+}
+
+function main() {
+  const routesDir = join(ROOT, "routes");
+  const routes = scanRoutes(routesDir, ROOT);
 
   const index = {
     schemaVersion: "1.0.0",
