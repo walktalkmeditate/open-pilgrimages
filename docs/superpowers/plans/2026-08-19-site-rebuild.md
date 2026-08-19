@@ -220,8 +220,15 @@ export function fitToBox(segments: Point[][], box: Box): Point[][] {
   // a separate call argument and throws RangeError past roughly 150k of them.
   // fitToBox runs on the *unsimplified* point set, which is the largest array
   // in the pipeline — the same stack-depth hazard simplify avoids by looping.
-  let minX = Infinity, maxX = -Infinity, minY = Infinity, maxY = -Infinity;
-  for (const [x, y] of all) {
+  // Seeding from all[0] is safe: the empty-input early return above guarantees
+  // it exists whenever this loop runs.
+  let minX = all[0][0];
+  let maxX = minX;
+  let minY = all[0][1];
+  let maxY = minY;
+
+  for (let i = 1; i < all.length; i++) {
+    const [x, y] = all[i];
     if (x < minX) minX = x;
     if (x > maxX) maxX = x;
     if (y < minY) minY = y;
