@@ -13,6 +13,9 @@
   --surface: white;
   --rust-solid: #98593F;
   --stone-solid: #7F674A;
+  --dawn-solid: #8B5F37;
+  --moss-solid: #5F6C56;
+  --moss-text: #616E59;
 
   --font-serif: 'Cormorant Garamond', Georgia, serif;
   --font-sans: 'Lato', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -36,6 +39,7 @@
     --rust: #C67F63;
     --dawn: #C4956A;
     --moss: #93A487;
+    --moss-text: #93A487;
     --surface: #262019;
   }
 }
@@ -48,6 +52,7 @@
   --rust: #C67F63;
   --dawn: #C4956A;
   --moss: #93A487;
+  --moss-text: #93A487;
   --surface: #262019;
 }
 
@@ -276,7 +281,7 @@ nav .nav-github svg {
 }
 
 .route-status-complete {
-  color: var(--moss);
+  color: var(--moss-text);
 }
 
 .route-status-needs {
@@ -417,8 +422,8 @@ nav .nav-github svg {
   vertical-align: middle;
 }
 
-.badge-christian { background: var(--dawn); color: white; }
-.badge-buddhist { background: var(--moss); color: white; }
+.badge-christian { background: var(--dawn-solid); color: white; }
+.badge-buddhist { background: var(--moss-solid); color: white; }
 .badge-mixed { background: var(--stone-solid); color: white; }
 
 pre, code {
@@ -482,7 +487,7 @@ footer {
   padding-top: var(--space-lg);
   border-top: 1px solid var(--fog);
   font-size: 0.8rem;
-  color: var(--fog);
+  color: var(--stone);
   text-align: center;
 }
 
