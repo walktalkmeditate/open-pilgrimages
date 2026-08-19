@@ -47,27 +47,16 @@ test("checkSite reports a route missing from the catalog (synthetic routesHtml)"
   assert.ok(problems.some((p) => p.message.includes("shikoku-88")));
 });
 
-test("checkSite reports the real hero stats as stale for every field", () => {
-  // #given the committed docs/index.html, which still reads "3 / 89K / 6K / 47"
+test("the committed docs/index.html hero stats already match computed totals (positive control)", () => {
+  // #given docs/index.html was rebuilt in Task 10 to render the live totals
   // #when checkSite compares it against computeStats' current totals
   const problems = checkSite(ROOT);
   const heroProblems = problems.filter(
     (p) => p.file === "docs/index.html" && p.message.startsWith("hero stat"),
   );
-  const labels = heroProblems
-    .map((p) => p.message.match(/^hero stat "([^"]+)"/)?.[1])
-    .sort();
 
-  // #then all four hero fields are flagged, each showing both numbers
-  assert.deepEqual(labels, ["GPS Points", "Routes", "Stages", "Waypoints"]);
-  assert.ok(
-    heroProblems.some((p) => p.message.includes("3") && p.message.includes("7")),
-    "Routes stat should show both the rendered 3 and the computed 7",
-  );
-  assert.ok(
-    heroProblems.every((p) => p.message.includes("data says")),
-    "every hero mismatch should print the computed value it was checked against",
-  );
+  // #then none of the four hero fields are flagged
+  assert.deepEqual(heroProblems, []);
 });
 
 test("checkSite reports a stale hero number (synthetic indexHtml)", () => {
@@ -131,12 +120,13 @@ test("checkSite accepts a detail page that identifies its own route via <code>",
   }
 });
 
-test("checkSite reports the real nav links that kept their .html extension", () => {
+test("the committed docs/index.html already uses extensionless internal links (positive control)", () => {
+  // #given docs/index.html was rebuilt in Task 10 with extensionless nav/canonical/OG links
+  // #when / #then checkSite reports no .html-extension problems for that file
   const problems = checkSite(ROOT);
-  assert.ok(
-    problems.some(
-      (p) => p.file === "docs/index.html" && p.message.includes('"routes.html"'),
-    ),
+  assert.deepEqual(
+    problems.filter((p) => p.file === "docs/index.html" && p.message.includes(".html")),
+    [],
   );
 });
 
