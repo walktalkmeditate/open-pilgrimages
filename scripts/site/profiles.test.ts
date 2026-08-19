@@ -100,3 +100,32 @@ test("profileSvg never emits NaN or Infinity when every stage has zero distance"
   assert.equal(svg.includes("NaN"), false);
   assert.equal(svg.includes("Infinity"), false);
 });
+
+test("profileSvg uses data-derived floor based on minimum lowPointMeters", () => {
+  const stages: ProfileStage[] = [
+    { name: "Lower", distanceKm: 10, highPointMeters: 500, lowPointMeters: 100 },
+    { name: "Higher", distanceKm: 10, highPointMeters: 900, lowPointMeters: 300 },
+  ];
+  const svg = profileSvg(stages, 800, 100);
+  assert.match(svg, /low point 100 m/);
+  assert.equal(svg.includes("NaN"), false);
+  assert.equal(svg.includes("Infinity"), false);
+});
+
+test("profileSvg renders flat profile (identical high and low) without NaN or Infinity", () => {
+  const flat: ProfileStage[] = [
+    { name: "A", distanceKm: 10, highPointMeters: 500, lowPointMeters: 500 },
+    { name: "B", distanceKm: 10, highPointMeters: 500, lowPointMeters: 500 },
+  ];
+  const svg = profileSvg(flat, 800, 100);
+  assert.equal(svg.includes("NaN"), false);
+  assert.equal(svg.includes("Infinity"), false);
+});
+
+test("profileSvg includes both low and high points in aria-label", () => {
+  const stages: ProfileStage[] = [
+    { name: "A", distanceKm: 10, highPointMeters: 800, lowPointMeters: 200 },
+  ];
+  const svg = profileSvg(stages, 800, 100);
+  assert.match(svg, /low point 200 m, high point 800 m/);
+});

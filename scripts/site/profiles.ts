@@ -31,6 +31,8 @@ export function stagesOf(stagesJson: unknown): ProfileStage[] {
   }));
 }
 
+const MINIMUM_RANGE_METERS = 1;
+
 /**
  * A stepped area chart: one flat run per stage, its height the stage's high
  * point, plotted against cumulative distance. Stepped rather than smoothed
@@ -42,8 +44,8 @@ export function profileSvg(stages: ProfileStage[], width = 800, height = 120): s
 
   const totalKm = stages.reduce((sum, s) => sum + s.distanceKm, 0) || 1;
   const peak = Math.max(...stages.map((s) => s.highPointMeters), 1);
-  const floor = Math.min(...stages.map((s) => s.lowPointMeters), 0);
-  const range = peak - floor || 1;
+  const floor = Math.min(...stages.map((s) => s.lowPointMeters));
+  const range = peak - floor || MINIMUM_RANGE_METERS;
 
   const y = (metres: number): number => height - ((metres - floor) / range) * height;
 
@@ -60,7 +62,7 @@ export function profileSvg(stages: ProfileStage[], width = 800, height = 120): s
 
   return [
     `<svg viewBox="0 0 ${width} ${height}" class="profile" role="img"`,
-    ` aria-label="Elevation profile: ${stages.length} stages, high point ${peak} m">`,
+    ` aria-label="Elevation profile: ${stages.length} stages, low point ${floor} m, high point ${peak} m">`,
     `<path d="${d}" class="profile-fill"/>`,
     `</svg>`,
   ].join("");
