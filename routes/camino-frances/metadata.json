@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
   "id": "camino-frances",
-  "lastUpdated": "2026-03-26T00:00:00Z",
+  "lastUpdated": "2026-08-19T00:00:00Z",
 
   "name": {
     "en": "Camino de Santiago (Frances)",
@@ -11,8 +11,8 @@
     "ja": "サンティアゴ巡礼路（フランス人の道）"
   },
   "description": {
-    "en": "The most popular pilgrimage route to Santiago de Compostela, crossing the Pyrenees from France and traversing northern Spain for 790 km. Walked continuously since the 9th century.",
-    "es": "La ruta de peregrinación más popular a Santiago de Compostela, cruzando los Pirineos desde Francia y atravesando el norte de España durante 790 km."
+    "en": "The most popular pilgrimage route to Santiago de Compostela, crossing the Pyrenees from France and traversing northern Spain for 764 km. Walked continuously since the 9th century.",
+    "es": "La ruta de peregrinación más popular a Santiago de Compostela, cruzando los Pirineos desde Francia y atravesando el norte de España durante 764 km."
   },
 
   "overview": {
