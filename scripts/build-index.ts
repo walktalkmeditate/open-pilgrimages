@@ -125,24 +125,35 @@ export function buildIndex(
   };
 }
 
+function readPrevious(indexPath: string): RouteIndex | null {
+  if (!existsSync(indexPath)) return null;
+  try {
+    return JSON.parse(readFileSync(indexPath, "utf-8")) as RouteIndex;
+  } catch {
+    return null;
+  }
+}
+
 function main() {
   const routesDir = join(ROOT, "routes");
-  const routes = scanRoutes(routesDir, ROOT);
-
-  const index = {
-    schemaVersion: "1.0.0",
-    generatedAt: new Date().toISOString(),
-    routes,
-  };
-
   const indexPath = join(ROOT, "index.json");
+
+  const index = buildIndex(
+    routesDir,
+    readPrevious(indexPath),
+    () => new Date().toISOString(),
+    ROOT,
+  );
+
   writeFileSync(indexPath, JSON.stringify(index, null, 2) + "\n");
-  console.log(`Generated index.json with ${routes.length} route(s)`);
-  for (const r of routes) {
+  console.log(`Generated index.json with ${index.routes.length} route(s)`);
+  for (const r of index.routes) {
     const variantCount = r.variants?.length ?? 0;
     const variantNote = variantCount > 0 ? ` (${variantCount} variant(s))` : "";
     console.log(`  ${r.id}: ${r.distanceKm} km${variantNote}`);
   }
 }
 
-main();
+if (process.argv[1] && import.meta.filename === process.argv[1]) {
+  main();
+}
