@@ -1,10 +1,10 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { join } from "path";
-import { statSync, mkdtempSync, writeFileSync, rmSync } from "fs";
+import { statSync, mkdtempSync, writeFileSync, rmSync, symlinkSync, realpathSync } from "fs";
 import { tmpdir } from "os";
 import { execFileSync } from "child_process";
-import { buildIndex, scanRoutes, readPrevious, type RouteIndex } from "./build-index.js";
+import { buildIndex, scanRoutes, readPrevious, resolveInvokedPath, type RouteIndex } from "./build-index.js";
 
 const ROOT = join(import.meta.dirname, "..");
 const ROUTES = join(ROOT, "routes");
@@ -123,11 +123,22 @@ test("importing the module does not rewrite index.json", () => {
   );
 });
 
-test("readPrevious returns null for a missing path", () => {
+test("readPrevious returns null for a missing path without warning", () => {
   const dir = mkdtempSync(join(tmpdir(), "build-index-test-"));
+
+  // Asserting silence matters: without the existsSync early return, a missing
+  // file would still yield null via the catch, but with a spurious warning.
+  const originalWarn = console.warn;
+  const warnCalls: unknown[][] = [];
+  console.warn = (...args: unknown[]) => {
+    warnCalls.push(args);
+  };
+
   try {
     assert.equal(readPrevious(join(dir, "index.json")), null);
+    assert.deepEqual(warnCalls, [], "a missing index is normal, not warnable");
   } finally {
+    console.warn = originalWarn;
     rmSync(dir, { recursive: true, force: true });
   }
 });
@@ -169,6 +180,35 @@ test("readPrevious parses a valid index file and returns its contents", () => {
 
   try {
     assert.deepEqual(readPrevious(validPath), contents);
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test("resolveInvokedPath resolves a symlinked invocation path", () => {
+  // Node resolves symlinks for import.meta.filename but leaves process.argv[1]
+  // as invoked. Without this normalisation the guard silently skips main(),
+  // so index.json is never regenerated and nothing reports why.
+  const dir = mkdtempSync(join(tmpdir(), "build-index-test-"));
+  const target = join(ROOT, "package.json");
+  const link = join(dir, "invoked.js");
+  symlinkSync(target, link);
+
+  try {
+    assert.equal(resolveInvokedPath(link), realpathSync(target));
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test("resolveInvokedPath returns null when argv[1] is absent", () => {
+  assert.equal(resolveInvokedPath(undefined), null);
+});
+
+test("resolveInvokedPath returns null for a path that does not exist", () => {
+  const dir = mkdtempSync(join(tmpdir(), "build-index-test-"));
+  try {
+    assert.equal(resolveInvokedPath(join(dir, "nope.js")), null);
   } finally {
     rmSync(dir, { recursive: true, force: true });
   }
