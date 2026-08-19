@@ -27,6 +27,16 @@ const HERO_STAT_PATTERN =
 
 const HREF_PATTERN = /href="([^"]+)"/g;
 
+const README_TOTALS_PATTERN =
+  /([\d,]+) GPS points\.\s*([\d,]+) waypoints\.\s*([\d,]+) stages\.\s*([\d,]+) routes across/;
+
+const README_TOTALS_FIELDS: Array<[string, keyof ReturnType<typeof computeStats>["totals"]]> = [
+  ["GPS points", "routePoints"],
+  ["waypoints", "waypoints"],
+  ["stages", "stages"],
+  ["routes", "routes"],
+];
+
 export interface Problem {
   file: string;
   message: string;
@@ -106,16 +116,28 @@ export function checkSite(root: string, overrides: PageOverrides = {}): Problem[
   const glyphsJs = readDocsFile("assets", "glyphs.js");
 
   for (const id of ids) {
-    if (!routesHtml.includes(id)) {
-      add("docs/routes.html", `route "${id}" is in index.json but absent from the catalog`);
+    if (!routesHtml.includes(`href="/${id}"`)) {
+      add("docs/routes.html", `route "${id}" has no link to /${id} in the catalog`);
     }
 
-    if (!readmeMd.includes(id)) {
-      add("README.md", `route "${id}" is in index.json but absent from the README route table`);
+    if (!readmeMd.includes(`](routes/${id}/)`)) {
+      add("README.md", `route "${id}" has no link to routes/${id}/ in the README route table`);
     }
 
-    if (!existsSync(join(docs, `${id}.html`))) {
+    const detailPagePath = join(docs, `${id}.html`);
+    if (!existsSync(detailPagePath)) {
       add(`docs/${id}.html`, `route "${id}" is in index.json but has no detail page`);
+    } else {
+      const detailHtml = readFileSync(detailPagePath, "utf-8");
+      const identifiesRoute =
+        detailHtml.includes(`<code>${id}</code>`) ||
+        detailHtml.includes(`https://open.pilgrimag.es/${id}"`);
+      if (!identifiesRoute) {
+        add(
+          `docs/${id}.html`,
+          `route "${id}" detail page exists but does not identify itself as ${id} (expected <code>${id}</code> or a canonical link to /${id})`,
+        );
+      }
     }
 
     if (!glyphsJs.includes(`"${id}"`)) {
@@ -131,6 +153,21 @@ export function checkSite(root: string, overrides: PageOverrides = {}): Problem[
   }
 
   const { totals } = computeStats(root);
+
+  const readmeTotalsMatch = readmeMd.match(README_TOTALS_PATTERN);
+  if (!readmeTotalsMatch) {
+    add("README.md", "totals line (GPS points/waypoints/stages/routes) not found");
+  } else {
+    const [, ...renderedValues] = readmeTotalsMatch;
+    README_TOTALS_FIELDS.forEach(([label, totalsKey], index) => {
+      const rendered = renderedValues[index];
+      const expected = totals[totalsKey].toLocaleString("en-US");
+      if (rendered !== expected) {
+        add("README.md", `README totals "${label}" reads ${rendered}, data says ${expected}`);
+      }
+    });
+  }
+
   const seenHeroLabels = new Set<string>();
 
   for (const match of indexHtml.matchAll(HERO_STAT_PATTERN)) {
