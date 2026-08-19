@@ -155,7 +155,7 @@ function main() {
   }
 }
 
-function resolveInvokedPath(argv1: string | undefined): string | null {
+export function resolveInvokedPath(argv1: string | undefined): string | null {
   if (!argv1) return null;
   try {
     return realpathSync(argv1);
