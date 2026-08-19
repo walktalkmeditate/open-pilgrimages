@@ -3,8 +3,13 @@ export interface TrendPoint {
   count: number;
 }
 
+type TrendEntry = { year?: number; count?: number } | null;
+
 interface StatsLike {
-  annualPilgrims?: { trend?: Array<{ year?: number; count?: number } | null> };
+  annualPilgrims?: {
+    trend?: Array<TrendEntry>;
+    walkingCompletions?: { trend?: Array<TrendEntry> };
+  };
 }
 
 // Shape-check rather than just nullish-check: this reads files it does not
@@ -13,7 +18,15 @@ interface StatsLike {
 // stats.json is schema-validated upstream, so anything more contrived than
 // "not an array" is not worth chasing.
 export function trendOf(statsJson: unknown): TrendPoint[] {
-  const trend = (statsJson as StatsLike)?.annualPilgrims?.trend;
+  const annualPilgrims = (statsJson as StatsLike)?.annualPilgrims;
+  // shikoku-88 records pilgrim counts as Omotenashi Network walking-completion
+  // certificates rather than Compostela-style counts, so its series lives
+  // under annualPilgrims.walkingCompletions.trend instead of the top-level
+  // annualPilgrims.trend the Camino routes use. Fall back to it so shikoku-88
+  // gets a sparkline like every other route.
+  const trend = Array.isArray(annualPilgrims?.trend)
+    ? annualPilgrims.trend
+    : annualPilgrims?.walkingCompletions?.trend;
   const raw = Array.isArray(trend) ? trend : [];
 
   return raw
