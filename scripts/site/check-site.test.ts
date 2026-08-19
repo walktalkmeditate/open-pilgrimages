@@ -86,6 +86,51 @@ test("checkSite reports every route as missing a detail page", () => {
   );
 });
 
+test("checkSite reports a detail page that exists but doesn't identify its own route (fixture)", () => {
+  // #given a docs/{id}.html that exists but never mentions its own route id
+  const root = createFixtureRoot([{ id: "camino-frances" }]);
+  writeFileSync(join(root, "docs", "camino-frances.html"), "<html><body>placeholder</body></html>");
+
+  try {
+    // #when checkSite checks that detail page
+    const problems = checkSite(root);
+    const detailProblems = problems.filter((p) => p.file === "docs/camino-frances.html");
+
+    // #then it is reported as unidentified, and distinctly from a missing page
+    assert.ok(
+      detailProblems.some((p) => p.message.includes("does not identify itself")),
+      "expected a problem about the page not identifying its route",
+    );
+    assert.ok(
+      !detailProblems.some((p) => p.message.includes("has no detail page")),
+      "a page that exists on disk should not also be reported as missing",
+    );
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("checkSite accepts a detail page that identifies its own route via <code>", () => {
+  // #given a docs/{id}.html containing <code>{id}</code>, matching how routes.html
+  // already renders route IDs today
+  const root = createFixtureRoot([{ id: "camino-frances" }]);
+  writeFileSync(
+    join(root, "docs", "camino-frances.html"),
+    "<html><body><code>camino-frances</code></body></html>",
+  );
+
+  try {
+    // #when / #then checkSite reports no problem for this detail page
+    const problems = checkSite(root);
+    assert.deepEqual(
+      problems.filter((p) => p.file === "docs/camino-frances.html"),
+      [],
+    );
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
 test("checkSite reports the real nav links that kept their .html extension", () => {
   const problems = checkSite(ROOT);
   assert.ok(
@@ -122,11 +167,100 @@ test("checkSite reports a route missing from README.md (synthetic readmeMd)", ()
   );
 });
 
-test("the committed README already lists every route (positive control)", () => {
+// Reproduces a real false negative a reviewer found: the README's coastal-variant
+// row links to routes/camino-portugues/variants/coastal/, which contains the
+// substring "camino-portugues". A plain .includes(id) check would treat that as
+// proof the main camino-portugues route is documented, even with its own row —
+// and its only link to routes/camino-portugues/ — deleted entirely.
+test("checkSite reports camino-portugues missing from README when only its coastal variant row remains", () => {
+  // #given a README table with every route's own link except camino-portugues',
+  // whose only remaining trace is the coastal variant's URL containing it as a substring
+  const readmeMd = `# Open Pilgrimages
+
+159,624 GPS points. 12,576 waypoints. 109 stages. 7 routes across 3 traditions.
+
+| Route | Distance |
+|-------|----------|
+| [Camino Frances](routes/camino-frances/) | 764 km |
+| [Camino del Norte](routes/camino-norte/) | 784 km |
+| [Camino Primitivo](routes/camino-primitivo/) | 263 km |
+| [Camino Portugués da Costa (Coastal)](routes/camino-portugues/variants/coastal/) | 110 km |
+| [Camino Inglés](routes/camino-ingles/) | 112 km |
+| [Shikoku 88](routes/shikoku-88/) | 1,200 km |
+| [Kumano Kodo](routes/kumano-kodo/) | 39-170 km |
+`;
+
+  // #when checkSite checks route coverage against this README
+  const problems = checkSite(ROOT, { readmeMd });
+
+  // #then camino-portugues is still reported as missing its own link, proving the
+  // check requires an actual link to routes/camino-portugues/, not just the substring
+  assert.ok(
+    problems.some(
+      (p) =>
+        p.file === "README.md" &&
+        p.message.includes('"camino-portugues"') &&
+        p.message.includes("routes/camino-portugues/"),
+    ),
+    'expected a problem naming "camino-portugues" as missing its own link despite the coastal row substring match',
+  );
+});
+
+// Same false-negative shape as the README case above, reproduced against
+// docs/routes.html: a link to a future camino-portugues-coastal detail page
+// contains "camino-portugues" as a substring of its href.
+test("checkSite reports camino-portugues missing from routes.html when only a coastal-variant link is present", () => {
+  const problems = checkSite(ROOT, {
+    routesHtml: `<a href="/camino-portugues-coastal">Camino Portugués da Costa</a>`,
+  });
+  assert.ok(
+    problems.some(
+      (p) =>
+        p.file === "docs/routes.html" &&
+        p.message.includes('"camino-portugues"') &&
+        p.message.includes("/camino-portugues"),
+    ),
+    'expected a problem naming "camino-portugues" as missing its own link despite the coastal href substring match',
+  );
+});
+
+test("the committed README already lists every route with a real link, and its totals line matches computed stats (positive control)", () => {
   const problems = checkSite(ROOT);
   assert.deepEqual(
     problems.filter((p) => p.file === "README.md"),
     [],
+  );
+});
+
+test("checkSite reports a stale README totals number against computed stats (synthetic readmeMd)", () => {
+  // #given a README totals line whose route count (3) no longer matches the data (7)
+  const readmeMd = "159,624 GPS points. 12,576 waypoints. 109 stages. 3 routes across 3 traditions.";
+
+  // #when checkSite checks the totals line against computeStats
+  const problems = checkSite(ROOT, { readmeMd });
+
+  // #then the mismatched field is reported with both the rendered and computed value
+  assert.ok(
+    problems.some(
+      (p) =>
+        p.file === "README.md" &&
+        p.message.includes('"routes"') &&
+        p.message.includes("reads 3") &&
+        p.message.includes("data says"),
+    ),
+  );
+});
+
+test("checkSite reports a missing README totals line rather than silently skipping it", () => {
+  // #given a README with no totals line in the expected format at all
+  const readmeMd = "# Open Pilgrimages\n\nNo totals line here.";
+
+  // #when checkSite looks for the totals line
+  const problems = checkSite(ROOT, { readmeMd });
+
+  // #then it is reported as a problem, not silently skipped
+  assert.ok(
+    problems.some((p) => p.file === "README.md" && p.message.includes("totals line")),
   );
 });
 
