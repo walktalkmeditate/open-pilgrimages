@@ -14,12 +14,14 @@
   }
 
   var DRAW = 2600, HOLD = 1700, EXIT = 900, LAP = DRAW + HOLD + EXIT;
-  var index = 0, elapsed = 0, last = 0, paused = false, captioned = -1;
+  var index = 0, elapsed = 0, last = 0, paused = false;
+  var prevInked = -1, captioned = -1;
 
   function caption(n) {
     if (captioned === n) return;
+    if (captioned !== -1 && caps[captioned]) caps[captioned].style.opacity = 0;
+    if (n !== -1 && caps[n]) caps[n].style.opacity = 1;
     captioned = n;
-    for (var k = 0; k < caps.length; k++) caps[k].style.opacity = k === n ? 1 : 0;
   }
 
   function frame(now) {
@@ -41,37 +43,47 @@
           : elapsed < DRAW + HOLD ? 0
           : -(elapsed - DRAW - HOLD) / EXIT;
 
-    for (var i = 0; i < inks.length; i++) {
-      inks[i].style.strokeDashoffset = i === index ? p : 1;
+    // CSS already rests every .glyph-ink at stroke-dashoffset: 1, so an
+    // element only needs a write once it becomes active, and its previous
+    // owner only needs one write back to that resting value when it hands off.
+    if (prevInked !== index) {
+      if (prevInked !== -1) inks[prevInked].style.strokeDashoffset = 1;
+      prevInked = index;
     }
+    inks[index].style.strokeDashoffset = p;
+
     caption(elapsed > DRAW * 0.55 && elapsed < LAP - EXIT * 0.6 ? index : -1);
   }
   requestAnimationFrame(frame);
 
-  function pause() { paused = true; }
-  function resume() { paused = false; }
-  root.addEventListener("pointerenter", pause);
-  root.addEventListener("pointerleave", resume);
-  root.addEventListener("focusin", pause);
-  root.addEventListener("focusout", resume);
+  var hovering = false, focused = false;
+  function syncPaused() { paused = hovering || focused; }
+  root.addEventListener("pointerenter", function () { hovering = true; syncPaused(); });
+  root.addEventListener("pointerleave", function () { hovering = false; syncPaused(); });
+  root.addEventListener("focusin", function () { focused = true; syncPaused(); });
+  root.addEventListener("focusout", function () { focused = false; syncPaused(); });
 })();
 
 (function () {
   var KEY = "op-theme";
+  var button = document.querySelector(".theme-toggle");
+
+  function applyTheme(theme) {
+    document.documentElement.setAttribute("data-theme", theme);
+    if (button) button.setAttribute("aria-pressed", String(theme === "dark"));
+  }
+
   var stored = null;
   try { stored = localStorage.getItem(KEY); } catch (e) { /* private mode */ }
-  if (stored) document.documentElement.setAttribute("data-theme", stored);
+  var systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  applyTheme(stored || (systemDark ? "dark" : "light"));
 
-  var button = document.querySelector(".theme-toggle");
   if (!button) return;
 
   button.addEventListener("click", function () {
-    var dark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    var current = document.documentElement.getAttribute("data-theme") || (dark ? "dark" : "light");
+    var current = document.documentElement.getAttribute("data-theme");
     var next = current === "dark" ? "light" : "dark";
-
-    document.documentElement.setAttribute("data-theme", next);
-    button.setAttribute("aria-pressed", String(next === "dark"));
+    applyTheme(next);
     try { localStorage.setItem(KEY, next); } catch (e) { /* ignore */ }
   });
 })();
