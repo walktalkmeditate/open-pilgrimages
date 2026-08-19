@@ -1,9 +1,10 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { join } from "path";
-import { statSync } from "fs";
+import { statSync, mkdtempSync, writeFileSync, rmSync } from "fs";
+import { tmpdir } from "os";
 import { execFileSync } from "child_process";
-import { buildIndex, scanRoutes, type RouteIndex } from "./build-index.js";
+import { buildIndex, scanRoutes, readPrevious, type RouteIndex } from "./build-index.js";
 
 const ROOT = join(import.meta.dirname, "..");
 const ROUTES = join(ROOT, "routes");
@@ -120,4 +121,55 @@ test("importing the module does not rewrite index.json", () => {
     before,
     "importing build-index.ts rewrote index.json — main() is not guarded",
   );
+});
+
+test("readPrevious returns null for a missing path", () => {
+  const dir = mkdtempSync(join(tmpdir(), "build-index-test-"));
+  try {
+    assert.equal(readPrevious(join(dir, "index.json")), null);
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test("readPrevious returns null and warns for malformed JSON", () => {
+  const dir = mkdtempSync(join(tmpdir(), "build-index-test-"));
+  const malformedPath = join(dir, "index.json");
+  writeFileSync(malformedPath, "{ this is not valid json");
+
+  const originalWarn = console.warn;
+  const warnCalls: unknown[][] = [];
+  console.warn = (...args: unknown[]) => {
+    warnCalls.push(args);
+  };
+
+  try {
+    const result = readPrevious(malformedPath);
+    assert.equal(result, null);
+    assert.equal(warnCalls.length, 1);
+    assert.ok(
+      String(warnCalls[0][0]).includes(malformedPath),
+      "warning should name the offending file",
+    );
+  } finally {
+    console.warn = originalWarn;
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test("readPrevious parses a valid index file and returns its contents", () => {
+  const dir = mkdtempSync(join(tmpdir(), "build-index-test-"));
+  const validPath = join(dir, "index.json");
+  const contents: RouteIndex = {
+    schemaVersion: "1.0.0",
+    generatedAt: "2020-01-01T00:00:00.000Z",
+    routes: [],
+  };
+  writeFileSync(validPath, JSON.stringify(contents));
+
+  try {
+    assert.deepEqual(readPrevious(validPath), contents);
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
 });
