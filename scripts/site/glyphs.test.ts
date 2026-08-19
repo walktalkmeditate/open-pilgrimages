@@ -51,3 +51,65 @@ test("glyphFrom emits one moveto per source segment", () => {
 test("glyphFrom is deterministic", () => {
   assert.equal(glyphFrom(geojson("kumano-kodo")).d, glyphFrom(geojson("kumano-kodo")).d);
 });
+
+test("segmentsOf gracefully degrades on empty FeatureCollection", () => {
+  const result = segmentsOf({ type: "FeatureCollection", features: [] });
+  assert.deepEqual(result, []);
+});
+
+test("segmentsOf gracefully degrades when features key is missing", () => {
+  const result = segmentsOf({ type: "FeatureCollection" });
+  assert.deepEqual(result, []);
+});
+
+test("segmentsOf gracefully degrades on null geometry", () => {
+  const result = segmentsOf({
+    type: "FeatureCollection",
+    features: [{ geometry: null }],
+  });
+  assert.deepEqual(result, []);
+});
+
+test("segmentsOf gracefully degrades on unhandled Point geometry", () => {
+  const result = segmentsOf({
+    type: "FeatureCollection",
+    features: [{ geometry: { type: "Point", coordinates: [0, 0] } }],
+  });
+  assert.deepEqual(result, []);
+});
+
+test("segmentsOf gracefully degrades on unhandled Polygon geometry", () => {
+  const result = segmentsOf({
+    type: "FeatureCollection",
+    features: [
+      {
+        geometry: {
+          type: "Polygon",
+          coordinates: [[[0, 0], [1, 0], [1, 1], [0, 1], [0, 0]]],
+        },
+      },
+    ],
+  });
+  assert.deepEqual(result, []);
+});
+
+test("segmentsOf gracefully degrades on LineString with missing coordinates", () => {
+  const result = segmentsOf({
+    type: "FeatureCollection",
+    features: [{ geometry: { type: "LineString" } }],
+  });
+  assert.deepEqual(result, []);
+});
+
+test("segmentsOf gracefully degrades on MultiLineString with missing coordinates", () => {
+  const result = segmentsOf({
+    type: "FeatureCollection",
+    features: [{ geometry: { type: "MultiLineString" } }],
+  });
+  assert.deepEqual(result, []);
+});
+
+test("segmentsOf gracefully degrades on null input", () => {
+  const result = segmentsOf(null);
+  assert.deepEqual(result, []);
+});
