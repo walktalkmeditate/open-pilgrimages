@@ -66,12 +66,18 @@ export function fitToBox(segments: Point[][], box: Box): Point[][] {
   const all = segments.flat();
   if (all.length === 0) return segments;
 
-  const xs = all.map(([x]) => x);
-  const ys = all.map(([, y]) => y);
-  const minX = Math.min(...xs);
-  const maxX = Math.max(...xs);
-  const minY = Math.min(...ys);
-  const maxY = Math.max(...ys);
+  let minX = all[0][0];
+  let maxX = minX;
+  let minY = all[0][1];
+  let maxY = minY;
+
+  for (let i = 1; i < all.length; i++) {
+    const [x, y] = all[i];
+    if (x < minX) minX = x;
+    if (x > maxX) maxX = x;
+    if (y < minY) minY = y;
+    if (y > maxY) maxY = y;
+  }
 
   const inner = box.size - 2 * box.padding;
   const span = Math.max(maxX - minX, maxY - minY) || 1e-9;
