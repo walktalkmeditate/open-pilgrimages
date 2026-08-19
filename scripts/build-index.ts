@@ -26,6 +26,12 @@ export interface RouteEntry {
   variants?: VariantEntry[];
 }
 
+export interface RouteIndex {
+  schemaVersion: string;
+  generatedAt: string;
+  routes: RouteEntry[];
+}
+
 function scanVariants(routeDir: string, root: string): VariantEntry[] {
   const variantsDir = join(routeDir, "variants");
   if (!existsSync(variantsDir) || !statSync(variantsDir).isDirectory()) {
@@ -91,6 +97,32 @@ export function scanRoutes(routesDir: string, root: string): RouteEntry[] {
   }
 
   return routes;
+}
+
+const SCHEMA_VERSION = "1.0.0";
+
+export function buildIndex(
+  routesDir: string,
+  previous: RouteIndex | null,
+  now: () => string,
+  root: string,
+): RouteIndex {
+  const routes = scanRoutes(routesDir, root);
+
+  // Compare everything except the timestamp. Identical content keeps the old
+  // stamp so re-running the generator is a genuine no-op and the CI drift
+  // check has something stable to diff against.
+  const content = JSON.stringify({ schemaVersion: SCHEMA_VERSION, routes });
+  const previousContent =
+    previous === null
+      ? null
+      : JSON.stringify({ schemaVersion: previous.schemaVersion, routes: previous.routes });
+
+  return {
+    schemaVersion: SCHEMA_VERSION,
+    generatedAt: content === previousContent ? previous!.generatedAt : now(),
+    routes,
+  };
 }
 
 function main() {
