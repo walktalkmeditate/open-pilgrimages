@@ -216,12 +216,17 @@ export function fitToBox(segments: Point[][], box: Box): Point[][] {
   const all = segments.flat();
   if (all.length === 0) return segments;
 
-  const xs = all.map(([x]) => x);
-  const ys = all.map(([, y]) => y);
-  const minX = Math.min(...xs);
-  const maxX = Math.max(...xs);
-  const minY = Math.min(...ys);
-  const maxY = Math.max(...ys);
+  // Single pass, not Math.min(...xs): argument spread passes every element as
+  // a separate call argument and throws RangeError past roughly 150k of them.
+  // fitToBox runs on the *unsimplified* point set, which is the largest array
+  // in the pipeline — the same stack-depth hazard simplify avoids by looping.
+  let minX = Infinity, maxX = -Infinity, minY = Infinity, maxY = -Infinity;
+  for (const [x, y] of all) {
+    if (x < minX) minX = x;
+    if (x > maxX) maxX = x;
+    if (y < minY) minY = y;
+    if (y > maxY) maxY = y;
+  }
 
   const inner = box.size - 2 * box.padding;
   const span = Math.max(maxX - minX, maxY - minY) || 1e-9;
