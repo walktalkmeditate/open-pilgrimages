@@ -64,14 +64,39 @@ test("stamps a fresh generatedAt when there is no previous index", () => {
   assert.equal(buildIndex(ROUTES, null, () => NEW, ROOT).generatedAt, NEW);
 });
 
-test("ignores a previous generatedAt that differs only in timestamp", () => {
+test("ignores a previous generatedAt timestamp when other fields are identical", () => {
   const first = buildIndex(ROUTES, null, () => OLD, ROOT);
-  const reordered: RouteIndex = {
+  const sameContent: RouteIndex = {
     schemaVersion: first.schemaVersion,
     generatedAt: "1999-01-01T00:00:00.000Z",
     routes: first.routes,
   };
-  const second = buildIndex(ROUTES, reordered, () => NEW, ROOT);
+  const second = buildIndex(ROUTES, sameContent, () => NEW, ROOT);
 
   assert.equal(second.generatedAt, "1999-01-01T00:00:00.000Z");
+});
+
+test("scanRoutes returns routes sorted by id, and variants sorted by id within each route", () => {
+  const routes = scanRoutes(ROUTES, ROOT);
+  const ids = routes.map((r) => r.id);
+  const sortedIds = [...ids].sort((a, b) => a.localeCompare(b));
+  assert.deepEqual(ids, sortedIds);
+
+  const portugues = routes.find((r) => r.id === "camino-portugues")!;
+  const variantIds = portugues.variants!.map((v) => v.id);
+  assert.deepEqual(variantIds, ["coastal", "espiritual", "lisboa"]);
+
+  const kumano = routes.find((r) => r.id === "kumano-kodo")!;
+  assert.deepEqual(
+    kumano.variants!.map((v) => v.id),
+    ["iseji", "kohechi"],
+  );
+});
+
+test("buildIndex reuses the timestamp when previous came from disk (JSON round-trip)", () => {
+  const first = buildIndex(ROUTES, null, () => OLD, ROOT);
+  const previous: RouteIndex = JSON.parse(JSON.stringify(first));
+  const second = buildIndex(ROUTES, previous, () => NEW, ROOT);
+
+  assert.equal(second.generatedAt, OLD);
 });
