@@ -53,7 +53,7 @@ function scanVariants(routeDir: string, root: string): VariantEntry[] {
     });
   }
 
-  return variants;
+  return variants.sort((a, b) => a.id.localeCompare(b.id));
 }
 
 const REGION_BY_COUNTRY: Record<string, string> = {
@@ -96,7 +96,7 @@ export function scanRoutes(routesDir: string, root: string): RouteEntry[] {
     routes.push(routeEntry);
   }
 
-  return routes;
+  return routes.sort((a, b) => a.id.localeCompare(b.id));
 }
 
 const SCHEMA_VERSION = "1.0.0";
