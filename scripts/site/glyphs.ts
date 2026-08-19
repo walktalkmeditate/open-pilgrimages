@@ -27,15 +27,30 @@ export function segmentsOf(geojson: unknown): Point[][] {
     const geometry = feature.geometry;
     if (!geometry) continue;
 
+    // Shape-check rather than just nullish-check: this reads files it does not
+    // control, and a declared type with the wrong coordinate shape would
+    // otherwise throw several calls deeper. One Array.isArray per level is the
+    // bound here — routes are schema-validated upstream, so anything more
+    // contrived than "not an array" is not worth chasing.
+    const coordinates = Array.isArray(geometry.coordinates) ? geometry.coordinates : [];
     const raw =
       geometry.type === "MultiLineString"
-        ? ((geometry.coordinates as number[][][]) ?? [])
+        ? (coordinates as number[][][])
         : geometry.type === "LineString"
-          ? (geometry.coordinates ? [(geometry.coordinates as number[][])] : [])
+          ? [coordinates as number[][]]
           : [];
 
     for (const line of raw) {
-      segments.push(line.map(([lon, lat]): Point => [lon, lat]));
+      if (!Array.isArray(line)) continue;
+
+      const segment = line
+        .filter((c): c is number[] => Array.isArray(c))
+        .map(([lon, lat]): Point => [lon, lat]);
+
+      // An empty segment is not a segment. Without this, a LineString whose
+      // coordinates were absent or wrongly shaped would yield [[]] rather
+      // than [], which is what the degradation tests expect.
+      if (segment.length > 0) segments.push(segment);
     }
   }
 
