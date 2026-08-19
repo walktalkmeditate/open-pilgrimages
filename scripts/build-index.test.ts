@@ -1,6 +1,8 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { join } from "path";
+import { statSync } from "fs";
+import { execFileSync } from "child_process";
 import { buildIndex, scanRoutes, type RouteIndex } from "./build-index.js";
 
 const ROOT = join(import.meta.dirname, "..");
@@ -99,4 +101,23 @@ test("buildIndex reuses the timestamp when previous came from disk (JSON round-t
   const second = buildIndex(ROUTES, previous, () => NEW, ROOT);
 
   assert.equal(second.generatedAt, OLD);
+});
+
+test("importing the module does not rewrite index.json", () => {
+  const indexPath = join(ROOT, "index.json");
+  const before = statSync(indexPath).mtimeMs;
+
+  // A bare import in a child process. If main() runs on import, this rewrites
+  // index.json and the mtime moves.
+  execFileSync(
+    process.execPath,
+    ["--import", "tsx", "--eval", "import('./scripts/build-index.ts')"],
+    { cwd: ROOT, stdio: "pipe" },
+  );
+
+  assert.equal(
+    statSync(indexPath).mtimeMs,
+    before,
+    "importing build-index.ts rewrote index.json — main() is not guarded",
+  );
 });
