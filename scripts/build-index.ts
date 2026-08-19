@@ -7,6 +7,11 @@ function loadJson(path: string) {
   return JSON.parse(readFileSync(path, "utf-8"));
 }
 
+function byIdThenPath(a: { id: string; path: string }, b: { id: string; path: string }): number {
+  if (a.id !== b.id) return a.id < b.id ? -1 : 1;
+  return a.path < b.path ? -1 : a.path > b.path ? 1 : 0;
+}
+
 export interface VariantEntry {
   id: string;
   name: Record<string, string>;
@@ -53,7 +58,7 @@ function scanVariants(routeDir: string, root: string): VariantEntry[] {
     });
   }
 
-  return variants.sort((a, b) => a.id.localeCompare(b.id));
+  return variants.sort(byIdThenPath);
 }
 
 const REGION_BY_COUNTRY: Record<string, string> = {
@@ -96,7 +101,7 @@ export function scanRoutes(routesDir: string, root: string): RouteEntry[] {
     routes.push(routeEntry);
   }
 
-  return routes.sort((a, b) => a.id.localeCompare(b.id));
+  return routes.sort(byIdThenPath);
 }
 
 const SCHEMA_VERSION = "1.0.0";
@@ -120,7 +125,10 @@ export function buildIndex(
 
   return {
     schemaVersion: SCHEMA_VERSION,
-    generatedAt: content === previousContent ? previous!.generatedAt : now(),
+    generatedAt:
+      content === previousContent && typeof previous?.generatedAt === "string"
+        ? previous.generatedAt
+        : now(),
     routes,
   };
 }

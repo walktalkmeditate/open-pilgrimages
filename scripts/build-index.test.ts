@@ -1,13 +1,75 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { join } from "path";
-import { statSync, mkdtempSync, writeFileSync, rmSync, symlinkSync, realpathSync } from "fs";
+import {
+  mkdtempSync,
+  mkdirSync,
+  writeFileSync,
+  readFileSync,
+  existsSync,
+  rmSync,
+  cpSync,
+  symlinkSync,
+  realpathSync,
+} from "fs";
 import { tmpdir } from "os";
 import { execFileSync } from "child_process";
 import { buildIndex, scanRoutes, readPrevious, resolveInvokedPath, type RouteIndex } from "./build-index.js";
 
 const ROOT = join(import.meta.dirname, "..");
 const ROUTES = join(ROOT, "routes");
+
+interface RouteFixture {
+  dirName: string;
+  id: string;
+}
+
+function minimalMetadata(id: string): Record<string, unknown> {
+  return {
+    id,
+    name: { en: id },
+    overview: { countries: ["FR"], distanceKm: 1, topology: "linear" },
+    tradition: { type: "christian" },
+  };
+}
+
+function writeRouteFixtures(routesDir: string, fixtures: RouteFixture[]): void {
+  for (const fixture of fixtures) {
+    const routeDir = join(routesDir, fixture.dirName);
+    mkdirSync(routeDir);
+    writeFileSync(join(routeDir, "metadata.json"), JSON.stringify(minimalMetadata(fixture.id)));
+  }
+}
+
+function createTempRoutesDir(fixtures: RouteFixture[]): { root: string; routesDir: string } {
+  const root = mkdtempSync(join(tmpdir(), "build-index-test-"));
+  const routesDir = join(root, "routes");
+  mkdirSync(routesDir);
+  writeRouteFixtures(routesDir, fixtures);
+
+  return { root, routesDir };
+}
+
+function createTempScriptRepo(fixtures: RouteFixture[]): {
+  dir: string;
+  scriptPath: string;
+  indexPath: string;
+} {
+  // Nested inside the repo root (never under routes/) rather than the system
+  // tmpdir: node resolves the "tsx" loader as a bare specifier from cwd, and
+  // only walking up to the repo's own node_modules/ can satisfy that.
+  const dir = mkdtempSync(join(ROOT, ".build-index-test-"));
+  const routesDir = join(dir, "routes");
+  mkdirSync(routesDir);
+  writeRouteFixtures(routesDir, fixtures);
+
+  const scriptsDir = join(dir, "scripts");
+  mkdirSync(scriptsDir);
+  cpSync(join(ROOT, "scripts", "build-index.ts"), join(scriptsDir, "build-index.ts"));
+  writeFileSync(join(dir, "package.json"), JSON.stringify({ type: "module" }));
+
+  return { dir, scriptPath: join(scriptsDir, "build-index.ts"), indexPath: join(dir, "index.json") };
+}
 
 test("scans every top-level route directory", () => {
   const ids = scanRoutes(ROUTES, ROOT).map((r) => r.id).sort();
@@ -79,21 +141,43 @@ test("ignores a previous generatedAt timestamp when other fields are identical",
   assert.equal(second.generatedAt, "1999-01-01T00:00:00.000Z");
 });
 
-test("scanRoutes returns routes sorted by id, and variants sorted by id within each route", () => {
-  const routes = scanRoutes(ROUTES, ROOT);
-  const ids = routes.map((r) => r.id);
-  const sortedIds = [...ids].sort((a, b) => a.localeCompare(b));
-  assert.deepEqual(ids, sortedIds);
+test("stamps a fresh generatedAt when previous index is missing the field", () => {
+  const first = buildIndex(ROUTES, null, () => OLD, ROOT);
+  const missingGeneratedAt = {
+    schemaVersion: first.schemaVersion,
+    routes: first.routes,
+  } as unknown as RouteIndex;
 
-  const portugues = routes.find((r) => r.id === "camino-portugues")!;
-  const variantIds = portugues.variants!.map((v) => v.id);
-  assert.deepEqual(variantIds, ["coastal", "espiritual", "lisboa"]);
+  const second = buildIndex(ROUTES, missingGeneratedAt, () => NEW, ROOT);
 
-  const kumano = routes.find((r) => r.id === "kumano-kodo")!;
-  assert.deepEqual(
-    kumano.variants!.map((v) => v.id),
-    ["iseji", "kohechi"],
-  );
+  assert.equal(second.generatedAt, NEW);
+});
+
+test("stamps a fresh generatedAt when previous index has a non-string generatedAt", () => {
+  const first = buildIndex(ROUTES, null, () => OLD, ROOT);
+  const numericGeneratedAt = {
+    schemaVersion: first.schemaVersion,
+    generatedAt: 12345,
+    routes: first.routes,
+  } as unknown as RouteIndex;
+
+  const second = buildIndex(ROUTES, numericGeneratedAt, () => NEW, ROOT);
+
+  assert.equal(second.generatedAt, NEW);
+});
+
+test("scanRoutes sorts routes by metadata id, independent of directory listing order", () => {
+  const { root, routesDir } = createTempRoutesDir([
+    { dirName: "01-zulu", id: "zulu" },
+    { dirName: "02-alpha", id: "alpha" },
+  ]);
+
+  try {
+    const ids = scanRoutes(routesDir, root).map((r) => r.id);
+    assert.deepEqual(ids, ["alpha", "zulu"]);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
 });
 
 test("buildIndex reuses the timestamp when previous came from disk (JSON round-trip)", () => {
@@ -104,23 +188,50 @@ test("buildIndex reuses the timestamp when previous came from disk (JSON round-t
   assert.equal(second.generatedAt, OLD);
 });
 
+test("running build-index.ts as a CLI script writes index.json", () => {
+  const { dir, scriptPath, indexPath } = createTempScriptRepo([
+    { dirName: "01-alpha", id: "alpha" },
+    { dirName: "02-beta", id: "beta" },
+  ]);
+
+  try {
+    const output = execFileSync(process.execPath, ["--import", "tsx", scriptPath], {
+      cwd: dir,
+      encoding: "utf-8",
+    });
+
+    assert.match(output, /Generated index\.json with 2 route\(s\)/);
+
+    const written = JSON.parse(readFileSync(indexPath, "utf-8")) as RouteIndex;
+    assert.deepEqual(
+      written.routes.map((r) => r.id),
+      ["alpha", "beta"],
+    );
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
 test("importing the module does not rewrite index.json", () => {
-  const indexPath = join(ROOT, "index.json");
-  const before = statSync(indexPath).mtimeMs;
+  const { dir, indexPath } = createTempScriptRepo([]);
 
-  // A bare import in a child process. If main() runs on import, this rewrites
-  // index.json and the mtime moves.
-  execFileSync(
-    process.execPath,
-    ["--import", "tsx", "--eval", "import('./scripts/build-index.ts')"],
-    { cwd: ROOT, stdio: "pipe" },
-  );
+  try {
+    // A bare import in a child process, run against a disposable repo copy so
+    // a broken guard writes into the temp dir instead of the real index.json.
+    execFileSync(
+      process.execPath,
+      ["--import", "tsx", "--eval", "import('./scripts/build-index.ts')"],
+      { cwd: dir, stdio: "pipe" },
+    );
 
-  assert.equal(
-    statSync(indexPath).mtimeMs,
-    before,
-    "importing build-index.ts rewrote index.json — main() is not guarded",
-  );
+    assert.equal(
+      existsSync(indexPath),
+      false,
+      "importing build-index.ts wrote index.json — main() is not guarded",
+    );
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
 });
 
 test("readPrevious returns null for a missing path without warning", () => {
