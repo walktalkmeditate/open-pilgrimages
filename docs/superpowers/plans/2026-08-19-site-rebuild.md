@@ -708,6 +708,12 @@ interface StatsLike {
   annualPilgrims?: { trend?: Array<{ year?: number; count?: number }> };
 }
 
+// NOTE: stats.json is not uniform across routes. Six routes put the series at
+// `annualPilgrims.trend`; shikoku-88 nests it at
+// `annualPilgrims.walkingCompletions.trend`, because its source is Omotenashi
+// Network walking-completion certificates rather than Compostela counts. The
+// inner element shape is the same. Without the fallback, the route that anchors
+// the homepage constellation is the only one with no pilgrim chart.
 export function trendOf(statsJson: unknown): TrendPoint[] {
   return ((statsJson as StatsLike).annualPilgrims?.trend ?? [])
     .map((p) => ({ year: p.year ?? 0, count: p.count ?? 0 }))
