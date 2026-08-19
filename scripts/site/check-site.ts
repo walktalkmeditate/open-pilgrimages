@@ -61,7 +61,14 @@ function readRouteIds(indexPath: string): string[] {
     throw new Error(`${indexPath}: file not found`);
   }
 
-  const parsed: unknown = JSON.parse(readFileSync(indexPath, "utf-8"));
+  let parsed: unknown;
+  try {
+    parsed = JSON.parse(readFileSync(indexPath, "utf-8"));
+  } catch (error) {
+    const reason = error instanceof Error ? error.message : String(error);
+    throw new Error(`${indexPath}: not valid JSON (${reason})`);
+  }
+
   const routes = (parsed as { routes?: unknown } | null)?.routes;
 
   if (!Array.isArray(routes) || !routes.every(isIndexRouteShape)) {
