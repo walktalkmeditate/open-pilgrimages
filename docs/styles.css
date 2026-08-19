@@ -200,8 +200,8 @@ nav .nav-github svg {
 
 .hero-stats {
   display: flex;
-  gap: var(--space-xl);
-  margin: var(--space-xl) 0;
+  gap: var(--space-lg);
+  margin: var(--space-lg) 0;
 }
 
 .stat {
@@ -227,8 +227,13 @@ nav .nav-github svg {
 
 .hero-cta {
   display: flex;
-  gap: var(--space-md);
+  flex-direction: column;
+  gap: var(--space-sm);
   margin-bottom: var(--space-xl);
+}
+
+.hero-cta .btn {
+  text-align: center;
 }
 
 .btn {
@@ -502,10 +507,30 @@ footer {
   -webkit-overflow-scrolling: touch;
 }
 
-.constellation {
+.hero {
   position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 440px;
+  margin-bottom: var(--space-xl);
+}
+
+.hero-copy {
+  position: relative;
+  z-index: 2;
+  max-width: 13.5rem;
+}
+
+.constellation {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  margin-left: 0;
+  transform: translateX(-50%);
+  width: 100vw;
   height: 440px;
   overflow: hidden;
+  z-index: 1;
 }
 
 .constellation svg {
@@ -533,10 +558,14 @@ footer {
   font-size: 9.5px;
   text-transform: uppercase;
   letter-spacing: 0.18em;
-  color: var(--stone);
+  color: var(--ink);
   opacity: 0;
   transition: opacity .5s ease;
   pointer-events: none;
+}
+
+.cap-distance {
+  color: var(--stone);
 }
 
 .profile-fill {
@@ -575,7 +604,20 @@ footer {
 }
 
 @media (max-width: 700px) {
+  .hero {
+    display: block;
+    min-height: 0;
+  }
+
+  .hero-copy {
+    max-width: none;
+  }
+
   .constellation {
+    position: relative;
+    top: auto;
+    left: auto;
+    margin-left: 50%;
     height: 240px;
   }
 
@@ -600,7 +642,4 @@ footer {
 
   .hero-stats { flex-wrap: wrap; gap: var(--space-lg); }
   .stat-number { font-size: 1.8rem; }
-
-  .hero-cta { flex-direction: column; }
-  .hero-cta .btn { text-align: center; }
 }
