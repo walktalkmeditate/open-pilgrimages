@@ -877,15 +877,29 @@ Run: `npm test`
 
 Expected: PASS — 4 new tests.
 
-- [ ] **Step 5: Verify console output is unchanged**
+- [ ] **Step 5: Verify console output changes in exactly one place**
+
+`scripts/stats.ts` has a real bug: it counts route points as
+`feature.geometry.coordinates.length`, which is correct for a `LineString`
+but counts *line segments* for a `MultiLineString`. `shikoku-88` is the only
+MultiLineString route, and `npm run stats` has therefore been printing
+`Route points: 77` instead of `49,097`, with a dataset total of 110,604
+instead of 159,624.
+
+`README.md` has always published the correct figures, so the bug is confined
+to this script. Reusing `segmentsOf` fixes it. Do **not** preserve the bug to
+keep output stable — the hero stats and `check-site.ts` both assert 159,624,
+and enshrining 110,604 would make the guard certify a wrong number.
 
 ```bash
 git stash && npm run stats > /tmp/stats-before.txt 2>&1
 git stash pop && npm run stats > /tmp/stats-after.txt 2>&1
-diff /tmp/stats-before.txt /tmp/stats-after.txt && echo "IDENTICAL"
+diff /tmp/stats-before.txt /tmp/stats-after.txt
 ```
 
-Expected: `IDENTICAL`.
+Expected: exactly two changed lines — `shikoku-88`'s route point count
+(`77` → `49097`) and the dataset total (`110604` → `159624`). Any other
+difference means the extraction was not faithful.
 
 - [ ] **Step 6: Commit**
 
