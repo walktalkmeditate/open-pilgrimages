@@ -8,6 +8,8 @@ on:
       - 'schema/**'
       - 'index.json'
       - 'scripts/**'
+      - 'package.json'
+      - 'package-lock.json'
       - '.github/workflows/validate.yml'
   pull_request:
     paths:
@@ -15,8 +17,13 @@ on:
       - 'schema/**'
       - 'index.json'
       - 'scripts/**'
+      - 'package.json'
+      - 'package-lock.json'
       - '.github/workflows/validate.yml'
   workflow_dispatch:
+
+permissions:
+  contents: read
 
 jobs:
   validate:
@@ -29,7 +36,11 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm test
-      - run: npm run build-index
+      - run: npx tsc --noEmit
+      - name: Build index
+        run: npm run build-index | tee /tmp/build-index.log
+      - name: Assert the generator actually ran
+        run: grep -q "Generated index.json" /tmp/build-index.log
       - name: Check index.json is up to date
         run: git diff --exit-code index.json
       - run: npm run validate
