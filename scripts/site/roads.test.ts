@@ -8,6 +8,7 @@ import { GLYPH_BOX } from "./glyphs.js";
 import {
   buildRoads,
   cachePathFor,
+  chunkTrace,
   corridorCellSet,
   decimateRoutePoints,
   fitToRouteBounds,
@@ -15,6 +16,7 @@ import {
   isAllowedWay,
   isWellFormedXml,
   mergeConnectedWays,
+  mergeWayElements,
   overpassQueryFor,
   readRoadsCache,
   roadsSvgFrom,
@@ -90,6 +92,131 @@ test("overpassQueryFor requests only the seven allowed highway values, excludes 
   assert.match(query, /out geom;/);
   assert.match(query, /\[timeout:\d+\]/);
   assert.match(query, /way\(around:\d+,33\.77000,135\.50000,33\.78000,135\.51000\)/);
+});
+
+// --- chunkTrace ---
+
+test("chunkTrace returns a single chunk containing every point when the trace already fits", () => {
+  const points: Point[] = [
+    [0, 0],
+    [1, 0],
+    [2, 0],
+  ];
+
+  const chunks = chunkTrace(points, 10, 2);
+
+  assert.deepEqual(chunks, [points]);
+});
+
+test("chunkTrace returns nothing for an empty trace", () => {
+  assert.deepEqual(chunkTrace([], 10, 2), []);
+});
+
+test("chunkTrace splits a long trace into bounded chunks whose boundaries overlap", () => {
+  const points: Point[] = Array.from({ length: 10 }, (_, i): Point => [i, 0]);
+
+  const chunks = chunkTrace(points, 4, 1);
+
+  assert.equal(chunks.length, 3);
+  for (const chunk of chunks) {
+    assert.ok(chunk.length <= 4, `chunk of ${chunk.length} exceeds the bound of 4`);
+  }
+  // #then consecutive chunks share their boundary point(s), so a road right
+  // at the seam is within reach of an anchor in both neighbours
+  for (let i = 0; i < chunks.length - 1; i++) {
+    const tail = chunks[i][chunks[i].length - 1];
+    assert.ok(
+      chunks[i + 1].some(([lon, lat]) => lon === tail[0] && lat === tail[1]),
+      `chunk ${i} and chunk ${i + 1} do not share a boundary point`,
+    );
+  }
+  // #and every original point is covered by at least one chunk
+  const covered = new Set(chunks.flat().map(([lon]) => lon));
+  assert.deepEqual([...covered].sort((a, b) => a - b), points.map(([lon]) => lon));
+});
+
+test("chunkTrace covers the whole trace even when overlap doesn't evenly divide its length", () => {
+  const points: Point[] = Array.from({ length: 23 }, (_, i): Point => [i, 0]);
+
+  const chunks = chunkTrace(points, 7, 2);
+
+  const covered = new Set(chunks.flat().map(([lon]) => lon));
+  assert.deepEqual([...covered].sort((a, b) => a - b), points.map(([lon]) => lon));
+  assert.deepEqual(chunks[chunks.length - 1][chunks[chunks.length - 1].length - 1], points[points.length - 1]);
+});
+
+// --- mergeWayElements ---
+
+function overpassElement(id: number, lat = 0, lon = 0): unknown {
+  return { type: "way", id, tags: { highway: "primary" }, geometry: [{ lat, lon }] };
+}
+
+test("mergeWayElements deduplicates ways that were returned by more than one chunk", () => {
+  const chunkA = [overpassElement(1), overpassElement(2)];
+  const chunkB = [overpassElement(2), overpassElement(3)]; // 2 is the overlapping seam way
+
+  const merged = mergeWayElements([chunkA, chunkB]);
+
+  assert.deepEqual(
+    merged.map((e) => (e as { id: number }).id),
+    [1, 2, 3],
+  );
+});
+
+test("mergeWayElements orders output by way id regardless of chunk or within-chunk order", () => {
+  const chunkA = [overpassElement(5), overpassElement(1)];
+  const chunkB = [overpassElement(3)];
+
+  const merged = mergeWayElements([chunkA, chunkB]);
+
+  assert.deepEqual(
+    merged.map((e) => (e as { id: number }).id),
+    [1, 3, 5],
+  );
+});
+
+test("mergeWayElements is deterministic no matter what order the chunks themselves arrive in", () => {
+  const chunkA = [overpassElement(5), overpassElement(2)];
+  const chunkB = [overpassElement(2), overpassElement(9)];
+
+  const forward = mergeWayElements([chunkA, chunkB]);
+  const reversed = mergeWayElements([chunkB, chunkA]);
+
+  assert.deepEqual(forward, reversed);
+});
+
+test("mergeWayElements drops malformed or non-way entries rather than merging them", () => {
+  const merged = mergeWayElements([[overpassElement(1), { type: "node", id: 2 }, "not an object", null]]);
+
+  assert.deepEqual(
+    merged.map((e) => (e as { id: number }).id),
+    [1],
+  );
+});
+
+test("mergeWayElements on a single chunk (no chunking needed) reproduces the plain fetch result exactly", () => {
+  // #given a route small enough that chunkTrace returns one chunk — the same
+  // shape a non-chunked fetch already produced before this feature existed
+  const points: Point[] = [
+    [0, 0],
+    [1, 0],
+  ];
+  const chunks = chunkTrace(points, 60, 6);
+  assert.equal(chunks.length, 1);
+
+  const singleFetchResult = [overpassElement(3), overpassElement(1), overpassElement(2)];
+
+  // #when merging that one chunk's result
+  const merged = mergeWayElements([singleFetchResult]);
+
+  // #then every way from the plain fetch is present, just deterministically
+  // ordered by id — nothing is dropped or duplicated by routing a
+  // single-chunk route through the same merge path as a multi-chunk one
+  assert.deepEqual(
+    merged.map((e) => (e as { id: number }).id).sort((a, b) => a - b),
+    singleFetchResult.map((e) => (e as { id: number }).id).sort((a, b) => a - b),
+  );
+  assert.equal(merged.length, singleFetchResult.length);
 });
 
 // --- isAllowedWay ---
