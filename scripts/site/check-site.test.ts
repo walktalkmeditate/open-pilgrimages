@@ -7,13 +7,6 @@ import { checkSite } from "./check-site.js";
 
 const ROOT = join(import.meta.dirname, "..", "..");
 
-const MISSING_FROM_TODAYS_CATALOG = [
-  "camino-norte",
-  "camino-primitivo",
-  "camino-portugues",
-  "camino-ingles",
-];
-
 function createFixtureRoot(indexRoutes: Array<{ id: string }>): string {
   const root = mkdtempSync(join(tmpdir(), "check-site-test-"));
   mkdirSync(join(root, "routes"));
@@ -22,22 +15,31 @@ function createFixtureRoot(indexRoutes: Array<{ id: string }>): string {
   return root;
 }
 
-// The site has not been rebuilt yet (that's Tasks 10-13), so the guard is
+// Some pages have not been rebuilt yet (that's Tasks 10-13), so the guard is
 // expected to report real problems against the committed docs/ and
 // README.md today. These tests pin down exactly which ones, so the guard's
 // own regression suite doesn't depend on npm run check-site's exit code.
 
-test("checkSite reports every route the routes.html catalog is missing", () => {
+test("the committed docs/routes.html already links to every route (positive control)", () => {
+  // #given docs/routes.html was rebuilt in Task 11 to link to every route's detail page
+  // #when checkSite compares it against index.json's route list
   const problems = checkSite(ROOT);
 
-  for (const id of MISSING_FROM_TODAYS_CATALOG) {
-    assert.ok(
-      problems.some(
-        (p) => p.file === "docs/routes.html" && p.message.includes(`"${id}"`),
-      ),
-      `expected a problem naming "${id}" as absent from docs/routes.html`,
-    );
-  }
+  // #then none of the seven routes are reported as missing a catalog link
+  assert.deepEqual(
+    problems.filter((p) => p.file === "docs/routes.html" && p.message.includes("has no link to")),
+    [],
+  );
+});
+
+test("the committed docs/routes.html already uses extensionless internal links (positive control)", () => {
+  // #given docs/routes.html was rebuilt in Task 11 with extensionless nav/canonical/OG links
+  // #when / #then checkSite reports no .html-extension problems for that file
+  const problems = checkSite(ROOT);
+  assert.deepEqual(
+    problems.filter((p) => p.file === "docs/routes.html" && p.message.includes(".html")),
+    [],
+  );
 });
 
 test("checkSite reports a route missing from the catalog (synthetic routesHtml)", () => {
