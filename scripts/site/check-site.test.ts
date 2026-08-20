@@ -133,11 +133,14 @@ test("checkSite reports a detail page that exists but doesn't identify its own r
 
 test("checkSite accepts a detail page that identifies its own route via <code>", () => {
   // #given a docs/{id}.html containing <code>{id}</code>, matching how routes.html
-  // already renders route IDs today
+  // already renders route IDs today, and a route.gpx link so the unrelated
+  // gpx-discoverability guard doesn't also fire here
   const root = createFixtureRoot([{ id: "camino-frances" }]);
   writeFileSync(
     join(root, "docs", "camino-frances.html"),
-    "<html><body><code>camino-frances</code></body></html>",
+    '<html><body><code>camino-frances</code>' +
+      '<a href="https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1/routes/camino-frances/route.gpx">route.gpx</a>' +
+      "</body></html>",
   );
 
   try {
@@ -1140,6 +1143,486 @@ test("checkSite skips the route filter check when metadata.json is missing overv
     const problems = checkSite(root);
     assert.deepEqual(
       problems.filter((p) => p.file === "docs/routes.html" && p.message.includes("route filter")),
+      [],
+    );
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("checkSite still checks data-days/data-distance-km/data-difficulty when a route's metadata.json legitimately has no bestMonths (fixture — proves one optional-field gap no longer blanks the other three checks)", () => {
+  // #given a metadata.json with distanceKm/difficulty/estimatedDays but no
+  // bestMonths (schema-valid: bestMonths isn't in overview.required), and a
+  // route-card whose data-difficulty deliberately doesn't match
+  const root = createFixtureRoot([{ id: "camino-frances" }]);
+  mkdirSync(join(root, "routes", "camino-frances"), { recursive: true });
+  writeFileSync(
+    join(root, "routes", "camino-frances", "metadata.json"),
+    JSON.stringify({
+      overview: { distanceKm: 764, difficulty: "moderate", estimatedDays: { typical: 31 } },
+    }),
+  );
+  writeFileSync(
+    join(root, "docs", "routes.html"),
+    '<html><body><div class="route-grid"><div class="route-card" data-days="31" data-distance-km="764" ' +
+      'data-difficulty="easy"><h3><a href="/camino-frances">Camino Frances</a></h3></div></div></body></html>',
+  );
+
+  try {
+    // #when checkSite checks this route's card
+    const problems = checkSite(root);
+    const routeFilterProblems = problems.filter(
+      (p) => p.file === "docs/routes.html" && p.message.includes("route filter"),
+    );
+
+    // #then the real drift (difficulty) is still caught even though bestMonths is absent
+    assert.ok(
+      routeFilterProblems.some(
+        (p) => p.message.includes("data-difficulty") && p.message.includes('reads "easy"'),
+      ),
+    );
+    // #and no problem is reported for the missing data-best-months attribute,
+    // since bestMonths is legitimately absent from metadata.json
+    assert.ok(!routeFilterProblems.some((p) => p.message.includes("data-best-months")));
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+// Difficulty filter vocabulary vs. schema/pilgrimage.schema.json: the filter
+// panel's <select id="filter-difficulty"> options are checked against the
+// schema's difficulty enum, not the other way round — a schema-valid
+// "expert" route must not be invisible under every difficulty selection.
+
+function writeDifficultySchema(root: string, enumValues: string[]): void {
+  mkdirSync(join(root, "schema"), { recursive: true });
+  writeFileSync(
+    join(root, "schema", "pilgrimage.schema.json"),
+    JSON.stringify({ properties: { overview: { properties: { difficulty: { enum: enumValues } } } } }),
+  );
+}
+
+test("the committed docs/routes.html difficulty filter already covers every value in schema/pilgrimage.schema.json's difficulty enum (positive control)", () => {
+  const problems = checkSite(ROOT);
+  assert.deepEqual(
+    problems.filter((p) => p.message.includes("difficulty filter")),
+    [],
+  );
+});
+
+test("checkSite reports a difficulty filter with no option for a schema enum value (fixture — an 'expert' route would be invisible under every difficulty selection)", () => {
+  // #given a schema whose difficulty enum includes "expert" and a filter
+  // <select> that only offers easy/moderate/hard
+  const root = createFixtureRoot([{ id: "camino-frances" }]);
+  writeDifficultySchema(root, ["easy", "moderate", "hard", "expert"]);
+  writeFileSync(
+    join(root, "docs", "routes.html"),
+    '<html><body><select id="filter-difficulty"><option value="">Any</option>' +
+      '<option value="easy">Easy</option><option value="moderate">Moderate</option>' +
+      '<option value="hard">Hard</option></select></body></html>',
+  );
+
+  try {
+    // #when / #then checkSite names the missing schema value
+    const problems = checkSite(root);
+    assert.ok(
+      problems.some(
+        (p) =>
+          p.file === "docs/routes.html" &&
+          p.message.includes('"expert"') &&
+          p.message.includes("invisible under every difficulty selection"),
+      ),
+    );
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("checkSite accepts a difficulty filter whose options cover the schema enum exactly (fixture)", () => {
+  // #given a filter <select> with an option for every schema enum value
+  const root = createFixtureRoot([{ id: "camino-frances" }]);
+  writeDifficultySchema(root, ["easy", "moderate", "hard", "expert"]);
+  writeFileSync(
+    join(root, "docs", "routes.html"),
+    '<html><body><select id="filter-difficulty"><option value="">Any</option>' +
+      '<option value="easy">Easy</option><option value="moderate">Moderate</option>' +
+      '<option value="hard">Hard</option><option value="expert">Expert</option></select></body></html>',
+  );
+
+  try {
+    // #when / #then checkSite reports no difficulty-filter problem
+    const problems = checkSite(root);
+    assert.deepEqual(
+      problems.filter((p) => p.message.includes("difficulty filter")),
+      [],
+    );
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+// route-filter.js wiring: the filter panel is revealed by CSS on the
+// <html class="js"> hook rather than by route-filter.js itself, so nothing
+// else ties routes.html to the script it depends on — deleting the script,
+// or just its <script> tag, would leave the panel rendered and inert with
+// check-site reporting zero problems.
+
+test("the committed docs/routes.html is already wired to a real, non-empty route-filter.js (positive control)", () => {
+  const problems = checkSite(ROOT);
+  assert.deepEqual(
+    problems.filter((p) => p.message.includes("route-filter.js")),
+    [],
+  );
+});
+
+test("checkSite reports routes.html missing its <script src=\"route-filter.js\"> tag (synthetic routesHtml — proves the CSS-reveal decoupling is guarded)", () => {
+  // #given a routes.html whose filter panel markup exists but never loads route-filter.js
+  const routesHtml =
+    '<html><head></head><body><div class="route-filter" data-route-filter></div>' +
+    '<div class="route-grid"></div></body></html>';
+
+  // #when / #then checkSite reports the panel has no script wired to it
+  const problems = checkSite(ROOT, { routesHtml });
+  assert.ok(
+    problems.some(
+      (p) => p.file === "docs/routes.html" && p.message.includes('<script src="route-filter.js">'),
+    ),
+  );
+});
+
+test("checkSite reports a missing docs/route-filter.js file (fixture)", () => {
+  // #given routes.html references route-filter.js but the file doesn't exist on disk
+  const root = createFixtureRoot([{ id: "camino-frances" }]);
+  writeFileSync(join(root, "docs", "camino-frances.html"), "<html><body><code>camino-frances</code></body></html>");
+  writeFileSync(
+    join(root, "docs", "routes.html"),
+    '<html><body><script src="route-filter.js"></script></body></html>',
+  );
+
+  try {
+    // #when / #then checkSite reports the script file itself is missing
+    const problems = checkSite(root);
+    assert.ok(
+      problems.some((p) => p.file === "docs/route-filter.js" && p.message.includes("does not exist")),
+    );
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("checkSite reports an empty docs/route-filter.js file, distinct from a missing one (fixture)", () => {
+  // #given docs/route-filter.js exists on disk but is empty
+  const root = createFixtureRoot([{ id: "camino-frances" }]);
+  writeFileSync(join(root, "docs", "camino-frances.html"), "<html><body><code>camino-frances</code></body></html>");
+  writeFileSync(
+    join(root, "docs", "routes.html"),
+    '<html><body><script src="route-filter.js"></script></body></html>',
+  );
+  writeFileSync(join(root, "docs", "route-filter.js"), "   \n  ");
+
+  try {
+    // #when checkSite reads that file
+    const problems = checkSite(root);
+    const scriptProblems = problems.filter((p) => p.file === "docs/route-filter.js");
+
+    // #then it is reported as empty, not as missing
+    assert.ok(scriptProblems.some((p) => p.message.includes("is empty")));
+    assert.ok(!scriptProblems.some((p) => p.message.includes("does not exist")));
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+// Orphaned scripts: extends the same reverse-orphan sweep already applied to
+// detail pages and inlined assets to docs/*.js, against a hand-maintained
+// known-scripts set.
+
+test("the committed docs/ has no orphaned script (positive control)", () => {
+  const problems = checkSite(ROOT);
+  assert.deepEqual(
+    problems.filter((p) => p.message.includes("orphaned script")),
+    [],
+  );
+});
+
+test("checkSite reports a stray docs/*.js file that isn't in the known-scripts set (fixture)", () => {
+  // #given a leftover docs/leftover.js not referenced by KNOWN_SCRIPTS
+  const root = createFixtureRoot([{ id: "camino-frances" }]);
+  writeFileSync(join(root, "docs", "camino-frances.html"), "<html><body><code>camino-frances</code></body></html>");
+  writeFileSync(join(root, "docs", "leftover.js"), "console.log('dead code');");
+
+  try {
+    // #when / #then checkSite names the orphaned file
+    const problems = checkSite(root);
+    assert.ok(
+      problems.some(
+        (p) =>
+          p.file === "docs/leftover.js" &&
+          p.message.includes("orphaned script") &&
+          p.message.includes('"leftover.js"'),
+      ),
+    );
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+// route.gpx discoverability: Task 1 shipped GPX generation with no way to
+// find it from the site. Each detail page must link its own route.gpx
+// somewhere (Files & CDN table, jsDelivr code block, or both).
+
+test("the committed docs/{id}.html pages already link their own route.gpx (positive control)", () => {
+  const problems = checkSite(ROOT);
+  assert.deepEqual(
+    problems.filter((p) => p.message.includes("no link to its route.gpx")),
+    [],
+  );
+});
+
+test("checkSite reports a detail page with no link to its own route.gpx (fixture)", () => {
+  // #given a detail page that identifies its route but never links its route.gpx
+  const root = createFixtureRoot([{ id: "camino-frances" }]);
+  writeFileSync(join(root, "docs", "camino-frances.html"), "<html><body><code>camino-frances</code></body></html>");
+
+  try {
+    // #when / #then checkSite reports the missing link, naming the route
+    const problems = checkSite(root);
+    assert.ok(
+      problems.some(
+        (p) => p.file === "docs/camino-frances.html" && p.message.includes("no link to its route.gpx"),
+      ),
+    );
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("checkSite accepts a detail page that links its own route.gpx (fixture)", () => {
+  // #given a detail page linking its own routes/camino-frances/route.gpx
+  const root = createFixtureRoot([{ id: "camino-frances" }]);
+  writeFileSync(
+    join(root, "docs", "camino-frances.html"),
+    '<html><body><code>camino-frances</code>' +
+      '<a href="https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1/routes/camino-frances/route.gpx">route.gpx</a>' +
+      "</body></html>",
+  );
+
+  try {
+    // #when / #then checkSite reports no missing-gpx-link problem for this page
+    const problems = checkSite(root);
+    assert.deepEqual(
+      problems.filter((p) => p.message.includes("no link to its route.gpx")),
+      [],
+    );
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+// The coastal variant's route.gpx: checkRouteGpx() only walks index.json's
+// top-level route ids, so routes/camino-portugues/variants/coastal/route.gpx
+// — a real, committed, 5,546-point file — got no check at all.
+
+test("the committed routes/camino-portugues/variants/coastal/route.gpx already matches its own route.geojson's point count (positive control)", () => {
+  const problems = checkSite(ROOT);
+  assert.deepEqual(
+    problems.filter((p) => p.file === "routes/camino-portugues/variants/coastal/route.gpx"),
+    [],
+  );
+});
+
+test("checkSite reports a missing coastal-variant route.gpx (fixture — proves the index.json route walk alone would miss this)", () => {
+  // #given the coastal variant's route.geojson exists but its route.gpx doesn't
+  const root = createFixtureRoot([{ id: "camino-portugues" }]);
+  const variantDir = join(root, "routes", "camino-portugues", "variants", "coastal");
+  mkdirSync(variantDir, { recursive: true });
+  writeFileSync(
+    join(variantDir, "route.geojson"),
+    JSON.stringify({
+      type: "FeatureCollection",
+      features: [{ geometry: { type: "LineString", coordinates: [[1, 2], [3, 4], [5, 6]] } }],
+    }),
+  );
+
+  try {
+    // #when / #then checkSite reports the missing file under the variant's own path
+    const problems = checkSite(root);
+    assert.ok(
+      problems.some(
+        (p) =>
+          p.file === "routes/camino-portugues/variants/coastal/route.gpx" &&
+          p.message.includes("has no route.gpx"),
+      ),
+    );
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("checkSite reports a coastal-variant route.gpx whose <trkpt> count doesn't match its own route.geojson (fixture)", () => {
+  // #given a coastal route.geojson with 3 points but a route.gpx with only 2 <trkpt>
+  const root = createFixtureRoot([{ id: "camino-portugues" }]);
+  const variantDir = join(root, "routes", "camino-portugues", "variants", "coastal");
+  mkdirSync(variantDir, { recursive: true });
+  writeFileSync(
+    join(variantDir, "route.geojson"),
+    JSON.stringify({
+      type: "FeatureCollection",
+      features: [{ geometry: { type: "LineString", coordinates: [[1, 2], [3, 4], [5, 6]] } }],
+    }),
+  );
+  writeFileSync(
+    join(variantDir, "route.gpx"),
+    '<?xml version="1.0" encoding="UTF-8"?>\n<gpx><trk><trkseg>' +
+      '<trkpt lat="2.000000" lon="1.000000"/><trkpt lat="4.000000" lon="3.000000"/>' +
+      "</trkseg></trk></gpx>\n",
+  );
+
+  try {
+    // #when checkSite compares the coastal gpx's <trkpt> count against its own route.geojson
+    const problems = checkSite(root);
+
+    // #then it reports the mismatch: 2 present, 3 expected
+    assert.ok(
+      problems.some(
+        (p) =>
+          p.file === "routes/camino-portugues/variants/coastal/route.gpx" &&
+          p.message.includes("has 2 <trkpt>") &&
+          p.message.includes("data says 3"),
+      ),
+    );
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+// Interior journey, extended: checkInteriorJourney used to check only
+// stage 1's narrative — 33 of 34 camino-norte narratives and all 34
+// reflections were unguarded. These fixtures build a three-stage route and
+// deliberately leave stage 1 untouched, so a guard that only ever checks the
+// first stage cannot pass them by accident.
+
+const STAGE1_NARRATIVE = "You begin where Alfonso II began, walking west out of Oviedo.";
+const STAGE1_REFLECTION = "What did you carry into this that you did not need?";
+const STAGE2_NARRATIVE = "Today the mountains start in earnest.";
+const STAGE3_NARRATIVE = "By the third day the meseta opens flat to every horizon.";
+
+function createThreeStageInteriorFixtureRoot(): { root: string; id: string } {
+  const id = "camino-frances";
+  const root = createFixtureRoot([{ id }]);
+  const routeDir = join(root, "routes", id);
+  mkdirSync(routeDir, { recursive: true });
+  writeFileSync(join(routeDir, "metadata.json"), JSON.stringify({}));
+  writeFileSync(
+    join(routeDir, "stages.json"),
+    JSON.stringify({
+      stages: [
+        {
+          index: 0,
+          interior: { narrative: { en: STAGE1_NARRATIVE }, reflection: { en: STAGE1_REFLECTION } },
+        },
+        { index: 1, interior: { narrative: { en: STAGE2_NARRATIVE } } },
+        { index: 2, interior: { narrative: { en: STAGE3_NARRATIVE } } },
+      ],
+    }),
+  );
+  return { root, id };
+}
+
+function threeStageDetailHtml(id: string, thirdNarrative: string, includeStage1Reflection: boolean): string {
+  const reflectionBlock = includeStage1Reflection
+    ? `<blockquote class="stage-reflection"><p>${STAGE1_REFLECTION}</p></blockquote>`
+    : "";
+  return `<html><body><code>${id}</code>
+    <details class="stage-interior"><p>${STAGE1_NARRATIVE}</p>${reflectionBlock}</details>
+    <details class="stage-interior"><p>${STAGE2_NARRATIVE}</p></details>
+    <details class="stage-interior"><p>${thirdNarrative}</p></details>
+  </body></html>`;
+}
+
+test("checkSite reports a stage-3 narrative drift when stage 1 is untouched (fixture — proves the guard loops every stage, not just the first)", () => {
+  const { root, id } = createThreeStageInteriorFixtureRoot();
+  writeDetailHtml(
+    root,
+    id,
+    threeStageDetailHtml(id, "By the third day the trail climbs through a different range entirely.", true),
+  );
+
+  try {
+    const problems = checkSite(root);
+    const pageProblems = problems.filter((p) => p.file === `docs/${id}.html`);
+
+    // #then stage 3's drift is reported...
+    assert.ok(pageProblems.some((p) => p.message.includes("stage 3's interior narrative does not appear verbatim")));
+    // #and stage 1, which was never touched, is not
+    assert.ok(!pageProblems.some((p) => p.message.includes("stage 1's interior narrative does not appear verbatim")));
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("checkSite reports a deleted stage-1 reflection (fixture — proves the guard checks reflections, not just narratives)", () => {
+  const { root, id } = createThreeStageInteriorFixtureRoot();
+  writeDetailHtml(root, id, threeStageDetailHtml(id, STAGE3_NARRATIVE, false));
+
+  try {
+    const problems = checkSite(root);
+    assert.ok(
+      problems.some(
+        (p) =>
+          p.file === `docs/${id}.html` &&
+          p.message.includes("stage 1's interior reflection does not appear verbatim"),
+      ),
+    );
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("checkSite accepts a three-stage page whose narratives and reflection all match stages.json verbatim (fixture)", () => {
+  const { root, id } = createThreeStageInteriorFixtureRoot();
+  writeDetailHtml(root, id, threeStageDetailHtml(id, STAGE3_NARRATIVE, true));
+
+  try {
+    const problems = checkSite(root);
+    assert.deepEqual(
+      problems.filter((p) => p.message.includes("interior journey content has drifted")),
+      [],
+    );
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+// HTML-entity decoding: detailHtml is decoded before the narrative/reflection
+// includes() check, so a narrative containing &, <, >, or ' is compared
+// against the *rendered* text, not the raw HTML — a correctly-escaped page
+// must not false-fail this guard.
+
+test("checkSite accepts an interior narrative containing &, <, >, and ' when the page renders them correctly HTML-escaped (fixture — proves decodeEntities covers numeric references, not just named ones)", () => {
+  const id = "camino-frances";
+  const root = createFixtureRoot([{ id }]);
+  const routeDir = join(root, "routes", id);
+  mkdirSync(routeDir, { recursive: true });
+  writeFileSync(join(routeDir, "metadata.json"), JSON.stringify({}));
+  const narrative = "Rest & recover before the climb. The path <narrows> here, and it's steep.";
+  writeFileSync(
+    join(routeDir, "stages.json"),
+    JSON.stringify({ stages: [{ index: 0, interior: { narrative: { en: narrative } } }] }),
+  );
+  const escapedNarrative =
+    "Rest &amp; recover before the climb. The path &lt;narrows&gt; here, and it&#39;s steep.";
+  writeDetailHtml(
+    root,
+    id,
+    `<html><body><code>${id}</code><details class="stage-interior"><p>${escapedNarrative}</p></details></body></html>`,
+  );
+
+  try {
+    // #when / #then the decoded page text matches the raw narrative verbatim
+    const problems = checkSite(root);
+    assert.deepEqual(
+      problems.filter((p) => p.message.includes("interior journey content has drifted")),
       [],
     );
   } finally {

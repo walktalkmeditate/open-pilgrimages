@@ -2,6 +2,7 @@ import { existsSync, readFileSync, readdirSync } from "fs";
 import { join } from "path";
 import { resolveInvokedPath } from "../cli.js";
 import { computeStats, type RouteStats } from "../stats.js";
+import { segmentsOf } from "./glyphs.js";
 
 const ROOT = join(import.meta.dirname, "..", "..");
 
@@ -30,6 +31,8 @@ const HREF_PATTERN = /href="([^"]+)"/g;
 
 const TRKPT_PATTERN = /<trkpt\b/g;
 
+const JSDELIVR_BASE = "https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1";
+
 const STAGE_INTERIOR_PATTERN = /<details class="stage-interior">/g;
 
 interface LocalizedStringLike {
@@ -55,6 +58,7 @@ function localizedText(value: unknown): string | null {
 interface StageLike {
   interior?: {
     narrative?: unknown;
+    reflection?: unknown;
   };
 }
 
@@ -111,8 +115,10 @@ const HTML_ENTITIES: Record<string, string> = {
   ccedil: "ç",
   copy: "©",
   eacute: "é",
+  gt: ">",
   iacute: "í",
   ldquo: "“",
+  lt: "<",
   mdash: "—",
   middot: "·",
   ndash: "–",
@@ -128,8 +134,21 @@ const HTML_ENTITIES: Record<string, string> = {
   uuml: "ü",
 };
 
+/**
+ * Covers both named entities (from HTML_ENTITIES) and numeric references
+ * (&#39; is already used on these pages) — without the numeric branch, a
+ * narrative containing an apostrophe or ampersand would be compared against
+ * its correctly-escaped HTML and never match, false-failing the guard on
+ * markup that rendered exactly right.
+ */
 function decodeEntities(text: string): string {
-  return text.replace(/&([a-zA-Z]+);/g, (full, name: string) => HTML_ENTITIES[name] ?? full);
+  return text.replace(
+    /&(?:#(\d+)|([a-zA-Z]+));/g,
+    (full, dec: string | undefined, name: string | undefined) => {
+      if (dec !== undefined) return String.fromCodePoint(Number(dec));
+      return name !== undefined ? (HTML_ENTITIES[name] ?? full) : full;
+    },
+  );
 }
 
 function extractPathD(svg: string): string | null {
@@ -160,11 +179,27 @@ const VARIANT_ROW_PATTERN =
 
 const GLYPHS_JS_KEY_PATTERN = /^\s*"([^"]+)":/gm;
 
+// Every script docs/*.html is allowed to reference. A page can be revealed
+// by CSS on the <html class="js"> hook (see routes.html's filter panel)
+// without its behaviour script running at all if the <script> tag or the
+// file itself goes missing — nothing else catches that. Keeping this list
+// hand-maintained, rather than derived from what's on disk, is the point:
+// a stray script left behind by a removed feature should be reported, not
+// silently grandfathered in because it exists.
+const KNOWN_SCRIPTS = new Set(["hero.js", "route-sort.js", "route-filter.js", "cdn-preview.js"]);
+
+// bestMonths is not in schema/pilgrimage.schema.json's overview.required, so
+// a schema-valid route can legitimately omit it — every field below is
+// therefore independently optional. Missing/invalid fields are `undefined`,
+// not a reason to bail out of the other three: readRouteFilterOverview used
+// to return null (skip everything) the moment any one of the four was
+// missing, so a route without bestMonths silently disabled its days/
+// distanceKm/difficulty checks too.
 interface RouteFilterOverview {
-  days: number;
-  distanceKm: number;
-  difficulty: string;
-  bestMonths: number[];
+  days?: number;
+  distanceKm?: number;
+  difficulty?: string;
+  bestMonths?: number[];
 }
 
 interface MetadataOverviewLike {
@@ -187,8 +222,11 @@ function isMetadataLike(value: unknown): value is MetadataLike {
  * difficulty/best-months straight off each route-card's data-* attributes
  * instead of a duplicated dataset — see docs/routes.html. This is the
  * independent source of truth those attributes are checked against below.
- * A malformed or incomplete metadata.json degrades to null rather than
- * throwing; that shape of problem is npm run validate's job to report.
+ * Returns null only when metadata.json itself is missing, unparsable, or has
+ * no overview object at all — that shape of problem is npm run validate's
+ * job to report. Once there's an overview object, each field is read on its
+ * own: a missing or wrong-typed field is left undefined on the result rather
+ * than discarding the other three.
  */
 function readRouteFilterOverview(routeDir: string): RouteFilterOverview | null {
   const metaPath = join(routeDir, "metadata.json");
@@ -208,24 +246,22 @@ function readRouteFilterOverview(routeDir: string): RouteFilterOverview | null {
   const { distanceKm, difficulty, bestMonths, estimatedDays } = parsed.overview;
   const days = estimatedDays?.typical;
 
-  if (
-    typeof days !== "number" ||
-    typeof distanceKm !== "number" ||
-    typeof difficulty !== "string" ||
-    !Array.isArray(bestMonths) ||
-    !bestMonths.every((m): m is number => typeof m === "number")
-  ) {
-    return null;
+  const overview: RouteFilterOverview = {};
+  if (typeof days === "number") overview.days = days;
+  if (typeof distanceKm === "number") overview.distanceKm = distanceKm;
+  if (typeof difficulty === "string") overview.difficulty = difficulty;
+  if (Array.isArray(bestMonths) && bestMonths.every((m): m is number => typeof m === "number")) {
+    overview.bestMonths = bestMonths;
   }
 
-  return { days, distanceKm, difficulty, bestMonths };
+  return overview;
 }
 
-const ROUTE_FILTER_ATTRS: Array<[string, (overview: RouteFilterOverview) => string]> = [
-  ["data-days", (o) => String(o.days)],
-  ["data-distance-km", (o) => String(o.distanceKm)],
+const ROUTE_FILTER_ATTRS: Array<[string, (overview: RouteFilterOverview) => string | undefined]> = [
+  ["data-days", (o) => (o.days === undefined ? undefined : String(o.days))],
+  ["data-distance-km", (o) => (o.distanceKm === undefined ? undefined : String(o.distanceKm))],
   ["data-difficulty", (o) => o.difficulty],
-  ["data-best-months", (o) => o.bestMonths.join(",")],
+  ["data-best-months", (o) => (o.bestMonths === undefined ? undefined : o.bestMonths.join(","))],
 ];
 
 /**
@@ -250,6 +286,54 @@ function findRouteCardOpenTag(html: string, id: string): string | null {
 function readDataAttr(openTag: string, attr: string): string | undefined {
   const match = openTag.match(new RegExp(`${attr}="([^"]*)"`));
   return match ? match[1] : undefined;
+}
+
+const DIFFICULTY_SELECT_PATTERN = /<select id="filter-difficulty"[^>]*>([\s\S]*?)<\/select>/;
+const OPTION_VALUE_PATTERN = /<option value="([^"]*)"/g;
+
+interface DifficultySchemaLike {
+  properties?: {
+    overview?: {
+      properties?: {
+        difficulty?: {
+          enum?: unknown;
+        };
+      };
+    };
+  };
+}
+
+function isDifficultySchemaLike(value: unknown): value is DifficultySchemaLike {
+  return typeof value === "object" && value !== null;
+}
+
+/**
+ * schema/pilgrimage.schema.json is this guard's source of truth for the
+ * difficulty vocabulary — docs/routes.html's filter is checked against it,
+ * not the other way round, so the two can't drift silently in either
+ * direction. Degrades to null (skip the check) rather than throwing: unlike
+ * index.json, a missing or reshaped schema file here isn't this guard's
+ * story to tell, and the fixture roots in check-site.test.ts have no
+ * schema/ directory at all.
+ */
+function readDifficultyEnum(root: string): string[] | null {
+  const schemaPath = join(root, "schema", "pilgrimage.schema.json");
+  if (!existsSync(schemaPath)) return null;
+
+  let parsed: unknown;
+  try {
+    parsed = JSON.parse(readFileSync(schemaPath, "utf-8"));
+  } catch {
+    return null;
+  }
+
+  if (!isDifficultySchemaLike(parsed)) return null;
+  const enumValues = parsed.properties?.overview?.properties?.difficulty?.enum;
+  if (!Array.isArray(enumValues) || !enumValues.every((v): v is string => typeof v === "string")) {
+    return null;
+  }
+
+  return enumValues;
 }
 
 export interface Problem {
@@ -373,10 +457,11 @@ export function checkSite(root: string, overrides: PageOverrides = {}): Problem[
   /**
    * The one check that catches route.gpx silently drifting from the geometry
    * it was generated from: comparing its <trkpt> count against
-   * computeStats()'s independently-derived routePoints. A byte-for-byte
-   * regeneration diff (CI's other guard) only fires if someone forgets to
-   * run the build; this fires even if the committed file was hand-edited to
-   * still look plausible.
+   * computeStats()'s independently-derived routePoints. CI's other guard —
+   * the byte-for-byte regeneration diff against a fresh npm run build-assets
+   * — also catches this, but only as part of a full CI run; this one works
+   * against whatever is on disk right now, no build step required, so it
+   * catches a hand-edited file locally too.
    */
   function checkRouteGpx(id: string): void {
     const gpxPath = join(root, "routes", id, "route.gpx");
@@ -404,6 +489,102 @@ export function checkSite(root: string, overrides: PageOverrides = {}): Problem[
   }
 
   /**
+   * checkRouteGpx() above only walks index.json's top-level route ids, so
+   * routes/camino-portugues/variants/coastal/route.gpx — a real, committed,
+   * 5,546-point file that the rest of this guard already special-cases for
+   * glyph, profile, and sparkline drift — got no existence or point-count
+   * check at all. computeStats() doesn't compute a per-variant point total,
+   * so this reads the variant's own route.geojson and derives one the same
+   * way computeStats() does, rather than looking it up by id.
+   */
+  function checkCoastalVariantGpx(): void {
+    const variantDir = join(root, "routes", "camino-portugues", "variants", "coastal");
+    const geojsonPath = join(variantDir, "route.geojson");
+    if (!existsSync(geojsonPath)) return; // no geometry yet — nothing to compare against
+
+    let geo: unknown;
+    try {
+      geo = JSON.parse(readFileSync(geojsonPath, "utf-8"));
+    } catch {
+      return; // malformed route.geojson is npm run validate's job to report
+    }
+
+    const expected = segmentsOf(geo).reduce((sum, segment) => sum + segment.length, 0);
+    const gpxPath = join(variantDir, "route.gpx");
+    const file = "routes/camino-portugues/variants/coastal/route.gpx";
+
+    if (!existsSync(gpxPath)) {
+      add(file, `route "${COASTAL_VARIANT_ASSET_ID}" has no route.gpx — run npm run build-assets`);
+      return;
+    }
+
+    const gpx = readFileSync(gpxPath, "utf-8");
+    if (gpx.trim().length === 0) {
+      add(file, `route.gpx for "${COASTAL_VARIANT_ASSET_ID}" is empty — run npm run build-assets`);
+      return;
+    }
+
+    const trkptCount = (gpx.match(TRKPT_PATTERN) ?? []).length;
+    if (trkptCount !== expected) {
+      add(
+        file,
+        `route.gpx for "${COASTAL_VARIANT_ASSET_ID}" has ${trkptCount} <trkpt> point(s), data says ${expected} — run npm run build-assets`,
+      );
+    }
+  }
+
+  /**
+   * Task 1 shipped GPX generation, but nothing linked to it: every detail
+   * page's Files & CDN table listed metadata.json/route.geojson/stages.json/
+   * waypoints.geojson/stats.json and left route.gpx to be guessed at. This
+   * only checks that the page links its own route.gpx somewhere — it
+   * doesn't care whether that's a table row, the jsDelivr code block, or
+   * both.
+   */
+  function checkRouteGpxLink(id: string, detailHtml: string): void {
+    const file = `docs/${id}.html`;
+    if (!detailHtml.includes(`routes/${id}/route.gpx`)) {
+      add(
+        file,
+        `route "${id}" detail page has no link to its route.gpx — add a Files & CDN row linking ` +
+          `${JSDELIVR_BASE}/routes/${id}/route.gpx`,
+      );
+    }
+  }
+
+  /**
+   * The filter panel on docs/routes.html is revealed by CSS on the
+   * <html class="js"> hook, set by an inline script, rather than by
+   * route-filter.js itself — that fixed a real layout shift on load. It also
+   * means deleting route-filter.js, or just its <script> tag, leaves the
+   * panel rendered and fully interactive-looking while doing nothing: no
+   * other check here would notice, since nothing else ties routes.html to
+   * the script it depends on.
+   */
+  function checkRouteFilterWiring(): void {
+    if (!routesHtml.includes('src="route-filter.js"')) {
+      add(
+        "docs/routes.html",
+        'routes.html has no <script src="route-filter.js"> — the filter panel ' +
+          "would render at first paint and do nothing",
+      );
+    }
+
+    const scriptPath = join(docs, "route-filter.js");
+    if (!existsSync(scriptPath)) {
+      add(
+        "docs/route-filter.js",
+        "docs/route-filter.js does not exist — routes.html's filter panel has no script to run",
+      );
+    } else if (readFileSync(scriptPath, "utf-8").trim().length === 0) {
+      add(
+        "docs/route-filter.js",
+        "docs/route-filter.js is empty — routes.html's filter panel has no script to run",
+      );
+    }
+  }
+
+  /**
    * The route chooser filter (docs/route-filter.js) reads days/distance/
    * difficulty/best-months straight off each route-card's data-* attributes
    * rather than a second copy of the dataset. Nothing else stops those
@@ -425,8 +606,10 @@ export function checkSite(root: string, overrides: PageOverrides = {}): Problem[
     }
 
     for (const [attr, expectedFor] of ROUTE_FILTER_ATTRS) {
-      const rendered = readDataAttr(cardTag, attr);
       const expected = expectedFor(overview);
+      if (expected === undefined) continue; // this field is missing/invalid in metadata.json — validate's job
+
+      const rendered = readDataAttr(cardTag, attr);
       if (rendered === undefined) {
         add(
           "docs/routes.html",
@@ -442,13 +625,53 @@ export function checkSite(root: string, overrides: PageOverrides = {}): Problem[
   }
 
   /**
+   * schema/pilgrimage.schema.json allows difficulty "expert" as well as
+   * easy/moderate/hard, but the filter's <select> only offered three of the
+   * four — a schema-valid "expert" route would render its card with
+   * data-difficulty="expert" (checkRouteFilterAttrs above confirms that much)
+   * and then be invisible under every option in the difficulty dropdown,
+   * with nothing here or in the browser to say so.
+   */
+  function checkDifficultyFilterVocabulary(): void {
+    const enumValues = readDifficultyEnum(root);
+    if (!enumValues) return; // schema file missing/malformed — not this guard's job
+
+    const selectMatch = routesHtml.match(DIFFICULTY_SELECT_PATTERN);
+    if (!selectMatch) {
+      add(
+        "docs/routes.html",
+        'no <select id="filter-difficulty"> found — can\'t verify its options cover the schema\'s difficulty enum',
+      );
+      return;
+    }
+
+    const optionValues = new Set(
+      [...selectMatch[1].matchAll(OPTION_VALUE_PATTERN)].map((m) => m[1]).filter((v) => v !== ""),
+    );
+
+    for (const value of enumValues) {
+      if (!optionValues.has(value)) {
+        add(
+          "docs/routes.html",
+          `difficulty filter has no option for schema value "${value}" — a route with this difficulty ` +
+            `would be invisible under every difficulty selection`,
+        );
+      }
+    }
+  }
+
+  /**
    * The interior journey narratives are hand-inlined into each detail page
    * rather than templated, so nothing stops them drifting from stages.json
    * silently: a stage added, removed, or reworded in the data would leave
    * the page's editorial content wrong with no build failure. This checks
-   * two things that would catch that drift — the rendered stage count still
-   * matches stages.json, and the first stage's narrative still reads exactly
-   * as authored — without trying to diff all 109 stages' prose byte-for-byte.
+   * the rendered stage count against stages.json, then every stage's
+   * narrative and reflection against the page's text — checking only
+   * stage 1 previously left 33 of 34 camino-norte narratives and all 34
+   * reflections completely unguarded. detailHtml is compared after decoding
+   * HTML entities, since the narrative/reflection text from stages.json is
+   * unescaped and a correctly-escaped page (e.g. "&amp;" for a literal "&")
+   * would otherwise never match.
    */
   function checkInteriorJourney(id: string, detailHtml: string): void {
     const stagesPath = join(root, "routes", id, "stages.json");
@@ -464,6 +687,7 @@ export function checkSite(root: string, overrides: PageOverrides = {}): Problem[
     if (!isStagesFileLike(parsed) || !Array.isArray(parsed.stages)) return;
     const stages = parsed.stages;
     const file = `docs/${id}.html`;
+    const decoded = decodeEntities(detailHtml);
 
     const renderedCount = (detailHtml.match(STAGE_INTERIOR_PATTERN) ?? []).length;
     if (renderedCount !== stages.length) {
@@ -474,18 +698,28 @@ export function checkSite(root: string, overrides: PageOverrides = {}): Problem[
       );
     }
 
-    const firstStage: unknown = stages[0];
-    const firstNarrative = isStageLike(firstStage)
-      ? localizedText(firstStage.interior?.narrative)
-      : null;
+    stages.forEach((stage: unknown, index: number) => {
+      if (!isStageLike(stage)) return;
+      const stageNum = index + 1;
 
-    if (firstNarrative && !detailHtml.includes(firstNarrative)) {
-      add(
-        file,
-        `stage 1's interior narrative does not appear verbatim on the page — ` +
-          `interior journey content has drifted from stages.json`,
-      );
-    }
+      const narrative = localizedText(stage.interior?.narrative);
+      if (narrative && !decoded.includes(narrative)) {
+        add(
+          file,
+          `stage ${stageNum}'s interior narrative does not appear verbatim on the page — ` +
+            `interior journey content has drifted from stages.json`,
+        );
+      }
+
+      const reflection = localizedText(stage.interior?.reflection);
+      if (reflection && !decoded.includes(reflection)) {
+        add(
+          file,
+          `stage ${stageNum}'s interior reflection does not appear verbatim on the page — ` +
+            `interior journey content has drifted from stages.json`,
+        );
+      }
+    });
   }
 
   for (const id of ids) {
@@ -521,6 +755,7 @@ export function checkSite(root: string, overrides: PageOverrides = {}): Problem[
       checkInlinedAsset("profiles", id, detailPages);
       checkInlinedAsset("sparklines", id, detailPages);
       checkInteriorJourney(id, detailHtml);
+      checkRouteGpxLink(id, detailHtml);
 
       // The coastal variant ships full geometry, a profile, and a sparkline of
       // its own, but has no detail page — its assets are inlined into the
@@ -547,6 +782,10 @@ export function checkSite(root: string, overrides: PageOverrides = {}): Problem[
     }
   }
 
+  checkCoastalVariantGpx();
+  checkRouteFilterWiring();
+  checkDifficultyFilterVocabulary();
+
   // Reverse checks: the loop above confirms everything index.json expects
   // exists. It never confirms the opposite — that everything sitting on disk
   // is still expected. Without this, removing a route from index.json leaves
@@ -562,6 +801,15 @@ export function checkSite(root: string, overrides: PageOverrides = {}): Problem[
       add(
         `docs/${entry}`,
         `orphaned detail page — "${stem}" is not a route in index.json; delete this page or add the route back to index.json`,
+      );
+    }
+
+    for (const entry of readdirSync(docs)) {
+      if (!entry.endsWith(".js")) continue;
+      if (KNOWN_SCRIPTS.has(entry)) continue;
+      add(
+        `docs/${entry}`,
+        `orphaned script — "${entry}" is not in check-site.ts's KNOWN_SCRIPTS; delete it or add it to KNOWN_SCRIPTS if it's a real, wired-up script`,
       );
     }
   }
