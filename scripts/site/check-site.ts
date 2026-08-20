@@ -30,6 +30,46 @@ const HREF_PATTERN = /href="([^"]+)"/g;
 
 const TRKPT_PATTERN = /<trkpt\b/g;
 
+const STAGE_INTERIOR_PATTERN = /<details class="stage-interior">/g;
+
+interface LocalizedStringLike {
+  en?: unknown;
+}
+
+function isLocalizedStringLike(value: unknown): value is LocalizedStringLike {
+  return typeof value === "object" && value !== null;
+}
+
+/**
+ * A stage's interior.narrative (and commonExperiences entries) are typed as
+ * LocalizedString in the schema, but the guard reads stages.json defensively
+ * rather than trusting the schema holds — either a bare string or an
+ * `{ en: string }` object should resolve to the same English text.
+ */
+function localizedText(value: unknown): string | null {
+  if (typeof value === "string") return value;
+  if (isLocalizedStringLike(value) && typeof value.en === "string") return value.en;
+  return null;
+}
+
+interface StageLike {
+  interior?: {
+    narrative?: unknown;
+  };
+}
+
+function isStageLike(value: unknown): value is StageLike {
+  return typeof value === "object" && value !== null;
+}
+
+interface StagesFileLike {
+  stages?: unknown;
+}
+
+function isStagesFileLike(value: unknown): value is StagesFileLike {
+  return typeof value === "object" && value !== null;
+}
+
 const README_TOTALS_PATTERN =
   /([\d,]+) GPS points\.\s*([\d,]+) waypoints\.\s*([\d,]+) stages\.\s*([\d,]+) routes across/;
 
@@ -271,6 +311,53 @@ export function checkSite(root: string, overrides: PageOverrides = {}): Problem[
     }
   }
 
+  /**
+   * The interior journey narratives are hand-inlined into each detail page
+   * rather than templated, so nothing stops them drifting from stages.json
+   * silently: a stage added, removed, or reworded in the data would leave
+   * the page's editorial content wrong with no build failure. This checks
+   * two things that would catch that drift — the rendered stage count still
+   * matches stages.json, and the first stage's narrative still reads exactly
+   * as authored — without trying to diff all 109 stages' prose byte-for-byte.
+   */
+  function checkInteriorJourney(id: string, detailHtml: string): void {
+    const stagesPath = join(root, "routes", id, "stages.json");
+    if (!existsSync(stagesPath)) return;
+
+    let parsed: unknown;
+    try {
+      parsed = JSON.parse(readFileSync(stagesPath, "utf-8"));
+    } catch {
+      return; // malformed stages.json is npm run validate's job to report
+    }
+
+    if (!isStagesFileLike(parsed) || !Array.isArray(parsed.stages)) return;
+    const stages = parsed.stages;
+    const file = `docs/${id}.html`;
+
+    const renderedCount = (detailHtml.match(STAGE_INTERIOR_PATTERN) ?? []).length;
+    if (renderedCount !== stages.length) {
+      add(
+        file,
+        `renders ${renderedCount} stage interior narrative(s) (<details class="stage-interior">), ` +
+          `stages.json has ${stages.length} stage(s) — interior journey content has drifted from the data`,
+      );
+    }
+
+    const firstStage: unknown = stages[0];
+    const firstNarrative = isStageLike(firstStage)
+      ? localizedText(firstStage.interior?.narrative)
+      : null;
+
+    if (firstNarrative && !detailHtml.includes(firstNarrative)) {
+      add(
+        file,
+        `stage 1's interior narrative does not appear verbatim on the page — ` +
+          `interior journey content has drifted from stages.json`,
+      );
+    }
+  }
+
   for (const id of ids) {
     if (!routesHtml.includes(`href="/${id}"`)) {
       add("docs/routes.html", `route "${id}" has no link to /${id} in the catalog`);
@@ -303,6 +390,7 @@ export function checkSite(root: string, overrides: PageOverrides = {}): Problem[
       ]);
       checkInlinedAsset("profiles", id, detailPages);
       checkInlinedAsset("sparklines", id, detailPages);
+      checkInteriorJourney(id, detailHtml);
 
       // The coastal variant ships full geometry, a profile, and a sparkline of
       // its own, but has no detail page — its assets are inlined into the
