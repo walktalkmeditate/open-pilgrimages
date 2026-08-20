@@ -2,7 +2,7 @@
   "schemaVersion": "1.0.0",
   "id": "coastal",
   "parentRouteId": "camino-portugues",
-  "lastUpdated": "2026-04-10T00:00:00Z",
+  "lastUpdated": "2026-08-20T00:00:00Z",
   "name": {
     "en": "Camino Portugués da Costa (Coastal — Portuguese section)",
     "pt": "Caminho Português da Costa (trecho português)",
@@ -28,7 +28,7 @@
     },
     "elevationRange": {
       "minMeters": 0,
-      "maxMeters": 100,
+      "maxMeters": 95,
       "totalAscentMeters": 600,
       "totalDescentMeters": 580
     },

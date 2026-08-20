@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
   "id": "camino-portugues",
-  "lastUpdated": "2026-04-09T00:00:00Z",
+  "lastUpdated": "2026-08-20T00:00:00Z",
 
   "name": {
     "en": "Camino Portugués (Central)",
@@ -38,8 +38,8 @@
       "coordinates": [-8.544, 42.881, 260]
     },
     "elevationRange": {
-      "minMeters": 10,
-      "maxMeters": 420,
+      "minMeters": 5,
+      "maxMeters": 410,
       "totalAscentMeters": 3100,
       "totalDescentMeters": 2920
     },
