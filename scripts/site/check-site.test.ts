@@ -1645,16 +1645,22 @@ function roadsFixtureRoot(): string {
   return root;
 }
 
-// camino-frances and shikoku-88's roads corridors are still pending a
-// fetch-roads run: the public Overpass instance rate-limited this session
-// after the other six routes' fetches (verified — even a single-point,
-// single-way status probe got HTTP 406 after a 45-minute cooldown with no
-// further requests in between). Once that clears, `npm run fetch-roads --
-// camino-frances shikoku-88 && npm run build-roads` will fill both in, and
-// this test should go back to asserting zero roads problems for every route,
-// the same way the routes.html/README positive controls above were pinned
-// to their own real gaps while Tasks 10-13 were still in flight.
-const ROADS_PENDING_FETCH = new Set(["camino-frances", "shikoku-88"]);
+// camino-frances's decimated trace (229 anchors) was too large for a single
+// Overpass `around:` request; chunking it (see MAX_CHUNK_POINTS in
+// roads.ts) fixed that, and its corridor is now fetched and committed like
+// the other six. shikoku-88 (415 anchors, 8 chunks) genuinely could not be
+// fetched even chunked: three honest, paced attempts across this session
+// each got further than the last (a 429 on chunk 2/8, then a 504 on chunk
+// 5/8, then a 504 on chunk 6/8) before the public Overpass instance's
+// per-request cost for that corridor's road density won out. Hammering it
+// with more attempts risked the shared instance, not just this route, so
+// this is being left as a documented gap rather than retried further. Once
+// a future attempt succeeds, run `npm run fetch-roads -- shikoku-88 &&
+// npm run build-roads` and this test should go back to asserting zero roads
+// problems for every route, the same way the routes.html/README positive
+// controls above were pinned to their own real gaps while Tasks 10-13 were
+// still in flight.
+const ROADS_PENDING_FETCH = new Set(["shikoku-88"]);
 
 test("the committed docs/assets/roads/*.svg already exist, parse, and hash-match route.geojson for every route whose corridor has been fetched (positive control)", () => {
   const problems = checkSite(ROOT).filter((p) => p.file.startsWith("docs/assets/roads/"));

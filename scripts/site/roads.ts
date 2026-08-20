@@ -70,6 +70,56 @@ export function decimateRoutePoints(segments: Point[][], spacingKm: number = DEC
   return kept;
 }
 
+/**
+ * Bounds how many "around" anchors go into a single Overpass request.
+ * camino-frances (229 decimated anchors) and shikoku-88 (415) both fail
+ * outright as one request, while camino-norte succeeds at 193 — a single
+ * `around:` clause carrying a route's whole decimated trace forces Overpass
+ * to run proximity tests against the entire anchor list at once, and past
+ * some point that workload times out or gets refused server-side rather
+ * than degrading gracefully. Chosen well under camino-norte's own working
+ * count so a chunked request stays comfortably inside what the free
+ * instance handles, not just barely under the failure line.
+ */
+export const MAX_CHUNK_POINTS = 60;
+
+/**
+ * How many anchors consecutive chunks share at their boundary. A road just
+ * past the edge of one chunk's anchors might sit outside every anchor's
+ * `around:` radius in that chunk alone but inside the radius of an anchor
+ * that belongs to the next chunk — overlapping the anchor lists themselves
+ * (not just relying on AROUND_RADIUS_METERS) guarantees the seam is covered
+ * by both neighbours, not neither.
+ */
+export const CHUNK_OVERLAP_POINTS = 6;
+
+/**
+ * Splits a decimated trace into overlapping chunks no larger than
+ * `chunkSize`, so each one can be sent to Overpass as its own request. A
+ * trace that already fits in one chunk comes back as a single chunk
+ * containing every point, unchanged — the same request `overpassQueryFor`
+ * would have built without chunking at all.
+ */
+export function chunkTrace(
+  points: Point[],
+  chunkSize: number = MAX_CHUNK_POINTS,
+  overlap: number = CHUNK_OVERLAP_POINTS,
+): Point[][] {
+  if (points.length === 0) return [];
+  if (points.length <= chunkSize) return [points];
+
+  const step = Math.max(1, chunkSize - overlap);
+  const chunks: Point[][] = [];
+
+  for (let start = 0; start < points.length; start += step) {
+    const end = Math.min(start + chunkSize, points.length);
+    chunks.push(points.slice(start, end));
+    if (end >= points.length) break;
+  }
+
+  return chunks;
+}
+
 const ALLOWED_HIGHWAY_VALUES = [
   "motorway",
   "trunk",
@@ -142,6 +192,37 @@ export interface RoadsCacheFile {
   routeId: string;
   query: string;
   elements: unknown[];
+}
+
+function rawWayId(element: unknown): number | null {
+  if (typeof element !== "object" || element === null) return null;
+  const v = element as { type?: unknown; id?: unknown };
+  return v.type === "way" && typeof v.id === "number" ? v.id : null;
+}
+
+/**
+ * Merges the raw Overpass elements from a route's chunk requests into one
+ * deduplicated, deterministically ordered list — ready to write straight
+ * into a RoadsCacheFile's `elements` field, the same shape a single-request
+ * route already produces. Chunks overlap at their boundaries (see
+ * CHUNK_OVERLAP_POINTS), so the same way routinely comes back from more than
+ * one chunk; it's kept once, by OSM way id, using whichever chunk returned
+ * it first. Sorting by id afterward means the merged cache — and everything
+ * rendered from it — doesn't depend on how many chunks a route needed or
+ * what order they were requested in.
+ */
+export function mergeWayElements(chunkResults: unknown[][]): unknown[] {
+  const byId = new Map<number, unknown>();
+
+  for (const elements of chunkResults) {
+    for (const element of elements) {
+      const id = rawWayId(element);
+      if (id === null || byId.has(id)) continue;
+      byId.set(id, element);
+    }
+  }
+
+  return [...byId.entries()].sort(([a], [b]) => a - b).map(([, element]) => element);
 }
 
 function isOverpassGeometryPoint(value: unknown): value is OverpassGeometryPoint {
