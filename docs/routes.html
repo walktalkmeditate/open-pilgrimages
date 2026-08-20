@@ -18,7 +18,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Lato:wght@400;700&display=swap" rel="stylesheet">
-  <script>try{var t=localStorage.getItem("op-theme");if(t)document.documentElement.setAttribute("data-theme",t);}catch(e){}</script>
+  <script>document.documentElement.classList.add("js");try{var t=localStorage.getItem("op-theme");if(t)document.documentElement.setAttribute("data-theme",t);}catch(e){}</script>
   <link rel="stylesheet" href="styles.css">
   <script src="hero.js" defer></script>
   <script src="route-sort.js" defer></script>
@@ -50,7 +50,7 @@
 
     <h2>All Routes</h2>
 
-    <div class="route-filter" data-route-filter hidden>
+    <div class="route-filter" data-route-filter>
       <p class="route-filter-note">Filters the cards below by what matters when picking a route. The comparison table further down always lists all seven.</p>
       <div class="route-filter-fields">
         <div class="filter-field">

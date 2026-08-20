@@ -95,5 +95,4 @@
   clearButton.addEventListener("click", resetFilters);
 
   applyFilters();
-  panel.hidden = false;
 })();

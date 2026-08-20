@@ -411,12 +411,14 @@ nav .nav-github svg {
 }
 
 /* Route chooser filter (docs/routes.html): reads its four fields straight off
-   each route-card's data-* attributes — see route-filter.js. [hidden] must
-   keep winning over this file's own display rule until the script reveals
-   the panel, so the layout rule is scoped to :not([hidden]) rather than the
-   bare class, which would otherwise tie with the UA stylesheet and win by
-   source order regardless of the attribute. */
-.route-filter:not([hidden]) {
+   each route-card's data-* attributes — see route-filter.js. Revealed by the
+   `js` class the inline head script sets, so the panel is present at first
+   paint rather than appearing when a deferred script runs — that reveal was
+   a real layout shift. Without JS the class never lands and the panel stays
+   hidden, so no dead filter UI is ever shown. */
+.route-filter { display: none; }
+
+:root.js .route-filter {
   display: block;
   border: 1px solid var(--fog);
   border-radius: 4px;
