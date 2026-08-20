@@ -1,6 +1,6 @@
 (function () {
   var table = document.querySelector("[data-sortable]");
-  if (!table) return;
+  if (!table || !table.tHead) return;
 
   var tbody = table.tBodies[0];
   var headerRow = table.tHead.rows[0];
@@ -13,6 +13,14 @@
     rows.sort(function (a, b) {
       var av = parseFloat(a.cells[columnIndex].getAttribute("data-value"));
       var bv = parseFloat(b.cells[columnIndex].getAttribute("data-value"));
+      var aMissing = isNaN(av);
+      var bMissing = isNaN(bv);
+
+      // Missing/malformed data-value always sorts last, regardless of
+      // direction — otherwise NaN propagates into the comparator's result,
+      // which Array#sort treats as "equal" and leaves in an arbitrary order.
+      if (aMissing || bMissing) return aMissing && bMissing ? 0 : aMissing ? 1 : -1;
+
       return (av - bv) * sign;
     });
 
@@ -27,8 +35,8 @@
       var columnIndex = th.cellIndex;
       var direction = th.getAttribute("aria-sort") === "descending" ? "ascending" : "descending";
 
-      [].slice.call(headerRow.cells).forEach(function (cell) {
-        cell.setAttribute("aria-sort", cell === th ? direction : "none");
+      buttons.forEach(function (otherButton) {
+        otherButton.parentElement.setAttribute("aria-sort", otherButton === button ? direction : "none");
       });
 
       sortRows(columnIndex, direction);
