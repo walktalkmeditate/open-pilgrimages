@@ -715,3 +715,39 @@ nav .nav-actions .nav-github svg {
   .hero-cta { flex-direction: column; }
   .hero-cta .btn { text-align: center; }
 }
+
+/* Route detail pages: full-bleed glyph header, plus the elevation-profile
+   and pilgrim-count charts inlined from docs/assets/ (rather than <img>)
+   so their currentColor strokes pick up the page's light/dark theme. */
+.route-hero {
+  display: flex;
+  justify-content: center;
+  padding: var(--space-xl) 0;
+  margin-bottom: var(--space-lg);
+  background: var(--surface);
+  border-bottom: 1px solid var(--fog);
+  color: var(--stone);
+}
+
+.route-hero svg {
+  width: 140px;
+  height: 140px;
+}
+
+.profile {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.spark {
+  display: block;
+  width: 100%;
+  max-width: 240px;
+  height: auto;
+}
+
+.figure-caption {
+  font-size: 0.85rem;
+  color: var(--stone);
+}
