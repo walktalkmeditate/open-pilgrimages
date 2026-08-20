@@ -183,9 +183,9 @@ function main(): void {
   console.log(`\nTotals:`);
   console.log(`  Routes:       ${stats.totals.routes}`);
   console.log(`  Stages:       ${stats.totals.stages}`);
-  console.log(`  Waypoints:    ${stats.totals.waypoints.toLocaleString()}`);
-  console.log(`  Route points: ${stats.totals.routePoints.toLocaleString()}`);
-  console.log(`  Distance:     ${stats.totals.distanceKm.toLocaleString()} km`);
+  console.log(`  Waypoints:    ${stats.totals.waypoints.toLocaleString("en-US")}`);
+  console.log(`  Route points: ${stats.totals.routePoints.toLocaleString("en-US")}`);
+  console.log(`  Distance:     ${stats.totals.distanceKm.toLocaleString("en-US")} km`);
 }
 
 if (import.meta.filename === resolveInvokedPath(process.argv[1])) {
