@@ -698,3 +698,129 @@ test("checkSite reports a variants table row with no matching entry in index.jso
     rmSync(root, { recursive: true, force: true });
   }
 });
+
+// route.gpx coverage: every route in index.json must ship a non-empty
+// route.gpx whose <trkpt> count matches computeStats()' routePoints. That
+// last comparison is the one branch that actually catches the GPX drifting
+// out of sync with the geometry it was generated from — a plain
+// existence/non-empty check would miss a file that is present but stale.
+
+test("checkSite reports a route with no route.gpx file (fixture)", () => {
+  // #given an index.json listing a route with no routes/{id}/route.gpx on disk
+  const root = createFixtureRoot([{ id: "camino-frances" }]);
+
+  try {
+    // #when / #then checkSite reports the missing file, naming the route
+    const problems = checkSite(root);
+    assert.ok(
+      problems.some(
+        (p) =>
+          p.file === "routes/camino-frances/route.gpx" && p.message.includes("has no route.gpx"),
+      ),
+    );
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("checkSite reports an empty route.gpx file, distinct from a missing one (fixture)", () => {
+  // #given a routes/{id}/route.gpx that exists on disk but is empty
+  const root = createFixtureRoot([{ id: "camino-frances" }]);
+  mkdirSync(join(root, "routes", "camino-frances"), { recursive: true });
+  writeFileSync(join(root, "routes", "camino-frances", "route.gpx"), "");
+
+  try {
+    // #when checkSite reads that file
+    const problems = checkSite(root);
+    const gpxProblems = problems.filter((p) => p.file === "routes/camino-frances/route.gpx");
+
+    // #then it is reported as empty, not as missing
+    assert.ok(gpxProblems.some((p) => p.message.includes("is empty")));
+    assert.ok(!gpxProblems.some((p) => p.message.includes("has no route.gpx")));
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+// The core drift guard, and per project history a branch that has never
+// been seen to fire is not trustworthy — this proves it does.
+test("checkSite reports a route.gpx whose <trkpt> count does not match computeStats' routePoints (fixture)", () => {
+  // #given a route.geojson with 3 points but a committed route.gpx with only
+  // 2 <trkpt> elements — GPX that drifted out of sync with its geometry
+  const root = createFixtureRoot([{ id: "camino-frances" }]);
+  const routeDir = join(root, "routes", "camino-frances");
+  mkdirSync(routeDir, { recursive: true });
+  writeFileSync(join(routeDir, "metadata.json"), JSON.stringify({}));
+  writeFileSync(
+    join(routeDir, "route.geojson"),
+    JSON.stringify({
+      type: "FeatureCollection",
+      features: [{ geometry: { type: "LineString", coordinates: [[1, 2], [3, 4], [5, 6]] } }],
+    }),
+  );
+  writeFileSync(
+    join(routeDir, "route.gpx"),
+    '<?xml version="1.0" encoding="UTF-8"?>\n<gpx><trk><trkseg>' +
+      '<trkpt lat="2.000000" lon="1.000000"/><trkpt lat="4.000000" lon="3.000000"/>' +
+      "</trkseg></trk></gpx>\n",
+  );
+
+  try {
+    // #when checkSite compares the gpx's <trkpt> count against computeStats()
+    const problems = checkSite(root);
+
+    // #then it reports the mismatch by name: 2 present, 3 expected
+    assert.ok(
+      problems.some(
+        (p) =>
+          p.file === "routes/camino-frances/route.gpx" &&
+          p.message.includes("has 2 <trkpt>") &&
+          p.message.includes("data says 3"),
+      ),
+    );
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("checkSite accepts a route.gpx whose <trkpt> count matches computeStats' routePoints (fixture)", () => {
+  // #given a route.geojson with 3 points and a route.gpx with exactly 3 <trkpt> elements
+  const root = createFixtureRoot([{ id: "camino-frances" }]);
+  const routeDir = join(root, "routes", "camino-frances");
+  mkdirSync(routeDir, { recursive: true });
+  writeFileSync(join(routeDir, "metadata.json"), JSON.stringify({}));
+  writeFileSync(
+    join(routeDir, "route.geojson"),
+    JSON.stringify({
+      type: "FeatureCollection",
+      features: [{ geometry: { type: "LineString", coordinates: [[1, 2], [3, 4], [5, 6]] } }],
+    }),
+  );
+  writeFileSync(
+    join(routeDir, "route.gpx"),
+    '<?xml version="1.0" encoding="UTF-8"?>\n<gpx><trk><trkseg>' +
+      '<trkpt lat="2.000000" lon="1.000000"/><trkpt lat="4.000000" lon="3.000000"/>' +
+      '<trkpt lat="6.000000" lon="5.000000"/></trkseg></trk></gpx>\n',
+  );
+
+  try {
+    // #when / #then checkSite reports no gpx-related problem for this route
+    const problems = checkSite(root);
+    assert.deepEqual(
+      problems.filter((p) => p.file === "routes/camino-frances/route.gpx"),
+      [],
+    );
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("the committed routes/ already has a route.gpx for every route whose <trkpt> count matches computeStats (positive control)", () => {
+  // #given every route's route.gpx was generated by npm run build-assets
+  // #when / #then checkSite reports no gpx-related problems for any route
+  const problems = checkSite(ROOT);
+  assert.deepEqual(
+    problems.filter((p) => p.file.endsWith("route.gpx")),
+    [],
+  );
+});
