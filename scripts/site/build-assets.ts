@@ -27,7 +27,7 @@ interface Target {
 }
 
 /** Every top-level route, plus the coastal variant, which is a full route. */
-function targets(root: string): Target[] {
+export function targets(root: string): Target[] {
   const routesDir = join(root, "routes");
   const list: Target[] = [];
 
@@ -47,7 +47,7 @@ function targets(root: string): Target[] {
   return list.sort((a, b) => byCodepoint(a.key, b.key));
 }
 
-function readJson(path: string): unknown | null {
+export function readJson(path: string): unknown | null {
   return existsSync(path) ? JSON.parse(readFileSync(path, "utf-8")) : null;
 }
 

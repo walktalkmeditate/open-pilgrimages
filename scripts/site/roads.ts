@@ -1,0 +1,605 @@
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from "fs";
+import { join } from "path";
+import { createHash } from "node:crypto";
+import { resolveInvokedPath } from "../cli.js";
+import { readJson, targets } from "./build-assets.js";
+import { GLYPH_BOX, segmentsOf } from "./glyphs.js";
+import { mercator, simplify, toPathData, type Box, type Point } from "./project.js";
+
+const ROOT = join(import.meta.dirname, "..", "..");
+
+function haversineKm(a: Point, b: Point): number {
+  const [lon1, lat1] = a;
+  const [lon2, lat2] = b;
+  const EARTH_RADIUS_KM = 6371;
+
+  const dLat = ((lat2 - lat1) * Math.PI) / 180;
+  const dLon = ((lon2 - lon1) * Math.PI) / 180;
+  const s1 = Math.sin(dLat / 2);
+  const s2 = Math.sin(dLon / 2);
+  const h =
+    s1 * s1 + Math.cos((lat1 * Math.PI) / 180) * Math.cos((lat2 * Math.PI) / 180) * s2 * s2;
+
+  return 2 * EARTH_RADIUS_KM * Math.asin(Math.sqrt(h));
+}
+
+/**
+ * How far apart kept points may be along the path. Chosen with
+ * AROUND_RADIUS_METERS below so every original route point — anywhere along
+ * the path, not just at a kept point — is guaranteed to be closer to its
+ * nearest kept point than the corridor radius has room for: half the
+ * spacing (routes are dense GPS traces, so consecutive points are metres
+ * apart, not kilometres) plus the ~3.3 km the corridor grid can reach stays
+ * well inside a 6 km "around" radius. Wider than the minimum safe spacing
+ * on purpose — Overpass's public instance measurably struggled (timeouts
+ * past 180s) with a few hundred "around" anchors on the busiest routes;
+ * fewer, further-apart anchors is the cheaper query for the same coverage.
+ */
+const DECIMATION_SPACING_KM = 3;
+
+/**
+ * A rectangular bbox query over a route's full extent charges Overpass for
+ * the *entire bounding rectangle* of a route, not its footprint — for a
+ * sprawling coastal route that's the difference between a few thousand
+ * roads and (measured) over 200,000, and it reliably time out on the public
+ * instance. Querying "around" a decimated trace of the path itself charges
+ * only for the corridor's actual footprint, matching what build-roads keeps
+ * anyway.
+ */
+export function decimateRoutePoints(segments: Point[][], spacingKm: number = DECIMATION_SPACING_KM): Point[] {
+  const kept: Point[] = [];
+
+  for (const segment of segments) {
+    if (segment.length === 0) continue;
+
+    let last = segment[0];
+    kept.push(last);
+
+    for (let i = 1; i < segment.length; i++) {
+      const point = segment[i];
+      if (haversineKm(last, point) >= spacingKm) {
+        kept.push(point);
+        last = point;
+      }
+    }
+
+    const lastPoint = segment[segment.length - 1];
+    if (kept[kept.length - 1] !== lastPoint) kept.push(lastPoint);
+  }
+
+  return kept;
+}
+
+const ALLOWED_HIGHWAY_VALUES = [
+  "motorway",
+  "trunk",
+  "primary",
+  "secondary",
+  "tertiary",
+  "unclassified",
+  "residential",
+] as const;
+
+/**
+ * Rendered ways are restricted to this narrower "major roads" set —
+ * motorway through tertiary, dropping unclassified and residential — even
+ * though the Overpass query above fetches the full seven-value set. This
+ * plan's own measured evidence for the corridor-vs-full-bbox decision (see
+ * docs/superpowers/plans/2026-08-20-road-corridor.md) was itself computed
+ * "major roads only": residential and unclassified are by far the most
+ * numerous way categories in any inhabited corridor, and rendering them
+ * pushed several routes' path data past the ~150 KB ceiling the same plan
+ * sets as a hard stop. Fetching the wider set anyway keeps the cache useful
+ * for any future, more detailed rendering without a second network trip;
+ * this narrower filter is what keeps today's SVG in budget.
+ */
+const MAJOR_HIGHWAY_VALUES = ["motorway", "trunk", "primary", "secondary", "tertiary"] as const;
+const MAJOR_HIGHWAY_PATTERN = new RegExp(`^(${MAJOR_HIGHWAY_VALUES.join("|")})$`);
+
+const OVERPASS_TIMEOUT_SECONDS = 280;
+
+/** Metres. Deliberately wider than the ~3 km corridor build-roads actually keeps — see DECIMATION_SPACING_KM. */
+const AROUND_RADIUS_METERS = 6000;
+
+/**
+ * The anchored highway regex is the only exclusion this query needs:
+ * construction/proposed/raceway/busway (and every other highway value, plus
+ * *_link variants) simply aren't in the allow-list, so "^(...)$" already
+ * keeps them out. access!=private is the one additional restriction the
+ * regex can't express, since it lives on a different tag.
+ *
+ * `points` should already be decimateRoutePoints' output, not every raw
+ * coordinate — Overpass's standalone "around" filter (no bbox, no prior
+ * query) accepts a flat list of lat/lon pairs and returns anything within
+ * range of *any* of them, which is exactly a corridor prefilter.
+ */
+export function overpassQueryFor(points: Point[]): string {
+  const coordsClause = points.map(([lon, lat]) => `${lat.toFixed(5)},${lon.toFixed(5)}`).join(",");
+
+  return (
+    `[out:json][timeout:${OVERPASS_TIMEOUT_SECONDS}];\n` +
+    `way(around:${AROUND_RADIUS_METERS},${coordsClause})` +
+    `["highway"~"^(${ALLOWED_HIGHWAY_VALUES.join("|")})$"]["access"!="private"];\n` +
+    `out geom;`
+  );
+}
+
+export interface OverpassGeometryPoint {
+  lat: number;
+  lon: number;
+}
+
+export interface OverpassWay {
+  type: "way";
+  id: number;
+  tags: Record<string, string>;
+  geometry: OverpassGeometryPoint[];
+}
+
+/** What fetch-roads.ts persists to .cache/roads/{route-id}.json. `elements` is Overpass's raw, unvalidated response. */
+export interface RoadsCacheFile {
+  fetchedAt: string;
+  routeId: string;
+  query: string;
+  elements: unknown[];
+}
+
+function isOverpassGeometryPoint(value: unknown): value is OverpassGeometryPoint {
+  if (typeof value !== "object" || value === null) return false;
+  const v = value as { lat?: unknown; lon?: unknown };
+  return typeof v.lat === "number" && typeof v.lon === "number";
+}
+
+/**
+ * Coerces one raw Overpass element into a typed way, or null if it isn't a
+ * well-formed way — the cache is this pipeline's own output, but it was
+ * still `JSON.parse`d from disk, so it's read as defensively as any other
+ * file this project doesn't fully control.
+ */
+function toOverpassWay(value: unknown): OverpassWay | null {
+  if (typeof value !== "object" || value === null) return null;
+  const v = value as { type?: unknown; id?: unknown; tags?: unknown; geometry?: unknown };
+  if (v.type !== "way" || typeof v.id !== "number") return null;
+
+  const tags: Record<string, string> = {};
+  if (typeof v.tags === "object" && v.tags !== null) {
+    for (const [key, val] of Object.entries(v.tags as Record<string, unknown>)) {
+      if (typeof val === "string") tags[key] = val;
+    }
+  }
+
+  const geometry = Array.isArray(v.geometry) ? v.geometry.filter(isOverpassGeometryPoint) : [];
+
+  return { type: "way", id: v.id, tags, geometry };
+}
+
+export function waysFromCache(cache: RoadsCacheFile): OverpassWay[] {
+  return cache.elements.map(toOverpassWay).filter((w): w is OverpassWay => w !== null);
+}
+
+/**
+ * The render-time gate: narrower than the fetch query (see
+ * MAJOR_HIGHWAY_VALUES above) and, independently, defense in depth — the
+ * cache is a file on disk that could have been fetched by an older query,
+ * hand-edited, or otherwise drifted, so build-roads re-checks access=private
+ * rather than trusting the query that produced it.
+ */
+export function isAllowedWay(way: OverpassWay): boolean {
+  const highway = way.tags.highway;
+  if (!highway || !MAJOR_HIGHWAY_PATTERN.test(highway)) return false;
+  if (way.tags.access === "private") return false;
+  return true;
+}
+
+const CORRIDOR_GRID_DEGREES = 0.01;
+const CORRIDOR_RADIUS_KM = 3;
+const APPROX_KM_PER_DEGREE = 111;
+
+/**
+ * How many grid cells a route point's influence spreads over, so that a road
+ * point sharing a nearby-but-not-identical cell still counts as "within the
+ * corridor". Coarse and isotropic on purpose — a prototype confirmed this
+ * grid is fast and accurate enough at this scale, without computing true
+ * point-to-polyline distance for millions of pairs.
+ */
+const CORRIDOR_RADIUS_CELLS = Math.ceil(
+  CORRIDOR_RADIUS_KM / (CORRIDOR_GRID_DEGREES * APPROX_KM_PER_DEGREE),
+);
+
+function gridCellOf(lon: number, lat: number): [number, number] {
+  return [Math.round(lon / CORRIDOR_GRID_DEGREES), Math.round(lat / CORRIDOR_GRID_DEGREES)];
+}
+
+export function corridorCellSet(routePoints: Point[]): Set<string> {
+  const cells = new Set<string>();
+
+  for (const [lon, lat] of routePoints) {
+    const [gx, gy] = gridCellOf(lon, lat);
+    for (let dx = -CORRIDOR_RADIUS_CELLS; dx <= CORRIDOR_RADIUS_CELLS; dx++) {
+      for (let dy = -CORRIDOR_RADIUS_CELLS; dy <= CORRIDOR_RADIUS_CELLS; dy++) {
+        cells.add(`${gx + dx},${gy + dy}`);
+      }
+    }
+  }
+
+  return cells;
+}
+
+export function wayInCorridor(way: OverpassWay, cells: Set<string>): boolean {
+  return way.geometry.some((pt) => {
+    const [gx, gy] = gridCellOf(pt.lon, pt.lat);
+    return cells.has(`${gx},${gy}`);
+  });
+}
+
+export interface CorridorSelection {
+  kept: OverpassWay[];
+  waysFetched: number;
+  waysKept: number;
+}
+
+export function selectCorridor(routePoints: Point[], ways: OverpassWay[]): CorridorSelection {
+  const cells = corridorCellSet(routePoints);
+  const kept = ways.filter((way) => wayInCorridor(way, cells));
+  return { kept, waysFetched: ways.length, waysKept: kept.length };
+}
+
+/**
+ * Replicates fitToBox's bounds-and-scale math (project.ts, frozen) but
+ * against a caller-supplied set of bounding points rather than the segments
+ * being fitted. This is what lets the road corridor project into the exact
+ * same coordinate space as the route glyph: fitToBox always derives bounds
+ * from whatever it's given, so fitting roads through it directly would size
+ * them to the corridor's own extent — which reaches past the route on every
+ * bend — rather than the route's, and the two layers would drift apart.
+ */
+export function fitToRouteBounds(
+  routeBoundsPoints: Point[],
+  segments: Point[][],
+  box: Box,
+): Point[][] {
+  if (routeBoundsPoints.length === 0) return segments;
+
+  let minX = routeBoundsPoints[0][0];
+  let maxX = minX;
+  let minY = routeBoundsPoints[0][1];
+  let maxY = minY;
+
+  for (let i = 1; i < routeBoundsPoints.length; i++) {
+    const [x, y] = routeBoundsPoints[i];
+    if (x < minX) minX = x;
+    if (x > maxX) maxX = x;
+    if (y < minY) minY = y;
+    if (y > maxY) maxY = y;
+  }
+
+  const inner = box.size - 2 * box.padding;
+  const span = Math.max(maxX - minX, maxY - minY) || 1e-9;
+  const scale = inner / span;
+
+  const offsetX = box.padding + (inner - (maxX - minX) * scale) / 2;
+  const offsetY = box.padding + (inner - (maxY - minY) * scale) / 2;
+
+  return segments.map((segment) =>
+    segment.map(([x, y]): Point => [(x - minX) * scale + offsetX, (maxY - y) * scale + offsetY]),
+  );
+}
+
+function endpointKey(pt: OverpassGeometryPoint): string {
+  return `${pt.lat.toFixed(7)},${pt.lon.toFixed(7)}`;
+}
+
+interface WayEndpoint {
+  wayIndex: number;
+  atStart: boolean;
+}
+
+/**
+ * Chains ways together through simple pass-through points — where exactly
+ * two way-ends meet — into longer continuous polylines, leaving real
+ * intersections (three or more way-ends) and dead ends (one way-end) as
+ * chain boundaries. OSM habitually splits one physical road into many short
+ * ways at every intersection; rendering (and simplifying) each of those
+ * independently, rather than merging them back into the single road they
+ * actually are, is what made early corridor output many times larger than
+ * the measured target — Douglas-Peucker has almost nothing to remove from a
+ * 3-point way, and every way boundary costs a fresh SVG "M" moveto.
+ */
+export function mergeConnectedWays(ways: OverpassWay[]): OverpassGeometryPoint[][] {
+  const usable = ways.filter((w) => w.geometry.length >= 2);
+  const endpointToWays = new Map<string, WayEndpoint[]>();
+
+  const addEndpoint = (key: string, entry: WayEndpoint): void => {
+    const list = endpointToWays.get(key);
+    if (list) {
+      list.push(entry);
+    } else {
+      endpointToWays.set(key, [entry]);
+    }
+  };
+
+  usable.forEach((way, wayIndex) => {
+    addEndpoint(endpointKey(way.geometry[0]), { wayIndex, atStart: true });
+    addEndpoint(endpointKey(way.geometry[way.geometry.length - 1]), { wayIndex, atStart: false });
+  });
+
+  const consumed = new Array<boolean>(usable.length).fill(false);
+
+  function unconsumedNeighborAt(key: string): WayEndpoint | null {
+    const list = endpointToWays.get(key);
+    if (!list || list.length !== 2) return null; // not a simple pass-through point
+    const candidates = list.filter((e) => !consumed[e.wayIndex]);
+    return candidates.length === 1 ? candidates[0] : null;
+  }
+
+  const chains: OverpassGeometryPoint[][] = [];
+
+  for (let i = 0; i < usable.length; i++) {
+    if (consumed[i]) continue;
+    consumed[i] = true;
+    let chain = usable[i].geometry;
+
+    for (;;) {
+      const key = endpointKey(chain[chain.length - 1]);
+      const neighbor = unconsumedNeighborAt(key);
+      if (!neighbor) break;
+
+      consumed[neighbor.wayIndex] = true;
+      const geometry = usable[neighbor.wayIndex].geometry;
+      const toAppend = neighbor.atStart ? geometry.slice(1) : [...geometry].reverse().slice(1);
+      chain = chain.concat(toAppend);
+    }
+
+    for (;;) {
+      const key = endpointKey(chain[0]);
+      const neighbor = unconsumedNeighborAt(key);
+      if (!neighbor) break;
+
+      consumed[neighbor.wayIndex] = true;
+      const geometry = usable[neighbor.wayIndex].geometry;
+      const toPrepend = neighbor.atStart ? [...geometry].reverse().slice(0, -1) : geometry.slice(0, -1);
+      chain = toPrepend.concat(chain);
+    }
+
+    chains.push(chain);
+  }
+
+  return chains;
+}
+
+/**
+ * Looser than glyphs.ts's own EPSILON_FRACTION (0.0016) and rendered at
+ * integer precision (see toPathData below) rather than one decimal place —
+ * deliberately, since the corridor is a faint background texture, not the
+ * route itself, and the byte budget is much tighter: this project's
+ * road-corridor plan sets a ~150 KB ceiling per route, and the corridor
+ * fragments into far more separate path segments (one per merged road,
+ * broken at every real junction) than a route's own single continuous line
+ * ever does. Coarser simplification and coordinates are where that overhead
+ * gets paid down without dropping roads outright.
+ */
+const ROADS_EPSILON_FRACTION = 0.005;
+const ROADS_PATH_PRECISION = 0;
+const ROADS_STROKE_WIDTH = 0.5;
+const ODBL_ATTRIBUTION = "© OpenStreetMap contributors, ODbL 1.0 (https://opendatacommons.org/licenses/odbl/1-0/)";
+
+const XML_ESCAPES: Record<string, string> = {
+  "&": "&amp;",
+  "<": "&lt;",
+  ">": "&gt;",
+  '"': "&quot;",
+  "'": "&apos;",
+};
+
+function escapeXmlAttr(text: string): string {
+  return text.replace(/[&<>"']/g, (char) => XML_ESCAPES[char]);
+}
+
+/**
+ * A hash of the route's coordinates, independent of everything else in
+ * route.geojson (stage names, tags, whitespace). This is the anchor the
+ * staleness guard compares against: a roads SVG rendered from an offline
+ * cache can't know the route's geometry changed since, but it can carry a
+ * fingerprint of the geometry it *was* rendered against, and check-site
+ * recomputes the same fingerprint from the current file to catch drift.
+ */
+export function hashRouteGeometry(geojson: unknown): string {
+  const segments = segmentsOf(geojson);
+  return createHash("sha256").update(JSON.stringify(segments)).digest("hex");
+}
+
+/**
+ * A hand-rolled well-formedness check rather than a real XML parser — this
+ * project takes no new dependencies and Node ships no DOMParser. It walks
+ * tag open/close balance only; good enough to catch a truncated or
+ * malformed build output without pulling in an XML library for one guard.
+ */
+export function isWellFormedXml(text: string): boolean {
+  const trimmed = text.trim();
+  if (trimmed.length === 0) return false;
+
+  const tagPattern = /<\/?([a-zA-Z][\w:.-]*)\b[^>]*?(\/)?>/g;
+  const stack: string[] = [];
+  let sawTag = false;
+  let match: RegExpExecArray | null;
+
+  while ((match = tagPattern.exec(trimmed)) !== null) {
+    const [full, name, selfClosing] = match;
+    sawTag = true;
+
+    if (full.startsWith("</")) {
+      if (stack.pop() !== name) return false;
+    } else if (!selfClosing) {
+      stack.push(name);
+    }
+  }
+
+  return sawTag && stack.length === 0;
+}
+
+export interface RoadsRender {
+  svg: string;
+  waysFetched: number;
+  waysKept: number;
+}
+
+/**
+ * Renders the road corridor for one route from its cached Overpass ways —
+ * never from the network. Returns null only when the route has no geometry
+ * to align against, matching build-assets.ts's own "missing input, skip
+ * rather than throw" convention for the same case.
+ */
+export function roadsSvgFrom(routeGeo: unknown, cache: RoadsCacheFile, box: Box = GLYPH_BOX): RoadsRender | null {
+  const routeSegments = segmentsOf(routeGeo);
+  if (routeSegments.length === 0) return null;
+
+  const routeBoundsPoints = routeSegments.flat().map(([lon, lat]) => mercator(lon, lat));
+
+  const allowedWays = waysFromCache(cache).filter(isAllowedWay);
+  const { kept, waysKept } = selectCorridor(routeSegments.flat(), allowedWays);
+  const waysFetched = cache.elements.length;
+
+  const sorted = [...kept].sort((a, b) => a.id - b.id);
+  const chains = mergeConnectedWays(sorted);
+  const roadSegments = chains.map((chain) => chain.map((pt): Point => mercator(pt.lon, pt.lat)));
+
+  const fitted = fitToRouteBounds(routeBoundsPoints, roadSegments, box);
+  const epsilon = (box.size - 2 * box.padding) * ROADS_EPSILON_FRACTION;
+  const simplified = fitted.map((segment) => simplify(segment, epsilon));
+  const d = toPathData(simplified, ROADS_PATH_PRECISION);
+
+  const hash = hashRouteGeometry(routeGeo);
+  const extractDate = cache.fetchedAt.slice(0, 10);
+
+  const svg =
+    `<?xml version="1.0" encoding="UTF-8"?>\n` +
+    `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${box.size} ${box.size}" ` +
+    `fill="none" stroke="currentColor" stroke-width="${ROADS_STROKE_WIDTH}" ` +
+    `stroke-linecap="round" stroke-linejoin="round">` +
+    `<metadata><roads-source geometry-hash="${hash}" extract-date="${extractDate}" ` +
+    `attribution="${escapeXmlAttr(ODBL_ATTRIBUTION)}"/></metadata>` +
+    `<path d="${d}"/>` +
+    `</svg>\n`;
+
+  return { svg, waysFetched, waysKept };
+}
+
+export function cachePathFor(root: string, id: string): string {
+  return join(root, ".cache", "roads", `${id}.json`);
+}
+
+interface RoadsCacheFileLike {
+  fetchedAt?: unknown;
+  routeId?: unknown;
+  query?: unknown;
+  elements?: unknown;
+}
+
+function isRoadsCacheFileLike(value: unknown): value is RoadsCacheFileLike {
+  return typeof value === "object" && value !== null;
+}
+
+export function readRoadsCache(root: string, id: string): RoadsCacheFile | null {
+  const path = cachePathFor(root, id);
+  if (!existsSync(path)) return null;
+
+  let parsed: unknown;
+  try {
+    parsed = JSON.parse(readFileSync(path, "utf-8"));
+  } catch {
+    return null;
+  }
+
+  if (!isRoadsCacheFileLike(parsed)) return null;
+  const { fetchedAt, routeId, query, elements } = parsed;
+  if (typeof fetchedAt !== "string" || typeof routeId !== "string" || typeof query !== "string") {
+    return null;
+  }
+  if (!Array.isArray(elements)) return null;
+
+  return { fetchedAt, routeId, query, elements };
+}
+
+export type RoadsBuildStatus =
+  | { id: string; status: "written"; waysFetched: number; waysKept: number; bytes: number }
+  | { id: string; status: "skipped"; reason: string };
+
+/**
+ * Renders every route's committed roads SVG from .cache/roads/ alone — this
+ * function never calls fetch or reaches the network. A route with no cache
+ * is skipped and reported, never failed and never written as an empty file:
+ * the cache is only ever produced by a separate, explicit `fetch-roads` run,
+ * so CI (which never runs that) must be able to build everything else clean
+ * regardless of whether a given route's cache exists on the machine running
+ * it.
+ */
+export function buildRoads(root: string): RoadsBuildStatus[] {
+  const outDir = join(root, "docs", "assets", "roads");
+  mkdirSync(outDir, { recursive: true });
+
+  const results: RoadsBuildStatus[] = [];
+
+  for (const { key, dir } of targets(root)) {
+    const geo = readJson(join(dir, "route.geojson"));
+    if (!geo) {
+      results.push({ id: key, status: "skipped", reason: "no route.geojson" });
+      continue;
+    }
+
+    const cache = readRoadsCache(root, key);
+    if (!cache) {
+      results.push({ id: key, status: "skipped", reason: "no cached roads data — run npm run fetch-roads" });
+      continue;
+    }
+
+    let rendered: RoadsRender | null;
+    try {
+      rendered = roadsSvgFrom(geo, cache);
+    } catch (error) {
+      results.push({
+        id: key,
+        status: "skipped",
+        reason: `render failed: ${error instanceof Error ? error.message : String(error)}`,
+      });
+      continue;
+    }
+
+    if (!rendered) {
+      results.push({ id: key, status: "skipped", reason: "route has no geometry to align against" });
+      continue;
+    }
+
+    writeFileSync(join(outDir, `${key}.svg`), rendered.svg);
+    results.push({
+      id: key,
+      status: "written",
+      waysFetched: rendered.waysFetched,
+      waysKept: rendered.waysKept,
+      bytes: Buffer.byteLength(rendered.svg, "utf-8"),
+    });
+  }
+
+  return results;
+}
+
+function main(): void {
+  const results = buildRoads(ROOT);
+
+  for (const result of results) {
+    if (result.status === "written") {
+      console.log(
+        `${result.id}: wrote ${(result.bytes / 1024).toFixed(1)} KB ` +
+          `(${result.waysKept}/${result.waysFetched} ways kept)`,
+      );
+    } else {
+      console.log(`${result.id}: skipped — ${result.reason}`);
+    }
+  }
+
+  const written = results.filter((r) => r.status === "written").length;
+  console.log(`\n${written}/${results.length} roads corridor SVG(s) written.`);
+}
+
+if (import.meta.filename === resolveInvokedPath(process.argv[1])) {
+  main();
+}
