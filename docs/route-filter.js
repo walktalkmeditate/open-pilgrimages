@@ -14,33 +14,39 @@
   var monthSelect = document.getElementById("filter-month");
   var clearButton = document.getElementById("filter-clear");
   var status = document.getElementById("filter-status");
+  var resetLink = document.getElementById("filter-reset-link");
 
   // Every control the panel depends on must exist before it's safe to reveal
   // — a half-wired panel would be exactly the "filter UI that does nothing"
   // progressive enhancement forbids.
-  if (!daysInput || !distanceInput || !difficultySelect || !monthSelect || !clearButton || !status) {
+  if (!daysInput || !distanceInput || !difficultySelect || !monthSelect || !clearButton || !status || !resetLink) {
     return;
   }
 
   var total = cards.length;
 
   function cardMatches(card) {
-    var days = parseInt(card.getAttribute("data-days"), 10);
-    var distanceKm = parseInt(card.getAttribute("data-distance-km"), 10);
+    var days = Number(card.getAttribute("data-days"));
+    var distanceKm = Number(card.getAttribute("data-distance-km"));
     var difficulty = card.getAttribute("data-difficulty") || "";
-    var months = (card.getAttribute("data-best-months") || "").split(",");
+    var monthsAttr = card.getAttribute("data-best-months") || "";
+    // A route with no bestMonths in metadata.json (it's optional in the
+    // schema) renders data-best-months="". "".split(",") would yield [""],
+    // which then matches no month at all — an unconstrained route would be
+    // hidden under every month selection instead of shown for all of them.
+    var months = monthsAttr === "" ? [] : monthsAttr.split(",");
 
     var maxDays = daysInput.value;
-    if (maxDays !== "" && !(days <= parseInt(maxDays, 10))) return false;
+    if (maxDays !== "" && !(days <= Number(maxDays))) return false;
 
     var maxDistance = distanceInput.value;
-    if (maxDistance !== "" && !(distanceKm <= parseInt(maxDistance, 10))) return false;
+    if (maxDistance !== "" && !(distanceKm <= Number(maxDistance))) return false;
 
     var wantDifficulty = difficultySelect.value;
     if (wantDifficulty !== "" && difficulty !== wantDifficulty) return false;
 
     var wantMonth = monthSelect.value;
-    if (wantMonth !== "" && months.indexOf(wantMonth) === -1) return false;
+    if (wantMonth !== "" && months.length > 0 && months.indexOf(wantMonth) === -1) return false;
 
     return true;
   }
@@ -54,26 +60,31 @@
     clearButton.focus();
   }
 
-  // The empty-result "way back" lives inside the live region itself, so it
-  // is announced along with the zero-match message rather than appearing as
-  // a separate, silent element.
-  function renderStatus(visible) {
-    while (status.firstChild) status.removeChild(status.firstChild);
+  // The "way back" on a zero-match result lives outside the live region
+  // (see routes.html) — ARIA guidance discourages focusable content inside
+  // role="status", and a button announced mid-region reads awkwardly to
+  // screen readers anyway. It's shown/hidden in lockstep with the message
+  // instead.
+  var lastMessage = null;
 
-    if (visible === 0) {
-      status.appendChild(document.createTextNode("No routes match these filters. "));
-      var resetLink = document.createElement("button");
-      resetLink.type = "button";
-      resetLink.className = "filter-reset-link";
-      resetLink.textContent = "Show all routes";
-      resetLink.addEventListener("click", resetFilters);
-      status.appendChild(resetLink);
-      return;
+  function renderStatus(visible) {
+    var message =
+      visible === 0
+        ? "No routes match these filters."
+        : visible === total
+          ? "Showing all " + total + " routes."
+          : visible + " of " + total + " routes match.";
+
+    // Only touch the live region when its text actually changes — some
+    // screen readers re-announce role="status" on every DOM write, even one
+    // that leaves the rendered text identical, which turns every keystroke
+    // in the days/distance fields into a redundant announcement.
+    if (message !== lastMessage) {
+      status.textContent = message;
+      lastMessage = message;
     }
 
-    var message =
-      visible === total ? "Showing all " + total + " routes." : visible + " of " + total + " routes match.";
-    status.appendChild(document.createTextNode(message));
+    resetLink.hidden = visible !== 0;
   }
 
   function applyFilters() {
@@ -93,6 +104,7 @@
     select.addEventListener("change", applyFilters);
   });
   clearButton.addEventListener("click", resetFilters);
+  resetLink.addEventListener("click", resetFilters);
 
   applyFilters();
 })();
