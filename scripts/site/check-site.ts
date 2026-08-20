@@ -1,5 +1,6 @@
-import { existsSync, readFileSync, readdirSync, realpathSync } from "fs";
+import { existsSync, readFileSync, readdirSync } from "fs";
 import { join } from "path";
+import { resolveInvokedPath } from "../cli.js";
 import { computeStats, type RouteStats } from "../stats.js";
 
 const ROOT = join(import.meta.dirname, "..", "..");
@@ -52,6 +53,15 @@ const ASSET_LABELS = {
 
 type AssetKind = keyof typeof ASSET_LABELS;
 
+const ASSET_KINDS: readonly AssetKind[] = ["routes", "profiles", "sparklines"];
+
+// The coastal variant ships full geometry, a profile, a sparkline, and a
+// glyph.js entry of its own, but — unlike every route id in index.json — has
+// no detail page of its own; its assets are inlined into the parent Camino
+// Portugués page instead. It's the one asset id the reverse-orphan checks
+// below must allow without a matching index.json route.
+const COASTAL_VARIANT_ASSET_ID = "camino-portugues-coastal";
+
 const HTML_ENTITIES: Record<string, string> = {
   aacute: "á",
   amp: "&",
@@ -98,6 +108,16 @@ const FIGURE_FIELDS: Array<[string, "distanceKm" | "estimatedDaysTypical" | "sta
   ["waypoints", "waypoints"],
 ];
 
+// docs/routes.html's Variants table has no machine-readable variant id — only
+// prose names, which don't reliably match index.json's name field (see the
+// coastal variant, whose table copy is a shortened paraphrase of its
+// index.json name). Its parent-route link and distance are exact and unique
+// per variant, so that pair stands in for identity instead.
+const VARIANT_ROW_PATTERN =
+  /<tr>\s*<td>[^<]*<\/td>\s*<td><a href="\/([^"]+)">[^<]*<\/a><\/td>\s*<td>([\d,]+)\s*km<\/td>/g;
+
+const GLYPHS_JS_KEY_PATTERN = /^\s*"([^"]+)":/gm;
+
 export interface Problem {
   file: string;
   message: string;
@@ -109,25 +129,45 @@ export interface PageOverrides {
   readmeMd?: string;
 }
 
-interface IndexRouteShape {
+interface IndexVariantShape {
   id: string;
+  distanceKm: number;
 }
 
-function isIndexRouteShape(value: unknown): value is IndexRouteShape {
+function isIndexVariantShape(value: unknown): value is IndexVariantShape {
   return (
     typeof value === "object" &&
     value !== null &&
-    typeof (value as { id?: unknown }).id === "string"
+    typeof (value as { id?: unknown }).id === "string" &&
+    typeof (value as { distanceKm?: unknown }).distanceKm === "number"
   );
 }
 
+interface IndexRouteShape {
+  id: string;
+  variants?: IndexVariantShape[];
+}
+
+function isIndexRouteShape(value: unknown): value is IndexRouteShape {
+  if (typeof value !== "object" || value === null) return false;
+  const route = value as { id?: unknown; variants?: unknown };
+  if (typeof route.id !== "string") return false;
+  if (route.variants === undefined) return true;
+  return Array.isArray(route.variants) && route.variants.every(isIndexVariantShape);
+}
+
+interface IndexRoute {
+  id: string;
+  variants: IndexVariantShape[];
+}
+
 /**
- * index.json is this guard's source of truth for which routes must exist
- * everywhere else. A malformed file here should fail loudly and immediately
- * — not degrade into an empty id list that silently reports the site as
- * clean because there was nothing left to check against.
+ * index.json is this guard's source of truth for which routes — and which
+ * variants — must exist everywhere else. A malformed file here should fail
+ * loudly and immediately — not degrade into an empty list that silently
+ * reports the site as clean because there was nothing left to check against.
  */
-function readRouteIds(indexPath: string): string[] {
+function readIndexRoutes(indexPath: string): IndexRoute[] {
   if (!existsSync(indexPath)) {
     throw new Error(`${indexPath}: file not found`);
   }
@@ -144,11 +184,11 @@ function readRouteIds(indexPath: string): string[] {
 
   if (!Array.isArray(routes) || !routes.every(isIndexRouteShape)) {
     throw new Error(
-      `${indexPath}: expected { routes: Array<{ id: string, ... }> }, got something else`,
+      `${indexPath}: expected { routes: Array<{ id: string, variants?: Array<{ id: string, distanceKm: number }> }> }, got something else`,
     );
   }
 
-  return routes.map((route) => route.id);
+  return routes.map((route) => ({ id: route.id, variants: route.variants ?? [] }));
 }
 
 function isExternalOrAnchor(href: string): boolean {
@@ -167,7 +207,8 @@ export function checkSite(root: string, overrides: PageOverrides = {}): Problem[
     return existsSync(path) ? readFileSync(path, "utf-8") : "";
   };
 
-  const ids = readRouteIds(join(root, "index.json"));
+  const indexRoutes = readIndexRoutes(join(root, "index.json"));
+  const ids = indexRoutes.map((route) => route.id);
 
   const indexHtml = overrides.indexHtml ?? readDocsFile("index.html");
   const routesHtml = overrides.routesHtml ?? readDocsFile("routes.html");
@@ -247,6 +288,87 @@ export function checkSite(root: string, overrides: PageOverrides = {}): Problem[
       add("index.json", `route id "${id}" collides with a reserved page name`);
     }
   }
+
+  // Reverse checks: the loop above confirms everything index.json expects
+  // exists. It never confirms the opposite — that everything sitting on disk
+  // is still expected. Without this, removing a route from index.json leaves
+  // its detail page, its assets, and its glyphs.js entry to linger, entirely
+  // unreported.
+  const knownAssetIds = new Set<string>([...ids, COASTAL_VARIANT_ASSET_ID]);
+
+  if (existsSync(docs)) {
+    for (const entry of readdirSync(docs)) {
+      if (!entry.endsWith(".html")) continue;
+      const stem = entry.slice(0, -".html".length);
+      if (RESERVED_PAGE_NAMES.has(stem) || ids.includes(stem)) continue;
+      add(
+        `docs/${entry}`,
+        `orphaned detail page — "${stem}" is not a route in index.json; delete this page or add the route back to index.json`,
+      );
+    }
+  }
+
+  for (const match of glyphsJs.matchAll(GLYPHS_JS_KEY_PATTERN)) {
+    const key = match[1];
+    if (!knownAssetIds.has(key)) {
+      add(
+        "docs/assets/glyphs.js",
+        `orphaned glyph entry "${key}" — not a route in index.json; remove it or run npm run build-assets after restoring the route`,
+      );
+    }
+  }
+
+  for (const kind of ASSET_KINDS) {
+    const assetDir = join(docs, "assets", kind);
+    if (!existsSync(assetDir)) continue;
+
+    for (const entry of readdirSync(assetDir)) {
+      if (!entry.endsWith(".svg")) continue;
+      const assetId = entry.slice(0, -".svg".length);
+      if (!knownAssetIds.has(assetId)) {
+        add(
+          `docs/assets/${kind}/${entry}`,
+          `orphaned ${ASSET_LABELS[kind]} asset — "${assetId}" is not a route in index.json; delete this file or add the route back to index.json`,
+        );
+      }
+    }
+  }
+
+  const tableVariantRows: Array<{ parentId: string; distanceKm: number }> = [];
+  for (const match of routesHtml.matchAll(VARIANT_ROW_PATTERN)) {
+    const [, parentId, rawDistanceKm] = match;
+    tableVariantRows.push({ parentId, distanceKm: Number(rawDistanceKm.replace(/,/g, "")) });
+  }
+
+  const matchedTableRowIndices = new Set<number>();
+
+  for (const route of indexRoutes) {
+    for (const variant of route.variants) {
+      const rowIndex = tableVariantRows.findIndex(
+        (row, i) =>
+          !matchedTableRowIndices.has(i) &&
+          row.parentId === route.id &&
+          row.distanceKm === variant.distanceKm,
+      );
+      if (rowIndex === -1) {
+        add(
+          "docs/routes.html",
+          `variant "${variant.id}" of "${route.id}" (${variant.distanceKm} km) has no row in the variants table — add one, or remove the variant from index.json`,
+        );
+      } else {
+        matchedTableRowIndices.add(rowIndex);
+      }
+    }
+  }
+
+  tableVariantRows.forEach((row, i) => {
+    if (!matchedTableRowIndices.has(i)) {
+      add(
+        "docs/routes.html",
+        `variants table lists a variant of "${row.parentId}" (${row.distanceKm} km) that matches no variant in index.json — remove the row, or add the variant back to index.json`,
+      );
+    }
+  });
 
   const stats = computeStats(root);
   const { totals } = stats;
@@ -364,15 +486,6 @@ function main(): void {
   }
 
   console.log("Site is in sync with route data.");
-}
-
-export function resolveInvokedPath(argv1: string | undefined): string | null {
-  if (!argv1) return null;
-  try {
-    return realpathSync(argv1);
-  } catch {
-    return null;
-  }
 }
 
 if (import.meta.filename === resolveInvokedPath(process.argv[1])) {
