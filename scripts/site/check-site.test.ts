@@ -312,6 +312,158 @@ test("checkSite reports a route id that collides with a reserved page name", () 
   }
 });
 
+test("the committed docs/ already has inlined assets matching their generated SVGs for every route (positive control)", () => {
+  // #given every glyph, elevation profile, and sparkline is duplicated inline
+  // into the HTML rather than referenced
+  const problems = checkSite(ROOT);
+
+  // #then none of the inlined copies have drifted from docs/assets/**/*.svg
+  assert.deepEqual(
+    problems.filter((p) => p.message.includes("does not match docs/assets/")),
+    [],
+  );
+});
+
+// Regression guard for a real bug a reviewer found: docs/camino-ingles.html
+// rendered docs/assets/routes/camino-portugues.svg's path data as its own hero
+// glyph. Nothing caught it because the guard only diffed the standalone SVG
+// files against git, never the inline copies in the HTML.
+test("checkSite reports an inlined glyph that belongs to a different route (fixture)", () => {
+  // #given camino-frances's detail page inlines camino-ingles's glyph instead of its own
+  const root = createFixtureRoot([{ id: "camino-frances" }, { id: "camino-ingles" }]);
+  mkdirSync(join(root, "docs", "assets", "routes"), { recursive: true });
+  writeFileSync(
+    join(root, "docs", "assets", "routes", "camino-frances.svg"),
+    '<svg><path d="M1.0,1.0 L2.0,2.0"/></svg>',
+  );
+  writeFileSync(
+    join(root, "docs", "assets", "routes", "camino-ingles.svg"),
+    '<svg><path d="M9.0,9.0 L8.0,8.0"/></svg>',
+  );
+  writeFileSync(
+    join(root, "docs", "camino-frances.html"),
+    '<html><body><code>camino-frances</code><path d="M9.0,9.0 L8.0,8.0"/></body></html>',
+  );
+
+  try {
+    // #when checkSite compares the inlined path against docs/assets/routes/camino-frances.svg
+    const problems = checkSite(root);
+
+    // #then it reports the mismatch, naming the page and the asset it should match
+    assert.ok(
+      problems.some(
+        (p) =>
+          p.file === "docs/camino-frances.html" &&
+          p.message.includes("inlined glyph") &&
+          p.message.includes("docs/assets/routes/camino-frances.svg"),
+      ),
+      "expected a problem naming docs/camino-frances.html's mismatched inlined glyph",
+    );
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("checkSite accepts a detail page whose inlined glyph matches its own generated SVG (fixture)", () => {
+  // #given camino-frances's detail page inlines exactly its own glyph's path data
+  const root = createFixtureRoot([{ id: "camino-frances" }]);
+  mkdirSync(join(root, "docs", "assets", "routes"), { recursive: true });
+  writeFileSync(
+    join(root, "docs", "assets", "routes", "camino-frances.svg"),
+    '<svg><path d="M1.0,1.0 L2.0,2.0"/></svg>',
+  );
+  writeFileSync(
+    join(root, "docs", "camino-frances.html"),
+    '<html><body><code>camino-frances</code><path d="M1.0,1.0 L2.0,2.0"/></body></html>',
+  );
+
+  try {
+    // #when / #then checkSite reports no inlined-asset mismatch for that page
+    // (docs/routes.html and docs/index.html are absent from this fixture, so
+    // they're still flagged for not inlining the glyph at all — out of scope here)
+    const problems = checkSite(root);
+    assert.deepEqual(
+      problems.filter(
+        (p) => p.file === "docs/camino-frances.html" && p.message.includes("does not match docs/assets/"),
+      ),
+      [],
+    );
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("the committed docs/routes.html comparison table already matches computed per-route figures (positive control)", () => {
+  // #given docs/routes.html's compare-table data-value attributes for distance,
+  // typical days, stages, and waypoints
+  const problems = checkSite(ROOT);
+
+  // #then none of the seven rows are reported as mismatched
+  assert.deepEqual(
+    problems.filter((p) => p.file === "docs/routes.html" && p.message.includes("comparison table")),
+    [],
+  );
+});
+
+test("checkSite reports a stale per-route figure in the comparison table (synthetic routesHtml)", () => {
+  // #given a comparison table row whose distance no longer matches metadata.json
+  const routesHtml = `
+    <table class="compare-table">
+      <tbody>
+        <tr>
+          <th scope="row">Camino de Santiago (Frances)</th>
+          <td data-value="999">999 km</td>
+          <td data-value="31">31</td>
+          <td data-value="2">Moderate</td>
+          <td data-value="33">33</td>
+          <td data-value="2957">2,957</td>
+          <td data-value="5">May, Jun, Sep</td>
+        </tr>
+      </tbody>
+    </table>
+  `;
+
+  // #when checkSite checks the table against computeStats().routes
+  const problems = checkSite(ROOT, { routesHtml });
+
+  // #then the stale distance is reported naming the route, the field, and both values
+  assert.ok(
+    problems.some(
+      (p) =>
+        p.file === "docs/routes.html" &&
+        p.message.includes('"distance"') &&
+        p.message.includes('"camino-frances"') &&
+        p.message.includes("reads 999") &&
+        p.message.includes("data says 764"),
+    ),
+  );
+});
+
+test("checkSite reports a comparison table row that doesn't match any known route", () => {
+  // #given a comparison table row whose name matches no route in index.json
+  const routesHtml = `
+    <table class="compare-table">
+      <tbody>
+        <tr>
+          <th scope="row">Not A Real Route</th>
+          <td data-value="1">1 km</td>
+          <td data-value="1">1</td>
+          <td data-value="1">Easy</td>
+          <td data-value="1">1</td>
+          <td data-value="1">1</td>
+          <td data-value="1">Jan</td>
+        </tr>
+      </tbody>
+    </table>
+  `;
+
+  // #when / #then checkSite reports it by name rather than silently skipping it
+  const problems = checkSite(ROOT, { routesHtml });
+  assert.ok(
+    problems.some((p) => p.file === "docs/routes.html" && p.message.includes('"Not A Real Route"')),
+  );
+});
+
 test("a malformed index.json fails fast with a message naming the file, not a downstream crash", () => {
   // #given an index.json whose route entries have no "id" field
   const root = mkdtempSync(join(tmpdir(), "check-site-test-"));

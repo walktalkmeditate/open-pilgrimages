@@ -1,6 +1,6 @@
 import { existsSync, readFileSync, readdirSync, realpathSync } from "fs";
 import { join } from "path";
-import { computeStats } from "../stats.js";
+import { computeStats, type RouteStats } from "../stats.js";
 
 const ROOT = join(import.meta.dirname, "..", "..");
 
@@ -35,6 +35,67 @@ const README_TOTALS_FIELDS: Array<[string, keyof ReturnType<typeof computeStats>
   ["waypoints", "waypoints"],
   ["stages", "stages"],
   ["routes", "routes"],
+];
+
+/**
+ * Every glyph, elevation profile, and sparkline is duplicated inline into the
+ * HTML rather than referenced — see docs/styles.css for why. The files under
+ * docs/assets/{routes,profiles,sparklines}/ exist purely as CI tripwires, so
+ * this guard has to read the "d" out of each one and confirm the inline copy
+ * still matches, or a regenerated asset can go stale in the page silently.
+ */
+const ASSET_LABELS = {
+  routes: "glyph",
+  profiles: "elevation profile",
+  sparklines: "sparkline",
+} as const;
+
+type AssetKind = keyof typeof ASSET_LABELS;
+
+const HTML_ENTITIES: Record<string, string> = {
+  aacute: "á",
+  amp: "&",
+  atilde: "ã",
+  ccedil: "ç",
+  copy: "©",
+  eacute: "é",
+  iacute: "í",
+  ldquo: "“",
+  mdash: "—",
+  middot: "·",
+  ndash: "–",
+  ntilde: "ñ",
+  oacute: "ó",
+  omacr: "ō",
+  Omacr: "Ō",
+  rarr: "→",
+  rdquo: "”",
+  uacute: "ú",
+  ucirc: "û",
+  umacr: "ū",
+  uuml: "ü",
+};
+
+function decodeEntities(text: string): string {
+  return text.replace(/&([a-zA-Z]+);/g, (full, name: string) => HTML_ENTITIES[name] ?? full);
+}
+
+function extractPathD(svg: string): string | null {
+  const match = svg.match(/\sd="([^"]*)"/);
+  return match ? match[1] : null;
+}
+
+// docs/routes.html's comparison table: Route | Distance | Typical Days |
+// Difficulty | Stages | Waypoints | Best Months. Difficulty and Best Months
+// aren't in computeStats' output, so they're matched but not captured.
+const COMPARE_ROW_PATTERN =
+  /<th scope="row">([^<]+)<\/th>\s*<td data-value="([^"]*)">[^<]*<\/td>\s*<td data-value="([^"]*)">[^<]*<\/td>\s*<td data-value="[^"]*">[^<]*<\/td>\s*<td data-value="([^"]*)">[^<]*<\/td>\s*<td data-value="([^"]*)">[^<]*<\/td>\s*<td data-value="[^"]*">[^<]*<\/td>/g;
+
+const FIGURE_FIELDS: Array<[string, "distanceKm" | "estimatedDaysTypical" | "stages" | "waypoints"]> = [
+  ["distance", "distanceKm"],
+  ["days", "estimatedDaysTypical"],
+  ["stages", "stages"],
+  ["waypoints", "waypoints"],
 ];
 
 export interface Problem {
@@ -115,6 +176,23 @@ export function checkSite(root: string, overrides: PageOverrides = {}): Problem[
     overrides.readmeMd ?? (existsSync(readmePath) ? readFileSync(readmePath, "utf-8") : "");
   const glyphsJs = readDocsFile("assets", "glyphs.js");
 
+  function checkInlinedAsset(kind: AssetKind, assetId: string, pages: Array<[string, string]>): void {
+    const svgPath = join(docs, "assets", kind, `${assetId}.svg`);
+    if (!existsSync(svgPath)) return;
+
+    const d = extractPathD(readFileSync(svgPath, "utf-8"));
+    if (!d) return;
+
+    for (const [file, html] of pages) {
+      if (!html.includes(d)) {
+        add(
+          file,
+          `inlined ${ASSET_LABELS[kind]} does not match docs/assets/${kind}/${assetId}.svg (run npm run build-assets and re-inline)`,
+        );
+      }
+    }
+  }
+
   for (const id of ids) {
     if (!routesHtml.includes(`href="/${id}"`)) {
       add("docs/routes.html", `route "${id}" has no link to /${id} in the catalog`);
@@ -138,6 +216,24 @@ export function checkSite(root: string, overrides: PageOverrides = {}): Problem[
           `route "${id}" detail page exists but does not identify itself as ${id} (expected <code>${id}</code> or a canonical link to /${id})`,
         );
       }
+
+      const detailPages: Array<[string, string]> = [[`docs/${id}.html`, detailHtml]];
+      checkInlinedAsset("routes", id, [
+        ...detailPages,
+        ["docs/routes.html", routesHtml],
+        ["docs/index.html", indexHtml],
+      ]);
+      checkInlinedAsset("profiles", id, detailPages);
+      checkInlinedAsset("sparklines", id, detailPages);
+
+      // The coastal variant ships full geometry, a profile, and a sparkline of
+      // its own, but has no detail page — its assets are inlined into the
+      // parent Camino Portugués page instead.
+      if (id === "camino-portugues") {
+        checkInlinedAsset("routes", "camino-portugues-coastal", detailPages);
+        checkInlinedAsset("profiles", "camino-portugues-coastal", detailPages);
+        checkInlinedAsset("sparklines", "camino-portugues-coastal", detailPages);
+      }
     }
 
     if (!glyphsJs.includes(`"${id}"`)) {
@@ -152,7 +248,8 @@ export function checkSite(root: string, overrides: PageOverrides = {}): Problem[
     }
   }
 
-  const { totals } = computeStats(root);
+  const stats = computeStats(root);
+  const { totals } = stats;
 
   const readmeTotalsMatch = readmeMd.match(README_TOTALS_PATTERN);
   if (!readmeTotalsMatch) {
@@ -190,6 +287,33 @@ export function checkSite(root: string, overrides: PageOverrides = {}): Problem[
     if (!seenHeroLabels.has(label)) {
       add("docs/index.html", `hero stat "${label}" is missing`);
     }
+  }
+
+  const statsByName = new Map<string, RouteStats>(stats.routes.map((route) => [route.name, route]));
+
+  for (const match of routesHtml.matchAll(COMPARE_ROW_PATTERN)) {
+    const [, rawName, ...values] = match;
+    const name = decodeEntities(rawName.trim());
+    const route = statsByName.get(name);
+
+    if (!route) {
+      add(
+        "docs/routes.html",
+        `comparison table row "${name}" does not match any route in index.json`,
+      );
+      continue;
+    }
+
+    FIGURE_FIELDS.forEach(([label, key], index) => {
+      const rendered = values[index];
+      const expected = String(route[key]);
+      if (rendered !== expected) {
+        add(
+          "docs/routes.html",
+          `comparison table "${label}" for "${route.id}" reads ${rendered}, data says ${expected}`,
+        );
+      }
+    });
   }
 
   const usingOverriddenPages = overrides.indexHtml !== undefined || overrides.routesHtml !== undefined;
