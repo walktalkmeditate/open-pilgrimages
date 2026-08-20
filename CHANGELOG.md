@@ -6,6 +6,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 The moving tag `v1` always points to the latest `v1.x.x` release. CDN consumers using `https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1/...` automatically receive the latest minor/patch on the v1 line.
 
+## [Unreleased]
+
+### Added
+- **`route.gpx`** for every route (and the Camino Portugués da Costa Coastal variant) — a GPX 1.1 track generated from each `route.geojson`, for loading directly into GPS apps and devices. Linked from every route's detail page (Files & CDN table) and from the README's directory tree and CDN examples; previously generated but undiscoverable outside the raw file tree.
+
 ## [1.5.0] — 2026-04-10
 
 The "Top 4 Missing Caminos" release. Adds three new Camino routes (Inglés, Primitivo, Norte) and upgrades the Camino Portugués Coastal stub to a full route for its Portuguese section. Together these cover ~149,000 of the non-Frances/non-Portugués-Central annual Compostelas. Extends the dataset from 4 to 7 routes. Every fact was verified by two independent agent rounds plus 12 deep local checks.

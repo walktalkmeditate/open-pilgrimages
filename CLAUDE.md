@@ -8,6 +8,7 @@ Canonical open-source pilgrimage route dataset. Three-layer schema: geometry, lo
 routes/{route-id}/          # One directory per pilgrimage
   metadata.json             # Overview, tradition, culture, logistics
   route.geojson             # GeoJSON FeatureCollection (LineString/MultiLineString)
+  route.gpx                 # GPX 1.1 track, generated from route.geojson (npm run build-assets)
   stages.json               # Stage breakdowns with interior journey
   waypoints.geojson         # GeoJSON FeatureCollection (Point features)
   variants/{variant-id}/    # Sub-routes with same file structure

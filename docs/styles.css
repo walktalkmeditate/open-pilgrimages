@@ -945,6 +945,17 @@ nav .nav-actions .nav-github svg {
   font-family: var(--font-sans);
 }
 
+/* The summary's stage number/name/meta are wrapped in an <h3> so screen
+   reader users can navigate stages by heading, not just by tabbing through
+   34 identical-looking disclosure widgets under one <h2>. It sits inline
+   inside <summary> next to the native triangle, so it's reset back to
+   plain inline text rather than a bold, larger, block-level heading. */
+.stage-interior summary h3 {
+  display: inline;
+  margin: 0;
+  font: inherit;
+}
+
 .stage-interior summary:hover {
   color: var(--rust);
 }
