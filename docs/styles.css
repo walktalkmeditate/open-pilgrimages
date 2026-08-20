@@ -180,16 +180,6 @@ nav .nav-links a.nav-contribute.active {
   border-bottom-color: var(--rust);
 }
 
-nav .nav-github {
-  margin-left: auto;
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  font-size: 0.9rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--stone);
-}
 
 nav .nav-github:hover {
   color: var(--ink);
@@ -618,28 +608,69 @@ footer {
   fill: none;
 }
 
-.theme-toggle {
-  background: none;
-  border: none;
+/* Nav actions: icon-only theme toggle + GitHub mark, right-aligned. */
+nav .nav-actions {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+/* The generic `nav a` rule adds a trailing margin for the text links; it
+   would otherwise hold the GitHub mark 24px off the nav's right edge. */
+nav .nav-actions a {
+  margin-right: 0;
+}
+
+.theme-toggle,
+nav .nav-actions .nav-github {
+  /* 16px icon, but a 24px+ target — stripping the text labels must not
+     shrink these to something hard to hit. */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
   padding: 0;
-  margin-right: var(--space-lg);
-  font-family: var(--font-sans);
-  font-size: 0.9rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  border: none;
+  background: none;
   color: var(--stone);
   cursor: pointer;
   transition: color 0.2s;
 }
 
-.theme-toggle:hover {
+.theme-toggle:hover,
+nav .nav-actions .nav-github:hover {
   color: var(--ink);
+  border-bottom-color: transparent;
 }
 
-.theme-toggle:focus-visible {
+.theme-toggle:focus-visible,
+nav .nav-actions .nav-github:focus-visible {
   outline: 2px solid var(--rust);
   outline-offset: 2px;
+  border-radius: 3px;
 }
+
+.theme-toggle svg,
+nav .nav-actions .nav-github svg {
+  flex-shrink: 0;
+}
+
+/* Icon swap is CSS-driven, not JS-driven, so the correct icon is showing on
+   first paint even with JavaScript disabled. Moon in light, sun in dark. */
+.theme-toggle .icon-sun { display: none; }
+.theme-toggle .icon-moon { display: block; }
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .theme-toggle .icon-sun { display: block; }
+  :root:not([data-theme="light"]) .theme-toggle .icon-moon { display: none; }
+}
+
+:root[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
+:root[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
+:root[data-theme="light"] .theme-toggle .icon-sun { display: none; }
+:root[data-theme="light"] .theme-toggle .icon-moon { display: block; }
 
 @media (max-width: 700px) {
   .hero {
