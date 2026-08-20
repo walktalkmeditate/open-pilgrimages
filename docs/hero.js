@@ -1,15 +1,29 @@
 (function () {
   var root = document.querySelector("[data-constellation]");
-  if (!root || !window.OP_GLYPHS) return;
+  if (!root) return;
 
   var inks = [].slice.call(root.querySelectorAll(".glyph-ink"));
   var caps = [].slice.call(root.querySelectorAll(".constellation-caption"));
   if (inks.length === 0) return;
 
+  var featuredInk = root.querySelector(".constellation-featured .glyph-ink");
+  var featuredIndex = featuredInk ? inks.indexOf(featuredInk) : 0;
+
+  // Below 700px, CSS hides every glyph but the featured one (see styles.css).
+  // Cycling through all seven there would draw six glyphs the caption names
+  // but the page never shows, so the index stays pinned to the featured slot
+  // for as long as that breakpoint is active.
+  var mobile = window.matchMedia("(max-width: 700px)");
+  var pinned = mobile.matches;
+  function syncPinned() { pinned = mobile.matches; }
+  if (mobile.addEventListener) mobile.addEventListener("change", syncPinned);
+  else mobile.addListener(syncPinned);
+
   // Reduce Motion: render one route inked and start no loop whatsoever.
   if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-    inks[0].style.strokeDashoffset = 0;
-    if (caps[0]) caps[0].style.opacity = 1;
+    var restIndex = pinned ? featuredIndex : 0;
+    inks[restIndex].style.strokeDashoffset = 0;
+    if (caps[restIndex]) caps[restIndex].style.opacity = 1;
     return;
   }
 
@@ -36,8 +50,10 @@
     elapsed += dt;
     while (elapsed >= LAP) {
       elapsed -= LAP;
-      index = (index + 1) % inks.length;
+      if (!pinned) index = (index + 1) % inks.length;
     }
+
+    var active = pinned ? featuredIndex : index;
 
     var p = elapsed < DRAW ? 1 - elapsed / DRAW
           : elapsed < DRAW + HOLD ? 0
@@ -46,13 +62,13 @@
     // CSS already rests every .glyph-ink at stroke-dashoffset: 1, so an
     // element only needs a write once it becomes active, and its previous
     // owner only needs one write back to that resting value when it hands off.
-    if (prevInked !== index) {
+    if (prevInked !== active) {
       if (prevInked !== -1) inks[prevInked].style.strokeDashoffset = 1;
-      prevInked = index;
+      prevInked = active;
     }
-    inks[index].style.strokeDashoffset = p;
+    inks[active].style.strokeDashoffset = p;
 
-    caption(elapsed > DRAW * 0.55 && elapsed < LAP - EXIT * 0.6 ? index : -1);
+    caption(elapsed > DRAW * 0.55 && elapsed < LAP - EXIT * 0.6 ? active : -1);
   }
   requestAnimationFrame(frame);
 

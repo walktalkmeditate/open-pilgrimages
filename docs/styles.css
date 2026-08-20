@@ -563,6 +563,13 @@ footer {
 
 .constellation svg {
   position: absolute;
+  /* Slot geometry comes in via custom properties (set inline per glyph)
+     rather than left/top/width/height directly, so a later rule — like the
+     mobile override below — can still win the cascade for those properties. */
+  left: var(--slot-left);
+  top: var(--slot-top);
+  width: var(--slot-size);
+  height: var(--slot-size);
 }
 
 .glyph-fog {
@@ -697,9 +704,14 @@ nav .nav-actions .nav-github svg {
     display: none;
   }
 
-  .constellation-featured {
+  /* .constellation svg (class + type) outweighs a bare .constellation-featured
+     (class only), so this override needs the matching specificity to win. */
+  .constellation svg.constellation-featured {
     left: 50%;
-    transform: translateX(-50%);
+    top: 50%;
+    width: 200px;
+    height: 200px;
+    transform: translate(-50%, -50%);
   }
 }
 
