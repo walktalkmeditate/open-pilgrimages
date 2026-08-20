@@ -201,7 +201,7 @@ nav .nav-github svg {
 .hero-stats {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-lg);
+  gap: var(--space-xs);
   margin: var(--space-lg) 0;
 }
 
@@ -216,6 +216,10 @@ nav .nav-github svg {
   font-weight: 500;
   color: var(--rust);
   line-height: 1.2;
+}
+
+.hero-stats .stat-number {
+  font-size: 1.8rem;
 }
 
 .stat-label {
@@ -637,8 +641,6 @@ footer {
   nav .nav-links { flex-direction: column; align-items: flex-start; }
   nav .nav-links a { margin-right: 0; margin-bottom: var(--space-xs); }
   nav .nav-github { margin-left: 0; margin-top: var(--space-sm); }
-
-  .stat-number { font-size: 1.8rem; }
 
   .hero-cta { flex-direction: column; }
   .hero-cta .btn { text-align: center; }
