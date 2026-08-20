@@ -20,7 +20,12 @@ function byCodepoint(a: string, b: string): number {
 interface MetadataLike {
   id?: string;
   name?: { en?: string };
-  overview?: { topology?: string; distanceKm?: number; countries?: string[] };
+  overview?: {
+    topology?: string;
+    distanceKm?: number;
+    countries?: string[];
+    estimatedDays?: { typical?: number };
+  };
   tradition?: { type?: string };
 }
 
@@ -43,6 +48,7 @@ export interface RouteStats {
   topology: string;
   tradition: string;
   distanceKm: number;
+  estimatedDaysTypical: number;
   stageSumKm: number;
   stages: number;
   waypoints: number;
@@ -104,6 +110,7 @@ function readRoute(routeDir: string, entry: string): RouteStats | null {
     topology: meta.overview?.topology ?? "",
     tradition: meta.tradition?.type ?? "",
     distanceKm: meta.overview?.distanceKm ?? 0,
+    estimatedDaysTypical: meta.overview?.estimatedDays?.typical ?? 0,
     stageSumKm: Math.round(stageDistSum * 10) / 10,
     stages: stagesList.length,
     waypoints: waypointsList.length,
