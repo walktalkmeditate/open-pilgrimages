@@ -492,13 +492,23 @@ nav .nav-github svg {
   outline-offset: 2px;
 }
 
-/* Reserves the results line's height up front so the text appearing or
-   changing never shifts the route grid below it. */
-.route-filter-status {
+/* Reserves the results row's height up front so the text appearing or
+   changing — or the reset button showing on a zero-match result — never
+   shifts the route grid below it. One line fits every message at rest;
+   the 375px override below adds a second, since the zero-match message
+   plus button wraps there. */
+.route-filter-status-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  column-gap: 0.5em;
   min-height: 1.6em;
   margin-top: var(--space-md);
-  margin-bottom: 0;
   font-size: 0.9rem;
+}
+
+.route-filter-status {
+  margin: 0;
   color: var(--stone);
 }
 
@@ -525,6 +535,15 @@ nav .nav-github svg {
 
   .filter-field {
     min-width: 0;
+  }
+}
+
+/* Below ~400px the zero-match message plus the "Show all routes" button
+   wraps to a second line — one reserved line isn't enough there, and the
+   route grid shifts down when that state appears. */
+@media (max-width: 400px) {
+  .route-filter-status-row {
+    min-height: 3.5em;
   }
 }
 
@@ -714,14 +733,23 @@ footer {
   color: var(--ink);
   opacity: 0;
   /* visibility, unlike opacity, is removed from the accessibility tree — the
-     delayed transition on hide (and immediate flip on show, per spec: a
-     transition's discrete end value only takes effect once the value isn't
-     "hidden") keeps a caption in the tree for exactly as long as it's
-     visibly faded in, so a screen reader announces only the active route,
-     not all seven in a row with no framing. */
+     delayed transition keeps a caption in the tree for exactly as long as
+     it's visibly faded in, so a screen reader announces only the active
+     route, not all seven in a row with no framing. This delay is direction-
+     dependent: on hide, it's exactly what's wanted (stay visible through the
+     0.5s fade-out, then drop from the tree). On show, the same delay would
+     hold the caption at visibility: hidden for the whole fade-in and then
+     pop it in at full opacity — .is-shown below overrides the delay to 0 so
+     showing is immediate while the same 0.5s opacity fade still plays. */
   visibility: hidden;
   transition: opacity .5s ease, visibility 0s linear .5s;
   pointer-events: none;
+}
+
+.constellation-caption.is-shown {
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0s;
 }
 
 .cap-distance {
