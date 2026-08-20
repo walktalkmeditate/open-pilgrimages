@@ -28,6 +28,8 @@ const HERO_STAT_PATTERN =
 
 const HREF_PATTERN = /href="([^"]+)"/g;
 
+const TRKPT_PATTERN = /<trkpt\b/g;
+
 const README_TOTALS_PATTERN =
   /([\d,]+) GPS points\.\s*([\d,]+) waypoints\.\s*([\d,]+) stages\.\s*([\d,]+) routes across/;
 
@@ -209,6 +211,8 @@ export function checkSite(root: string, overrides: PageOverrides = {}): Problem[
 
   const indexRoutes = readIndexRoutes(join(root, "index.json"));
   const ids = indexRoutes.map((route) => route.id);
+  const stats = computeStats(root);
+  const statsById = new Map(stats.routes.map((route) => [route.id, route]));
 
   const indexHtml = overrides.indexHtml ?? readDocsFile("index.html");
   const routesHtml = overrides.routesHtml ?? readDocsFile("routes.html");
@@ -231,6 +235,39 @@ export function checkSite(root: string, overrides: PageOverrides = {}): Problem[
           `inlined ${ASSET_LABELS[kind]} does not match docs/assets/${kind}/${assetId}.svg (run npm run build-assets and re-inline)`,
         );
       }
+    }
+  }
+
+  /**
+   * The one check that catches route.gpx silently drifting from the geometry
+   * it was generated from: comparing its <trkpt> count against
+   * computeStats()'s independently-derived routePoints. A byte-for-byte
+   * regeneration diff (CI's other guard) only fires if someone forgets to
+   * run the build; this fires even if the committed file was hand-edited to
+   * still look plausible.
+   */
+  function checkRouteGpx(id: string): void {
+    const gpxPath = join(root, "routes", id, "route.gpx");
+    const file = `routes/${id}/route.gpx`;
+
+    if (!existsSync(gpxPath)) {
+      add(file, `route "${id}" has no route.gpx — run npm run build-assets`);
+      return;
+    }
+
+    const gpx = readFileSync(gpxPath, "utf-8");
+    if (gpx.trim().length === 0) {
+      add(file, `route.gpx for "${id}" is empty — run npm run build-assets`);
+      return;
+    }
+
+    const trkptCount = (gpx.match(TRKPT_PATTERN) ?? []).length;
+    const expected = statsById.get(id)?.routePoints ?? 0;
+    if (trkptCount !== expected) {
+      add(
+        file,
+        `route.gpx for "${id}" has ${trkptCount} <trkpt> point(s), data says ${expected} — run npm run build-assets`,
+      );
     }
   }
 
@@ -283,6 +320,8 @@ export function checkSite(root: string, overrides: PageOverrides = {}): Problem[
         `route "${id}" has no generated glyph — run npm run build-assets`,
       );
     }
+
+    checkRouteGpx(id);
 
     if (RESERVED_PAGE_NAMES.has(id)) {
       add("index.json", `route id "${id}" collides with a reserved page name`);
@@ -370,7 +409,6 @@ export function checkSite(root: string, overrides: PageOverrides = {}): Problem[
     }
   });
 
-  const stats = computeStats(root);
   const { totals } = stats;
 
   const readmeTotalsMatch = readmeMd.match(README_TOTALS_PATTERN);

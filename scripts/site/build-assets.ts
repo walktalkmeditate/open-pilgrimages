@@ -9,10 +9,17 @@ import {
 import { join } from "path";
 import { byCodepoint, resolveInvokedPath } from "../cli.js";
 import { GLYPH_BOX, glyphFrom } from "./glyphs.js";
+import { gpxFrom, type GpxMeta } from "./gpx.js";
 import { profileSvg, stagesOf } from "./profiles.js";
 import { sparklineSvg, trendOf } from "./sparklines.js";
 
 const ROOT = join(import.meta.dirname, "..", "..");
+
+// The coastal variant has no detail page of its own — see check-site.ts's
+// COASTAL_VARIANT_ASSET_ID — so its GPX <link> points at the parent Camino
+// Portugués page, where its content actually lives on the site.
+const COASTAL_VARIANT_KEY = "camino-portugues-coastal";
+const COASTAL_VARIANT_PARENT_ID = "camino-portugues";
 
 interface Target {
   key: string;
@@ -44,6 +51,19 @@ function readJson(path: string): unknown | null {
   return existsSync(path) ? JSON.parse(readFileSync(path, "utf-8")) : null;
 }
 
+interface MetadataLike {
+  name?: { en?: string };
+  description?: { en?: string };
+}
+
+function gpxMetaFor(key: string, meta: MetadataLike | null): GpxMeta {
+  return {
+    id: key === COASTAL_VARIANT_KEY ? COASTAL_VARIANT_PARENT_ID : key,
+    name: meta?.name?.en ?? "",
+    description: meta?.description?.en ?? "",
+  };
+}
+
 /** Inline SVG from the generators has no xmlns; standalone files need one. */
 function standalone(svg: string): string {
   return svg.replace("<svg ", '<svg xmlns="http://www.w3.org/2000/svg" ') + "\n";
@@ -62,6 +82,7 @@ export function buildAssets(root: string): {
   glyphs: number;
   profiles: number;
   sparklines: number;
+  gpx: number;
 } {
   const out = join(root, "docs", "assets");
   for (const sub of ["routes", "profiles", "sparklines"]) {
@@ -71,6 +92,7 @@ export function buildAssets(root: string): {
   const glyphs: Array<[string, string]> = [];
   let profiles = 0;
   let sparklines = 0;
+  let gpx = 0;
 
   for (const { key, dir } of targets(root)) {
     // Metadata-only stubs have no geometry, and not every route has stats.
@@ -80,6 +102,13 @@ export function buildAssets(root: string): {
       const { d } = glyphFrom(geo);
       glyphs.push([key, d]);
       writeFileSync(join(out, "routes", `${key}.svg`), glyphSvg(d));
+
+      const meta = readJson(join(dir, "metadata.json")) as MetadataLike | null;
+      const gpxXml = gpxFrom(geo, gpxMetaFor(key, meta));
+      if (gpxXml) {
+        writeFileSync(join(dir, "route.gpx"), gpxXml);
+        gpx++;
+      }
     }
 
     const stages = readJson(join(dir, "stages.json"));
@@ -106,14 +135,14 @@ export function buildAssets(root: string): {
     .join(",\n");
   writeFileSync(join(out, "glyphs.js"), `window.OP_GLYPHS = {\n${body}\n};\n`);
 
-  return { glyphs: glyphs.length, profiles, sparklines };
+  return { glyphs: glyphs.length, profiles, sparklines, gpx };
 }
 
 function main(): void {
   const counts = buildAssets(ROOT);
   console.log(
     `Wrote ${counts.glyphs} glyph(s), ${counts.profiles} profile(s), ` +
-      `${counts.sparklines} sparkline(s)`,
+      `${counts.sparklines} sparkline(s), ${counts.gpx} GPX track(s)`,
   );
 }
 
