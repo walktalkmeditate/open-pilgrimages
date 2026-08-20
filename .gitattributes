@@ -1,0 +1,6 @@
+# Every route.gpx is one <trkpt> line per point (see scripts/site/gpx.ts) —
+# any regeneration is a whole-file diff, up to ~2.5 MB for shikoku-88, that
+# renders unusably on GitHub. It's build output of route.geojson, not
+# something anyone reviews line by line.
+*.gpx linguist-generated
+*.gpx -diff
