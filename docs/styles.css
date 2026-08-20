@@ -772,3 +772,108 @@ nav .nav-actions .nav-github svg {
   font-size: 0.85rem;
   color: var(--stone);
 }
+
+/* Interior Journey: the per-stage editorial narratives (theme, narrative,
+   commonExperiences, reflection) from stages.json. <details>/<summary> is
+   native — no accordion script, keyboard accessible, and every stage's
+   content stays in the DOM (searchable, crawlable) even while collapsed. */
+.editorial-note {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: var(--stone);
+  border-left: 3px solid var(--dawn);
+  padding: var(--space-xs) var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+
+.stage-interior {
+  border: 1px solid var(--fog);
+  border-radius: 4px;
+  background: var(--surface);
+  margin-bottom: var(--space-sm);
+}
+
+.stage-interior summary {
+  cursor: pointer;
+  padding: var(--space-sm) var(--space-md);
+  font-family: var(--font-sans);
+}
+
+.stage-interior summary:hover {
+  color: var(--rust);
+}
+
+/* :focus-visible on <summary> is the one focus style browsers are
+   inconsistent about by default — this makes sure keyboard users always see
+   where they are without touching `display` (which would drop the native
+   disclosure triangle). */
+.stage-interior summary:focus-visible {
+  outline: 2px solid var(--rust);
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+
+.stage-interior-num {
+  font-weight: 700;
+  color: var(--rust);
+}
+
+.stage-interior-name {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+}
+
+.stage-interior-meta {
+  font-size: 0.85rem;
+  color: var(--stone);
+}
+
+.stage-interior-body {
+  padding: 0 var(--space-md) var(--space-md);
+  max-width: 40rem;
+}
+
+.stage-interior-body p {
+  margin-bottom: var(--space-md);
+}
+
+.stage-interior-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--stone);
+  margin-bottom: var(--space-sm);
+}
+
+.stage-interior-experiences {
+  list-style: disc;
+  margin: 0 0 var(--space-md) var(--space-lg);
+}
+
+.stage-interior-experiences li {
+  margin-bottom: 0.3rem;
+}
+
+.stage-reflection {
+  border-left: 3px solid var(--rust);
+  padding-left: var(--space-md);
+  margin: var(--space-md) 0 0;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.15rem;
+  color: var(--ink);
+}
+
+.stage-reflection p {
+  margin-bottom: 0;
+}
+
+@media (max-width: 600px) {
+  .stage-interior summary {
+    padding: var(--space-sm);
+  }
+
+  .stage-interior-body {
+    padding: 0 var(--space-sm) var(--space-sm);
+  }
+}

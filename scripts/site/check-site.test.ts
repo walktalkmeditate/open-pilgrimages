@@ -824,3 +824,120 @@ test("the committed routes/ already has a route.gpx for every route whose <trkpt
     [],
   );
 });
+
+// Interior journey: docs/{id}.html hand-inlines a `<details class="stage-interior">`
+// block per stages.json stage. Nothing templates that content, so nothing
+// stops it drifting from the data — a stage added/removed or a narrative
+// reworded on one side and not the other would ship silently. These fixtures
+// build a minimal two-stage route to prove both guard branches actually
+// fire, rather than trusting the implementation without seeing it fail.
+
+const FIRST_NARRATIVE = "You begin where Alfonso II began, walking west out of Oviedo.";
+const SECOND_NARRATIVE = "Today the mountains start in earnest.";
+
+function createInteriorFixtureRoot(): { root: string; id: string; routeDir: string } {
+  const id = "camino-frances";
+  const root = createFixtureRoot([{ id }]);
+  const routeDir = join(root, "routes", id);
+  mkdirSync(routeDir, { recursive: true });
+  writeFileSync(join(routeDir, "metadata.json"), JSON.stringify({}));
+  writeFileSync(
+    join(routeDir, "stages.json"),
+    JSON.stringify({
+      stages: [
+        { index: 0, interior: { narrative: { en: FIRST_NARRATIVE } } },
+        { index: 1, interior: { narrative: { en: SECOND_NARRATIVE } } },
+      ],
+    }),
+  );
+  return { root, id, routeDir };
+}
+
+function writeDetailHtml(root: string, id: string, html: string): void {
+  writeFileSync(join(root, "docs", `${id}.html`), html);
+}
+
+function twoStageDetailHtml(id: string, firstNarrative: string): string {
+  return `<html><body><code>${id}</code>
+    <details class="stage-interior"><p>${firstNarrative}</p></details>
+    <details class="stage-interior"><p>${SECOND_NARRATIVE}</p></details>
+  </body></html>`;
+}
+
+test("checkSite reports a stage interior count that doesn't match stages.json (synthetic fixture — proves the count-drift branch fires)", () => {
+  // #given stages.json has 2 stages but the detail page renders only 1 <details class="stage-interior"> block
+  const { root, id } = createInteriorFixtureRoot();
+  writeDetailHtml(
+    root,
+    id,
+    `<html><body><code>${id}</code>
+      <details class="stage-interior"><p>${FIRST_NARRATIVE}</p></details>
+    </body></html>`,
+  );
+
+  try {
+    // #when checkSite compares the rendered count against stages.json
+    const problems = checkSite(root);
+
+    // #then it reports the mismatch: 1 rendered, 2 expected
+    assert.ok(
+      problems.some(
+        (p) =>
+          p.file === `docs/${id}.html` &&
+          p.message.includes("renders 1 stage interior narrative(s)") &&
+          p.message.includes("stages.json has 2 stage(s)"),
+      ),
+    );
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("checkSite reports a first-stage narrative that doesn't match stages.json verbatim (synthetic fixture — proves the verbatim-drift branch fires)", () => {
+  // #given the detail page's stage-count matches, but stage 1's rendered text has been reworded
+  const { root, id } = createInteriorFixtureRoot();
+  writeDetailHtml(root, id, twoStageDetailHtml(id, "You begin where Alfonso III began."));
+
+  try {
+    // #when checkSite compares the page's text against stages.json's narrative
+    const problems = checkSite(root);
+
+    // #then it reports that stage 1's narrative no longer appears verbatim
+    assert.ok(
+      problems.some(
+        (p) =>
+          p.file === `docs/${id}.html` &&
+          p.message.includes("stage 1's interior narrative does not appear verbatim"),
+      ),
+    );
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("checkSite accepts a detail page whose stage-interior count and first narrative both match stages.json (fixture)", () => {
+  // #given the detail page renders exactly 2 stage-interior blocks with stage 1's narrative verbatim
+  const { root, id } = createInteriorFixtureRoot();
+  writeDetailHtml(root, id, twoStageDetailHtml(id, FIRST_NARRATIVE));
+
+  try {
+    // #when / #then checkSite reports no interior-journey drift for this route
+    const problems = checkSite(root);
+    assert.deepEqual(
+      problems.filter((p) => p.message.includes("interior journey content has drifted")),
+      [],
+    );
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("the committed docs/{id}.html pages already render one stage-interior block per stages.json stage with stage 1's narrative verbatim (positive control)", () => {
+  // #given every route's Interior Journey section was hand-inlined from that route's stages.json
+  // #when / #then checkSite reports no interior-journey drift for any route
+  const problems = checkSite(ROOT);
+  assert.deepEqual(
+    problems.filter((p) => p.message.includes("interior journey content has drifted")),
+    [],
+  );
+});
