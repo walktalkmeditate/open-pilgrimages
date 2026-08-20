@@ -65,6 +65,7 @@
 html {
   font-size: clamp(16px, 0.9rem + 0.25vw, 19px);
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
 body {
@@ -73,6 +74,7 @@ body {
   color: var(--ink);
   line-height: 1.7;
   padding: var(--space-lg);
+  overflow-x: hidden;
 }
 
 .container {
@@ -479,6 +481,42 @@ th {
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: var(--stone);
+}
+
+.route-card h3 .route-glyph {
+  vertical-align: middle;
+  margin-right: 0.4em;
+}
+
+.compare-table th button {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  text-transform: inherit;
+  letter-spacing: inherit;
+  color: inherit;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3em;
+}
+
+.compare-table th button:hover {
+  color: var(--ink);
+}
+
+.compare-table th button:focus-visible {
+  outline: 2px solid var(--rust);
+  outline-offset: 2px;
+}
+
+.compare-table th[aria-sort="ascending"] button::after {
+  content: "\2191";
+}
+
+.compare-table th[aria-sort="descending"] button::after {
+  content: "\2193";
 }
 
 .attribution {

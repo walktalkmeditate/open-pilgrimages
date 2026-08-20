@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Routes &mdash; Open Pilgrimages</title>
-  <meta name="description" content="Route catalog: Camino de Santiago (Frances), Shikoku 88 Temple Pilgrimage, Kumano Kodo. Three traditions, three topologies.">
-  <link rel="canonical" href="https://open.pilgrimag.es/routes.html">
+  <title>Routes &mdash; Seven Pilgrimages &mdash; Open Pilgrimages</title>
+  <meta name="description" content="Route catalog: five Caminos de Santiago (Franc&eacute;s, Norte, Primitivo, Portugu&eacute;s, Ingl&eacute;s), Shikoku 88, and Kumano Kodo. Seven pilgrimages, three traditions, three topologies &mdash; with a sortable comparison table.">
+  <link rel="canonical" href="https://open.pilgrimag.es/routes">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Routes &mdash; Open Pilgrimages">
-  <meta property="og:description" content="Camino de Santiago, Shikoku 88, Kumano Kodo. Three pilgrimages, three traditions, three topologies.">
-  <meta property="og:url" content="https://open.pilgrimag.es/routes.html">
+  <meta property="og:description" content="Seven pilgrimage routes across three traditions &mdash; Christian, Buddhist, and Shinto/Buddhist. Compare distance, stages, waypoints, and best months side by side.">
+  <meta property="og:url" content="https://open.pilgrimag.es/routes">
   <meta property="og:image" content="https://open.pilgrimag.es/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Routes &mdash; Open Pilgrimages">
@@ -19,17 +19,20 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Lato:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <script src="hero.js" defer></script>
+  <script src="route-sort.js" defer></script>
 </head>
 <body>
   <div class="container">
     <nav>
       <div class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="routes.html" class="active">Routes</a>
-        <a href="schema.html">Schema</a>
-        <a href="usage.html">Usage</a>
-        <a href="contribute.html" class="nav-contribute">Contribute</a>
+        <a href="/">Home</a>
+        <a href="/routes" class="active">Routes</a>
+        <a href="/schema">Schema</a>
+        <a href="/usage">Usage</a>
+        <a href="/contribute" class="nav-contribute">Contribute</a>
       </div>
+      <button type="button" class="theme-toggle" aria-pressed="false">Toggle Theme</button>
       <a href="https://github.com/walktalkmeditate/open-pilgrimages" class="nav-github">
         <svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
         GitHub
@@ -37,95 +40,299 @@
     </nav>
 
     <h1>Route Catalog</h1>
-    <p class="subtitle">Three pilgrimages. Three traditions. Three topologies.</p>
+    <p class="subtitle">Seven pilgrimages. Three traditions. Three topologies.</p>
 
-    <h2>Camino de Santiago (Frances)</h2>
+    <h2>All Routes</h2>
+    <div class="route-grid">
+
+      <div class="route-card">
+        <h3><svg class="route-glyph" aria-hidden="true" width="28" height="28" viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path pathLength="1" d="M188.0,85.2 L188.0,87.1 L187.2,88.2 L187.3,89.0 L185.6,90.9 L182.8,91.8 L181.8,92.6 L180.2,94.3 L179.5,95.8 L178.0,96.6 L175.7,99.3 L174.9,101.0 L173.4,101.7 L171.2,101.0 L169.8,101.8 L168.9,101.4 L168.5,102.1 L167.1,102.7 L166.8,103.5 L165.4,103.9 L165.0,104.7 L163.4,104.9 L160.6,106.4 L158.5,108.2 L155.5,109.7 L151.7,109.7 L149.6,109.1 L148.0,109.8 L147.0,109.0 L145.1,108.5 L143.1,109.4 L138.5,110.1 L137.0,111.3 L132.8,110.8 L132.0,111.5 L131.0,111.3 L128.5,112.1 L126.6,111.7 L123.5,112.1 L119.6,113.2 L119.0,113.7 L115.5,114.2 L115.2,113.9 L112.7,114.8 L110.6,114.5 L106.9,112.2 L101.9,112.5 L100.4,111.3 L97.8,111.5 L93.9,110.6 L90.3,108.3 L92.0,109.4 L87.4,107.0 L86.5,105.5 L84.0,104.3 L83.6,103.6 L80.9,104.7 L75.7,108.4 L73.7,108.6 L74.6,108.7 L71.1,108.2 L69.5,108.4 L65.5,107.2 L62.7,107.2 L60.4,105.4 L59.2,105.8 L58.8,104.6 L55.2,103.5 L53.8,103.5 L51.8,101.8 L49.2,101.2 L48.6,100.2 L47.0,100.4 L42.9,98.1 L39.1,97.8 L38.4,98.2 L37.6,97.7 L35.8,97.7 L31.0,95.6 L29.8,94.7 L26.3,94.4 L24.8,93.4 L22.1,92.8 L19.3,93.2 L18.4,93.0 L16.0,93.7 L15.0,93.4 L14.3,94.1 L12.0,94.5"/></svg> <a href="/camino-frances">Camino de Santiago (Frances)</a> <span class="badge badge-christian">Christian</span></h3>
+        <div class="meta">
+          <span>764 km</span>
+          <span>Linear</span>
+          <span>France &rarr; Spain</span>
+          <span>33 stages</span>
+          <span>2,957 waypoints</span>
+        </div>
+        <p>The most popular pilgrimage route to Santiago de Compostela, crossing the Pyrenees from France and traversing northern Spain. Walked continuously since the 9th century.</p>
+      </div>
+
+      <div class="route-card">
+        <h3><svg class="route-glyph" aria-hidden="true" width="28" height="28" viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path pathLength="1" d="M188.0,96.7 L187.1,95.7 L186.3,96.7 L184.4,97.2 L183.0,97.0 L182.5,97.6 L181.7,97.5 L179.9,98.2 L178.7,99.2 L178.5,98.8 L176.5,98.4 L176.9,98.6 L176.5,98.1 L174.8,98.3 L173.9,99.1 L173.0,99.1 L171.7,98.2 L171.4,98.7 L170.3,98.9 L170.5,99.6 L170.1,99.8 L168.7,98.9 L167.5,100.1 L166.4,100.2 L163.6,97.5 L163.0,98.1 L161.7,98.1 L161.8,98.9 L160.8,99.5 L160.2,99.6 L158.3,98.8 L158.1,99.3 L156.7,99.9 L155.5,99.9 L154.7,98.8 L154.8,97.9 L154.1,97.4 L153.7,97.8 L152.8,97.5 L151.0,96.2 L149.8,96.2 L149.5,97.4 L148.2,96.0 L148.6,95.0 L147.6,94.4 L145.9,94.3 L145.8,95.7 L144.8,95.6 L145.0,95.8 L144.0,94.4 L143.5,94.7 L143.2,93.9 L142.4,93.8 L141.8,92.0 L140.2,91.3 L139.3,92.2 L138.0,91.8 L137.2,92.6 L136.7,92.6 L135.9,91.4 L135.1,91.4 L133.7,92.5 L132.1,92.0 L129.4,92.7 L128.1,93.6 L128.4,94.3 L126.8,94.3 L125.8,95.4 L124.9,94.5 L123.9,94.8 L123.4,94.3 L121.7,95.0 L120.7,94.6 L119.7,95.2 L118.9,94.9 L117.7,95.5 L116.3,95.0 L115.6,95.3 L115.6,95.9 L114.6,96.0 L110.6,94.6 L106.8,94.6 L106.1,93.6 L105.1,93.3 L102.6,92.8 L99.8,92.8 L95.6,91.4 L95.0,91.7 L91.9,91.1 L90.2,91.4 L88.0,90.5 L87.0,91.9 L85.5,92.2 L85.5,91.6 L81.0,88.9 L76.4,89.4 L75.5,88.6 L73.9,88.6 L73.1,87.7 L71.4,88.8 L69.7,88.9 L69.4,89.4 L69.2,89.0 L66.6,88.3 L65.5,88.6 L65.1,88.1 L62.2,89.7 L59.4,88.7 L58.2,89.3 L57.1,88.8 L55.9,89.4 L54.5,88.8 L52.1,89.2 L47.1,88.4 L45.2,89.5 L43.0,88.9 L40.9,90.5 L36.3,91.1 L34.2,92.9 L33.9,94.2 L32.5,95.2 L31.7,95.2 L27.6,97.6 L26.2,97.5 L24.5,99.0 L23.8,100.8 L23.6,102.9 L21.7,103.3 L21.3,104.1 L21.5,105.2 L19.7,105.9 L19.8,106.5 L18.7,107.1 L18.9,108.3 L15.7,108.0 L14.8,108.9 L13.2,108.9 L12.0,110.3 L12.2,111.9 L12.3,111.1 L12.0,112.3"/></svg> <a href="/camino-norte">Camino del Norte (Northern Way)</a> <span class="badge badge-christian">Christian</span></h3>
+        <div class="meta">
+          <span>784 km</span>
+          <span>Linear</span>
+          <span>Spain</span>
+          <span>34 stages</span>
+          <span>3,634 waypoints</span>
+        </div>
+        <p>The coastal Camino de Santiago along the Bay of Biscay, from Ir&uacute;n through the Basque Country, Cantabria, and Asturias into Galicia. The longest non-Franc&eacute;s Camino, and the only one that stays within sight of the sea for most of its length.</p>
+      </div>
+
+      <div class="route-card">
+        <h3><svg class="route-glyph" aria-hidden="true" width="28" height="28" viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path pathLength="1" d="M188.0,78.7 L187.5,78.1 L185.4,77.9 L184.8,77.3 L181.1,76.4 L180.2,75.5 L180.2,75.0 L180.0,75.4 L180.3,74.9 L179.4,75.2 L179.8,75.1 L179.3,75.1 L178.4,73.8 L177.6,73.7 L176.6,74.5 L174.9,74.8 L174.7,74.4 L173.9,74.1 L173.5,74.5 L172.7,73.6 L171.8,73.6 L170.2,74.2 L170.8,73.9 L169.5,75.3 L168.0,76.0 L166.6,75.4 L165.2,75.8 L163.6,74.9 L163.0,74.1 L162.9,72.5 L162.3,72.8 L162.4,73.3 L161.8,73.5 L162.2,73.6 L162.4,73.3 L161.7,73.5 L161.4,73.1 L159.7,73.6 L159.0,73.2 L156.6,73.4 L155.7,74.1 L152.5,72.2 L153.0,72.2 L153.6,72.8 L151.6,72.2 L152.3,72.2 L151.0,72.6 L150.7,72.3 L149.1,74.1 L148.5,74.2 L146.3,75.9 L143.3,79.6 L142.8,79.4 L142.5,81.0 L141.5,81.2 L141.5,80.8 L140.8,80.6 L140.0,81.2 L138.3,80.5 L137.3,81.7 L135.9,81.1 L135.2,80.4 L134.5,81.1 L133.2,80.7 L131.0,81.3 L129.9,81.2 L129.0,82.3 L127.1,83.4 L126.2,88.2 L125.5,88.3 L123.1,86.5 L121.9,86.1 L120.4,88.2 L118.0,89.8 L115.9,90.3 L113.7,91.7 L113.1,92.6 L111.5,93.0 L110.3,94.2 L109.8,93.3 L108.3,93.5 L107.9,94.0 L107.0,93.9 L107.2,92.1 L106.5,92.1 L105.5,94.2 L106.1,93.7 L106.2,92.9 L105.8,92.9 L106.5,92.1 L105.5,94.2 L105.9,94.4 L104.1,94.3 L103.3,95.0 L101.7,95.0 L101.0,95.6 L100.5,96.6 L100.6,98.6 L99.5,100.6 L98.4,101.1 L99.0,101.2 L99.5,100.6 L98.1,101.3 L96.9,102.5 L97.8,101.9 L95.4,103.4 L96.6,102.5 L95.3,103.4 L94.3,102.1 L95.3,103.4 L93.9,101.9 L92.0,102.3 L91.0,103.3 L90.0,103.3 L89.0,104.0 L88.6,105.0 L87.0,106.3 L83.8,107.1 L82.6,108.0 L82.3,108.9 L79.8,109.9 L80.3,112.2 L78.7,113.6 L77.6,115.5 L76.8,115.9 L72.9,117.2 L72.2,116.5 L67.4,115.1 L64.0,116.6 L61.7,116.5 L60.7,115.9 L58.6,116.5 L60.6,115.8 L58.0,116.6 L53.9,116.2 L52.5,116.8 L52.3,116.4 L50.5,117.1 L50.0,116.8 L48.6,117.5 L48.7,118.3 L44.7,120.1 L44.9,119.6 L45.9,119.3 L44.1,120.7 L41.8,121.8 L42.5,121.9 L43.9,120.8 L39.8,122.6 L41.0,121.9 L39.5,122.6 L38.6,122.0 L34.5,123.4 L30.7,123.5 L33.7,123.9 L34.4,123.4 L28.9,123.8 L28.2,124.0 L28.2,124.4 L26.7,124.3 L28.0,124.4 L25.0,125.0 L21.7,124.9 L22.7,124.8 L21.7,124.9 L21.6,123.9 L21.7,124.8 L21.6,123.9 L19.5,124.3 L20.5,123.8 L21.3,123.9 L19.0,124.8 L17.1,124.7 L15.6,125.2 L16.8,124.7 L13.1,126.2 L12.1,127.9"/></svg> <a href="/camino-primitivo">Camino Primitivo (Original Way)</a> <span class="badge badge-christian">Christian</span></h3>
+        <div class="meta">
+          <span>263 km</span>
+          <span>Linear</span>
+          <span>Spain</span>
+          <span>11 stages</span>
+          <span>732 waypoints</span>
+        </div>
+        <p>The original Camino, walked by King Alfonso II of Asturias from Oviedo to Santiago in 814 CE. The most physically demanding of the major Caminos, crossing the Asturian and Galician mountains via the high Puerto del Palo pass.</p>
+      </div>
+
+      <div class="route-card">
+        <h3><svg class="route-glyph" aria-hidden="true" width="28" height="28" viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path pathLength="1" d="M100.2,187.9 L99.2,185.8 L98.5,182.9 L98.5,181.1 L97.3,178.1 L97.2,176.7 L97.7,176.5 L97.1,175.5 L96.2,175.4 L95.0,172.7 L95.7,169.0 L94.8,168.4 L95.1,166.3 L95.8,165.5 L95.8,163.4 L96.4,161.9 L95.9,159.8 L97.8,157.0 L97.7,156.4 L98.2,156.3 L98.7,154.4 L98.5,153.6 L98.8,153.4 L98.0,151.8 L98.4,151.1 L98.1,151.5 L98.4,151.1 L98.0,150.9 L98.6,150.2 L98.0,150.8 L99.6,149.0 L99.7,147.2 L99.2,146.6 L99.7,145.8 L99.5,142.8 L97.7,139.7 L98.1,137.3 L99.7,134.7 L99.5,134.0 L99.7,134.5 L99.2,132.5 L99.5,130.3 L99.3,131.2 L99.3,128.1 L102.2,125.1 L101.8,125.0 L101.8,122.3 L101.1,121.0 L101.4,121.4 L101.3,119.6 L101.0,120.6 L101.3,119.0 L100.7,116.1 L99.9,115.3 L99.6,113.4 L99.1,113.0 L99.3,111.7 L98.4,106.5 L98.7,107.0 L98.5,103.4 L97.4,98.0 L98.4,96.1 L97.9,92.0 L98.5,91.4 L97.6,89.1 L97.8,89.6 L97.9,88.4 L97.9,89.0 L98.2,88.2 L97.9,88.4 L99.2,87.1 L99.1,85.4 L99.8,84.0 L99.3,83.8 L100.6,81.1 L100.6,78.8 L100.0,77.9 L100.4,75.4 L100.2,74.3 L100.5,75.2 L100.3,71.6 L100.8,70.3 L100.5,69.7 L100.5,66.6 L99.0,63.3 L99.1,64.1 L98.9,61.5 L98.3,59.9 L98.3,60.6 L98.5,61.3 L98.4,59.4 L97.6,57.9 L97.9,55.9 L97.2,53.0 L97.2,50.6 L98.2,45.0 L97.7,43.7 L97.5,35.6 L98.4,34.7 L98.5,33.3 L98.1,32.9 L98.2,31.3 L97.5,29.8 L97.2,27.9 L96.4,27.7 L96.4,26.5 L97.1,25.5 L97.0,22.4 L98.4,20.3 L98.2,19.6 L99.2,19.2 L100.3,17.4 L102.3,16.0 L103.1,14.8 L102.9,13.5 L103.5,13.9 L105.1,12.0"/></svg> <a href="/camino-portugues">Camino Portugu&eacute;s (Central)</a> <span class="badge badge-christian">Christian</span></h3>
+        <div class="meta">
+          <span>243 km</span>
+          <span>Linear</span>
+          <span>Portugal &rarr; Spain</span>
+          <span>11 stages</span>
+          <span>1,634 waypoints</span>
+        </div>
+        <p>The second most-walked route to Santiago de Compostela, traversing the Minho region of northern Portugal before crossing into Galicia at Tui. Walked since the 12th century, shorter and flatter than the Camino Franc&eacute;s.</p>
+      </div>
+
+      <div class="route-card">
+        <h3><svg class="route-glyph" aria-hidden="true" width="28" height="28" viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path pathLength="1" d="M121.1,22.6 L123.2,21.1 L125.1,22.2 L125.7,21.6 L125.5,22.2 L125.1,22.2 L126.3,20.6 L128.2,21.4 L128.5,22.9 L129.8,22.8 L130.5,21.1 L130.4,21.4 L130.0,20.4 L130.4,20.8 L130.2,20.0 L131.4,19.3 L132.4,19.1 L132.3,18.3 L133.2,18.2 L132.4,18.2 L133.2,18.1 L133.3,17.7 L134.5,17.9 L135.4,16.7 L135.0,15.3 L136.5,14.3 L136.2,12.9 L138.5,12.6 L137.7,13.2 L136.3,12.9 L139.0,12.7 L139.8,12.0 L139.1,15.7 L138.0,16.4 L138.8,16.0 L138.0,17.3 L138.0,16.4 L137.9,19.7 L137.1,20.5 L137.5,26.3 L136.3,28.8 L136.7,29.0 L136.1,30.6 L136.1,30.2 L136.1,30.7 L136.7,30.7 L136.6,32.3 L137.9,36.1 L137.3,37.3 L137.7,38.3 L137.3,37.6 L137.5,39.1 L137.1,39.8 L137.4,39.6 L137.5,39.1 L136.2,40.9 L136.6,40.3 L135.8,42.3 L136.2,44.0 L136.1,43.4 L136.0,44.3 L134.6,45.0 L132.8,47.3 L133.1,49.8 L132.8,50.3 L133.4,50.7 L133.5,53.1 L132.9,51.7 L133.4,50.7 L133.7,53.4 L133.3,54.4 L131.8,55.4 L130.4,57.9 L128.9,57.9 L129.3,58.3 L128.4,59.4 L129.8,62.5 L131.7,63.3 L132.2,64.0 L132.0,64.8 L130.1,65.7 L130.5,65.6 L130.1,66.0 L130.5,67.5 L130.3,71.4 L129.5,72.1 L129.2,74.7 L129.5,75.7 L128.2,77.2 L127.6,77.1 L127.8,77.7 L127.3,79.3 L127.6,79.8 L127.3,79.8 L126.4,81.6 L127.1,80.7 L124.9,84.1 L120.9,86.9 L120.2,87.0 L121.1,87.9 L121.2,90.5 L121.5,90.0 L120.9,88.4 L120.8,90.4 L121.2,90.5 L120.6,90.8 L120.7,90.5 L120.0,92.5 L120.5,91.6 L117.2,96.9 L117.3,98.8 L116.1,100.8 L116.1,100.0 L116.6,99.6 L116.0,101.0 L114.3,101.6 L114.0,102.1 L110.9,102.9 L111.7,102.3 L113.9,102.2 L110.9,102.9 L109.5,104.3 L107.8,104.5 L107.0,105.6 L107.2,106.0 L105.5,106.1 L106.8,106.2 L107.2,106.0 L104.3,105.8 L103.0,107.1 L100.1,107.6 L100.6,107.8 L98.1,109.7 L100.1,107.6 L97.5,110.5 L98.1,109.7 L97.5,110.5 L97.7,112.0 L94.8,117.3 L94.8,118.8 L94.1,119.3 L93.5,120.7 L94.0,122.5 L93.5,125.9 L93.5,127.5 L93.9,127.7 L93.2,128.8 L93.5,130.3 L92.8,132.2 L93.6,133.6 L94.0,137.9 L93.1,139.4 L90.6,142.0 L88.8,145.6 L88.3,147.7 L87.4,148.2 L87.3,148.9 L86.8,148.8 L86.6,149.8 L87.0,150.3 L86.1,151.1 L85.7,152.7 L85.9,151.7 L85.5,154.3 L85.7,152.8 L84.9,155.3 L85.4,154.7 L82.7,159.7 L83.2,159.2 L82.7,159.8 L83.4,160.4 L83.1,160.3 L83.4,160.4 L82.1,162.4 L81.5,162.6 L80.6,164.4 L79.2,164.7 L78.6,165.9 L79.2,164.7 L78.3,165.7 L78.6,165.9 L77.8,165.8 L78.1,166.1 L77.1,167.3 L77.8,165.8 L76.1,169.2 L76.9,167.2 L75.3,169.7 L75.8,169.7 L74.8,171.5 L75.3,169.7 L74.9,172.0 L74.6,171.8 L74.8,171.5 L75.0,172.1 L73.1,175.1 L72.1,174.6 L71.3,175.4 L71.0,177.0 L71.1,175.8 L71.0,177.0 L70.1,177.5 L68.6,177.4 L69.1,177.5 L67.6,178.4 L68.6,177.4 L66.9,178.9 L66.4,178.6 L66.0,179.1 L66.2,178.8 L65.8,179.7 L64.1,180.9 L63.1,184.7 L61.2,186.4 L60.7,187.8 L60.3,187.9"/></svg> <a href="/camino-ingles">Camino Ingl&eacute;s (English Way)</a> <span class="badge badge-christian">Christian</span></h3>
+        <div class="meta">
+          <span>112 km</span>
+          <span>Linear</span>
+          <span>Spain</span>
+          <span>6 stages</span>
+          <span>482 waypoints</span>
+        </div>
+        <p>The shortest of the major Caminos, walked since medieval times by English, Irish, Scandinavian, and Flemish pilgrims arriving by sea at Ferrol and A Coru&ntilde;a. Modern revival began in the 2000s.</p>
+      </div>
+
+      <div class="route-card">
+        <h3><svg class="route-glyph" aria-hidden="true" width="28" height="28" viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path pathLength="1" d="M44.6,147.4 L46.8,146.4 L46.8,145.7 L48.4,144.5 L50.3,141.9 L51.3,141.5 L50.4,141.8 L53.4,141.3 L54.3,140.5 L55.6,140.4 L56.5,141.1 L57.6,141.1 L59.1,139.4 L64.0,136.9 L65.1,135.4 L65.8,135.7 L66.6,135.3 L69.9,136.4 L70.4,135.5 L72.5,135.0 L74.1,133.5 L76.0,132.8 L76.2,132.1 L76.6,132.4 L78.0,131.2 L81.2,130.0 L81.3,129.5 L82.2,129.7 L83.4,128.6 L84.0,128.9 L85.9,128.4 L86.8,127.9 L86.7,127.1 L87.7,126.7 L88.1,126.1 L91.8,125.5 L90.1,125.0 L88.3,126.3 L91.8,125.5 L92.1,126.4 L91.8,126.5 L93.9,125.4 L94.6,124.9 L94.7,123.9 L95.4,123.9 L95.4,123.5 L97.5,122.2 L99.5,122.4 L100.2,121.6 L100.3,122.3 L99.5,122.4 L100.2,121.6 L100.3,120.8 L102.0,120.7 L104.6,121.9 L109.6,121.3 L111.3,122.7 L110.6,121.6 L109.8,121.4 L112.2,123.8 L113.8,127.5 M155.4,187.9 L153.7,187.1 L154.3,187.6 L152.7,185.2 L153.3,185.0 L153.3,186.5 L152.7,185.2 L151.3,185.3 L152.0,185.3 L150.4,184.8 L151.2,185.3 L150.3,184.7 L150.2,183.5 L147.7,180.3 L146.1,179.6 L144.6,180.3 L142.1,179.8 L141.6,180.4 L140.4,179.6 L141.5,180.3 L139.4,177.6 L139.3,179.0 L140.4,179.5 L139.3,175.1 L139.4,177.5 L138.9,174.2 L138.1,172.7 L136.9,172.1 L136.2,171.0 L135.7,169.0 L134.7,168.1 L133.2,164.2 L133.1,162.1 L134.0,158.7 L133.0,159.0 L132.0,158.1 L132.1,155.5 L131.5,152.7 M118.4,133.3 L117.4,133.3 L116.4,132.6 L114.4,132.2 L114.7,132.0 L115.7,132.4 L114.4,132.2 L112.5,133.0 L112.8,132.6 L111.9,134.0 L110.0,132.4 L111.2,133.3 L110.0,132.4 L110.5,131.8 L109.9,131.4 L109.9,130.8 M131.5,152.7 L131.5,151.7 L132.3,151.3 L131.6,151.4 L131.5,151.7 L132.3,151.3 L132.4,150.8 L129.7,149.4 L125.6,143.6 L126.1,145.0 L127.6,145.0 L127.8,145.8 L128.8,146.6 L128.3,147.5 L126.4,141.2 L125.6,143.6 L126.4,140.7 L126.0,139.0 L125.6,139.0 L126.1,140.4 L123.7,135.6 L125.9,137.8 L126.0,139.0 L119.1,133.4 L119.8,133.0 L120.8,134.0 L123.5,135.0 L123.7,135.6 L119.1,133.4 L118.4,133.4 M109.8,130.8 L110.3,130.8 L110.7,130.1 L112.2,130.3 L113.6,129.2 L114.3,129.2 L114.0,127.5 M99.4,122.4 L99.1,122.8 L98.6,122.6 L98.7,123.4 L100.5,123.5 L102.1,125.1 L103.8,125.5 L108.5,130.0 L107.7,129.6 L107.2,128.2 L106.0,127.3 L108.5,130.1 L109.8,130.8 M66.1,12.0 L66.0,13.8 L65.6,13.7 L66.0,12.1 L66.6,14.7 L66.0,13.8 L67.9,15.9 L68.6,17.4 L68.1,17.0 L67.9,15.9 L68.6,18.6 L68.6,17.4 L71.0,21.0 L70.5,21.0 L70.5,20.3 L70.2,20.6 L68.7,18.8 L68.9,18.6 L71.0,21.0 L71.8,21.3 L71.6,21.7 L73.6,24.3 L72.2,23.5 L72.0,22.6 L71.3,22.3 L71.7,21.8 L74.5,28.7 L75.1,27.5 L74.1,25.1 L73.5,24.6 L73.6,30.1 L74.6,28.8 L73.6,30.1 L74.6,33.6 L73.4,35.4 L74.1,37.4 L75.0,37.8 L75.8,39.5 L75.6,37.7 L75.0,37.8 L75.9,39.6 L75.1,40.7 L75.4,42.7 L77.3,45.1 L76.0,43.4 L77.3,45.1 L77.0,45.5 L78.1,45.7 L78.2,46.9 L78.9,46.8 L79.3,47.8 L80.1,48.2 L80.2,49.7 L79.7,51.4 L80.8,52.8 L82.3,53.1 L82.6,53.6 L83.8,53.3 L82.9,54.1 L83.7,54.8 L83.5,56.3 L85.4,58.9 L86.2,61.0 L87.4,61.8 L88.1,61.4 L88.0,61.9 L88.8,62.6 L90.6,63.4 L90.1,64.1 L92.0,64.0 L92.7,66.3 L93.4,67.1 L94.2,66.8 L95.2,67.4 L95.8,67.2 L96.7,69.1 L97.4,69.6 L98.2,71.2 L98.3,72.1 L97.9,72.4 L100.9,77.3 L101.6,81.5 L102.7,82.8 L103.1,84.4 L102.6,84.7 L102.6,84.3 L102.1,84.6 L102.3,84.3 L102.6,84.3 L101.6,85.3 L101.9,84.9 L102.4,85.9 L102.0,85.4 L104.6,86.5 L103.9,86.6 L103.3,86.1 L102.7,86.4 L102.4,85.9 L104.7,86.7 L103.9,88.0 L105.0,88.5 L104.6,89.4 L104.9,90.1 L104.4,90.7 L105.3,91.6 L104.8,92.3 L105.3,93.6 L106.2,94.1 L106.2,94.7 L107.1,94.7 L107.0,96.0 L107.6,95.7 L107.7,96.3 L108.9,96.9 L109.4,97.6 L109.9,97.5 L110.3,100.5 L110.2,100.1 L106.4,105.7 L108.3,102.9 L109.7,102.3 L110.5,101.0 L108.3,112.1 L107.1,110.7 L106.8,109.1 L107.1,107.1 L106.5,105.9 L108.5,112.7 L110.3,114.1 L109.8,115.7 L110.5,115.5 L109.7,118.2 L110.3,119.6 L110.1,120.1 L110.3,119.6 L110.1,120.1 L111.2,120.8 L111.4,122.8 L111.7,122.4 L111.3,122.0"/></svg> <a href="/kumano-kodo">Kumano Kodo</a> <span class="badge badge-mixed">Shinto / Buddhist</span></h3>
+        <div class="meta">
+          <span>39 km (Nakahechi)</span>
+          <span>Network</span>
+          <span>Japan</span>
+          <span>4 stages</span>
+          <span>157 waypoints</span>
+        </div>
+        <p>Ancient pilgrimage routes through the mountains of the Kii Peninsula to the three Grand Shrines of Kumano. UNESCO World Heritage since 2004, and sister route to the Camino de Santiago through the Dual Pilgrim program.</p>
+      </div>
+
+      <div class="route-card">
+        <h3><svg class="route-glyph" aria-hidden="true" width="28" height="28" viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path pathLength="1" d="M163.4,55.9 L164.2,56.1 L164.4,55.5 L164.2,56.1 L164.4,55.5 L165.4,56.0 L168.6,53.8 L168.1,54.5 L166.2,55.4 L168.8,53.7 L169.4,52.6 L170.7,52.2 L171.3,51.0 L172.3,51.1 L173.1,49.9 L176.1,50.6 M166.6,49.2 L166.1,50.0 L166.5,50.8 L165.4,51.4 L166.2,51.1 L165.4,51.4 L165.3,52.4 L164.4,53.6 L164.6,54.1 L164.4,53.6 L164.1,54.6 L164.6,54.1 L163.3,55.7 L163.7,55.0 L163.4,56.0 M179.4,38.4 L178.4,38.8 M162.8,43.6 L162.8,44.4 M166.5,48.7 L166.6,49.2 M162.8,44.4 L164.1,46.4 L164.0,47.7 L165.8,48.0 L165.2,47.7 L166.4,48.3 L166.5,48.7 M176.1,50.6 L176.8,50.4 L177.2,49.4 M185.7,55.8 L186.6,56.5 L187.0,57.4 L186.7,56.8 L187.0,57.4 L188.0,57.7 M165.8,42.1 L165.3,43.9 M178.0,45.9 L180.7,46.1 L180.9,46.6 L182.7,46.8 L183.1,47.6 L183.0,49.0 L183.1,48.0 L183.0,49.0 L183.5,49.3 L183.5,51.4 L184.0,52.6 L183.6,51.6 L185.8,54.6 L186.0,55.6 L185.7,54.7 L186.0,55.6 L185.7,55.9 L186.0,55.6 L185.8,54.6 L182.0,50.1 M178.0,47.0 L177.0,47.5 M182.0,50.1 L180.6,50.0 L180.3,49.2 L179.5,48.8 L179.3,47.2 L177.0,47.5 L178.0,47.0 L178.0,45.9 L177.0,48.9 L177.0,47.5 M165.3,43.9 L163.5,44.4 L162.8,44.2 L162.8,43.6 M177.2,49.4 L177.0,48.8 M181.0,66.3 L181.7,66.2 L181.2,66.5 L183.1,66.0 L184.3,68.6 L184.9,69.4 L185.0,69.0 L185.0,69.6 L185.5,69.8 L186.0,69.3 M179.6,63.1 L180.9,64.0 L181.2,66.0 M178.4,38.7 L177.8,39.4 L174.1,40.4 L173.3,40.0 L173.3,39.3 L173.5,40.9 L172.0,41.0 L170.7,42.4 L171.7,41.5 L170.7,42.4 L169.0,42.3 M188.0,57.7 L185.4,59.7 L185.6,59.4 L185.4,59.7 L183.7,59.5 L180.8,61.5 L180.2,62.9 L179.6,63.1 M183.7,59.5 L181.3,61.1 M169.0,42.3 L166.5,42.6 L165.9,42.5 L165.8,42.1 M152.1,129.7 L149.8,125.8 M181.5,81.3 L181.5,82.2 L181.7,81.8 L181.1,82.4 L180.1,82.1 L173.8,84.7 L173.9,85.3 L172.6,85.9 L172.6,86.9 L171.8,88.6 L170.6,88.8 L169.4,90.4 L167.9,91.4 L167.7,92.0 L168.1,92.9 L167.3,94.3 L167.9,93.6 L166.8,94.6 M163.2,97.4 L163.2,96.9 L164.0,96.4 L166.7,96.0 L166.9,94.9 M163.2,97.4 L162.9,99.5 L161.7,100.3 L161.7,101.0 L160.9,101.9 L160.9,103.2 L160.0,104.0 L160.4,103.6 L159.7,105.1 L157.9,107.6 L157.0,110.8 L154.7,114.8 L155.2,116.3 L155.1,115.5 L155.1,116.7 L154.5,117.6 L152.9,125.3 L152.6,129.3 L152.1,129.7 M186.0,69.3 L186.5,70.5 L186.5,72.1 L187.3,72.7 L186.7,73.3 L186.7,74.8 L186.8,74.5 L186.8,74.9 L187.4,75.3 L186.9,75.9 L187.5,75.5 L186.8,75.9 L187.1,76.7 L186.8,76.0 L187.1,76.7 L185.9,77.3 L185.6,78.0 L185.1,77.8 L185.1,78.8 L184.4,79.6 L184.7,79.5 L182.4,81.1 L183.4,80.9 L183.6,80.4 L181.5,81.3 M186.8,75.0 L187.4,75.3 L186.8,75.0 M102.2,95.4 L101.8,96.7 L102.6,99.4 L102.1,99.9 M107.4,94.8 L105.8,95.4 L102.2,95.4 M112.8,96.9 L112.0,96.3 L111.9,95.5 L109.9,95.4 L108.2,95.9 L107.4,94.7 M135.4,107.8 L135.1,110.0 L134.1,109.9 L134.6,109.9 L133.4,109.5 L132.6,108.2 L132.9,107.1 L132.2,105.9 L130.9,104.9 L125.0,103.9 L123.8,103.2 L124.5,103.9 L123.4,102.9 L118.3,102.9 L119.1,102.8 L118.0,102.7 L117.0,101.2 L115.5,100.4 L114.3,100.4 L115.0,100.4 L114.3,100.4 L112.4,98.4 L112.8,96.8 M147.7,123.9 L146.7,124.0 L146.0,121.6 L144.1,120.6 L142.5,118.0 L140.6,116.6 L140.5,114.6 L139.4,112.2 L138.7,111.8 L138.2,112.0 L136.9,111.7 L135.3,110.7 L136.0,110.9 L135.0,110.1 L135.4,107.8 M149.8,125.8 L147.7,123.9 M94.7,105.3 L93.4,105.5 L91.7,104.8 L91.4,105.3 L89.3,104.8 L89.1,103.9 L88.2,103.3 M99.4,104.6 L96.3,105.8 L95.1,105.5 L97.3,105.1 L96.6,105.3 L96.5,105.8 L94.7,105.4 M105.0,101.9 L102.1,103.0 L102.8,102.7 L101.9,103.2 L101.1,104.2 L101.9,103.2 L101.1,104.2 L99.3,104.5 M102.1,100.0 L103.3,100.6 L104.3,100.5 L103.5,100.6 L104.3,100.5 L104.4,101.7 L105.0,101.9 M91.7,112.0 L91.8,111.4 L91.0,110.7 L91.7,111.2 L90.5,110.4 L90.2,110.7 L89.2,109.6 L89.5,109.7 L89.4,110.5 L90.1,110.9 L89.2,109.6 L87.7,109.9 L88.9,110.2 L89.2,109.6 L87.1,110.2 L86.7,111.1 L84.4,111.7 L86.1,111.5 L86.7,111.1 L84.4,111.7 L83.0,111.4 L84.1,111.7 L82.9,111.5 L82.4,111.9 L81.4,111.9 L82.2,111.7 L81.0,112.1 L78.8,113.9 L77.8,114.3 L76.5,117.2 L75.5,118.0 L74.3,118.4 L74.0,118.2 L73.6,119.9 L72.8,120.4 L73.1,121.6 L72.5,122.8 L72.8,122.1 L71.9,123.0 L72.4,122.8 L70.5,123.1 L71.0,122.8 L69.0,123.8 L68.7,124.8 L69.0,124.5 L69.0,123.9 L68.5,124.8 L68.7,125.8 L68.2,128.6 L65.3,133.8 M88.2,103.4 L88.9,103.6 L89.1,105.0 L89.8,104.9 L90.6,105.6 L90.0,105.3 L90.6,105.6 L90.6,107.6 L90.8,106.6 L90.6,105.9 L90.5,107.8 L90.1,108.3 L90.9,109.6 L90.5,110.6 L91.7,111.2 L91.7,112.0 M55.6,181.7 L54.5,181.9 L51.9,180.3 L51.4,180.5 L51.7,179.5 L50.8,178.2 L51.4,176.7 L50.7,176.4 L50.8,175.1 L49.8,173.1 L50.3,173.8 L49.8,173.1 L50.1,169.9 L50.6,171.4 L49.8,171.8 L50.1,169.8 L49.7,168.8 L50.3,169.3 L50.1,169.8 L49.9,167.9 L49.0,166.3 L48.2,166.4 L48.1,167.0 L46.9,167.2 L46.1,166.9 L46.5,166.4 L46.0,166.1 L46.2,165.7 L45.6,166.1 L45.3,165.7 L45.5,165.0 L43.8,165.7 L43.0,164.8 L42.9,163.9 L41.3,164.2 L40.9,162.5 L40.9,162.8 L40.6,162.3 L39.0,162.3 L38.1,161.4 L37.8,160.2 L37.0,159.7 L37.8,160.2 L36.7,158.8 L36.1,159.1 L35.2,158.3 M65.3,133.7 L65.9,133.9 L66.1,135.1 L65.4,137.4 L65.6,138.7 L64.4,139.9 L64.5,140.9 L63.8,141.5 L63.8,142.9 L63.4,142.7 L63.3,143.4 L62.3,143.7 L62.6,144.6 L62.3,145.4 L63.0,147.9 L62.3,148.7 L61.8,151.3 L58.7,150.4 L55.9,151.3 L54.0,153.4 L54.6,153.1 L54.0,153.4 L54.0,154.8 L54.5,154.2 L54.1,153.5 L54.0,154.8 L52.7,156.0 L52.7,157.3 L52.1,157.8 L52.7,157.3 L51.4,158.4 L51.8,159.5 L51.6,159.0 L51.4,160.9 L52.0,160.1 L51.8,159.7 L51.4,161.3 L48.8,163.6 L49.0,165.4 L49.1,164.6 L48.7,163.9 L49.4,167.4 L49.1,166.9 L49.9,167.9 L49.7,168.7 L49.9,167.9 L49.7,168.8 L50.3,169.3 L50.1,170.7 L50.6,171.4 L49.8,171.8 L49.8,173.1 L51.5,174.7 L53.6,175.3 L51.6,174.9 L52.0,174.7 L53.9,175.7 L55.0,178.2 L55.6,181.7 M35.2,158.3 L35.6,158.6 L35.3,159.1 L34.3,159.9 L30.5,161.0 L30.0,160.6 L27.2,160.2 L28.0,160.3 L27.0,160.1 L26.9,159.0 L26.0,158.5 L24.9,158.6 L24.0,157.5 L20.3,157.6 L18.5,158.3 L17.7,158.3 L17.7,158.0 M46.7,88.5 L48.0,87.3 L49.3,87.8 L50.6,87.4 L52.5,88.0 L52.9,88.8 L52.4,88.7 M13.9,117.7 L13.5,118.4 L13.1,117.9 L13.4,118.3 L12.6,116.8 L13.3,112.2 L14.0,109.7 L14.1,110.2 L14.9,109.4 L14.0,109.7 L15.0,109.4 L16.1,107.9 L15.7,105.6 L16.6,104.5 L16.0,105.3 L16.6,104.5 L16.1,103.9 L16.4,102.8 L18.9,101.3 L23.0,101.2 L23.9,100.4 L24.0,99.7 L26.0,98.6 L26.3,99.0 L26.8,98.9 L27.0,97.7 L28.1,98.3 L30.1,97.0 L29.5,97.7 L30.2,97.1 L32.6,96.8 L33.3,95.9 L34.2,96.6 L35.1,96.6 L35.2,95.7 L36.0,95.3 L36.4,93.2 L37.3,92.6 L39.2,92.3 L38.3,92.2 L37.4,92.6 L39.2,92.3 L40.5,92.5 L41.5,91.5 L42.6,91.4 L42.6,91.0 L43.8,90.5 L42.6,91.0 L44.4,89.7 L43.8,90.5 L44.4,89.6 L46.7,88.5 M19.1,123.5 L17.2,121.0 L17.4,121.8 L17.2,120.7 L15.3,120.0 L14.5,118.7 L14.6,118.3 L13.9,117.7 M20.5,125.1 L20.2,125.1 L20.5,125.1 L19.1,123.5 M17.7,158.1 L16.2,157.8 L14.4,156.3 L13.5,155.1 L13.4,154.1 L12.0,153.0 L12.6,152.3 L12.6,150.2 L12.8,150.5 L13.2,148.8 L12.6,149.5 L12.6,150.1 L13.2,148.8 L12.5,147.1 L12.6,146.3 L13.6,144.9 L13.5,145.5 L13.2,144.6 L13.6,144.9 L13.2,144.6 L13.6,143.4 L13.2,143.9 L13.2,144.6 L14.3,142.0 L14.9,138.8 L14.8,139.3 L15.2,138.5 L16.7,137.5 L16.2,134.7 L17.8,133.1 L17.5,133.2 L18.3,131.4 L18.1,130.4 L19.3,127.7 L20.3,126.4 L20.5,125.1 M52.4,88.7 L52.9,88.8 L52.6,88.1 L52.0,87.9 L52.4,88.0 L49.3,87.8 L50.6,87.4 L52.0,87.9 L48.0,87.3 L47.5,87.9 L46.7,87.9 L45.8,88.6 L44.1,86.0 L43.7,84.2 L41.2,82.4 L41.6,82.6 L41.2,82.4 L40.7,80.9 L39.0,79.2 M38.0,72.9 L38.5,75.2 L37.9,74.8 L38.0,72.8 M38.4,78.8 L38.5,75.2 L39.0,79.2 L38.4,78.7 M32.3,65.4 L33.0,65.0 L34.7,60.2 L35.2,56.5 L35.1,56.8 L35.9,56.3 L36.3,54.9 L38.5,52.3 L37.9,52.7 L42.9,49.1 L45.5,48.1 L47.0,48.3 L46.4,48.1 L49.5,47.5 L50.9,48.0 L51.0,47.7 M30.3,66.0 L31.0,66.1 L32.3,65.3 M37.1,69.7 L34.0,68.8 L33.5,67.1 L34.0,68.8 L33.5,67.1 L33.0,66.6 L33.0,67.1 L32.5,66.1 L30.3,66.0 M37.7,71.7 L37.2,71.5 L37.1,69.7 M52.2,51.4 L52.1,53.1 L51.9,49.4 L52.4,50.1 L52.0,51.1 L52.2,51.4 L53.7,47.5 L52.0,49.4 L52.3,49.1 L51.9,49.4 L51.0,47.7 L52.8,48.0 L52.2,47.9 L53.7,47.5 M64.8,64.9 L67.4,65.5 L63.8,64.8 L64.8,64.9 L62.7,65.1 L63.7,64.8 M63.3,70.8 L63.6,68.5 L62.9,68.3 L63.6,68.4 L62.2,66.4 L62.7,67.9 L62.2,66.4 L62.7,65.1 M56.2,51.8 L56.9,52.7 L57.4,54.4 L58.4,55.5 L58.2,56.8 L59.0,59.7 L58.2,61.8 L59.3,64.0 L59.0,63.0 L59.3,64.0 L59.0,64.4 L60.5,66.3 L60.7,68.0 L60.6,66.4 L60.7,68.1 L61.8,68.9 L61.3,69.2 L60.8,68.8 L60.7,68.1 L61.8,68.9 L63.3,70.8 M52.2,53.1 L54.8,50.9 L54.4,51.3 L54.8,50.9 L56.2,51.8 M114.4,50.9 L114.6,47.8 L114.3,48.6 L114.7,50.4 L114.5,47.6 L113.1,45.4 L114.0,44.1 M103.0,57.7 L108.5,54.8 L109.8,54.8 L110.8,53.2 L111.9,52.9 L111.8,53.2 L111.3,53.1 L113.7,52.5 L113.2,52.9 L114.2,52.2 L114.4,51.6 L114.3,52.1 L114.4,50.9 M67.4,65.5 L68.1,64.9 L69.7,64.8 L69.9,64.4 L70.2,64.6 L72.5,62.9 L73.9,62.5 L72.8,62.7 L82.4,60.2 L84.6,60.8 L83.1,60.1 L85.6,60.2 L84.8,60.7 L88.5,58.9 L91.8,58.6 L93.8,57.9 L97.3,57.9 L98.8,56.9 L98.2,57.4 L100.1,56.7 L103.0,57.7 M111.9,40.4 L113.5,37.7 L112.9,38.7 L113.7,36.9 L113.9,33.0 L114.4,31.2 M108.1,40.9 L111.9,40.7 L111.9,40.4 L108.1,40.9 M114.0,44.1 L113.7,43.4 L110.7,42.5 L108.1,40.9 M118.8,31.6 L119.9,30.7 L119.2,29.2 L116.6,32.3 L116.6,32.0 L117.9,30.9 L118.7,31.7 L116.6,31.9 L116.6,32.3 L114.5,31.2 L115.0,31.8 L114.5,31.4 L116.6,31.9 M117.7,26.6 L121.1,24.9 L122.4,23.4 L122.8,23.5 M119.2,29.2 L118.4,28.4 L117.7,26.5 M132.8,23.9 L133.1,24.0 L133.2,21.9 L132.0,21.2 L132.2,21.6 L132.8,21.5 L131.3,20.7 L127.7,23.0 L129.7,23.4 L131.0,24.6 L130.8,24.3 L132.0,24.4 L131.1,24.6 L132.8,23.9 M122.8,23.5 L124.4,22.7 L127.0,22.7 L127.7,23.0 M139.7,25.6 L141.1,24.3 L142.2,22.3 L142.8,22.4 L143.2,21.6 L143.1,21.9 L143.2,21.6 L144.0,21.8 L144.4,20.8 L145.5,20.6 L145.9,18.5 L146.1,19.1 L145.9,18.4 M134.2,19.7 L134.3,20.2 L134.9,20.3 L134.7,21.0 L135.4,21.3 L135.0,21.3 L134.8,21.0 L135.9,21.2 L138.4,23.2 L139.7,25.6 M131.3,20.7 L132.9,21.2 L134.0,20.5 L134.2,19.7 M151.8,27.6 L152.1,30.1 L151.8,31.8 L153.1,32.0 L153.9,32.6 L153.8,34.1 L154.7,35.2 M152.4,21.8 L152.6,23.4 L151.8,27.6 M149.1,18.1 L150.6,21.0 L151.4,21.7 L152.4,21.7 M145.9,18.4 L146.9,18.2 L146.6,18.3 L146.9,18.2 L147.6,19.2 L149.1,18.1 M154.7,35.2 L155.9,35.5 L155.3,35.4 L156.4,36.2 L158.7,36.3 L162.8,34.0 L159.9,35.7 L163.4,34.0 L162.8,34.0 L168.7,32.9 L169.5,32.1 L170.9,32.1 L173.1,33.3 L174.1,35.2 L175.5,35.2 L176.0,35.8 L177.3,35.4 L177.6,36.5 L179.3,37.2 L179.4,38.4"/></svg> <a href="/shikoku-88">Shikoku 88 Temple Pilgrimage</a> <span class="badge badge-buddhist">Buddhist</span></h3>
+        <div class="meta">
+          <span>1,200 km</span>
+          <span>Circular</span>
+          <span>Japan</span>
+          <span>10 stages</span>
+          <span>2,980 waypoints</span>
+        </div>
+        <p>A circular pilgrimage visiting 88 Buddhist temples around the island of Shikoku, following the footsteps of the monk K&#363;kai. One of the few circular pilgrimages in the world.</p>
+      </div>
+
+    </div>
+
+    <h2>Compare All Seven</h2>
+    <p>Sortable by any column. Ships sorted by distance, descending &mdash; the table below is fully readable even without JavaScript.</p>
+    <div class="full-bleed scroll-x">
+      <table class="compare-table" data-sortable>
+        <caption>Comparison of all seven pilgrimage routes by distance, typical duration, difficulty, stage count, waypoint count, and best months to walk.</caption>
+        <thead>
+          <tr>
+            <th scope="col">Route</th>
+            <th scope="col" aria-sort="descending"><button type="button" data-sort="distance">Distance (km)</button></th>
+            <th scope="col" aria-sort="none"><button type="button" data-sort="days">Typical Days</button></th>
+            <th scope="col" aria-sort="none"><button type="button" data-sort="difficulty">Difficulty</button></th>
+            <th scope="col" aria-sort="none"><button type="button" data-sort="stages">Stages</button></th>
+            <th scope="col" aria-sort="none"><button type="button" data-sort="waypoints">Waypoints</button></th>
+            <th scope="col" aria-sort="none"><button type="button" data-sort="months">Best Months</button></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Shikoku 88 Temple Pilgrimage</th>
+            <td data-value="1200">1,200 km</td>
+            <td data-value="45">45</td>
+            <td data-value="3">Hard</td>
+            <td data-value="10">10</td>
+            <td data-value="2980">2,980</td>
+            <td data-value="3">Mar, Apr, May, Oct, Nov</td>
+          </tr>
+          <tr>
+            <th scope="row">Camino del Norte (Northern Way)</th>
+            <td data-value="784">784 km</td>
+            <td data-value="34">34</td>
+            <td data-value="3">Hard</td>
+            <td data-value="34">34</td>
+            <td data-value="3634">3,634</td>
+            <td data-value="5">May, Jun, Sep</td>
+          </tr>
+          <tr>
+            <th scope="row">Camino de Santiago (Frances)</th>
+            <td data-value="764">764 km</td>
+            <td data-value="31">31</td>
+            <td data-value="2">Moderate</td>
+            <td data-value="33">33</td>
+            <td data-value="2957">2,957</td>
+            <td data-value="5">May, Jun, Sep</td>
+          </tr>
+          <tr>
+            <th scope="row">Camino Primitivo (Original Way)</th>
+            <td data-value="263">263 km</td>
+            <td data-value="11">11</td>
+            <td data-value="3">Hard</td>
+            <td data-value="11">11</td>
+            <td data-value="732">732</td>
+            <td data-value="5">May, Jun, Sep</td>
+          </tr>
+          <tr>
+            <th scope="row">Camino Portugu&eacute;s (Central)</th>
+            <td data-value="243">243 km</td>
+            <td data-value="12">12</td>
+            <td data-value="1">Easy</td>
+            <td data-value="11">11</td>
+            <td data-value="1634">1,634</td>
+            <td data-value="4">Apr, May, Jun, Sep, Oct</td>
+          </tr>
+          <tr>
+            <th scope="row">Camino Ingl&eacute;s (English Way)</th>
+            <td data-value="112">112 km</td>
+            <td data-value="6">6</td>
+            <td data-value="2">Moderate</td>
+            <td data-value="6">6</td>
+            <td data-value="482">482</td>
+            <td data-value="4">Apr, May, Jun, Sep, Oct</td>
+          </tr>
+          <tr>
+            <th scope="row">Kumano Kodo</th>
+            <td data-value="39">39 km</td>
+            <td data-value="4">4</td>
+            <td data-value="2">Moderate</td>
+            <td data-value="4">4</td>
+            <td data-value="157">157</td>
+            <td data-value="3">Mar, Apr, May, Oct, Nov</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>Waypoint Coverage</h2>
+    <p>Logistics waypoints tagged along each route: water sources, medical facilities, accommodation, food, transport, and supply points, plus curated sacred sites and towns.</p>
+    <div class="full-bleed scroll-x">
+      <table>
+        <caption>Waypoint counts by type across all seven routes and the Camino Portugu&eacute;s da Costa (Coastal) variant.</caption>
+        <thead>
+          <tr>
+            <th scope="col">Type</th>
+            <th scope="col">Franc&eacute;s</th>
+            <th scope="col">Norte</th>
+            <th scope="col">Primitivo</th>
+            <th scope="col">Portugu&eacute;s</th>
+            <th scope="col">Coastal</th>
+            <th scope="col">Ingl&eacute;s</th>
+            <th scope="col">Shikoku</th>
+            <th scope="col">Kumano</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Water sources</th>
+            <td>788</td><td>863</td><td>96</td><td>177</td><td>52</td><td>85</td><td>13</td><td>1</td>
+          </tr>
+          <tr>
+            <th scope="row">Medical (pharmacy/hospital)</th>
+            <td>172</td><td>279</td><td>63</td><td>112</td><td>50</td><td>44</td><td>214</td><td>1</td>
+          </tr>
+          <tr>
+            <th scope="row">Accommodation</th>
+            <td>532</td><td>301</td><td>75</td><td>180</td><td>92</td><td>39</td><td>124</td><td>31</td>
+          </tr>
+          <tr>
+            <th scope="row">Food (restaurant/cafe)</th>
+            <td>713</td><td>997</td><td>265</td><td>600</td><td>425</td><td>152</td><td>456</td><td>13</td>
+          </tr>
+          <tr>
+            <th scope="row">Transport (bus/train)</th>
+            <td>511</td><td>900</td><td>180</td><td>431</td><td>302</td><td>136</td><td>1,395</td><td>39</td>
+          </tr>
+          <tr>
+            <th scope="row">Supply (convenience/toilet)</th>
+            <td>189</td><td>294</td><td>53</td><td>134</td><td>122</td><td>26</td><td>690</td><td>52</td>
+          </tr>
+          <tr>
+            <th scope="row">Sacred sites</th>
+            <td>9</td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td><td>88</td><td>18</td>
+          </tr>
+          <tr>
+            <th scope="row">Towns</th>
+            <td>36</td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td><td>&mdash;</td><td>2</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>Variants</h2>
+    <p>Six additional variants extend three of the parent routes. The Coastal variant of the Camino Portugu&eacute;s ships as a full route with its own geometry, stages, and statistics; the rest are metadata-only stubs awaiting full geometry and waypoints.</p>
     <table>
-      <tr><th>Distance</th><td>790 km</td></tr>
-      <tr><th>Topology</th><td>Linear</td></tr>
-      <tr><th>Tradition</th><td>Christian (Roman Catholic)</td></tr>
-      <tr><th>Countries</th><td>France, Spain</td></tr>
-      <tr><th>Stages</th><td>33</td></tr>
-      <tr><th>Waypoints</th><td>2,953 (water, medical, accommodation, food, transport, sacred sites)</td></tr>
-      <tr><th>Interior Journey</th><td>All 33 stages with editorial narratives</td></tr>
-      <tr><th>Credential</th><td>Credencial del Peregrino &rarr; Compostela certificate</td></tr>
-      <tr><th>Route ID</th><td><code>camino-frances</code></td></tr>
-    </table>
-
-    <h3>Files</h3>
-    <pre><code>routes/camino-frances/
-  metadata.json        # Overview, tradition, culture, logistics
-  route.geojson        # GeoJSON LineString (simplified)
-  stages.json          # 33 stages with interior journey
-  waypoints.geojson    # Sacred sites, cathedrals, landmarks</code></pre>
-
-    <h2>Shikoku 88 Temple Pilgrimage</h2>
-    <table>
-      <tr><th>Distance</th><td>1,200 km</td></tr>
-      <tr><th>Topology</th><td>Circular (clockwise)</td></tr>
-      <tr><th>Tradition</th><td>Buddhist (Shingon)</td></tr>
-      <tr><th>Country</th><td>Japan</td></tr>
-      <tr><th>Stages</th><td>10 (grouped by four spiritual phases)</td></tr>
-      <tr><th>Waypoints</th><td>2,976 (transport, food, supply, medical, accommodation, 88 temples)</td></tr>
-      <tr><th>Interior Journey</th><td>All 10 stages with editorial narratives</td></tr>
-      <tr><th>Credential</th><td>N&#333;ky&#333;ch&#333; (stamp book) &rarr; Kechi-gan-sh&#333; certificate</td></tr>
-      <tr><th>Route ID</th><td><code>shikoku-88</code></td></tr>
-    </table>
-
-    <h3>Four Spiritual Phases</h3>
-    <table>
+      <caption>Pilgrimage route variants, their parent route, and data completeness.</caption>
       <thead>
-        <tr><th>Phase</th><th>Japanese</th><th>Prefecture</th><th>Temples</th></tr>
+        <tr>
+          <th scope="col">Variant</th>
+          <th scope="col">Parent Route</th>
+          <th scope="col">Distance</th>
+          <th scope="col">Status</th>
+        </tr>
       </thead>
       <tbody>
-        <tr><td>Awakening</td><td>&#30330;&#24515;&#12398;&#36947;&#22580;</td><td>Tokushima</td><td>1&ndash;23</td></tr>
-        <tr><td>Discipline</td><td>&#20462;&#34892;&#12398;&#36947;&#22580;</td><td>Kochi</td><td>24&ndash;39</td></tr>
-        <tr><td>Enlightenment</td><td>&#33769;&#25552;&#12398;&#36947;&#22580;</td><td>Ehime</td><td>40&ndash;65</td></tr>
-        <tr><td>Nirvana</td><td>&#28037;&#27075;&#12398;&#36947;&#22580;</td><td>Kagawa</td><td>66&ndash;88</td></tr>
+        <tr>
+          <td>Camino Portugu&eacute;s da Costa (Coastal)</td>
+          <td><a href="/camino-portugues">Camino Portugu&eacute;s (Central)</a></td>
+          <td>110 km</td>
+          <td>Full route &mdash; own geometry, stages, and stats</td>
+        </tr>
+        <tr>
+          <td>Camino Ingl&eacute;s from A Coru&ntilde;a</td>
+          <td><a href="/camino-ingles">Camino Ingl&eacute;s (English Way)</a></td>
+          <td>75 km</td>
+          <td>Metadata only</td>
+        </tr>
+        <tr>
+          <td>Variante Espiritual</td>
+          <td><a href="/camino-portugues">Camino Portugu&eacute;s (Central)</a></td>
+          <td>73 km</td>
+          <td>Metadata only</td>
+        </tr>
+        <tr>
+          <td>Camino Portugu&eacute;s from Lisbon</td>
+          <td><a href="/camino-portugues">Camino Portugu&eacute;s (Central)</a></td>
+          <td>620 km</td>
+          <td>Metadata only</td>
+        </tr>
+        <tr>
+          <td>Iseji (Eastern/Coastal Route)</td>
+          <td><a href="/kumano-kodo">Kumano Kodo</a></td>
+          <td>170 km</td>
+          <td>Metadata only</td>
+        </tr>
+        <tr>
+          <td>Kohechi (Mountain Route)</td>
+          <td><a href="/kumano-kodo">Kumano Kodo</a></td>
+          <td>70 km</td>
+          <td>Metadata only</td>
+        </tr>
       </tbody>
     </table>
 
-    <h3>Files</h3>
-    <pre><code>routes/shikoku-88/
-  metadata.json        # Buddhist tradition, nokyocho system, henro culture
-  route.geojson        # Circular GeoJSON using temple coordinates
-  stages.json          # 10 stages across four spiritual phases
-  waypoints.geojson    # 20 representative temples</code></pre>
+    <h2>Data Sources &amp; License</h2>
 
-    <h2>Kumano Kodo</h2>
-    <table>
-      <tr><th>Distance</th><td>38 km (Nakahechi main route)</td></tr>
-      <tr><th>Topology</th><td>Network (multiple sub-routes)</td></tr>
-      <tr><th>Tradition</th><td>Shinto / Buddhist (syncretic)</td></tr>
-      <tr><th>Country</th><td>Japan</td></tr>
-      <tr><th>Stages</th><td>4 (Nakahechi)</td></tr>
-      <tr><th>Waypoints</th><td>47 (Grand Shrines, oji, Nachi Falls, onsen, transport)</td></tr>
-      <tr><th>Interior Journey</th><td>All 4 stages with editorial narratives</td></tr>
-      <tr><th>Credential</th><td>Dual Pilgrim program (joint with Camino de Santiago)</td></tr>
-      <tr><th>Route ID</th><td><code>kumano-kodo</code></td></tr>
-    </table>
+    <p>Route geometry is sourced from <a href="https://www.openstreetmap.org">OpenStreetMap</a>. Additional data comes from official pilgrimage organizations and published sources. Interior journey narratives are editorial content.</p>
 
-    <h3>Sub-Routes</h3>
-    <table>
-      <thead>
-        <tr><th>Route</th><th>Distance</th><th>Difficulty</th><th>Status</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>Nakahechi (Imperial Route)</td><td>38 km</td><td>Moderate</td><td>Complete</td></tr>
-        <tr><td>Kohechi (Mountain Route)</td><td>70 km</td><td>Expert</td><td>Metadata only</td></tr>
-        <tr><td>Iseji (Coastal Route)</td><td>170 km</td><td>Moderate</td><td>Metadata only</td></tr>
-      </tbody>
-    </table>
+    <p><strong>Data:</strong> <a href="https://opendatacommons.org/licenses/odbl/1-0/">Open Database License (ODbL) 1.0</a><br>
+    <strong>Code:</strong> <a href="https://opensource.org/licenses/MIT">MIT</a></p>
 
-    <h3>Files</h3>
-    <pre><code>routes/kumano-kodo/
-  metadata.json        # Mixed tradition, dual pilgrim credential, UNESCO
-  route.geojson        # Nakahechi main route
-  stages.json          # 4 Nakahechi stages with interior journey
-  waypoints.geojson    # Grand Shrines, Oji, Nachi Falls, onsen
-  variants/
-    kohechi/metadata.json
-    iseji/metadata.json</code></pre>
+    <div class="attribution">
+      <p>Contains information from OpenStreetMap, which is made available under the ODbL by the OpenStreetMap Foundation.<br>
+      &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>.</p>
+    </div>
 
     <footer>
       <p>Part of the <a href="https://pilgrimapp.org">Pilgrim</a> ecosystem. <a href="https://github.com/walktalkmeditate/open-pilgrimages">GitHub</a></p>
