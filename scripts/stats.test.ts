@@ -1,10 +1,10 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { join } from "path";
-import { mkdtempSync, mkdirSync, writeFileSync, rmSync, symlinkSync, realpathSync } from "fs";
+import { mkdtempSync, mkdirSync, writeFileSync, rmSync } from "fs";
 import { tmpdir } from "os";
 import { execFileSync } from "child_process";
-import { computeStats, resolveInvokedPath } from "./stats.js";
+import { computeStats } from "./stats.js";
 
 const ROOT = join(import.meta.dirname, "..");
 
@@ -165,19 +165,17 @@ test("a route directory without metadata.json is skipped, not crashed on", () =>
   }
 });
 
-test("resolveInvokedPath resolves a symlinked invocation path", () => {
-  const dir = mkdtempSync(join(tmpdir(), "stats-test-"));
-  const target = join(ROOT, "package.json");
-  const link = join(dir, "invoked.js");
-  symlinkSync(target, link);
+// resolveInvokedPath itself is shared CLI plumbing tested in scripts/cli.test.ts.
 
-  try {
-    assert.equal(resolveInvokedPath(link), realpathSync(target));
-  } finally {
-    rmSync(dir, { recursive: true, force: true });
-  }
-});
+test("running stats.ts as a CLI script prints the route points total the site and README headline", () => {
+  // #given the dataset totals stats.ts computes
+  // #when stats.ts runs as a script
+  const output = execFileSync(process.execPath, ["--import", "tsx", "scripts/stats.ts"], {
+    cwd: ROOT,
+    encoding: "utf-8",
+  });
 
-test("resolveInvokedPath returns null when argv[1] is absent", () => {
-  assert.equal(resolveInvokedPath(undefined), null);
+  // #then the totals block prints a thousands-separated Route points line
+  // matching the figure the site and README publish
+  assert.match(output, /Route points: 159,624/);
 });

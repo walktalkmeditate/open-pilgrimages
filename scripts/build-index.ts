@@ -1,5 +1,6 @@
-import { readFileSync, writeFileSync, existsSync, readdirSync, statSync, realpathSync } from "fs";
+import { readFileSync, writeFileSync, existsSync, readdirSync, statSync } from "fs";
 import { join, relative } from "path";
+import { byCodepoint, resolveInvokedPath } from "./cli.js";
 
 const ROOT = join(import.meta.dirname, "..");
 
@@ -8,8 +9,7 @@ function loadJson(path: string) {
 }
 
 function byIdThenPath(a: { id: string; path: string }, b: { id: string; path: string }): number {
-  if (a.id !== b.id) return a.id < b.id ? -1 : 1;
-  return a.path < b.path ? -1 : a.path > b.path ? 1 : 0;
+  return byCodepoint(a.id, b.id) || byCodepoint(a.path, b.path);
 }
 
 export interface VariantEntry {
@@ -160,15 +160,6 @@ function main() {
     const variantCount = r.variants?.length ?? 0;
     const variantNote = variantCount > 0 ? ` (${variantCount} variant(s))` : "";
     console.log(`  ${r.id}: ${r.distanceKm} km${variantNote}`);
-  }
-}
-
-export function resolveInvokedPath(argv1: string | undefined): string | null {
-  if (!argv1) return null;
-  try {
-    return realpathSync(argv1);
-  } catch {
-    return null;
   }
 }
 

@@ -1,5 +1,6 @@
-import { readFileSync, existsSync, readdirSync, statSync, realpathSync } from "fs";
+import { readFileSync, existsSync, readdirSync, statSync } from "fs";
 import { join } from "path";
+import { byCodepoint, resolveInvokedPath } from "./cli.js";
 import { segmentsOf } from "./site/glyphs.js";
 
 const ROOT = join(import.meta.dirname, "..");
@@ -11,10 +12,6 @@ function loadJson(path: string): unknown {
   } catch {
     return null;
   }
-}
-
-function byCodepoint(a: string, b: string): number {
-  return a < b ? -1 : a > b ? 1 : 0;
 }
 
 interface MetadataLike {
@@ -187,16 +184,8 @@ function main(): void {
   console.log(`  Routes:       ${stats.totals.routes}`);
   console.log(`  Stages:       ${stats.totals.stages}`);
   console.log(`  Waypoints:    ${stats.totals.waypoints}`);
+  console.log(`  Route points: ${stats.totals.routePoints.toLocaleString()}`);
   console.log(`  Distance:     ${stats.totals.distanceKm.toLocaleString()} km`);
-}
-
-export function resolveInvokedPath(argv1: string | undefined): string | null {
-  if (!argv1) return null;
-  try {
-    return realpathSync(argv1);
-  } catch {
-    return null;
-  }
 }
 
 if (import.meta.filename === resolveInvokedPath(process.argv[1])) {
