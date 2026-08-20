@@ -199,14 +199,15 @@ nav .nav-github svg {
 }
 
 .hero-stats {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-xs);
+  display: grid;
+  grid-template-columns: max-content max-content;
+  column-gap: var(--space-xl);
+  row-gap: var(--space-md);
   margin: var(--space-lg) 0;
 }
 
 .stat {
-  text-align: center;
+  text-align: left;
 }
 
 .stat-number {
@@ -216,10 +217,6 @@ nav .nav-github svg {
   font-weight: 500;
   color: var(--rust);
   line-height: 1.2;
-}
-
-.hero-stats .stat-number {
-  font-size: 1.8rem;
 }
 
 .stat-label {
@@ -614,6 +611,10 @@ footer {
 
   .hero-copy {
     max-width: none;
+  }
+
+  .hero-stats {
+    grid-template-columns: 1fr;
   }
 
   .constellation {
