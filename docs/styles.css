@@ -65,7 +65,7 @@
 html {
   font-size: clamp(16px, 0.9rem + 0.25vw, 19px);
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 body {
@@ -74,7 +74,7 @@ body {
   color: var(--ink);
   line-height: 1.7;
   padding: var(--space-lg);
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 .container {

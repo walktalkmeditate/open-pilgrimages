@@ -51,5 +51,14 @@ jobs:
       - run: npm run validate
       - run: npm run build-assets
       - name: Check generated assets are up to date
-        run: git diff --exit-code docs/assets
+        # git diff --exit-code alone misses brand-new files (e.g. the first
+        # sparkline generated for a route that just gained a stats.json) —
+        # untracked-files=all makes those show up as drift too.
+        run: |
+          changes="$(git status --porcelain --untracked-files=all docs/assets)"
+          if [ -n "$changes" ]; then
+            echo "$changes"
+            echo "docs/assets is out of date — run npm run build-assets and commit the result."
+            exit 1
+          fi
       - run: npm run check-site
