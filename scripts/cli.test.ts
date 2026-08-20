@@ -1,7 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { join } from "path";
-import { mkdtempSync, mkdirSync, rmSync, symlinkSync, realpathSync } from "fs";
+import { mkdtempSync, rmSync, symlinkSync, realpathSync } from "fs";
 import { tmpdir } from "os";
 import { byCodepoint, resolveInvokedPath } from "./cli.js";
 

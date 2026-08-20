@@ -183,7 +183,7 @@ function main(): void {
   console.log(`\nTotals:`);
   console.log(`  Routes:       ${stats.totals.routes}`);
   console.log(`  Stages:       ${stats.totals.stages}`);
-  console.log(`  Waypoints:    ${stats.totals.waypoints}`);
+  console.log(`  Waypoints:    ${stats.totals.waypoints.toLocaleString()}`);
   console.log(`  Route points: ${stats.totals.routePoints.toLocaleString()}`);
   console.log(`  Distance:     ${stats.totals.distanceKm.toLocaleString()} km`);
 }
