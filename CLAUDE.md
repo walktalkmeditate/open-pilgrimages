@@ -24,7 +24,7 @@ index.json                  # Route registry (auto-generated)
 
 ## Data Conventions
 
-- Coordinates: `[longitude, latitude, altitude]` (GeoJSON standard)
+- Coordinates: `[longitude, latitude]`, optionally `[longitude, latitude, altitude]` (GeoJSON standard). Route geometry in `route.geojson` is currently 2D; per-stage elevation lives in `stages.json`.
 - Altitude: meters
 - Distance: kilometers
 - Localized strings: `{ "en": "...", "es": "...", "ja": "..." }` — `en` always required
