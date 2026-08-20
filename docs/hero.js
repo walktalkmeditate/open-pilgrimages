@@ -83,21 +83,34 @@
 (function () {
   var KEY = "op-theme";
   var button = document.querySelector(".theme-toggle");
+  var media = window.matchMedia("(prefers-color-scheme: dark)");
 
+  function setPressed(theme) {
+    if (button) button.setAttribute("aria-pressed", String(theme === "dark"));
+  }
+
+  // Only ever write data-theme for an explicit, stored preference. Otherwise
+  // the CSS `prefers-color-scheme` fallback (see styles.css) stays live, so
+  // the page keeps tracking OS-level scheme changes instead of freezing at
+  // whatever the system reported on load.
   function applyTheme(theme) {
     document.documentElement.setAttribute("data-theme", theme);
-    if (button) button.setAttribute("aria-pressed", String(theme === "dark"));
+    setPressed(theme);
   }
 
   var stored = null;
   try { stored = localStorage.getItem(KEY); } catch (e) { /* private mode */ }
-  var systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-  applyTheme(stored || (systemDark ? "dark" : "light"));
+
+  if (stored) {
+    applyTheme(stored);
+  } else {
+    setPressed(media.matches ? "dark" : "light");
+  }
 
   if (!button) return;
 
   button.addEventListener("click", function () {
-    var current = document.documentElement.getAttribute("data-theme");
+    var current = document.documentElement.getAttribute("data-theme") || (media.matches ? "dark" : "light");
     var next = current === "dark" ? "light" : "dark";
     applyTheme(next);
     try { localStorage.setItem(KEY, next); } catch (e) { /* ignore */ }
