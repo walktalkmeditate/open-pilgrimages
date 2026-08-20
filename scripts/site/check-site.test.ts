@@ -68,13 +68,33 @@ test("checkSite reports a stale hero number (synthetic indexHtml)", () => {
   assert.ok(problems.some((p) => p.message.includes("Routes")));
 });
 
-test("checkSite reports every route as missing a detail page", () => {
+test("the committed docs/ already has a detail page for every route (positive control)", () => {
+  // #given all seven detail pages were built in Task 12
+  // #when checkSite checks index.json's route list against docs/{id}.html
   const problems = checkSite(ROOT);
-  assert.ok(
-    problems.some(
-      (p) => p.file === "docs/camino-frances.html" && p.message.includes("no detail page"),
-    ),
+
+  // #then none of the seven routes are reported as missing or unidentified
+  assert.deepEqual(
+    problems.filter((p) => p.message.includes("no detail page") || p.message.includes("does not identify itself")),
+    [],
   );
+});
+
+test("checkSite reports a route missing its detail page (fixture)", () => {
+  // #given an index.json listing a route with no corresponding docs/{id}.html
+  const root = createFixtureRoot([{ id: "camino-frances" }]);
+
+  try {
+    // #when / #then checkSite reports it as missing a detail page
+    const problems = checkSite(root);
+    assert.ok(
+      problems.some(
+        (p) => p.file === "docs/camino-frances.html" && p.message.includes("no detail page"),
+      ),
+    );
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
 });
 
 test("checkSite reports a detail page that exists but doesn't identify its own route (fixture)", () => {

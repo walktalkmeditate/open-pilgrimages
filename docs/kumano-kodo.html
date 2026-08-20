@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kumano Kodo &mdash; Open Pilgrimages</title>
+  <meta name="description" content="Kumano Kodo: ancient pilgrimage routes through the Kii Peninsula to the three Grand Shrines of Kumano. UNESCO World Heritage since 2004, sister route to the Camino de Santiago. Full route geometry, stages, and statistics for the Nakahechi route.">
+  <link rel="canonical" href="https://open.pilgrimag.es/kumano-kodo">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Kumano Kodo &mdash; Open Pilgrimages">
+  <meta property="og:description" content="Ancient pilgrimage routes through the mountains of the Kii Peninsula to the three Grand Shrines of Kumano. UNESCO World Heritage since 2004, and sister route to the Camino de Santiago through the Dual Pilgrim program.">
+  <meta property="og:url" content="https://open.pilgrimag.es/kumano-kodo">
+  <meta property="og:image" content="https://open.pilgrimag.es/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Kumano Kodo &mdash; Open Pilgrimages">
+  <meta name="twitter:image" content="https://open.pilgrimag.es/og-image.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="hero.js" defer></script>
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/routes" class="active">Routes</a>
+        <a href="/schema">Schema</a>
+        <a href="/usage">Usage</a>
+        <a href="/contribute" class="nav-contribute">Contribute</a>
+      </div>
+      <div class="nav-actions">
+        <button type="button" class="theme-toggle" aria-label="Toggle colour theme" aria-pressed="false">
+          <svg class="icon-moon" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9.3A5.8 5.8 0 0 1 6.7 2a6 6 0 1 0 7.3 7.3z"/></svg>
+          <svg class="icon-sun" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="3.1"/><path d="M8 1v1.6M8 13.4V15M15 8h-1.6M2.6 8H1M12.9 3.1l-1.1 1.1M4.2 11.8l-1.1 1.1M12.9 12.9l-1.1-1.1M4.2 4.2L3.1 3.1"/></svg>
+        </button>
+        <a href="https://github.com/walktalkmeditate/open-pilgrimages" class="nav-github" aria-label="View this project on GitHub">
+          <svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+        </a>
+      </div>
+    </nav>
+
+    <div class="full-bleed route-hero">
+      <svg aria-hidden="true" viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path pathLength="1" d="M44.6,147.4 L46.8,146.4 L46.8,145.7 L48.4,144.5 L50.3,141.9 L51.3,141.5 L50.4,141.8 L53.4,141.3 L54.3,140.5 L55.6,140.4 L56.5,141.1 L57.6,141.1 L59.1,139.4 L64.0,136.9 L65.1,135.4 L65.8,135.7 L66.6,135.3 L69.9,136.4 L70.4,135.5 L72.5,135.0 L74.1,133.5 L76.0,132.8 L76.2,132.1 L76.6,132.4 L78.0,131.2 L81.2,130.0 L81.3,129.5 L82.2,129.7 L83.4,128.6 L84.0,128.9 L85.9,128.4 L86.8,127.9 L86.7,127.1 L87.7,126.7 L88.1,126.1 L91.8,125.5 L90.1,125.0 L88.3,126.3 L91.8,125.5 L92.1,126.4 L91.8,126.5 L93.9,125.4 L94.6,124.9 L94.7,123.9 L95.4,123.9 L95.4,123.5 L97.5,122.2 L99.5,122.4 L100.2,121.6 L100.3,122.3 L99.5,122.4 L100.2,121.6 L100.3,120.8 L102.0,120.7 L104.6,121.9 L109.6,121.3 L111.3,122.7 L110.6,121.6 L109.8,121.4 L112.2,123.8 L113.8,127.5 M155.4,187.9 L153.7,187.1 L154.3,187.6 L152.7,185.2 L153.3,185.0 L153.3,186.5 L152.7,185.2 L151.3,185.3 L152.0,185.3 L150.4,184.8 L151.2,185.3 L150.3,184.7 L150.2,183.5 L147.7,180.3 L146.1,179.6 L144.6,180.3 L142.1,179.8 L141.6,180.4 L140.4,179.6 L141.5,180.3 L139.4,177.6 L139.3,179.0 L140.4,179.5 L139.3,175.1 L139.4,177.5 L138.9,174.2 L138.1,172.7 L136.9,172.1 L136.2,171.0 L135.7,169.0 L134.7,168.1 L133.2,164.2 L133.1,162.1 L134.0,158.7 L133.0,159.0 L132.0,158.1 L132.1,155.5 L131.5,152.7 M118.4,133.3 L117.4,133.3 L116.4,132.6 L114.4,132.2 L114.7,132.0 L115.7,132.4 L114.4,132.2 L112.5,133.0 L112.8,132.6 L111.9,134.0 L110.0,132.4 L111.2,133.3 L110.0,132.4 L110.5,131.8 L109.9,131.4 L109.9,130.8 M131.5,152.7 L131.5,151.7 L132.3,151.3 L131.6,151.4 L131.5,151.7 L132.3,151.3 L132.4,150.8 L129.7,149.4 L125.6,143.6 L126.1,145.0 L127.6,145.0 L127.8,145.8 L128.8,146.6 L128.3,147.5 L126.4,141.2 L125.6,143.6 L126.4,140.7 L126.0,139.0 L125.6,139.0 L126.1,140.4 L123.7,135.6 L125.9,137.8 L126.0,139.0 L119.1,133.4 L119.8,133.0 L120.8,134.0 L123.5,135.0 L123.7,135.6 L119.1,133.4 L118.4,133.4 M109.8,130.8 L110.3,130.8 L110.7,130.1 L112.2,130.3 L113.6,129.2 L114.3,129.2 L114.0,127.5 M99.4,122.4 L99.1,122.8 L98.6,122.6 L98.7,123.4 L100.5,123.5 L102.1,125.1 L103.8,125.5 L108.5,130.0 L107.7,129.6 L107.2,128.2 L106.0,127.3 L108.5,130.1 L109.8,130.8 M66.1,12.0 L66.0,13.8 L65.6,13.7 L66.0,12.1 L66.6,14.7 L66.0,13.8 L67.9,15.9 L68.6,17.4 L68.1,17.0 L67.9,15.9 L68.6,18.6 L68.6,17.4 L71.0,21.0 L70.5,21.0 L70.5,20.3 L70.2,20.6 L68.7,18.8 L68.9,18.6 L71.0,21.0 L71.8,21.3 L71.6,21.7 L73.6,24.3 L72.2,23.5 L72.0,22.6 L71.3,22.3 L71.7,21.8 L74.5,28.7 L75.1,27.5 L74.1,25.1 L73.5,24.6 L73.6,30.1 L74.6,28.8 L73.6,30.1 L74.6,33.6 L73.4,35.4 L74.1,37.4 L75.0,37.8 L75.8,39.5 L75.6,37.7 L75.0,37.8 L75.9,39.6 L75.1,40.7 L75.4,42.7 L77.3,45.1 L76.0,43.4 L77.3,45.1 L77.0,45.5 L78.1,45.7 L78.2,46.9 L78.9,46.8 L79.3,47.8 L80.1,48.2 L80.2,49.7 L79.7,51.4 L80.8,52.8 L82.3,53.1 L82.6,53.6 L83.8,53.3 L82.9,54.1 L83.7,54.8 L83.5,56.3 L85.4,58.9 L86.2,61.0 L87.4,61.8 L88.1,61.4 L88.0,61.9 L88.8,62.6 L90.6,63.4 L90.1,64.1 L92.0,64.0 L92.7,66.3 L93.4,67.1 L94.2,66.8 L95.2,67.4 L95.8,67.2 L96.7,69.1 L97.4,69.6 L98.2,71.2 L98.3,72.1 L97.9,72.4 L100.9,77.3 L101.6,81.5 L102.7,82.8 L103.1,84.4 L102.6,84.7 L102.6,84.3 L102.1,84.6 L102.3,84.3 L102.6,84.3 L101.6,85.3 L101.9,84.9 L102.4,85.9 L102.0,85.4 L104.6,86.5 L103.9,86.6 L103.3,86.1 L102.7,86.4 L102.4,85.9 L104.7,86.7 L103.9,88.0 L105.0,88.5 L104.6,89.4 L104.9,90.1 L104.4,90.7 L105.3,91.6 L104.8,92.3 L105.3,93.6 L106.2,94.1 L106.2,94.7 L107.1,94.7 L107.0,96.0 L107.6,95.7 L107.7,96.3 L108.9,96.9 L109.4,97.6 L109.9,97.5 L110.3,100.5 L110.2,100.1 L106.4,105.7 L108.3,102.9 L109.7,102.3 L110.5,101.0 L108.3,112.1 L107.1,110.7 L106.8,109.1 L107.1,107.1 L106.5,105.9 L108.5,112.7 L110.3,114.1 L109.8,115.7 L110.5,115.5 L109.7,118.2 L110.3,119.6 L110.1,120.1 L110.3,119.6 L110.1,120.1 L111.2,120.8 L111.4,122.8 L111.7,122.4 L111.3,122.0"/></svg>
+    </div>
+
+    <h1>Kumano Kodo</h1>
+    <p class="subtitle">Takijiri-oji to Kumano Hongu Taisha &middot; Nakahechi route</p>
+
+    <p>A network of ancient pilgrimage routes through the mountains of the Kii Peninsula, leading to the three Grand Shrines of Kumano (Kumano Sanzan). UNESCO World Heritage Site since 2004. The Kumano Kodo and the Camino de Santiago are the only two pilgrimage routes in the world with a formal sister-route relationship &mdash; both UNESCO-inscribed and linked through the Dual Pilgrim program established in 2015.</p>
+
+    <h2>Key Facts</h2>
+    <table>
+      <caption>Overview of the Kumano Kodo Nakahechi route, Takijiri-oji to Kumano Hongu Taisha.</caption>
+      <tbody>
+        <tr><th scope="row">Distance</th><td>39 km (Nakahechi, the main route; the Kohechi variant is 70 km and the Iseji variant is 170 km)</td></tr>
+        <tr><th scope="row">Typical duration</th><td>4 days (range 3&ndash;6)</td></tr>
+        <tr><th scope="row">Topology</th><td>Network</td></tr>
+        <tr><th scope="row">Difficulty</th><td>Moderate</td></tr>
+        <tr><th scope="row">Countries</th><td>Japan</td></tr>
+        <tr><th scope="row">Elevation range</th><td>50&ndash;870 m (total ascent 2,230 m, descent 2,100 m)</td></tr>
+        <tr><th scope="row">Start</th><td>Takijiri-oji (100 m)</td></tr>
+        <tr><th scope="row">End</th><td>Kumano Hongu Taisha (80 m)</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Elevation Profile</h2>
+    <figure>
+      <svg viewBox="0 0 800 120" class="profile" role="img" aria-label="Elevation profile: 4 stages, low point 80 m, high point 870 m"><path d="M0,120.0 V63.8 H83.1 V0.0 H353.2 V10.6 H644.2 V79.0 H800.0 V120.0 Z" class="profile-fill"/></svg>
+      <figcaption class="figure-caption">High point: 870 m, on the Takahara&ndash;Chikatsuyu-oji stage. 4 stages, low point 80 m.</figcaption>
+    </figure>
+
+    <h2>Stages</h2>
+    <div class="full-bleed scroll-x">
+      <table>
+        <caption>All 4 stages of the Kumano Kodo Nakahechi route.</caption>
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Stage</th>
+            <th scope="col">Distance</th>
+            <th scope="col">Ascent</th>
+            <th scope="col">Descent</th>
+            <th scope="col">Difficulty</th>
+            <th scope="col">Accommodation</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td>Takijiri-oji &rarr; Takahara</td><td>4.0 km</td><td>430 m</td><td>200 m</td><td>Moderate</td><td>Low</td></tr>
+          <tr><td>2</td><td>Takahara &rarr; Chikatsuyu-oji</td><td>13.0 km</td><td>830 m</td><td>650 m</td><td>Hard</td><td>Low</td></tr>
+          <tr><td>3</td><td>Chikatsuyu-oji &rarr; Hosshinmon-oji</td><td>14.0 km</td><td>780 m</td><td>790 m</td><td>Hard</td><td>Very low</td></tr>
+          <tr><td>4</td><td>Hosshinmon-oji &rarr; Kumano Hongu Taisha</td><td>7.5 km</td><td>190 m</td><td>460 m</td><td>Easy</td><td>Moderate</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Stages 2 and 3 are the physical core of the Nakahechi &mdash; short in distance but with sustained climbs through cedar forest between the wayside shrines (oji) that give the route its name. Accommodation is sparse; most pilgrims book minshuku (family-run inns) well ahead.</p>
+
+    <h2>Waypoints</h2>
+    <p>157 logistics waypoints are tagged along the route, each with <code>stageIndex</code> and <code>kmFromStart</code>, plus 18 curated sacred sites and 2 towns.</p>
+    <table>
+      <caption>Waypoint counts by type on the Kumano Kodo.</caption>
+      <thead>
+        <tr><th scope="col">Type</th><th scope="col">Count</th></tr>
+      </thead>
+      <tbody>
+        <tr><th scope="row">Water sources</th><td>1</td></tr>
+        <tr><th scope="row">Medical (pharmacy/hospital)</th><td>1</td></tr>
+        <tr><th scope="row">Accommodation</th><td>31</td></tr>
+        <tr><th scope="row">Food (restaurant/caf&eacute;)</th><td>13</td></tr>
+        <tr><th scope="row">Transport (bus/train)</th><td>39</td></tr>
+        <tr><th scope="row">Supply (convenience/toilet)</th><td>52</td></tr>
+        <tr><th scope="row">Sacred sites</th><td>18</td></tr>
+        <tr><th scope="row">Towns</th><td>2</td></tr>
+        <tr><th scope="row">Total</th><td>157</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Pilgrim Trend</h2>
+    <figure>
+      <svg viewBox="0 0 120 30" class="spark" role="img" aria-label="Pilgrims per year, 2003 to 2024: 218 rising to 44,540"><path d="M0.0,30.0 L7.5,29.8 L15.0,29.8 L22.5,29.3 L30.0,29.7 L37.5,29.6 L45.0,29.3 L52.5,29.3 L60.0,26.4 L67.5,9.2 L75.0,5.2 L82.5,0.5 L90.0,3.1 L97.5,28.7 L105.0,30.0 L112.5,12.0 L120.0,0.0" class="spark-line" fill="none"/></svg>
+      <figcaption class="figure-caption">44,540 foreign overnight visitors were recorded in the Hongu area in 2024 &mdash; an all-time record &mdash; up from 218 in 2003.</figcaption>
+    </figure>
+    <p>Source: Tanabe City (Wakayama Prefecture), via <a href="https://www.agara.co.jp/article/491535">a local news report</a>, spanning a 22-year foreign-visitor series, 2003&ndash;2024. Unlike the Camino routes, there is no central pilgrim office for Kumano Kodo; this series tracks foreign overnight visitors rather than all pilgrims. The Dual Pilgrim program separately reports 14,238 registrations from 78 countries. See <code>docs/data-sources.md</code> for the methodology.</p>
+
+    <h2>Tradition &amp; Credential</h2>
+    <p><strong>Primary faith:</strong> Shinto, syncretic with Buddhism (no single patron saint)</p>
+    <p>The Kumano Kodo routes have been walked for over 1,000 years, originally by imperial parties from Kyoto seeking spiritual renewal at the three Grand Shrines. The routes embody shinbutsu-sh&ucirc;g&omacr; &mdash; the syncretic fusion of Shinto and Buddhism that characterized Japanese religion until the Meiji Restoration (1868). Kumano was believed to be the Pure Land of Amida Buddha, where pilgrims could be reborn after death. At its peak (11th&ndash;12th centuries), 94 imperial pilgrimages were recorded, with retinues of hundreds.</p>
+    <p><strong>UNESCO status:</strong> World Heritage Site &mdash; &ldquo;Sacred Sites and Pilgrimage Routes in the Kii Mountain Range&rdquo; &mdash; inscribed 2004.</p>
+    <p><strong>Credential:</strong> Dual Pilgrim Credential, a joint program with the Camino de Santiago launched in 2015: a free booklet with one side for Kumano Kodo stamps and one for Camino stamps. Pilgrims who complete both pilgrimages receive a Dual Pilgrim certificate and pin badge at a ceremony with the Head Priest of Kumano Hongu Taisha. Obtainable at the Tanabe Tourist Information Center, the Kumano Hongu Heritage Center, and the Kumano Kodo Kan (Pilgrimage Center).</p>
+
+    <h2>Variants</h2>
+    <table>
+      <caption>Metadata-only variants of the Kumano Kodo.</caption>
+      <thead>
+        <tr>
+          <th scope="col">Variant</th>
+          <th scope="col">Distance</th>
+          <th scope="col">Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Iseji (Eastern/Coastal Route)</td>
+          <td>170 km</td>
+          <td>Metadata only &mdash; a coastal route from Ise Grand Shrine to Kumano Hayatama Taisha, crossing 20+ mountain passes connecting fishing villages along the eastern Kii Peninsula coast. Typically 9&ndash;14 days. Full geometry, stages, and waypoints are planned for a future release.</td>
+        </tr>
+        <tr>
+          <td>Kohechi (Mountain Route)</td>
+          <td>70 km</td>
+          <td>Metadata only &mdash; the most strenuous Kumano Kodo route, a mountain crossing from K&omacr;yasan to Kumano Hongu Taisha over three passes above 1,000 m. Typically 4 days. Full geometry, stages, and waypoints are planned for a future release.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Files &amp; CDN</h2>
+    <p>The complete dataset lives at <code>routes/kumano-kodo/</code>:</p>
+    <table>
+      <caption>Per-route data files for the Kumano Kodo.</caption>
+      <thead>
+        <tr><th scope="col">File</th><th scope="col">Contents</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>metadata.json</code></td><td>Overview, tradition, cultural, and logistics data</td></tr>
+        <tr><td><code>route.geojson</code></td><td>Full-resolution route geometry &mdash; 6,847 points</td></tr>
+        <tr><td><code>stages.json</code></td><td>4 stages, with interior journey narratives</td></tr>
+        <tr><td><code>waypoints.geojson</code></td><td>157 logistics waypoints</td></tr>
+        <tr><td><code>stats.json</code></td><td>Foreign-visitor statistics, 2003&ndash;2024</td></tr>
+      </tbody>
+    </table>
+    <p>Available via jsDelivr CDN:</p>
+    <pre><code>https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1/routes/kumano-kodo/metadata.json
+https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1/routes/kumano-kodo/route.geojson
+https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1/routes/kumano-kodo/stages.json
+https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1/routes/kumano-kodo/waypoints.geojson
+https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1/routes/kumano-kodo/stats.json</code></pre>
+    <p>Route ID: <code>kumano-kodo</code></p>
+
+    <div class="attribution">
+      <p>Contains information from OpenStreetMap, which is made available under the ODbL by the OpenStreetMap Foundation.<br>
+      &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>.</p>
+    </div>
+
+    <footer>
+      <p>Part of the <a href="https://pilgrimapp.org">Pilgrim</a> ecosystem. <a href="https://github.com/walktalkmeditate/open-pilgrimages">GitHub</a></p>
+    </footer>
+  </div>
+</body>
+</html>
