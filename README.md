@@ -60,6 +60,7 @@ Each route includes historical statistics sourced from official pilgrimage organ
 ```
 https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1/index.json
 https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1/routes/camino-frances/route.geojson
+https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1/routes/camino-frances/route.gpx
 https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1/routes/camino-frances/waypoints.geojson
 https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1/routes/camino-frances/stages.json
 https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1/routes/camino-frances/metadata.json
@@ -72,6 +73,7 @@ https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1/routes/camino-f
 routes/{route-id}/
   metadata.json        # Overview, tradition, culture, logistics, provenance
   route.geojson        # GeoJSON FeatureCollection — full-resolution LineString(s)
+  route.gpx            # GPX 1.1 track — same geometry, for GPS apps and devices
   stages.json          # Stage-by-stage breakdown with interior journey narratives
   waypoints.geojson    # GeoJSON FeatureCollection — curated + OSM-sourced Points
   stats.json           # Historical statistics with sources
