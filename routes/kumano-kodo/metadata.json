@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
   "id": "kumano-kodo",
-  "lastUpdated": "2026-03-26T00:00:00Z",
+  "lastUpdated": "2026-08-20T00:00:00Z",
 
   "name": {
     "en": "Kumano Kodo",
@@ -26,7 +26,7 @@
       "coordinates": [135.774, 33.840, 80]
     },
     "elevationRange": {
-      "minMeters": 50,
+      "minMeters": 80,
       "maxMeters": 870,
       "totalAscentMeters": 2230,
       "totalDescentMeters": 2100
