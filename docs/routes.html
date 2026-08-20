@@ -68,6 +68,7 @@
             <option value="easy">Easy</option>
             <option value="moderate">Moderate</option>
             <option value="hard">Hard</option>
+            <option value="expert">Expert</option>
           </select>
         </div>
         <div class="filter-field">
@@ -90,7 +91,10 @@
         </div>
         <button type="button" id="filter-clear" class="filter-clear">Clear filters</button>
       </div>
-      <p id="filter-status" class="route-filter-status" role="status"></p>
+      <div class="route-filter-status-row">
+        <p id="filter-status" class="route-filter-status" role="status"></p>
+        <button type="button" id="filter-reset-link" class="filter-reset-link" hidden>Show all routes</button>
+      </div>
     </div>
 
     <div class="route-grid">
