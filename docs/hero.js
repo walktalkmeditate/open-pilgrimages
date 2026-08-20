@@ -23,7 +23,10 @@
   if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
     var restIndex = pinned ? featuredIndex : 0;
     inks[restIndex].style.strokeDashoffset = 0;
-    if (caps[restIndex]) caps[restIndex].style.opacity = 1;
+    if (caps[restIndex]) {
+      caps[restIndex].style.visibility = "visible";
+      caps[restIndex].style.opacity = 1;
+    }
     return;
   }
 
@@ -33,8 +36,14 @@
 
   function caption(n) {
     if (captioned === n) return;
-    if (captioned !== -1 && caps[captioned]) caps[captioned].style.opacity = 0;
-    if (n !== -1 && caps[n]) caps[n].style.opacity = 1;
+    if (captioned !== -1 && caps[captioned]) {
+      caps[captioned].style.opacity = 0;
+      caps[captioned].style.visibility = "hidden";
+    }
+    if (n !== -1 && caps[n]) {
+      caps[n].style.visibility = "visible";
+      caps[n].style.opacity = 1;
+    }
     captioned = n;
   }
 

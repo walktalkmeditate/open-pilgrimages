@@ -595,7 +595,14 @@ footer {
   letter-spacing: 0.18em;
   color: var(--ink);
   opacity: 0;
-  transition: opacity .5s ease;
+  /* visibility, unlike opacity, is removed from the accessibility tree — the
+     delayed transition on hide (and immediate flip on show, per spec: a
+     transition's discrete end value only takes effect once the value isn't
+     "hidden") keeps a caption in the tree for exactly as long as it's
+     visibly faded in, so a screen reader announces only the active route,
+     not all seven in a row with no framing. */
+  visibility: hidden;
+  transition: opacity .5s ease, visibility 0s linear .5s;
   pointer-events: none;
 }
 
