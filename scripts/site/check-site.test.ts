@@ -7,7 +7,17 @@ import { checkSite } from "./check-site.js";
 
 const ROOT = join(import.meta.dirname, "..", "..");
 
-function createFixtureRoot(indexRoutes: Array<{ id: string }>): string {
+interface FixtureVariant {
+  id: string;
+  distanceKm: number;
+}
+
+interface FixtureRoute {
+  id: string;
+  variants?: FixtureVariant[];
+}
+
+function createFixtureRoot(indexRoutes: FixtureRoute[]): string {
   const root = mkdtempSync(join(tmpdir(), "check-site-test-"));
   mkdirSync(join(root, "routes"));
   mkdirSync(join(root, "docs"), { recursive: true });
@@ -485,6 +495,205 @@ test("index.json with invalid JSON syntax fails fast naming the file, not the wr
   try {
     // #when / #then checkSite throws immediately, naming index.json and the JSON error
     assert.throws(() => checkSite(root), /index\.json.*not valid JSON/);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+// Reverse-direction checks: everything the forward checks above confirm is
+// present is only half the guard. These confirm the guard also notices when
+// something on disk is no longer expected — the hole that let a removed
+// route's page, assets, and glyph entry linger unreported.
+
+test("the committed docs/ has no orphaned detail page (positive control)", () => {
+  // #given every real docs/*.html is either a reserved page or a real route id
+  // #when / #then checkSite reports no orphaned-page problems
+  const problems = checkSite(ROOT);
+  assert.deepEqual(
+    problems.filter((p) => p.message.includes("orphaned detail page")),
+    [],
+  );
+});
+
+test("checkSite reports a docs/*.html page that matches no route and no reserved page name (fixture)", () => {
+  // #given a stray docs/zzz-orphan.html left behind by a removed route
+  const root = createFixtureRoot([{ id: "camino-frances" }]);
+  writeFileSync(join(root, "docs", "camino-frances.html"), "<html><body><code>camino-frances</code></body></html>");
+  writeFileSync(join(root, "docs", "zzz-orphan.html"), "<html><body>leftover</body></html>");
+
+  try {
+    // #when checkSite scans docs/ for pages with no corresponding route
+    const problems = checkSite(root);
+
+    // #then it names the orphaned file and what to do about it
+    assert.ok(
+      problems.some(
+        (p) => p.file === "docs/zzz-orphan.html" && p.message.includes("orphaned detail page"),
+      ),
+      "expected docs/zzz-orphan.html to be reported as an orphaned detail page",
+    );
+    // #and the real route's own page is not caught in the same net
+    assert.ok(!problems.some((p) => p.file === "docs/camino-frances.html" && p.message.includes("orphaned")));
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("the committed docs/assets has no orphaned glyph, profile, or sparkline asset (positive control)", () => {
+  // #given every real docs/assets/{routes,profiles,sparklines}/*.svg and every
+  // glyphs.js key is either a real route id or the coastal variant
+  // #when / #then checkSite reports no orphaned-asset problems
+  const problems = checkSite(ROOT);
+  assert.deepEqual(
+    problems.filter((p) => p.message.includes("orphaned") && p.message.includes("asset")),
+    [],
+  );
+  assert.deepEqual(
+    problems.filter((p) => p.file === "docs/assets/glyphs.js" && p.message.includes("orphaned")),
+    [],
+  );
+});
+
+test("checkSite reports a glyphs.js entry that matches no route (fixture)", () => {
+  // #given a glyphs.js left behind with a key for a route that no longer exists
+  const root = createFixtureRoot([{ id: "camino-frances" }]);
+  mkdirSync(join(root, "docs", "assets"), { recursive: true });
+  writeFileSync(
+    join(root, "docs", "assets", "glyphs.js"),
+    'window.OP_GLYPHS = {\n  "camino-frances": "M1,1",\n  "zzz-orphan": "M2,2"\n};\n',
+  );
+
+  try {
+    // #when / #then checkSite names the orphaned key and what to do about it
+    const problems = checkSite(root);
+    assert.ok(
+      problems.some(
+        (p) => p.file === "docs/assets/glyphs.js" && p.message.includes('"zzz-orphan"'),
+      ),
+    );
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("checkSite reports a standalone SVG asset file that matches no route (fixture)", () => {
+  // #given a stray docs/assets/routes/zzz.svg left behind by a removed route
+  const root = createFixtureRoot([{ id: "camino-frances" }]);
+  mkdirSync(join(root, "docs", "assets", "routes"), { recursive: true });
+  writeFileSync(join(root, "docs", "assets", "routes", "zzz-orphan.svg"), "<svg><path d=\"M1,1\"/></svg>");
+
+  try {
+    // #when checkSite scans docs/assets/routes/ for files with no corresponding route
+    const problems = checkSite(root);
+
+    // #then it names the file's own path, not just the asset directory
+    assert.ok(
+      problems.some(
+        (p) =>
+          p.file === "docs/assets/routes/zzz-orphan.svg" &&
+          p.message.includes("orphaned") &&
+          p.message.includes('"zzz-orphan"'),
+      ),
+    );
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("checkSite does not flag the coastal variant's assets as orphaned even though it has no index.json route entry (fixture)", () => {
+  // #given only camino-portugues-coastal's asset files, no matching route id
+  const root = createFixtureRoot([{ id: "camino-portugues" }]);
+  mkdirSync(join(root, "docs", "assets", "routes"), { recursive: true });
+  writeFileSync(
+    join(root, "docs", "assets", "routes", "camino-portugues-coastal.svg"),
+    "<svg><path d=\"M1,1\"/></svg>",
+  );
+
+  try {
+    // #when / #then the one legitimate variant asset is not reported as orphaned
+    const problems = checkSite(root);
+    assert.deepEqual(
+      problems.filter((p) => p.file.includes("camino-portugues-coastal")),
+      [],
+    );
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("the committed index.json variants and docs/routes.html variants table already agree (positive control)", () => {
+  // #given every variant in index.json's routes[].variants[] and every row in
+  // docs/routes.html's Variants table
+  // #when / #then checkSite reports no variant-coverage mismatches either direction
+  const problems = checkSite(ROOT);
+  assert.deepEqual(
+    problems.filter((p) => p.file === "docs/routes.html" && p.message.includes("variant")),
+    [],
+  );
+});
+
+test("checkSite reports an index.json variant with no row in the variants table (fixture)", () => {
+  // #given a route whose index.json variants[] lists a variant, but
+  // docs/routes.html's Variants table was never updated to include it
+  const root = createFixtureRoot([
+    { id: "camino-portugues", variants: [{ id: "coastal", distanceKm: 110 }] },
+  ]);
+  writeFileSync(
+    join(root, "docs", "routes.html"),
+    "<html><body><table><tbody></tbody></table></body></html>",
+  );
+
+  try {
+    // #when checkSite cross-checks index.json variants against the table
+    const problems = checkSite(root);
+
+    // #then it names the variant, its parent, and its distance
+    assert.ok(
+      problems.some(
+        (p) =>
+          p.file === "docs/routes.html" &&
+          p.message.includes('"coastal"') &&
+          p.message.includes('"camino-portugues"') &&
+          p.message.includes("110 km") &&
+          p.message.includes("no row"),
+      ),
+    );
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("checkSite reports a variants table row with no matching entry in index.json (fixture)", () => {
+  // #given docs/routes.html's Variants table names a variant that index.json
+  // no longer lists (removed from index.json but the table was never updated)
+  const root = createFixtureRoot([{ id: "camino-portugues" }]);
+  writeFileSync(
+    join(root, "docs", "routes.html"),
+    `<html><body><table><tbody>
+      <tr>
+        <td>Some Stale Variant</td>
+        <td><a href="/camino-portugues">Camino Portugu&eacute;s (Central)</a></td>
+        <td>999 km</td>
+        <td>Metadata only</td>
+      </tr>
+    </tbody></table></body></html>`,
+  );
+
+  try {
+    // #when checkSite cross-checks the table against index.json variants
+    const problems = checkSite(root);
+
+    // #then it names the parent route and distance the table claims, and that
+    // it has no match, distinct from an index.json-side missing-variant problem
+    assert.ok(
+      problems.some(
+        (p) =>
+          p.file === "docs/routes.html" &&
+          p.message.includes('"camino-portugues"') &&
+          p.message.includes("999 km") &&
+          p.message.includes("matches no variant in index.json"),
+      ),
+    );
   } finally {
     rmSync(root, { recursive: true, force: true });
   }
