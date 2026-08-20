@@ -160,6 +160,98 @@ const VARIANT_ROW_PATTERN =
 
 const GLYPHS_JS_KEY_PATTERN = /^\s*"([^"]+)":/gm;
 
+interface RouteFilterOverview {
+  days: number;
+  distanceKm: number;
+  difficulty: string;
+  bestMonths: number[];
+}
+
+interface MetadataOverviewLike {
+  distanceKm?: unknown;
+  difficulty?: unknown;
+  bestMonths?: unknown;
+  estimatedDays?: { typical?: unknown };
+}
+
+interface MetadataLike {
+  overview?: MetadataOverviewLike;
+}
+
+function isMetadataLike(value: unknown): value is MetadataLike {
+  return typeof value === "object" && value !== null;
+}
+
+/**
+ * The route chooser filter (docs/route-filter.js) reads days/distance/
+ * difficulty/best-months straight off each route-card's data-* attributes
+ * instead of a duplicated dataset — see docs/routes.html. This is the
+ * independent source of truth those attributes are checked against below.
+ * A malformed or incomplete metadata.json degrades to null rather than
+ * throwing; that shape of problem is npm run validate's job to report.
+ */
+function readRouteFilterOverview(routeDir: string): RouteFilterOverview | null {
+  const metaPath = join(routeDir, "metadata.json");
+  if (!existsSync(metaPath)) return null;
+
+  let parsed: unknown;
+  try {
+    parsed = JSON.parse(readFileSync(metaPath, "utf-8"));
+  } catch {
+    return null;
+  }
+
+  if (!isMetadataLike(parsed) || typeof parsed.overview !== "object" || parsed.overview === null) {
+    return null;
+  }
+
+  const { distanceKm, difficulty, bestMonths, estimatedDays } = parsed.overview;
+  const days = estimatedDays?.typical;
+
+  if (
+    typeof days !== "number" ||
+    typeof distanceKm !== "number" ||
+    typeof difficulty !== "string" ||
+    !Array.isArray(bestMonths) ||
+    !bestMonths.every((m): m is number => typeof m === "number")
+  ) {
+    return null;
+  }
+
+  return { days, distanceKm, difficulty, bestMonths };
+}
+
+const ROUTE_FILTER_ATTRS: Array<[string, (overview: RouteFilterOverview) => string]> = [
+  ["data-days", (o) => String(o.days)],
+  ["data-distance-km", (o) => String(o.distanceKm)],
+  ["data-difficulty", (o) => o.difficulty],
+  ["data-best-months", (o) => o.bestMonths.join(",")],
+];
+
+/**
+ * Finds the opening <div class="route-card" ...> tag for a given route id by
+ * walking backward from its "/{id}" link, rather than a single regex over
+ * the whole grid — cards are visually identical apart from their data-*
+ * attributes, so nothing else reliably ties a tag back to one specific route.
+ */
+function findRouteCardOpenTag(html: string, id: string): string | null {
+  const hrefIndex = html.indexOf(`href="/${id}"`);
+  if (hrefIndex === -1) return null;
+
+  const cardOpenIndex = html.lastIndexOf('<div class="route-card"', hrefIndex);
+  if (cardOpenIndex === -1) return null;
+
+  const tagEndIndex = html.indexOf(">", cardOpenIndex);
+  if (tagEndIndex === -1) return null;
+
+  return html.slice(cardOpenIndex, tagEndIndex + 1);
+}
+
+function readDataAttr(openTag: string, attr: string): string | undefined {
+  const match = openTag.match(new RegExp(`${attr}="([^"]*)"`));
+  return match ? match[1] : undefined;
+}
+
 export interface Problem {
   file: string;
   message: string;
@@ -312,6 +404,44 @@ export function checkSite(root: string, overrides: PageOverrides = {}): Problem[
   }
 
   /**
+   * The route chooser filter (docs/route-filter.js) reads days/distance/
+   * difficulty/best-months straight off each route-card's data-* attributes
+   * rather than a second copy of the dataset. Nothing else stops those
+   * attributes drifting from metadata.json when a route's difficulty or best
+   * months change — this would silently misfile the route in the filter.
+   */
+  function checkRouteFilterAttrs(id: string): void {
+    const overview = readRouteFilterOverview(join(root, "routes", id));
+    if (!overview) return; // malformed/incomplete metadata.json is validate's job
+
+    const cardTag = findRouteCardOpenTag(routesHtml, id);
+    if (!cardTag) {
+      add(
+        "docs/routes.html",
+        `route "${id}" card has no route filter data-* attributes (data-days, data-distance-km, ` +
+          `data-difficulty, data-best-months) — add them or the route chooser silently drops it`,
+      );
+      return;
+    }
+
+    for (const [attr, expectedFor] of ROUTE_FILTER_ATTRS) {
+      const rendered = readDataAttr(cardTag, attr);
+      const expected = expectedFor(overview);
+      if (rendered === undefined) {
+        add(
+          "docs/routes.html",
+          `route "${id}" card is missing route filter attribute ${attr} (metadata.json says ${expected})`,
+        );
+      } else if (rendered !== expected) {
+        add(
+          "docs/routes.html",
+          `route "${id}" card's route filter attribute ${attr} reads "${rendered}", metadata.json says "${expected}"`,
+        );
+      }
+    }
+  }
+
+  /**
    * The interior journey narratives are hand-inlined into each detail page
    * rather than templated, so nothing stops them drifting from stages.json
    * silently: a stage added, removed, or reworded in the data would leave
@@ -410,6 +540,7 @@ export function checkSite(root: string, overrides: PageOverrides = {}): Problem[
     }
 
     checkRouteGpx(id);
+    checkRouteFilterAttrs(id);
 
     if (RESERVED_PAGE_NAMES.has(id)) {
       add("index.json", `route id "${id}" collides with a reserved page name`);

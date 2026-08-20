@@ -941,3 +941,208 @@ test("the committed docs/{id}.html pages already render one stage-interior block
     [],
   );
 });
+
+// Route chooser filter (docs/route-filter.js): each route-card carries
+// data-days/data-distance-km/data-difficulty/data-best-months read straight
+// from metadata.json rather than a duplicated dataset. Nothing else stops
+// those attributes drifting from metadata.json when a route's difficulty or
+// best months change — these fixtures prove the guard actually fires rather
+// than trusting the implementation without seeing it fail.
+
+function writeRouteFilterFixture(
+  root: string,
+  cardOpenTag: string,
+): void {
+  mkdirSync(join(root, "routes", "camino-frances"), { recursive: true });
+  writeFileSync(
+    join(root, "routes", "camino-frances", "metadata.json"),
+    JSON.stringify({
+      overview: {
+        distanceKm: 764,
+        difficulty: "moderate",
+        estimatedDays: { typical: 31 },
+        bestMonths: [5, 6, 9],
+      },
+    }),
+  );
+  writeFileSync(
+    join(root, "docs", "routes.html"),
+    `<html><body><div class="route-grid">${cardOpenTag}<h3><a href="/camino-frances">Camino Frances</a></h3></div></div></body></html>`,
+  );
+}
+
+test("the committed docs/routes.html route cards already carry data-days/data-distance-km/data-difficulty/data-best-months matching metadata.json for every route (positive control)", () => {
+  // #given every route-card in docs/routes.html was authored with the four
+  // route-filter data-* attributes read from that route's metadata.json
+  const problems = checkSite(ROOT);
+
+  // #then none of the seven routes are reported as missing or mismatched
+  assert.deepEqual(
+    problems.filter((p) => p.file === "docs/routes.html" && p.message.includes("route filter")),
+    [],
+  );
+});
+
+test("checkSite reports a route with no route-card markup to check at all (fixture — proves the missing-card branch fires)", () => {
+  // #given docs/routes.html has no "/camino-frances" link at all — e.g. a
+  // route dropped from the catalog grid entirely, so there is no card to
+  // read route-filter attributes off of in the first place
+  const root = createFixtureRoot([{ id: "camino-frances" }]);
+  mkdirSync(join(root, "routes", "camino-frances"), { recursive: true });
+  writeFileSync(
+    join(root, "routes", "camino-frances", "metadata.json"),
+    JSON.stringify({
+      overview: {
+        distanceKm: 764,
+        difficulty: "moderate",
+        estimatedDays: { typical: 31 },
+        bestMonths: [5, 6, 9],
+      },
+    }),
+  );
+  writeFileSync(
+    join(root, "docs", "routes.html"),
+    '<html><body><div class="route-grid"></div></body></html>',
+  );
+
+  try {
+    // #when checkSite looks for camino-frances's route-card
+    const problems = checkSite(root);
+
+    // #then it reports no card was found to check, naming the route
+    assert.ok(
+      problems.some(
+        (p) =>
+          p.file === "docs/routes.html" &&
+          p.message.includes('"camino-frances"') &&
+          p.message.includes("no route filter data-* attributes"),
+      ),
+    );
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("checkSite reports every route filter attribute missing when a route card carries none of them (fixture — proves the per-attribute branch fires four times over)", () => {
+  // #given a route-card that exists and links correctly but carries none of
+  // the four route-filter data-* attributes
+  const root = createFixtureRoot([{ id: "camino-frances" }]);
+  writeRouteFilterFixture(root, '<div class="route-card">');
+
+  try {
+    // #when checkSite compares the card's (absent) attributes against metadata.json
+    const problems = checkSite(root);
+    const routeFilterProblems = problems.filter(
+      (p) => p.file === "docs/routes.html" && p.message.includes("route filter"),
+    );
+
+    // #then each of the four attributes is reported missing individually, by name
+    for (const attr of ["data-days", "data-distance-km", "data-difficulty", "data-best-months"]) {
+      assert.ok(
+        routeFilterProblems.some((p) => p.message.includes(`missing route filter attribute ${attr}`)),
+        `expected a problem for missing ${attr}`,
+      );
+    }
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("checkSite reports a route card missing one route filter attribute (fixture — proves the partial-card branch fires)", () => {
+  // #given a route-card with three of the four attributes but no data-best-months
+  const root = createFixtureRoot([{ id: "camino-frances" }]);
+  writeRouteFilterFixture(
+    root,
+    '<div class="route-card" data-days="31" data-distance-km="764" data-difficulty="moderate">',
+  );
+
+  try {
+    // #when checkSite compares the card's attributes against metadata.json
+    const problems = checkSite(root);
+
+    // #then it reports the missing attribute by name, distinct from the "no attributes at all" case
+    assert.ok(
+      problems.some(
+        (p) =>
+          p.file === "docs/routes.html" &&
+          p.message.includes('"camino-frances"') &&
+          p.message.includes("missing route filter attribute data-best-months") &&
+          p.message.includes("metadata.json says 5,6,9"),
+      ),
+    );
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("checkSite reports a route card whose route filter attribute no longer matches metadata.json (fixture — proves the drift branch fires)", () => {
+  // #given a route-card whose data-difficulty ("easy") no longer matches
+  // metadata.json's overview.difficulty ("moderate") — the drift this guard exists to catch
+  const root = createFixtureRoot([{ id: "camino-frances" }]);
+  writeRouteFilterFixture(
+    root,
+    '<div class="route-card" data-days="31" data-distance-km="764" data-difficulty="easy" data-best-months="5,6,9">',
+  );
+
+  try {
+    // #when checkSite compares the card's attributes against metadata.json
+    const problems = checkSite(root);
+
+    // #then it reports the mismatch, naming the route, the attribute, and both values
+    assert.ok(
+      problems.some(
+        (p) =>
+          p.file === "docs/routes.html" &&
+          p.message.includes('"camino-frances"') &&
+          p.message.includes("data-difficulty") &&
+          p.message.includes('reads "easy"') &&
+          p.message.includes('metadata.json says "moderate"'),
+      ),
+    );
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("checkSite accepts a route card whose route filter attributes all match metadata.json (fixture)", () => {
+  // #given a route-card whose four attributes match metadata.json exactly
+  const root = createFixtureRoot([{ id: "camino-frances" }]);
+  writeRouteFilterFixture(
+    root,
+    '<div class="route-card" data-days="31" data-distance-km="764" data-difficulty="moderate" data-best-months="5,6,9">',
+  );
+
+  try {
+    // #when / #then checkSite reports no route-filter problem for this route
+    const problems = checkSite(root);
+    assert.deepEqual(
+      problems.filter((p) => p.file === "docs/routes.html" && p.message.includes("route filter")),
+      [],
+    );
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("checkSite skips the route filter check when metadata.json is missing overview fields, deferring to npm run validate", () => {
+  // #given a metadata.json with no overview at all
+  const root = createFixtureRoot([{ id: "camino-frances" }]);
+  mkdirSync(join(root, "routes", "camino-frances"), { recursive: true });
+  writeFileSync(join(root, "routes", "camino-frances", "metadata.json"), JSON.stringify({}));
+  writeFileSync(
+    join(root, "docs", "routes.html"),
+    '<html><body><div class="route-grid"><div class="route-card"><h3><a href="/camino-frances">Camino Frances</a></h3></div></div></body></html>',
+  );
+
+  try {
+    // #when / #then checkSite reports no route-filter problem — that shape of
+    // malformed data is npm run validate's job, not this guard's
+    const problems = checkSite(root);
+    assert.deepEqual(
+      problems.filter((p) => p.file === "docs/routes.html" && p.message.includes("route filter")),
+      [],
+    );
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});

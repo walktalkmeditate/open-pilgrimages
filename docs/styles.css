@@ -410,6 +410,122 @@ nav .nav-github svg {
   margin-bottom: 0;
 }
 
+/* Route chooser filter (docs/routes.html): reads its four fields straight off
+   each route-card's data-* attributes — see route-filter.js. [hidden] must
+   keep winning over this file's own display rule until the script reveals
+   the panel, so the layout rule is scoped to :not([hidden]) rather than the
+   bare class, which would otherwise tie with the UA stylesheet and win by
+   source order regardless of the attribute. */
+.route-filter:not([hidden]) {
+  display: block;
+  border: 1px solid var(--fog);
+  border-radius: 4px;
+  padding: var(--space-md) var(--space-lg);
+  margin: var(--space-lg) 0;
+  background: var(--surface);
+}
+
+.route-filter-note {
+  font-size: 0.85rem;
+  color: var(--stone);
+  margin-bottom: var(--space-md);
+}
+
+.route-filter-fields {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: var(--space-md);
+}
+
+.filter-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3em;
+  min-width: 8rem;
+}
+
+.filter-field label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--stone);
+}
+
+.filter-field input,
+.filter-field select {
+  font: inherit;
+  font-size: 0.9rem;
+  color: var(--ink);
+  background: var(--parchment);
+  border: 1px solid var(--fog);
+  border-radius: 4px;
+  padding: 0.4em 0.6em;
+}
+
+.filter-field input:focus-visible,
+.filter-field select:focus-visible {
+  outline: 2px solid var(--rust);
+  outline-offset: 2px;
+}
+
+.filter-clear {
+  background: none;
+  border: 1px solid var(--fog);
+  border-radius: 4px;
+  padding: 0.45em 0.9em;
+  font: inherit;
+  font-size: 0.85rem;
+  color: var(--stone);
+  cursor: pointer;
+}
+
+.filter-clear:hover {
+  color: var(--ink);
+  border-color: var(--stone);
+}
+
+.filter-clear:focus-visible {
+  outline: 2px solid var(--rust);
+  outline-offset: 2px;
+}
+
+/* Reserves the results line's height up front so the text appearing or
+   changing never shifts the route grid below it. */
+.route-filter-status {
+  min-height: 1.6em;
+  margin-top: var(--space-md);
+  margin-bottom: 0;
+  font-size: 0.9rem;
+  color: var(--stone);
+}
+
+.filter-reset-link {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  color: var(--rust);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.filter-reset-link:focus-visible {
+  outline: 2px solid var(--rust);
+  outline-offset: 2px;
+}
+
+@media (max-width: 600px) {
+  .route-filter-fields {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .filter-field {
+    min-width: 0;
+  }
+}
+
 .badge {
   display: inline-block;
   font-size: 0.7rem;
