@@ -8,6 +8,7 @@ on:
       - 'schema/**'
       - 'index.json'
       - 'scripts/**'
+      - 'docs/**'
       - 'package.json'
       - 'package-lock.json'
       - '.github/workflows/validate.yml'
@@ -17,6 +18,7 @@ on:
       - 'schema/**'
       - 'index.json'
       - 'scripts/**'
+      - 'docs/**'
       - 'package.json'
       - 'package-lock.json'
       - '.github/workflows/validate.yml'
@@ -47,3 +49,7 @@ jobs:
       - name: Check index.json is up to date
         run: git diff --exit-code index.json
       - run: npm run validate
+      - run: npm run build-assets
+      - name: Check generated assets are up to date
+        run: git diff --exit-code docs/assets
+      - run: npm run check-site
