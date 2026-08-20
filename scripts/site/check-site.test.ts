@@ -4,6 +4,7 @@ import { join } from "path";
 import { mkdtempSync, mkdirSync, writeFileSync, rmSync } from "fs";
 import { tmpdir } from "os";
 import { checkSite } from "./check-site.js";
+import { hashRouteGeometry } from "./roads.js";
 
 const ROOT = join(import.meta.dirname, "..", "..");
 
@@ -610,6 +611,15 @@ test("checkSite does not flag the coastal variant's assets as orphaned even thou
   writeFileSync(
     join(root, "docs", "assets", "routes", "camino-portugues-coastal.svg"),
     "<svg><path d=\"M1,1\"/></svg>",
+  );
+  // No routes/camino-portugues/variants/coastal/route.geojson exists in this
+  // fixture, so checkRoadsAsset has nothing to hash-compare against and
+  // stops once it's confirmed this stub parses — same as any other route
+  // whose route.geojson npm run validate hasn't caught yet.
+  mkdirSync(join(root, "docs", "assets", "roads"), { recursive: true });
+  writeFileSync(
+    join(root, "docs", "assets", "roads", "camino-portugues-coastal.svg"),
+    '<svg><metadata><roads-source geometry-hash="abc"/></metadata><path d="M1,1"/></svg>',
   );
 
   try {
@@ -1598,6 +1608,225 @@ test("checkSite accepts a three-stage page whose narratives and reflection all m
 // includes() check, so a narrative containing &, <, >, or ' is compared
 // against the *rendered* text, not the raw HTML — a correctly-escaped page
 // must not false-fail this guard.
+
+// The roads corridor SVG (docs/assets/roads/{id}.svg) is fetched offline
+// (npm run fetch-roads) and rendered from that cache alone (npm run
+// build-roads) — CI never touches the network, so it can never notice the
+// SVG was built against route geometry that has since changed. The guard's
+// only defence is the geometry hash embedded in the SVG's <metadata>: these
+// tests prove existence, well-formedness, non-emptiness, and the hash
+// comparison each independently fire on the failure they're meant to catch.
+
+function routeGeojson(coordinates: number[][]): unknown {
+  return { type: "FeatureCollection", features: [{ geometry: { type: "LineString", coordinates } }] };
+}
+
+function roadsSvg(hash: string, extractDate = "2026-08-01"): string {
+  return (
+    `<?xml version="1.0" encoding="UTF-8"?>\n` +
+    `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none" stroke="currentColor">` +
+    `<metadata><roads-source geometry-hash="${hash}" extract-date="${extractDate}" attribution="ODbL"/></metadata>` +
+    `<path d="M10,10 L20,20"/></svg>\n`
+  );
+}
+
+const ROADS_ROUTE_ID = "camino-frances";
+const ROADS_COORDINATES = [
+  [-8.5, 42.5],
+  [-8.4, 42.6],
+];
+
+function roadsFixtureRoot(): string {
+  const root = createFixtureRoot([{ id: ROADS_ROUTE_ID }]);
+  const routeDir = join(root, "routes", ROADS_ROUTE_ID);
+  mkdirSync(routeDir, { recursive: true });
+  writeFileSync(join(routeDir, "metadata.json"), JSON.stringify({}));
+  writeFileSync(join(routeDir, "route.geojson"), JSON.stringify(routeGeojson(ROADS_COORDINATES)));
+  return root;
+}
+
+// camino-frances and shikoku-88's roads corridors are still pending a
+// fetch-roads run: the public Overpass instance rate-limited this session
+// after the other six routes' fetches (verified — even a single-point,
+// single-way status probe got HTTP 406 after a 45-minute cooldown with no
+// further requests in between). Once that clears, `npm run fetch-roads --
+// camino-frances shikoku-88 && npm run build-roads` will fill both in, and
+// this test should go back to asserting zero roads problems for every route,
+// the same way the routes.html/README positive controls above were pinned
+// to their own real gaps while Tasks 10-13 were still in flight.
+const ROADS_PENDING_FETCH = new Set(["camino-frances", "shikoku-88"]);
+
+test("the committed docs/assets/roads/*.svg already exist, parse, and hash-match route.geojson for every route whose corridor has been fetched (positive control)", () => {
+  const problems = checkSite(ROOT).filter((p) => p.file.startsWith("docs/assets/roads/"));
+
+  for (const problem of problems) {
+    const id = problem.file.replace("docs/assets/roads/", "").replace(".svg", "");
+    assert.ok(
+      ROADS_PENDING_FETCH.has(id),
+      `unexpected roads problem for "${id}": ${problem.message}`,
+    );
+    assert.match(problem.message, /has no roads corridor SVG/);
+  }
+
+  const reportedIds = new Set(
+    problems.map((p) => p.file.replace("docs/assets/roads/", "").replace(".svg", "")),
+  );
+  assert.deepEqual(reportedIds, ROADS_PENDING_FETCH);
+});
+
+test("checkSite reports a route with no roads corridor SVG at all (fixture)", () => {
+  const root = roadsFixtureRoot();
+
+  try {
+    const problems = checkSite(root);
+    assert.ok(
+      problems.some(
+        (p) =>
+          p.file === `docs/assets/roads/${ROADS_ROUTE_ID}.svg` &&
+          p.message.includes("has no roads corridor SVG"),
+      ),
+    );
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("checkSite reports an empty roads corridor SVG, distinct from a missing one (fixture)", () => {
+  const root = roadsFixtureRoot();
+  mkdirSync(join(root, "docs", "assets", "roads"), { recursive: true });
+  writeFileSync(join(root, "docs", "assets", "roads", `${ROADS_ROUTE_ID}.svg`), "");
+
+  try {
+    const problems = checkSite(root);
+    const roadsProblems = problems.filter((p) => p.file === `docs/assets/roads/${ROADS_ROUTE_ID}.svg`);
+    assert.ok(roadsProblems.some((p) => p.message.includes("is empty")));
+    assert.ok(!roadsProblems.some((p) => p.message.includes("has no roads corridor SVG")));
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("checkSite reports a roads corridor SVG that is not well-formed XML (fixture — an unclosed tag)", () => {
+  const root = roadsFixtureRoot();
+  mkdirSync(join(root, "docs", "assets", "roads"), { recursive: true });
+  writeFileSync(
+    join(root, "docs", "assets", "roads", `${ROADS_ROUTE_ID}.svg`),
+    '<svg><metadata><roads-source geometry-hash="abc"></svg>',
+  );
+
+  try {
+    const problems = checkSite(root);
+    assert.ok(
+      problems.some(
+        (p) =>
+          p.file === `docs/assets/roads/${ROADS_ROUTE_ID}.svg` &&
+          p.message.includes("not well-formed XML"),
+      ),
+    );
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("checkSite reports a roads corridor SVG with no embedded geometry-hash (fixture)", () => {
+  const root = roadsFixtureRoot();
+  mkdirSync(join(root, "docs", "assets", "roads"), { recursive: true });
+  writeFileSync(
+    join(root, "docs", "assets", "roads", `${ROADS_ROUTE_ID}.svg`),
+    '<svg xmlns="http://www.w3.org/2000/svg"><path d="M1,1 L2,2"/></svg>',
+  );
+
+  try {
+    const problems = checkSite(root);
+    assert.ok(
+      problems.some(
+        (p) =>
+          p.file === `docs/assets/roads/${ROADS_ROUTE_ID}.svg` &&
+          p.message.includes("no embedded geometry-hash"),
+      ),
+    );
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("checkSite accepts a roads corridor SVG whose embedded hash matches its route's current route.geojson (fixture)", () => {
+  const root = roadsFixtureRoot();
+  mkdirSync(join(root, "docs", "assets", "roads"), { recursive: true });
+  const hash = hashRouteGeometry(routeGeojson(ROADS_COORDINATES));
+  writeFileSync(join(root, "docs", "assets", "roads", `${ROADS_ROUTE_ID}.svg`), roadsSvg(hash));
+
+  try {
+    assert.deepEqual(
+      checkSite(root).filter((p) => p.file === `docs/assets/roads/${ROADS_ROUTE_ID}.svg`),
+      [],
+    );
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("checkSite reports a roads corridor SVG rendered against stale geometry once the route.geojson it was built from changes (fixture — mutates the geometry, not the hash string, to exercise the real failure)", () => {
+  const root = roadsFixtureRoot();
+  mkdirSync(join(root, "docs", "assets", "roads"), { recursive: true });
+
+  // #given a roads SVG whose embedded hash was computed from the route's
+  // original coordinates, and genuinely matches them right now
+  const originalHash = hashRouteGeometry(routeGeojson(ROADS_COORDINATES));
+  const svgPath = join(root, "docs", "assets", "roads", `${ROADS_ROUTE_ID}.svg`);
+  writeFileSync(svgPath, roadsSvg(originalHash));
+  assert.deepEqual(
+    checkSite(root).filter((p) => p.file === `docs/assets/roads/${ROADS_ROUTE_ID}.svg`),
+    [],
+    "sanity check: the fixture starts in a matching state",
+  );
+
+  // #when the route's own route.geojson is edited — as if the route were
+  // re-fetched or corrected — without re-running fetch-roads/build-roads
+  const mutatedCoordinates = [
+    [-8.5, 42.5],
+    [-8.4, 42.60001],
+  ];
+  writeFileSync(
+    join(root, "routes", ROADS_ROUTE_ID, "route.geojson"),
+    JSON.stringify(routeGeojson(mutatedCoordinates)),
+  );
+
+  try {
+    // #then checkSite recomputes the hash from the new geometry and reports the mismatch
+    const problems = checkSite(root);
+    assert.ok(
+      problems.some(
+        (p) =>
+          p.file === `docs/assets/roads/${ROADS_ROUTE_ID}.svg` &&
+          p.message.includes("stale route geometry") &&
+          p.message.includes(originalHash),
+      ),
+    );
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("checkSite reports an orphaned roads corridor SVG that matches no route in index.json (fixture)", () => {
+  const root = createFixtureRoot([{ id: "camino-frances" }]);
+  mkdirSync(join(root, "docs", "assets", "roads"), { recursive: true });
+  writeFileSync(
+    join(root, "docs", "assets", "roads", "zzz-orphan.svg"),
+    roadsSvg(hashRouteGeometry(routeGeojson(ROADS_COORDINATES))),
+  );
+
+  try {
+    const problems = checkSite(root);
+    assert.ok(
+      problems.some(
+        (p) => p.file === "docs/assets/roads/zzz-orphan.svg" && p.message.includes("orphaned"),
+      ),
+    );
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
 
 test("checkSite accepts an interior narrative containing &, <, >, and ' when the page renders them correctly HTML-escaped (fixture — proves decodeEntities covers numeric references, not just named ones)", () => {
   const id = "camino-frances";
