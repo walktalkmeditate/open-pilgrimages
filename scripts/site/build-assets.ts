@@ -3,11 +3,11 @@ import {
   mkdirSync,
   readFileSync,
   readdirSync,
-  realpathSync,
   statSync,
   writeFileSync,
 } from "fs";
 import { join } from "path";
+import { byCodepoint, resolveInvokedPath } from "../cli.js";
 import { GLYPH_BOX, glyphFrom } from "./glyphs.js";
 import { profileSvg, stagesOf } from "./profiles.js";
 import { sparklineSvg, trendOf } from "./sparklines.js";
@@ -17,10 +17,6 @@ const ROOT = join(import.meta.dirname, "..", "..");
 interface Target {
   key: string;
   dir: string;
-}
-
-function byCodepoint(a: string, b: string): number {
-  return a < b ? -1 : a > b ? 1 : 0;
 }
 
 /** Every top-level route, plus the coastal variant, which is a full route. */
@@ -119,15 +115,6 @@ function main(): void {
     `Wrote ${counts.glyphs} glyph(s), ${counts.profiles} profile(s), ` +
       `${counts.sparklines} sparkline(s)`,
   );
-}
-
-export function resolveInvokedPath(argv1: string | undefined): string | null {
-  if (!argv1) return null;
-  try {
-    return realpathSync(argv1);
-  } catch {
-    return null;
-  }
 }
 
 if (import.meta.filename === resolveInvokedPath(process.argv[1])) {

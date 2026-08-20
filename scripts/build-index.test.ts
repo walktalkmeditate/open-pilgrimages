@@ -9,12 +9,10 @@ import {
   existsSync,
   rmSync,
   cpSync,
-  symlinkSync,
-  realpathSync,
 } from "fs";
 import { tmpdir } from "os";
 import { execFileSync } from "child_process";
-import { buildIndex, scanRoutes, readPrevious, resolveInvokedPath, type RouteIndex } from "./build-index.js";
+import { buildIndex, scanRoutes, readPrevious, type RouteIndex } from "./build-index.js";
 
 const ROOT = join(import.meta.dirname, "..");
 const ROUTES = join(ROOT, "routes");
@@ -66,6 +64,7 @@ function createTempScriptRepo(fixtures: RouteFixture[]): {
   const scriptsDir = join(dir, "scripts");
   mkdirSync(scriptsDir);
   cpSync(join(ROOT, "scripts", "build-index.ts"), join(scriptsDir, "build-index.ts"));
+  cpSync(join(ROOT, "scripts", "cli.ts"), join(scriptsDir, "cli.ts"));
   writeFileSync(join(dir, "package.json"), JSON.stringify({ type: "module" }));
 
   return { dir, scriptPath: join(scriptsDir, "build-index.ts"), indexPath: join(dir, "index.json") };
@@ -296,31 +295,4 @@ test("readPrevious parses a valid index file and returns its contents", () => {
   }
 });
 
-test("resolveInvokedPath resolves a symlinked invocation path", () => {
-  // Node resolves symlinks for import.meta.filename but leaves process.argv[1]
-  // as invoked. Without this normalisation the guard silently skips main(),
-  // so index.json is never regenerated and nothing reports why.
-  const dir = mkdtempSync(join(tmpdir(), "build-index-test-"));
-  const target = join(ROOT, "package.json");
-  const link = join(dir, "invoked.js");
-  symlinkSync(target, link);
-
-  try {
-    assert.equal(resolveInvokedPath(link), realpathSync(target));
-  } finally {
-    rmSync(dir, { recursive: true, force: true });
-  }
-});
-
-test("resolveInvokedPath returns null when argv[1] is absent", () => {
-  assert.equal(resolveInvokedPath(undefined), null);
-});
-
-test("resolveInvokedPath returns null for a path that does not exist", () => {
-  const dir = mkdtempSync(join(tmpdir(), "build-index-test-"));
-  try {
-    assert.equal(resolveInvokedPath(join(dir, "nope.js")), null);
-  } finally {
-    rmSync(dir, { recursive: true, force: true });
-  }
-});
+// resolveInvokedPath itself is shared CLI plumbing tested in scripts/cli.test.ts.
