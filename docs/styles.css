@@ -710,7 +710,9 @@ nav .nav-actions .nav-github svg {
   nav { flex-direction: column; align-items: flex-start; gap: var(--space-sm); }
   nav .nav-links { flex-direction: column; align-items: flex-start; }
   nav .nav-links a { margin-right: 0; margin-bottom: var(--space-xs); }
-  nav .nav-github { margin-left: 0; margin-top: var(--space-sm); }
+  /* .nav-actions owns the icons' layout; the old per-link margins were for
+     the text-label nav and would knock the two icons out of alignment. */
+  nav .nav-actions { align-self: flex-end; margin-left: 0; }
 
   .hero-cta { flex-direction: column; }
   .hero-cta .btn { text-align: center; }
