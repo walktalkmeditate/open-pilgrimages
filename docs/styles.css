@@ -918,13 +918,17 @@ nav .nav-actions .nav-github svg {
      this used to inherit from the bare-glyph hero rendered 636 KB of road
      geometry as literally nothing. Scales with the full-bleed band. */
   position: relative;
-  /* Sized by HEIGHT, not width. The glyph box is square but most routes are
-     wide and flat, so sizing by width leaves a tall band of dead space and
-     pushes the page title below the fold. Capping height keeps the band
-     proportionate while staying large enough for the roads to render. */
-  height: min(360px, 42vh);
+  /* A single sized dimension (width), with height left to aspect-ratio, is
+     what keeps this square at every viewport size. The previous version set
+     height explicitly and let width follow from aspect-ratio, capped
+     separately by max-width — on a narrow-but-tall viewport the max-width
+     clamp could win on width alone, leaving height unclamped and the box
+     non-square. Folding all three original bounds (a height cap in px, a
+     height cap in vh, a width cap in vw) into one min() for width sidesteps
+     that: whichever bound is tightest, the other dimension still follows it
+     via aspect-ratio, so the box can never be clamped on only one axis. */
+  width: min(360px, 42vh, 92vw);
   aspect-ratio: 1;
-  max-width: 92vw;
 }
 
 .route-hero-map svg {
