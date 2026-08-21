@@ -2,7 +2,14 @@ import { existsSync, readFileSync, readdirSync } from "fs";
 import { join } from "path";
 import { resolveInvokedPath } from "../cli.js";
 import { computeStats, type RouteStats } from "../stats.js";
-import { cdnPathExistsOnDisk, extractCdnRefs, isPublishedCdnPath, isRecognizedCdnRef } from "./cdn.js";
+import {
+  CDN_REPO_BASE,
+  cdnPathExistsOnDisk,
+  currentCdnMovingRef,
+  extractCdnRefs,
+  isPublishedCdnPath,
+  isRecognizedCdnRef,
+} from "./cdn.js";
 import { segmentsOf } from "./glyphs.js";
 import { hashRouteGeometry, isWellFormedXml } from "./roads.js";
 
@@ -33,7 +40,7 @@ const HREF_PATTERN = /href="([^"]+)"/g;
 
 const TRKPT_PATTERN = /<trkpt\b/g;
 
-const JSDELIVR_BASE = "https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1";
+const JSDELIVR_BASE = `${CDN_REPO_BASE}@${currentCdnMovingRef()}`;
 
 const STAGE_INTERIOR_PATTERN = /<details class="stage-interior">/g;
 
@@ -918,25 +925,61 @@ export function checkSite(root: string, overrides: PageOverrides = {}): Problem[
    * requires merging the PR first. See check-cdn.ts (npm run check-cdn) for
    * the networked check that closes that gap instead, run once as part of
    * cutting a release rather than on every CI run.
+   *
+   * Scans docs/*.js alongside docs/*.html — docs/cdn-preview.js carries the
+   * one CDN URL this site actually fetches at runtime (its live index.json
+   * preview on the usage page), and until this scanned .js files that URL
+   * was only checked because the same text happens to also appear in
+   * usage.html's code sample, a coincidence nothing enforced.
+   *
+   * Honours the indexHtml/routesHtml overrides the same way the internal-
+   * link check at the bottom of checkSite does (see usingOverriddenPages
+   * there) — the docs-page half of this guard used to always read the real
+   * docs/ off disk regardless of what a test passed in, so it had no way to
+   * be driven by a synthetic fixture and no negative test ever exercised it.
    */
   function checkCdnLinks(): void {
-    const pages: Array<[string, string]> = [];
+    const usingOverriddenDocsPages = overrides.indexHtml !== undefined || overrides.routesHtml !== undefined;
 
-    if (existsSync(docs)) {
-      for (const entry of readdirSync(docs)) {
-        if (!entry.endsWith(".html")) continue;
-        pages.push([`docs/${entry}`, readFileSync(join(docs, entry), "utf-8")]);
-      }
-    }
+    const pages: Array<[string, string]> = usingOverriddenDocsPages
+      ? [
+          ["docs/index.html", indexHtml],
+          ["docs/routes.html", routesHtml],
+        ]
+      : existsSync(docs)
+        ? readdirSync(docs)
+            .filter((entry) => entry.endsWith(".html") || entry.endsWith(".js"))
+            .map((entry): [string, string] => [`docs/${entry}`, readFileSync(join(docs, entry), "utf-8")])
+        : [];
     pages.push(["README.md", readmeMd]);
 
+    // Every route detail page ships a Files & CDN table, so zero extracted
+    // CDN refs on one is never a clean pass — it means either the table
+    // went missing, or (the shape this project has now shipped four times)
+    // CDN_URL_PATTERN in cdn.ts no longer matches this repo's actual CDN
+    // URLs, e.g. after an org/repo rename edited one of the two places that
+    // string used to live without the other. Scoped to detail pages only:
+    // index.html/routes.html/contribute.html/etc. legitimately have none.
+    const detailPageFiles = new Set(ids.map((id) => `docs/${id}.html`));
+
     for (const [file, html] of pages) {
-      for (const cdnRef of extractCdnRefs(html)) {
+      const cdnRefs = extractCdnRefs(html);
+
+      if (detailPageFiles.has(file) && cdnRefs.length === 0) {
+        add(
+          file,
+          "has zero CDN links — every route detail page's Files & CDN table should reference this " +
+            "repo's own jsDelivr URLs; zero here means the table is missing, or CDN_URL_PATTERN in " +
+            "cdn.ts no longer matches this repo's actual CDN URLs",
+        );
+      }
+
+      for (const cdnRef of cdnRefs) {
         if (!isRecognizedCdnRef(cdnRef.ref)) {
           add(
             file,
             `links to ${cdnRef.url}, whose version ref "@${cdnRef.ref}" isn't one this project uses — ` +
-              `pin to @v1 or a released @vX.Y.Z tag`,
+              `pin to @${currentCdnMovingRef()} or a released @vX.Y.Z tag`,
           );
         }
 
