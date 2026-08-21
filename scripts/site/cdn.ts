@@ -1,14 +1,38 @@
-import { existsSync, statSync } from "fs";
+import { existsSync, readFileSync, statSync } from "fs";
 import { join } from "path";
+
+const ROOT = join(import.meta.dirname, "..", "..");
+const PACKAGE_JSON_PATH = join(ROOT, "package.json");
+
+/**
+ * The one place this repo's jsDelivr host+path is spelled out. check-site.ts
+ * derives its JSDELIVR_BASE from CDN_REPO_BASE below rather than hardcoding
+ * its own copy — two independently-edited copies of this string is exactly
+ * how an org rename (or any edit to one without the other) used to make
+ * CDN_URL_PATTERN match nothing, silently, with neither scanner able to
+ * tell zero matches from a clean pass. See checkCdnLinks' and
+ * collectCdnUrls' zero-result floor checks for the other half of that fix.
+ */
+const CDN_HOST_AND_REPO_PATH = "cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages";
+export const CDN_REPO_BASE = "https://" + CDN_HOST_AND_REPO_PATH;
+
+function escapeRegExp(value: string): string {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
 
 /**
  * Every URL this project ever points at jsDelivr shares this prefix — the
  * GitHub-backed CDN serving this repo's own published files. Anything after
  * `@` is the version ref; anything after the next `/` is the path within the
- * repo at that ref.
+ * repo at that ref. The protocol is optional and `http:` is accepted
+ * alongside `https:` — a stray `http://` link or a protocol-relative
+ * `//cdn.jsdelivr...` copy-paste is still a link to this repo's CDN, not
+ * something to skip silently.
  */
-const CDN_URL_PATTERN =
-  /https:\/\/cdn\.jsdelivr\.net\/gh\/walktalkmeditate\/open-pilgrimages@([^/\s"'<>)`]+)(\/[^\s"'<>)`]*)?/g;
+const CDN_URL_PATTERN = new RegExp(
+  "(?:https?:)?//" + escapeRegExp(CDN_HOST_AND_REPO_PATH) + "@([^/\\s\"'<>)`]+)(/[^\\s\"'<>)`]*)?",
+  "g",
+);
 
 export interface CdnRef {
   /** The full matched URL, exactly as it appears in the source text. */
@@ -46,6 +70,33 @@ export function extractCdnRefs(text: string): CdnRef[] {
 const PUBLISHED_PATH_PREFIXES = ["routes/", "schema/"];
 
 /**
+ * A line-wrapped URL (the source of the original v1.5.0 GPX regression's
+ * cousin bug) extracts as just its top-level prefix — "routes/" or
+ * "schema/" — since everything after the line break is lost. That's a real
+ * directory, so a prefix-only check would pass it, and jsDelivr genuinely
+ * serves a directory listing for it (200) — a link that resolves to
+ * "browse everything" is not the file a real consumer wanted. Rejecting the
+ * bare prefixes themselves (nothing deeper), while still accepting anything
+ * one level in, is enough to catch that shape without rejecting real
+ * directory links like the coastal variant's trailing-slash README entry.
+ */
+function isBareTopLevelPrefix(path: string): boolean {
+  return PUBLISHED_PATH_PREFIXES.includes(path);
+}
+
+/**
+ * A `..` path segment would let a CDN link claim a path outside this repo's
+ * published surface while still starting with an allowed prefix (e.g.
+ * `routes/../docs/index.html`), and would let cdnPathExistsOnDisk stat
+ * outside the repo root entirely. Checked as a path segment, not a raw
+ * substring — a real filename that merely contains ".." (e.g. "foo..bar")
+ * is not a traversal attempt and shouldn't be rejected as one.
+ */
+function hasTraversalSegment(path: string): boolean {
+  return path.split("/").includes("..");
+}
+
+/**
  * The CDN only ever serves this repo's published data surface — routes/,
  * schema/, and index.json. Nothing under docs/ (the site itself) belongs on
  * a data CDN, even though the file genuinely exists in the repo: a URL
@@ -53,23 +104,73 @@ const PUBLISHED_PATH_PREFIXES = ["routes/", "schema/"];
  * so this check doesn't need to know what does or doesn't exist on disk.
  */
 export function isPublishedCdnPath(path: string): boolean {
+  if (hasTraversalSegment(path) || isBareTopLevelPrefix(path)) return false;
   return path === "index.json" || PUBLISHED_PATH_PREFIXES.some((prefix) => path.startsWith(prefix));
 }
 
 const RELEASED_VERSION_REF_PATTERN = /^v\d+\.\d+\.\d+$/;
 
+let cachedCurrentMajorVersion: string | undefined;
+
 /**
- * `@v1` is the moving major-version tag every CDN consumer is told to pin
- * to; a `@vX.Y.Z` ref names one specific release. Both are refs this project
- * actually produces and moves/creates as part of cutting a release (see
- * .claude/commands/release.md). Anything else — `@main`, `@latest`, a
- * branch name — is a ref this project has never published against and the
- * README explicitly warns against using, since it isn't pinned to a
- * release: it can point at an in-progress commit that 404s on files added
- * since the last release, or change contents without warning.
+ * The major version out of package.json's own `"version"` — "1" for
+ * "1.6.0". This, not a hardcoded "v1", is what the moving CDN tag
+ * (isRecognizedCdnRef below) tracks: the moving tag is always named after
+ * the *current* major line (see .claude/commands/release.md's Phase 8,
+ * "the v1 moving tag may need to be replaced with v2 etc."), so a hardcoded
+ * "v1" here would start rejecting every real `@v2` URL the instant this
+ * project ships its first major bump — the same "guard reports clean while
+ * broken" shape as the rest of this file's fixes, just triggered by a
+ * version bump instead of an org rename. Cached after the first read since
+ * package.json doesn't change within a single process run.
  */
-export function isRecognizedCdnRef(ref: string): boolean {
-  return ref === "v1" || RELEASED_VERSION_REF_PATTERN.test(ref);
+function currentMajorVersion(): string {
+  if (cachedCurrentMajorVersion !== undefined) return cachedCurrentMajorVersion;
+
+  let major = "1"; // falls back to today's only shipped major if package.json can't be read/parsed
+  try {
+    const pkg: unknown = JSON.parse(readFileSync(PACKAGE_JSON_PATH, "utf-8"));
+    const version = (pkg as { version?: unknown } | null)?.version;
+    if (typeof version === "string" && /^\d+\./.test(version)) {
+      major = version.split(".")[0];
+    }
+  } catch {
+    // fall through to the "1" fallback above
+  }
+
+  cachedCurrentMajorVersion = major;
+  return major;
+}
+
+/**
+ * The moving CDN tag consumers are told to pin to right now — "v1" today,
+ * "v2" the release after this project's first major bump. check-site.ts
+ * builds its JSDELIVR_BASE suggestion text from this rather than a second
+ * hardcoded "@v1", so that message can't go stale the way isRecognizedCdnRef
+ * itself used to.
+ */
+export function currentCdnMovingRef(): string {
+  return `v${currentMajorVersion()}`;
+}
+
+/**
+ * `@v{currentMajorVersion()}` is the moving major-version tag every CDN
+ * consumer is told to pin to; a `@vX.Y.Z` ref names one specific release.
+ * Both are refs this project actually produces and moves/creates as part of
+ * cutting a release (see .claude/commands/release.md). Anything else —
+ * `@main`, `@latest`, a branch name — is a ref this project has never
+ * published against: the README's Versioning note only ever tells consumers
+ * to pin to the moving major tag, never a branch, and an unpublished ref can
+ * point at an in-progress commit that 404s on files added since the last
+ * release, or change contents without warning.
+ *
+ * `currentMajor` defaults to the real package.json-derived value but can be
+ * overridden — the same DI shape as fetch-roads.ts's fetchImpl/sleepImpl —
+ * so a test can simulate "the next major version bump" without editing
+ * package.json.
+ */
+export function isRecognizedCdnRef(ref: string, currentMajor: string = currentMajorVersion()): boolean {
+  return ref === `v${currentMajor}` || RELEASED_VERSION_REF_PATTERN.test(ref);
 }
 
 /**
@@ -81,6 +182,7 @@ export function isRecognizedCdnRef(ref: string): boolean {
  * that closes it instead.
  */
 export function cdnPathExistsOnDisk(root: string, path: string): boolean {
+  if (hasTraversalSegment(path)) return false;
   const local = join(root, path);
   if (!existsSync(local)) return false;
   return path.endsWith("/") ? statSync(local).isDirectory() : statSync(local).isFile();
