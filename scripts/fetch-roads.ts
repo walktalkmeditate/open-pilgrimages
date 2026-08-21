@@ -59,15 +59,52 @@ function isOverpassResponseLike(value: unknown): value is OverpassResponseLike {
 }
 
 /**
+ * 429 is the one status where the server tells us how long to wait.
+ * Surfacing that here doesn't retry (nothing in this file loops on
+ * failure) — it just makes the wait visible to whoever reruns this by hand.
+ * Pulled out as its own function so the message it builds — with and
+ * without a Retry-After header present — can be asserted on directly,
+ * without a real 429 response to construct.
+ */
+export function describeRateLimitError(statusText: string, retryAfterHeader: string | null): string {
+  const suggestion = retryAfterHeader ? `, suggested wait: ${retryAfterHeader}s` : "";
+  return `Overpass API returned 429: ${statusText}${suggestion}`;
+}
+
+export type OverpassOutcome = { ok: true; elements: unknown[] } | { ok: false; reason: string };
+
+/**
  * Overpass can return HTTP 200 with a soft-timeout or truncation reported
  * only in a `remark` field, `elements` left empty or partial — a naive
  * !response.ok check treats that as a normal, if boring, result. Trusting it
  * silently overwrote two known-good caches with an empty one during
  * development. A `remark` is treated as a hard failure here, the same as any
  * other fetch error: the caller stops the route rather than caching it.
+ *
+ * An `elements` array that's merely empty, with no `remark`, is not treated
+ * as a failure — Overpass genuinely has nothing to report for some corridors
+ * (see roads.ts's own "0 ways kept" guard, which is where an empty result is
+ * actually acted on, not here).
  */
-async function fetchOverpass(query: string): Promise<unknown[]> {
-  const response = await fetch(OVERPASS_URL, {
+export function classifyOverpassBody(body: unknown): OverpassOutcome {
+  if (!isOverpassResponseLike(body)) {
+    return { ok: false, reason: "Overpass API returned an unrecognized response shape" };
+  }
+  if (typeof body.remark === "string") {
+    return { ok: false, reason: `Overpass API reported: ${body.remark}` };
+  }
+  return { ok: true, elements: Array.isArray(body.elements) ? body.elements : [] };
+}
+
+/**
+ * Issues one Overpass request and returns its elements, or throws. Takes its
+ * `fetch` implementation as a parameter — defaulting to the real global
+ * `fetch` — so the response-handling logic above (429/Retry-After, the
+ * remark-as-failure rule, the client-side timeout) can be exercised with a
+ * fake response and no network call at all.
+ */
+export async function fetchOverpass(query: string, fetchImpl: typeof fetch = fetch): Promise<unknown[]> {
+  const response = await fetchImpl(OVERPASS_URL, {
     method: "POST",
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
@@ -78,37 +115,27 @@ async function fetchOverpass(query: string): Promise<unknown[]> {
   });
 
   if (!response.ok) {
-    // 429 is the one status where the server tells us how long to wait —
-    // surfacing it here doesn't retry (the caller never loops on failure),
-    // it just makes the wait visible to whoever reruns this by hand.
     if (response.status === 429) {
-      const retryAfter = response.headers.get("retry-after");
-      const suggestion = retryAfter ? `, suggested wait: ${retryAfter}s` : "";
-      throw new Error(`Overpass API returned 429: ${response.statusText}${suggestion}`);
+      throw new Error(describeRateLimitError(response.statusText, response.headers.get("retry-after")));
     }
     throw new Error(`Overpass API returned ${response.status}: ${response.statusText}`);
   }
 
   const body: unknown = await response.json();
-  if (!isOverpassResponseLike(body)) {
-    throw new Error("Overpass API returned an unrecognized response shape");
-  }
-  if (typeof body.remark === "string") {
-    throw new Error(`Overpass API reported: ${body.remark}`);
-  }
-
-  return Array.isArray(body.elements) ? body.elements : [];
+  const outcome = classifyOverpassBody(body);
+  if (!outcome.ok) throw new Error(outcome.reason);
+  return outcome.elements;
 }
 
-// `networkCallAttempted` drives the inter-route delay in main() below — it
-// must reflect whether a network *request went out*, not whether one
-// succeeded. Deriving it from a success count (fetchedThisRun > 0, the
-// original approach) means a route that 429s on its very first request
-// reports zero successes, main() skips the pacing delay before the next
-// route, and its first request goes out immediately — the exact behaviour
-// that escalates rate limiting on a free API that has already returned
-// 429s and 504s to this workload.
-type FetchOutcome =
+// `networkCallAttempted` drives the inter-route delay in runFetchRoads()
+// below — it must reflect whether a network *request went out*, not
+// whether one succeeded. Deriving it from a success count (fetchedThisRun
+// > 0, the original approach) means a route that 429s on its very first
+// request reports zero successes, runFetchRoads() skips the pacing delay
+// before the next route, and its first request goes out immediately — the
+// exact behaviour that escalates rate limiting on a free API that has
+// already returned 429s and 504s to this workload.
+export type FetchOutcome =
   | { status: "no-geometry"; networkCallAttempted: false }
   | { status: "already-cached"; waysFetched: number; networkCallAttempted: false }
   | {
@@ -128,6 +155,23 @@ type FetchOutcome =
       missingIndices: number[];
       networkCallAttempted: boolean;
     };
+
+/**
+ * The dependencies fetchRoute and runFetchRoads need in order to be run
+ * against something other than the real network and the real project
+ * `.cache/` directory. Every field defaults to the real thing, so calling
+ * either function with no runtime at all — what `main()` does — reproduces
+ * today's behaviour exactly. Tests supply a temp `root` (so a fake route id
+ * can never collide with, or write into, this project's actual
+ * `.cache/roads/`), a fake `fetchImpl` (so no request reaches Overpass), and
+ * a fake `sleepImpl` (so a pacing test doesn't spend REQUEST_DELAY_MS of
+ * real wall-clock time proving a delay happened).
+ */
+export interface FetchRoadsRuntime {
+  root?: string;
+  fetchImpl?: typeof fetch;
+  sleepImpl?: (ms: number) => Promise<void>;
+}
 
 /**
  * Fetches one route's road data, chunking the request when the decimated
@@ -151,14 +195,18 @@ type FetchOutcome =
  * against a route's current geometry is check-site's job (its embedded
  * geometry-hash guard), not fetch-roads'.
  */
-async function fetchRoute(id: string, dir: string): Promise<FetchOutcome> {
+export async function fetchRoute(id: string, dir: string, runtime: FetchRoadsRuntime = {}): Promise<FetchOutcome> {
+  const root = runtime.root ?? ROOT;
+  const fetchImpl = runtime.fetchImpl ?? fetch;
+  const sleepImpl = runtime.sleepImpl ?? sleep;
+
   const geo = readJson(join(dir, "route.geojson"));
   if (!geo) return { status: "no-geometry", networkCallAttempted: false };
 
   const segments = segmentsOf(geo);
   if (segments.length === 0) return { status: "no-geometry", networkCallAttempted: false };
 
-  const existingMerged = readRoadsCache(ROOT, id);
+  const existingMerged = readRoadsCache(root, id);
   if (existingMerged) {
     return {
       status: "already-cached",
@@ -179,7 +227,7 @@ async function fetchRoute(id: string, dir: string): Promise<FetchOutcome> {
 
   for (let i = 0; i < chunks.length; i++) {
     const anchorHash = hashChunkAnchors(chunks[i]);
-    const cached = readRoadsChunkCache(ROOT, id, i);
+    const cached = readRoadsChunkCache(root, id, i);
 
     if (cached && isFreshChunkCache(cached, id, i, anchorHash)) {
       caches[i] = cached;
@@ -195,14 +243,14 @@ async function fetchRoute(id: string, dir: string): Promise<FetchOutcome> {
     }
 
     if (fetchedThisRun > 0) {
-      await sleep(REQUEST_DELAY_MS);
+      await sleepImpl(REQUEST_DELAY_MS);
     }
 
     networkCallAttempted = true;
 
     let elements: unknown[];
     try {
-      elements = await fetchOverpass(queries[i]);
+      elements = await fetchOverpass(queries[i], fetchImpl);
     } catch (error) {
       console.error(`  ✗ Failed: ${error instanceof Error ? error.message : String(error)}`);
       console.error(
@@ -222,8 +270,8 @@ async function fetchRoute(id: string, dir: string): Promise<FetchOutcome> {
       fetchedAt: new Date().toISOString(),
       elements,
     };
-    mkdirSync(chunkCacheDir(ROOT, id), { recursive: true });
-    writeFileSync(chunkCachePathFor(ROOT, id, i), JSON.stringify(chunkCache));
+    mkdirSync(chunkCacheDir(root, id), { recursive: true });
+    writeFileSync(chunkCachePathFor(root, id, i), JSON.stringify(chunkCache));
     caches[i] = chunkCache;
     fetchedThisRun++;
   }
@@ -253,14 +301,14 @@ async function fetchRoute(id: string, dir: string): Promise<FetchOutcome> {
     elements: merged.elements,
   };
   const json = JSON.stringify(cache);
-  writeFileSync(cachePathFor(ROOT, id), json);
+  writeFileSync(cachePathFor(root, id), json);
 
   // The merged file is now the complete, durable result — the per-chunk
   // scratch files that built it up across possibly several runs have no
   // further purpose, and for a busy corridor (many chunks, tens of
   // thousands of ways each) leaving them in place would roughly double this
   // route's disk footprint under .cache/ forever.
-  rmSync(chunkCacheDir(ROOT, id), { recursive: true, force: true });
+  rmSync(chunkCacheDir(root, id), { recursive: true, force: true });
 
   return {
     status: "complete",
@@ -288,11 +336,20 @@ function selectedTargets(root: string, ids: string[]): ReturnType<typeof targets
   return all.filter((t) => wanted.has(t.key));
 }
 
-async function main(): Promise<void> {
-  mkdirSync(CACHE_DIR, { recursive: true });
-  console.log("Fetching road corridor data from Overpass\n");
-
-  const list = selectedTargets(ROOT, process.argv.slice(2));
+/**
+ * Runs fetchRoute across every target in order, applying the same courtesy
+ * delay between routes that fetchRoute applies between chunks within one
+ * route. Gated on `networkCallAttempted`, not on success — see FetchOutcome's
+ * own doc comment above — so a route that fails outright on its first
+ * request still paces the next one, rather than a rate-limited or offline
+ * run hammering Overpass with back-to-back requests as everything fails in
+ * sequence.
+ */
+export async function runFetchRoads(
+  list: ReturnType<typeof targets>,
+  runtime: FetchRoadsRuntime = {},
+): Promise<void> {
+  const sleepImpl = runtime.sleepImpl ?? sleep;
 
   for (let i = 0; i < list.length; i++) {
     const { key, dir } = list[i];
@@ -301,7 +358,7 @@ async function main(): Promise<void> {
     let madeNetworkCall = false;
 
     try {
-      const outcome = await fetchRoute(key, dir);
+      const outcome = await fetchRoute(key, dir, runtime);
       madeNetworkCall = outcome.networkCallAttempted;
 
       switch (outcome.status) {
@@ -337,9 +394,17 @@ async function main(): Promise<void> {
     }
 
     if (i < list.length - 1 && madeNetworkCall) {
-      await sleep(REQUEST_DELAY_MS);
+      await sleepImpl(REQUEST_DELAY_MS);
     }
   }
+}
+
+async function main(): Promise<void> {
+  mkdirSync(CACHE_DIR, { recursive: true });
+  console.log("Fetching road corridor data from Overpass\n");
+
+  const list = selectedTargets(ROOT, process.argv.slice(2));
+  await runFetchRoads(list);
 
   console.log("\nFetch complete. Run 'npm run build-roads' to render SVGs from the cache.");
 }

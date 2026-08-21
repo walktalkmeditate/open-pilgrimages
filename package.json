@@ -13,6 +13,7 @@
     "fetch-roads": "tsx scripts/fetch-roads.ts",
     "build-roads": "tsx scripts/site/roads.ts",
     "check-site": "tsx scripts/site/check-site.ts",
+    "check-cdn": "tsx scripts/site/check-cdn.ts",
     "test": "node --import tsx --test \"scripts/**/*.test.ts\""
   },
   "keywords": [

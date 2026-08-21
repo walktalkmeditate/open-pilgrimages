@@ -235,28 +235,46 @@ The current canonical description is:
 
 If the description has drifted, restore it with `gh repo edit walktalkmeditate/open-pilgrimages --description "..."`. Avoid mentioning specific routes or counts.
 
-## Phase 13: Optional — purge jsDelivr cache
+## Phase 13: Purge jsDelivr cache
 
-If consumers need to see the new data immediately (rather than waiting ~24h for natural cache expiration), purge the jsDelivr cache:
+No longer optional: Phase 14 depends on it. `v1` is a moving tag, and jsDelivr caches a moving ref's resolution for a while even after it's force-updated — without a purge, Phase 14 can fail on `@v1` URLs that are actually fine, just still serving the previous release out of cache.
 
 ```bash
 curl "https://purge.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1/index.json"
 curl "https://purge.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v$VERSION/index.json"
 ```
 
-## Phase 14: Report to user
+This purges `index.json` at both refs, which is normally enough to make jsDelivr re-resolve `@v1` to the new commit for every other path too. If Phase 14 still reports a stale-looking failure on some other URL afterward, purge that specific URL the same way (swap `cdn.jsdelivr.net` for `purge.jsdelivr.net`, keep the path) and re-run it.
+
+## Phase 14: Verify every CDN link resolves
+
+**Do not skip this phase, and do not mark the release done until it's green.** This is the check that would have caught the v1.5.0 GPX regression: seven detail pages linked `route.gpx` at `@v1` while `v1` still pointed at the release before GPX generation existed, and every one of those links 404'd in production. Nothing before this phase ever actually fetches a CDN URL — Phase 5's `npm run validate` and check-site's own CI guard both work entirely offline, by design (see check-cdn.ts's own doc comment for why that split exists) — so this is the only point in the whole release where a link is confirmed to resolve, not just to look plausible.
+
+```bash
+npm run check-cdn
+```
+
+Every URL must report `ok`. If any fail:
+- Confirm `v1` actually moved: `git tag --points-at HEAD` should list both `v1` and `v$VERSION`. If it doesn't, Phase 8/9 didn't complete — fix that first.
+- Re-run the Phase 13 purge (jsDelivr's cache can take a short time to catch up even after a purge request is accepted) and re-run `npm run check-cdn`.
+- If a URL fails and its path is new in this release (added in the commits since the last tag), that's the exact bug this phase exists to catch — do not report the release as done until it resolves.
+
+## Phase 15: Report to user
 
 Summarize:
 - Version released: `v$VERSION`
 - Tag commit hash
 - GitHub release URL
 - Short summary of what changed (from the CHANGELOG entry)
-- Anything that needs follow-up (downstream consumers to notify, jsDelivr purge if not done, etc.)
+- Confirmation that Phase 14's `npm run check-cdn` came back all-green
+- Anything that needs follow-up (downstream consumers to notify, etc.)
 
 ## Notes
 
 - **Never skip Phase 4 (CHANGELOG)** — this is the canonical record of changes for downstream consumers
 - **Never skip Phase 8 (move v1 tag)** — CDN consumers on `@v1` rely on it
+- **Never skip Phase 13 (purge) or Phase 14 (`npm run check-cdn`)** — this is the pair that would have caught the v1.5.0 GPX-link regression (every CDN link the site references 404ing because `v1` hadn't advanced yet); a release isn't done until Phase 14 is green
+- **`check-cdn` is deliberately not part of CI** (`.github/workflows/validate.yml` never runs it) — CI stays offline and deterministic, so this phase is the only place it runs
 - **Never use `--no-verify`** to bypass commit hooks
 - **The `git push --force` on v1 is intentional** — it is the only acceptable force-push in this workflow
 - **If anything fails partway through**, do not "retry" from the beginning. Diagnose, fix, and resume from the failed phase. Tags can be deleted with `git tag -d v$VERSION && git push origin :refs/tags/v$VERSION` if a tag was created prematurely.

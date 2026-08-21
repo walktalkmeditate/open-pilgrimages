@@ -136,8 +136,11 @@ test("checkSite accepts a detail page that identifies its own route via <code>",
   // #given a docs/{id}.html containing <code>{id}</code>, matching how routes.html
   // already renders route IDs today, plus a route.gpx link and a roads
   // corridor reference so the unrelated gpx-discoverability and
-  // roads-page-reference guards don't also fire here
+  // roads-page-reference guards don't also fire here. The linked route.gpx
+  // must actually exist on disk too, or the CDN link guard reports it.
   const root = createFixtureRoot([{ id: "camino-frances" }]);
+  mkdirSync(join(root, "routes", "camino-frances"), { recursive: true });
+  writeFileSync(join(root, "routes", "camino-frances", "route.gpx"), "<gpx></gpx>");
   writeFileSync(
     join(root, "docs", "camino-frances.html"),
     '<html><body><code>camino-frances</code>' +
@@ -2064,4 +2067,96 @@ test("checkSite accepts an interior narrative containing &, <, >, and ' when the
   } finally {
     rmSync(root, { recursive: true, force: true });
   }
+});
+
+// --- CDN link guard ---
+//
+// checkSite scans the real docs/*.html on disk regardless of overrides (only
+// indexHtml/routesHtml/readmeMd can be swapped in), so a synthetic readmeMd
+// carrying one bad CDN URL produces exactly one CDN-related problem, tied to
+// "README.md" — the real, committed docs/ stays clean throughout.
+
+test("the committed docs/ and README.md already pass the CDN link guard (positive control)", () => {
+  // #given every jsDelivr URL in the real docs/ and README.md
+  // #when checkSite checks each one's path, published surface, and version ref
+  const problems = checkSite(ROOT);
+
+  // #then none of them are flagged
+  assert.deepEqual(
+    problems.filter((p) => p.message.startsWith("links to https://cdn")),
+    [],
+  );
+});
+
+test("checkSite reports a CDN link whose path does not exist in the repo (synthetic readmeMd)", () => {
+  // #given a CDN URL pointing at a route that was never fetched or was renamed
+  const readmeMd =
+    "See https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1/routes/does-not-exist/route.geojson for details.";
+
+  // #when checkSite checks that URL's path against the working tree
+  const problems = checkSite(ROOT, { readmeMd });
+
+  // #then it's reported as missing, against README.md
+  assert.ok(
+    problems.some(
+      (p) =>
+        p.file === "README.md" &&
+        p.message.includes("routes/does-not-exist/route.geojson") &&
+        p.message.includes("does not exist in the repo"),
+    ),
+  );
+});
+
+test("checkSite reports a CDN link pointing under docs/ as outside the published surface (synthetic readmeMd)", () => {
+  // #given a CDN URL pointing at the site itself rather than the data it publishes
+  const readmeMd =
+    "See https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1/docs/index.html for details.";
+
+  // #when checkSite checks that URL's path against the published surface (routes/, schema/, index.json)
+  const problems = checkSite(ROOT, { readmeMd });
+
+  // #then it's reported as unpublishable, against README.md — and not also flagged as merely missing,
+  // since docs/index.html does exist in the repo
+  assert.ok(
+    problems.some(
+      (p) =>
+        p.file === "README.md" &&
+        p.message.includes("docs/index.html") &&
+        p.message.includes("outside the published CDN surface"),
+    ),
+  );
+  assert.ok(!problems.some((p) => p.file === "README.md" && p.message.includes("does not exist in the repo")));
+});
+
+test("checkSite reports a CDN link using an unrecognized version ref (synthetic readmeMd)", () => {
+  // #given a CDN URL pinned to a moving branch rather than a release tag — the README explicitly
+  // discourages this, since it isn't pinned to anything this project actually ships
+  const readmeMd =
+    "See https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@main/index.json for details.";
+
+  // #when checkSite checks that URL's ref
+  const problems = checkSite(ROOT, { readmeMd });
+
+  // #then it's reported as unrecognized, against README.md
+  assert.ok(
+    problems.some(
+      (p) =>
+        p.file === "README.md" &&
+        p.message.includes('"@main"') &&
+        p.message.includes("isn't one this project uses"),
+    ),
+  );
+});
+
+test("checkSite does not check anything for a bare CDN base URL with no path", () => {
+  // #given a CDN URL with a recognized ref and no path at all — the BASE constant pattern used
+  // throughout the README's code samples
+  const readmeMd = "const BASE = 'https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1';";
+
+  // #when / #then checkSite reports no CDN problems for it (no path to be missing or unpublished)
+  const problems = checkSite(ROOT, { readmeMd });
+  assert.deepEqual(
+    problems.filter((p) => p.file === "README.md" && p.message.startsWith("links to https://cdn")),
+    [],
+  );
 });
