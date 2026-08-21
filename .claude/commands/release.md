@@ -255,6 +255,7 @@ npm run check-cdn
 ```
 
 Every URL must report `ok`. If any fail:
+- **Triage how the failure is reported first.** `check-cdn`'s output distinguishes an HTTP response from a thrown error: `FAIL <url> — HTTP <status>` means jsDelivr itself answered with a non-200 — a real broken link. `FAIL <url> — <message>` (e.g. `The operation was aborted`, a connection reset, a DNS failure) means the request never got a response at all — a client-side or network failure, not evidence the link is broken. Re-run `npm run check-cdn` before treating the latter as a real failure; only an `HTTP <status>` failure that survives a re-run is the bug this phase exists to catch.
 - Confirm `v1` actually moved: `git tag --points-at HEAD` should list both `v1` and `v$VERSION`. If it doesn't, Phase 8/9 didn't complete — fix that first.
 - Re-run the Phase 13 purge (jsDelivr's cache can take a short time to catch up even after a purge request is accepted) and re-run `npm run check-cdn`.
 - If a URL fails and its path is new in this release (added in the commits since the last tag), that's the exact bug this phase exists to catch — do not report the release as done until it resolves.
