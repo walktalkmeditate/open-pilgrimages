@@ -107,6 +107,8 @@ const ASSET_KINDS: readonly AssetKind[] = ["routes", "profiles", "sparklines", "
 
 const ROADS_GEOMETRY_HASH_PATTERN = /geometry-hash="([0-9a-f]+)"/;
 
+const ROADS_PAGE_REFERENCE_PATTERN = /assets\/roads\/([a-z0-9-]+)\.svg/g;
+
 // The coastal variant ships full geometry, a profile, a sparkline, and a
 // glyph.js entry of its own, but — unlike every route id in index.json — has
 // no detail page of its own; its assets are inlined into the parent Camino
@@ -620,6 +622,47 @@ export function checkSite(root: string, overrides: PageOverrides = {}): Problem[
   }
 
   /**
+   * checkRoadsAsset (above) only confirms every route's roads corridor SVG
+   * exists, parses, and hashes against the right route.geojson — it says
+   * nothing about which pages actually reference which file. The corridor
+   * is referenced (an <img>), never inlined (see roads.ts / the road-
+   * corridor plan), so a page pointing at the *wrong* route's SVG would
+   * render silently: valid markup, a real image, just the wrong one — the
+   * same class of bug an asset-only guard misses when it never looks at the
+   * pages consuming the asset. `expectedIds` covers every roads reference a
+   * page legitimately carries — normally just its own id, but
+   * camino-portugues.html also carries the coastal variant's second hero,
+   * so both must be listed together in one call: checking them in two
+   * separate passes would see the first hero's reference already present
+   * and misreport it as belonging to the wrong route.
+   */
+  function checkRoadsPageReferences(file: string, detailHtml: string, expectedIds: readonly string[]): void {
+    const found = new Set(
+      [...detailHtml.matchAll(ROADS_PAGE_REFERENCE_PATTERN)].map((match) => match[1]),
+    );
+
+    for (const id of expectedIds) {
+      if (!found.has(id)) {
+        add(
+          file,
+          `has no reference to its roads corridor SVG (assets/roads/${id}.svg) — the hero should ` +
+            `layer it behind the route glyph`,
+        );
+      }
+    }
+
+    for (const foundId of found) {
+      if (!expectedIds.includes(foundId)) {
+        add(
+          file,
+          `references assets/roads/${foundId}.svg, which isn't one of this page's own routes ` +
+            `(${expectedIds.join(", ")}) — check for a copy-pasted or mismatched route id`,
+        );
+      }
+    }
+  }
+
+  /**
    * The filter panel on docs/routes.html is revealed by CSS on the
    * <html class="js"> hook, set by an inline script, rather than by
    * route-filter.js itself — that fixed a real layout shift on load. It also
@@ -826,7 +869,15 @@ export function checkSite(root: string, overrides: PageOverrides = {}): Problem[
 
       // The coastal variant ships full geometry, a profile, and a sparkline of
       // its own, but has no detail page — its assets are inlined into the
-      // parent Camino Portugués page instead.
+      // parent Camino Portugués page instead. It does get its own roads
+      // corridor hero further down that same page, so both ids are checked
+      // in one call — see checkRoadsPageReferences' doc comment for why.
+      checkRoadsPageReferences(
+        `docs/${id}.html`,
+        detailHtml,
+        id === "camino-portugues" ? [id, COASTAL_VARIANT_ASSET_ID] : [id],
+      );
+
       if (id === "camino-portugues") {
         checkInlinedAsset("routes", "camino-portugues-coastal", detailPages);
         checkInlinedAsset("profiles", "camino-portugues-coastal", detailPages);

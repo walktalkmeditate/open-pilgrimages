@@ -885,10 +885,16 @@ nav .nav-actions .nav-github svg {
 
 /* Route detail pages: full-bleed glyph header, plus the elevation-profile
    and pilgrim-count charts inlined from docs/assets/ (rather than <img>)
-   so their currentColor strokes pick up the page's light/dark theme. */
+   so their currentColor strokes pick up the page's light/dark theme. The
+   road-corridor layer is the one exception — it is 4-145 KB per route, far
+   too heavy to duplicate into every page, so it stays a referenced <img>
+   (see docs/assets/roads/), lazy-loaded and layered behind the route glyph. */
 .route-hero {
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
+  gap: var(--space-sm);
   padding: var(--space-xl) 0;
   margin-bottom: var(--space-lg);
   background: var(--surface);
@@ -899,6 +905,58 @@ nav .nav-actions .nav-github svg {
 .route-hero svg {
   width: 140px;
   height: 140px;
+}
+
+/* .route-hero-map reserves the glyph's box (matching .route-hero svg's
+   140x140) so the lazily-loaded roads <img> can never reflow the page,
+   whether it loads instantly, loads late, or 404s. Both children are
+   absolutely stacked inside it: the roads layer paints first, the route
+   glyph on top, regardless of load timing or document order. */
+.route-hero-map {
+  position: relative;
+  width: 140px;
+  height: 140px;
+}
+
+.route-hero-map svg {
+  position: relative;
+  z-index: 1;
+}
+
+/* The roads SVG is referenced, not inlined (see the comment above), so its
+   own stroke="currentColor" can't pick up this page's theme the way the
+   inlined glyph/profile/sparkline do — an <img>'s referenced document is a
+   separate document with no access to this stylesheet's custom properties.
+   Opacity approximates --fog's visual weight against --parchment in light
+   mode; invert+opacity approximates --fog's weight in dark mode, since the
+   source SVG always renders as solid black. Faint by design — the route
+   glyph must stay unmistakably dominant. */
+.route-hero-roads {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.28;
+  pointer-events: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .route-hero-roads {
+    filter: invert(1);
+    opacity: 0.2;
+  }
+}
+
+:root[data-theme="dark"] .route-hero-roads {
+  filter: invert(1);
+  opacity: 0.2;
+}
+
+.hero-attribution {
+  font-size: 0.75rem;
+  color: var(--stone);
+  text-align: center;
 }
 
 .profile {
