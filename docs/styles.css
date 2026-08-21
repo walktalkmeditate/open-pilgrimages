@@ -903,8 +903,8 @@ nav .nav-actions .nav-github svg {
 }
 
 .route-hero svg {
-  width: 140px;
-  height: 140px;
+  width: 100%;
+  height: 100%;
 }
 
 /* .route-hero-map reserves the glyph's box (matching .route-hero svg's
@@ -913,9 +913,18 @@ nav .nav-actions .nav-github svg {
    absolutely stacked inside it: the roads layer paints first, the route
    glyph on top, regardless of load timing or document order. */
 .route-hero-map {
+  /* The road corridor needs a large canvas to read at all: a ~3 km corridor
+     around a 263 km route is sub-pixel below roughly 300px, so the 140px box
+     this used to inherit from the bare-glyph hero rendered 636 KB of road
+     geometry as literally nothing. Scales with the full-bleed band. */
   position: relative;
-  width: 140px;
-  height: 140px;
+  /* Sized by HEIGHT, not width. The glyph box is square but most routes are
+     wide and flat, so sizing by width leaves a tall band of dead space and
+     pushes the page title below the fold. Capping height keeps the band
+     proportionate while staying large enough for the roads to render. */
+  height: min(360px, 42vh);
+  aspect-ratio: 1;
+  max-width: 92vw;
 }
 
 .route-hero-map svg {
