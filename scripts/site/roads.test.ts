@@ -88,17 +88,33 @@ test("decimateRoutePoints handles an empty segment list without throwing", () =>
 
 // --- overpassQueryFor ---
 
-test("overpassQueryFor requests only the seven allowed highway values, excludes private access, and asks for geometry around the given points", () => {
+test("overpassQueryFor requests only the five major highway values render actually keeps, excludes private access, and asks for geometry around the given points", () => {
   const query = overpassQueryFor([
     [135.5, 33.77],
     [135.51, 33.78],
   ]);
 
-  assert.match(query, /highway.*~.*motorway\|trunk\|primary\|secondary\|tertiary\|unclassified\|residential/);
+  assert.match(query, /highway.*~.*motorway\|trunk\|primary\|secondary\|tertiary/);
   assert.match(query, /access.*!=.*private/);
   assert.match(query, /out geom;/);
   assert.match(query, /\[timeout:\d+\]/);
   assert.match(query, /way\(around:\d+,33\.77000,135\.50000,33\.78000,135\.51000\)/);
+});
+
+// unclassified/residential used to be fetched (a wider set than render
+// actually kept — see isAllowedWay/MAJOR_HIGHWAY_VALUES) on the theory that
+// the cache would be useful for some future denser rendering. Measured on
+// the committed camino-ingles cache, that surplus was 76% of fetched ways —
+// very likely the dominant term in the query weight that produced the 504s
+// this project's chunking exists to work around — so the query was narrowed
+// to match what render keeps. This is a regression test for that: a
+// `.match()` for the wider set alone wouldn't catch residential/unclassified
+// creeping back in after "tertiary" in the pattern.
+test("overpassQueryFor does not request unclassified or residential ways", () => {
+  const query = overpassQueryFor([[135.5, 33.77]]);
+
+  assert.doesNotMatch(query, /unclassified/);
+  assert.doesNotMatch(query, /residential/);
 });
 
 // --- chunkTrace ---
@@ -365,6 +381,20 @@ test("mergeChunkCaches is deterministic regardless of each chunk's internal elem
   assert.deepEqual(forward, reversed);
 });
 
+test("mergeChunkCaches' earliestFetchedAt is the oldest chunk's own fetch time, not the latest and not merge time — regardless of chunk order", () => {
+  // #given three chunks fetched across what could be more than one run
+  // (shikoku-88's real history), out of chronological and out of index order
+  const early = chunkCache({ chunkIndex: 1, fetchedAt: "2026-08-01T00:00:00.000Z" });
+  const middle = chunkCache({ chunkIndex: 0, fetchedAt: "2026-08-03T00:00:00.000Z" });
+  const late = chunkCache({ chunkIndex: 2, fetchedAt: "2026-08-05T00:00:00.000Z" });
+
+  const result = mergeChunkCaches(3, [middle, early, late]);
+
+  // #then the merge reports the earliest of the three, not a fresh timestamp
+  assert.equal(result.status, "complete");
+  assert.equal((result as { earliestFetchedAt: string }).earliestFetchedAt, "2026-08-01T00:00:00.000Z");
+});
+
 // --- isAllowedWay ---
 
 test("isAllowedWay accepts every 'major road' value", () => {
@@ -374,10 +404,10 @@ test("isAllowedWay accepts every 'major road' value", () => {
 });
 
 test("isAllowedWay rejects highway values outside the major-roads set, including lifecycle/non-road tags and unclassified/residential", () => {
-  // unclassified/residential are deliberately excluded here even though the
-  // Overpass query fetches them — see MAJOR_HIGHWAY_VALUES's comment: they
-  // dominate a corridor's way count and pushed several routes' rendered
-  // output past the plan's ~150 KB ceiling.
+  // unclassified/residential are deliberately excluded here — the same set
+  // overpassQueryFor now requests (see MAJOR_HIGHWAY_VALUES's comment).
+  // isAllowedWay still re-checks it at render time as defense against a
+  // cache fetched by this project's older, wider query.
   for (const highway of [
     "construction",
     "proposed",
@@ -705,6 +735,27 @@ test("readRoadsCache parses a well-formed cache file written at cachePathFor's o
   });
 });
 
+test("readRoadsCache rejects a cache file whose own routeId doesn't match the id being read (fixture — a mis-named or hand-copied cache)", () => {
+  withTempDir((root) => {
+    mkdirSync(join(root, ".cache", "roads"), { recursive: true });
+    // #given a cache written at camino-norte's own path, but carrying
+    // camino-frances's routeId — as if it had been fetched under the wrong
+    // name, or copied from one route's cache to another's
+    const cache: RoadsCacheFile = {
+      fetchedAt: "2026-08-01T00:00:00.000Z",
+      routeId: "camino-frances",
+      query: "q",
+      elements: [overpassElement(1)],
+    };
+    writeFileSync(cachePathFor(root, "camino-norte"), JSON.stringify(cache));
+
+    // #then reading it as camino-norte's cache is refused, not silently
+    // accepted — the geometry hash embedded in the rendered SVG fingerprints
+    // the route, not the roads, so it structurally can't catch this
+    assert.equal(readRoadsCache(root, "camino-norte"), null);
+  });
+});
+
 // --- buildRoads: the network-boundary contract ---
 
 function fixtureRoot(): string {
@@ -777,6 +828,89 @@ test("buildRoads is idempotent — running it twice against the same cache produ
     const second = readFileSync(svgPath, "utf-8");
 
     assert.equal(first, second);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+// A cache with an empty `elements` array — or one whose every way falls
+// outside the corridor — renders as well-formed XML with a correct geometry
+// hash and a literal `d=""`: non-empty file, real XML, passes a hash check,
+// ships nothing. buildRoads must refuse to write that shape rather than
+// leave it to check-site alone to catch after the fact.
+
+test("buildRoads refuses to write an SVG when the cache's elements array is empty, and reports why instead of writing an empty path (fixture)", () => {
+  const root = fixtureRoot();
+  try {
+    mkdirSync(join(root, ".cache", "roads"), { recursive: true });
+    const cache: RoadsCacheFile = {
+      fetchedAt: "2026-08-01T00:00:00.000Z",
+      routeId: "test-route",
+      query: "q",
+      elements: [],
+    };
+    writeFileSync(cachePathFor(root, "test-route"), JSON.stringify(cache));
+
+    const results = buildRoads(root);
+    const result = results.find((r) => r.id === "test-route");
+
+    assert.ok(result);
+    assert.equal(result!.status, "skipped");
+    assert.match((result as { reason: string }).reason, /0 ways kept in corridor \(0 fetched\)/);
+    assert.equal(existsSync(join(root, "docs", "assets", "roads", "test-route.svg")), false);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("buildRoads refuses to write an SVG when every fetched way falls outside the corridor, not just when the cache is literally empty (fixture)", () => {
+  const root = fixtureRoot();
+  try {
+    mkdirSync(join(root, ".cache", "roads"), { recursive: true });
+    const cache: RoadsCacheFile = {
+      fetchedAt: "2026-08-01T00:00:00.000Z",
+      routeId: "test-route",
+      query: "q",
+      elements: [
+        // Far from SYNTHETIC_ROUTE's [135.5, 33.77]-[135.51, 33.78] — well
+        // outside any 3 km corridor around it.
+        { type: "way", id: 1, tags: { highway: "primary" }, geometry: [{ lat: 40, lon: 140 }] },
+      ],
+    };
+    writeFileSync(cachePathFor(root, "test-route"), JSON.stringify(cache));
+
+    const results = buildRoads(root);
+    const result = results.find((r) => r.id === "test-route");
+
+    assert.ok(result);
+    assert.equal(result!.status, "skipped");
+    assert.match((result as { reason: string }).reason, /0 ways kept in corridor \(1 fetched\)/);
+    assert.equal(existsSync(join(root, "docs", "assets", "roads", "test-route.svg")), false);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("buildRoads never overwrites an already-committed SVG with an empty one — a cache that regresses to 0 kept ways leaves the previous file untouched", () => {
+  const root = fixtureRoot();
+  try {
+    const outDir = join(root, "docs", "assets", "roads");
+    mkdirSync(outDir, { recursive: true });
+    const previousGood = '<?xml version="1.0"?><svg><path d="M1,1 L2,2"/></svg>\n';
+    writeFileSync(join(outDir, "test-route.svg"), previousGood);
+
+    mkdirSync(join(root, ".cache", "roads"), { recursive: true });
+    const cache: RoadsCacheFile = {
+      fetchedAt: "2026-08-01T00:00:00.000Z",
+      routeId: "test-route",
+      query: "q",
+      elements: [],
+    };
+    writeFileSync(cachePathFor(root, "test-route"), JSON.stringify(cache));
+
+    buildRoads(root);
+
+    assert.equal(readFileSync(join(outDir, "test-route.svg"), "utf-8"), previousGood);
   } finally {
     rmSync(root, { recursive: true, force: true });
   }
