@@ -39,6 +39,8 @@ npm run validate      # Validate all data against schemas
 npm run pipeline      # Fetch + process + validate + build index
 npm run fetch         # Fetch route geometry from OSM
 npm run build-index   # Regenerate index.json
+npm run fetch-roads   # Fetch road-corridor data from Overpass into .cache/ (gitignored) — the only command that touches the network
+npm run build-roads   # Render docs/assets/roads/{route-id}.svg from the .cache/ fetched above; no network access
 ```
 
 ## Consumers

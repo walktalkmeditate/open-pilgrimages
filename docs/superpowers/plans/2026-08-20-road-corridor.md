@@ -116,3 +116,47 @@ This is what makes an offline-fetched artifact guardable, and it is the crux of 
 - The full city-roads tag set (`service`, `track`, `path`, `footway`) — measured as far too heavy for web delivery.
 - Standalone large-format atlas artifacts. Still a reasonable future project; this plan does not build them.
 - A water/hydrography layer, as the original spec also deferred.
+
+## Decisions
+
+### Keeping all eight corridors despite sub-pixel width on the longest routes
+
+A final review before merge measured that the 3 km corridor half-width
+renders as **0.88 glyph units** on `camino-frances` — the longest route in
+the dataset — against the route's own **1.9-unit stroke** (see
+`glyphSvg`/`.route-hero svg` `stroke-width`). The corridor is narrower than
+the line it sits behind. `camino-frances` and `camino-norte`, the two
+largest committed SVGs, are together **285 KB — 45% of the total 636 KB**
+this feature adds, for a texture that is, on those two routes specifically,
+thinner than the path drawn on top of it.
+
+**Decision: keep all eight committed corridors, including these two, and
+accept the sub-pixel width as texture rather than trim or drop them.**
+
+Why this is the right call rather than an oversight:
+
+- The corridor was never meant to be legible as individual roads — see
+  "What this is, and what it is not" above: at homepage-constellation scale
+  it's already conceded to be "sub-pixel noise regardless." On the longest
+  detail-page routes it is fainter still, but it is not invisible — opacity
+  0.28 (light) / 0.2 inverted (dark) against `--fog` still reads as ambient
+  texture around the route, which is the effect this feature set out to
+  produce, just weaker on the two most sprawling routes than on the other
+  six.
+- Every route in the dataset shares one fixed rendering box (`GLYPH_BOX`,
+  200×200) and one fixed corridor radius (3 km). A route's corridor width
+  in glyph units is a function of how much of that fixed box the route's
+  own length consumes — long, sprawling routes fill more of the box, so a
+  fixed real-world radius necessarily projects to fewer of its units.
+  Fixing this for `camino-frances`/`camino-norte` specifically would mean
+  either a per-route corridor radius (breaking the "3 km" the plan and
+  every doc comment states as a flat constant) or a per-route rendering
+  scale (breaking alignment with the route glyph, the entire point of
+  `fitToRouteBounds`). Both cures are worse than the disease for a
+  decorative background layer.
+- Dropping just these two files would leave six of eight routes with a
+  corridor and two without, for reasons invisible to a site visitor —
+  an inconsistency worse than a faint texture.
+
+This is recorded here, rather than left implicit, so a future reviewer
+re-measuring the same numbers finds a decision, not an accident.

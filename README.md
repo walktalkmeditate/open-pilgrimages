@@ -189,6 +189,8 @@ npm run validate      # Validate all data against schemas
 npm run build-index   # Regenerate index.json from route metadata
 npm run stats         # Dataset statistics report
 npm run pipeline      # Full pipeline: fetch + build-index + validate
+npm run fetch-roads   # Fetch road-corridor data from Overpass into .cache/ (gitignored) — the only command that touches the network
+npm run build-roads   # Render docs/assets/roads/{route-id}.svg from the .cache/ fetched above; no network access
 ```
 
 ## Contributing
