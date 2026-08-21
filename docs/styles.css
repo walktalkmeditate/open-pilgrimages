@@ -953,12 +953,6 @@ nav .nav-actions .nav-github svg {
   opacity: 0.2;
 }
 
-.hero-attribution {
-  font-size: 0.75rem;
-  color: var(--stone);
-  text-align: center;
-}
-
 .profile {
   display: block;
   width: 100%;
