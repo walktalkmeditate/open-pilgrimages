@@ -2160,3 +2160,107 @@ test("checkSite does not check anything for a bare CDN base URL with no path", (
     [],
   );
 });
+
+test("checkSite reports a detail page with zero extracted CDN links, instead of silently passing (fixture) — the floor assertion for the same bug an org rename or a bad CDN_URL_PATTERN edit would cause", () => {
+  // #given a detail page that mentions its route.gpx path in plain text, but never as a URL
+  // CDN_URL_PATTERN actually matches — the shape a page would take if the pattern (or the org/repo
+  // it's built from) drifted out of sync with the page's real links
+  const root = createFixtureRoot([{ id: "camino-frances" }]);
+  mkdirSync(join(root, "routes", "camino-frances"), { recursive: true });
+  writeFileSync(join(root, "routes", "camino-frances", "route.gpx"), "<gpx></gpx>");
+  writeFileSync(
+    join(root, "docs", "camino-frances.html"),
+    "<html><body><code>camino-frances</code>" +
+      "<p>routes/camino-frances/route.gpx</p>" +
+      '<img class="route-hero-roads" src="assets/roads/camino-frances.svg" alt="">' +
+      "</body></html>",
+  );
+
+  try {
+    // #when checkSite scans this page for CDN links
+    const problems = checkSite(root);
+
+    // #then it reports the zero-CDN-links floor problem, not a silent pass
+    assert.ok(
+      problems.some((p) => p.file === "docs/camino-frances.html" && p.message.includes("zero CDN links")),
+    );
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("checkSite does not report the zero-CDN-links floor problem for a page that legitimately has no CDN links (fixture — index.html, routes.html, etc.)", () => {
+  // #given a route whose detail page carries real CDN links (so the floor check passes for it),
+  // proving the floor check doesn't also misfire against docs/index.html or docs/routes.html,
+  // which never carry CDN links of their own
+  const root = createFixtureRoot([{ id: "camino-frances" }]);
+  mkdirSync(join(root, "routes", "camino-frances"), { recursive: true });
+  writeFileSync(join(root, "routes", "camino-frances", "route.gpx"), "<gpx></gpx>");
+  writeFileSync(
+    join(root, "docs", "camino-frances.html"),
+    '<html><body><code>camino-frances</code>' +
+      '<a href="https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1/routes/camino-frances/route.gpx">route.gpx</a>' +
+      '<img class="route-hero-roads" src="assets/roads/camino-frances.svg" alt="">' +
+      "</body></html>",
+  );
+  writeFileSync(join(root, "docs", "index.html"), "<html><body>no CDN links on this page, ever</body></html>");
+
+  try {
+    // #when / #then checkSite reports no zero-CDN-links problem at all
+    const problems = checkSite(root);
+    assert.deepEqual(
+      problems.filter((p) => p.message.includes("zero CDN links")),
+      [],
+    );
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("checkSite scans docs/*.js for CDN links too, not only docs/*.html (fixture — proves the class of file cdn-preview.js belongs to is actually covered)", () => {
+  // #given a docs/*.js file carrying a bad CDN URL that appears nowhere else on the site
+  const root = createFixtureRoot([{ id: "camino-frances" }]);
+  writeFileSync(
+    join(root, "docs", "site-preview.js"),
+    "var INDEX_URL = 'https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1/routes/does-not-exist/index.json';",
+  );
+
+  try {
+    // #when checkSite scans docs/ for CDN links
+    const problems = checkSite(root);
+
+    // #then the bad link inside the .js file is reported, tied to that file
+    assert.ok(
+      problems.some(
+        (p) =>
+          p.file === "docs/site-preview.js" &&
+          p.message.includes("routes/does-not-exist/index.json") &&
+          p.message.includes("does not exist in the repo"),
+      ),
+    );
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("checkSite reports a bad CDN link in an overridden docs page (synthetic indexHtml) — the docs-page half of checkCdnLinks honours indexHtml/routesHtml overrides, not only readmeMd", () => {
+  // #given an overridden docs/index.html carrying a CDN link to a path that doesn't exist —
+  // previously checkCdnLinks always read the real docs/index.html off disk regardless of overrides,
+  // so no override-driven test could ever exercise this half of the guard
+  const indexHtml =
+    '<a href="https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1/routes/does-not-exist/route.geojson">bad</a>';
+
+  // #when checkSite checks the overridden page's CDN links
+  const problems = checkSite(ROOT, { indexHtml });
+
+  // #then it's reported as missing, against docs/index.html — not against the real docs/index.html
+  // on disk, which was never read
+  assert.ok(
+    problems.some(
+      (p) =>
+        p.file === "docs/index.html" &&
+        p.message.includes("routes/does-not-exist/route.geojson") &&
+        p.message.includes("does not exist in the repo"),
+    ),
+  );
+});
