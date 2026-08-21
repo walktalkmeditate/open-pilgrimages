@@ -134,13 +134,15 @@ test("checkSite reports a detail page that exists but doesn't identify its own r
 
 test("checkSite accepts a detail page that identifies its own route via <code>", () => {
   // #given a docs/{id}.html containing <code>{id}</code>, matching how routes.html
-  // already renders route IDs today, and a route.gpx link so the unrelated
-  // gpx-discoverability guard doesn't also fire here
+  // already renders route IDs today, plus a route.gpx link and a roads
+  // corridor reference so the unrelated gpx-discoverability and
+  // roads-page-reference guards don't also fire here
   const root = createFixtureRoot([{ id: "camino-frances" }]);
   writeFileSync(
     join(root, "docs", "camino-frances.html"),
     '<html><body><code>camino-frances</code>' +
       '<a href="https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1/routes/camino-frances/route.gpx">route.gpx</a>' +
+      '<img src="assets/roads/camino-frances.svg" alt="">' +
       "</body></html>",
   );
 
@@ -1812,6 +1814,113 @@ test("checkSite reports an orphaned roads corridor SVG that matches no route in 
         (p) => p.file === "docs/assets/roads/zzz-orphan.svg" && p.message.includes("orphaned"),
       ),
     );
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+// checkRoadsAsset (above) only guards the asset files under
+// docs/assets/roads/ — it never looks at whether a detail page actually
+// references its own one. checkRoadsPageReferences closes that gap: these
+// tests prove it fires on a page with no roads reference at all, and —
+// the case that actually matters, since a wrong-route asset renders as a
+// real, valid image and not an obviously broken page — on a page that
+// references a *different* route's corridor SVG.
+
+function roadsPageReferenceFixtureRoot(id: string): string {
+  const root = createFixtureRoot([{ id }]);
+  const routeDir = join(root, "routes", id);
+  mkdirSync(routeDir, { recursive: true });
+  writeFileSync(join(routeDir, "metadata.json"), JSON.stringify({}));
+  return root;
+}
+
+test("the committed docs/{route}.html pages already reference their own roads corridor SVG (positive control)", () => {
+  const problems = checkSite(ROOT).filter(
+    (p) =>
+      p.file.endsWith(".html") &&
+      (p.message.includes("roads corridor SVG (assets/roads/") ||
+        p.message.includes("isn't one of this page's own routes")),
+  );
+  assert.deepEqual(problems, []);
+});
+
+test("checkSite reports a detail page with no roads corridor reference at all (fixture)", () => {
+  // #given a detail page whose hero never mentions assets/roads/ at all
+  const root = roadsPageReferenceFixtureRoot("camino-frances");
+  writeDetailHtml(root, "camino-frances", "<html><body><code>camino-frances</code></body></html>");
+
+  try {
+    // #when / #then checkSite reports the missing reference
+    const problems = checkSite(root);
+    assert.ok(
+      problems.some(
+        (p) =>
+          p.file === "docs/camino-frances.html" &&
+          p.message.includes("has no reference to its roads corridor SVG (assets/roads/camino-frances.svg)"),
+      ),
+    );
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("checkSite reports a detail page whose hero points at a different route's roads corridor (fixture — the wrong-route mix-up, not just a missing file)", () => {
+  // #given camino-frances's detail page references camino-norte's roads SVG
+  // instead of its own — a copy-paste mistake that renders as a real,
+  // valid image, not an obviously broken page
+  const root = roadsPageReferenceFixtureRoot("camino-frances");
+  writeDetailHtml(
+    root,
+    "camino-frances",
+    '<html><body><code>camino-frances</code><img src="assets/roads/camino-norte.svg" alt=""></body></html>',
+  );
+
+  try {
+    // #when checkSite checks that detail page
+    const problems = checkSite(root).filter((p) => p.file === "docs/camino-frances.html");
+
+    // #then it reports both signals: the page's own corridor is missing...
+    assert.ok(
+      problems.some((p) =>
+        p.message.includes("has no reference to its roads corridor SVG (assets/roads/camino-frances.svg)"),
+      ),
+    );
+    // #and specifically that the SVG it does reference belongs to another route
+    assert.ok(
+      problems.some(
+        (p) =>
+          p.message.includes("references assets/roads/camino-norte.svg") &&
+          p.message.includes("isn't one of this page's own routes"),
+      ),
+    );
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("checkSite accepts camino-portugues.html referencing both its own and the coastal variant's roads corridor in one page (fixture — proves the two-id page doesn't misreport its second hero as foreign)", () => {
+  // #given a page carrying two legitimate roads references: the main route's
+  // hero and, further down, the coastal variant's own hero
+  const root = roadsPageReferenceFixtureRoot("camino-portugues");
+  writeDetailHtml(
+    root,
+    "camino-portugues",
+    '<html><body><code>camino-portugues</code>' +
+      '<img src="assets/roads/camino-portugues.svg" alt="">' +
+      '<img src="assets/roads/camino-portugues-coastal.svg" alt="">' +
+      "</body></html>",
+  );
+
+  try {
+    // #when / #then neither reference is flagged as missing or foreign
+    const problems = checkSite(root).filter(
+      (p) =>
+        p.file === "docs/camino-portugues.html" &&
+        (p.message.includes("roads corridor SVG (assets/roads/") ||
+          p.message.includes("isn't one of this page's own routes")),
+    );
+    assert.deepEqual(problems, []);
   } finally {
     rmSync(root, { recursive: true, force: true });
   }
