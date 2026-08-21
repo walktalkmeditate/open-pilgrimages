@@ -12,6 +12,7 @@ import {
   hashChunkAnchors,
   isFreshChunkCache,
   mergeChunkCaches,
+  OVERPASS_TIMEOUT_SECONDS,
   overpassQueryFor,
   readRoadsCache,
   readRoadsChunkCache,
@@ -35,6 +36,14 @@ const OVERPASS_URL = "https://overpass-api.de/api/interpreter";
 const USER_AGENT =
   "open-pilgrimages-road-corridor/1.0 (+https://github.com/walktalkmeditate/open-pilgrimages)";
 const REQUEST_DELAY_MS = 5000;
+
+// The query's own [timeout:280] bounds how long Overpass will spend
+// *computing* a response, but not the socket itself — a connection that
+// stalls before Overpass even starts (or after it finishes, on the way
+// back) would otherwise hang this script forever. Bounded comfortably past
+// the server-side timeout so a normal, if slow, response is never aborted
+// out from under it.
+const CLIENT_TIMEOUT_MS = (OVERPASS_TIMEOUT_SECONDS + 30) * 1000;
 
 function sleep(ms: number): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -65,9 +74,18 @@ async function fetchOverpass(query: string): Promise<unknown[]> {
       "User-Agent": USER_AGENT,
     },
     body: `data=${encodeURIComponent(query)}`,
+    signal: AbortSignal.timeout(CLIENT_TIMEOUT_MS),
   });
 
   if (!response.ok) {
+    // 429 is the one status where the server tells us how long to wait —
+    // surfacing it here doesn't retry (the caller never loops on failure),
+    // it just makes the wait visible to whoever reruns this by hand.
+    if (response.status === 429) {
+      const retryAfter = response.headers.get("retry-after");
+      const suggestion = retryAfter ? `, suggested wait: ${retryAfter}s` : "";
+      throw new Error(`Overpass API returned 429: ${response.statusText}${suggestion}`);
+    }
     throw new Error(`Overpass API returned ${response.status}: ${response.statusText}`);
   }
 
@@ -82,9 +100,17 @@ async function fetchOverpass(query: string): Promise<unknown[]> {
   return Array.isArray(body.elements) ? body.elements : [];
 }
 
+// `networkCallAttempted` drives the inter-route delay in main() below — it
+// must reflect whether a network *request went out*, not whether one
+// succeeded. Deriving it from a success count (fetchedThisRun > 0, the
+// original approach) means a route that 429s on its very first request
+// reports zero successes, main() skips the pacing delay before the next
+// route, and its first request goes out immediately — the exact behaviour
+// that escalates rate limiting on a free API that has already returned
+// 429s and 504s to this workload.
 type FetchOutcome =
-  | { status: "no-geometry" }
-  | { status: "already-cached"; waysFetched: number }
+  | { status: "no-geometry"; networkCallAttempted: false }
+  | { status: "already-cached"; waysFetched: number; networkCallAttempted: false }
   | {
       status: "complete";
       totalChunks: number;
@@ -92,6 +118,7 @@ type FetchOutcome =
       reusedThisRun: number;
       waysFetched: number;
       bytes: number;
+      networkCallAttempted: boolean;
     }
   | {
       status: "incomplete";
@@ -99,6 +126,7 @@ type FetchOutcome =
       fetchedThisRun: number;
       reusedThisRun: number;
       missingIndices: number[];
+      networkCallAttempted: boolean;
     };
 
 /**
@@ -125,24 +153,29 @@ type FetchOutcome =
  */
 async function fetchRoute(id: string, dir: string): Promise<FetchOutcome> {
   const geo = readJson(join(dir, "route.geojson"));
-  if (!geo) return { status: "no-geometry" };
+  if (!geo) return { status: "no-geometry", networkCallAttempted: false };
 
   const segments = segmentsOf(geo);
-  if (segments.length === 0) return { status: "no-geometry" };
+  if (segments.length === 0) return { status: "no-geometry", networkCallAttempted: false };
 
   const existingMerged = readRoadsCache(ROOT, id);
   if (existingMerged) {
-    return { status: "already-cached", waysFetched: existingMerged.elements.length };
+    return {
+      status: "already-cached",
+      waysFetched: existingMerged.elements.length,
+      networkCallAttempted: false,
+    };
   }
 
   const decimated = decimateRoutePoints(segments);
   const chunks = chunkTrace(decimated);
-  if (chunks.length === 0) return { status: "no-geometry" };
+  if (chunks.length === 0) return { status: "no-geometry", networkCallAttempted: false };
 
   const queries = chunks.map((chunk) => overpassQueryFor(chunk));
   const caches = new Array<RoadsChunkCacheFile | null>(chunks.length).fill(null);
   let fetchedThisRun = 0;
   let reusedThisRun = 0;
+  let networkCallAttempted = false;
 
   for (let i = 0; i < chunks.length; i++) {
     const anchorHash = hashChunkAnchors(chunks[i]);
@@ -164,6 +197,8 @@ async function fetchRoute(id: string, dir: string): Promise<FetchOutcome> {
     if (fetchedThisRun > 0) {
       await sleep(REQUEST_DELAY_MS);
     }
+
+    networkCallAttempted = true;
 
     let elements: unknown[];
     try {
@@ -202,11 +237,17 @@ async function fetchRoute(id: string, dir: string): Promise<FetchOutcome> {
       fetchedThisRun,
       reusedThisRun,
       missingIndices: merged.missingIndices,
+      networkCallAttempted,
     };
   }
 
+  // fetchedAt is the earliest chunk's own fetch time, not "now" — a route
+  // whose chunks span more than one run (see isFreshChunkCache) would
+  // otherwise carry a merge timestamp that has nothing to do with when its
+  // road data actually came from Overpass. See mergeChunkCaches' own doc
+  // comment in roads.ts.
   const cache: RoadsCacheFile = {
-    fetchedAt: new Date().toISOString(),
+    fetchedAt: merged.earliestFetchedAt,
     routeId: id,
     query: queries.join("\n\n"),
     elements: merged.elements,
@@ -228,6 +269,7 @@ async function fetchRoute(id: string, dir: string): Promise<FetchOutcome> {
     reusedThisRun,
     waysFetched: merged.elements.length,
     bytes: Buffer.byteLength(json, "utf-8"),
+    networkCallAttempted,
   };
 }
 
@@ -260,7 +302,7 @@ async function main(): Promise<void> {
 
     try {
       const outcome = await fetchRoute(key, dir);
-      madeNetworkCall = "fetchedThisRun" in outcome && outcome.fetchedThisRun > 0;
+      madeNetworkCall = outcome.networkCallAttempted;
 
       switch (outcome.status) {
         case "no-geometry":

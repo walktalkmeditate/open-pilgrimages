@@ -120,43 +120,37 @@ export function chunkTrace(
   return chunks;
 }
 
-const ALLOWED_HIGHWAY_VALUES = [
-  "motorway",
-  "trunk",
-  "primary",
-  "secondary",
-  "tertiary",
-  "unclassified",
-  "residential",
-] as const;
-
 /**
- * Rendered ways are restricted to this narrower "major roads" set —
- * motorway through tertiary, dropping unclassified and residential — even
- * though the Overpass query above fetches the full seven-value set. This
- * plan's own measured evidence for the corridor-vs-full-bbox decision (see
- * docs/superpowers/plans/2026-08-20-road-corridor.md) was itself computed
- * "major roads only": residential and unclassified are by far the most
- * numerous way categories in any inhabited corridor, and rendering them
- * pushed several routes' path data past the ~150 KB ceiling the same plan
- * sets as a hard stop. Fetching the wider set anyway keeps the cache useful
- * for any future, more detailed rendering without a second network trip;
- * this narrower filter is what keeps today's SVG in budget.
+ * Only the "major roads" tier — motorway through tertiary — is fetched or
+ * rendered. An earlier version of this query requested the full OSM
+ * highway set (also including unclassified/residential), on the theory
+ * that a wider cache would be useful for some future, denser rendering —
+ * but the cache is gitignored, so that speculative future exists on
+ * exactly one machine. Measured on the committed camino-ingles cache,
+ * unclassified/residential made up 76% of fetched ways and 74% of geometry
+ * points, every one of them discarded at render time by isAllowedWay
+ * below, and that surplus was very likely the dominant term in the query
+ * weight that produced the 504s which forced this project's chunking and
+ * per-chunk-resume machinery in the first place. Querying only what render
+ * actually keeps cuts that load roughly 4x; a future denser rendering can
+ * fetch the wider set then, against a lighter, working query as its
+ * baseline.
  */
 const MAJOR_HIGHWAY_VALUES = ["motorway", "trunk", "primary", "secondary", "tertiary"] as const;
 const MAJOR_HIGHWAY_PATTERN = new RegExp(`^(${MAJOR_HIGHWAY_VALUES.join("|")})$`);
 
-const OVERPASS_TIMEOUT_SECONDS = 280;
+export const OVERPASS_TIMEOUT_SECONDS = 280;
 
 /** Metres. Deliberately wider than the ~3 km corridor build-roads actually keeps — see DECIMATION_SPACING_KM. */
 const AROUND_RADIUS_METERS = 6000;
 
 /**
  * The anchored highway regex is the only exclusion this query needs:
- * construction/proposed/raceway/busway (and every other highway value, plus
- * *_link variants) simply aren't in the allow-list, so "^(...)$" already
- * keeps them out. access!=private is the one additional restriction the
- * regex can't express, since it lives on a different tag.
+ * construction/proposed/raceway/busway/unclassified/residential (and every
+ * other highway value, plus *_link variants) simply aren't in the
+ * allow-list, so "^(...)$" already keeps them out. access!=private is the
+ * one additional restriction the regex can't express, since it lives on a
+ * different tag.
  *
  * `points` should already be decimateRoutePoints' output, not every raw
  * coordinate — Overpass's standalone "around" filter (no bbox, no prior
@@ -169,7 +163,7 @@ export function overpassQueryFor(points: Point[]): string {
   return (
     `[out:json][timeout:${OVERPASS_TIMEOUT_SECONDS}];\n` +
     `way(around:${AROUND_RADIUS_METERS},${coordsClause})` +
-    `["highway"~"^(${ALLOWED_HIGHWAY_VALUES.join("|")})$"]["access"!="private"];\n` +
+    `["highway"~"^(${MAJOR_HIGHWAY_VALUES.join("|")})$"]["access"!="private"];\n` +
     `out geom;`
   );
 }
@@ -259,11 +253,13 @@ export function waysFromCache(cache: RoadsCacheFile): OverpassWay[] {
 }
 
 /**
- * The render-time gate: narrower than the fetch query (see
- * MAJOR_HIGHWAY_VALUES above) and, independently, defense in depth — the
- * cache is a file on disk that could have been fetched by an older query,
- * hand-edited, or otherwise drifted, so build-roads re-checks access=private
- * rather than trusting the query that produced it.
+ * The render-time gate — the same major-roads set overpassQueryFor above
+ * fetches, re-applied here as defense in depth. The cache is a file on
+ * disk, not the query's live output: it could have been fetched by an
+ * older, wider query (this project used to request all seven highway
+ * values), hand-edited, or otherwise drifted, so build-roads re-checks the
+ * highway value and access=private rather than trusting the query that
+ * produced it.
  */
 export function isAllowedWay(way: OverpassWay): boolean {
   const highway = way.tags.highway;
@@ -279,9 +275,17 @@ const APPROX_KM_PER_DEGREE = 111;
 /**
  * How many grid cells a route point's influence spreads over, so that a road
  * point sharing a nearby-but-not-identical cell still counts as "within the
- * corridor". Coarse and isotropic on purpose — a prototype confirmed this
- * grid is fast and accurate enough at this scale, without computing true
- * point-to-polyline distance for millions of pairs.
+ * corridor". The grid is isotropic in *degrees*, not kilometres, so the
+ * corridor's real reach isn't the clean circle that framing suggests: at
+ * 43°N a 0.01° cell is ~1.11 km north-south but only ~1.11 × cos(43°) ≈
+ * 0.81 km east-west, so this radius (3 cells, from ceil(3 / 1.11)) reaches
+ * ~3.3 km north-south and only ~2.4 km east-west — and further than either
+ * on the diagonal, since corridorCellSet/wayInCorridor bound dx and dy
+ * independently (Chebyshev distance, a square neighbourhood), not a circle.
+ * None of this matters at the scale a faint ~3 km corridor renders at — a
+ * prototype confirmed the grid is fast and accurate enough for that — but
+ * it is a squashed, square-edged shape, not the clean isotropic circle
+ * "coarse and isotropic" once implied.
  */
 const CORRIDOR_RADIUS_CELLS = Math.ceil(
   CORRIDOR_RADIUS_KM / (CORRIDOR_GRID_DEGREES * APPROX_KM_PER_DEGREE),
@@ -306,6 +310,15 @@ export function corridorCellSet(routePoints: Point[]): Set<string> {
   return cells;
 }
 
+/**
+ * Tests only `way.geometry`'s vertices, not the segments between them — a
+ * long, nearly straight OSM way whose two nearest vertices both fall just
+ * outside the corridor is dropped even if the segment connecting them
+ * would have passed through it. Roads within a few kilometres of a
+ * pilgrimage route are rarely a single multi-kilometre straight line
+ * between OSM nodes, so this is a fine trade against computing real
+ * point-to-segment distance for every way against every corridor cell.
+ */
 export function wayInCorridor(way: OverpassWay, cells: Set<string>): boolean {
   return way.geometry.some((pt) => {
     const [gx, gy] = gridCellOf(pt.lon, pt.lat);
@@ -598,6 +611,13 @@ export function readRoadsCache(root: string, id: string): RoadsCacheFile | null 
   }
   if (!Array.isArray(elements)) return null;
 
+  // A cache file's own routeId is the one thing that can catch it being a
+  // mis-named or hand-copied cache for a *different* route than the one
+  // being rendered — the geometry hash embedded in the rendered SVG
+  // fingerprints the route's coordinates, not the roads data, so it
+  // structurally cannot catch this on its own.
+  if (routeId !== id) return null;
+
   return { fetchedAt, routeId, query, elements };
 }
 
@@ -688,7 +708,7 @@ export function isFreshChunkCache(
 }
 
 export type ChunkMergeResult =
-  | { status: "complete"; elements: unknown[] }
+  | { status: "complete"; elements: unknown[]; earliestFetchedAt: string }
   | { status: "incomplete"; missingIndices: number[] };
 
 /**
@@ -698,6 +718,16 @@ export type ChunkMergeResult =
  * indices are still missing instead of merging around the gap: a corridor
  * silently missing a slice of chunks would render as a complete-looking but
  * wrong SVG, which is worse than not rendering at all.
+ *
+ * `earliestFetchedAt` is the oldest of the per-chunk fetch times, not
+ * `new Date()` at merge time — a route whose chunks were fetched across more
+ * than one run (see isFreshChunkCache) would otherwise carry a merge
+ * timestamp that has nothing to do with when its road data actually came
+ * from Overpass, so its rendered extract-date would disagree with every
+ * other route's for a reason that has nothing to do with the data itself.
+ * Comparing the ISO 8601 strings directly is safe: every timestamp this
+ * project writes is UTC (`Date.toISOString()`), so lexicographic order is
+ * chronological order.
  */
 export function mergeChunkCaches(
   chunkCount: number,
@@ -712,7 +742,17 @@ export function mergeChunkCaches(
     return { status: "incomplete", missingIndices };
   }
 
-  return { status: "complete", elements: mergeWayElements(caches.map((cache) => cache!.elements)) };
+  const present = caches.slice(0, chunkCount) as RoadsChunkCacheFile[];
+  const earliestFetchedAt = present.reduce(
+    (earliest, cache) => (cache.fetchedAt < earliest ? cache.fetchedAt : earliest),
+    present[0].fetchedAt,
+  );
+
+  return {
+    status: "complete",
+    elements: mergeWayElements(present.map((cache) => cache.elements)),
+    earliestFetchedAt,
+  };
 }
 
 export type RoadsBuildStatus =
@@ -726,7 +766,11 @@ export type RoadsBuildStatus =
  * the cache is only ever produced by a separate, explicit `fetch-roads` run,
  * so CI (which never runs that) must be able to build everything else clean
  * regardless of whether a given route's cache exists on the machine running
- * it.
+ * it. The same "skip and report, never write" rule applies when a cache
+ * exists but nothing in it survives rendering: an empty `elements` array, or
+ * every way falling outside the corridor, would otherwise render as
+ * well-formed XML with a correct geometry hash and a literal `d=""` —
+ * passing every other check-site assertion while shipping nothing.
  */
 export function buildRoads(root: string): RoadsBuildStatus[] {
   const outDir = join(root, "docs", "assets", "roads");
@@ -761,6 +805,17 @@ export function buildRoads(root: string): RoadsBuildStatus[] {
 
     if (!rendered) {
       results.push({ id: key, status: "skipped", reason: "route has no geometry to align against" });
+      continue;
+    }
+
+    if (rendered.waysKept === 0) {
+      results.push({
+        id: key,
+        status: "skipped",
+        reason:
+          `0 ways kept in corridor (${rendered.waysFetched} fetched) — refusing to write an empty ` +
+          `roads SVG; the cache may have come back empty or every way may fall outside the corridor`,
+      });
       continue;
     }
 
