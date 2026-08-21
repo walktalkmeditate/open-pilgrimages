@@ -35,7 +35,9 @@ const OVERPASS_URL = "https://overpass-api.de/api/interpreter";
 // resumable.
 const USER_AGENT =
   "open-pilgrimages-road-corridor/1.0 (+https://github.com/walktalkmeditate/open-pilgrimages)";
-const REQUEST_DELAY_MS = 5000;
+// Exported so the test suite can assert on the real pacing/timeout values
+// rather than just the shape of the call — see fetch-roads.test.ts.
+export const REQUEST_DELAY_MS = 5000;
 
 // The query's own [timeout:280] bounds how long Overpass will spend
 // *computing* a response, but not the socket itself — a connection that
@@ -43,7 +45,7 @@ const REQUEST_DELAY_MS = 5000;
 // back) would otherwise hang this script forever. Bounded comfortably past
 // the server-side timeout so a normal, if slow, response is never aborted
 // out from under it.
-const CLIENT_TIMEOUT_MS = (OVERPASS_TIMEOUT_SECONDS + 30) * 1000;
+export const CLIENT_TIMEOUT_MS = (OVERPASS_TIMEOUT_SECONDS + 30) * 1000;
 
 function sleep(ms: number): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, ms));

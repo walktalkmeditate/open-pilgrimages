@@ -5,6 +5,8 @@ import { tmpdir } from "os";
 import { join } from "path";
 import type { Point } from "./site/project.js";
 import {
+  CLIENT_TIMEOUT_MS,
+  REQUEST_DELAY_MS,
   classifyOverpassBody,
   describeRateLimitError,
   fetchOverpass,
@@ -29,6 +31,27 @@ const SIMPLE_ROUTE_GEOJSON = lineStringGeojson([
   [135.5, 33.77],
   [135.52, 33.78],
 ]);
+
+/**
+ * A 65-point route, each point ~4.6 km east of the last — comfortably past
+ * decimateRoutePoints' 3 km spacing floor, so decimation keeps effectively
+ * all of them, which is comfortably past chunkTrace's 60-point MAX_CHUNK_
+ * POINTS. Produces exactly two chunks (60 + 11, overlapping by 6 — see
+ * roads.ts's chunkTrace), the smallest fixture that exercises the
+ * inter-chunk pacing gate in fetchRoute (the `if (fetchedThisRun > 0) await
+ * sleepImpl(...)` before chunk 2's request) — every other fixture in this
+ * file is a single-chunk route, which never reaches that gate at all.
+ */
+function multiChunkRouteGeojson(): unknown {
+  const coordinates: Point[] = [];
+  let lon = 135.5;
+  const lat = 33.77;
+  for (let i = 0; i < 65; i++) {
+    coordinates.push([lon, lat]);
+    lon += 0.05;
+  }
+  return lineStringGeojson(coordinates);
+}
 
 interface RouteFixture {
   root: string;
@@ -124,16 +147,24 @@ test("fetchOverpass resolves with elements on an ordinary 200 response", async (
   assert.deepEqual(await fetchOverpass("query", fetchImpl), elements);
 });
 
-test("fetchOverpass passes a client-side AbortSignal on every request", async () => {
+test("fetchOverpass calls AbortSignal.timeout with the real client timeout constant, and passes its actual signal to fetch — not just some AbortSignal", async (t) => {
+  // #given a spy on the actual AbortSignal.timeout factory, so this test fails if the client-side
+  // timeout is ever replaced with a bare `new AbortController().signal` that would never fire
+  const timeoutSpy = t.mock.method(AbortSignal, "timeout");
   let capturedSignal: AbortSignal | undefined;
   const fetchImpl = (async (_url: RequestInfo | URL, init?: RequestInit) => {
     capturedSignal = init?.signal ?? undefined;
     return new Response(JSON.stringify({ elements: [] }), { status: 200 });
   }) as unknown as typeof fetch;
 
+  // #when
   await fetchOverpass("query", fetchImpl);
 
-  assert.ok(capturedSignal instanceof AbortSignal);
+  // #then AbortSignal.timeout was called exactly once, with this module's own CLIENT_TIMEOUT_MS,
+  // and the signal fetch actually received is the one that call returned
+  assert.equal(timeoutSpy.mock.calls.length, 1);
+  assert.deepEqual(timeoutSpy.mock.calls[0].arguments, [CLIENT_TIMEOUT_MS]);
+  assert.equal(capturedSignal, timeoutSpy.mock.calls[0].result);
 });
 
 // --- fetchRoute: no retry loop ---
@@ -189,8 +220,10 @@ test("runFetchRoads paces the next route even when the previous route's very fir
     );
 
     // #then a pacing delay fired between route-a (0 successes, 1 failed attempt) and route-b,
-    // proving the gate is "a request went out", not "a request succeeded"
-    assert.equal(sleeps.length, 1);
+    // proving the gate is "a request went out", not "a request succeeded" — and it's the real
+    // delay constant, not just any one value (sleeps.length alone would pass even if
+    // REQUEST_DELAY_MS were 0)
+    assert.deepEqual(sleeps, [REQUEST_DELAY_MS]);
   } finally {
     rmSync(a.root, { recursive: true, force: true });
     if (b.root !== a.root) rmSync(b.root, { recursive: true, force: true });
@@ -214,6 +247,36 @@ test("runFetchRoads does not pace after the last route, even on failure", async 
     assert.equal(sleeps.length, 0);
   } finally {
     rmSync(a.root, { recursive: true, force: true });
+  }
+});
+
+// --- fetchRoute: inter-chunk pacing ---
+
+test("fetchRoute paces requests between chunks of the same route, not only between routes", async () => {
+  const { root, dir } = routeFixture("multi-chunk-route", multiChunkRouteGeojson());
+  const sleeps: number[] = [];
+  const { fetchImpl, callCount } = countingFetch(fakeFetchJson(200, { elements: [] }));
+
+  try {
+    const outcome = await fetchRoute("multi-chunk-route", dir, {
+      root,
+      fetchImpl,
+      sleepImpl: async (ms: number) => {
+        sleeps.push(ms);
+      },
+    });
+
+    // #then both chunks were fetched (no cache reuse — this is a first run)
+    assert.equal(outcome.status, "complete");
+    assert.ok(outcome.status === "complete" && outcome.totalChunks === 2 && outcome.fetchedThisRun === 2);
+    assert.equal(callCount(), 2);
+    // #then the inter-chunk pacing gate fired exactly once, between chunk 1 and chunk 2, with the
+    // real delay — every other fixture in this file is a single chunk, so this gate
+    // (`if (fetchedThisRun > 0) await sleepImpl(...)` inside fetchRoute's chunk loop) had no
+    // coverage before this test
+    assert.deepEqual(sleeps, [REQUEST_DELAY_MS]);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
   }
 });
 
