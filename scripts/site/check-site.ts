@@ -107,7 +107,24 @@ const ASSET_KINDS: readonly AssetKind[] = ["routes", "profiles", "sparklines", "
 
 const ROADS_GEOMETRY_HASH_PATTERN = /geometry-hash="([0-9a-f]+)"/;
 
-const ROADS_PAGE_REFERENCE_PATTERN = /assets\/roads\/([a-z0-9-]+)\.svg/g;
+const ROADS_PATH_D_PATTERN = /<path\b[^>]*\bd="([^"]*)"/;
+
+/**
+ * Not a tight bound — just enough to catch the one failure this exists for:
+ * an empty or all-outside-corridor Overpass response renders as well-formed
+ * XML with a correct geometry hash and a literal `d=""`, zero "M" subpath
+ * commands under any definition. The smallest of the eight committed
+ * corridors (kumano-kodo) has 144.
+ */
+const ROADS_MIN_SUBPATHS = 1;
+
+// Only the real hero markup satisfies this — an <img class="route-hero-roads"
+// …src="assets/roads/{id}.svg">. A bare regex over raw HTML (the previous
+// approach) is satisfied by an HTML comment, an <a href>, or plain prose
+// mentioning the path, none of which mean the corridor actually renders.
+const ROADS_HERO_IMG_PATTERN = /<img\b[^>]*>/g;
+const ROADS_HERO_CLASS_PATTERN = /\bclass="[^"]*\broute-hero-roads\b[^"]*"/;
+const ROADS_HERO_SRC_PATTERN = /\bsrc="assets\/roads\/([a-z0-9-]+)\.svg"/;
 
 // The coastal variant ships full geometry, a profile, a sparkline, and a
 // glyph.js entry of its own, but — unlike every route id in index.json — has
@@ -421,6 +438,27 @@ function isExternalOrAnchor(href: string): boolean {
   return /^(https?:|mailto:|tel:|#)/.test(href);
 }
 
+/**
+ * Every route id whose roads corridor is actually referenced by a real
+ * `<img class="route-hero-roads" … src="assets/roads/{id}.svg">` in this
+ * page — the only markup shape that makes the corridor render. Requiring
+ * both the class and the src on the same tag, rather than matching
+ * `assets/roads/{id}.svg` anywhere in the raw HTML, means deleting the hero
+ * `<img>` while leaving a stray mention behind (a comment, a footer link, a
+ * copy-pasted code sample) no longer satisfies the guard.
+ */
+function roadsHeroReferencedIds(html: string): Set<string> {
+  const ids = new Set<string>();
+
+  for (const [tag] of html.matchAll(ROADS_HERO_IMG_PATTERN)) {
+    if (!ROADS_HERO_CLASS_PATTERN.test(tag)) continue;
+    const srcMatch = tag.match(ROADS_HERO_SRC_PATTERN);
+    if (srcMatch) ids.add(srcMatch[1]);
+  }
+
+  return ids;
+}
+
 export function checkSite(root: string, overrides: PageOverrides = {}): Problem[] {
   const problems: Problem[] = [];
   const add = (file: string, message: string): void => {
@@ -503,7 +541,14 @@ export function checkSite(root: string, overrides: PageOverrides = {}): Problem[
    * embedded geometry-hash in its <metadata> is the only thing that can
    * catch that: this recomputes the same hash from the current
    * route.geojson and compares, the same way checkRouteGpx compares a
-   * <trkpt> count rather than trusting the file exists.
+   * <trkpt> count rather than trusting the file exists. It also checks that
+   * the <path d> actually carries road geometry — a file can be non-empty,
+   * well-formed, and hash-correct while still rendering nothing, if the
+   * cache it was built from came back empty. Every id this is called with
+   * (every route, plus the coastal variant) is expected to have its own
+   * route.geojson, so a missing one is reported rather than silently
+   * skipped — otherwise a moved or renamed route/variant directory would
+   * quietly turn the whole staleness check off.
    */
   function checkRoadsAsset(assetId: string, geojsonPath: string): void {
     const svgPath = join(docs, "assets", "roads", `${assetId}.svg`);
@@ -528,6 +573,23 @@ export function checkSite(root: string, overrides: PageOverrides = {}): Problem[
       return;
     }
 
+    // Well-formed XML with a correct geometry hash and a literal `d=""` is
+    // exactly what an empty or all-outside-corridor Overpass response
+    // renders as — see roadsSvgFrom/buildRoads, which now also refuses to
+    // *write* that shape. This is the other end of the same guard: a file
+    // that reached this point some other way (an older build, a hand edit)
+    // still gets caught.
+    const pathMatch = svg.match(ROADS_PATH_D_PATTERN);
+    const subpaths = (pathMatch?.[1].match(/M/g) ?? []).length;
+    if (subpaths < ROADS_MIN_SUBPATHS) {
+      add(
+        file,
+        `roads corridor SVG for "${assetId}" renders an empty corridor (its <path d> carries no ` +
+          `road geometry) — run npm run fetch-roads && npm run build-roads`,
+      );
+      return;
+    }
+
     const hashMatch = svg.match(ROADS_GEOMETRY_HASH_PATTERN);
     if (!hashMatch) {
       add(
@@ -537,7 +599,14 @@ export function checkSite(root: string, overrides: PageOverrides = {}): Problem[
       return;
     }
 
-    if (!existsSync(geojsonPath)) return; // no route.geojson to compare against — not this guard's job
+    if (!existsSync(geojsonPath)) {
+      add(
+        file,
+        `roads corridor SVG for "${assetId}" has no route.geojson at ${geojsonPath} to check its ` +
+          `embedded geometry-hash against — the staleness guard cannot confirm it isn't stale`,
+      );
+      return;
+    }
 
     let geo: unknown;
     try {
@@ -637,9 +706,7 @@ export function checkSite(root: string, overrides: PageOverrides = {}): Problem[
    * and misreport it as belonging to the wrong route.
    */
   function checkRoadsPageReferences(file: string, detailHtml: string, expectedIds: readonly string[]): void {
-    const found = new Set(
-      [...detailHtml.matchAll(ROADS_PAGE_REFERENCE_PATTERN)].map((match) => match[1]),
-    );
+    const found = roadsHeroReferencedIds(detailHtml);
 
     for (const id of expectedIds) {
       if (!found.has(id)) {
