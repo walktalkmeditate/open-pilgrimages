@@ -6,10 +6,49 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 The moving tag `v1` always points to the latest `v1.x.x` release. CDN consumers using `https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1/...` automatically receive the latest minor/patch on the v1 line.
 
-## [Unreleased]
+## [1.6.0] — 2026-08-21
+
+The "make the data usable and keep it honest" release. Ships GPX for every route, surfaces ~16,000 words of already-authored interior journey content that rendered nowhere, rebuilds the documentation site from 3 routes to 7, and adds a CI guard that makes the site structurally unable to drift from the data again. Also corrects four numeric contradictions found by auditing every route against every other source.
+
+No route geometry, waypoints, or stage data changed. Consumers pinning `@v1` gain `route.gpx` and four corrected metadata values.
 
 ### Added
-- **`route.gpx`** for every route (and the Camino Portugués da Costa Coastal variant) — a GPX 1.1 track generated from each `route.geojson`, for loading directly into GPS apps and devices. Linked from every route's detail page (Files & CDN table) and from the README's directory tree and CDN examples; previously generated but undiscoverable outside the raw file tree.
+
+- **`route.gpx`** for every route and for the Camino Portugués da Costa Coastal variant — GPX 1.1 tracks generated from each `route.geojson`, at full fidelity, for loading directly into GPS apps and devices. One `<trkseg>` per source segment, so multi-segment routes (Shikoku 88's MultiLineString, Kumano Kodo's seven LineStrings) describe their real discontinuous geometry rather than one implausible continuous line. Deliberately carries no `<time>` element so output stays byte-stable and CI can diff it. Linked from every detail page and from the README.
+- **Interior journey content on the website.** All 109 stages across all 7 routes already carried an authored theme, narrative, common experiences, and reflection prompt — roughly 16,000 words. The site rendered only the one-word theme. Every stage now renders in full, in native `<details>` disclosures that work without JavaScript and keep the text findable when collapsed. Marked explicitly as editorial so it is never mistaken for measured data.
+- **`scripts/site/check-site.ts`** — a CI guard asserting the site matches the dataset: every route has a catalog link, a detail page, a glyph, a README entry and a GPX; the published totals equal live aggregates; per-route figures match; every inlined SVG matches its generated source; interior narratives and reflections match `stages.json` stage by stage; no orphaned pages or assets; no internal link keeps a `.html` extension.
+- **Generated visual assets per route** — a simplified SVG glyph projected from `route.geojson`, a stepped elevation profile from `stages.json`, and a pilgrim-count sparkline from `stats.json`. All committed, byte-stable, and diffed in CI.
+- **Route chooser** on the catalog page, filtering the seven routes by days available, distance, difficulty, and month.
+- **Dark mode** across the site, with every text pairing meeting WCAG AA in both themes.
+- **`npm run stats` now reports a route-points total**, so the headline figure the README and site publish is obtainable from the CLI meant to verify it.
+
+### Fixed
+
+**Pipeline**
+
+- **`npm run stats` undercounted route points by 49,020.** It counted `feature.geometry.coordinates.length`, which for a `MultiLineString` counts line segments rather than points. Shikoku 88 reported 77 instead of 49,097, making the dataset total read 110,604 instead of 159,624. `README.md` had always published the correct figures; the error was confined to the script. A regression test now pins both numbers.
+- **`npm run build-index` was not idempotent**, stamping a fresh `generatedAt` on every run so the CI drift check could never pass — it had failed on all 20 recorded runs. The timestamp now carries forward when route content is unchanged.
+- **Route ordering depended on filesystem iteration order.** `readdirSync` returns entries alphabetically on macOS APFS and in hash order on Linux ext4, so `index.json` generated locally would not match the same file regenerated on the CI runner. Now explicitly sorted with a codepoint comparator.
+
+**Factual corrections**
+
+- **Camino Francés** described itself as 790 km while `overview.distanceKm`, `index.json`, the README, and the sum of its 33 stages all said 764. The 790 was the pre-1.5.0 figure. Its `distanceNote` still cites Brierley's ~790 km published total, which legitimately exceeds our stage sum and is unchanged.
+- **Camino Portugués** declared an elevation range of 10–420 m while its 11 stages span 5–410 m. Its stages cover the entire route, so no unstaged section justified the wider range.
+- **Camino Portugués da Costa (Coastal)** declared a 100 m maximum against a 95 m stage high point.
+- **Kumano Kodo** declared a 50 m minimum against an 80 m stage low point. Its `distanceNote` states the route describes the Nakahechi, whose four stages cover it entirely.
+- Shikoku 88 has a superficially similar discrepancy (0 m declared against a 5 m stage minimum) and is deliberately unchanged: its `elevationNote` documents the 10-stage breakdown as a simplification of the full 1,200 km circuit, 293 km of which is unstaged coastal road.
+
+### Changed
+
+- **The documentation site was rebuilt.** It had gone five releases stale, describing 3 routes when the dataset shipped 7 plus 6 variants, with every headline figure wrong. It now covers all seven with per-route detail pages, and the guard above prevents recurrence.
+- **All internal site URLs are extensionless** (`/camino-frances` rather than `/camino-frances.html`).
+- CI now runs the test suite and `tsc --noEmit` before the drift check, verifies generated assets are current, and runs the site guard.
+
+### Documentation
+
+- `stats.json` is documented on the schema and usage pages, including the honest note that no JSON Schema validates it yet.
+- `CLAUDE.md` corrected: coordinates are `[longitude, latitude]`. Route geometry is 2D throughout, which is why elevation profiles derive from `stages.json` rather than the geometry.
+- A styled 404 page.
 
 ## [1.5.0] — 2026-04-10
 
@@ -162,6 +201,7 @@ Each route ships with `metadata.json` (overview, tradition, cultural, logistics)
 
 ---
 
+[1.6.0]: https://github.com/walktalkmeditate/open-pilgrimages/compare/v1.5.0...v1.6.0
 [1.5.0]: https://github.com/walktalkmeditate/open-pilgrimages/compare/v1.4.0...v1.5.0
 [1.4.0]: https://github.com/walktalkmeditate/open-pilgrimages/compare/v1.3.0...v1.4.0
 [1.3.0]: https://github.com/walktalkmeditate/open-pilgrimages/compare/v1.2.0...v1.3.0
