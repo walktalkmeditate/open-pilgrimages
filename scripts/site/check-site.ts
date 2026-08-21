@@ -2,6 +2,7 @@ import { existsSync, readFileSync, readdirSync } from "fs";
 import { join } from "path";
 import { resolveInvokedPath } from "../cli.js";
 import { computeStats, type RouteStats } from "../stats.js";
+import { cdnPathExistsOnDisk, extractCdnRefs, isPublishedCdnPath, isRecognizedCdnRef } from "./cdn.js";
 import { segmentsOf } from "./glyphs.js";
 import { hashRouteGeometry, isWellFormedXml } from "./roads.js";
 
@@ -899,6 +900,67 @@ export function checkSite(root: string, overrides: PageOverrides = {}): Problem[
     });
   }
 
+  /**
+   * Seven detail pages once shipped route.gpx links pointing at `@v1` while
+   * `v1` still predated GPX entirely — every one of them 404'd in
+   * production, and nothing here had ever looked at what a CDN link
+   * actually pointed at. This closes the offline half of that gap: for
+   * every jsDelivr URL this repo's own pages and README reference, it
+   * confirms the path is something that could ever resolve (it exists in
+   * the working tree, and it's inside the published surface — routes/,
+   * schema/, index.json) and that the version ref is one this project
+   * actually produces (`@v1`, or a released `@vX.Y.Z`).
+   *
+   * What it cannot catch — by design, not oversight — is a path that exists
+   * now but hasn't been released yet, the exact shape of the original bug.
+   * "Assert the file existed at `v1`" is circular: the PR that adds a file
+   * and its link would fail this guard until a release ships it, which
+   * requires merging the PR first. See check-cdn.ts (npm run check-cdn) for
+   * the networked check that closes that gap instead, run once as part of
+   * cutting a release rather than on every CI run.
+   */
+  function checkCdnLinks(): void {
+    const pages: Array<[string, string]> = [];
+
+    if (existsSync(docs)) {
+      for (const entry of readdirSync(docs)) {
+        if (!entry.endsWith(".html")) continue;
+        pages.push([`docs/${entry}`, readFileSync(join(docs, entry), "utf-8")]);
+      }
+    }
+    pages.push(["README.md", readmeMd]);
+
+    for (const [file, html] of pages) {
+      for (const cdnRef of extractCdnRefs(html)) {
+        if (!isRecognizedCdnRef(cdnRef.ref)) {
+          add(
+            file,
+            `links to ${cdnRef.url}, whose version ref "@${cdnRef.ref}" isn't one this project uses — ` +
+              `pin to @v1 or a released @vX.Y.Z tag`,
+          );
+        }
+
+        if (cdnRef.path === "") continue; // a bare base URL — nothing else to check
+
+        if (!isPublishedCdnPath(cdnRef.path)) {
+          add(
+            file,
+            `links to ${cdnRef.url}, whose path "${cdnRef.path}" is outside the published CDN surface ` +
+              `(routes/, schema/, index.json) — this can never resolve`,
+          );
+          continue; // a path that can never be published isn't also worth an existence check
+        }
+
+        if (!cdnPathExistsOnDisk(root, cdnRef.path)) {
+          add(
+            file,
+            `links to ${cdnRef.url}, but "${cdnRef.path}" does not exist in the repo`,
+          );
+        }
+      }
+    }
+  }
+
   for (const id of ids) {
     if (!routesHtml.includes(`href="/${id}"`)) {
       add("docs/routes.html", `route "${id}" has no link to /${id} in the catalog`);
@@ -975,6 +1037,7 @@ export function checkSite(root: string, overrides: PageOverrides = {}): Problem[
   );
   checkRouteFilterWiring();
   checkDifficultyFilterVocabulary();
+  checkCdnLinks();
 
   // Reverse checks: the loop above confirms everything index.json expects
   // exists. It never confirms the opposite — that everything sitting on disk
