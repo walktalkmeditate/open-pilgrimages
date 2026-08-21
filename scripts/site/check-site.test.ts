@@ -142,7 +142,7 @@ test("checkSite accepts a detail page that identifies its own route via <code>",
     join(root, "docs", "camino-frances.html"),
     '<html><body><code>camino-frances</code>' +
       '<a href="https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1/routes/camino-frances/route.gpx">route.gpx</a>' +
-      '<img src="assets/roads/camino-frances.svg" alt="">' +
+      '<img class="route-hero-roads" src="assets/roads/camino-frances.svg" alt="">' +
       "</body></html>",
   );
 
@@ -614,14 +614,23 @@ test("checkSite does not flag the coastal variant's assets as orphaned even thou
     join(root, "docs", "assets", "routes", "camino-portugues-coastal.svg"),
     "<svg><path d=\"M1,1\"/></svg>",
   );
-  // No routes/camino-portugues/variants/coastal/route.geojson exists in this
-  // fixture, so checkRoadsAsset has nothing to hash-compare against and
-  // stops once it's confirmed this stub parses — same as any other route
-  // whose route.geojson npm run validate hasn't caught yet.
+  // checkRoadsAsset expects every id it's called with — including the
+  // coastal variant — to have a real route.geojson (a missing one is now
+  // reported, not silently skipped; see the dedicated test for that below),
+  // so this fixture gives it one and embeds the matching hash in the SVG.
+  const coastalGeojson = {
+    type: "FeatureCollection",
+    features: [{ geometry: { type: "LineString", coordinates: [[-8.6, 41.1], [-8.7, 41.2]] } }],
+  };
+  mkdirSync(join(root, "routes", "camino-portugues", "variants", "coastal"), { recursive: true });
+  writeFileSync(
+    join(root, "routes", "camino-portugues", "variants", "coastal", "route.geojson"),
+    JSON.stringify(coastalGeojson),
+  );
   mkdirSync(join(root, "docs", "assets", "roads"), { recursive: true });
   writeFileSync(
     join(root, "docs", "assets", "roads", "camino-portugues-coastal.svg"),
-    '<svg><metadata><roads-source geometry-hash="abc"/></metadata><path d="M1,1"/></svg>',
+    `<svg><metadata><roads-source geometry-hash="${hashRouteGeometry(coastalGeojson)}"/></metadata><path d="M1,1"/></svg>`,
   );
 
   try {
@@ -1719,6 +1728,40 @@ test("checkSite reports a roads corridor SVG that is not well-formed XML (fixtur
   }
 });
 
+// Finding 1 (final review): a cache with an empty `elements` array — or one
+// whose every way falls outside the corridor — used to render this exact
+// shape: well-formed XML, a non-empty file, a correct geometry hash, and a
+// literal `d=""`. That passed every guard that existed before this test.
+// build-roads now refuses to *write* that shape (see roads.test.ts), and
+// this proves check-site catches it independently, on the other end, in
+// case a file reaches this state some other way (an older build, a hand
+// edit).
+test("checkSite reports a roads corridor SVG whose <path d> is empty, even though the file is non-empty, well-formed, and its embedded geometry-hash is correct (fixture)", () => {
+  const root = roadsFixtureRoot();
+  mkdirSync(join(root, "docs", "assets", "roads"), { recursive: true });
+  const hash = hashRouteGeometry(routeGeojson(ROADS_COORDINATES));
+  writeFileSync(
+    join(root, "docs", "assets", "roads", `${ROADS_ROUTE_ID}.svg`),
+    `<?xml version="1.0" encoding="UTF-8"?>\n` +
+      `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none" stroke="currentColor">` +
+      `<metadata><roads-source geometry-hash="${hash}" extract-date="2026-08-01" attribution="ODbL"/></metadata>` +
+      `<path d=""/></svg>\n`,
+  );
+
+  try {
+    const problems = checkSite(root);
+    assert.ok(
+      problems.some(
+        (p) =>
+          p.file === `docs/assets/roads/${ROADS_ROUTE_ID}.svg` &&
+          p.message.includes("empty corridor"),
+      ),
+    );
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
 test("checkSite reports a roads corridor SVG with no embedded geometry-hash (fixture)", () => {
   const root = roadsFixtureRoot();
   mkdirSync(join(root, "docs", "assets", "roads"), { recursive: true });
@@ -1792,6 +1835,37 @@ test("checkSite reports a roads corridor SVG rendered against stale geometry onc
           p.file === `docs/assets/roads/${ROADS_ROUTE_ID}.svg` &&
           p.message.includes("stale route geometry") &&
           p.message.includes(originalHash),
+      ),
+    );
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+// Finding 5 (final review): checkRoadsAsset used to silently return when
+// geojsonPath didn't exist, disabling the hash comparison with no signal —
+// and the coastal variant's path is hard-coded at its call site, so a moved
+// or renamed variant directory would silently switch the guard off. Every
+// id checkRoadsAsset is called with is expected to have a route.geojson, so
+// a missing one is now reported instead.
+test("checkSite reports a roads corridor SVG whose route has no route.geojson to check its geometry-hash against, instead of silently skipping the staleness check (fixture)", () => {
+  // #given a well-formed, hash-bearing roads corridor SVG, but no
+  // routes/{id}/route.geojson at all — e.g. a moved or renamed route directory
+  const root = createFixtureRoot([{ id: ROADS_ROUTE_ID }]);
+  mkdirSync(join(root, "docs", "assets", "roads"), { recursive: true });
+  writeFileSync(
+    join(root, "docs", "assets", "roads", `${ROADS_ROUTE_ID}.svg`),
+    roadsSvg(hashRouteGeometry(routeGeojson(ROADS_COORDINATES))),
+  );
+
+  try {
+    // #when / #then the missing route.geojson is reported, not silently skipped
+    const problems = checkSite(root);
+    assert.ok(
+      problems.some(
+        (p) =>
+          p.file === `docs/assets/roads/${ROADS_ROUTE_ID}.svg` &&
+          p.message.includes("has no route.geojson"),
       ),
     );
   } finally {
@@ -1873,7 +1947,8 @@ test("checkSite reports a detail page whose hero points at a different route's r
   writeDetailHtml(
     root,
     "camino-frances",
-    '<html><body><code>camino-frances</code><img src="assets/roads/camino-norte.svg" alt=""></body></html>',
+    '<html><body><code>camino-frances</code>' +
+      '<img class="route-hero-roads" src="assets/roads/camino-norte.svg" alt=""></body></html>',
   );
 
   try {
@@ -1907,8 +1982,8 @@ test("checkSite accepts camino-portugues.html referencing both its own and the c
     root,
     "camino-portugues",
     '<html><body><code>camino-portugues</code>' +
-      '<img src="assets/roads/camino-portugues.svg" alt="">' +
-      '<img src="assets/roads/camino-portugues-coastal.svg" alt="">' +
+      '<img class="route-hero-roads" src="assets/roads/camino-portugues.svg" alt="">' +
+      '<img class="route-hero-roads" src="assets/roads/camino-portugues-coastal.svg" alt="">' +
       "</body></html>",
   );
 
@@ -1921,6 +1996,40 @@ test("checkSite accepts camino-portugues.html referencing both its own and the c
           p.message.includes("isn't one of this page's own routes")),
     );
     assert.deepEqual(problems, []);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+// Finding 6 (final review): the old regex (/assets\/roads\/([a-z0-9-]+)\.svg/g)
+// ran over raw HTML, so an HTML comment, an <a href>, or plain prose
+// satisfied it. Tightened to require the real hero markup shape —
+// <img class="route-hero-roads" … src="assets/roads/{id}.svg"> — so deleting
+// the hero markup while leaving any mention behind is caught.
+test("checkSite does not accept a bare mention of the roads SVG path as satisfying the hero reference guard (fixture — an HTML comment and a plain link, not the real <img class=\"route-hero-roads\"> shape)", () => {
+  // #given the hero <img> is gone, but the path still appears in a comment
+  // and a plain link — exactly the kind of trace that a naive path-matching
+  // regex would mistake for the real reference
+  const root = roadsPageReferenceFixtureRoot("camino-frances");
+  writeDetailHtml(
+    root,
+    "camino-frances",
+    '<html><body><code>camino-frances</code>' +
+      '<!-- assets/roads/camino-frances.svg --> ' +
+      '<a href="assets/roads/camino-frances.svg">roads data</a>' +
+      "</body></html>",
+  );
+
+  try {
+    // #when / #then the guard still reports the reference as missing
+    const problems = checkSite(root);
+    assert.ok(
+      problems.some(
+        (p) =>
+          p.file === "docs/camino-frances.html" &&
+          p.message.includes("has no reference to its roads corridor SVG (assets/roads/camino-frances.svg)"),
+      ),
+    );
   } finally {
     rmSync(root, { recursive: true, force: true });
   }
