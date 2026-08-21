@@ -1647,37 +1647,20 @@ function roadsFixtureRoot(): string {
 
 // camino-frances's decimated trace (229 anchors) was too large for a single
 // Overpass `around:` request; chunking it (see MAX_CHUNK_POINTS in
-// roads.ts) fixed that, and its corridor is now fetched and committed like
-// the other six. shikoku-88 (415 anchors, 8 chunks) genuinely could not be
-// fetched even chunked: three honest, paced attempts across this session
-// each got further than the last (a 429 on chunk 2/8, then a 504 on chunk
-// 5/8, then a 504 on chunk 6/8) before the public Overpass instance's
-// per-request cost for that corridor's road density won out. Hammering it
-// with more attempts risked the shared instance, not just this route, so
-// this is being left as a documented gap rather than retried further. Once
-// a future attempt succeeds, run `npm run fetch-roads -- shikoku-88 &&
-// npm run build-roads` and this test should go back to asserting zero roads
-// problems for every route, the same way the routes.html/README positive
-// controls above were pinned to their own real gaps while Tasks 10-13 were
-// still in flight.
-const ROADS_PENDING_FETCH = new Set(["shikoku-88"]);
-
-test("the committed docs/assets/roads/*.svg already exist, parse, and hash-match route.geojson for every route whose corridor has been fetched (positive control)", () => {
+// roads.ts) fixed that. shikoku-88 (415 anchors, 8 chunks) needed
+// resumable per-chunk caching on top of chunking: three prior attempts
+// under non-resumable chunking each discarded every successful chunk the
+// moment a later one failed (a 429 on chunk 2/8, then a 504 on chunk 5/8,
+// then a 504 on chunk 6/8), throwing away real progress every time. With
+// each chunk cached individually (see chunkCachePathFor/isFreshChunkCache
+// in roads.ts) and reruns resuming from what's missing, two paced runs
+// completed all 8 chunks — the second reused the 4 chunks the first had
+// already fetched and only requested the remaining 4. All eight corridors
+// are now fetched and committed, matching every other positive control in
+// this file.
+test("the committed docs/assets/roads/*.svg already exist, parse, and hash-match route.geojson for every route (positive control)", () => {
   const problems = checkSite(ROOT).filter((p) => p.file.startsWith("docs/assets/roads/"));
-
-  for (const problem of problems) {
-    const id = problem.file.replace("docs/assets/roads/", "").replace(".svg", "");
-    assert.ok(
-      ROADS_PENDING_FETCH.has(id),
-      `unexpected roads problem for "${id}": ${problem.message}`,
-    );
-    assert.match(problem.message, /has no roads corridor SVG/);
-  }
-
-  const reportedIds = new Set(
-    problems.map((p) => p.file.replace("docs/assets/roads/", "").replace(".svg", "")),
-  );
-  assert.deepEqual(reportedIds, ROADS_PENDING_FETCH);
+  assert.deepEqual(problems, []);
 });
 
 test("checkSite reports a route with no roads corridor SVG at all (fixture)", () => {

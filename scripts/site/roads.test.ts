@@ -8,23 +8,30 @@ import { GLYPH_BOX } from "./glyphs.js";
 import {
   buildRoads,
   cachePathFor,
+  chunkCacheDir,
+  chunkCachePathFor,
   chunkTrace,
   corridorCellSet,
   decimateRoutePoints,
   fitToRouteBounds,
+  hashChunkAnchors,
   hashRouteGeometry,
   isAllowedWay,
+  isFreshChunkCache,
   isWellFormedXml,
+  mergeChunkCaches,
   mergeConnectedWays,
   mergeWayElements,
   overpassQueryFor,
   readRoadsCache,
+  readRoadsChunkCache,
   roadsSvgFrom,
   selectCorridor,
   waysFromCache,
   wayInCorridor,
   type OverpassWay,
   type RoadsCacheFile,
+  type RoadsChunkCacheFile,
 } from "./roads.js";
 
 const ROOT = join(import.meta.dirname, "..", "..");
@@ -217,6 +224,145 @@ test("mergeWayElements on a single chunk (no chunking needed) reproduces the pla
     singleFetchResult.map((e) => (e as { id: number }).id).sort((a, b) => a - b),
   );
   assert.equal(merged.length, singleFetchResult.length);
+});
+
+// --- hashChunkAnchors ---
+
+test("hashChunkAnchors is deterministic for the same anchor points", () => {
+  const points: Point[] = [[0, 0], [1, 1]];
+  assert.equal(hashChunkAnchors(points), hashChunkAnchors(points));
+});
+
+test("hashChunkAnchors changes when the anchor points differ", () => {
+  const a: Point[] = [[0, 0], [1, 1]];
+  const b: Point[] = [[0, 0], [1, 1.0001]];
+  assert.notEqual(hashChunkAnchors(a), hashChunkAnchors(b));
+});
+
+// --- isFreshChunkCache ---
+
+function chunkCache(overrides: Partial<RoadsChunkCacheFile> = {}): RoadsChunkCacheFile {
+  return {
+    routeId: "shikoku-88",
+    chunkIndex: 2,
+    anchorHash: "abc123",
+    fetchedAt: "2026-08-01T00:00:00.000Z",
+    elements: [overpassElement(1)],
+    ...overrides,
+  };
+}
+
+test("isFreshChunkCache accepts a cache whose route, slot, and anchor hash all match the current chunking", () => {
+  const cache = chunkCache();
+  assert.equal(isFreshChunkCache(cache, "shikoku-88", 2, "abc123"), true);
+});
+
+test("isFreshChunkCache rejects a cache fetched for a different route", () => {
+  const cache = chunkCache({ routeId: "camino-frances" });
+  assert.equal(isFreshChunkCache(cache, "shikoku-88", 2, "abc123"), false);
+});
+
+test("isFreshChunkCache rejects a cache written for a different chunk slot", () => {
+  const cache = chunkCache({ chunkIndex: 3 });
+  assert.equal(isFreshChunkCache(cache, "shikoku-88", 2, "abc123"), false);
+});
+
+test("isFreshChunkCache rejects a cache whose anchor hash doesn't match — the chunking definition moved on", () => {
+  // #given a cache written under an anchor hash from a previous chunking
+  const cache = chunkCache({ anchorHash: "stale-hash" });
+
+  // #when checked against the anchor hash the current chunking would produce
+  // #then it's treated as stale, not reused
+  assert.equal(isFreshChunkCache(cache, "shikoku-88", 2, "current-hash"), false);
+});
+
+// --- chunk cache paths ---
+
+test("chunkCachePathFor nests chunk files under chunks/{route-id}/{index}.json inside chunkCacheDir", () => {
+  const root = "/repo";
+  assert.equal(chunkCachePathFor(root, "shikoku-88", 3), join(chunkCacheDir(root, "shikoku-88"), "3.json"));
+  assert.match(chunkCacheDir(root, "shikoku-88"), /\.cache[/\\]roads[/\\]chunks[/\\]shikoku-88$/);
+});
+
+// --- readRoadsChunkCache ---
+
+test("readRoadsChunkCache returns null when the chunk's cache file does not exist", () => {
+  withTempDir((root) => {
+    assert.equal(readRoadsChunkCache(root, "shikoku-88", 0), null);
+  });
+});
+
+test("readRoadsChunkCache returns null when the chunk's cache file is not valid JSON", () => {
+  withTempDir((root) => {
+    mkdirSync(chunkCacheDir(root, "shikoku-88"), { recursive: true });
+    writeFileSync(chunkCachePathFor(root, "shikoku-88", 0), "{ not json");
+    assert.equal(readRoadsChunkCache(root, "shikoku-88", 0), null);
+  });
+});
+
+test("readRoadsChunkCache returns null when required fields are missing or wrongly typed", () => {
+  withTempDir((root) => {
+    mkdirSync(chunkCacheDir(root, "shikoku-88"), { recursive: true });
+    writeFileSync(chunkCachePathFor(root, "shikoku-88", 0), JSON.stringify({ routeId: "shikoku-88" }));
+    assert.equal(readRoadsChunkCache(root, "shikoku-88", 0), null);
+  });
+});
+
+test("readRoadsChunkCache parses a well-formed chunk cache written at chunkCachePathFor's own path", () => {
+  withTempDir((root) => {
+    mkdirSync(chunkCacheDir(root, "shikoku-88"), { recursive: true });
+    const cache = chunkCache();
+    writeFileSync(chunkCachePathFor(root, "shikoku-88", 2), JSON.stringify(cache));
+
+    assert.deepEqual(readRoadsChunkCache(root, "shikoku-88", 2), cache);
+  });
+});
+
+// --- mergeChunkCaches ---
+
+test("mergeChunkCaches reports which indices are missing and does not merge when the set is partial", () => {
+  // #given chunks 0 and 2 cached but chunk 1 missing (e.g. the fetch that
+  // would have produced it failed and the run stopped there)
+  const caches = [chunkCache({ chunkIndex: 0 }), null, chunkCache({ chunkIndex: 2 })];
+
+  const result = mergeChunkCaches(3, caches);
+
+  // #then the merge refuses to produce a result — a partial corridor would
+  // render as a complete-looking but wrong SVG
+  assert.deepEqual(result, { status: "incomplete", missingIndices: [1] });
+});
+
+test("mergeChunkCaches reports every missing index, not just the first", () => {
+  const result = mergeChunkCaches(4, [chunkCache({ chunkIndex: 0 }), null, null, null]);
+  assert.deepEqual(result, { status: "incomplete", missingIndices: [1, 2, 3] });
+});
+
+test("mergeChunkCaches merges a complete set, deduplicating ways by id across chunk boundaries", () => {
+  // #given two chunks whose way lists overlap at the seam (way 2), the same
+  // shape a real overlapping chunkTrace boundary produces
+  const chunkA = chunkCache({ chunkIndex: 0, elements: [overpassElement(1), overpassElement(2)] });
+  const chunkB = chunkCache({ chunkIndex: 1, elements: [overpassElement(2), overpassElement(3)] });
+
+  const result = mergeChunkCaches(2, [chunkA, chunkB]);
+
+  assert.equal(result.status, "complete");
+  assert.deepEqual(
+    (result as { elements: unknown[] }).elements.map((e) => (e as { id: number }).id),
+    [1, 2, 3],
+  );
+});
+
+test("mergeChunkCaches is deterministic regardless of each chunk's internal element order", () => {
+  const chunkA = chunkCache({ chunkIndex: 0, elements: [overpassElement(5), overpassElement(1)] });
+  const chunkB = chunkCache({ chunkIndex: 1, elements: [overpassElement(3)] });
+
+  const forward = mergeChunkCaches(2, [chunkA, chunkB]);
+  const reversed = mergeChunkCaches(2, [
+    { ...chunkA, elements: [...chunkA.elements].reverse() },
+    chunkB,
+  ]);
+
+  assert.deepEqual(forward, reversed);
 });
 
 // --- isAllowedWay ---

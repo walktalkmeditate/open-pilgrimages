@@ -601,6 +601,120 @@ export function readRoadsCache(root: string, id: string): RoadsCacheFile | null 
   return { fetchedAt, routeId, query, elements };
 }
 
+/** What fetch-roads.ts persists to .cache/roads/chunks/{route-id}/{index}.json as each chunk succeeds. */
+export interface RoadsChunkCacheFile {
+  routeId: string;
+  chunkIndex: number;
+  anchorHash: string;
+  fetchedAt: string;
+  elements: unknown[];
+}
+
+/**
+ * Identifies the exact anchor points a chunk request was built from. Stored
+ * alongside each cached chunk and recomputed from the current chunking on
+ * every run — if MAX_CHUNK_POINTS, CHUNK_OVERLAP_POINTS, or the route's own
+ * geometry ever changes what anchors chunk N carries, this hash changes too,
+ * and isFreshChunkCache (below) stops treating the old cache entry as valid
+ * for that slot rather than silently merging stale, mismatched data.
+ */
+export function hashChunkAnchors(points: Point[]): string {
+  return createHash("sha256").update(JSON.stringify(points)).digest("hex");
+}
+
+export function chunkCacheDir(root: string, routeId: string): string {
+  return join(root, ".cache", "roads", "chunks", routeId);
+}
+
+export function chunkCachePathFor(root: string, routeId: string, index: number): string {
+  return join(chunkCacheDir(root, routeId), `${index}.json`);
+}
+
+interface RoadsChunkCacheFileLike {
+  routeId?: unknown;
+  chunkIndex?: unknown;
+  anchorHash?: unknown;
+  fetchedAt?: unknown;
+  elements?: unknown;
+}
+
+function isRoadsChunkCacheFileLike(value: unknown): value is RoadsChunkCacheFileLike {
+  return typeof value === "object" && value !== null;
+}
+
+function parseRoadsChunkCache(parsed: unknown): RoadsChunkCacheFile | null {
+  if (!isRoadsChunkCacheFileLike(parsed)) return null;
+  const { routeId, chunkIndex, anchorHash, fetchedAt, elements } = parsed;
+  if (
+    typeof routeId !== "string" ||
+    typeof chunkIndex !== "number" ||
+    typeof anchorHash !== "string" ||
+    typeof fetchedAt !== "string" ||
+    !Array.isArray(elements)
+  ) {
+    return null;
+  }
+  return { routeId, chunkIndex, anchorHash, fetchedAt, elements };
+}
+
+/** Reads one chunk's cache file, or null if it's missing or unparsable — the same defensive posture as readRoadsCache. */
+export function readRoadsChunkCache(root: string, routeId: string, index: number): RoadsChunkCacheFile | null {
+  const path = chunkCachePathFor(root, routeId, index);
+  if (!existsSync(path)) return null;
+
+  let parsed: unknown;
+  try {
+    parsed = JSON.parse(readFileSync(path, "utf-8"));
+  } catch {
+    return null;
+  }
+
+  return parseRoadsChunkCache(parsed);
+}
+
+/**
+ * A cached chunk is only safe to reuse without a network call if it was
+ * written for this exact route, this exact slot in the chunking, and this
+ * exact set of anchor points — any mismatch means the chunking definition
+ * moved on since it was fetched, and the cache entry is stale.
+ */
+export function isFreshChunkCache(
+  cache: RoadsChunkCacheFile,
+  routeId: string,
+  chunkIndex: number,
+  anchorHash: string,
+): boolean {
+  return cache.routeId === routeId && cache.chunkIndex === chunkIndex && cache.anchorHash === anchorHash;
+}
+
+export type ChunkMergeResult =
+  | { status: "complete"; elements: unknown[] }
+  | { status: "incomplete"; missingIndices: number[] };
+
+/**
+ * Merges a route's per-chunk caches into the flat, deduplicated element list
+ * the existing RoadsCacheFile format expects — but only once every chunk
+ * from 0..chunkCount-1 is present. A partial set reports exactly which
+ * indices are still missing instead of merging around the gap: a corridor
+ * silently missing a slice of chunks would render as a complete-looking but
+ * wrong SVG, which is worse than not rendering at all.
+ */
+export function mergeChunkCaches(
+  chunkCount: number,
+  caches: ReadonlyArray<RoadsChunkCacheFile | null>,
+): ChunkMergeResult {
+  const missingIndices: number[] = [];
+  for (let i = 0; i < chunkCount; i++) {
+    if (!caches[i]) missingIndices.push(i);
+  }
+
+  if (missingIndices.length > 0) {
+    return { status: "incomplete", missingIndices };
+  }
+
+  return { status: "complete", elements: mergeWayElements(caches.map((cache) => cache!.elements)) };
+}
+
 export type RoadsBuildStatus =
   | { id: string; status: "written"; waysFetched: number; waysKept: number; bytes: number }
   | { id: string; status: "skipped"; reason: string };
