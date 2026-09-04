@@ -737,6 +737,21 @@
         "lat": 42.344,
         "lon": -3.7
       }
+    },
+    {
+      "id": "stage-end",
+      "frac": 0.9990826454306918,
+      "kind": "waypoint",
+      "label": "Hornillos del Camino",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 42.34063233835022,
+        "lon": -3.91213126045558
+      },
+      "pin": {
+        "lat": 42.337,
+        "lon": -3.912
+      }
     }
   ],
   "marks": [

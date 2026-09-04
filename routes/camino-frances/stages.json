@@ -582,7 +582,7 @@
       "index": 20,
       "name": { "en": "León to San Martín del Camino" },
       "start": { "name": { "en": "León" }, "coordinates": [-5.568, 42.595, 837] },
-      "end": { "name": { "en": "San Martín del Camino" }, "coordinates": [-5.809, 42.495, 870], "note": "Longitude and latitude corrected to OpenStreetMap place node/349247743 (place=hamlet), which also matches this route's own wp-san-martin waypoint. The previous [-5.838, 42.457] sat 2,041 m off the walked line; this sits 18 m off it. Elevation is unchanged." },
+      "end": { "name": { "en": "San Martín del Camino" }, "coordinates": [-5.809, 42.495, 870], "note": "Longitude and latitude corrected to OpenStreetMap place node/349247743 (place=hamlet); this route's own wp-san-martin waypoint already sat about 140 m from that node before this correction. The previous [-5.838, 42.457] sat 2,041 m off the walked line; this sits 18 m off it. Elevation is unchanged." },
       "distanceKm": 24.6,
       "elevationGainMeters": 131,
       "elevationLossMeters": 96,
@@ -609,7 +609,7 @@
     {
       "index": 21,
       "name": { "en": "San Martín del Camino to Astorga" },
-      "start": { "name": { "en": "San Martín del Camino" }, "coordinates": [-5.809, 42.495, 870], "note": "Longitude and latitude corrected to OpenStreetMap place node/349247743 (place=hamlet), which also matches this route's own wp-san-martin waypoint. The previous [-5.838, 42.457] sat 2,041 m off the walked line; this sits 18 m off it. Elevation is unchanged." },
+      "start": { "name": { "en": "San Martín del Camino" }, "coordinates": [-5.809, 42.495, 870], "note": "Longitude and latitude corrected to OpenStreetMap place node/349247743 (place=hamlet); this route's own wp-san-martin waypoint already sat about 140 m from that node before this correction. The previous [-5.838, 42.457] sat 2,041 m off the walked line; this sits 18 m off it. Elevation is unchanged." },
       "end": { "name": { "en": "Astorga" }, "coordinates": [-6.056, 42.456, 870] },
       "distanceKm": 23.7,
       "elevationGainMeters": 190,

@@ -17,7 +17,7 @@
       "passedGate": false,
       "boundaryMode": "snap",
       "routePoints": 405,
-      "moments": 3,
+      "moments": 4,
       "momentsBeyondEnds": 1,
       "momentsWithText": 2,
       "marks": 0,

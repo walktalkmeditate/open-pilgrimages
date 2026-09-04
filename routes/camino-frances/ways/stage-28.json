@@ -1142,6 +1142,21 @@
         "lat": 42.78,
         "lon": -7.414
       }
+    },
+    {
+      "id": "stage-end",
+      "frac": 1,
+      "kind": "waypoint",
+      "label": "Portomarín",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 42.806484,
+        "lon": -7.617044
+      },
+      "pin": {
+        "lat": 42.81,
+        "lon": -7.617
+      }
     }
   ],
   "marks": [

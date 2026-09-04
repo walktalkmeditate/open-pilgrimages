@@ -797,6 +797,21 @@
         "lat": 42.926,
         "lon": -8.164
       }
+    },
+    {
+      "id": "stage-end",
+      "frac": 1,
+      "kind": "waypoint",
+      "label": "O Pedrouzo",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 42.910346,
+        "lon": -8.360489
+      },
+      "pin": {
+        "lat": 42.907,
+        "lon": -8.358
+      }
     }
   ],
   "marks": [

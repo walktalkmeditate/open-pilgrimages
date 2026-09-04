@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
   "release": "v1.6.0",
-  "generatedAt": "2026-09-04T16:39:38.055Z",
+  "generatedAt": "2026-09-04T20:08:42.537Z",
   "routes": [
     {
       "id": "camino-frances",
@@ -20,7 +20,7 @@
       "path": "routes/camino-frances",
       "ways": {
         "stageCount": 33,
-        "bytes": 1048603,
+        "bytes": 1049489,
         "placesPerStage": 0.1,
         "sparse": true
       }
