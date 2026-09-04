@@ -21,6 +21,14 @@ export const MARK_KIND_BY_TYPE: Record<string, WayMarkKind> = {
 export const MARK_NAME_MAX = 80;
 
 /**
+ * Same precision as geo.ts's line rounding (~0.11 m) — finer than any GPS
+ * fix. Kept local rather than imported: it is a one-line rounding rule, not
+ * shared state, and this file has no other reason to reach into geo.ts's
+ * internals.
+ */
+const round6 = (value: number): number => Math.round(value * 1e6) / 1e6;
+
+/**
  * PilgrimageWayImporter.maxMarks — a stage file with more is refused whole on
  * the phone. The Camino Francés' busiest stage already carries 393 service
  * waypoints, so this is one new fountain away from mattering.
@@ -62,10 +70,11 @@ export function buildMarks(
       id,
       kind,
       name: cap(feature.properties.name, MARK_NAME_MAX) ?? id,
-      // On the line, like a moment's `at` — a mark has no `pin` field to hold
-      // the service's own coordinate separately, so this is the map's only
-      // record of where it sits, and it must be where the walker passes it.
-      at: { lat: projection.at[1], lon: projection.at[0] },
+      // The service's own place, not the line — a mark has no `pin` field
+      // to hold that separately the way a moment does, so `at` is where the
+      // fountain actually is, drawn off the trail; `frac` and `offLineMeters`
+      // are what tell the walker how far and where along the way to find it.
+      at: { lat: round6(point[1]), lon: round6(point[0]) },
       frac: projection.frac,
       offLineMeters: Math.round(projection.offLineMeters * 10) / 10,
     });

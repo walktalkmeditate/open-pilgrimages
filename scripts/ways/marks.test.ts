@@ -3,7 +3,7 @@ import assert from "node:assert/strict";
 import { readFileSync } from "fs";
 import { join } from "path";
 import { buildMarks, MARK_KIND_BY_TYPE, MARK_NAME_MAX, MAX_MARKS } from "./marks.js";
-import { walkedLine, cumulativeMeters, simplify, roundLine, RDP_TOLERANCE_METERS } from "./geo.js";
+import { walkedLine, cumulativeMeters, simplify, roundLine, RDP_TOLERANCE_METERS, projectOnLine } from "./geo.js";
 import type { WaypointFeature } from "./moments.js";
 import type { Position } from "./types.js";
 
@@ -38,7 +38,18 @@ test("a water source becomes a water mark with its distance off the line", () =>
   assert.equal(marks[0].name, "Fuente del Camino");
   assert.ok(Math.abs(marks[0].frac - 0.6) < 1e-3);
   assert.ok(Math.abs(marks[0].offLineMeters - 33.4) < 0.3);
-  assert.deepEqual(marks[0].at, { lat: 0, lon: 0.006 });
+  // The fountain's own place — the fixture puts it at [0.006, 0.0003] — not
+  // the point on the line nearest to it, which a mark has no `pin` to hold.
+  assert.deepEqual(marks[0].at, { lat: 0.0003, lon: 0.006 });
+});
+
+test("an off-line mark's `at` is where the place is, not the line's nearest point to it", () => {
+  const { line, cumulative } = stageSlice(0, 10);
+  const { marks } = buildMarks({ line, cumulative, waypoints: waypointsForStage(0) });
+  const mark = marks.find((m) => m.id === "wp-fuente")!;
+
+  const onLine = projectOnLine(line, cumulative, [mark.at.lon, mark.at.lat]);
+  assert.notDeepEqual(mark.at, { lat: onLine.at[1], lon: onLine.at[0] });
 });
 
 test("a service more than 300 m off the line is dropped and named in the warnings", () => {
