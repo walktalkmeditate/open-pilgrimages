@@ -39,6 +39,8 @@ jobs:
       - run: npm ci
       - run: npm test
       - run: npx tsc --noEmit
+      - name: Build ways
+        run: npm run build-ways
       - name: Build index
         # shell: bash sets -o pipefail. Without it the default `bash -e` takes
         # tee's exit code, so a failing generator would pass this step.

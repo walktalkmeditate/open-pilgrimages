@@ -51,6 +51,9 @@ function createValidator() {
     "stages.schema.json",
     "route.schema.json",
     "waypoints.schema.json",
+    "way.schema.json",
+    "way-route.schema.json",
+    "way-report.schema.json",
   ]) {
     ajv.addSchema(loadJson(join(schemaDir, name)), name);
   }
@@ -204,6 +207,23 @@ function validateDataConsistency(
   }
 }
 
+/**
+ * The build validates what it writes, but the committed files are what ships:
+ * a hand-edited stage file, or one left behind by an older build, would
+ * otherwise reach the CDN unchecked.
+ */
+function validateWays(ajv: Ajv, routeDir: string, errors: ValidationError[]): void {
+  const waysDir = join(routeDir, "ways");
+  if (!existsSync(waysDir) || !statSync(waysDir).isDirectory()) return;
+
+  validateFile(ajv, "way-report.schema.json", join(waysDir, "report.json"), errors);
+  validateFile(ajv, "way-route.schema.json", join(waysDir, "route.json"), errors);
+  for (const entry of readdirSync(waysDir)) {
+    if (!/^stage-\d{2}\.json$/.test(entry)) continue;
+    validateFile(ajv, "way.schema.json", join(waysDir, entry), errors);
+  }
+}
+
 function main() {
   const ajv = createValidator();
   const errors: ValidationError[] = [];
@@ -224,6 +244,8 @@ function main() {
     validateFile(ajv, "stages.schema.json", join(dir, "stages.json"), errors);
     validateFile(ajv, "route.schema.json", join(dir, "route.geojson"), errors);
     validateFile(ajv, "waypoints.schema.json", join(dir, "waypoints.geojson"), errors);
+    validateFile(ajv, "route.schema.json", join(dir, "route.main.geojson"), errors);
+    validateWays(ajv, dir, errors);
 
     validateDataConsistency(dir, errors);
   }

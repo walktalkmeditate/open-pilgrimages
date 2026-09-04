@@ -4,12 +4,17 @@
   "title": "Open Pilgrimages Route Index",
   "description": "Registry of all pilgrimage routes in the dataset",
   "type": "object",
-  "required": ["schemaVersion", "generatedAt", "routes"],
+  "required": ["schemaVersion", "release", "generatedAt", "routes"],
   "properties": {
     "schemaVersion": {
       "type": "string",
       "pattern": "^\\d+\\.\\d+\\.\\d+$",
       "description": "SemVer schema version"
+    },
+    "release": {
+      "type": "string",
+      "pattern": "^v\\d+\\.\\d+\\.\\d+$",
+      "description": "The git tag this build will be released under. The app pins every package download to it."
     },
     "generatedAt": {
       "type": "string",
@@ -85,6 +90,18 @@
             },
             "additionalProperties": true
           }
+        },
+        "ways": {
+          "type": "object",
+          "required": ["stageCount", "bytes", "placesPerStage", "sparse"],
+          "description": "Present only when every stage of the route's package cleared the length gate. Absent means the app hides the route. `sparse` is true when fewer than half the stages carry a place beyond the day's own start and end, and the app's card says so.",
+          "properties": {
+            "stageCount": { "type": "integer", "minimum": 1, "maximum": 200 },
+            "bytes": { "type": "integer", "minimum": 1, "maximum": 52428800 },
+            "placesPerStage": { "type": "number", "minimum": 0, "maximum": 200 },
+            "sparse": { "type": "boolean" }
+          },
+          "additionalProperties": false
         }
       },
       "additionalProperties": true

@@ -1,6 +1,7 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-08-19T15:31:51.448Z",
+  "release": "v1.6.0",
+  "generatedAt": "2026-09-04T15:42:41.574Z",
   "routes": [
     {
       "id": "camino-frances",
