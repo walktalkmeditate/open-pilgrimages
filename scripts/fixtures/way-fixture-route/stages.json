@@ -1,0 +1,55 @@
+{
+  "schemaVersion": "1.0.0",
+  "routeId": "fixture-way",
+  "stageCount": 3,
+  "stages": [
+    {
+      "index": 0,
+      "name": { "en": "Start Town to Middle", "es": "Pueblo Inicial a Medio" },
+      "start": { "name": { "en": "Start Town" }, "coordinates": [0, 0] },
+      "end": { "name": { "en": "Middle" }, "coordinates": [0.01, 0] },
+      "distanceKm": 1.1,
+      "elevationGainMeters": 20,
+      "estimatedHours": { "min": 2, "max": 4 },
+      "difficulty": "easy",
+      "interior": {
+        "theme": { "en": "Setting out" },
+        "narrative": { "en": "A flat first hour along the equator, which is exactly as unremarkable as it sounds." },
+        "reflection": { "en": "What did you bring that you do not need?" }
+      }
+    },
+    {
+      "index": 1,
+      "name": { "en": "Middle to Bend" },
+      "start": { "name": { "en": "Middle" }, "coordinates": [0.01, 0] },
+      "end": { "name": { "en": "Bend" }, "coordinates": [0.02, 0.01] },
+      "distanceKm": 2.2,
+      "elevationGainMeters": 60,
+      "estimatedHours": { "min": 4, "max": 6 },
+      "difficulty": "moderate",
+      "warnings": [
+        { "en": "The corner at the end of the first leg is unsigned. Turn north." }
+      ],
+      "interior": {
+        "theme": { "en": "The turn" },
+        "narrative": { "en": "The way leaves the line it has held all morning and turns north without warning." },
+        "reflection": { "en": "Where did you last change direction?" }
+      }
+    },
+    {
+      "index": 2,
+      "name": { "en": "Bend to End Town" },
+      "start": { "name": { "en": "Bend" }, "coordinates": [0.02, 0.01] },
+      "end": { "name": { "en": "End Town" }, "coordinates": [0.02, 0.02] },
+      "distanceKm": 0.9,
+      "elevationGainMeters": 10,
+      "estimatedHours": { "min": 2, "max": 3 },
+      "difficulty": "easy",
+      "interior": {
+        "theme": { "en": "Arriving" },
+        "narrative": { "en": "A short north leg into the end town." },
+        "reflection": { "en": "What arrived with you?" }
+      }
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1/schema/way-route.schema.json",
+  "title": "Pilgrimage Way Route Card",
+  "description": "routes/<route-id>/ways/route.json — the route's card data, downloaded with its stages.",
+  "type": "object",
+  "required": ["schemaVersion", "id", "name", "country", "region", "distanceKm", "stageCount", "tradition", "summary", "stages"],
+  "properties": {
+    "schemaVersion": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$" },
+    "id": { "type": "string", "pattern": "^[a-z0-9-]{1,64}$" },
+    "name": { "type": "string", "minLength": 1, "maxLength": 120 },
+    "names": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": { "type": "string", "minLength": 1, "maxLength": 120 }
+    },
+    "country": { "type": "string", "pattern": "^[A-Z]{2}$" },
+    "region": { "type": "string", "enum": ["Europe", "Asia", "Americas", "Africa", "Oceania", "Middle East", "Other"] },
+    "distanceKm": { "type": "number", "exclusiveMinimum": 0, "maximum": 10000 },
+    "stageCount": { "type": "integer", "minimum": 1, "maximum": 200 },
+    "tradition": { "type": "string", "enum": ["christian", "buddhist", "shinto", "multi-faith", "secular", "mixed"] },
+    "summary": { "type": "string", "minLength": 1, "maxLength": 600 },
+    "cover": { "type": "string", "pattern": "^[a-z0-9._-]{1,64}$" },
+    "stages": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 200,
+      "items": {
+        "type": "object",
+        "required": ["index", "name", "distanceKm", "hours"],
+        "properties": {
+          "index": { "type": "integer", "minimum": 0, "maximum": 199 },
+          "name": { "type": "string", "minLength": 1, "maxLength": 120 },
+          "distanceKm": { "type": "number", "exclusiveMinimum": 0, "maximum": 400 },
+          "gainMeters": { "type": "number", "minimum": 0, "maximum": 10000 },
+          "hours": {
+            "type": "object",
+            "required": ["min", "max"],
+            "properties": {
+              "min": { "type": "number", "exclusiveMinimum": 0, "maximum": 48 },
+              "max": { "type": "number", "exclusiveMinimum": 0, "maximum": 48 }
+            },
+            "additionalProperties": false
+          },
+          "difficulty": { "type": "string", "enum": ["easy", "moderate", "hard", "expert"] }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}
