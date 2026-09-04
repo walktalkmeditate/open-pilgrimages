@@ -4,6 +4,14 @@ import { join } from "path";
 const OVERPASS_URL = "https://overpass-api.de/api/interpreter";
 const CACHE_DIR = join(import.meta.dirname, "../../.cache/enrich");
 
+/**
+ * Overpass answers Node's default User-Agent with 406 Not Acceptable, so every
+ * script here fetched nothing until this was set. scripts/fetch-roads.ts hits
+ * the same endpoint and already identifies itself the same way.
+ */
+const USER_AGENT =
+  "open-pilgrimages-enrich/1.0 (+https://github.com/walktalkmeditate/open-pilgrimages)";
+
 export async function queryOverpass(query: string, cacheKey: string): Promise<unknown> {
   mkdirSync(CACHE_DIR, { recursive: true });
   const cachePath = join(CACHE_DIR, `${cacheKey}.json`);
@@ -20,7 +28,10 @@ export async function queryOverpass(query: string, cacheKey: string): Promise<un
 
   const response = await fetch(OVERPASS_URL, {
     method: "POST",
-    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+      "User-Agent": USER_AGENT,
+    },
     body: `data=${encodeURIComponent(query)}`,
   });
 
