@@ -131,10 +131,12 @@ March 2026 build. It is no longer moved on release.
 ### JavaScript
 
 ```js
-const BASE = 'https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1';
+const CATALOG = 'https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@main';
 
-// Route discovery
-const index = await fetch(`${BASE}/index.json`).then(r => r.json());
+// @main always serves the current catalog; index.release names the tag every
+// route file below is pinned to
+const index = await fetch(`${CATALOG}/index.json`).then(r => r.json());
+const BASE = CATALOG.replace('@main', `@${index.release}`);
 
 // Full-resolution route on a map
 const route = await fetch(`${BASE}/routes/camino-frances/route.geojson`).then(r => r.json());
@@ -154,7 +156,13 @@ const trend = stats.annualPilgrims.trend; // [{year: 1985, count: 690}, ...]
 ### Swift
 
 ```swift
-let base = "https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1"
+struct Catalog: Decodable { let release: String }
+
+let catalogURL = "https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@main"
+let (catalogData, _) = try await URLSession.shared.data(from: URL(string: "\(catalogURL)/index.json")!)
+let release = try JSONDecoder().decode(Catalog.self, from: catalogData).release
+let base = catalogURL.replacingOccurrences(of: "@main", with: "@\(release)")
+
 let url = URL(string: "\(base)/routes/camino-frances/route.geojson")!
 let (data, _) = try await URLSession.shared.data(from: url)
 let features = try MKGeoJSONDecoder().decode(data)
@@ -165,7 +173,9 @@ let features = try MKGeoJSONDecoder().decode(data)
 ```python
 import json, urllib.request
 
-BASE = "https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1"
+CATALOG = "https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@main"
+index = json.loads(urllib.request.urlopen(f"{CATALOG}/index.json").read())
+BASE = CATALOG.replace("@main", f"@{index['release']}")
 
 # Load waypoints and filter by type
 url = f"{BASE}/routes/shikoku-88/waypoints.geojson"

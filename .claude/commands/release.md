@@ -114,6 +114,16 @@ CHANGELOG.
 failure, not a coverage one, and it means a package on its way to the CDN does
 not match the contract the app decodes.
 
+**A route's first `ways` entry is a same-release promise, not a same-PR one.**
+The moment a route gains a `ways` entry in `index.json`, `@main/index.json`
+starts advertising a package pinned at `release` — a tag that, until this
+release actually ships, does not exist yet and would 404 if fetched. There is
+no way to land that PR and tag the release later at leisure: the tag has to
+follow the merge immediately, or `@main` is telling consumers about a package
+they cannot download. The PR that introduces a route's first `ways/` directory
+must say so in its description, so whoever merges it knows a release is due
+right behind it, not queued for whenever.
+
 ## Phase 3: Update `README.md` with current stats
 
 The README has hardcoded dataset stats that need to be refreshed every release. Use the Phase 1 numbers to update:
@@ -122,6 +132,7 @@ The README has hardcoded dataset stats that need to be refreshed every release. 
 2. **"What's In the Box" table**: rows for every route with distance, topology, tradition, route points, waypoints, stats years
 3. **Layer 2 description**: "X+ waypoints" — update the rounded number
 4. **"Waypoint Coverage" table**: per-type counts per route, columns matching the routes in order
+5. **CDN code samples**: update the `@vX.Y.Z` sample URLs in README.md and docs/usage.html to `$VERSION`
 
 If a new route was added since the last release, add a row to both tables and a column to the type-coverage table. If a route was removed, remove its row/column.
 
@@ -183,7 +194,7 @@ EOF
 )" HEAD
 ```
 
-The summary should match the title you'll use for the GitHub Release in Phase 9.
+The summary should match the title you'll use for the GitHub Release in Phase 10.
 
 ## Phase 8: The `v1` alias is not maintained
 
