@@ -703,8 +703,8 @@
       "passedGate": true,
       "boundaryMode": "snap",
       "routePoints": 74,
-      "moments": 3,
-      "momentsBeyondEnds": 1,
+      "moments": 2,
+      "momentsBeyondEnds": 0,
       "momentsWithText": 1,
       "marks": 24,
       "marksTrimmed": 0,
@@ -1258,9 +1258,9 @@
   },
   "places": {
     "sparse": true,
-    "stagesWithMomentBeyondEnds": 4,
+    "stagesWithMomentBeyondEnds": 3,
     "halfOfStages": 17,
     "placesPerStage": 0.1,
-    "note": "only 4 of 33 stages carry a place beyond their own start and end; the app's card will say \"few places marked yet\""
+    "note": "only 3 of 33 stages carry a place beyond their own start and end; the app's card will say \"few places marked yet\""
   }
 }

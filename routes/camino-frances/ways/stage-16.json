@@ -395,26 +395,10 @@
     },
     {
       "id": "wp-terradillos",
-      "frac": 0.885462292657945,
-      "kind": "waypoint",
-      "label": "Terradillos de los Templarios",
-      "icon": "seal",
-      "at": {
-        "lat": 42.35492859734615,
-        "lon": -4.865786285461281
-      },
-      "pin": {
-        "lat": 42.355,
-        "lon": -4.866
-      },
-      "text": "stamp available"
-    },
-    {
-      "id": "stage-end",
       "frac": 1,
       "kind": "waypoint",
       "label": "Terradillos de los Templarios",
-      "icon": "house.lodge",
+      "icon": "seal",
       "at": {
         "lat": 42.362989,
         "lon": -4.890328
@@ -422,7 +406,8 @@
       "pin": {
         "lat": 42.363,
         "lon": -4.891
-      }
+      },
+      "text": "stamp available"
     }
   ],
   "marks": [

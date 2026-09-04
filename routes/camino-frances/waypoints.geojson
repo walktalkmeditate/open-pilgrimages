@@ -2059,13 +2059,14 @@
         "name": "Zubiri",
         "type": "town",
         "stageIndex": 1,
-        "kmFromStart": 45.6,
+        "kmFromStart": 45.5,
         "icon": "town",
         "elevation": 530,
         "credentialStamp": true,
         "tags": [
           "town"
-        ]
+        ],
+        "osmId": "node/357129888"
       }
     },
     {
@@ -18925,13 +18926,14 @@
         "name": "Santo Domingo de la Calzada",
         "type": "town",
         "stageIndex": 8,
-        "kmFromStart": 209.6,
+        "kmFromStart": 210.8,
         "icon": "town",
         "elevation": 640,
         "credentialStamp": true,
         "tags": [
           "town"
-        ]
+        ],
+        "osmId": "node/153692178"
       }
     },
     {
@@ -18951,7 +18953,7 @@
         "type": "sacred_site",
         "subtype": "cathedral",
         "stageIndex": 8,
-        "kmFromStart": 209.6,
+        "kmFromStart": 210.8,
         "icon": "cathedral",
         "description": "12th century cathedral. Famous for housing a live rooster and hen.",
         "elevation": 640,
@@ -37147,8 +37149,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -4.866,
-          42.355,
+          -4.891,
+          42.363,
           880
         ]
       },
@@ -37157,14 +37159,15 @@
         "name": "Terradillos de los Templarios",
         "type": "town",
         "stageIndex": 16,
-        "kmFromStart": 391.3,
+        "kmFromStart": 393.3,
         "icon": "town",
         "elevation": 880,
         "credentialStamp": true,
         "tags": [
           "town",
           "meseta"
-        ]
+        ],
+        "osmId": "node/268521664"
       }
     },
     {
@@ -38055,14 +38058,15 @@
         "name": "Bercianos del Real Camino",
         "type": "town",
         "stageIndex": 17,
-        "kmFromStart": 414.5,
+        "kmFromStart": 417.1,
         "icon": "town",
         "elevation": 850,
         "credentialStamp": true,
         "tags": [
           "town",
           "meseta"
-        ]
+        ],
+        "osmId": "node/274957313"
       }
     },
     {
@@ -45565,8 +45569,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          -5.81,
-          42.494,
+          -5.809,
+          42.495,
           867
         ]
       },
@@ -45575,13 +45579,14 @@
         "name": "San Martín del Camino",
         "type": "town",
         "stageIndex": 20,
-        "kmFromStart": 479.9,
+        "kmFromStart": 487.1,
         "icon": "town",
         "elevation": 870,
         "credentialStamp": true,
         "tags": [
           "town"
-        ]
+        ],
+        "osmId": "node/349247743"
       }
     },
     {
@@ -47688,14 +47693,15 @@
         "name": "Foncebadón",
         "type": "town",
         "stageIndex": 22,
-        "kmFromStart": 533.3,
+        "kmFromStart": 535.7,
         "icon": "town",
         "elevation": 1437,
         "credentialStamp": true,
         "tags": [
           "town",
           "mountain"
-        ]
+        ],
+        "osmId": "node/349248487"
       }
     },
     {
