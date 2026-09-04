@@ -14,7 +14,7 @@ These are the only places this plan knowingly differs from `2026-09-03-honor-sli
 
 1. **`scripts/build-ways.ts`, not `.mjs`.** Every script in this repo is TypeScript run through `tsx` (`package.json` `"test": "node --import tsx --test \"scripts/**/*.test.ts\""`, `tsconfig.json` `"include": ["scripts/**/*.ts"]`). A `.mjs` file would be invisible to `npx tsc --noEmit`, which CI runs.
 2. **Pipeline order is `fetch → build-ways → build-index → validate`, not "build-ways after validation".** `index.json` must report each route's `ways` entry, and `build-index.ts` is the only writer of `index.json` (CI runs `npm run build-index` then `git diff --exit-code index.json`). Putting the `ways` fields in `build-index` and running it after `build-ways` keeps that invariant. `npm run validate` at the end validates the ways files too.
-3. **`departedAt` and `report.generatedAt` come from the route's `metadata.json` `lastUpdated`, not from wall-clock time.** CI runs the generators and then fails on any diff in `routes/`; a wall-clock stamp would make every build drift. `lastUpdated` is already required by `pilgrimage.schema.json` and already whole-second ISO-8601 with `Z` on all seven routes (e.g. `"2026-08-19T00:00:00Z"`). This is the same reasoning that made `build-index.ts` carry `generatedAt` forward.
+3. **`departedAt` and `report.generatedAt` come from the route's `metadata.json` `lastUpdated`, not from wall-clock time.** CI runs the generators and then fails on any diff in `routes/`; a wall-clock stamp would make every build drift. `lastUpdated` is already required by `pilgrimage.schema.json` and already whole-second ISO-8601 with `Z` on all seven routes (e.g. `"2026-08-19T00:00:00Z"`). This is the same reasoning that made `build-index.ts` carry `generatedAt` forward. It is only constrained to `format: date-time`, though, so a contributor may legally write `2026-08-19T00:00:00.000Z` or an offset — and the Way schema's `departedAt` pattern demands whole seconds and a `Z`. The build normalizes with `new Date(value).toISOString().replace(/\.\d{3}Z$/, "Z")` before writing, so a millisecond stamp in the dataset cannot fail the package's own schema.
 4. **Stage boundaries snap to the nearest vertex only when that vertex is within 500 m; otherwise they fall back to the position implied by the preceding stages' declared `distanceKm`.** Measured on the real Camino Francés walked line: pure nearest-vertex snapping puts 7 of 33 stages outside the ±10 % gate, because four stage-boundary towns (Bercianos del Real Camino 3,976 m, Terradillos-area anchors, San Martín del Camino 2,041 m, Foncebadón 696 m) are not on the OSM main line at all. With the 500 m fallback, 2 of 33 remain outside. The fallback never fires when the boundary is genuinely on the line.
 5. **Three schema files, not one.** `schema/way.schema.json` is the app contract for a stage file, as the spec says; `schema/way-route.schema.json` and `schema/way-report.schema.json` cover the two sibling outputs, matching `validate.ts`'s existing one-schema-per-file pattern.
 6. **`cover` is emitted only when `routes/<route-id>/cover.jpg` exists.** No route has one; spec open question 1 (Mapbox static renders under ODbL) is out of this plan's scope, so the field is simply absent today.
@@ -111,8 +111,8 @@ Run before writing this plan, against the committed data on `feat/ways-build`:
 - `package.json` — `build-ways`, `build-main-line`, and the new `pipeline`.
 - `.github/workflows/validate.yml` — runs `npm run build-ways` so ways files are drift-checked like `docs/assets`.
 - `.claude/commands/release.md` — regenerate-and-commit before tagging, and the `v1` finding.
-- `CHANGELOG.md`, `README.md`, `CLAUDE.md`, `docs/usage.html` — documentation.
-- `.gitignore` — commit the already-added `.worktrees/` line.
+- `CHANGELOG.md`, `schema/CHANGELOG.md`, `README.md`, `CLAUDE.md`, `docs/usage.html`, `docs/schema.html` — documentation.
+- `.gitignore` — a `.build-ways-test-*/` entry beside the existing `.build-index-test-*/`, for the temp repos `build-ways.test.ts` creates inside the repo root.
 
 ---
 
@@ -128,12 +128,13 @@ Run before writing this plan, against the committed data on `feat/ways-build`:
 - Create: `scripts/fixtures/way-fixture-route/waypoints.geojson`
 - Create: `scripts/fixtures/way-fixture-route/route.main.geojson`
 - Create: `scripts/ways/contract.test.ts`
-- Modify: `.gitignore` (commit the uncommitted `.worktrees/` line)
+- Modify: `.gitignore` (add `.build-ways-test-*/`)
 
 **Interfaces:**
 - Produces: `schema/way.schema.json`, `schema/way-route.schema.json`, `schema/way-report.schema.json` — loadable by Ajv 2020 under those exact names, the way `validate.ts` loads the existing five.
 - Produces: `scripts/ways/types.ts` exporting `Position`, `WayCoordinate`, `WayRoutePoint`, `WayMoment`, `WayMarkKind`, `WayMark`, `WayStage`, `WayFile`, `WayRouteFile`, `WayReportStage`, `WayReportFile`, `SCHEMA_VERSION`.
 - Produces: `scripts/fixtures/way-fixture-route/` — a three-stage synthetic route whose walked line is a `MultiLineString`, with 15 waypoints covering every moment type and every mark kind, one off-line moment waypoint, one off-line mark waypoint, a temple with structured fields and no description, and a third stage whose slice is deliberately 23.6 % longer than its declared distance.
+- Produces: a `.gitignore` entry for `.build-ways-test-*/`, which Task 5's CLI tests need — they `mkdtempSync(join(ROOT, ".build-ways-test-"))` inside the repo root, because node can only resolve the bare `tsx` loader by walking up to this repo's own `node_modules/`.
 
 **Why the Way JSON looks the way it does:** it is not a design choice. It is the wire format `PilgrimageWayImporter` reads, fixed by Task 1 of the iOS plan (`pilgrim-ios/.worktrees/honor-slice-two/docs/superpowers/plans/2026-09-04-honor-slice-two-ios.md`) and its `stage-00.json` / `stage-01.json` / `route.json` fixtures. The app does **not** decode a stage file with `Way`'s synthesized `Codable`; the importer parses named fields and constructs the `Way` itself, the way `WayImporter` builds one from a `TourManifest`. Three consequences the schema below encodes:
 
@@ -558,7 +559,7 @@ export interface WayReportFile {
     "Moment": {
       "type": "object",
       "description": "Flat: kind is the string \"waypoint\", with label and icon as siblings. The nested single-key object Way's synthesized Codable would write is exactly what this shape exists to reject.",
-      "required": ["id", "frac", "kind", "label", "icon", "at"],
+      "required": ["id", "frac", "kind", "label", "icon", "at", "pin"],
       "properties": {
         "id": { "type": "string", "minLength": 1, "maxLength": 80 },
         "frac": { "type": "number", "minimum": 0, "maximum": 1 },
@@ -798,8 +799,14 @@ Create `scripts/fixtures/way-fixture-route/metadata.json`:
   },
   "tradition": { "type": "christian" },
   "provenance": {
+    "license": "ODbL-1.0",
     "sources": [
-      { "name": "Synthetic fixture", "license": "ODbL-1.0", "url": "https://github.com/walktalkmeditate/open-pilgrimages" }
+      {
+        "name": "Synthetic fixture",
+        "license": "ODbL-1.0",
+        "url": "https://github.com/walktalkmeditate/open-pilgrimages",
+        "dataTypes": ["geometry", "stages", "waypoints"]
+      }
     ]
   }
 }
@@ -938,17 +945,28 @@ Create `scripts/fixtures/way-fixture-route/waypoints.geojson`:
 }
 ```
 
-- [ ] **Step 11: Run the test to verify it passes**
+- [ ] **Step 11: Ignore the temp repos Task 5's CLI tests create**
+
+`.worktrees/` is already committed on this branch, so nothing is pending there. What is missing is the sibling of the existing `.build-index-test-*/` entry (line 16). In `.gitignore`, on the line after it, add:
+
+```
+.build-ways-test-*/
+```
+
+Verify: `git check-ignore -v .build-ways-test-abc/`
+Expected: `.gitignore:17:.build-ways-test-*/	.build-ways-test-abc/`
+
+- [ ] **Step 12: Run the test to verify it passes**
 
 Run: `node --import tsx --test scripts/ways/contract.test.ts`
 Expected: PASS — `ℹ pass 9`, `ℹ fail 0`
 
-- [ ] **Step 12: Type-check**
+- [ ] **Step 13: Type-check**
 
 Run: `npx tsc --noEmit`
 Expected: no output, exit 0
 
-- [ ] **Step 13: Commit**
+- [ ] **Step 14: Commit**
 
 ```bash
 git add .gitignore schema/way.schema.json schema/way-route.schema.json schema/way-report.schema.json \
@@ -1512,7 +1530,7 @@ export function withinGate(
 - [ ] **Step 4: Run the test to verify it passes**
 
 Run: `node --import tsx --test scripts/ways/geo.test.ts`
-Expected: PASS — `ℹ pass 19`, `ℹ fail 0`
+Expected: PASS — `ℹ pass 20`, `ℹ fail 0`
 
 - [ ] **Step 5: Type-check**
 
@@ -1552,6 +1570,7 @@ EOF
 - Produces `scripts/ways/text.ts`:
   - `cap(value: string | undefined, maxCharacters: number): string | undefined` — trims, drops the empty, truncates.
   - `nonEnglishNames(localized: Record<string, string> | undefined): Record<string, string> | undefined` — drops `en`, returns undefined when nothing is left.
+  - `wholeSecondISO(value: string): string` — normalizes any `format: date-time` string to the whole-second `…Z` form the Way schema's `departedAt` pattern requires.
 - Produces `scripts/ways/moments.ts`:
   - `MOMENT_TYPES: readonly string[]` = `["sacred_site", "cultural_site", "viewpoint", "town", "credential_stamp"]`
   - `ICON_BY_TYPE: Record<string, string>`
@@ -1576,7 +1595,7 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "fs";
 import { join } from "path";
-import { cap, nonEnglishNames } from "./text.js";
+import { cap, nonEnglishNames, wholeSecondISO } from "./text.js";
 import {
   buildMoments,
   composedText,
@@ -1618,6 +1637,15 @@ test("nonEnglishNames drops en and returns undefined when nothing is left", () =
   assert.deepEqual(nonEnglishNames({ en: "Start", es: "Inicio" }), { es: "Inicio" });
   assert.equal(nonEnglishNames({ en: "Start" }), undefined);
   assert.equal(nonEnglishNames(undefined), undefined);
+});
+
+test("wholeSecondISO normalizes anything format: date-time allows", () => {
+  // metadata.lastUpdated is only constrained to date-time, but the Way
+  // schema's departedAt pattern demands whole seconds and a Z.
+  assert.equal(wholeSecondISO("2026-08-19T00:00:00Z"), "2026-08-19T00:00:00Z");
+  assert.equal(wholeSecondISO("2026-08-19T00:00:00.448Z"), "2026-08-19T00:00:00Z");
+  assert.equal(wholeSecondISO("2026-08-19T02:00:00+02:00"), "2026-08-19T00:00:00Z");
+  assert.match(wholeSecondISO("2026-08-19T00:00:00Z"), /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$/);
 });
 
 test("iconFor maps each moment type to its SF Symbol", () => {
@@ -1805,6 +1833,20 @@ export function cap(value: string | undefined, maxCharacters: number): string | 
  * The dataset's localized name maps include `en`, which is already the label.
  * Repeating it as a "local name" would print the same words twice on a card.
  */
+/**
+ * `metadata.lastUpdated` is only constrained to `format: date-time`, so a
+ * contributor may legally write milliseconds or a `+02:00` offset. The Way
+ * schema's `departedAt` pattern demands whole seconds in UTC, so the build
+ * normalizes rather than trusting the dataset to have been tidy.
+ */
+export function wholeSecondISO(value: string): string {
+  const parsed = new Date(value);
+  if (Number.isNaN(parsed.getTime())) {
+    throw new Error(`"${value}" is not a date-time this build can normalize`);
+  }
+  return parsed.toISOString().replace(/\.\d{3}Z$/, "Z");
+}
+
 export function nonEnglishNames(
   localized: Record<string, string> | undefined,
 ): Record<string, string> | undefined {
@@ -2033,7 +2075,7 @@ export function buildMoments(input: MomentInput): MomentResult {
 - [ ] **Step 5: Run the test to verify it passes**
 
 Run: `node --import tsx --test scripts/ways/moments.test.ts`
-Expected: PASS — `ℹ pass 12`, `ℹ fail 0`
+Expected: PASS — `ℹ pass 14`, `ℹ fail 0`
 
 - [ ] **Step 6: Type-check**
 
@@ -3335,6 +3377,7 @@ import {
 import { buildMoments, type WaypointFeature } from "./ways/moments.js";
 import { buildMarks } from "./ways/marks.js";
 import { buildStageBlock, midpointHours, type DatasetStage } from "./ways/stage.js";
+import { wholeSecondISO } from "./ways/text.js";
 import { buildReport, buildRouteCard, type ReportStageInput, type RouteMetadata } from "./ways/catalog.js";
 
 export function stageFileName(index: number): string {
@@ -3406,7 +3449,7 @@ export function buildRouteWays(input: RouteWaysInput): RouteWaysResult {
       id: `pilgrimage:${input.routeId}:${stage.index}`,
       // The stage block's name is already trimmed and capped to 120.
       title: block.name,
-      departedAt: input.metadata.lastUpdated,
+      departedAt: wholeSecondISO(input.metadata.lastUpdated),
       route: routePoints(slice, sliceCumulative, hours),
       totalDistanceMeters: Math.round(meters * 10) / 10,
       theirActiveSeconds: Math.round(hours * 3600),
@@ -3565,7 +3608,7 @@ if (import.meta.filename === resolveInvokedPath(process.argv[1])) {
 - [ ] **Step 9: Run the build-ways test to verify it passes**
 
 Run: `node --import tsx --test scripts/build-ways.test.ts`
-Expected: PASS — `ℹ pass 14`, `ℹ fail 0`
+Expected: PASS — `ℹ pass 13`, `ℹ fail 0`
 
 - [ ] **Step 10: Add the index tests**
 
@@ -3667,7 +3710,13 @@ test("a route with a stage outside the length gate gets no ways entry at all", (
 });
 ```
 
-Update the five existing `buildIndex(...)` call sites in that file to pass `RELEASE` as the fifth argument, e.g. `buildIndex(ROUTES, null, () => OLD, ROOT, RELEASE)`, and add `release: RELEASE` to the two hand-built `RouteIndex` literals (`sameContent` and the `missingGeneratedAt` / `numericGeneratedAt` casts keep working unchanged).
+Then update the existing call sites — count them, do not guess:
+
+- **Thirteen `buildIndex(ROUTES, …)` calls** (lines 112, 113, 120, 122, 128, 132, 138, 144, 150, 156, 163, 183, 185) each gain `RELEASE` as a fifth argument, e.g. `buildIndex(ROUTES, null, () => OLD, ROOT, RELEASE)`.
+- **Two bare `RouteIndex` object literals** gain `release: RELEASE`: `sameContent` (line 133) and `contents` in the *readPrevious parses a valid index file* test (line 284). Both spell out every field, so `tsc` fails on the new required one.
+- **Nothing else needs touching.** `stale` (line 121) and `previous` (line 184) are built from an already-`release`-carrying index by spread and by JSON round-trip; `missingGeneratedAt` (line 148) and `numericGeneratedAt` (line 161) go through `as unknown as RouteIndex`, which suppresses the check by design.
+
+Run `npx tsc --noEmit` after this step — it is the only thing that proves every call site was found.
 
 - [ ] **Step 11: Describe the new index fields in `schema/index.schema.json`**
 
@@ -4357,7 +4406,7 @@ ls routes/camino-frances/ways | head -4
 node -e "const i=require('./index.json'); const w=i.routes.find(r=>r.ways); console.log(i.release, JSON.stringify(w.ways))"
 du -sh routes/camino-frances/ways
 ```
-Expected: `report.json  route.json  stage-00.json  stage-01.json`; `v1.6.0 {"stageCount":33,"bytes":…,"placesPerStage":0.2,"sparse":true}`; a `ways` directory around **250–400 KB** (measured: ~200 KB of route arrays plus moments, marks and stage blocks).
+Expected: `report.json  route.json  stage-00.json  stage-01.json`; `v1.6.0 {"stageCount":33,"bytes":…,"placesPerStage":0.2,"sparse":true}`; a `ways` directory of roughly **0.5–1.2 MB**. `writeJson` pretty-prints with a two-space indent, so the ~200 KB of measured route-array data becomes several times that on disk once every `{ "lat": …, "lon": …, "t": … }` is on its own indented lines, before moments, marks, stage blocks and the report are added.
 
 The Camino Francés is now the one listed route, flagged sparse. That flag is the honest answer to spec open question 2, and curating more sacred sites, viewpoints and cultural sites onto its stages is what clears it.
 
@@ -4638,16 +4687,68 @@ moving tag.
 In Phase 11's verification list, replace "Both `v$VERSION` and `v1` tags point
 at HEAD" with "`v$VERSION` points at HEAD".
 
-- [ ] **Step 6: Update the release doc's CDN phases and notes**
+- [ ] **Step 6: Finish the deprecation everywhere the doc still promises `@v1`**
 
-In Phase 13, purge the catalog ref rather than the moving tag:
+Five places still tell a releaser, or a consumer reading the release notes, that `@v1` is the ref to use. Rewrite each.
+
+**Phase 10 — the GitHub Release body template.** Replace its CDN section:
+
+```markdown
+## 📦 CDN
+
+\`\`\`
+https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@main/index.json
+\`\`\`
+
+Read the catalog from \`@main\` — jsDelivr refreshes a branch ref on its own
+cycle — then pin every file you download to the tag that index's \`release\`
+field names:
+
+\`\`\`
+https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v$VERSION/routes/camino-frances/ways/route.json
+\`\`\`
+
+The \`@v1\` alias is no longer maintained: jsDelivr caches tag URLs
+permanently, so it still serves a March 2026 build. Purge manually via
+\`https://purge.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1/\` if you
+depend on it.
+```
+
+**Phase 13 — the purge rationale.** Replace the paragraph beginning "No longer optional: Phase 14 depends on it. `v1` is a moving tag…" with:
+
+```markdown
+No longer optional: Phase 14 depends on it. jsDelivr caches by ref, and `@main`
+is the ref the catalog is read from, so until it is purged Phase 14 can fail on
+`@main` URLs that are actually fine — just still serving the previous release
+out of cache.
+```
+
+Replace the two `curl` commands beneath it with:
 
 ```bash
 curl "https://purge.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@main/index.json"
 curl "https://purge.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v$VERSION/index.json"
 ```
 
-In Phase 14's notes, add one bullet:
+Also replace the sentence after them — "This purges `index.json` at both refs, which is normally enough to make jsDelivr re-resolve `@v1` to the new commit…" — with:
+
+```markdown
+This purges `index.json` at both refs, which is normally enough to make
+jsDelivr re-resolve `@main` to the new commit for every other path too. If
+Phase 14 still reports a stale-looking failure on some other URL afterward,
+purge that specific URL the same way (swap `cdn.jsdelivr.net` for
+`purge.jsdelivr.net`, keep the path) and re-run it.
+```
+
+**Phase 14 — the triage bullet.** Replace "Confirm `v1` actually moved: `git tag --points-at HEAD` should list both `v1` and `v$VERSION`. If it doesn't, Phase 8/9 didn't complete — fix that first." with:
+
+```markdown
+- Confirm the tag actually landed: `git tag --points-at HEAD` should list
+  `v$VERSION`. If it doesn't, Phase 7/9 didn't complete — fix that first.
+  There is no moving tag to check any more; see Phase 8.
+```
+
+and add the ways bullet:
 
 ```markdown
 - **Ways URLs 404 until Phase 9 pushes the tag.** `routes/<route-id>/ways/*` is
@@ -4657,7 +4758,14 @@ In Phase 14's notes, add one bullet:
   one.
 ```
 
-And in the closing **Notes** list, replace the "Never skip Phase 8 (move v1 tag)" bullet with these two:
+**The closing Notes list.** Delete both of these bullets outright — neither describes anything this workflow still does:
+
+```markdown
+- **The `git push --force` on v1 is intentional** — it is the only acceptable force-push in this workflow
+- **The `v1` moving tag may need to be replaced with `v2` etc.** when bumping a major version. The moving tag always tracks the latest release on the current major line.
+```
+
+Replace the "Never skip Phase 8 (move v1 tag)" bullet with these two:
 
 ```markdown
 - **Never skip Phase 2b** — `index.json`'s `release` field is what the Pilgrim
@@ -4669,6 +4777,13 @@ And in the closing **Notes** list, replace the "Never skip Phase 8 (move v1 tag)
   cache made it a promise this project could not keep, and the app reads
   `@main` instead.
 ```
+
+Finally, grep the doc to prove nothing was missed:
+
+```bash
+grep -n "v1" .claude/commands/release.md
+```
+Expected: only Phase 8's deprecation notice and its purge example mention `v1` at all.
 
 - [ ] **Step 7: Run the full suite**
 
@@ -4708,16 +4823,24 @@ EOF
 
 **Files:**
 - Modify: `CHANGELOG.md`
+- Modify: `schema/CHANGELOG.md`
 - Modify: `README.md`
 - Modify: `CLAUDE.md`
 - Modify: `docs/usage.html`
+- Modify: `docs/schema.html`
 
 **Interfaces:**
 - Consumes: everything. Produces no code.
 
-- [ ] **Step 1: Add an Unreleased section to `CHANGELOG.md`**
+- [ ] **Step 1: Correct the intro, then add an Unreleased section to `CHANGELOG.md`**
 
-Insert immediately after the intro paragraphs and before `## [1.6.0] — 2026-08-21`:
+The file's third intro paragraph still promises the moving tag. Replace it:
+
+```markdown
+Consumers read the catalog from `https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@main/index.json` and pin every file they then download to the tag that index's `release` field names. The `v1` alias is no longer maintained — jsDelivr caches tag URLs permanently, so moving it changed nothing a consumer saw.
+```
+
+Then insert, immediately after the intro paragraphs and before `## [1.6.0] — 2026-08-21`:
 
 ```markdown
 ## [Unreleased]
@@ -4904,13 +5027,60 @@ sees.
 
 - [ ] **Step 4: Add the ways files to the site's usage page**
 
-In `docs/usage.html`, add a row to the files table describing `ways/`, using
-`@main` for the catalog URL and a pinned `@vX.Y.Z` for the package files, and
-one sentence each saying that a route without a `ways` entry in `index.json`
-has not cleared the length gate, and that a `sparse` route is listed but
-thinly curated.
+In `docs/usage.html`, replace the line `<p>Pin to a major version for stability. Files are cached globally.</p>` (line 51) and the `index.json` URL directly beneath it with the two-ref rule:
 
-- [ ] **Step 5: Verify the site guard and the CDN link scanner still pass**
+```html
+    <p>Read the catalog from <code>@main</code> &mdash; jsDelivr refreshes a branch
+    ref on its own cycle &mdash; then pin every file you download to the tag that
+    index&rsquo;s <code>release</code> field names. The <code>@v1</code> alias is no
+    longer maintained: jsDelivr caches tag URLs permanently, so it still serves a
+    March 2026 build.</p>
+    <pre><code>https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@main/index.json
+https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1.7.0/routes/camino-frances/route.geojson
+https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1.7.0/routes/camino-frances/stages.json
+https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1.7.0/routes/camino-frances/metadata.json
+https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1.7.0/routes/camino-frances/waypoints.geojson
+https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1.7.0/routes/camino-frances/stats.json
+https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1.7.0/routes/camino-frances/ways/route.json
+https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1.7.0/routes/camino-frances/ways/stage-00.json</code></pre>
+    <p>A route with no <code>ways</code> entry in <code>index.json</code> has not
+    cleared the length gate &mdash; its stages are not walkable yet, and apps hide
+    it. A route whose entry says <code>"sparse": true</code> is walkable but thinly
+    curated: fewer than half its stages carry a place beyond the day&rsquo;s own
+    start and end.</p>
+```
+
+Write real version numbers, not a `@vX.Y.Z` placeholder: `isRecognizedCdnRef` matches `^v\d+\.\d+\.\d+$`, so a placeholder would fail `npm run check-site`. Use the version this work will ship in — `v1.7.0` if `package.json` still reads `1.6.0` when you get here; otherwise the next minor from whatever it reads.
+
+- [ ] **Step 5: List the three new schemas where the project lists schemas**
+
+In `docs/schema.html`, add three rows to the schema table, immediately after the `waypoints.schema.json` row (line 70) and before the `stats.json` "None yet" row:
+
+```html
+        <tr><td><code>way.schema.json</code></td><td><code>ways/stage-NN.json</code></td><td><a href="https://github.com/walktalkmeditate/open-pilgrimages/blob/main/schema/way.schema.json">View</a></td></tr>
+        <tr><td><code>way-route.schema.json</code></td><td><code>ways/route.json</code></td><td><a href="https://github.com/walktalkmeditate/open-pilgrimages/blob/main/schema/way-route.schema.json">View</a></td></tr>
+        <tr><td><code>way-report.schema.json</code></td><td><code>ways/report.json</code></td><td><a href="https://github.com/walktalkmeditate/open-pilgrimages/blob/main/schema/way-report.schema.json">View</a></td></tr>
+```
+
+In `schema/CHANGELOG.md`, add a new section immediately after the `# Schema Changelog` heading and before `## 1.0.0 (2026-03-26)`:
+
+```markdown
+## 1.1.0 (unreleased)
+
+### Files
+- `way.schema.json` — one stage of a pilgrimage route as `routes/{route-id}/ways/stage-NN.json`, in the wire format the Pilgrim iOS app's importer reads. Flat moments (`"kind": "waypoint"` with `label` and `icon` as siblings), no `source` field, every field of the `stage` block required. A change to this file is a change to that app.
+- `way-route.schema.json` — `routes/{route-id}/ways/route.json`, the route's card data.
+- `way-report.schema.json` — `routes/{route-id}/ways/report.json`, the coverage report: per stage, the slice length against the declared distance, the moment and mark counts, and what was dropped; per route, the length-gate verdict and how thinly curated it is.
+
+### Breaking
+- **`stages.schema.json`: `interior.reflection` is now required** when a stage carries an `interior` block. All 109 stages in the dataset already have one; a contribution that omits it now fails validation instead of silently losing the line a walker reads at the end of the stage.
+- **`index.schema.json`: `release` is now required** at the top level, matching `^v\d+\.\d+\.\d+$`. It names the git tag the build will be published under, and consumers pin every package download to it.
+
+### Added, non-breaking
+- `index.schema.json`: an optional per-route `ways` object — `stageCount`, `bytes`, `placesPerStage`, `sparse`. Present only for a route whose every stage cleared the length gate; absent means apps hide the route.
+```
+
+- [ ] **Step 6: Verify the site guard and the CDN link scanner still pass**
 
 Run: `npm run check-site`
 Expected: the same all-clear it gives today. The new README and usage-page CDN
@@ -4921,15 +5091,15 @@ Note: `npm run check-cdn` is **not** run here. It is networked and belongs to
 Phase 14 of the release, after the tags move — the new `ways/` paths cannot
 resolve on jsDelivr until then.
 
-- [ ] **Step 6: Run everything one last time**
+- [ ] **Step 7: Run everything one last time**
 
 Run: `npm test && npx tsc --noEmit && npm run pipeline`
-Expected: `ℹ fail 0`; no tsc output; the pipeline's fetch, build-ways, build-index and validate all complete, with `camino-frances: 33 stage(s), not listed (…)` and `Validation passed (0 warning(s))`.
+Expected: `ℹ fail 0`; no tsc output; the pipeline's fetch, build-ways, build-index and validate all complete, with `camino-frances: 33 stage(s), listed, sparse (0.2 places per stage — only 7 of 33 stages carry a place beyond their own start and end; the app's card will say "few places marked yet")` and `Validation passed (0 warning(s))`.
 
-- [ ] **Step 7: Commit**
+- [ ] **Step 8: Commit**
 
 ```bash
-git add CHANGELOG.md README.md CLAUDE.md docs/usage.html
+git add CHANGELOG.md schema/CHANGELOG.md README.md CLAUDE.md docs/usage.html docs/schema.html
 git commit -m "$(cat <<'EOF'
 docs: describe the ways packages, and say plainly what they cannot yet promise
 
