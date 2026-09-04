@@ -1,0 +1,613 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "pilgrimage:camino-frances:15",
+  "title": "Frómista to Carrión de los Condes",
+  "departedAt": "2026-08-19T00:00:00Z",
+  "route": [
+    {
+      "lat": 42.266209,
+      "lon": -4.406096,
+      "t": 0
+    },
+    {
+      "lat": 42.265333,
+      "lon": -4.407732,
+      "t": 143.8
+    },
+    {
+      "lat": 42.265012,
+      "lon": -4.413476,
+      "t": 554
+    },
+    {
+      "lat": 42.265079,
+      "lon": -4.413952,
+      "t": 588.5
+    },
+    {
+      "lat": 42.26532,
+      "lon": -4.414481,
+      "t": 632.8
+    },
+    {
+      "lat": 42.265126,
+      "lon": -4.415195,
+      "t": 686.9
+    },
+    {
+      "lat": 42.265249,
+      "lon": -4.416832,
+      "t": 804.1
+    },
+    {
+      "lat": 42.265384,
+      "lon": -4.417555,
+      "t": 857.2
+    },
+    {
+      "lat": 42.26573,
+      "lon": -4.418128,
+      "t": 909.9
+    },
+    {
+      "lat": 42.265507,
+      "lon": -4.418897,
+      "t": 968.7
+    },
+    {
+      "lat": 42.265528,
+      "lon": -4.419459,
+      "t": 1008.7
+    },
+    {
+      "lat": 42.267724,
+      "lon": -4.442238,
+      "t": 2644.6
+    },
+    {
+      "lat": 42.269245,
+      "lon": -4.445004,
+      "t": 2890
+    },
+    {
+      "lat": 42.269357,
+      "lon": -4.445405,
+      "t": 2920.5
+    },
+    {
+      "lat": 42.268673,
+      "lon": -4.448173,
+      "t": 3128.3
+    },
+    {
+      "lat": 42.268725,
+      "lon": -4.44856,
+      "t": 3156.3
+    },
+    {
+      "lat": 42.269131,
+      "lon": -4.449279,
+      "t": 3220.7
+    },
+    {
+      "lat": 42.268653,
+      "lon": -4.450519,
+      "t": 3320.3
+    },
+    {
+      "lat": 42.268678,
+      "lon": -4.451015,
+      "t": 3355.7
+    },
+    {
+      "lat": 42.268945,
+      "lon": -4.451837,
+      "t": 3419.6
+    },
+    {
+      "lat": 42.269351,
+      "lon": -4.452672,
+      "t": 3490.7
+    },
+    {
+      "lat": 42.272786,
+      "lon": -4.461857,
+      "t": 4223.5
+    },
+    {
+      "lat": 42.273771,
+      "lon": -4.463793,
+      "t": 4390.8
+    },
+    {
+      "lat": 42.283538,
+      "lon": -4.479217,
+      "t": 5836.3
+    },
+    {
+      "lat": 42.28353,
+      "lon": -4.479361,
+      "t": 5846.5
+    },
+    {
+      "lat": 42.285268,
+      "lon": -4.481639,
+      "t": 6079.5
+    },
+    {
+      "lat": 42.286372,
+      "lon": -4.482732,
+      "t": 6211.2
+    },
+    {
+      "lat": 42.287481,
+      "lon": -4.484197,
+      "t": 6360.4
+    },
+    {
+      "lat": 42.297161,
+      "lon": -4.498289,
+      "t": 7729.3
+    },
+    {
+      "lat": 42.299075,
+      "lon": -4.501727,
+      "t": 8035.6
+    },
+    {
+      "lat": 42.311939,
+      "lon": -4.532276,
+      "t": 10537.4
+    },
+    {
+      "lat": 42.31485,
+      "lon": -4.541879,
+      "t": 11275.9
+    },
+    {
+      "lat": 42.315056,
+      "lon": -4.542238,
+      "t": 11308.2
+    },
+    {
+      "lat": 42.315373,
+      "lon": -4.542408,
+      "t": 11341
+    },
+    {
+      "lat": 42.31518,
+      "lon": -4.542899,
+      "t": 11380.6
+    },
+    {
+      "lat": 42.315202,
+      "lon": -4.543142,
+      "t": 11398
+    },
+    {
+      "lat": 42.315324,
+      "lon": -4.543257,
+      "t": 11412.3
+    },
+    {
+      "lat": 42.315302,
+      "lon": -4.543476,
+      "t": 11428.1
+    },
+    {
+      "lat": 42.315855,
+      "lon": -4.545337,
+      "t": 11570.8
+    },
+    {
+      "lat": 42.322496,
+      "lon": -4.566756,
+      "t": 13223.3
+    },
+    {
+      "lat": 42.324627,
+      "lon": -4.571617,
+      "t": 13625.4
+    },
+    {
+      "lat": 42.336753,
+      "lon": -4.595145,
+      "t": 15665.7
+    },
+    {
+      "lat": 42.337302,
+      "lon": -4.596017,
+      "t": 15747.2
+    },
+    {
+      "lat": 42.337212,
+      "lon": -4.596171,
+      "t": 15761.2
+    },
+    {
+      "lat": 42.337409,
+      "lon": -4.596655,
+      "t": 15800.5
+    },
+    {
+      "lat": 42.337417,
+      "lon": -4.599268,
+      "t": 15986.3
+    },
+    {
+      "lat": 42.337151,
+      "lon": -4.60115,
+      "t": 16122.6
+    },
+    {
+      "lat": 42.337303,
+      "lon": -4.602218,
+      "t": 16200
+    }
+  ],
+  "totalDistanceMeters": 18719.7,
+  "theirActiveSeconds": 16200,
+  "moments": [
+    {
+      "id": "stage-start",
+      "frac": 0,
+      "kind": "waypoint",
+      "label": "Frómista",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 42.266209,
+        "lon": -4.406096
+      },
+      "pin": {
+        "lat": 42.268,
+        "lon": -4.406
+      }
+    },
+    {
+      "id": "wp-carrion",
+      "frac": 0.9998428275307059,
+      "kind": "waypoint",
+      "label": "Carrión de los Condes",
+      "icon": "seal",
+      "at": {
+        "lat": 42.33729799735736,
+        "lon": -4.602182849853052
+      },
+      "pin": {
+        "lat": 42.338,
+        "lon": -4.602
+      },
+      "text": "stamp available"
+    }
+  ],
+  "marks": [
+    {
+      "id": "wp-osm-accommodation-node536660393",
+      "kind": "bed",
+      "name": "Albergue Municipal de Frómista",
+      "at": {
+        "lat": 42.267348,
+        "lon": -4.407207
+      },
+      "frac": 0,
+      "offLineMeters": 156.2
+    },
+    {
+      "id": "wp-osm-water_source-node536618531",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.266343,
+        "lon": -4.406205
+      },
+      "frac": 0,
+      "offLineMeters": 17.4
+    },
+    {
+      "id": "wp-osm-medical-node3846059857",
+      "kind": "medical",
+      "name": "Juan Ramón Rodríguez Medina",
+      "at": {
+        "lat": 42.265754,
+        "lon": -4.406382
+      },
+      "frac": 0.0026039146812156643,
+      "offLineMeters": 27.2
+    },
+    {
+      "id": "wp-osm-accommodation-node4575982361",
+      "kind": "bed",
+      "name": "Albergue La Finca",
+      "at": {
+        "lat": 42.268155,
+        "lon": -4.440501
+      },
+      "frac": 0.1560033872667146,
+      "offLineMeters": 66
+    },
+    {
+      "id": "wp-osm-water_source-node11129828760",
+      "kind": "water",
+      "name": "Fuente San Miguel",
+      "at": {
+        "lat": 42.26692,
+        "lon": -4.441825
+      },
+      "frac": 0.1608281038447811,
+      "offLineMeters": 84.2
+    },
+    {
+      "id": "wp-osm-accommodation-node1505776240",
+      "kind": "bed",
+      "name": "Albergue Municipal de Población de Campos",
+      "at": {
+        "lat": 42.269075,
+        "lon": -4.444886
+      },
+      "frac": 0.1773732511086142,
+      "offLineMeters": 9.4
+    },
+    {
+      "id": "wp-osm-accommodation-node1505776251",
+      "kind": "bed",
+      "name": "Hostal Amanecer en Campos",
+      "at": {
+        "lat": 42.268694,
+        "lon": -4.445507
+      },
+      "frac": 0.18195187467495177,
+      "offLineMeters": 67.3
+    },
+    {
+      "id": "wp-osm-water_source-node3637196085",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.270412,
+        "lon": -4.44712
+      },
+      "frac": 0.18544275050342118,
+      "offLineMeters": 156
+    },
+    {
+      "id": "wp-osm-supply-node1505776246",
+      "kind": "supply",
+      "name": "Bar de Paso",
+      "at": {
+        "lat": 42.268831,
+        "lon": -4.447161
+      },
+      "frac": 0.18858783470826596,
+      "offLineMeters": 9.7
+    },
+    {
+      "id": "wp-osm-transport-node1505776302",
+      "kind": "transport",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.268656,
+        "lon": -4.448625
+      },
+      "frac": 0.19483288469861632,
+      "offLineMeters": 9.4
+    },
+    {
+      "id": "wp-osm-water_source-node4936562429",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.269493,
+        "lon": -4.448536
+      },
+      "frac": 0.1975178709315607,
+      "offLineMeters": 69.1
+    },
+    {
+      "id": "wp-osm-water_source-node3544580777",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.282891,
+        "lon": -4.477895
+      },
+      "frac": 0.3533493755620487,
+      "offLineMeters": 16
+    },
+    {
+      "id": "wp-osm-water_source-node4912125849",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.284111,
+        "lon": -4.480189
+      },
+      "frac": 0.36590882374472683,
+      "offLineMeters": 4
+    },
+    {
+      "id": "wp-osm-water_source-node4938074522",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.283131,
+        "lon": -4.482316
+      },
+      "frac": 0.36823618387195917,
+      "offLineMeters": 205.5
+    },
+    {
+      "id": "wp-osm-food-node6243890249",
+      "kind": "food",
+      "name": "Bar-Cafetería El Fardel de Revenga",
+      "at": {
+        "lat": 42.284758,
+        "lon": -4.482501
+      },
+      "frac": 0.3752778440403288,
+      "offLineMeters": 90.8
+    },
+    {
+      "id": "wp-osm-water_source-node13115287812",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.286573,
+        "lon": -4.483202
+      },
+      "frac": 0.3857066586895346,
+      "offLineMeters": 12
+    },
+    {
+      "id": "wp-osm-accommodation-node1506280664",
+      "kind": "bed",
+      "name": "Albergue Amanecer",
+      "at": {
+        "lat": 42.297744,
+        "lon": -4.498721
+      },
+      "frac": 0.4807173038191928,
+      "offLineMeters": 30.4
+    },
+    {
+      "id": "wp-osm-water_source-node2701500605",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.298816,
+        "lon": -4.500925
+      },
+      "frac": 0.4922805472815952,
+      "offLineMeters": 16.6
+    },
+    {
+      "id": "wp-osm-food-node1079076189",
+      "kind": "food",
+      "name": "Las Cantigas",
+      "at": {
+        "lat": 42.316365,
+        "lon": -4.542448
+      },
+      "frac": 0.7000633871387788,
+      "offLineMeters": 110.3
+    },
+    {
+      "id": "wp-osm-food-node1506306301",
+      "kind": "food",
+      "name": "El Mesón de Villasirga",
+      "at": {
+        "lat": 42.316963,
+        "lon": -4.543032
+      },
+      "frac": 0.704464464940984,
+      "offLineMeters": 183.2
+    },
+    {
+      "id": "wp-osm-accommodation-node3068583476",
+      "kind": "bed",
+      "name": "Albergue Don Camino",
+      "at": {
+        "lat": 42.315955,
+        "lon": -4.545529
+      },
+      "frac": 0.7152523301619083,
+      "offLineMeters": 4.2
+    },
+    {
+      "id": "wp-osm-water_source-node4919361572",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.337774,
+        "lon": -4.598188
+      },
+      "frac": 0.9820793460087431,
+      "offLineMeters": 40.1
+    },
+    {
+      "id": "wp-osm-water_source-node4919361573",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.337269,
+        "lon": -4.59836
+      },
+      "frac": 0.9828208038495138,
+      "offLineMeters": 16.2
+    },
+    {
+      "id": "wp-osm-accommodation-node2440420332",
+      "kind": "bed",
+      "name": "Albergue del Monasterio de Santa Clara",
+      "at": {
+        "lat": 42.336785,
+        "lon": -4.598822
+      },
+      "frac": 0.9848396447613483,
+      "offLineMeters": 70.1
+    },
+    {
+      "id": "wp-osm-accommodation-node5584337163",
+      "kind": "bed",
+      "name": "Albergue Río Carrión",
+      "at": {
+        "lat": 42.335661,
+        "lon": -4.600322
+      },
+      "frac": 0.9933155592337026,
+      "offLineMeters": 175.5
+    },
+    {
+      "id": "wp-osm-transport-node4850492824",
+      "kind": "transport",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.337114,
+        "lon": -4.600853
+      },
+      "frac": 0.9939849048308244,
+      "offLineMeters": 8.7
+    },
+    {
+      "id": "wp-osm-transport-node4919238855",
+      "kind": "transport",
+      "name": "Aja",
+      "at": {
+        "lat": 42.336249,
+        "lon": -4.600909
+      },
+      "frac": 0.9951923207602641,
+      "offLineMeters": 102.2
+    }
+  ],
+  "stage": {
+    "routeId": "camino-frances",
+    "index": 15,
+    "count": 33,
+    "name": "Frómista to Carrión de los Condes",
+    "theme": "Surrender",
+    "narrative": "You did not quit. And in the wake of that survival, an easy, flat day, and in that ease something softens. The Romanesque church of San Martín in Frómista is considered one of the most perfect in Spain — symmetrical, proportioned, complete. You do not need to understand architecture to feel what it offers: the peace of something made with total devotion and no hurry. Carrión de los Condes was once a major medieval city. Now it is a quiet town that knows how to receive tired walkers. You are learning to receive, too.",
+    "closing": "What would happen if you stopped trying to earn your rest?",
+    "warnings": [],
+    "distanceKm": 18.8,
+    "gainMeters": 73,
+    "hours": {
+      "min": 4,
+      "max": 5
+    },
+    "difficulty": "easy",
+    "start": {
+      "name": "Frómista",
+      "at": {
+        "lat": 42.268,
+        "lon": -4.406
+      }
+    },
+    "end": {
+      "name": "Carrión de los Condes",
+      "at": {
+        "lat": 42.338,
+        "lon": -4.602
+      }
+    }
+  }
+}

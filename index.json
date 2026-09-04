@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
   "release": "v1.6.0",
-  "generatedAt": "2026-09-04T15:42:41.574Z",
+  "generatedAt": "2026-09-04T16:00:32.297Z",
   "routes": [
     {
       "id": "camino-frances",
@@ -17,7 +17,13 @@
       "distanceKm": 764,
       "topology": "linear",
       "tradition": "christian",
-      "path": "routes/camino-frances"
+      "path": "routes/camino-frances",
+      "ways": {
+        "stageCount": 33,
+        "bytes": 1045553,
+        "placesPerStage": 0.1,
+        "sparse": true
+      }
     },
     {
       "id": "camino-ingles",

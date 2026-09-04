@@ -1,0 +1,873 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "pilgrimage:camino-frances:8",
+  "title": "Nájera to Santo Domingo de la Calzada",
+  "departedAt": "2026-08-19T00:00:00Z",
+  "route": [
+    {
+      "lat": 42.416061,
+      "lon": -2.735361,
+      "t": 0
+    },
+    {
+      "lat": 42.415816,
+      "lon": -2.735421,
+      "t": 26.4
+    },
+    {
+      "lat": 42.415724,
+      "lon": -2.735973,
+      "t": 70.8
+    },
+    {
+      "lat": 42.415946,
+      "lon": -2.737606,
+      "t": 200.9
+    },
+    {
+      "lat": 42.415548,
+      "lon": -2.738602,
+      "t": 289.7
+    },
+    {
+      "lat": 42.415407,
+      "lon": -2.739578,
+      "t": 367.6
+    },
+    {
+      "lat": 42.414572,
+      "lon": -2.741034,
+      "t": 512.1
+    },
+    {
+      "lat": 42.414114,
+      "lon": -2.742353,
+      "t": 626.3
+    },
+    {
+      "lat": 42.414043,
+      "lon": -2.743005,
+      "t": 678
+    },
+    {
+      "lat": 42.414279,
+      "lon": -2.743635,
+      "t": 733.4
+    },
+    {
+      "lat": 42.414446,
+      "lon": -2.745614,
+      "t": 889.5
+    },
+    {
+      "lat": 42.415279,
+      "lon": -2.748107,
+      "t": 1103.9
+    },
+    {
+      "lat": 42.415617,
+      "lon": -2.750548,
+      "t": 1298.6
+    },
+    {
+      "lat": 42.416338,
+      "lon": -2.751731,
+      "t": 1418.8
+    },
+    {
+      "lat": 42.416288,
+      "lon": -2.753413,
+      "t": 1550.7
+    },
+    {
+      "lat": 42.416117,
+      "lon": -2.754623,
+      "t": 1647.3
+    },
+    {
+      "lat": 42.416163,
+      "lon": -2.755779,
+      "t": 1738
+    },
+    {
+      "lat": 42.415975,
+      "lon": -2.759129,
+      "t": 2001.3
+    },
+    {
+      "lat": 42.416412,
+      "lon": -2.760213,
+      "t": 2098.1
+    },
+    {
+      "lat": 42.417325,
+      "lon": -2.764752,
+      "t": 2466.8
+    },
+    {
+      "lat": 42.418082,
+      "lon": -2.771021,
+      "t": 2964.6
+    },
+    {
+      "lat": 42.419361,
+      "lon": -2.775854,
+      "t": 3367
+    },
+    {
+      "lat": 42.419801,
+      "lon": -2.778088,
+      "t": 3548.2
+    },
+    {
+      "lat": 42.419923,
+      "lon": -2.779597,
+      "t": 3667.1
+    },
+    {
+      "lat": 42.420209,
+      "lon": -2.780831,
+      "t": 3768.5
+    },
+    {
+      "lat": 42.420228,
+      "lon": -2.783186,
+      "t": 3953.1
+    },
+    {
+      "lat": 42.420524,
+      "lon": -2.785505,
+      "t": 4137.5
+    },
+    {
+      "lat": 42.420744,
+      "lon": -2.789047,
+      "t": 4416
+    },
+    {
+      "lat": 42.422301,
+      "lon": -2.793328,
+      "t": 4790
+    },
+    {
+      "lat": 42.42332,
+      "lon": -2.798703,
+      "t": 5224.9
+    },
+    {
+      "lat": 42.424419,
+      "lon": -2.801502,
+      "t": 5473.3
+    },
+    {
+      "lat": 42.424696,
+      "lon": -2.802516,
+      "t": 5558.1
+    },
+    {
+      "lat": 42.425806,
+      "lon": -2.803634,
+      "t": 5704.9
+    },
+    {
+      "lat": 42.426221,
+      "lon": -2.80729,
+      "t": 5994.7
+    },
+    {
+      "lat": 42.426582,
+      "lon": -2.808767,
+      "t": 6116.7
+    },
+    {
+      "lat": 42.427188,
+      "lon": -2.81079,
+      "t": 6287.7
+    },
+    {
+      "lat": 42.4283,
+      "lon": -2.813344,
+      "t": 6520.1
+    },
+    {
+      "lat": 42.429536,
+      "lon": -2.817393,
+      "t": 6863.4
+    },
+    {
+      "lat": 42.430356,
+      "lon": -2.818595,
+      "t": 6991.6
+    },
+    {
+      "lat": 42.431258,
+      "lon": -2.819322,
+      "t": 7103.1
+    },
+    {
+      "lat": 42.431974,
+      "lon": -2.820197,
+      "t": 7205.4
+    },
+    {
+      "lat": 42.432504,
+      "lon": -2.821173,
+      "t": 7300.4
+    },
+    {
+      "lat": 42.433295,
+      "lon": -2.820669,
+      "t": 7393.1
+    },
+    {
+      "lat": 42.433673,
+      "lon": -2.823246,
+      "t": 7599
+    },
+    {
+      "lat": 42.434128,
+      "lon": -2.82859,
+      "t": 8020.5
+    },
+    {
+      "lat": 42.434247,
+      "lon": -2.831352,
+      "t": 8237.2
+    },
+    {
+      "lat": 42.434158,
+      "lon": -2.832842,
+      "t": 8354.4
+    },
+    {
+      "lat": 42.433609,
+      "lon": -2.833932,
+      "t": 8457.8
+    },
+    {
+      "lat": 42.43354,
+      "lon": -2.835815,
+      "t": 8605.5
+    },
+    {
+      "lat": 42.43366,
+      "lon": -2.838849,
+      "t": 8843.5
+    },
+    {
+      "lat": 42.434021,
+      "lon": -2.839911,
+      "t": 8935.1
+    },
+    {
+      "lat": 42.434016,
+      "lon": -2.841214,
+      "t": 9037.2
+    },
+    {
+      "lat": 42.433681,
+      "lon": -2.841367,
+      "t": 9074.8
+    },
+    {
+      "lat": 42.433398,
+      "lon": -2.842169,
+      "t": 9144.4
+    },
+    {
+      "lat": 42.432724,
+      "lon": -2.845477,
+      "t": 9413.3
+    },
+    {
+      "lat": 42.432669,
+      "lon": -2.846275,
+      "t": 9476.1
+    },
+    {
+      "lat": 42.43296,
+      "lon": -2.847822,
+      "t": 9601.2
+    },
+    {
+      "lat": 42.432935,
+      "lon": -2.848501,
+      "t": 9654.4
+    },
+    {
+      "lat": 42.432395,
+      "lon": -2.849241,
+      "t": 9736
+    },
+    {
+      "lat": 42.431196,
+      "lon": -2.853292,
+      "t": 10077.9
+    },
+    {
+      "lat": 42.427369,
+      "lon": -2.860261,
+      "t": 10758.5
+    },
+    {
+      "lat": 42.427011,
+      "lon": -2.865063,
+      "t": 11136.7
+    },
+    {
+      "lat": 42.425297,
+      "lon": -2.871049,
+      "t": 11639.8
+    },
+    {
+      "lat": 42.425034,
+      "lon": -2.873293,
+      "t": 11817.9
+    },
+    {
+      "lat": 42.424234,
+      "lon": -2.876511,
+      "t": 12084
+    },
+    {
+      "lat": 42.423418,
+      "lon": -2.87808,
+      "t": 12234.4
+    },
+    {
+      "lat": 42.42277,
+      "lon": -2.878961,
+      "t": 12331.8
+    },
+    {
+      "lat": 42.418883,
+      "lon": -2.88552,
+      "t": 12991
+    },
+    {
+      "lat": 42.418655,
+      "lon": -2.885828,
+      "t": 13025.1
+    },
+    {
+      "lat": 42.418359,
+      "lon": -2.885798,
+      "t": 13056.6
+    },
+    {
+      "lat": 42.417885,
+      "lon": -2.886397,
+      "t": 13125.5
+    },
+    {
+      "lat": 42.417941,
+      "lon": -2.886469,
+      "t": 13133.7
+    },
+    {
+      "lat": 42.415698,
+      "lon": -2.890038,
+      "t": 13501
+    },
+    {
+      "lat": 42.415785,
+      "lon": -2.892487,
+      "t": 13693.1
+    },
+    {
+      "lat": 42.414413,
+      "lon": -2.892573,
+      "t": 13838.9
+    },
+    {
+      "lat": 42.414432,
+      "lon": -2.893425,
+      "t": 13905.8
+    },
+    {
+      "lat": 42.414326,
+      "lon": -2.893732,
+      "t": 13932.3
+    },
+    {
+      "lat": 42.413558,
+      "lon": -2.894905,
+      "t": 14055.2
+    },
+    {
+      "lat": 42.41305,
+      "lon": -2.895313,
+      "t": 14117.9
+    },
+    {
+      "lat": 42.412789,
+      "lon": -2.896327,
+      "t": 14202
+    },
+    {
+      "lat": 42.413529,
+      "lon": -2.896353,
+      "t": 14280.6
+    },
+    {
+      "lat": 42.413772,
+      "lon": -2.896501,
+      "t": 14308.9
+    },
+    {
+      "lat": 42.413952,
+      "lon": -2.896906,
+      "t": 14346
+    },
+    {
+      "lat": 42.414279,
+      "lon": -2.897113,
+      "t": 14384.3
+    },
+    {
+      "lat": 42.414762,
+      "lon": -2.898313,
+      "t": 14491.4
+    },
+    {
+      "lat": 42.41525,
+      "lon": -2.898738,
+      "t": 14553
+    },
+    {
+      "lat": 42.416105,
+      "lon": -2.905156,
+      "t": 15064.1
+    },
+    {
+      "lat": 42.418022,
+      "lon": -2.910837,
+      "t": 15553.6
+    },
+    {
+      "lat": 42.422962,
+      "lon": -2.919095,
+      "t": 16386.6
+    },
+    {
+      "lat": 42.433868,
+      "lon": -2.931554,
+      "t": 17901
+    },
+    {
+      "lat": 42.435835,
+      "lon": -2.933599,
+      "t": 18164.2
+    },
+    {
+      "lat": 42.436301,
+      "lon": -2.934256,
+      "t": 18235.6
+    },
+    {
+      "lat": 42.436705,
+      "lon": -2.935206,
+      "t": 18321.5
+    },
+    {
+      "lat": 42.437677,
+      "lon": -2.938788,
+      "t": 18620.5
+    },
+    {
+      "lat": 42.437926,
+      "lon": -2.93902,
+      "t": 18652.5
+    },
+    {
+      "lat": 42.438217,
+      "lon": -2.938993,
+      "t": 18683.5
+    },
+    {
+      "lat": 42.439229,
+      "lon": -2.94456,
+      "t": 19132.7
+    },
+    {
+      "lat": 42.439251,
+      "lon": -2.945166,
+      "t": 19180.2
+    },
+    {
+      "lat": 42.439485,
+      "lon": -2.945633,
+      "t": 19224.4
+    },
+    {
+      "lat": 42.440314,
+      "lon": -2.949311,
+      "t": 19525.7
+    },
+    {
+      "lat": 42.440887,
+      "lon": -2.952725,
+      "t": 19800
+    }
+  ],
+  "totalDistanceMeters": 20739.8,
+  "theirActiveSeconds": 19800,
+  "moments": [
+    {
+      "id": "stage-start",
+      "frac": 0.0000676056403646937,
+      "kind": "waypoint",
+      "label": "Nájera",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 42.41604859153587,
+        "lon": -2.735364038807542
+      },
+      "pin": {
+        "lat": 42.416,
+        "lon": -2.735
+      }
+    }
+  ],
+  "marks": [
+    {
+      "id": "wp-osm-water_source-node2701403360",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.415024,
+        "lon": -2.734222
+      },
+      "frac": 0.0013348454503487582,
+      "offLineMeters": 132.1
+    },
+    {
+      "id": "wp-osm-water_source-node2701403364",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.414951,
+        "lon": -2.734834
+      },
+      "frac": 0.0013348454503487582,
+      "offLineMeters": 107.6
+    },
+    {
+      "id": "wp-osm-medical-node1340449213",
+      "kind": "medical",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.42374,
+        "lon": -2.799899
+      },
+      "frac": 0.2691184161378682,
+      "offLineMeters": 4.9
+    },
+    {
+      "id": "wp-osm-accommodation-node1055210608",
+      "kind": "bed",
+      "name": "Albergue Parroquial Herbert Simon",
+      "at": {
+        "lat": 42.423264,
+        "lon": -2.800803
+      },
+      "frac": 0.2710800052977238,
+      "offLineMeters": 86.5
+    },
+    {
+      "id": "wp-osm-food-node1055210646",
+      "kind": "food",
+      "name": "Sevilla",
+      "at": {
+        "lat": 42.424139,
+        "lon": -2.800629
+      },
+      "frac": 0.2726763315465492,
+      "offLineMeters": 6.2
+    },
+    {
+      "id": "wp-osm-accommodation-node1340449101",
+      "kind": "bed",
+      "name": "Hotel Real Casona de las Amas",
+      "at": {
+        "lat": 42.424585,
+        "lon": -2.801676
+      },
+      "frac": 0.2773864713291534,
+      "offLineMeters": 12.3
+    },
+    {
+      "id": "wp-osm-water_source-node3649118516",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.42465,
+        "lon": -2.802821
+      },
+      "frac": 0.28123219353862444,
+      "offLineMeters": 23.2
+    },
+    {
+      "id": "wp-osm-water_source-node10179147189",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.427077,
+        "lon": -2.803467
+      },
+      "frac": 0.2885092385265939,
+      "offLineMeters": 141.8
+    },
+    {
+      "id": "wp-osm-water_source-node7505537463",
+      "kind": "water",
+      "name": "Fuente de Los Romeros",
+      "at": {
+        "lat": 42.426153,
+        "lon": -2.803724
+      },
+      "frac": 0.2887624713119227,
+      "offLineMeters": 37
+    },
+    {
+      "id": "wp-osm-water_source-node7752615084",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.422556,
+        "lon": -2.87896
+      },
+      "frac": 0.6235340435647128,
+      "offLineMeters": 18.6
+    },
+    {
+      "id": "wp-osm-food-node3948405631",
+      "kind": "food",
+      "name": "Golf Rioja Alta",
+      "at": {
+        "lat": 42.417698,
+        "lon": -2.8865
+      },
+      "frac": 0.6642555528624522,
+      "offLineMeters": 19
+    },
+    {
+      "id": "wp-osm-water_source-node2701403367",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.415807,
+        "lon": -2.890414
+      },
+      "frac": 0.68338189572655,
+      "offLineMeters": 10.6
+    },
+    {
+      "id": "wp-osm-water_source-node6750857570",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.413327,
+        "lon": -2.895446
+      },
+      "frac": 0.7120149438547978,
+      "offLineMeters": 25.1
+    },
+    {
+      "id": "wp-osm-accommodation-node2439145886",
+      "kind": "bed",
+      "name": "Albergue Virgen de Guadalupe",
+      "at": {
+        "lat": 42.412719,
+        "lon": -2.894418
+      },
+      "frac": 0.7127472760888282,
+      "offLineMeters": 82
+    },
+    {
+      "id": "wp-osm-water_source-node3649118515",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.411252,
+        "lon": -2.896351
+      },
+      "frac": 0.7172751359235169,
+      "offLineMeters": 171
+    },
+    {
+      "id": "wp-osm-water_source-node2701403398",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.439429,
+        "lon": -2.94492
+      },
+      "frac": 0.9677723038095772,
+      "offLineMeters": 20.8
+    },
+    {
+      "id": "wp-osm-water_source-node5050510422",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.44053,
+        "lon": -2.947214
+      },
+      "frac": 0.978551504461271,
+      "offLineMeters": 73.2
+    },
+    {
+      "id": "wp-osm-water_source-node2701403401",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.440386,
+        "lon": -2.949315
+      },
+      "frac": 0.9862471670030385,
+      "offLineMeters": 7.8
+    },
+    {
+      "id": "wp-osm-food-node7040508359",
+      "kind": "food",
+      "name": "Vaticanos",
+      "at": {
+        "lat": 42.438386,
+        "lon": -2.951195
+      },
+      "frac": 0.9911239421952923,
+      "offLineMeters": 243.3
+    },
+    {
+      "id": "wp-osm-accommodation-node535152716",
+      "kind": "bed",
+      "name": "Albergue de la Abadía Cisterciense Nuestra Señora de la Anunciación",
+      "at": {
+        "lat": 42.440519,
+        "lon": -2.950644
+      },
+      "frac": 0.99153391793717,
+      "offLineMeters": 2.1
+    },
+    {
+      "id": "wp-osm-accommodation-node4097105024",
+      "kind": "bed",
+      "name": "Hospedería Cisterciense",
+      "at": {
+        "lat": 42.439834,
+        "lon": -2.950911
+      },
+      "frac": 0.991750313736793,
+      "offLineMeters": 81.2
+    },
+    {
+      "id": "wp-osm-water_source-node2701403402",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.440601,
+        "lon": -2.951348
+      },
+      "frac": 0.9943488148274593,
+      "offLineMeters": 6
+    },
+    {
+      "id": "wp-osm-food-node2555639759",
+      "kind": "food",
+      "name": "Casa Amparo",
+      "at": {
+        "lat": 42.439361,
+        "lon": -2.952374
+      },
+      "frac": 0.9968307923950872,
+      "offLineMeters": 159.1
+    },
+    {
+      "id": "wp-osm-water_source-node3085297584",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.44034,
+        "lon": -2.952592
+      },
+      "frac": 0.9988354886463502,
+      "offLineMeters": 56.9
+    },
+    {
+      "id": "wp-osm-accommodation-node2086526470",
+      "kind": "bed",
+      "name": "Albergue Peregrinos;Casa del Santo",
+      "at": {
+        "lat": 42.440882,
+        "lon": -2.952536
+      },
+      "frac": 0.9992660046026006,
+      "offLineMeters": 2.9
+    },
+    {
+      "id": "wp-osm-food-node11047768666",
+      "kind": "food",
+      "name": "La Parrilla de Arcaya",
+      "at": {
+        "lat": 42.441342,
+        "lon": -2.952734
+      },
+      "frac": 1,
+      "offLineMeters": 50.6
+    },
+    {
+      "id": "wp-osm-food-node11047797393",
+      "kind": "food",
+      "name": "El Sarmiento Azul Mediterráneo",
+      "at": {
+        "lat": 42.442508,
+        "lon": -2.952604
+      },
+      "frac": 1,
+      "offLineMeters": 180.5
+    },
+    {
+      "id": "wp-osm-food-node6337473388",
+      "kind": "food",
+      "name": "Los Caballeros",
+      "at": {
+        "lat": 42.44098,
+        "lon": -2.953208
+      },
+      "frac": 1,
+      "offLineMeters": 40.9
+    }
+  ],
+  "stage": {
+    "routeId": "camino-frances",
+    "index": 8,
+    "count": 33,
+    "name": "Nájera to Santo Domingo de la Calzada",
+    "theme": "Tradition",
+    "narrative": "Santo Domingo de la Calzada — Saint Dominic of the Causeway — built roads and bridges for pilgrims a thousand years ago. In the cathedral, a live rooster and hen are kept in a Gothic coop, commemorating a miracle of a hanged pilgrim found alive. The story is strange and wonderful and entirely serious to the people who tend those birds. You are walking a path that has been maintained by devoted hands for centuries. You are not alone in this, even when you walk alone.",
+    "closing": "What traditions have you inherited that you did not choose but now carry willingly?",
+    "warnings": [],
+    "distanceKm": 20.7,
+    "gainMeters": 327,
+    "hours": {
+      "min": 5,
+      "max": 6
+    },
+    "difficulty": "easy",
+    "start": {
+      "name": "Nájera",
+      "at": {
+        "lat": 42.416,
+        "lon": -2.735
+      }
+    },
+    "end": {
+      "name": "Santo Domingo de la Calzada",
+      "at": {
+        "lat": 42.43,
+        "lon": -2.955
+      }
+    }
+  }
+}
