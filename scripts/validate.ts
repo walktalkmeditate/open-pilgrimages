@@ -219,7 +219,9 @@ function validateWays(ajv: Ajv, routeDir: string, errors: ValidationError[]): vo
   validateFile(ajv, "way-report.schema.json", join(waysDir, "report.json"), errors);
   validateFile(ajv, "way-route.schema.json", join(waysDir, "route.json"), errors);
   for (const entry of readdirSync(waysDir)) {
-    if (!/^stage-\d{2}\.json$/.test(entry)) continue;
+    // stageFileName pads to at least two digits, and the schemas allow up to
+    // 200 stages, so a three-digit stage (stage-100.json) must match too.
+    if (!/^stage-\d{2,3}\.json$/.test(entry)) continue;
     validateFile(ajv, "way.schema.json", join(waysDir, entry), errors);
   }
 }

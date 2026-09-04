@@ -214,3 +214,47 @@ test("a failing route leaves a report behind but no package", () => {
     rmSync(dir, { recursive: true, force: true });
   }
 });
+
+test("a route that loses an input file leaves no stale package behind", () => {
+  const dir = mkdtempSync(join(ROOT, ".build-ways-test-"));
+  try {
+    mkdirSync(join(dir, "routes"), { recursive: true });
+    cpSync(FIXTURE, join(dir, "routes", "fixture-way"), { recursive: true });
+    cpSync(join(ROOT, "schema"), join(dir, "schema"), { recursive: true });
+    cpSync(join(ROOT, "scripts"), join(dir, "scripts"), { recursive: true });
+    cpSync(join(ROOT, "package.json"), join(dir, "package.json"));
+
+    const stagesPath = join(dir, "routes", "fixture-way", "stages.json");
+    const stagesFile = loadJson(stagesPath);
+    stagesFile.stages[2].distanceKm = 1.1;
+    writeFileSync(stagesPath, JSON.stringify(stagesFile, null, 2));
+
+    const runBuildWays = () =>
+      execFileSync(process.execPath, ["--import", "tsx", join(dir, "scripts", "build-ways.ts")], {
+        cwd: dir,
+        encoding: "utf-8",
+      });
+
+    runBuildWays();
+    const waysDir = join(dir, "routes", "fixture-way", "ways");
+    assert.deepEqual(readdirSync(waysDir).sort(), [
+      "report.json", "route.json", "stage-00.json", "stage-01.json", "stage-02.json",
+    ]);
+
+    // The route loses an input between builds — a re-fetch that dropped a
+    // file, say. The earlier build's package must not survive this one.
+    rmSync(join(dir, "routes", "fixture-way", "waypoints.geojson"));
+    runBuildWays();
+    assert.equal(existsSync(waysDir), false, "a skipped route must not keep a stale package");
+
+    execFileSync(process.execPath, ["--import", "tsx", join(dir, "scripts", "build-index.ts")], {
+      cwd: dir,
+      encoding: "utf-8",
+    });
+    const index = loadJson(join(dir, "index.json"));
+    const entry = index.routes.find((r: { id: string }) => r.id === "fixture-way");
+    assert.equal(entry?.ways, undefined);
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});

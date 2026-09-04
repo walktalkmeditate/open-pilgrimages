@@ -163,6 +163,13 @@ function main(): void {
     const routeDir = join(routesDir, entry);
     if (!statSync(routeDir).isDirectory()) continue;
 
+    const waysDir = join(routeDir, "ways");
+    // Cleared before every guard below, not after them: a route that loses an
+    // input file (or never had one) must not keep a package an earlier build
+    // left behind. A stale package would outlive the data that justified it,
+    // and CI's drift check would never see it go.
+    rmSync(waysDir, { recursive: true, force: true });
+
     const metadataPath = join(routeDir, "metadata.json");
     const stagesPath = join(routeDir, "stages.json");
     const waypointsPath = join(routeDir, "waypoints.geojson");
@@ -184,10 +191,6 @@ function main(): void {
       hasCover: existsSync(join(routeDir, "cover.jpg")),
     });
 
-    const waysDir = join(routeDir, "ways");
-    // A stale package from an earlier build would outlive the data that
-    // justified it, and CI's drift check would never see it go.
-    rmSync(waysDir, { recursive: true, force: true });
     mkdirSync(waysDir, { recursive: true });
 
     if (!ajv.validate("way-report.schema.json", result.report)) {
