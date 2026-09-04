@@ -37,7 +37,13 @@ const CDN_URL_PATTERN = new RegExp(
 export interface CdnRef {
   /** The full matched URL, exactly as it appears in the source text. */
   url: string;
-  /** The version ref after `@` — e.g. "v1", "v1.6.0", or (a mistake) "main". */
+  /**
+   * The version ref after `@` — e.g. `"main"` (the catalog ref, refreshed on
+   * jsDelivr's own ~12 h cycle), `"v1.6.0"` (a pinned release, what package
+   * files resolve against), or `"v1"` (the frozen moving-tag alias — no
+   * longer advanced by the release procedure, still recognized because
+   * README and schema `$id`s carry it; see isRecognizedCdnRef below).
+   */
   ref: string;
   /**
    * The repo-relative path after the ref, with the leading slash stripped.

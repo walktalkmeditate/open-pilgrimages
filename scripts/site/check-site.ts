@@ -979,7 +979,7 @@ export function checkSite(root: string, overrides: PageOverrides = {}): Problem[
           add(
             file,
             `links to ${cdnRef.url}, whose version ref "@${cdnRef.ref}" isn't one this project uses — ` +
-              `pin to @${currentCdnMovingRef()} or a released @vX.Y.Z tag`,
+              `pin to @main for the catalog, @${currentCdnMovingRef()} or a released @vX.Y.Z tag for packages`,
           );
         }
 
