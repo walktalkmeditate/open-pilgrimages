@@ -23,7 +23,7 @@
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["index", "name", "sliceKm", "distanceKm", "ratio", "passedGate", "boundaryMode", "routePoints", "moments", "momentsBeyondEnds", "momentsWithText", "marks", "dropped"],
+        "required": ["index", "name", "sliceKm", "distanceKm", "ratio", "passedGate", "boundaryMode", "routePoints", "moments", "momentsBeyondEnds", "momentsWithText", "marks", "marksTrimmed", "dropped"],
         "properties": {
           "index": { "type": "integer", "minimum": 0 },
           "name": { "type": "string" },

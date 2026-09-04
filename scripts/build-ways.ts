@@ -46,6 +46,26 @@ export interface RouteWaysResult {
 }
 
 export function buildRouteWays(input: RouteWaysInput): RouteWaysResult {
+  const { routeId, stages } = input;
+
+  // Everything below indexes boundaries[] and report.stages[] by stage.index
+  // as a plain array subscript, on the assumption that a stage's declared
+  // index is also its position in the array. An empty stages.json has no
+  // last stage for the anchors.push below to read; a gap or duplicate index
+  // would silently pair a stage with another stage's boundary. Both fail
+  // loud here instead of as a confusing TypeError or a wrong package deep in
+  // the build.
+  if (stages.length === 0) {
+    throw new Error(`${routeId}: stages.json has no stages`);
+  }
+  for (let i = 0; i < stages.length; i++) {
+    if (stages[i].index !== i) {
+      throw new Error(
+        `${routeId}: stage ${i} declares index ${stages[i].index}; this build requires contiguous 0-based indices`,
+      );
+    }
+  }
+
   const line = walkedLine(input.routeGeoJson);
   const cumulative = cumulativeMeters(line);
 

@@ -65,7 +65,12 @@ export function buildMarks(
       continue;
     }
 
-    const id = rawId.startsWith("wp-") ? rawId : `wp-${rawId}`;
+    // The waypoint's own id, unprefixed — same rationale as moments.ts's
+    // momentId: the Camino's ids are already `wp-fuente` and Shikoku's are
+    // already `temple-12`, both already fit to be a mark id, so guessing at
+    // a `wp-` prefix would either double it or hide a temple id behind one
+    // for no reason.
+    const id = rawId;
     marks.push({
       id,
       kind,

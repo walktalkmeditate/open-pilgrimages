@@ -8,6 +8,7 @@ import {
   composedText,
   iconFor,
   MOMENT_DROP_METERS,
+  type StagePlace,
   type WaypointFeature,
 } from "./moments.js";
 import {
@@ -179,6 +180,34 @@ test("a waypoint more than 300 m off the line is dropped and named in the warnin
   assert.equal(result.dropped.length, 1);
   assert.match(result.dropped[0], /wp-far-chapel/);
   assert.match(result.dropped[0], new RegExp(String(MOMENT_DROP_METERS)));
+});
+
+test("a town near the stage anchor but far off the line is dropped, not treated as the anchor's marker", () => {
+  const { line, cumulative } = stageSlice(30, 40);
+  const end: StagePlace = { name: "End Town", at: [0.024, 0.02] };
+  const offlineTown: WaypointFeature = {
+    id: "wp-offline-town",
+    type: "Feature",
+    geometry: { type: "Point", coordinates: [0.0241, 0.0201] },
+    properties: { routeId: "fixture-way", name: "Offline Town", type: "town", stageIndex: 2 },
+  };
+  const result = buildMoments({
+    line,
+    cumulative,
+    waypoints: [...waypointsForStage(2), offlineTown],
+    start: { name: "Bend", at: [0.02, 0.01] },
+    end,
+  });
+
+  // The waypoint sits 15 m from the declared anchor but 456 m off the walked
+  // line — past MOMENT_DROP_METERS, so it is dropped like any other detour.
+  assert.equal(result.moments.some((m) => m.id === "wp-offline-town"), false);
+  assert.equal(result.dropped.some((message) => message.includes("wp-offline-town")), true);
+
+  // The stage still needs a marker at its own end, so the synthesized
+  // stage-end moment must survive the drop, not be suppressed by a town that
+  // never actually counted as being at that place.
+  assert.equal(result.moments.some((m) => m.id === "stage-end"), true);
 });
 
 test("a stage whose only places are its own ends counts zero moments beyond them", () => {

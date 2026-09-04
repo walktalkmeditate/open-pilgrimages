@@ -4,3 +4,4 @@
 # something anyone reviews line by line.
 *.gpx linguist-generated
 *.gpx -diff
+routes/*/route.main.geojson -diff linguist-generated

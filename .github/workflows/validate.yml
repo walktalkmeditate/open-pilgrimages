@@ -64,6 +64,7 @@ jobs:
           if [ -n "$changes" ]; then
             echo "$changes"
             echo "docs/assets or routes is out of date — run npm run build-assets and commit the result."
+            echo "If the routes/*/ways/ drift, that comes from build-ways, not build-assets — run npm run pipeline (build-ways + build-index + validate) instead."
             exit 1
           fi
       - run: npm run check-site

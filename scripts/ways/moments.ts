@@ -167,10 +167,6 @@ export function buildMoments(input: MomentInput): MomentResult {
     const point = feature.geometry.coordinates;
     const nearStart = haversineMeters(point, start.at) <= PLACE_MATCH_METERS;
     const nearEnd = haversineMeters(point, end.at) <= PLACE_MATCH_METERS;
-    if (properties.type === "town") {
-      if (nearStart) startHasTown = true;
-      if (nearEnd) endHasTown = true;
-    }
 
     const projection = projectOnLine(line, cumulative, point);
     if (projection.offLineMeters > MOMENT_DROP_METERS) {
@@ -179,6 +175,11 @@ export function buildMoments(input: MomentInput): MomentResult {
           `from the line, beyond the ${MOMENT_DROP_METERS} m limit`,
       );
       continue;
+    }
+
+    if (properties.type === "town") {
+      if (nearStart) startHasTown = true;
+      if (nearEnd) endHasTown = true;
     }
 
     const id = momentId(rawId);

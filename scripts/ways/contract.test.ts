@@ -137,6 +137,17 @@ test("the way schema holds the importer's own caps", () => {
   assert.equal(ajv.validate("way.schema.json", tooManyMarks), false, "marks cap at 400");
 });
 
+test("the stages schema rejects an interior with no reflection", () => {
+  const ajv = validator();
+  const stages = loadJson(join(FIXTURE, "stages.json"));
+  assert.ok(
+    ajv.validate("stages.schema.json", stages),
+    `fixture must validate before mutation: ${JSON.stringify(ajv.errors)}`,
+  );
+  delete stages.stages[0].interior.reflection;
+  assert.equal(ajv.validate("stages.schema.json", stages), false, "interior.reflection must be required");
+});
+
 test("the fixture route validates against the dataset's own schemas", () => {
   const ajv = validator();
   for (const [file, schema] of [

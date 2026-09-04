@@ -307,7 +307,7 @@ async function main(): Promise<void> {
     ],
   };
 
-  writeFileSync(join(routeDir, "route.main.geojson"), JSON.stringify(geojson, null, 2) + "\n");
+  writeFileSync(join(routeDir, "route.main.geojson"), JSON.stringify(geojson) + "\n");
 
   const totalKm = lineLengthMeters(result.line) / 1000;
   const declaredKm = stages.reduce((sum, s) => sum + s.distanceKm, 0);

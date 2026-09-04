@@ -41,6 +41,19 @@ function passingStages(): DatasetStage[] {
   return stages.map((s) => (s.index === 2 ? { ...s, distanceKm: 1.1 } : s));
 }
 
+test("a route with no stages refuses to build rather than throw a bare TypeError", () => {
+  assert.throws(() => build({ stages: [] }), /fixture-way: stages\.json has no stages/);
+});
+
+test("a non-contiguous stage index refuses to build rather than silently misalign the boundaries", () => {
+  const stages = passingStages();
+  stages[1] = { ...stages[1], index: 5 };
+  assert.throws(
+    () => build({ stages }),
+    /fixture-way: stage 1 declares index 5; this build requires contiguous 0-based indices/,
+  );
+});
+
 test("stageFileName zero-pads to two digits", () => {
   assert.equal(stageFileName(0), "stage-00.json");
   assert.equal(stageFileName(7), "stage-07.json");

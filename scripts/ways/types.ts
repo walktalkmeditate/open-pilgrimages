@@ -146,7 +146,7 @@ export interface WayReportFile {
   schemaVersion: string;
   routeId: string;
   generatedAt: string;
-  walkedLine: { source: string; points: number; lengthKm: number };
+  walkedLine: { source: "route.main.geojson" | "route.geojson"; points: number; lengthKm: number };
   stages: WayReportStage[];
   gate: { passed: boolean; failing: number[] };
   /**
