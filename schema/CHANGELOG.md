@@ -1,5 +1,19 @@
 # Schema Changelog
 
+## 1.1.0 (unreleased)
+
+### Files
+- `way.schema.json` — one stage of a pilgrimage route as `routes/{route-id}/ways/stage-NN.json`, in the wire format the Pilgrim iOS app's importer reads. Flat moments (`"kind": "waypoint"` with `label` and `icon` as siblings), no `source` field, every field of the `stage` block required. A change to this file is a change to that app.
+- `way-route.schema.json` — `routes/{route-id}/ways/route.json`, the route's card data.
+- `way-report.schema.json` — `routes/{route-id}/ways/report.json`, the coverage report: per stage, the slice length against the declared distance, the moment and mark counts, and what was dropped; per route, the length-gate verdict and how thinly curated it is.
+
+### Breaking
+- **`stages.schema.json`: `interior.reflection` is now required** when a stage carries an `interior` block. All 109 stages in the dataset already have one; a contribution that omits it now fails validation instead of silently losing the line a walker reads at the end of the stage.
+- **`index.schema.json`: `release` is now required** at the top level, matching `^v\d+\.\d+\.\d+$`. It names the git tag the build will be published under, and consumers pin every package download to it.
+
+### Added, non-breaking
+- `index.schema.json`: an optional per-route `ways` object — `stageCount`, `bytes`, `placesPerStage`, `sparse`. Present only for a route whose every stage cleared the length gate; absent means apps hide the route.
+
 ## 1.0.0 (2026-03-26)
 
 Initial release.

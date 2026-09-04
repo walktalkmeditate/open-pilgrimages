@@ -48,13 +48,24 @@
     <p class="subtitle">How to consume pilgrimage data in your application.</p>
 
     <h2>Via jsDelivr CDN</h2>
-    <p>Pin to a major version for stability. Files are cached globally.</p>
-    <pre><code>https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1/index.json
-https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1/routes/camino-frances/route.geojson
-https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1/routes/camino-frances/stages.json
-https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1/routes/camino-frances/metadata.json
-https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1/routes/camino-frances/waypoints.geojson
-https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1/routes/camino-frances/stats.json</code></pre>
+    <p>Read the catalog from <code>@main</code> &mdash; jsDelivr refreshes a branch
+    ref on its own cycle &mdash; then pin every file you download to the tag that
+    index&rsquo;s <code>release</code> field names. The <code>@v1</code> alias is no
+    longer maintained: jsDelivr caches tag URLs permanently, so it still serves a
+    March 2026 build.</p>
+    <pre><code>https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@main/index.json
+https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1.7.0/routes/camino-frances/route.geojson
+https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1.7.0/routes/camino-frances/stages.json
+https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1.7.0/routes/camino-frances/metadata.json
+https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1.7.0/routes/camino-frances/waypoints.geojson
+https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1.7.0/routes/camino-frances/stats.json
+https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1.7.0/routes/camino-frances/ways/route.json
+https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1.7.0/routes/camino-frances/ways/stage-00.json</code></pre>
+    <p>A route with no <code>ways</code> entry in <code>index.json</code> has not
+    cleared the length gate &mdash; its stages are not walkable yet, and apps hide
+    it. A route whose entry says <code>"sparse": true</code> is walkable but thinly
+    curated: fewer than half its stages carry a place beyond the day&rsquo;s own
+    start and end.</p>
 
     <h2>Live CDN Preview</h2>
     <p>This fetches <code>index.json</code> straight from jsDelivr in your browser, right now &mdash; proof that the URL above actually resolves.</p>

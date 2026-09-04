@@ -6,6 +6,8 @@ A canonical, open-source dataset of pilgrimage routes worldwide.
 
 ## What's In the Box
 
+The Route Points column counts `route.geojson` only. `route.main.geojson`, where a route has one, is a derived view of the same OSM data trimmed to the walked line, not additional coverage — counting it too would double the Camino Francés.
+
 | Route | Distance | Topology | Tradition | Route Points | Waypoints | Stats |
 |-------|----------|----------|-----------|-------------|-----------|-------|
 | [Camino Frances](routes/camino-frances/) | 764 km | Linear | Christian | 33,192 | 2,957 | 41 years (1985-2025) |
@@ -79,6 +81,47 @@ routes/{route-id}/
   stats.json           # Historical statistics with sources
 ```
 
+### Stage packages (`ways/`)
+
+Each route can carry a ready-to-walk package: one file per stage, in the exact
+JSON the [Pilgrim](https://pilgrimapp.org) iOS app decodes, plus the route's
+card data and a coverage report.
+
+```
+routes/{route-id}/
+  route.main.geojson    # the walked line: the main route, variants removed
+  ways/
+    stage-00.json       # one stage, one Way — geometry, moments, marks, words
+    stage-01.json
+    route.json           # name, country, distance, stage list — the catalog card
+    report.json           # what this route can and cannot promise a walker
+```
+
+Regenerate with `npm run build-ways` (part of `npm run pipeline`). One bar
+decides what ships, and one flag describes it:
+
+- **The length gate.** Every stage's slice of the walked line must measure
+  within 10 % of that stage's `distanceKm`. One failing stage means no package
+  and no `ways` entry in `index.json`, so apps hide the route.
+- **The coverage flag.** `index.json`'s `ways` entry carries `placesPerStage`
+  and `sparse`. A route is sparse when fewer than half its stages carry a
+  meaningful place beyond their own start and end towns — it is still listed,
+  and apps say so on its card.
+
+`report.json` is written either way — a route that fails the gate is exactly
+the one whose report you want to read.
+
+**Fetching this from the CDN.** Read the catalog from `@main`, then pin every
+file you download to the exact tag its `release` field names:
+
+```
+https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@main/index.json
+https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1.6.0/routes/camino-frances/ways/route.json
+```
+
+Not `@v1`: jsDelivr caches a tag URL permanently, so that alias still serves a
+March 2026 build. It is no longer moved on release.
+
 ### JavaScript
 
 ```js
@@ -142,7 +185,7 @@ All data files conform to [JSON Schema 2020-12](schema/) definitions. See the [d
 - **Localized strings:** `{ "en": "...", "es": "...", "ja": "..." }` — English always required
 - **Route IDs:** kebab-case (`camino-frances`, `shikoku-88`, `kumano-kodo`)
 - **Schema version:** SemVer in every file (`"schemaVersion": "1.0.0"`)
-- **Versioning:** CDN URLs pin to major version (`@v1`). MINOR adds optional fields. MAJOR = breaking.
+- **Versioning:** Read the catalog from `@main`, then pin every file you download to the exact tag its `release` field names. `@v1` is frozen at whatever jsDelivr cached — it is no longer moved on release. MINOR adds optional fields. MAJOR = breaking.
 
 ### Waypoint Types
 
