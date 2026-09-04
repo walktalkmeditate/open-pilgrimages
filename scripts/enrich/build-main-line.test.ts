@@ -1,6 +1,13 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { buildWayGraph, nearestGraphNode, shortestPath, mainLine } from "./build-main-line.js";
+import { readFileSync } from "node:fs";
+import {
+  buildWayGraph,
+  nearestGraphNode,
+  shortestPath,
+  mainLine,
+  refuseIncompleteLine,
+} from "./build-main-line.js";
 import type { Position } from "../ways/types.js";
 
 /** 0.01° at the equator on the R = 6,371,000 m sphere. */
@@ -91,4 +98,75 @@ test("mainLine never repeats the point where one leg ends and the next begins", 
   for (let i = 1; i < result.line.length; i++) {
     assert.notDeepEqual(result.line[i], result.line[i - 1]);
   }
+});
+
+/** Runs `body` with process.exit and console.error captured rather than real. */
+function capture(body: () => void): { exitCode: number | undefined; errors: string[] } {
+  const realExit = process.exit;
+  const realError = console.error;
+  const errors: string[] = [];
+  let exitCode: number | undefined;
+  // process.exit is typed `never`, so the stub throws to reproduce the way the
+  // real one stops the caller — otherwise execution would fall through to the
+  // write this guard exists to prevent.
+  process.exit = ((code?: number) => {
+    exitCode = code;
+    throw new Error("process.exit");
+  }) as typeof process.exit;
+  console.error = (...args: unknown[]) => void errors.push(args.join(" "));
+  try {
+    body();
+  } catch (error) {
+    if ((error as Error).message !== "process.exit") throw error;
+  } finally {
+    process.exit = realExit;
+    console.error = realError;
+  }
+  return { exitCode, errors };
+}
+
+test("refuseIncompleteLine exits non-zero and names every gap it found", () => {
+  const gaps = mainLine(
+    [
+      [[0, 0], [0.01, 0]],
+      [[1, 1], [1.01, 1]],
+    ],
+    [[0, 0], [0.01, 0], [1.01, 1]],
+  ).missing;
+
+  const { exitCode, errors } = capture(() => refuseIncompleteLine(gaps));
+
+  assert.equal(exitCode, 1);
+  assert.ok(
+    errors.some((line) => /leg 1/.test(line)),
+    `the gap itself was never printed: ${JSON.stringify(errors)}`,
+  );
+  assert.ok(
+    errors.some((line) => /Refusing to write/.test(line)),
+    `nothing said the line would not be written: ${JSON.stringify(errors)}`,
+  );
+});
+
+test("refuseIncompleteLine lets a fully connected line through", () => {
+  const gaps = mainLine(WAYS, [[0, 0], [0.02, 0], [0.03, 0]]).missing;
+  assert.equal(gaps.length, 0);
+
+  const { exitCode, errors } = capture(() => refuseIncompleteLine(gaps));
+
+  assert.equal(exitCode, undefined);
+  assert.deepEqual(errors, []);
+});
+
+/**
+ * main() is not exported and its ROOT is fixed to the repo, so the only way to
+ * pin "a gap stops the write" is to check the wiring: the guard is called, and
+ * it is called before the write it exists to prevent.
+ */
+test("main calls the guard, and calls it before writing the line", () => {
+  const source = readFileSync(new URL("./build-main-line.ts", import.meta.url), "utf-8");
+  const guard = source.search(/^\s*refuseIncompleteLine\(/m);
+  const write = source.search(/^\s*writeFileSync\(/m);
+  assert.ok(guard > 0, "main() never calls refuseIncompleteLine");
+  assert.ok(write > 0, "main() never writes route.main.geojson");
+  assert.ok(guard < write, "the line is written before the gaps are checked");
 });

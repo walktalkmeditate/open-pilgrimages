@@ -204,6 +204,22 @@ export function mainLine(
   return { line, legs, missing };
 }
 
+/**
+ * A gap means the graph is disconnected where the route is not, and `mainLine`
+ * scores that leg 0 and joins straight across it. Writing the file anyway is
+ * worse than writing none: build-ways would cut every stage from a line that
+ * silently omits a day's walking, and the gate would argue with the wrong
+ * number.
+ */
+export function refuseIncompleteLine(missing: string[]): void {
+  if (missing.length === 0) return;
+  for (const gap of missing) console.error(`  ⚠ ${gap}`);
+  console.error(
+    `${missing.length} leg(s) have no connected path. Refusing to write a line with gaps in it.`,
+  );
+  process.exit(1);
+}
+
 function loadJson(path: string): any {
   return JSON.parse(readFileSync(path, "utf-8"));
 }
@@ -249,7 +265,11 @@ async function main(): Promise<void> {
   }
 
   console.log(`Fetching member way geometry for ${routeId}…`);
-  const data = (await queryOverpass(query, `main-line-${routeId}`)) as { elements: OsmRelation[] };
+  // geometry.ts builds this same query from this same metadata.osm config and
+  // caches it under geom-<routeId>. Sharing the key means one cached payload
+  // rather than two, and a route whose geometry was already fetched costs
+  // nothing here.
+  const data = (await queryOverpass(query, `geom-${routeId}`)) as { elements: OsmRelation[] };
   const relations = data.elements.filter((e): e is OsmRelation => e.type === "relation");
   if (relations.length === 0) {
     console.error("Overpass returned no relations. Aborting to preserve existing data.");
@@ -263,7 +283,7 @@ async function main(): Promise<void> {
   anchors.push(stages[stages.length - 1].end.coordinates);
 
   const result = mainLine(ways, anchors);
-  for (const gap of result.missing) console.warn(`  ⚠ ${gap}`);
+  refuseIncompleteLine(result.missing);
 
   const geojson = {
     type: "FeatureCollection",
