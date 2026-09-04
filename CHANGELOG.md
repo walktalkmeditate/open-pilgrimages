@@ -55,12 +55,13 @@ what each route can and cannot yet promise a walker.
   stages across all seven routes already carry one; requiring it means the
   closing line a walker reads at the end of a stage can never quietly fall back
   to a narrative's last sentence for committed data.
-- **Camino Francés stages 16 and 17** have their `distanceKm` corrected to what
-  the walked line measures — 26.3 → 23.3 km and 23.2 → 26.0 km — with a
-  `distanceNote` on each. Brierley splits that day at a different albergue in
-  Terradillos de los Templarios than the point on the OSM line nearest the
-  village, so one stage borrows what the other lends. The route total is
-  unchanged at 764 km.
+- **Six Camino Francés stage anchors corrected to their OSM place nodes** —
+  Zubiri, Santo Domingo de la Calzada, Terradillos de los Templarios,
+  Bercianos del Real Camino, San Martín del Camino, and Foncebadón. Each sat
+  hundreds of meters to several kilometers off the walked line (Bercianos del
+  Real Camino by nearly 4 km), which is what made the stages on either side of
+  it measure short or long against their declared distance. No `distanceKm`
+  changed: the route total is unchanged at 763.7 km → 764.
 
 ### Coverage, honestly
 

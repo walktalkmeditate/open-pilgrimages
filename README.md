@@ -59,15 +59,21 @@ Each route includes historical statistics sourced from official pilgrimage organ
 
 ### Via jsDelivr CDN
 
+Read the catalog from `@main`, then fetch route files pinned at the exact tag
+its `release` field names:
+
 ```
-https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1/index.json
-https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1/routes/camino-frances/route.geojson
-https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1/routes/camino-frances/route.gpx
-https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1/routes/camino-frances/waypoints.geojson
-https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1/routes/camino-frances/stages.json
-https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1/routes/camino-frances/metadata.json
-https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1/routes/camino-frances/stats.json
+https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@main/index.json
+https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1.7.0/routes/camino-frances/route.geojson
+https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1.7.0/routes/camino-frances/route.gpx
+https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1.7.0/routes/camino-frances/waypoints.geojson
+https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1.7.0/routes/camino-frances/stages.json
+https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1.7.0/routes/camino-frances/metadata.json
+https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1.7.0/routes/camino-frances/stats.json
 ```
+
+Not `@v1`: jsDelivr caches a tag URL permanently, so that alias is frozen at a
+March 2026 build and is no longer maintained.
 
 ### File Structure
 
@@ -111,12 +117,12 @@ decides what ships, and one flag describes it:
 `report.json` is written either way — a route that fails the gate is exactly
 the one whose report you want to read.
 
-**Fetching this from the CDN.** Read the catalog from `@main`, then pin every
-file you download to the exact tag its `release` field names:
+**Fetching this from the CDN.** Read the catalog from `@main`, then fetch
+package files pinned at the exact tag its `release` field names:
 
 ```
 https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@main/index.json
-https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1.6.0/routes/camino-frances/ways/route.json
+https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1.7.0/routes/camino-frances/ways/route.json
 ```
 
 Not `@v1`: jsDelivr caches a tag URL permanently, so that alias still serves a
