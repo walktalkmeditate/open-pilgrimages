@@ -392,3 +392,17 @@ test("a route with a stage outside the length gate gets no ways entry at all", (
     rmSync(root, { recursive: true, force: true });
   }
 });
+
+test("the committed index.json names the version package.json is at", () => {
+  // The release procedure bumps package.json and then regenerates. Without
+  // this guard, forgetting the regeneration ships an index that pins every
+  // package download to the previous release, and both tags resolve on the
+  // CDN, so nothing would 404 to give it away.
+  const index = JSON.parse(readFileSync(join(ROOT, "index.json"), "utf-8")) as RouteIndex;
+  const pkg = JSON.parse(readFileSync(join(ROOT, "package.json"), "utf-8")) as { version: string };
+  assert.equal(
+    index.release,
+    `v${pkg.version}`,
+    "index.json is stale — run npm run build-index and commit the result",
+  );
+});

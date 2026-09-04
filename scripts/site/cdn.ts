@@ -154,15 +154,22 @@ export function currentCdnMovingRef(): string {
 }
 
 /**
- * `@v{currentMajorVersion()}` is the moving major-version tag every CDN
- * consumer is told to pin to; a `@vX.Y.Z` ref names one specific release.
- * Both are refs this project actually produces and moves/creates as part of
- * cutting a release (see .claude/commands/release.md). Anything else —
- * `@main`, `@latest`, a branch name — is a ref this project has never
- * published against: the README's Versioning note only ever tells consumers
- * to pin to the moving major tag, never a branch, and an unpublished ref can
- * point at an in-progress commit that 404s on files added since the last
- * release, or change contents without warning.
+ * Three refs this project actually publishes against:
+ *
+ * - `@main` — the catalog ref. jsDelivr caches a *tag* URL permanently, so a
+ *   force-moved `v1` keeps serving whatever it first resolved (measured: `@v1`
+ *   still returns the March 2026 index, three routes, while the tag itself
+ *   points at the August commit). A branch ref refreshes on jsDelivr's own
+ *   ~12 h cycle, so `@main/index.json` is the only URL that reliably names the
+ *   current release. Only `index.json` is fetched this way; everything a
+ *   consumer downloads afterwards is pinned to the exact tag it named.
+ * - `@vX.Y.Z` — one specific release, and what every package file is pinned to.
+ * - `@v{currentMajorVersion()}` — the historical moving major tag. Still
+ *   recognised because README and schema `$id`s carry it, but the release
+ *   procedure no longer moves it: see .claude/commands/release.md.
+ *
+ * Anything else — `@latest`, another branch name — is a ref this project has
+ * never published against.
  *
  * `currentMajor` defaults to the real package.json-derived value but can be
  * overridden — the same DI shape as fetch-roads.ts's fetchImpl/sleepImpl —
@@ -170,7 +177,7 @@ export function currentCdnMovingRef(): string {
  * package.json.
  */
 export function isRecognizedCdnRef(ref: string, currentMajor: string = currentMajorVersion()): boolean {
-  return ref === `v${currentMajor}` || RELEASED_VERSION_REF_PATTERN.test(ref);
+  return ref === "main" || ref === `v${currentMajor}` || RELEASED_VERSION_REF_PATTERN.test(ref);
 }
 
 /**

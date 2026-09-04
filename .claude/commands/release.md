@@ -89,6 +89,31 @@ Update `package.json` to set `"version": "$VERSION"`. Verify with:
 grep '"version"' package.json
 ```
 
+## Phase 2b: Regenerate the ways packages and the index
+
+`index.json` carries a `release` field naming the tag this build will be
+published under, and the Pilgrim app pins every package download to it. That
+field is generated from `package.json`'s version, so it is wrong until the
+index is regenerated *after* Phase 2's bump:
+
+```bash
+npm run build-ways
+npm run build-index
+grep '"release"' index.json
+```
+
+The grep must show `"release": "v$VERSION"`. If it shows the previous version,
+Phase 2's bump did not land — fix that before going on.
+
+`npm run build-ways` also rewrites every `routes/*/ways/` directory. Review the
+diff: a route gaining or losing a `ways` entry in `index.json`, or flipping
+`sparse`, is a change to what the app offers its walkers and belongs in the
+CHANGELOG.
+
+**Halt the release** if `npm run build-ways` exits non-zero — that is a schema
+failure, not a coverage one, and it means a package on its way to the CDN does
+not match the contract the app decodes.
+
 ## Phase 3: Update `README.md` with current stats
 
 The README has hardcoded dataset stats that need to be refreshed every release. Use the Phase 1 numbers to update:
@@ -134,7 +159,7 @@ Both must pass before proceeding.
 Stage and commit:
 
 ```bash
-git add package.json README.md CHANGELOG.md
+git add package.json README.md CHANGELOG.md index.json routes
 git commit -m "$(cat <<EOF
 chore: bump to $VERSION + update README + CHANGELOG
 
@@ -160,27 +185,40 @@ EOF
 
 The summary should match the title you'll use for the GitHub Release in Phase 9.
 
-## Phase 8: Move the `v1` (or current major) moving tag
+## Phase 8: The `v1` alias is not maintained
 
-The repo uses a moving major-version tag (`v1`) that always points to the latest release on the v1.x line. CDN consumers using `https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1/...` rely on this tag.
+Earlier releases force-moved a `v1` tag onto each release commit. That has
+stopped, and this phase exists to say so rather than leave the omission
+looking like a mistake.
 
-Force-update the moving tag to point at the new release:
+jsDelivr caches a tag URL permanently. `v1` was moved onto the v1.6.0 commit
+in August 2026 and `https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1/index.json`
+still serves the March 2026 index — three routes, 1,725 bytes — while
+`@v1.6.0` and `@main` both serve the current seven-route index. A moving tag
+whose CDN never moves is a promise this project cannot keep.
+
+So: the Pilgrim app reads the catalog from `@main/index.json`, which jsDelivr
+refreshes on its own ~12 h cycle, and pins every package file to the exact
+`release` tag that index names.
+
+`@v1` URLs in the README and in the schemas' `$id` fields still resolve — to
+the bytes jsDelivr cached. If anyone ever needs one refreshed, the only lever
+is a purge:
 
 ```bash
-git tag -fa v1 -m "Latest v1 release (currently v$VERSION)" HEAD
+curl "https://purge.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1/index.json"
 ```
 
-If the new version is a new major (e.g., 2.0.0), create a new moving tag instead (`v2`) and leave `v1` pinned at the last v1.x release.
+Do not re-add a `git tag -fa v1` step without also purging every `@v1` path
+the site and README reference; a moved tag alone changes nothing a consumer
+sees.
 
 ## Phase 9: Push everything
 
 ```bash
 git push origin main
 git push origin v$VERSION
-git push --force origin v1
 ```
-
-The `--force` is required for the moving `v1` tag (this is the standard pattern for moving tags and is safe — `v1` is intentionally mutable).
 
 ## Phase 10: Create the GitHub Release
 
@@ -203,10 +241,21 @@ The body should end with a CDN section:
 ## 📦 CDN
 
 \`\`\`
-https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v$VERSION/index.json
+https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@main/index.json
 \`\`\`
 
-Or pin to \`@v1\` for the latest v1.x release. CDN cache may take ~24h to refresh; you can purge manually via \`https://purge.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1/\`.
+Read the catalog from \`@main\` — jsDelivr refreshes a branch ref on its own
+cycle — then pin every file you download to the tag that index's \`release\`
+field names:
+
+\`\`\`
+https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v$VERSION/routes/camino-frances/ways/route.json
+\`\`\`
+
+The \`@v1\` alias is no longer maintained: jsDelivr caches tag URLs
+permanently, so it still serves a March 2026 build. Purge manually via
+\`https://purge.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1/\` if you
+depend on it.
 ```
 
 ## Phase 11: Verify the release
@@ -218,7 +267,7 @@ git tag --points-at HEAD
 
 Confirm:
 - The new version appears at the top of `gh release list` marked as "Latest"
-- Both `v$VERSION` and `v1` tags point at HEAD
+- `v$VERSION` points at HEAD
 - `git status` shows clean working tree
 
 ## Phase 12: Optional — update GitHub repo About
@@ -237,14 +286,21 @@ If the description has drifted, restore it with `gh repo edit walktalkmeditate/o
 
 ## Phase 13: Purge jsDelivr cache
 
-No longer optional: Phase 14 depends on it. `v1` is a moving tag, and jsDelivr caches a moving ref's resolution for a while even after it's force-updated — without a purge, Phase 14 can fail on `@v1` URLs that are actually fine, just still serving the previous release out of cache.
+No longer optional: Phase 14 depends on it. jsDelivr caches by ref, and `@main`
+is the ref the catalog is read from, so until it is purged Phase 14 can fail on
+`@main` URLs that are actually fine — just still serving the previous release
+out of cache.
 
 ```bash
-curl "https://purge.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1/index.json"
+curl "https://purge.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@main/index.json"
 curl "https://purge.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v$VERSION/index.json"
 ```
 
-This purges `index.json` at both refs, which is normally enough to make jsDelivr re-resolve `@v1` to the new commit for every other path too. If Phase 14 still reports a stale-looking failure on some other URL afterward, purge that specific URL the same way (swap `cdn.jsdelivr.net` for `purge.jsdelivr.net`, keep the path) and re-run it.
+This purges `index.json` at both refs, which is normally enough to make
+jsDelivr re-resolve `@main` to the new commit for every other path too. If
+Phase 14 still reports a stale-looking failure on some other URL afterward,
+purge that specific URL the same way (swap `cdn.jsdelivr.net` for
+`purge.jsdelivr.net`, keep the path) and re-run it.
 
 ## Phase 14: Verify every CDN link resolves
 
@@ -256,9 +312,16 @@ npm run check-cdn
 
 Every URL must report `ok`. If any fail:
 - **Triage how the failure is reported first.** `check-cdn`'s output distinguishes an HTTP response from a thrown error: `FAIL <url> — HTTP <status>` means jsDelivr itself answered with a non-200 — a real broken link. `FAIL <url> — <message>` (e.g. `The operation was aborted`, a connection reset, a DNS failure) means the request never got a response at all — a client-side or network failure, not evidence the link is broken. Re-run `npm run check-cdn` before treating the latter as a real failure; only an `HTTP <status>` failure that survives a re-run is the bug this phase exists to catch.
-- Confirm `v1` actually moved: `git tag --points-at HEAD` should list both `v1` and `v$VERSION`. If it doesn't, Phase 8/9 didn't complete — fix that first.
+- Confirm the tag actually landed: `git tag --points-at HEAD` should list
+  `v$VERSION`. If it doesn't, Phase 7/9 didn't complete — fix that first.
+  There is no moving tag to check any more; see Phase 8.
 - Re-run the Phase 13 purge (jsDelivr's cache can take a short time to catch up even after a purge request is accepted) and re-run `npm run check-cdn`.
 - If a URL fails and its path is new in this release (added in the commits since the last tag), that's the exact bug this phase exists to catch — do not report the release as done until it resolves.
+- **Ways URLs 404 until Phase 9 pushes the tag.** `routes/<route-id>/ways/*` is
+  new in a release, so `@v$VERSION` cannot serve it until the tag exists, and
+  `@main` cannot until the push lands. That is why `npm run check-cdn` runs at
+  Phase 14 and not before; a ways-path failure here, after the purge, is a real
+  one.
 
 ## Phase 15: Report to user
 
@@ -273,10 +336,15 @@ Summarize:
 ## Notes
 
 - **Never skip Phase 4 (CHANGELOG)** — this is the canonical record of changes for downstream consumers
-- **Never skip Phase 8 (move v1 tag)** — CDN consumers on `@v1` rely on it
+- **Never skip Phase 2b** — `index.json`'s `release` field is what the Pilgrim
+  app pins its package downloads to. A stale one points every download at the
+  previous release, and because that tag also resolves, nothing 404s to tell
+  you. `scripts/build-index.test.ts` guards it in CI; do not "fix" a failure
+  there by editing `index.json` by hand.
+- **Do not re-introduce the moving `v1` tag** — see Phase 8. jsDelivr's tag
+  cache made it a promise this project could not keep, and the app reads
+  `@main` instead.
 - **Never skip Phase 13 (purge) or Phase 14 (`npm run check-cdn`)** — this is the pair that would have caught the v1.5.0 GPX-link regression (every CDN link the site references 404ing because `v1` hadn't advanced yet); a release isn't done until Phase 14 is green
 - **`check-cdn` is deliberately not part of CI** (`.github/workflows/validate.yml` never runs it) — CI stays offline and deterministic, so this phase is the only place it runs
 - **Never use `--no-verify`** to bypass commit hooks
-- **The `git push --force` on v1 is intentional** — it is the only acceptable force-push in this workflow
 - **If anything fails partway through**, do not "retry" from the beginning. Diagnose, fix, and resume from the failed phase. Tags can be deleted with `git tag -d v$VERSION && git push origin :refs/tags/v$VERSION` if a tag was created prematurely.
-- **The `v1` moving tag may need to be replaced with `v2` etc.** when bumping a major version. The moving tag always tracks the latest release on the current major line.
