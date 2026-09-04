@@ -4,7 +4,7 @@
   "name": "Camino de Santiago (Frances)",
   "country": "ES",
   "region": "Europe",
-  "distanceKm": 763.5,
+  "distanceKm": 763.7,
   "stageCount": 33,
   "tradition": "christian",
   "summary": "The most popular pilgrimage route to Santiago de Compostela, crossing the Pyrenees from France and traversing northern Spain for 764 km. Walked continuously since the 9th century.",
@@ -188,7 +188,7 @@
     {
       "index": 16,
       "name": "Carrión de los Condes to Terradillos de los Templarios",
-      "distanceKm": 23.3,
+      "distanceKm": 26.3,
       "hours": {
         "min": 6,
         "max": 7
@@ -199,7 +199,7 @@
     {
       "index": 17,
       "name": "Terradillos de los Templarios to Bercianos del Real Camino",
-      "distanceKm": 26,
+      "distanceKm": 23.2,
       "hours": {
         "min": 5,
         "max": 7
