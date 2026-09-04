@@ -122,6 +122,7 @@
         "interior": {
           "type": "object",
           "description": "Editorial content about the pilgrim experience on this stage",
+          "required": ["reflection"],
           "properties": {
             "theme": { "$ref": "#/$defs/LocalizedString" },
             "narrative": { "$ref": "#/$defs/LocalizedString" },
