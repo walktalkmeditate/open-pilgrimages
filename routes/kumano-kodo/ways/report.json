@@ -151,6 +151,11 @@
       3
     ]
   },
+  "dropped": [
+    "wp-nachi-taisha (\"Kumano Nachi Taisha\") has no stageIndex and was dropped",
+    "wp-nachi-falls (\"Nachi Falls\") has no stageIndex and was dropped",
+    "wp-hayatama-taisha (\"Kumano Hayatama Taisha\") has no stageIndex and was dropped"
+  ],
   "places": {
     "sparse": false,
     "stagesWithMomentBeyondEnds": 3,

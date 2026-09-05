@@ -1522,6 +1522,7 @@
       33
     ]
   },
+  "dropped": [],
   "places": {
     "sparse": true,
     "stagesWithMomentBeyondEnds": 0,

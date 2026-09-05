@@ -1256,6 +1256,7 @@
     "passed": true,
     "failing": []
   },
+  "dropped": [],
   "places": {
     "sparse": true,
     "stagesWithMomentBeyondEnds": 3,

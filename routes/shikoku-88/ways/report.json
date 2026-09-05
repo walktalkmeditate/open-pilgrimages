@@ -1373,6 +1373,7 @@
       9
     ]
   },
+  "dropped": [],
   "places": {
     "sparse": false,
     "stagesWithMomentBeyondEnds": 9,
