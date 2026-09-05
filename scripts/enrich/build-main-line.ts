@@ -220,8 +220,29 @@ export function refuseIncompleteLine(missing: string[]): void {
   process.exit(1);
 }
 
-function loadJson(path: string): any {
+function loadJson(path: string): unknown {
   return JSON.parse(readFileSync(path, "utf-8"));
+}
+
+/**
+ * Overpass's answer, checked rather than asserted. The old cast promised an
+ * `elements` array and got whatever the endpoint felt like sending: an error
+ * document, a `{}` from a rewritten cache, or the `{ remark: … }` a soft
+ * timeout produces all satisfied the type and died one line later on
+ * `.filter`, naming neither the route nor the reason.
+ */
+export function relationsFrom(data: unknown, routeId: string): OsmRelation[] {
+  const elements = typeof data === "object" && data !== null
+    ? (data as { elements?: unknown }).elements
+    : undefined;
+
+  if (!Array.isArray(elements)) {
+    throw new Error(`${routeId}: Overpass returned no elements array, so there is no geometry to build a walked line from`);
+  }
+
+  return elements.filter((element): element is OsmRelation =>
+    typeof element === "object" && element !== null && (element as { type?: unknown }).type === "relation",
+  );
 }
 
 function extractWays(relations: OsmRelation[]): Position[][] {
@@ -243,13 +264,16 @@ async function main(): Promise<void> {
   }
 
   const routeDir = join(ROOT, "routes", routeId);
-  const metadata = loadJson(join(routeDir, "metadata.json"));
+  const metadata = loadJson(join(routeDir, "metadata.json")) as {
+    name: { en: string };
+    osm?: { relations?: number[]; query?: string };
+  };
   const stagesPath = join(routeDir, "stages.json");
   if (!existsSync(stagesPath)) {
     console.error(`${routeId} has no stages.json, so there is nothing to anchor a walked line to.`);
     process.exit(1);
   }
-  const stages = loadJson(stagesPath).stages as Array<{
+  const stages = (loadJson(stagesPath) as { stages: unknown }).stages as Array<{
     index: number;
     name: { en: string };
     distanceKm: number;
@@ -269,8 +293,7 @@ async function main(): Promise<void> {
   // caches it under geom-<routeId>. Sharing the key means one cached payload
   // rather than two, and a route whose geometry was already fetched costs
   // nothing here.
-  const data = (await queryOverpass(query, `geom-${routeId}`)) as { elements: OsmRelation[] };
-  const relations = data.elements.filter((e): e is OsmRelation => e.type === "relation");
+  const relations = relationsFrom(await queryOverpass(query, `geom-${routeId}`), routeId);
   if (relations.length === 0) {
     console.error("Overpass returned no relations. Aborting to preserve existing data.");
     process.exit(1);

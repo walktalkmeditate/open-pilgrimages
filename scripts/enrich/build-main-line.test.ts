@@ -7,6 +7,7 @@ import {
   shortestPath,
   mainLine,
   refuseIncompleteLine,
+  relationsFrom,
 } from "./build-main-line.js";
 import type { Position } from "../ways/types.js";
 
@@ -97,6 +98,26 @@ test("mainLine never repeats the point where one leg ends and the next begins", 
   const result = mainLine(WAYS, [[0, 0], [0.01, 0], [0.02, 0], [0.03, 0]]);
   for (let i = 1; i < result.line.length; i++) {
     assert.notDeepEqual(result.line[i], result.line[i - 1]);
+  }
+});
+
+test("relationsFrom keeps the relations and leaves every other element behind", () => {
+  const relations = relationsFrom(
+    { elements: [{ type: "way", id: 1 }, { type: "relation", id: 2 }, { type: "node", id: 3 }] },
+    "camino-frances",
+  );
+  assert.deepEqual(relations.map((r) => r.id), [2]);
+});
+
+test("relationsFrom names the route when Overpass sent back no elements array", () => {
+  // What a soft timeout, an error document, or a rewritten cache actually
+  // hands this — each of which satisfied the old cast and died on .filter.
+  for (const body of [{}, { remark: "runtime error" }, { elements: "not an array" }, null, "nonsense"]) {
+    assert.throws(
+      () => relationsFrom(body, "camino-frances"),
+      /camino-frances: Overpass returned no elements array/,
+      `${JSON.stringify(body)} should have been refused`,
+    );
   }
 });
 
