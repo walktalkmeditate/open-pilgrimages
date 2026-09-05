@@ -12,34 +12,85 @@ const CACHE_DIR = join(import.meta.dirname, "../../.cache/enrich");
 const USER_AGENT =
   "open-pilgrimages-enrich/1.0 (+https://github.com/walktalkmeditate/open-pilgrimages)";
 
-export async function queryOverpass(query: string, cacheKey: string): Promise<unknown> {
-  mkdirSync(CACHE_DIR, { recursive: true });
-  const cachePath = join(CACHE_DIR, `${cacheKey}.json`);
+/**
+ * The longest server-side budget any query below asks for is [timeout:300],
+ * and that bounds only how long Overpass will spend *computing* — not the
+ * socket. A connection that stalls before Overpass starts, or on the way
+ * back, would otherwise hang the caller forever, and these scripts are run by
+ * hand with nothing watching them. Bounded comfortably past the server's own
+ * timeout so a slow but genuine answer is never aborted out from under it.
+ * scripts/fetch-roads.ts bounds its own requests the same way.
+ */
+export const CLIENT_TIMEOUT_MS = (300 + 30) * 1000;
+
+const CACHE_MAX_AGE_MS = 7 * 24 * 60 * 60 * 1000;
+
+/**
+ * What queryOverpass needs in order to run against something other than the
+ * real network and the real project `.cache/enrich/`. Both fields default to
+ * the real thing, so calling it with no runtime at all — what every script
+ * here does — reproduces today's behaviour exactly.
+ */
+export interface OverpassRuntime {
+  cacheDir?: string;
+  fetchImpl?: typeof fetch;
+}
+
+export async function queryOverpass(
+  query: string,
+  cacheKey: string,
+  runtime: OverpassRuntime = {},
+): Promise<unknown> {
+  const cacheDir = runtime.cacheDir ?? CACHE_DIR;
+  const fetchImpl = runtime.fetchImpl ?? fetch;
+
+  mkdirSync(cacheDir, { recursive: true });
+  const cachePath = join(cacheDir, `${cacheKey}.json`);
 
   if (existsSync(cachePath)) {
     try {
       const cached = JSON.parse(readFileSync(cachePath, "utf-8"));
       const ageMs = Date.now() - new Date(cached.fetchedAt).getTime();
-      if (ageMs < 7 * 24 * 60 * 60 * 1000) {
+      if (ageMs < CACHE_MAX_AGE_MS) {
         return cached.data;
       }
     } catch { /* stale or corrupt cache, refetch */ }
   }
 
-  const response = await fetch(OVERPASS_URL, {
+  const response = await fetchImpl(OVERPASS_URL, {
     method: "POST",
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
       "User-Agent": USER_AGENT,
     },
     body: `data=${encodeURIComponent(query)}`,
+    signal: AbortSignal.timeout(CLIENT_TIMEOUT_MS),
   });
 
   if (!response.ok) {
+    // 429 is the one status where the server says how long to wait. Nothing
+    // here retries — surfacing the header just makes the wait visible to
+    // whoever reruns this by hand.
+    if (response.status === 429) {
+      const retryAfter = response.headers.get("retry-after");
+      const suggestion = retryAfter ? `, suggested wait: ${retryAfter}s` : "";
+      throw new Error(`Overpass API 429: ${response.statusText}${suggestion}`);
+    }
     throw new Error(`Overpass API ${response.status}: ${response.statusText}`);
   }
 
-  const data = await response.json();
+  const data: unknown = await response.json();
+
+  // Overpass reports a soft timeout or a truncated answer in a `remark` field
+  // on an otherwise ordinary 200, with `elements` left empty or partial.
+  // Thrown before the write, not after: a cached partial answer would be
+  // served as the truth for the next seven days, and the caller that asked
+  // for it would build a route out of half a relation.
+  const remark = (data as { remark?: unknown } | null)?.remark;
+  if (typeof remark === "string") {
+    throw new Error(`Overpass API reported: ${remark}`);
+  }
+
   writeFileSync(cachePath, JSON.stringify({ fetchedAt: new Date().toISOString(), data }, null, 2));
   return data;
 }
