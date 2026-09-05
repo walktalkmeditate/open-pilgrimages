@@ -120,15 +120,16 @@ let cachedCurrentMajorVersion: string | undefined;
 
 /**
  * The major version out of package.json's own `"version"` — "1" for
- * "1.6.0". This, not a hardcoded "v1", is what the moving CDN tag
- * (isRecognizedCdnRef below) tracks: the moving tag is always named after
- * the *current* major line (see .claude/commands/release.md's Phase 8,
- * "the v1 moving tag may need to be replaced with v2 etc."), so a hardcoded
- * "v1" here would start rejecting every real `@v2` URL the instant this
- * project ships its first major bump — the same "guard reports clean while
- * broken" shape as the rest of this file's fixes, just triggered by a
- * version bump instead of an org rename. Cached after the first read since
- * package.json doesn't change within a single process run.
+ * "1.6.0". This, not a hardcoded "v1", is what `isRecognizedCdnRef` below
+ * uses to keep tolerating `@v{major}` links: that alias is only for legacy
+ * README/schema `$id` references, and the release procedure no longer moves
+ * it (see .claude/commands/release.md's Phase 8, "the v1 alias is not
+ * maintained"), but a hardcoded "v1" here would still start rejecting every
+ * such legacy `@v2` reference the instant this project ships its first major
+ * bump — the same "guard reports clean while broken" shape as the rest of
+ * this file's fixes, just triggered by a version bump instead of an org
+ * rename. Cached after the first read since package.json doesn't change
+ * within a single process run.
  */
 function currentMajorVersion(): string {
   if (cachedCurrentMajorVersion !== undefined) return cachedCurrentMajorVersion;
@@ -149,11 +150,13 @@ function currentMajorVersion(): string {
 }
 
 /**
- * The moving CDN tag consumers are told to pin to right now — "v1" today,
- * "v2" the release after this project's first major bump. check-site.ts
- * builds its JSDELIVR_BASE suggestion text from this rather than a second
- * hardcoded "@v1", so that message can't go stale the way isRecognizedCdnRef
- * itself used to.
+ * The legacy major-version alias still tolerated in README/schema `$id`
+ * links — "v1" today, "v2" the release after this project's first major
+ * bump. Not a ref consumers are told to pin to: the catalog is read from
+ * `@main` and packages are pinned at a released `@vX.Y.Z` tag. check-site.ts
+ * builds example legacy-link text from this rather than a second hardcoded
+ * "@v1", so that text can't go stale the way isRecognizedCdnRef itself used
+ * to.
  */
 export function currentCdnMovingRef(): string {
   return `v${currentMajorVersion()}`;

@@ -22,7 +22,7 @@ export const MAX_ROUTE_POINTS = 1000;
  */
 export const SNAP_METERS = 500;
 
-export const GATE_TOLERANCE = 0.1;
+const GATE_TOLERANCE = 0.1;
 
 const toRadians = (degrees: number): number => (degrees * Math.PI) / 180;
 

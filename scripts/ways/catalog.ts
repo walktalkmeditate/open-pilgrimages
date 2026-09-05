@@ -96,6 +96,8 @@ export interface ReportInput {
   generatedAt: string;
   walkedLine: { source: "route.main.geojson" | "route.geojson"; points: number; lengthKm: number };
   stages: ReportStageInput[];
+  /** Waypoints a stage filter never saw at all — see WayReportFile.dropped. */
+  dropped?: string[];
 }
 
 export function buildReport(input: ReportInput): WayReportFile {
@@ -136,6 +138,7 @@ export function buildReport(input: ReportInput): WayReportFile {
     },
     stages,
     gate: { passed: failing.length === 0, failing },
+    dropped: input.dropped ?? [],
     places: {
       sparse,
       stagesWithMomentBeyondEnds: withMoment,

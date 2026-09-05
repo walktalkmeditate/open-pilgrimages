@@ -116,17 +116,6 @@ export function composedText(properties: WaypointProperties): string | undefined
 
 const coordinate = (p: Position): WayCoordinate => ({ lat: p[1], lon: p[0] });
 
-/**
- * The Camino's ids are already `wp-sjpp`; Shikoku's are `temple-12`. Both
- * conventions are already fit to be a moment id, so the raw id is used as-is
- * rather than guessed at — prefixing the first would double it to
- * `wp-wp-sjpp`, and prefixing the second would hide `temple-3` behind
- * `wp-temple-3` for no reason.
- */
-function momentId(rawId: string): string {
-  return rawId;
-}
-
 function placeMoment(
   id: string,
   place: StagePlace,
@@ -182,7 +171,12 @@ export function buildMoments(input: MomentInput): MomentResult {
       if (nearEnd) endHasTown = true;
     }
 
-    const id = momentId(rawId);
+    // The Camino's ids are already `wp-sjpp`; Shikoku's are `temple-12`. Both
+    // conventions are already fit to be a moment id, so the raw id is used
+    // as-is rather than guessed at — prefixing the first would double it to
+    // `wp-wp-sjpp`, and prefixing the second would hide `temple-3` behind
+    // `wp-temple-3` for no reason.
+    const id = rawId;
     const moment: WayMoment = {
       id,
       frac: projection.frac,

@@ -17,7 +17,7 @@ import {
   RDP_TOLERANCE_METERS,
   MAX_ROUTE_POINTS,
 } from "./ways/geo.js";
-import { buildMoments, type WaypointFeature } from "./ways/moments.js";
+import { buildMoments, MOMENT_TYPES, type WaypointFeature } from "./ways/moments.js";
 import { buildMarks } from "./ways/marks.js";
 import { buildStageBlock, midpointHours, type DatasetStage } from "./ways/stage.js";
 import { wholeSecondISO } from "./ways/text.js";
@@ -65,6 +65,24 @@ export function buildRouteWays(input: RouteWaysInput): RouteWaysResult {
       );
     }
   }
+
+  // A waypoint of a moment type whose stageIndex is missing or out of range
+  // matches no stage's `stageIndex` filter below, so it never becomes a
+  // moment and never reaches a stage's own `dropped` list either — it just
+  // vanishes. Collected here, once, against the whole route, so the report
+  // says so instead.
+  const routeDropped = input.waypoints
+    .filter((w) => MOMENT_TYPES.includes(w.properties.type))
+    .filter((w) => {
+      const stageIndex = w.properties.stageIndex;
+      return stageIndex === undefined || stageIndex < 0 || stageIndex >= stages.length;
+    })
+    .map((w) => {
+      const label = `${w.id ?? "(no id)"} ("${w.properties.name ?? w.id ?? "unnamed"}")`;
+      return w.properties.stageIndex === undefined
+        ? `${label} has no stageIndex and was dropped`
+        : `${label} has stageIndex ${w.properties.stageIndex}, outside 0..${stages.length - 1}, and was dropped`;
+    });
 
   const line = walkedLine(input.routeGeoJson);
   const cumulative = cumulativeMeters(line);
@@ -146,6 +164,7 @@ export function buildRouteWays(input: RouteWaysInput): RouteWaysResult {
       lengthKm: lineLengthMeters(line) / 1000,
     },
     stages: reportStages,
+    dropped: routeDropped,
   });
 
   return {
@@ -174,7 +193,7 @@ function writeJson(path: string, value: unknown): void {
 }
 
 function main(): void {
-  const root = process.cwd();
+  const root = join(import.meta.dirname, "..");
   const routesDir = join(root, "routes");
   const ajv = createValidator(root);
   const failures: string[] = [];
@@ -218,6 +237,10 @@ function main(): void {
       continue;
     }
     writeJson(join(waysDir, "report.json"), result.report);
+
+    for (const droppedLine of result.report.dropped) {
+      console.log(`${metadata.id}: ${droppedLine}`);
+    }
 
     // A coverage failure is reported, not fatal: a dataset whose routes do not
     // all have a walked line yet is unfinished, not broken, and `npm run

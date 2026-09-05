@@ -114,7 +114,8 @@ export function waysEntry(routeDir: string): WaysEntry | undefined {
   };
   try {
     report = JSON.parse(readFileSync(reportPath, "utf-8"));
-  } catch {
+  } catch (error) {
+    console.warn(`Could not parse ${reportPath}, omitting ways entry:`, error);
     return undefined;
   }
   if (report.gate?.passed !== true) return undefined;

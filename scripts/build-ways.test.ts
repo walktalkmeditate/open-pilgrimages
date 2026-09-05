@@ -149,6 +149,15 @@ test("the report counts moments, marks, and what was dropped", () => {
   assert.equal(report.walkedLine.points, 41);
 });
 
+test("a waypoint with no stageIndex matches no stage and is named in the route-level dropped list", () => {
+  const report = build({ stages: passingStages() }).report;
+  assert.equal(report.dropped.length, 1);
+  assert.match(report.dropped[0], /wp-orphan-shrine/);
+  assert.match(report.dropped[0], /no stageIndex/);
+  // Never silently absorbed into a stage's own count either.
+  assert.equal(report.stages.every((s) => !s.dropped.some((d) => d.includes("wp-orphan-shrine"))), true);
+});
+
 test("the report flags coverage without gating on it", () => {
   const report = build({ stages: passingStages() }).report;
   assert.equal(report.gate.passed, true);

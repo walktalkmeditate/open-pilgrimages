@@ -180,5 +180,5 @@ test("the fixture carries every moment type and every mark kind", () => {
   ]) {
     assert.ok(types.has(t), `fixture is missing a ${t} waypoint`);
   }
-  assert.equal(wp.features.length, 15);
+  assert.equal(wp.features.length, 16);
 });

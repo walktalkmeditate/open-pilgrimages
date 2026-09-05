@@ -4,7 +4,7 @@
   "title": "Pilgrimage Way Coverage Report",
   "description": "routes/<route-id>/ways/report.json — the honest picture of what a route can promise a walker.",
   "type": "object",
-  "required": ["schemaVersion", "routeId", "generatedAt", "walkedLine", "stages", "gate", "places"],
+  "required": ["schemaVersion", "routeId", "generatedAt", "walkedLine", "stages", "gate", "dropped", "places"],
   "properties": {
     "schemaVersion": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$" },
     "routeId": { "type": "string", "pattern": "^[a-z0-9-]{1,64}$" },
@@ -51,6 +51,11 @@
         "failing": { "type": "array", "items": { "type": "integer", "minimum": 0 } }
       },
       "additionalProperties": false
+    },
+    "dropped": {
+      "description": "Waypoints of a moment type whose stageIndex is missing or outside 0..stages.length-1 — never assigned to any stage, so they never reach a stage's own dropped list.",
+      "type": "array",
+      "items": { "type": "string" }
     },
     "places": {
       "type": "object",

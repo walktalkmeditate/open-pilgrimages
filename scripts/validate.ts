@@ -2,6 +2,7 @@ import Ajv2020 from "ajv/dist/2020.js";
 import addFormats from "ajv-formats";
 import { readFileSync, existsSync, readdirSync, statSync } from "fs";
 import { join, relative } from "path";
+import { resolveInvokedPath } from "./cli.js";
 
 type Ajv = InstanceType<typeof Ajv2020>;
 
@@ -33,13 +34,13 @@ function findRouteDirectories(): string[] {
   return dirs;
 }
 
-interface ValidationError {
+export interface ValidationError {
   file: string;
   message: string;
   severity: "error" | "warning";
 }
 
-function createValidator() {
+export function createValidator() {
   const ajv = new Ajv2020({ allErrors: true, strict: false });
   addFormats(ajv);
 
@@ -207,22 +208,139 @@ function validateDataConsistency(
   }
 }
 
+function stageFileNameFor(index: number): string {
+  return `stage-${String(index).padStart(2, "0")}.json`;
+}
+
+function stageIndexFromFileName(fileName: string): number {
+  return Number(fileName.slice("stage-".length, fileName.length - ".json".length));
+}
+
 /**
  * The build validates what it writes, but the committed files are what ships:
  * a hand-edited stage file, or one left behind by an older build, would
- * otherwise reach the CDN unchecked.
+ * otherwise reach the CDN unchecked. Schema validation alone can't catch a
+ * package that drifted from a correct build — a stale route.json, a copied
+ * stage file, a partial commit after a mid-build failure — because the
+ * identity and index fields the phone's importer cross-checks are each
+ * independently valid, just inconsistent with each other. This function is
+ * that cross-check, mirroring PilgrimageWayImporter's own guards.
  */
-function validateWays(ajv: Ajv, routeDir: string, errors: ValidationError[]): void {
+export function validateWays(ajv: Ajv, routeDir: string, errors: ValidationError[]): void {
   const waysDir = join(routeDir, "ways");
   if (!existsSync(waysDir) || !statSync(waysDir).isDirectory()) return;
 
+  const metaPath = join(routeDir, "metadata.json");
+  const routeId: string | undefined = existsSync(metaPath) ? loadJson(metaPath)?.id : undefined;
+
   validateFile(ajv, "way-report.schema.json", join(waysDir, "report.json"), errors);
-  validateFile(ajv, "way-route.schema.json", join(waysDir, "route.json"), errors);
+
+  const routePath = join(waysDir, "route.json");
+  validateFile(ajv, "way-route.schema.json", routePath, errors);
+
+  let route: { stageCount?: unknown; stages?: Array<{ index?: unknown }> } | undefined;
+  if (existsSync(routePath)) {
+    try {
+      route = loadJson(routePath);
+    } catch {
+      route = undefined; // validateFile above already recorded the Invalid JSON error
+    }
+  }
+
+  if (route) {
+    const stageCount = route.stageCount;
+    const indices = (route.stages ?? []).map((s) => s.index);
+
+    if (typeof stageCount === "number" && indices.length !== stageCount) {
+      errors.push({
+        file: relative(ROOT, routePath),
+        message: `${routeId}: stageCount=${stageCount} but the stages array has ${indices.length} entries`,
+        severity: "error",
+      });
+    }
+
+    const expectedCount = typeof stageCount === "number" ? stageCount : indices.length;
+    const expectedIndices = Array.from({ length: expectedCount }, (_, i) => i);
+    const sortedIndices = [...indices].sort((a, b) => Number(a) - Number(b));
+    if (JSON.stringify(sortedIndices) !== JSON.stringify(expectedIndices)) {
+      errors.push({
+        file: relative(ROOT, routePath),
+        message: `${routeId}: stage indices ${JSON.stringify(indices)} are not exactly 0..<${expectedCount}`,
+        severity: "error",
+      });
+    }
+
+    if (typeof stageCount === "number") {
+      for (let i = 0; i < stageCount; i++) {
+        const stagePath = join(waysDir, stageFileNameFor(i));
+        if (!existsSync(stagePath)) {
+          errors.push({
+            file: relative(ROOT, stagePath),
+            message: `${routeId}: route.json declares stageCount=${stageCount} but this stage file is missing`,
+            severity: "error",
+          });
+        }
+      }
+    }
+  }
+
   for (const entry of readdirSync(waysDir)) {
     // stageFileName pads to at least two digits, and the schemas allow up to
     // 200 stages, so a three-digit stage (stage-100.json) must match too.
     if (!/^stage-\d{2,3}\.json$/.test(entry)) continue;
-    validateFile(ajv, "way.schema.json", join(waysDir, entry), errors);
+    const stagePath = join(waysDir, entry);
+    validateFile(ajv, "way.schema.json", stagePath, errors);
+
+    let stageFile: { id?: unknown; stage?: { routeId?: unknown; index?: unknown; count?: unknown; hours?: { min?: unknown; max?: unknown } } } | undefined;
+    try {
+      stageFile = loadJson(stagePath);
+    } catch {
+      // validateFile above already recorded the Invalid JSON error
+    }
+    if (!stageFile) continue;
+
+    const nn = stageIndexFromFileName(entry);
+    const expectedId = `pilgrimage:${routeId}:${nn}`;
+    if (stageFile.id !== expectedId) {
+      errors.push({
+        file: relative(ROOT, stagePath),
+        message: `id "${stageFile.id}" does not match the expected "${expectedId}" for route "${routeId}"`,
+        severity: "error",
+      });
+    }
+
+    const stage = stageFile.stage;
+    if (stage) {
+      if (stage.routeId !== routeId) {
+        errors.push({
+          file: relative(ROOT, stagePath),
+          message: `stage.routeId "${stage.routeId}" does not match route "${routeId}"`,
+          severity: "error",
+        });
+      }
+      if (stage.index !== nn) {
+        errors.push({
+          file: relative(ROOT, stagePath),
+          message: `stage.index ${stage.index} does not match this file's own index ${nn}`,
+          severity: "error",
+        });
+      }
+      if (typeof stage.index === "number" && typeof stage.count === "number" && !(stage.index < stage.count)) {
+        errors.push({
+          file: relative(ROOT, stagePath),
+          message: `stage.index ${stage.index} is not less than stage.count ${stage.count}`,
+          severity: "error",
+        });
+      }
+      const hours = stage.hours;
+      if (hours && typeof hours.min === "number" && typeof hours.max === "number" && hours.min > hours.max) {
+        errors.push({
+          file: relative(ROOT, stagePath),
+          message: `hours.min ${hours.min} is greater than hours.max ${hours.max}`,
+          severity: "error",
+        });
+      }
+    }
   }
 }
 
@@ -275,4 +393,6 @@ function main() {
   console.log(`Validation passed (${warns.length} warning(s))`);
 }
 
-main();
+if (import.meta.filename === resolveInvokedPath(process.argv[1])) {
+  main();
+}

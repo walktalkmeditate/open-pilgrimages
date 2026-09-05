@@ -150,6 +150,12 @@ export interface WayReportFile {
   stages: WayReportStage[];
   gate: { passed: boolean; failing: number[] };
   /**
+   * Waypoints of a moment type whose `stageIndex` is missing or outside
+   * `0..stages.length-1` — they match no stage's filter, so they never reach
+   * a stage's own `dropped` list and would otherwise vanish with no trace.
+   */
+  dropped: string[];
+  /**
    * How well curated the route is. This does not gate anything — it becomes
    * the `sparse` flag and `placesPerStage` on the catalog entry, and the app
    * says "few places marked yet" on a sparse route's card.

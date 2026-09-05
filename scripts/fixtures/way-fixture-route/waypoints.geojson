@@ -30,6 +30,8 @@
     { "type": "Feature", "id": "wp-shop", "geometry": { "type": "Point", "coordinates": [0.02, 0.016] },
       "properties": { "routeId": "fixture-way", "name": "Tienda", "type": "supply", "stageIndex": 2, "kmFromStart": 4 } },
     { "type": "Feature", "id": "wp-bus", "geometry": { "type": "Point", "coordinates": [0.02, 0.018] },
-      "properties": { "routeId": "fixture-way", "name": "Parada de Autobús", "type": "transport", "stageIndex": 2, "kmFromStart": 4.22 } }
+      "properties": { "routeId": "fixture-way", "name": "Parada de Autobús", "type": "transport", "stageIndex": 2, "kmFromStart": 4.22 } },
+    { "type": "Feature", "id": "wp-orphan-shrine", "geometry": { "type": "Point", "coordinates": [0.01, 0.01] },
+      "properties": { "routeId": "fixture-way", "name": "Orphan Shrine", "type": "sacred_site", "kmFromStart": 2 } }
   ]
 }
