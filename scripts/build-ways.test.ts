@@ -41,8 +41,74 @@ function passingStages(): DatasetStage[] {
   return stages.map((s) => (s.index === 2 ? { ...s, distanceKm: 1.1 } : s));
 }
 
+/**
+ * A throwaway repo under ROOT — nested there, not in the system temp dir, so
+ * node can resolve the bare "tsx" loader, the same reason build-index.test.ts
+ * nests its own.
+ */
+function tempRepo(): string {
+  const dir = mkdtempSync(join(ROOT, ".build-ways-test-"));
+  cpSync(join(ROOT, "schema"), join(dir, "schema"), { recursive: true });
+  cpSync(join(ROOT, "scripts"), join(dir, "scripts"), { recursive: true });
+  cpSync(join(ROOT, "package.json"), join(dir, "package.json"));
+  mkdirSync(join(dir, "routes"), { recursive: true });
+  return dir;
+}
+
+/** Copies the fixture in under `id`, with stage 2 made honest so the route emits. */
+function addRoute(dir: string, id: string): string {
+  const routeDir = join(dir, "routes", id);
+  cpSync(FIXTURE, routeDir, { recursive: true });
+
+  const metadataPath = join(routeDir, "metadata.json");
+  writeFileSync(metadataPath, JSON.stringify({ ...loadJson(metadataPath), id }, null, 2));
+
+  const stagesPath = join(routeDir, "stages.json");
+  const stagesFile = loadJson(stagesPath);
+  stagesFile.stages[2].distanceKm = 1.1;
+  writeFileSync(stagesPath, JSON.stringify(stagesFile, null, 2));
+
+  return routeDir;
+}
+
+/** Runs the build without throwing on a non-zero exit, so the test can read both. */
+function runBuildWays(dir: string): { status: number; output: string } {
+  try {
+    const stdout = execFileSync(
+      process.execPath,
+      ["--import", "tsx", join(dir, "scripts", "build-ways.ts")],
+      { cwd: dir, encoding: "utf-8" },
+    );
+    return { status: 0, output: stdout };
+  } catch (error) {
+    const failure = error as { status?: number; stdout?: string; stderr?: string };
+    return { status: failure.status ?? -1, output: `${failure.stdout ?? ""}${failure.stderr ?? ""}` };
+  }
+}
+
+const EMITTED_PACKAGE = ["report.json", "route.json", "stage-00.json", "stage-01.json", "stage-02.json"];
+
 test("a route with no stages refuses to build rather than throw a bare TypeError", () => {
   assert.throws(() => build({ stages: [] }), /fixture-way: stages\.json has no stages/);
+});
+
+test("a stages.json with no stages key at all refuses to build rather than die on a bare TypeError", () => {
+  // `build` above defaults an absent override back to the fixture's own
+  // stages, so this one goes straight at buildRouteWays with the undefined a
+  // stages.json missing the key would actually hand it.
+  assert.throws(
+    () =>
+      buildRouteWays({
+        routeId: "fixture-way",
+        metadata: fixture("metadata.json"),
+        stages: undefined as unknown as DatasetStage[],
+        waypoints: fixture("waypoints.geojson").features,
+        routeGeoJson: fixture("route.main.geojson"),
+        walkedLineSource: "route.main.geojson",
+        hasCover: false,
+      }),
+    /fixture-way: stages\.json has no stages array to build from/,
+  );
 });
 
 test("a non-contiguous stage index refuses to build rather than silently misalign the boundaries", () => {
@@ -232,6 +298,53 @@ test("a failing route leaves a report behind but no package", () => {
     const waysDir = join(dir, "routes", "fixture-way", "ways");
     assert.deepEqual(readdirSync(waysDir), ["report.json"]);
     assert.equal(existsSync(join(waysDir, "route.json")), false);
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test("a route whose stages.json has no stages array fails by name and leaves the other routes built", () => {
+  const dir = tempRepo();
+  try {
+    addRoute(dir, "aaa-broken");
+    addRoute(dir, "zzz-good");
+
+    // The key itself goes missing — a hand-edit, or a fetch that wrote {}.
+    const stagesPath = join(dir, "routes", "aaa-broken", "stages.json");
+    const stagesFile = loadJson(stagesPath);
+    delete stagesFile.stages;
+    writeFileSync(stagesPath, JSON.stringify(stagesFile, null, 2));
+
+    const { status, output } = runBuildWays(dir);
+
+    assert.equal(status, 1);
+    assert.match(output, /aaa-broken: stages\.json has no stages array/);
+    // The route after it in the alphabet still built: a per-route throw used
+    // to leave the loop entirely, after the failing route's own package had
+    // already been deleted and before any later route was even looked at.
+    assert.deepEqual(readdirSync(join(dir, "routes", "zzz-good", "ways")).sort(), EMITTED_PACKAGE);
+    assert.equal(existsSync(join(dir, "routes", "aaa-broken", "ways")), false);
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test("a metadata.json with no string id fails that route by name, rather than writing \"undefined\" into every id", () => {
+  const dir = tempRepo();
+  try {
+    addRoute(dir, "aaa-broken");
+    addRoute(dir, "zzz-good");
+
+    const metadataPath = join(dir, "routes", "aaa-broken", "metadata.json");
+    const metadata = loadJson(metadataPath);
+    delete metadata.id;
+    writeFileSync(metadataPath, JSON.stringify(metadata, null, 2));
+
+    const { status, output } = runBuildWays(dir);
+
+    assert.equal(status, 1);
+    assert.match(output, /aaa-broken: metadata\.json has no string "id"/);
+    assert.deepEqual(readdirSync(join(dir, "routes", "zzz-good", "ways")).sort(), EMITTED_PACKAGE);
   } finally {
     rmSync(dir, { recursive: true, force: true });
   }
