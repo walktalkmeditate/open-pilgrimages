@@ -2,13 +2,23 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "fs";
 import { join } from "path";
+import Ajv2020 from "ajv/dist/2020.js";
+import addFormats from "ajv-formats";
 import { buildRouteCard, buildReport, halfOfStages } from "./catalog.js";
 import type { DatasetStage } from "./stage.js";
 
-const FIXTURE = join(import.meta.dirname, "..", "fixtures", "way-fixture-route");
+const ROOT = join(import.meta.dirname, "..", "..");
+const FIXTURE = join(ROOT, "scripts", "fixtures", "way-fixture-route");
 const loadJson = (name: string) => JSON.parse(readFileSync(join(FIXTURE, name), "utf-8"));
 const metadata = loadJson("metadata.json");
 const stages: DatasetStage[] = loadJson("stages.json").stages;
+
+function cardValidator() {
+  const ajv = new Ajv2020({ allErrors: true, strict: false });
+  addFormats(ajv);
+  ajv.addSchema(JSON.parse(readFileSync(join(ROOT, "schema", "way-route.schema.json"), "utf-8")), "card");
+  return ajv;
+}
 
 test("halfOfStages is half the stages, rounded up", () => {
   assert.equal(halfOfStages(33), 17);
@@ -46,6 +56,24 @@ test("the route card lists every stage with its day facts", () => {
     difficulty: "easy",
   });
   assert.equal(card.stages.length, 3);
+});
+
+test("a stage the dataset is silent about still carries the two fields the app requires", () => {
+  // The app's RouteFile.Stage declares gainMeters and difficulty non-optional,
+  // so a contribution that omits them must not produce a card the phone
+  // refuses to decode.
+  const bare: DatasetStage[] = stages.map((stage) => {
+    const { elevationGainMeters: _gain, difficulty: _difficulty, ...rest } = stage;
+    return rest;
+  });
+
+  const card = buildRouteCard("fixture-way", metadata, bare, false);
+
+  assert.deepEqual(card.stages.map((s) => s.gainMeters), [0, 0, 0]);
+  assert.deepEqual(card.stages.map((s) => s.difficulty), ["", "", ""]);
+
+  const ajv = cardValidator();
+  assert.ok(ajv.validate("card", card), JSON.stringify(ajv.errors));
 });
 
 test("the route card names a cover only when one exists on disk", () => {

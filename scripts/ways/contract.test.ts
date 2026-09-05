@@ -137,6 +137,29 @@ test("the way schema holds the importer's own caps", () => {
   assert.equal(ajv.validate("way.schema.json", tooManyMarks), false, "marks cap at 400");
 });
 
+test("the route-card schema requires the same two fields the stage block does", () => {
+  const ajv = validator();
+  const card = loadJson(join(ROOT, "routes", "camino-frances", "ways", "route.json"));
+  assert.ok(ajv.validate("way-route.schema.json", card), JSON.stringify(ajv.errors));
+
+  for (const field of ["gainMeters", "difficulty"]) {
+    const missing = loadJson(join(ROOT, "routes", "camino-frances", "ways", "route.json"));
+    delete missing.stages[0][field];
+    assert.equal(
+      ajv.validate("way-route.schema.json", missing),
+      false,
+      `stages[].${field} must be required — the app's RouteFile.Stage cannot decode without it`,
+    );
+  }
+});
+
+test("the route-card schema accepts the empty difficulty the build writes for a silent stage", () => {
+  const ajv = validator();
+  const card = loadJson(join(ROOT, "routes", "camino-frances", "ways", "route.json"));
+  card.stages[0].difficulty = "";
+  assert.ok(ajv.validate("way-route.schema.json", card), JSON.stringify(ajv.errors));
+});
+
 test("the stages schema rejects an interior with no reflection", () => {
   const ajv = validator();
   const stages = loadJson(join(FIXTURE, "stages.json"));

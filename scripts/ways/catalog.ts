@@ -40,20 +40,21 @@ export function buildRouteCard(
   // in France and is filed under Spain, the same rule build-index applies.
   const country = countries.length > 1 ? countries[countries.length - 1] : countries[0] ?? "";
 
-  const cardStages: WayRouteStage[] = stages.map((stage) => {
-    const entry: WayRouteStage = {
-      index: stage.index,
-      name: cap(stage.name.en, NAME_MAX) ?? `Stage ${stage.index + 1}`,
-      distanceKm: stage.distanceKm,
-      hours: {
-        min: typeof stage.estimatedHours?.min === "number" ? stage.estimatedHours.min : midpointHours(stage.estimatedHours),
-        max: typeof stage.estimatedHours?.max === "number" ? stage.estimatedHours.max : midpointHours(stage.estimatedHours),
-      },
-    };
-    if (typeof stage.elevationGainMeters === "number") entry.gainMeters = stage.elevationGainMeters;
-    if (stage.difficulty) entry.difficulty = stage.difficulty;
-    return entry;
-  });
+  // gainMeters and difficulty are always written, exactly as buildStageBlock
+  // writes them into the stage file: the app's RouteFile.Stage declares both
+  // non-optional, so a stage the dataset is silent about needs a zero and an
+  // empty string. A missing key would fail the decode for the whole card.
+  const cardStages: WayRouteStage[] = stages.map((stage) => ({
+    index: stage.index,
+    name: cap(stage.name.en, NAME_MAX) ?? `Stage ${stage.index + 1}`,
+    distanceKm: stage.distanceKm,
+    hours: {
+      min: typeof stage.estimatedHours?.min === "number" ? stage.estimatedHours.min : midpointHours(stage.estimatedHours),
+      max: typeof stage.estimatedHours?.max === "number" ? stage.estimatedHours.max : midpointHours(stage.estimatedHours),
+    },
+    gainMeters: typeof stage.elevationGainMeters === "number" ? stage.elevationGainMeters : 0,
+    difficulty: stage.difficulty ?? "",
+  }));
 
   const card: WayRouteFile = {
     schemaVersion: SCHEMA_VERSION,

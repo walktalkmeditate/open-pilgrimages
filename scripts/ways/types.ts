@@ -100,13 +100,18 @@ export interface WayFile {
   stage: WayStage;
 }
 
+/**
+ * Every field is required, for the same reason WayStage's are: the app's
+ * `RouteFile.Stage` declares `gainMeters` and `difficulty` non-optional, so the
+ * card writes a zero and an empty string where the dataset is silent.
+ */
 export interface WayRouteStage {
   index: number;
   name: string;
   distanceKm: number;
-  gainMeters?: number;
   hours: WayStageHours;
-  difficulty?: string;
+  gainMeters: number;
+  difficulty: string;
 }
 
 export interface WayRouteFile {
