@@ -6,7 +6,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 Consumers read the catalog from `https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@main/index.json` and pin every file they then download to the tag that index's `release` field names. The `v1` alias is no longer maintained — jsDelivr caches tag URLs permanently, so moving it changed nothing a consumer saw.
 
-## [Unreleased]
+## [1.7.0] — 2026-09-05
 
 The "a stage is a Way" release. Turns each route's stages into ready-to-walk
 Way files the Pilgrim app decodes unchanged, and publishes an honest report of
@@ -81,8 +81,6 @@ One route is listed, and its own report says what it can and cannot promise:
   length gate on all four, even sliced from the Nakahechi feature alone.
 - **Camino Inglés, Norte, Portugués and Primitivo** carry service waypoints
   only — no curated places at all.
-
-[Unreleased]: https://github.com/walktalkmeditate/open-pilgrimages/compare/v1.6.0...HEAD
 
 ## [1.6.0] — 2026-08-21
 
@@ -279,6 +277,7 @@ Each route ships with `metadata.json` (overview, tradition, cultural, logistics)
 
 ---
 
+[1.7.0]: https://github.com/walktalkmeditate/open-pilgrimages/compare/v1.6.0...v1.7.0
 [1.6.0]: https://github.com/walktalkmeditate/open-pilgrimages/compare/v1.5.0...v1.6.0
 [1.5.0]: https://github.com/walktalkmeditate/open-pilgrimages/compare/v1.4.0...v1.5.0
 [1.4.0]: https://github.com/walktalkmeditate/open-pilgrimages/compare/v1.3.0...v1.4.0
