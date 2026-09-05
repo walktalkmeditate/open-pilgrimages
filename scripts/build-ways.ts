@@ -53,14 +53,12 @@ export function buildRouteWays(input: RouteWaysInput): RouteWaysResult {
 
   // Everything below indexes boundaries[] and report.stages[] by stage.index
   // as a plain array subscript, on the assumption that a stage's declared
-  // index is also its position in the array. An empty stages.json has no
-  // last stage for the anchors.push below to read; a gap or duplicate index
-  // would silently pair a stage with another stage's boundary. Both fail
-  // loud here instead of as a confusing TypeError or a wrong package deep in
-  // the build.
-  // Array.isArray, not just a length check: a stages.json missing the key
-  // altogether hands this an `undefined`, and reading `.length` off it dies
-  // with a bare TypeError that names neither the route nor the file.
+  // index is also its position in the array. A stages.json with no `stages`
+  // key hands this an undefined; an empty one has no last stage for the
+  // anchors.push below to read; a gap or duplicate index would silently pair
+  // a stage with another stage's boundary. All three fail loud here instead
+  // of as a bare TypeError naming neither route nor file, or as a wrong
+  // package deep in the build.
   if (!Array.isArray(stages) || stages.length === 0) {
     throw new Error(`${routeId}: stages.json has no stages array to build from`);
   }

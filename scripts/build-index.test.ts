@@ -63,8 +63,9 @@ function createTempScriptRepo(fixtures: RouteFixture[]): {
 
   const scriptsDir = join(dir, "scripts");
   mkdirSync(scriptsDir);
-  cpSync(join(ROOT, "scripts", "build-index.ts"), join(scriptsDir, "build-index.ts"));
-  cpSync(join(ROOT, "scripts", "cli.ts"), join(scriptsDir, "cli.ts"));
+  for (const name of ["build-index.ts", "cli.ts", "region.ts"]) {
+    cpSync(join(ROOT, "scripts", name), join(scriptsDir, name));
+  }
   // main() reads this for releaseTag(): a script-repo fixture with no version
   // would fail before it ever got to writing index.json.
   writeFileSync(join(dir, "package.json"), JSON.stringify({ type: "module", version: "1.6.0" }));

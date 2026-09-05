@@ -8,7 +8,7 @@ import { SCHEMA_VERSION } from "./types.js";
 import { cap, nonEnglishNames } from "./text.js";
 import { midpointHours, type DatasetStage } from "./stage.js";
 import { withinGate } from "./geo.js";
-import { REGION_BY_COUNTRY } from "../build-index.js";
+import { primaryCountry, regionOf } from "../region.js";
 
 const NAME_MAX = 120;
 const SUMMARY_MAX = 600;
@@ -35,10 +35,7 @@ export function buildRouteCard(
   stages: DatasetStage[],
   hasCover: boolean,
 ): WayRouteFile {
-  const countries = metadata.overview?.countries ?? [];
-  // The last country is the one the route ends in — the Camino Francés starts
-  // in France and is filed under Spain, the same rule build-index applies.
-  const country = countries.length > 1 ? countries[countries.length - 1] : countries[0] ?? "";
+  const country = primaryCountry(metadata.overview?.countries);
 
   // gainMeters and difficulty are always written, exactly as buildStageBlock
   // writes them into the stage file: the app's RouteFile.Stage declares both
@@ -61,7 +58,7 @@ export function buildRouteCard(
     id: routeId,
     name: cap(metadata.name.en, NAME_MAX) ?? routeId,
     country,
-    region: REGION_BY_COUNTRY[country] ?? "Other",
+    region: regionOf(country),
     // The stages' own sum, not the geometry's length: what a walker will walk.
     distanceKm: Math.round(stages.reduce((sum, s) => sum + s.distanceKm, 0) * 10) / 10,
     stageCount: stages.length,

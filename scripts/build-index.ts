@@ -1,6 +1,7 @@
 import { readFileSync, writeFileSync, existsSync, readdirSync, statSync } from "fs";
 import { join, relative } from "path";
 import { byCodepoint, resolveInvokedPath } from "./cli.js";
+import { primaryCountry, regionOf } from "./region.js";
 
 const ROOT = join(import.meta.dirname, "..");
 
@@ -73,14 +74,6 @@ function scanVariants(routeDir: string, root: string): VariantEntry[] {
   return variants.sort(byIdThenPath);
 }
 
-export const REGION_BY_COUNTRY: Record<string, string> = {
-  ES: "Europe", FR: "Europe", PT: "Europe", IT: "Europe", DE: "Europe",
-  NO: "Europe", SE: "Europe", GB: "Europe",
-  JP: "Asia", IN: "Asia", CN: "Asia", KR: "Asia", NP: "Asia",
-  US: "Americas", MX: "Americas", CA: "Americas",
-  IL: "Middle East", TR: "Middle East",
-};
-
 /**
  * The tag the release will carry, read from package.json rather than from git:
  * the tag does not exist yet when this runs, and CI has no tags at all.
@@ -145,15 +138,13 @@ export function scanRoutes(routesDir: string, root: string): RouteEntry[] {
     if (!statSync(routeDir).isDirectory() || !existsSync(metaPath)) continue;
 
     const meta = loadJson(metaPath);
-    const countries: string[] = meta.overview?.countries ?? [];
-    const primaryCountry =
-      countries.length > 1 ? countries[countries.length - 1] : countries[0] ?? "";
+    const country = primaryCountry(meta.overview?.countries);
 
     const routeEntry: RouteEntry = {
       id: meta.id,
       name: meta.name,
-      region: REGION_BY_COUNTRY[primaryCountry] ?? "Other",
-      country: primaryCountry,
+      region: regionOf(country),
+      country,
       distanceKm: meta.overview?.distanceKm ?? 0,
       topology: meta.overview?.topology ?? "",
       tradition: meta.tradition?.type ?? "",
