@@ -31,7 +31,7 @@
 | `scripts/ways/geo.ts` | `nearestVertex` gains a forward-search window; `stageBoundaries` becomes monotonic | 1 |
 | `scripts/build-ways.ts` | Refuses to cut a stage whose boundaries do not advance; reports it as a gate reason | 1 |
 | `schema/pilgrimage.schema.json` | Formal `pilgrimage` and `osm` properties on a section's metadata | 2 |
-| `scripts/validate.ts` | Pilgrimage consistency, section chaining, the drafted-text gate | 2, 5, 7 |
+| `scripts/validate.ts` | Pilgrimage consistency, section chaining, pinned relations, the drafted-text gate | 2, 5, 6, 7 |
 | `scripts/pilgrimage.ts` (new) | One reader for a section's `pilgrimage` block, shared by `build-index` and `validate` | 2 |
 | `scripts/build-index.ts` | Derives `pilgrimages[]`; stamps `pilgrimage` on each route entry | 3 |
 | `schema/index.schema.json` | `pilgrimages[]` and the per-route `pilgrimage` string | 3 |
@@ -39,7 +39,8 @@
 | `scripts/enrich/build-main-line.ts` | Refuses a section with no `osm.relations` | 6 |
 | `scripts/site/check-site.ts` | Pilgrimage ids in the page namespace; pilgrimage/section cross-checks | 8 |
 | `scripts/site/build-assets.ts` | Emits `docs/<pilgrimage-id>.html` | 9 |
-| `docs/routes.html`, `docs/camino-de-santiago.html` | The grouped catalog and the first pilgrimage page | 9 |
+| `docs/routes.html`, `docs/route-filter.js`, `docs/styles.css` | The grouped catalog, and a group heading that hides with its cards | 9 |
+| `docs/camino-de-santiago.html`, `docs/camino-*.html` | The first pilgrimage page, and five sections linking back up to it | 9 |
 | `CLAUDE.md`, `README.md`, `CHANGELOG.md`, `.claude/commands/release.md` | The model, the commands, the release gate | 10 |
 
 ---
@@ -50,7 +51,7 @@ Closes issue #7. `stageBoundaries` snaps each anchor to the nearest vertex on th
 
 **Files:**
 - Modify: `scripts/ways/geo.ts:86-97` (`nearestVertex`), `:118-146` (`stageBoundaries`)
-- Modify: `scripts/build-ways.ts:113-127` (the caller and the cut)
+- Modify: `scripts/build-ways.ts:113-127` (the caller and the cut), `:191` (the `gateReasons` handed to `buildReport`)
 - Test: `scripts/ways/geo.test.ts`, `scripts/build-ways.test.ts`
 
 **Interfaces:**
@@ -63,21 +64,22 @@ Append to `scripts/ways/geo.test.ts`:
 
 ```ts
 test("a boundary is searched forward of the one before it", () => {
-  // A line that runs east, doubles back west, then east again: the town at
-  // the western end is nearest to a vertex the first stage already passed.
+  // A line that runs east to (0.03,0), doubles back west to (0.01,0), then
+  // strikes east again. The middle anchor sits where the line has already
+  // been: on the whole line its nearest vertex is index 1, behind the first
+  // anchor's index 3, so the stage between them would be cut backwards.
   const line: Position[] = [
-    [0, 0], [0.01, 0], [0.02, 0], [0.01, 0], [0.02, 0], [0.03, 0],
+    [0, 0], [0.01, 0], [0.02, 0], [0.03, 0], [0.02, 0], [0.01, 0], [0.04, 0],
   ];
   const cumulative = cumulativeMeters(line);
-  const anchors: Position[] = [[0, 0], [0.01, 0], [0.03, 0]];
+  const anchors: Position[] = [[0.03, 0], [0.01, 0], [0.04, 0]];
   const boundaries = stageBoundaries(line, cumulative, anchors, [1.1, 2.2]);
 
-  assert.equal(boundaries[0].index, 0);
-  assert.ok(
-    boundaries[1].index < boundaries[2].index,
-    `boundaries must advance, got ${boundaries.map((b) => b.index).join(",")}`,
+  assert.deepEqual(
+    boundaries.map((b) => b.index),
+    [3, 5, 6],
+    "the middle anchor must snap to the second time the line passes it",
   );
-  assert.ok(boundaries[1].index >= boundaries[0].index);
 });
 
 test("nearestVertex ignores everything before fromIndex", () => {
@@ -97,16 +99,21 @@ test("a proportional boundary never falls behind its predecessor", () => {
 });
 ```
 
-Check the file's existing imports at the top and add `nearestVertex` to the `from "./geo.js"` import list if it is not already there. `cumulativeMeters` is already imported by the existing tests in this file.
+No imports to add: `nearestVertex`, `cumulativeMeters` and `stageBoundaries` are all already in the `from "./geo.js"` list at the top of that file, and the `Position` type comes in from `./types.js` on the line below it.
 
-Append to `scripts/build-ways.test.ts`:
+Append to `scripts/build-ways.test.ts`. The file's own `build({ stages })` helper (line 25) is typed `{ stages?: DatasetStage[] }` and fills the rest of the fixture route in, and `DatasetStage` (`scripts/ways/stage.ts`) types `name`, `start.name` and `end.name` as `LocalizedString` — so every name is an object with an `en`, not a bare string:
 
 ```ts
 test("a stage whose anchors land on one point fails the gate and emits nothing", () => {
   const result = build({
     stages: [
-      { index: 0, name: "There and back", start: { name: "Ryōzen-ji", coordinates: [0, 0] },
-        end: { name: "Ryōzen-ji again", coordinates: [0, 0] }, distanceKm: 1.1 },
+      {
+        index: 0,
+        name: { en: "There and back" },
+        start: { name: { en: "Ryōzen-ji" }, coordinates: [0, 0] },
+        end: { name: { en: "Ryōzen-ji again" }, coordinates: [0, 0] },
+        distanceKm: 1.1,
+      },
     ],
   });
 
@@ -126,7 +133,13 @@ test("a stage whose anchors land on one point fails the gate and emits nothing",
 ```bash
 npm test 2>&1 | grep -E "^# (tests|pass|fail)|not ok"
 ```
-Expected: `# fail 4` — three `geo.test.ts` failures (`boundaries must advance`, `nearestVertex` arity, proportional clamp) and one `build-ways.test.ts` failure (`result.emitted` is `true`).
+Expected: `# fail 3`.
+
+- `geo.test.ts`, forward search: `stageBoundaries` returns indices `[3, 1, 6]` against the asserted `[3, 5, 6]` — the middle anchor snapped to the first time the line passed it.
+- `geo.test.ts`, `nearestVertex` window: the third argument is ignored, so `nearestVertex(line, [0, 0], 2).index` is `0` where `2` is asserted.
+- `build-ways.test.ts`: not on `emitted` — a one-vertex slice already measures 0 km against the declared 1.1 km, so the length gate fails the route today and `emitted` is already `false`. It fails on the `gate.reasons` match: a single stage has no chain break, so `reasons` is absent and the joined string is empty.
+
+The third `geo.test.ts` case, the proportional clamp, passes today. It is a regression pin, not a red step — the proportional branch already floors at the boundary before it because its `along` distance runs forward.
 
 - [ ] **Step 3: Give `nearestVertex` a forward window**
 
@@ -154,7 +167,7 @@ export function nearestVertex(
 
 - [ ] **Step 4: Make `stageBoundaries` monotonic**
 
-In `scripts/ways/geo.ts`, replace the loop body of `stageBoundaries` (lines 132-146) with:
+In `scripts/ways/geo.ts`, replace the loop of `stageBoundaries` (lines 130-143) with:
 
 ```ts
   for (let i = 0; i < anchors.length; i++) {
@@ -189,12 +202,14 @@ In `scripts/build-ways.ts`, immediately after the `stageBoundaries(...)` call th
     .filter((stage) => boundaries[stage.index + 1].index <= boundaries[stage.index].index)
     .map(
       (stage) =>
-        `stage ${stage.index} runs from "${stage.start.name}" to "${stage.end.name}", ` +
+        `stage ${stage.index} runs from "${stage.start.name.en}" to "${stage.end.name.en}", ` +
         `but both anchors land on the same point of the walked line`,
     );
 ```
 
-Then find the `gateReasons` value that the `chainBreaks` computation at lines 100-108 feeds into `buildRouteCard`/`buildReport`, and concatenate: `gateReasons: [...chainBreaks, ...boundaryStalls]` (match the existing variable's exact name — read lines 100-135 before editing).
+`DatasetStage.start.name` is a `LocalizedString`, not a string — interpolating the object itself would print `[object Object]`. The `chainBreaks` computation at lines 100-108 already reads `.name.en` for the same reason; match it.
+
+Then concatenate the two lists at the `buildReport({ … })` call, whose `gateReasons: chainBreaks` sits at line 191: `gateReasons: [...chainBreaks, ...boundaryStalls]`.
 
 Guard the cut loop at lines 125-127 so it does not run when a stall was found:
 
@@ -220,7 +235,7 @@ Expected: `# fail 0`, `tsc` silent.
 ```bash
 npm run build-ways && npm run build-index && git status --porcelain routes index.json
 ```
-Expected: `build-ways` prints its usual per-route summary and `git status` prints nothing. If `routes/camino-frances/ways/` changed, stop — the forward search altered a route the spec says builds byte-identically, and the cause needs understanding before continuing.
+Expected: `build-ways` prints its usual per-route summary; `git status` shows no change under `routes/camino-frances/`, and may show `gate.reasons` updates to `shikoku-88`, `camino-norte`, and `kumano-kodo`'s `report.json` — nothing else. If `routes/camino-frances/ways/` changed, stop — the forward search altered a route the spec says builds byte-identically, and the cause needs understanding before continuing.
 
 Three routes may legitimately gain `gate.reasons` entries in their `ways/report.json`: `shikoku-88`, `camino-norte`, `kumano-kodo`. All three already fail the gate, so no package appears or disappears. Commit any such report changes with this task.
 
@@ -253,7 +268,7 @@ A section declares its pilgrimage in `metadata.json`. Today `schema/pilgrimage.s
 **Files:**
 - Modify: `schema/pilgrimage.schema.json` (properties block; root `required` is unchanged — `pilgrimage` is optional so ungrouped routes stay valid)
 - Create: `scripts/pilgrimage.ts`, `scripts/pilgrimage.test.ts`
-- Modify: `scripts/validate.ts` (a new `validatePilgrimages`, called from `main`)
+- Modify: `scripts/validate.ts` (a new `validatePilgrimages`, called from `main`; `validateFile` at line 65 becomes exported)
 - Test: `scripts/validate.test.ts`
 
 **Interfaces:**
@@ -261,7 +276,8 @@ A section declares its pilgrimage in `metadata.json`. Today `schema/pilgrimage.s
   - `export interface PilgrimageBlock { id: string; name: Record<string, string>; kind: "legs" | "alternatives"; order: number }`
   - `export function readPilgrimage(metadata: unknown): PilgrimageBlock | undefined` — returns `undefined` when the block is absent, throws `Error` naming the offending field when present and malformed.
   - `export function groupSections(sections: { routeId: string; block: PilgrimageBlock }[]): Map<string, { block: PilgrimageBlock; routeIds: string[] }>` — grouped by pilgrimage id, `routeIds` sorted by `order` then id.
-  - `validatePilgrimages(root: string, dirs: string[], errors: ValidationError[]): void` in `scripts/validate.ts`. Tasks 5 and 7 add two more validators with the same `(root, dirs, errors)` signature, so the three read alike at the call site in `main()`.
+  - `validatePilgrimages(root: string, dirs: string[], errors: ValidationError[]): void` in `scripts/validate.ts`. Tasks 5, 6, and 7 add three more validators with the same `(root, dirs, errors)` signature, so the four read alike at the call site in `main()`.
+  - `validateFile(ajv, schemaName, filePath, errors)` in `scripts/validate.ts` becomes exported — unchanged otherwise — so a test can put a fixture file through the same Ajv path `main()` uses.
 
 - [ ] **Step 1: Write the failing tests**
 
@@ -363,14 +379,79 @@ test("a route with no pilgrimage block raises nothing", () => {
 });
 ```
 
-Add `validatePilgrimages` to the `from "./validate.js"` import at the top of `scripts/validate.test.ts`, and `mkdirSync` to its `node:fs` import if absent.
+`readPilgrimage` and Step 5's JSON Schema state the same invariant twice, and nothing above makes them agree. Pin them together with the file's own Ajv idiom — `createValidator()` is already imported there, and `validateFile` is the module-private function `main()` uses to check a `metadata.json` against `pilgrimage.schema.json` (`scripts/validate.ts:65`, called at `:425`). Export it — change `function validateFile(` to `export function validateFile(`; nothing else about it moves. Then append:
+
+```ts
+/**
+ * The real Camino Francés metadata, so the schema's eight other required
+ * root fields are satisfied by data the repo already validates and these
+ * two tests can say something about the pilgrimage and osm blocks alone.
+ */
+function metadataFixture(extra: Record<string, unknown>): Record<string, unknown> {
+  const base = JSON.parse(
+    readFileSync(join(ROOT, "routes", "camino-frances", "metadata.json"), "utf-8"),
+  ) as Record<string, unknown>;
+  return { ...base, ...extra };
+}
+
+test("the schema accepts a well-formed pilgrimage block and pinned relations", () => {
+  const root = mkdtempSync(join(tmpdir(), "validate-schema-test-"));
+  try {
+    const path = join(root, "metadata.json");
+    writeJson(
+      path,
+      metadataFixture({
+        pilgrimage: { id: "camino-de-santiago", name: { en: "Camino de Santiago" }, kind: "alternatives", order: 1 },
+        osm: { relations: [2163569] },
+      }),
+    );
+
+    const errors: ValidationError[] = [];
+    validateFile(createValidator(), "pilgrimage.schema.json", path, errors);
+
+    assert.deepEqual(errors, []);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("the schema refuses a third kind and an osm.relations that pins nothing", () => {
+  const root = mkdtempSync(join(tmpdir(), "validate-schema-test-"));
+  try {
+    const kindPath = join(root, "kind.json");
+    writeJson(
+      kindPath,
+      metadataFixture({
+        pilgrimage: { id: "camino-de-santiago", name: { en: "Camino de Santiago" }, kind: "chain", order: 1 },
+      }),
+    );
+    const emptyPath = join(root, "empty.json");
+    writeJson(emptyPath, metadataFixture({ osm: { relations: [] } }));
+
+    const ajv = createValidator();
+    const kindErrors: ValidationError[] = [];
+    const relationErrors: ValidationError[] = [];
+    validateFile(ajv, "pilgrimage.schema.json", kindPath, kindErrors);
+    validateFile(ajv, "pilgrimage.schema.json", emptyPath, relationErrors);
+
+    // readPilgrimage refuses both; the schema has to refuse them too, or one
+    // of the two gates would let a file through the other stops.
+    assert.ok(kindErrors.length > 0, `"chain" is not one of the two kinds`);
+    assert.ok(relationErrors.length > 0, "an empty relations array pins nothing");
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+```
+
+Add `validatePilgrimages` and `validateFile` to the `from "./validate.js"` import at the top of `scripts/validate.test.ts` — `createValidator` and the `ValidationError` type are already on that line — and `readFileSync` to its `from "fs"` import. `ROOT`, `writeJson`, `mkdtempSync`, `mkdirSync`, `tmpdir` and `rmSync` are already in that file.
 
 - [ ] **Step 2: Run the tests to verify they fail**
 
 ```bash
 npm test 2>&1 | grep -E "^# (tests|pass|fail)|not ok"
 ```
-Expected: failures for `Cannot find module './pilgrimage.js'` and `validatePilgrimages is not a function`.
+Expected: failures for `Cannot find module './pilgrimage.js'`, `validatePilgrimages is not a function`, and `validateFile is not a function`. Once `validateFile` is exported, the second schema test still fails until Step 5 lands the properties — `additionalProperties: true` is what lets today's schema wave both fixtures through.
 
 - [ ] **Step 3: Write the reader**
 
@@ -519,7 +600,7 @@ In `schema/pilgrimage.schema.json`, add to the root `properties` object (leave r
 }
 ```
 
-Confirm the `$defs` block in that file names the localized-string definition `LocalizedString` before using the `$ref`; if it is named differently, use the file's own name.
+`schema/pilgrimage.schema.json`'s `$defs` names the localized-string definition `LocalizedString`, so the `$ref` above is correct as written.
 
 - [ ] **Step 6: Run the tests to verify they pass**
 
@@ -561,16 +642,42 @@ EOF
 
 - [ ] **Step 1: Write the failing tests**
 
-Append to `scripts/build-index.test.ts`, following the file's existing fixture-repo idiom:
+`tempRepo`/`addRoute` belong to `scripts/build-ways.test.ts`, not this file. `scripts/build-index.test.ts`'s own idiom is `createTempRoutesDir(fixtures: RouteFixture[]): { root, routesDir }`, which writes one `minimalMetadata(id)` per `RouteFixture { dirName, id }`, and `buildIndex` takes five arguments: `buildIndex(routesDir, previous, now, root, release)`. `NEW` and `RELEASE` are already declared in the file.
+
+There is no metadata-patch mechanism today, so add one: give `RouteFixture` an optional `metadata?: Record<string, unknown>` and have `writeRouteFixtures` merge it over the minimal object. Every existing call site passes no `metadata` and is unaffected.
 
 ```ts
-test("pilgrimages are derived from the sections that declare them", () => {
-  const root = tempRepo();
-  try {
-    addRoute(root, "one", { pilgrimage: { id: "kumano-kodo", name: { en: "Kumano Kodō" }, kind: "alternatives", order: 2 } });
-    addRoute(root, "two", { pilgrimage: { id: "kumano-kodo", name: { en: "Kumano Kodō" }, kind: "alternatives", order: 1 } });
+interface RouteFixture {
+  dirName: string;
+  id: string;
+  /** Merged over minimalMetadata(id) — what a section's pilgrimage block rides in on. */
+  metadata?: Record<string, unknown>;
+}
 
-    const index = buildIndex(root);
+function writeRouteFixtures(routesDir: string, fixtures: RouteFixture[]): void {
+  for (const fixture of fixtures) {
+    const routeDir = join(routesDir, fixture.dirName);
+    mkdirSync(routeDir);
+    writeFileSync(
+      join(routeDir, "metadata.json"),
+      JSON.stringify({ ...minimalMetadata(fixture.id), ...fixture.metadata }),
+    );
+  }
+}
+```
+
+Then append:
+
+```ts
+const KUMANO = { id: "kumano-kodo", name: { en: "Kumano Kodō" }, kind: "alternatives" };
+
+test("pilgrimages are derived from the sections that declare them", () => {
+  const { root, routesDir } = createTempRoutesDir([
+    { dirName: "one", id: "one", metadata: { pilgrimage: { ...KUMANO, order: 2 } } },
+    { dirName: "two", id: "two", metadata: { pilgrimage: { ...KUMANO, order: 1 } } },
+  ]);
+  try {
+    const index = buildIndex(routesDir, null, () => NEW, root, RELEASE);
 
     assert.equal(index.pilgrimages?.length, 1);
     assert.equal(index.pilgrimages?.[0].id, "kumano-kodo");
@@ -582,17 +689,20 @@ test("pilgrimages are derived from the sections that declare them", () => {
 });
 
 test("a legs pilgrimage carries totals and an alternatives one does not", () => {
-  const root = tempRepo();
+  const shikoku = { id: "shikoku-88", name: { en: "Shikoku" }, kind: "legs" };
+  const { root, routesDir } = createTempRoutesDir([
+    { dirName: "awa", id: "awa", metadata: { pilgrimage: { ...shikoku, order: 1 } } },
+    { dirName: "tosa", id: "tosa", metadata: { pilgrimage: { ...shikoku, order: 2 } } },
+    { dirName: "norte", id: "norte", metadata: { pilgrimage: { ...KUMANO, order: 1 } } },
+  ]);
   try {
-    addRoute(root, "awa", { pilgrimage: { id: "shikoku-88", name: { en: "Shikoku" }, kind: "legs", order: 1 } });
-    addRoute(root, "tosa", { pilgrimage: { id: "shikoku-88", name: { en: "Shikoku" }, kind: "legs", order: 2 } });
-    addRoute(root, "norte", { pilgrimage: { id: "camino-de-santiago", name: { en: "Camino" }, kind: "alternatives", order: 1 } });
-
-    const index = buildIndex(root);
+    const index = buildIndex(routesDir, null, () => NEW, root, RELEASE);
     const legs = index.pilgrimages?.find((p) => p.id === "shikoku-88");
-    const alternatives = index.pilgrimages?.find((p) => p.id === "camino-de-santiago");
+    const alternatives = index.pilgrimages?.find((p) => p.id === "kumano-kodo");
 
-    assert.ok(typeof legs?.distanceKm === "number");
+    // minimalMetadata gives every fixture overview.distanceKm = 1.
+    assert.equal(legs?.distanceKm, 2);
+    assert.equal(legs?.stageCount, 0);
     assert.equal(alternatives?.distanceKm, undefined);
     assert.equal(alternatives?.stageCount, undefined);
   } finally {
@@ -601,10 +711,9 @@ test("a legs pilgrimage carries totals and an alternatives one does not", () => 
 });
 
 test("a route with no pilgrimage block is left ungrouped", () => {
-  const root = tempRepo();
+  const { root, routesDir } = createTempRoutesDir([{ dirName: "lone", id: "lone" }]);
   try {
-    addRoute(root, "lone", {});
-    const index = buildIndex(root);
+    const index = buildIndex(routesDir, null, () => NEW, root, RELEASE);
     assert.equal(index.pilgrimages, undefined);
     assert.equal(index.routes[0].pilgrimage, undefined);
   } finally {
@@ -613,14 +722,71 @@ test("a route with no pilgrimage block is left ungrouped", () => {
 });
 ```
 
-Read `addRoute`'s current signature in that file first. If it does not already accept a metadata patch, extend it to take a second argument that is merged into the copied `metadata.json`, and keep every existing call site working by defaulting it to `{}`.
+Then pin the schema against the same two new fields, the way Task 2 pinned `pilgrimage.schema.json` — `index.schema.json`'s root and its `RouteEntry` are both `additionalProperties: true`, so nothing today would notice if Step 4 were skipped:
+
+```ts
+test("index.schema.json accepts pilgrimages[] and a route that names one", () => {
+  const root = mkdtempSync(join(tmpdir(), "build-index-schema-test-"));
+  try {
+    const base = JSON.parse(readFileSync(join(ROOT, "index.json"), "utf-8")) as RouteIndex;
+    const path = join(root, "index.json");
+    writeFileSync(
+      path,
+      JSON.stringify({
+        ...base,
+        pilgrimages: [
+          { id: "camino-de-santiago", name: { en: "Camino de Santiago" }, kind: "alternatives", sections: ["camino-frances"] },
+        ],
+        routes: base.routes.map((route) =>
+          route.id === "camino-frances" ? { ...route, pilgrimage: "camino-de-santiago" } : route,
+        ),
+      }),
+    );
+
+    const errors: ValidationError[] = [];
+    validateFile(createValidator(), "index.schema.json", path, errors);
+
+    assert.deepEqual(errors, []);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("index.schema.json refuses a third kind and a pilgrimage with no sections", () => {
+  const root = mkdtempSync(join(tmpdir(), "build-index-schema-test-"));
+  try {
+    const base = JSON.parse(readFileSync(join(ROOT, "index.json"), "utf-8")) as RouteIndex;
+    const write = (name: string, pilgrimage: Record<string, unknown>): string => {
+      const path = join(root, name);
+      writeFileSync(path, JSON.stringify({ ...base, pilgrimages: [pilgrimage] }));
+      return path;
+    };
+    const named = { id: "camino-de-santiago", name: { en: "Camino de Santiago" } };
+    const kindPath = write("kind.json", { ...named, kind: "chain", sections: ["camino-frances"] });
+    const emptyPath = write("empty.json", { ...named, kind: "alternatives", sections: [] });
+
+    const ajv = createValidator();
+    const kindErrors: ValidationError[] = [];
+    const sectionErrors: ValidationError[] = [];
+    validateFile(ajv, "index.schema.json", kindPath, kindErrors);
+    validateFile(ajv, "index.schema.json", emptyPath, sectionErrors);
+
+    assert.ok(kindErrors.length > 0, `"chain" is not one of the two kinds`);
+    assert.ok(sectionErrors.length > 0, "a pilgrimage with no sections groups nothing");
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+```
+
+Add `import { createValidator, validateFile, type ValidationError } from "./validate.js";` to `scripts/build-index.test.ts` — Task 2 exported `validateFile`. `ROOT`, `readFileSync`, `writeFileSync`, `mkdtempSync`, `tmpdir`, `rmSync`, `join` and the `RouteIndex` type are already imported there.
 
 - [ ] **Step 2: Run the tests to verify they fail**
 
 ```bash
 npm test 2>&1 | grep -E "^# (tests|pass|fail)|not ok"
 ```
-Expected: three failures — `index.pilgrimages` is `undefined`.
+Expected: `# fail 3` — the two derivation tests that assert a `pilgrimages[]` (`index.pilgrimages` is `undefined`), plus the schema test that expects `kind: "chain"` and an empty `sections` to be refused. The other two pass already and are regression pins, not red steps: an ungrouped dataset genuinely produces no `pilgrimages[]` today, and `additionalProperties: true` waves the valid fixture through before Step 4 as well as after.
 
 - [ ] **Step 3: Derive the pilgrimages**
 
@@ -630,6 +796,8 @@ In `scripts/build-index.ts`, add to the route entry built at lines 143-152, righ
     const pilgrimage = readPilgrimage(meta);
     if (pilgrimage) routeEntry.pilgrimage = pilgrimage.id;
 ```
+
+`routeEntry` and the return value are typed against `RouteEntry` and `RouteIndex` in this same file, so declare the two new fields there first or `tsc` rejects both assignments: add `pilgrimage?: string;` to `RouteEntry` and `pilgrimages?: PilgrimageEntry[];` to `RouteIndex`.
 
 Add the `PilgrimageEntry` type and the derivation next to `scanRoutes`:
 
@@ -682,7 +850,7 @@ export function scanPilgrimages(routesDir: string): PilgrimageEntry[] {
 In `buildIndex` (lines 172-203), call it and attach the result only when non-empty, so an ungrouped dataset produces the same `index.json` it does today:
 
 ```ts
-  const pilgrimages = scanPilgrimages(join(root, "routes"));
+  const pilgrimages = scanPilgrimages(routesDir);
   if (pilgrimages.length > 0) index.pilgrimages = pilgrimages;
 ```
 
@@ -716,7 +884,7 @@ and to `RouteEntry`'s `properties`:
 "pilgrimage": { "type": "string", "pattern": "^[a-z0-9-]+$" }
 ```
 
-Use the file's own name for the localized-string `$ref` if it differs from `LocalizedString`.
+`index.schema.json`'s `$defs` names the localized-string definition `LocalizedString`, so the `$ref` above is correct as written.
 
 - [ ] **Step 5: Run the tests to verify they pass**
 
@@ -789,7 +957,7 @@ Expected: the entry lists all five sections in `order`, carries no `distanceKm` 
 ```bash
 npm run build-ways && npm run build-index && npm run validate && git status --porcelain routes index.json
 ```
-Expected: `git status` lists only `index.json` as modified (from Step 2), nothing under `routes/`.
+Expected: `git status` lists the five edited `metadata.json` files (from Step 1) and `index.json` (from Step 2) as modified; `build-ways` adds nothing further under `routes/`.
 
 - [ ] **Step 4: Commit**
 
@@ -1018,14 +1186,15 @@ EOF
 
 **Files:**
 - Modify: `scripts/enrich/build-main-line.ts:267-289`
-- Test: `scripts/enrich/build-main-line.test.ts`
+- Modify: `scripts/validate.ts` (a new `validatePinnedRelations`, called from `main`)
+- Test: `scripts/enrich/build-main-line.test.ts`, `scripts/validate.test.ts`
 
 **Interfaces:**
 - Produces: `requireRelations(routeDir: string, routeId: string): number[]` in `scripts/enrich/build-main-line.ts`, throwing when `osm.relations` is absent or empty, so `build-main-line <route-id>` exits 1 naming the route whether or not `osm.query` is present. Also `validatePinnedRelations(root: string, dirs: string[], errors: ValidationError[]): void` in `scripts/validate.ts` — the same requirement enforced for any section that already has a `ways/` package, without running the enrichment step.
 
 - [ ] **Step 1: Write the failing test**
 
-Append to `scripts/enrich/build-main-line.test.ts`, following that file's existing injection idiom (read how its current tests build a route directory and call the module):
+Append to `scripts/enrich/build-main-line.test.ts`. Its existing tests are all pure-function tests over in-memory `Position[][]` fixtures — there is no temp-directory idiom to follow, so these two bring their own. Add `mkdtempSync, mkdirSync, writeFileSync, rmSync` to its `node:fs` import (it imports only `readFileSync` today), and `join` from `node:path` and `tmpdir` from `node:os`:
 
 ```ts
 test("a section with only an osm.query is refused", () => {
@@ -1096,7 +1265,7 @@ export function requireRelations(routeDir: string, routeId: string): number[] {
 }
 ```
 
-Replace the relation/query resolution at lines 279-289 with:
+Replace the relation/query resolution at lines 284-289 with:
 
 ```ts
   const relationIds = requireRelations(routeDir, routeId);
@@ -1107,13 +1276,17 @@ and delete the `metadata.osm?.query` fallback and the `if (!query)` block that f
 
 - [ ] **Step 4: Require the relations of any section that already has a package**
 
-`build-main-line` only runs when someone runs it. A section that shipped a `ways/` package must carry its relations regardless, or its line can never be rebuilt. Add to `scripts/validate.ts`:
+`build-main-line` only runs when someone runs it. A section that shipped a `ways/` package must carry its relations regardless, or its line can never be rebuilt.
+
+The marker for "shipped a package" is `ways/route.json`, not the `ways/` directory. `build-ways` writes `report.json` for every route it looks at, including the ones it refuses — `routes/shikoku-88/ways/` and `routes/kumano-kodo/ways/` each hold a `report.json` and nothing else today, and neither pins `osm.relations`. Guarding on the directory would fail both and contradict Step 5's expected `Validation passed`. `waysEntry` in `scripts/build-index.ts` (line 98) draws the same line: it returns `undefined` unless both `report.json` and `route.json` exist. Add to `scripts/validate.ts`:
 
 ```ts
 export function validatePinnedRelations(root: string, dirs: string[], errors: ValidationError[]): void {
   for (const dir of dirs) {
     const metaPath = join(dir, "metadata.json");
-    if (!existsSync(metaPath) || !existsSync(join(dir, "ways"))) continue;
+    // ways/route.json, not ways/: a refused route still leaves a report.json
+    // behind, and a route with no walked line has nothing to pin.
+    if (!existsSync(metaPath) || !existsSync(join(dir, "ways", "route.json"))) continue;
     const meta = loadJson(metaPath) as { id?: string; osm?: { relations?: number[] } };
     if (!Array.isArray(meta.osm?.relations) || meta.osm.relations.length === 0) {
       errors.push({
@@ -1126,7 +1299,7 @@ export function validatePinnedRelations(root: string, dirs: string[], errors: Va
 }
 ```
 
-Call it from `main()` after `validateDraftedText(ROOT, dirs, errors);` as `validatePinnedRelations(ROOT, dirs, errors);`. Add two tests to `scripts/validate.test.ts` in Task 7's idiom: a route directory containing a `ways/` directory whose metadata has `osm.query` but no `relations` yields one error naming the route; the same route with `osm: { relations: [123] }` yields none.
+Call it from `main()` after `validateSectionChain(ROOT, dirs, errors);` as `validatePinnedRelations(ROOT, dirs, errors);` — that is the last validator wired in at this point in the sequence; Task 7 adds its own after this one. Add three tests to `scripts/validate.test.ts` in Task 7's idiom, all built on `makeFixtureRoute()`, which already creates the `ways/` directory: writing a `ways/route.json` and metadata carrying `osm.query` but no `relations` yields one error naming the route; the same route with `osm: { relations: [123] }` yields none; and a route whose `ways/` holds a `report.json` only — the shape `shikoku-88` and `kumano-kodo` are in today — yields none either.
 
 - [ ] **Step 5: Run the tests to verify they pass**
 
@@ -1162,7 +1335,7 @@ EOF
 - Test: `scripts/validate.test.ts`
 
 **Interfaces:**
-- Produces: `validateDraftedText(dirs: string[], errors: ValidationError[]): void`. Any stage carrying `"drafted": true` is an error, so drafted text cannot reach `main`. A stage listed in `docs/review/<id>.md` whose flag is gone must carry a reviewed mark — the line `- [x] stage N` — in that checklist, so the flag cannot be stripped without a review being recorded.
+- Produces: `validateDraftedText(root: string, dirs: string[], errors: ValidationError[]): void` — the same shape as Tasks 2, 5, and 6. Any stage carrying `"drafted": true` is an error, so drafted text cannot reach `main`. A stage listed in `docs/review/<id>.md` whose flag is gone must carry a reviewed mark — the line `- [x] stage N` — in that checklist, so the flag cannot be stripped without a review being recorded.
 
 - [ ] **Step 1: Write the failing tests**
 
@@ -1281,7 +1454,7 @@ export function validateDraftedText(root: string, dirs: string[], errors: Valida
 }
 ```
 
-Import `readFileSync` from `node:fs` if not already imported. Call it from `main()` after `validateSectionChain(ROOT, dirs, errors);`:
+Import `readFileSync` from `node:fs` if not already imported. Call it from `main()` after `validatePinnedRelations(ROOT, dirs, errors);`:
 
 ```ts
   validateDraftedText(ROOT, dirs, errors);
@@ -1318,7 +1491,7 @@ EOF
 ## Task 8: `check-site` learns pilgrimages
 
 **Files:**
-- Modify: `scripts/site/check-site.ts` — `RESERVED_PAGE_NAMES` (18-27), the reserved-name collision check (1071-1073), the per-route detail-page check (1016-1018), the orphaned-detail-page check (1092-1101)
+- Modify: `scripts/site/check-site.ts` — `IndexRoute` and `readIndexRoutes` (410-443), the id set at 482-483, the orphaned-detail-page check (1092-1101), and three new loops after the per-route loop closes at 1074. `RESERVED_PAGE_NAMES` (18-27) and the reserved-name collision check inside the per-route loop (1071-1073) are read, not changed.
 - Test: `scripts/site/check-site.test.ts`
 
 **Interfaces:**
@@ -1327,7 +1500,7 @@ EOF
 
 - [ ] **Step 1: Write the failing tests**
 
-Append to `scripts/site/check-site.test.ts`, following the file's existing fixture-site idiom (read how a neighbouring test assembles `index.json` plus `docs/` and calls `checkSite`):
+Append to `scripts/site/check-site.test.ts` (the paragraph after the block says what `fixtureSite` stands in for):
 
 ```ts
 test("a route naming a pilgrimage that does not exist is a problem", () => {
@@ -1364,7 +1537,7 @@ test("a pilgrimage id may not collide with a route id", () => {
 });
 ```
 
-Adapt `fixtureSite`'s call shape to whatever helper the file already has; if there is none, build the temp site inline the way the nearest existing test does.
+`fixtureSite` above is shorthand for what the file already does. Its real helper is `createFixtureRoot(indexRoutes: FixtureRoute[]): string` (line 21), which makes `routes/` and `docs/`, writes `{ routes: indexRoutes }` to `index.json`, and returns the root — `checkSite(root)` then takes that root, since `checkSite(root: string, overrides: PageOverrides = {})` reads `index.json` off disk and only accepts HTML/README text through `overrides`. Extend it to `createFixtureRoot(indexRoutes, indexExtras: Record<string, unknown> = {})`, spreading `indexExtras` into the written index so a fixture can carry `pilgrimages[]`; every existing call site passes one argument and is unaffected. Read each `fixtureSite({ index, pages })` above as: call that helper with the index's `routes` and `pilgrimages`, `writeFileSync` an empty `docs/<id>.html` for each `pages` entry, then `checkSite(root)`.
 
 - [ ] **Step 2: Run the tests to verify they fail**
 
@@ -1375,21 +1548,62 @@ Expected: four failures.
 
 - [ ] **Step 3: Teach the checks**
 
-In `scripts/site/check-site.ts`, where the route-id set is built for the page checks (near line 1000), add the pilgrimage ids beside it:
+`checkSite` has no whole-index object in scope: `readIndexRoutes(indexPath)` (line 421) narrows the file down to `IndexRoute { id, variants }` at line 442 and drops everything else. Two small changes give the checks what they need.
+
+First, carry a route's pilgrimage through the reader. Add `pilgrimage?: string;` to `IndexRoute` (line 410) and include it in the map at line 442:
 
 ```ts
-  const pilgrimages = (index.pilgrimages ?? []) as { id: string; sections: string[] }[];
+  return routes.map((route) => ({
+    id: route.id,
+    pilgrimage: route.pilgrimage,
+    variants: route.variants ?? [],
+  }));
+```
+
+Second, add a sibling reader next to it. `readIndexRoutes` has already thrown on a missing or malformed file by the time this runs, so it can parse without repeating those guards:
+
+```ts
+interface IndexPilgrimage {
+  id: string;
+  sections: string[];
+}
+
+function readIndexPilgrimages(indexPath: string): IndexPilgrimage[] {
+  const parsed = JSON.parse(readFileSync(indexPath, "utf-8")) as { pilgrimages?: unknown };
+  if (!Array.isArray(parsed.pilgrimages)) return [];
+  return parsed.pilgrimages.map((p) => ({
+    id: String(p.id),
+    sections: Array.isArray(p.sections) ? p.sections : [],
+  }));
+}
+```
+
+Then, at line 483 — where `const ids = indexRoutes.map((route) => route.id);` builds the route-id **array** the page checks use — name the index path once and add the pilgrimage ids beside it:
+
+```ts
+  const indexPath = join(root, "index.json");
+  const indexRoutes = readIndexRoutes(indexPath);
+  const ids = indexRoutes.map((route) => route.id);
+  const routeIdSet = new Set(ids);
+  const pilgrimages = readIndexPilgrimages(indexPath);
   const pilgrimageIds = new Set(pilgrimages.map((p) => p.id));
   // A pilgrimage has no directory but does have a page, and both live in the
   // same flat namespace under open.pilgrimag.es.
-  const pageIds = new Set([...routeIds, ...pilgrimageIds]);
+  const pageIds = new Set([...routeIdSet, ...pilgrimageIds]);
 ```
 
-Change the orphaned-detail-page check at 1092-1101 to test `pageIds` instead of the route-id set, and the reserved-name collision check at 1071-1073 to run over `pageIds` as well. Then add, after the per-route loop:
+(Line 482 already reads `const indexRoutes = readIndexRoutes(join(root, "index.json"));` — this splits the path out so both readers share it.)
+
+Change the orphaned-detail-page check at 1092-1101 to test `pageIds`: `if (RESERVED_PAGE_NAMES.has(stem) || pageIds.has(stem)) continue;`.
+
+Leave the reserved-name collision check at 1071-1073 exactly where it is. It sits inside `for (const id of ids)` (line 1007), the loop that also checks a route's catalog link, README row, detail page, glyph, GPX, roads asset and filter attributes — none of which a pilgrimage has — so that loop keeps iterating `ids` and only `ids`. A pilgrimage's two id checks get their own loop instead. Add it after the per-route loop closes at 1074, alongside the other two loops below:
 
 ```ts
   for (const id of pilgrimageIds) {
-    if (routeIds.has(id)) {
+    if (RESERVED_PAGE_NAMES.has(id)) {
+      add("index.json", `pilgrimage id "${id}" collides with a reserved page name`);
+    }
+    if (routeIdSet.has(id)) {
       add("index.json", `"${id}" is claimed twice — it is both a pilgrimage and a route id`);
     }
   }
@@ -1398,14 +1612,14 @@ Change the orphaned-detail-page check at 1092-1101 to test `pageIds` instead of 
       add("index.json", `pilgrimage "${pilgrimage.id}" has no sections`);
     }
   }
-  for (const route of index.routes) {
+  for (const route of indexRoutes) {
     if (route.pilgrimage && !pilgrimageIds.has(route.pilgrimage)) {
       add("index.json", `route "${route.id}" names pilgrimage "${route.pilgrimage}", which is not in pilgrimages[]`);
     }
   }
 ```
 
-Use the file's own `add(file, message)` helper name and `Problem` shape — read lines 990-1105 before editing.
+`add(file, message)` is `checkSite`'s own closure at line 472; `Problem` is `{ file, message }`.
 
 - [ ] **Step 4: Run the tests to verify they pass**
 
@@ -1436,21 +1650,22 @@ EOF
 
 ## Task 9: The pilgrimage page and the grouped catalog
 
-`docs/<id>.html` pages are hand-authored today; `build-assets` generates the glyph, profile, sparkline, and GPX a page inlines. This task adds page *generation* for pilgrimages only — a pilgrimage has no geometry of its own, so its page is a short index of its sections and can be emitted whole. Section pages stay hand-authored, as they are now.
+`docs/<id>.html` pages are hand-authored today; `build-assets` generates the glyph, profile, sparkline, and GPX a page inlines. This task adds page *generation* for pilgrimages only — a pilgrimage has no geometry of its own, so its page is a short index of its sections and can be emitted whole. Section pages stay hand-authored, as they are now; the five Camino ones gain a single line linking back up.
 
 **Files:**
-- Modify: `scripts/site/build-assets.ts` (`buildAssets` at 82, `main` at 141-147)
+- Modify: `scripts/site/build-assets.ts` (`buildAssets` at 81-139, `main` at 141-147)
 - Create: `docs/camino-de-santiago.html` (generated by the step below, then committed)
-- Modify: `docs/routes.html` (group the catalog by pilgrimage)
+- Modify: `docs/routes.html` (group the catalog by pilgrimage), `docs/route-filter.js` (hide a group whose cards are all hidden), `docs/styles.css` (one rule for the group container)
+- Modify: `docs/camino-frances.html`, `docs/camino-norte.html`, `docs/camino-primitivo.html`, `docs/camino-ingles.html`, `docs/camino-portugues.html` (each links up to `/camino-de-santiago`)
 - Test: `scripts/site/build-assets.test.ts`
 
 **Interfaces:**
-- Consumes: `index.json`'s `pilgrimages[]`.
+- Consumes: `index.json`'s `pilgrimages[]`, including each entry's `kind`.
 - Produces: `buildPilgrimagePages(root: string): string[]` — writes `docs/<pilgrimage-id>.html` for every entry in `pilgrimages[]`, returns the paths written. Called from `buildAssets`.
 
 - [ ] **Step 1: Write the failing test**
 
-Append to `scripts/site/build-assets.test.ts`:
+Append to `scripts/site/build-assets.test.ts`. It imports only `{ existsSync, readFileSync }` from `"fs"` and `{ join }` from `"path"` today, so add `mkdtempSync`, `mkdirSync`, `writeFileSync` and `rmSync` to the `"fs"` import, `tmpdir` from `"os"`, and `buildPilgrimagePages` to the `from "./build-assets.js"` import:
 
 ```ts
 test("a page is written for each pilgrimage, listing its sections in order", () => {
@@ -1479,6 +1694,12 @@ test("a page is written for each pilgrimage, listing its sections in order", () 
       html.indexOf('href="/kumano-kodo-nakahechi"') < html.indexOf('href="/kumano-kodo-kohechi"'),
       "sections appear in the order the index lists them",
     );
+    // The kind is the only thing that tells a reader whether these two links
+    // are choices or legs, so the page has to say which.
+    assert.match(html, /Each section below is its own way to the same destination/);
+    // No other route's metadata rides along in the head.
+    assert.match(html, /<link rel="canonical" href="https:\/\/open\.pilgrimag\.es\/kumano-kodo">/);
+    assert.equal(html.includes("camino-frances"), false);
   } finally {
     rmSync(root, { recursive: true, force: true });
   }
@@ -1531,8 +1752,23 @@ export function buildPilgrimagePages(root: string): string[] {
           `      <li><a href="/${s.id}">${escapeHtml(s.name.en)}</a> — ${s.distanceKm ?? 0} km</li>`,
       )
       .join("\n");
+
+    // Five same-weight links say nothing about how they relate. The kind is
+    // the only thing that distinguishes a set of choices from a sequence, so
+    // it is what the page opens with and what its description is built from.
+    const name = pilgrimage.name.en;
+    const sectionNames = sections.map((s) => s.name.en).join(", ");
+    const intro =
+      pilgrimage.kind === "legs"
+        ? "The sections below are walked in sequence, each beginning where the one before it ends."
+        : "Each section below is its own way to the same destination. Walk one, not all of them.";
+    const description =
+      pilgrimage.kind === "legs"
+        ? `${name}: ${sections.length} sections walked in sequence — ${sectionNames}. Route geometry, stages, and statistics for each.`
+        : `${name}: ${sections.length} alternative ways to the same destination — ${sectionNames}. Route geometry, stages, and statistics for each.`;
+
     const path = join(root, "docs", `${pilgrimage.id}.html`);
-    writeFileSync(path, pilgrimagePage(pilgrimage.id, pilgrimage.name.en, items));
+    writeFileSync(path, pilgrimagePage(pilgrimage.id, name, description, intro, items));
     written.push(path);
   }
 
@@ -1540,9 +1776,33 @@ export function buildPilgrimagePages(root: string): string[] {
 }
 ```
 
-Write `pilgrimagePage(id, name, items)` as a template literal returning the full document, reusing the markup you copied from `docs/camino-frances.html` with `<title>`, `<link rel="canonical" href="https://open.pilgrimag.es/${id}">`, an `<h1>` of the name, and `<ul>${items}</ul>`. Reuse the file's existing `escapeHtml` helper; if it has none, add a four-replacement one (`&`, `<`, `>`, `"`).
+Write `pilgrimagePage(id: string, name: string, description: string, intro: string, items: string): string` as a template literal returning the full document, reusing the markup you copied from `docs/camino-frances.html`. Every head field there that names a specific route has to take an argument, or the generated page ships the Camino Francés's metadata under its own canonical URL:
 
-Call it from `buildAssets` and report it the way the other emitters there report their counts.
+| Head field | Value |
+|---|---|
+| `<title>` | `${name} &mdash; Open Pilgrimages` |
+| `<meta name="description">` | `${description}` |
+| `<link rel="canonical">` | `https://open.pilgrimag.es/${id}` |
+| `<meta property="og:title">` | `${name} &mdash; Open Pilgrimages` |
+| `<meta property="og:description">` | `${description}` |
+| `<meta property="og:url">` | `https://open.pilgrimag.es/${id}` |
+| `<meta name="twitter:title">` | `${name} &mdash; Open Pilgrimages` |
+
+The remaining head lines — charset, viewport, favicon, `og:type`, `og:image`, `twitter:card`, `twitter:image`, the font preconnects, the theme script, `styles.css`, `hero.js` — name no route and are copied verbatim. The description copy is not hand-written: it is generated above from the pilgrimage's own `name`, `kind`, and section names, so it stays true when PRs C and D add their pilgrimages and nobody is left editing prose in a generator.
+
+The body is the nav copied verbatim, then:
+
+```
+    <h1>${name}</h1>
+    <p class="subtitle">${intro}</p>
+    <ul>
+${items}
+    </ul>
+```
+
+Run `name`, `description` and `intro` through `escapeHtml`. `scripts/site/build-assets.ts` has no `escapeHtml` today, so add a four-replacement one (`&`, `<`, `>`, `"`) — `&` first.
+
+Call it from `buildAssets` and report it the way the other emitters there report their counts: add `pilgrimagePages: number` to `buildAssets`'s return type (line 81-86), return `written.length`, and extend `main()`'s single `console.log` (143-146) with `, ${counts.pilgrimagePages} pilgrimage page(s)`.
 
 - [ ] **Step 4: Generate, then group the catalog**
 
@@ -1550,27 +1810,83 @@ Call it from `buildAssets` and report it the way the other emitters there report
 npm run build-assets && ls docs/camino-de-santiago.html
 ```
 
-Then edit `docs/routes.html` so the route table is grouped under a heading per pilgrimage, keeping every existing `href="/<route-id>"` catalog link and every comparison-table row intact — `check-site`'s `COMPARE_ROW_PATTERN` (lines 195-196, consumed at 1217-1240) and its catalog-link check (1007-1010) both still have to pass. Add a heading row for `Camino de Santiago` above its five sections, linking to `/camino-de-santiago`. Leave the ungrouped routes where they are.
+Then edit `docs/routes.html` so the route table is grouped under a heading per pilgrimage, keeping every existing `href="/<route-id>"` catalog link and every comparison-table row intact — `check-site`'s `COMPARE_ROW_PATTERN` (lines 195-196, consumed at 1217-1240) and its catalog-link check (1007-1010) both still have to pass. Leave the ungrouped routes — `kumano-kodo` and `shikoku-88` — where they are, as direct children of `.route-grid`.
 
-- [ ] **Step 5: Run the tests and the site check**
+The five Camino cards are already contiguous, the first five children of `<div class="route-grid">` (line 100). Wrap them, with a heading, in one container:
+
+```html
+      <div class="route-group">
+        <h3><a href="/camino-de-santiago">Camino de Santiago</a></h3>
+        <!-- the five existing <div class="route-card" …> blocks, unchanged -->
+      </div>
+```
+
+Do not touch the card tags themselves: `check-site`'s `findRouteCardOpenTag` (line 310) locates a card by `lastIndexOf('<div class="route-card"')` before the route's `href`, and `checkRouteFilterAttrs` reads the `data-*` attributes off exactly that tag.
+
+`.route-grid` is a one-column grid whose `gap` spaces the cards (`docs/styles.css:372-377`); once they are nested, the container is the grid item and the gap no longer falls between them. Add beside it:
+
+```css
+.route-group {
+  display: grid;
+  gap: var(--space-lg);
+}
+```
+
+Then teach the filter about the group. `docs/route-filter.js` collects `.route-card[data-days]` and sets `card.hidden` per card; it knows nothing about headings, so filtering to a narrow range would leave "Camino de Santiago" floating over nothing. Collect the groups next to the cards, after the `cards` line:
+
+```js
+  var groups = [].slice.call(grid.querySelectorAll(".route-group"));
+```
+
+and hide an empty one at the end of `applyFilters`, before `renderStatus(visible)`:
+
+```js
+    // A group heading with every card under it hidden announces a section
+    // that is not there. The heading is not a card and has no data-days, so
+    // nothing above would have hidden it.
+    groups.forEach(function (group) {
+      var cardsInGroup = [].slice.call(group.querySelectorAll(".route-card[data-days]"));
+      group.hidden = cardsInGroup.every(function (card) {
+        return card.hidden;
+      });
+    });
+```
+
+`grid.querySelectorAll` matches descendants, so the existing `cards` list still picks up every card inside a group and `total` is unchanged.
+
+- [ ] **Step 5: Link each section back up**
+
+The relationship is currently one-way: the pilgrimage page lists its five sections and no section page says it belongs to one. All five `docs/camino-*.html` pages are identically structured — `<h1>` on line 53, `<p class="subtitle">` on line 54. Insert one line after the subtitle in each of `docs/camino-frances.html`, `docs/camino-norte.html`, `docs/camino-primitivo.html`, `docs/camino-ingles.html`, and `docs/camino-portugues.html`:
+
+```html
+    <p class="subtitle">Part of the <a href="/camino-de-santiago">Camino de Santiago</a>.</p>
+```
+
+`.subtitle` is an existing rule, so no CSS changes and the line reads as a second sub-title under the route's own. Do not touch the `<h1>` or the paragraph below it.
+
+- [ ] **Step 6: Run the tests and the site check**
 
 ```bash
 npm test 2>&1 | grep -E "^# (tests|pass|fail)"
 npx tsc --noEmit
 npm run build-assets && npm run check-site 2>&1 | tail -2 && git status --porcelain docs
 ```
-Expected: `# fail 0`; `Site is in sync with route data.`; `git status` lists only `docs/camino-de-santiago.html` and `docs/routes.html`.
+Expected: `# fail 0`; `Site is in sync with route data.`; `git status` lists `docs/camino-de-santiago.html`, `docs/routes.html`, `docs/route-filter.js`, `docs/styles.css`, and the five `docs/camino-*.html` section pages — nothing else.
 
-- [ ] **Step 6: Commit**
+- [ ] **Step 7: Commit**
 
 ```bash
-git add scripts/site/build-assets.ts scripts/site/build-assets.test.ts docs/camino-de-santiago.html docs/routes.html
+git add scripts/site/build-assets.ts scripts/site/build-assets.test.ts docs/camino-de-santiago.html docs/routes.html docs/route-filter.js docs/styles.css docs/camino-frances.html docs/camino-norte.html docs/camino-primitivo.html docs/camino-ingles.html docs/camino-portugues.html
 git commit -m "$(cat <<'EOF'
 feat(site): a pilgrimage gets a page of its sections
 
 Generated rather than hand-authored, because a pilgrimage has no
-geometry to draw: the page is its section list. This is what will keep
-/kumano-kodo and /shikoku-88 resolving once those ids stop being routes.
+geometry to draw: the page is its section list, opening with a line
+that says whether those sections are choices or legs. This is what will
+keep /kumano-kodo and /shikoku-88 resolving once those ids stop being
+routes. The catalog groups the five Caminos under one heading, the
+filter hides that heading when its cards are all filtered out, and each
+section page links back up.
 
 Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>
 EOF
@@ -1614,7 +1930,7 @@ Under Data Conventions, add:
 
 - [ ] **Step 2: Note the gate in the release runbook**
 
-In `.claude/commands/release.md`, in the phase that runs `npm run validate` (Phase 2b), add one sentence:
+In `.claude/commands/release.md`, in Phase 2b — the phase that already explains why the tag has to follow the merge — add one sentence:
 
 ```
 `validate` also refuses any stage still marked `"drafted": true`, so drafted
@@ -1634,7 +1950,7 @@ Under `## [Unreleased]`, add:
 ### Added
 - `pilgrimages[]` in `index.json`: a pilgrimage groups the sections that name it, with `kind` distinguishing sections walked in sequence from alternative ways to the same end. Additive — `routes[]` is unchanged.
 - `validate` checks that the sections of a `legs` pilgrimage meet, that a circular pilgrimage closes, and that no stage still carries drafted text.
-- A generated page per pilgrimage, listing its sections.
+- A generated page per pilgrimage, listing its sections and saying whether they are choices or legs. The catalog groups them under one heading, and each section page links back up.
 
 ### Fixed
 - Stage boundaries advance along the walked line. A route that passes a place twice could put a stage's end behind its start; the slice was cut anyway and the report never said so. Such a pair is now a named gate reason with nothing emitted (#7).
@@ -1671,6 +1987,7 @@ EOF
 - `npm test`, `npx tsc --noEmit`, `npm run validate`, and `npm run check-site` are all clean.
 - `npm run build-ways && npm run build-index && npm run build-assets` leaves `routes/`, `index.json`, and `docs/` unchanged.
 - `index.json` carries one `camino-de-santiago` pilgrimage with five sections and no summed distance.
+- `docs/camino-de-santiago.html` exists, opens with the `alternatives` sentence, carries its own head metadata, and each of the five section pages links back to it.
 - `routes/camino-frances/ways/` is byte-identical to what it was before Task 1.
 - Issue #7 is closed by Task 1's commit.
 
