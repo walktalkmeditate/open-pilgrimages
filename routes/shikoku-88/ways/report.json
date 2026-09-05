@@ -1371,6 +1371,17 @@
       7,
       8,
       9
+    ],
+    "reasons": [
+      "stage 0 ends at \"Shōzan-ji (Temple 12)\" but stage 1 begins at \"Dainichi-ji (Temple 13)\", 15284 m away",
+      "stage 1 ends at \"Yakuō-ji (Temple 23)\" but stage 2 begins at \"Hotsumisaki-ji (Temple 24)\", 62849 m away",
+      "stage 2 ends at \"Kiyotaki-ji (Temple 35)\" but stage 3 begins at \"Shōryū-ji (Temple 36)\", 10395 m away",
+      "stage 3 ends at \"Kongōfuku-ji (Temple 38)\" but stage 4 begins at \"Enkō-ji (Temple 39)\", 34737 m away",
+      "stage 4 ends at \"Iwaya-ji (Temple 45)\" but stage 5 begins at \"Jōruri-ji (Temple 46)\", 18334 m away",
+      "stage 5 ends at \"Enmyō-ji (Temple 53)\" but stage 6 begins at \"Enmei-ji (Temple 54)\", 28377 m away",
+      "stage 6 ends at \"Maegami-ji (Temple 64)\" but stage 7 begins at \"Sankaku-ji (Temple 65)\", 40249 m away",
+      "stage 7 ends at \"Unpen-ji (Temple 66)\" but stage 8 begins at \"Daikō-ji (Temple 67)\", 7464 m away",
+      "stage 8 ends at \"Zentsū-ji (Temple 75)\" but stage 9 begins at \"Konzō-ji (Temple 76)\", 2853 m away"
     ]
   },
   "dropped": [],

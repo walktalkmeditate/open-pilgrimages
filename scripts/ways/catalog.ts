@@ -96,6 +96,12 @@ export interface ReportInput {
   stages: ReportStageInput[];
   /** Waypoints a stage filter never saw at all — see WayReportFile.dropped. */
   dropped?: string[];
+  /**
+   * What is wrong with the route as a whole rather than with any one stage's
+   * length. Any of these keeps a package from being written, exactly as a
+   * stage outside the length gate does.
+   */
+  gateReasons?: string[];
 }
 
 export function buildReport(input: ReportInput): WayReportFile {
@@ -117,6 +123,7 @@ export function buildReport(input: ReportInput): WayReportFile {
   }));
 
   const failing = stages.filter((s) => !s.passedGate).map((s) => s.index);
+  const reasons = input.gateReasons ?? [];
   const withMoment = stages.filter((s) => s.momentsBeyondEnds > 0).length;
   const half = halfOfStages(stages.length);
   const sparse = withMoment < half;
@@ -135,7 +142,11 @@ export function buildReport(input: ReportInput): WayReportFile {
       lengthKm: Math.round(input.walkedLine.lengthKm * 1000) / 1000,
     },
     stages,
-    gate: { passed: failing.length === 0, failing },
+    gate: {
+      passed: failing.length === 0 && reasons.length === 0,
+      failing,
+      ...(reasons.length > 0 ? { reasons } : {}),
+    },
     dropped: input.dropped ?? [],
     places: {
       sparse,

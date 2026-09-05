@@ -153,7 +153,12 @@ export interface WayReportFile {
   generatedAt: string;
   walkedLine: { source: "route.main.geojson" | "route.geojson"; points: number; lengthKm: number };
   stages: WayReportStage[];
-  gate: { passed: boolean; failing: number[] };
+  /**
+   * `failing` lists the stages whose measured length is outside the gate;
+   * `reasons` carries what is wrong with the route as a whole rather than
+   * with any one stage. Either one keeps a package from being written.
+   */
+  gate: { passed: boolean; failing: number[]; reasons?: string[] };
   /**
    * Waypoints of a moment type whose `stageIndex` is missing or outside
    * `0..stages.length-1` — they match no stage's filter, so they never reach

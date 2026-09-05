@@ -9,6 +9,7 @@ import { SCHEMA_VERSION } from "./ways/types.js";
 import {
   walkedLine,
   cumulativeMeters,
+  haversineMeters,
   lineLengthMeters,
   stageBoundaries,
   simplify,
@@ -17,6 +18,7 @@ import {
   routePoints,
   RDP_TOLERANCE_METERS,
   MAX_ROUTE_POINTS,
+  SNAP_METERS,
 } from "./ways/geo.js";
 import { buildMoments, MOMENT_TYPES, type WaypointFeature } from "./ways/moments.js";
 import { buildMarks } from "./ways/marks.js";
@@ -87,6 +89,23 @@ export function buildRouteWays(input: RouteWaysInput): RouteWaysResult {
         ? `${label} has no stageIndex and was dropped`
         : `${label} has stageIndex ${w.properties.stageIndex}, outside 0..${stages.length - 1}, and was dropped`;
     });
+
+  // Each day has to end where the next begins. Where it does not, the ground
+  // between the two places is walked by nobody: the cut below runs from one
+  // stage's start anchor to the next one's, so a stage's own declared end is
+  // never consulted, and a stage can measure the right number of kilometres
+  // while being the wrong stretch of line. Reported as a gate failure rather
+  // than thrown, for the same reason a length failure is — a dataset whose
+  // stages do not chain yet is unfinished, not broken.
+  const chainBreaks = stages.slice(0, -1).flatMap((stage, i) => {
+    const meters = haversineMeters(stage.end.coordinates, stages[i + 1].start.coordinates);
+    return meters <= SNAP_METERS
+      ? []
+      : [
+          `stage ${i} ends at "${stage.end.name.en}" but stage ${i + 1} begins at ` +
+            `"${stages[i + 1].start.name.en}", ${Math.round(meters)} m away`,
+        ];
+  });
 
   const line = walkedLine(input.routeGeoJson);
   const cumulative = cumulativeMeters(line);
@@ -169,6 +188,7 @@ export function buildRouteWays(input: RouteWaysInput): RouteWaysResult {
     },
     stages: reportStages,
     dropped: routeDropped,
+    gateReasons: chainBreaks,
   });
 
   return {
@@ -271,7 +291,11 @@ function buildRouteDirectory(routeDir: string, ajv: Ajv, failures: string[]): vo
   // pipeline` has to stay runnable while that is true. Only a schema failure
   // — a package that would not decode on the phone — exits non-zero.
   if (!result.emitted) {
-    console.log(`${metadata.id}: no package — ${result.report.gate.failing.length} stage(s) outside the gate`);
+    const reasons = result.report.gate.reasons ?? [];
+    const chainNote = reasons.length > 0 ? `, ${reasons.length} break(s) in the stage chain` : "";
+    console.log(
+      `${metadata.id}: no package — ${result.report.gate.failing.length} stage(s) outside the gate${chainNote}`,
+    );
     for (const index of result.report.gate.failing) {
       const stage = result.report.stages[index];
       console.log(
@@ -279,6 +303,7 @@ function buildRouteDirectory(routeDir: string, ajv: Ajv, failures: string[]): vo
           `${stage.sliceKm.toFixed(2)} km against a declared ${stage.distanceKm} km`,
       );
     }
+    for (const reason of reasons) console.log(`    ${reason}`);
     return;
   }
 

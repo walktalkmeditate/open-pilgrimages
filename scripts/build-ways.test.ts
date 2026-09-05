@@ -142,6 +142,36 @@ test("the failure message names the stage and both figures", () => {
   assert.ok(Math.abs(stage.sliceKm - 1.112) < 1e-3, `${stage.sliceKm}`);
 });
 
+test("a stage that does not end where the next begins fails the route's gate, naming both places", () => {
+  const stages = passingStages();
+  // Half a degree of nobody's-walking between one day's end and the next
+  // day's start — the shape a route stitched together from separate day
+  // guides has. Every stage still measures right, because the cut runs from
+  // one start anchor to the next and never consults a stage's declared end.
+  stages[0] = {
+    ...stages[0],
+    end: { name: { en: "Wrong Turn" }, coordinates: [0.5, 0.5] },
+  };
+
+  const result = build({ stages });
+
+  assert.equal(result.emitted, false);
+  assert.equal(result.ways.length, 0);
+  assert.equal(result.report.gate.passed, false);
+  assert.deepEqual(result.report.gate.failing, []);
+  assert.equal(result.report.gate.reasons?.length, 1);
+  assert.match(
+    result.report.gate.reasons![0],
+    /^stage 0 ends at "Wrong Turn" but stage 1 begins at "Middle", \d+ m away$/,
+  );
+});
+
+test("a route whose stages do join up carries no gate reasons at all", () => {
+  const report = build({ stages: passingStages() }).report;
+  assert.equal(report.gate.passed, true);
+  assert.equal("reasons" in report.gate, false, "an empty reasons key would churn every report");
+});
+
 test("a route whose stages all pass the gate emits one Way per stage", () => {
   const result = build({ stages: passingStages() });
   assert.equal(result.emitted, true);
