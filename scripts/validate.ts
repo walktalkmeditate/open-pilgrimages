@@ -3,6 +3,8 @@ import addFormats from "ajv-formats";
 import { readFileSync, existsSync, readdirSync, statSync } from "fs";
 import { join, relative } from "path";
 import { resolveInvokedPath } from "./cli.js";
+import { nearestVertex, walkedLine, SNAP_METERS } from "./ways/geo.js";
+import type { Position } from "./ways/types.js";
 
 type Ajv = InstanceType<typeof Ajv2020>;
 
@@ -344,6 +346,66 @@ export function validateWays(ajv: Ajv, routeDir: string, errors: ValidationError
   }
 }
 
+interface AnchoredStage {
+  index?: unknown;
+  name?: { en?: unknown };
+  start?: { coordinates?: unknown };
+  end?: { coordinates?: unknown };
+}
+
+/**
+ * A walked line and the stage anchors it was cut for can drift apart without
+ * either file becoming invalid on its own, and CI's drift check cannot see it:
+ * that check reruns the build and diffs the output, and the build happily
+ * rebuilds from the stale line. Editing a stage's start or end in stages.json
+ * without rerunning `npm run build-main-line` is exactly that — the anchor
+ * moves off the line, build-ways quietly falls back to placing the boundary by
+ * declared distance instead of by position, and the stage that ships is cut in
+ * the wrong place.
+ *
+ * So: every anchor must be within the distance the build is willing to snap
+ * across. Only routes that have a walked line are checked; a route still
+ * cutting from route.geojson has nothing to be stale against.
+ */
+export function validateWalkedLine(routeDir: string, errors: ValidationError[]): void {
+  const linePath = join(routeDir, "route.main.geojson");
+  const stagesPath = join(routeDir, "stages.json");
+  const metaPath = join(routeDir, "metadata.json");
+  if (!existsSync(linePath) || !existsSync(stagesPath)) return;
+
+  let line: Position[];
+  let stages: unknown;
+  let routeId: unknown;
+  try {
+    line = walkedLine(loadJson(linePath));
+    stages = loadJson(stagesPath)?.stages;
+    routeId = existsSync(metaPath) ? loadJson(metaPath)?.id : undefined;
+  } catch {
+    return; // validateFile above already recorded the Invalid JSON error
+  }
+  if (line.length === 0 || !Array.isArray(stages)) return;
+
+  for (const stage of stages as AnchoredStage[]) {
+    for (const end of ["start", "end"] as const) {
+      const coordinates = stage[end]?.coordinates;
+      if (!Array.isArray(coordinates) || coordinates.length < 2) continue;
+
+      const found = nearestVertex(line, coordinates as Position);
+      if (found.meters > SNAP_METERS) {
+        errors.push({
+          file: relative(ROOT, linePath),
+          message:
+            `${routeId}: stage ${stage.index} ("${stage.name?.en}") ${end} is ` +
+            `${Math.round(found.meters)} m from the nearest point on the walked line, past the ` +
+            `${SNAP_METERS} m the build can snap across — either the anchor moved or the line is ` +
+            `stale; rerun npm run build-main-line`,
+          severity: "error",
+        });
+      }
+    }
+  }
+}
+
 function main() {
   const ajv = createValidator();
   const errors: ValidationError[] = [];
@@ -366,6 +428,7 @@ function main() {
     validateFile(ajv, "waypoints.schema.json", join(dir, "waypoints.geojson"), errors);
     validateFile(ajv, "route.schema.json", join(dir, "route.main.geojson"), errors);
     validateWays(ajv, dir, errors);
+    validateWalkedLine(dir, errors);
 
     validateDataConsistency(dir, errors);
   }
