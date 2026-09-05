@@ -1,0 +1,598 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "pilgrimage:camino-frances:18",
+  "title": "Bercianos del Real Camino to Mansilla de las Mulas",
+  "departedAt": "2026-08-19T00:00:00Z",
+  "route": [
+    {
+      "lat": 42.387819,
+      "lon": -5.145113,
+      "t": 0
+    },
+    {
+      "lat": 42.388483,
+      "lon": -5.146366,
+      "t": 122.8
+    },
+    {
+      "lat": 42.389349,
+      "lon": -5.147186,
+      "t": 236.6
+    },
+    {
+      "lat": 42.390453,
+      "lon": -5.149092,
+      "t": 429.4
+    },
+    {
+      "lat": 42.391552,
+      "lon": -5.151775,
+      "t": 673.6
+    },
+    {
+      "lat": 42.394416,
+      "lon": -5.157094,
+      "t": 1197.6
+    },
+    {
+      "lat": 42.39706,
+      "lon": -5.163314,
+      "t": 1768.7
+    },
+    {
+      "lat": 42.397951,
+      "lon": -5.166946,
+      "t": 2073.3
+    },
+    {
+      "lat": 42.404834,
+      "lon": -5.184301,
+      "t": 3641.1
+    },
+    {
+      "lat": 42.411244,
+      "lon": -5.198073,
+      "t": 4936.5
+    },
+    {
+      "lat": 42.412676,
+      "lon": -5.201486,
+      "t": 5248.8
+    },
+    {
+      "lat": 42.415776,
+      "lon": -5.207669,
+      "t": 5843.5
+    },
+    {
+      "lat": 42.418135,
+      "lon": -5.21171,
+      "t": 6253.4
+    },
+    {
+      "lat": 42.419802,
+      "lon": -5.215097,
+      "t": 6577.2
+    },
+    {
+      "lat": 42.420088,
+      "lon": -5.215357,
+      "t": 6614.4
+    },
+    {
+      "lat": 42.420483,
+      "lon": -5.216077,
+      "t": 6685.7
+    },
+    {
+      "lat": 42.422316,
+      "lon": -5.219837,
+      "t": 7044.2
+    },
+    {
+      "lat": 42.422949,
+      "lon": -5.222352,
+      "t": 7255.6
+    },
+    {
+      "lat": 42.423963,
+      "lon": -5.223747,
+      "t": 7411.3
+    },
+    {
+      "lat": 42.425002,
+      "lon": -5.225674,
+      "t": 7601.2
+    },
+    {
+      "lat": 42.426574,
+      "lon": -5.227975,
+      "t": 7850.6
+    },
+    {
+      "lat": 42.42961,
+      "lon": -5.23428,
+      "t": 8449.4
+    },
+    {
+      "lat": 42.430982,
+      "lon": -5.237213,
+      "t": 8725.6
+    },
+    {
+      "lat": 42.433661,
+      "lon": -5.245147,
+      "t": 9419.6
+    },
+    {
+      "lat": 42.439328,
+      "lon": -5.254801,
+      "t": 10400.7
+    },
+    {
+      "lat": 42.444626,
+      "lon": -5.262458,
+      "t": 11235.5
+    },
+    {
+      "lat": 42.447962,
+      "lon": -5.26808,
+      "t": 11809.2
+    },
+    {
+      "lat": 42.452319,
+      "lon": -5.278897,
+      "t": 12789.2
+    },
+    {
+      "lat": 42.458398,
+      "lon": -5.29339,
+      "t": 14114.8
+    },
+    {
+      "lat": 42.460249,
+      "lon": -5.299747,
+      "t": 14658.1
+    },
+    {
+      "lat": 42.463831,
+      "lon": -5.311038,
+      "t": 15635.3
+    },
+    {
+      "lat": 42.465244,
+      "lon": -5.318319,
+      "t": 16233.8
+    },
+    {
+      "lat": 42.464466,
+      "lon": -5.32806,
+      "t": 17012.8
+    },
+    {
+      "lat": 42.464842,
+      "lon": -5.328774,
+      "t": 17082.5
+    },
+    {
+      "lat": 42.467349,
+      "lon": -5.329745,
+      "t": 17363.5
+    },
+    {
+      "lat": 42.467707,
+      "lon": -5.330063,
+      "t": 17409.6
+    },
+    {
+      "lat": 42.467984,
+      "lon": -5.330579,
+      "t": 17460.4
+    },
+    {
+      "lat": 42.468296,
+      "lon": -5.331995,
+      "t": 17577.9
+    },
+    {
+      "lat": 42.468356,
+      "lon": -5.33729,
+      "t": 17998.8
+    },
+    {
+      "lat": 42.468655,
+      "lon": -5.338066,
+      "t": 18068.4
+    },
+    {
+      "lat": 42.470212,
+      "lon": -5.339767,
+      "t": 18283.9
+    },
+    {
+      "lat": 42.47046,
+      "lon": -5.340731,
+      "t": 18365.1
+    },
+    {
+      "lat": 42.470685,
+      "lon": -5.343366,
+      "t": 18576
+    },
+    {
+      "lat": 42.470548,
+      "lon": -5.346762,
+      "t": 18846.3
+    },
+    {
+      "lat": 42.470684,
+      "lon": -5.347869,
+      "t": 18935.5
+    },
+    {
+      "lat": 42.471766,
+      "lon": -5.350606,
+      "t": 19182.4
+    },
+    {
+      "lat": 42.472095,
+      "lon": -5.351934,
+      "t": 19293.8
+    },
+    {
+      "lat": 42.472432,
+      "lon": -5.352569,
+      "t": 19355.9
+    },
+    {
+      "lat": 42.473683,
+      "lon": -5.353492,
+      "t": 19509.4
+    },
+    {
+      "lat": 42.474435,
+      "lon": -5.353323,
+      "t": 19591.6
+    },
+    {
+      "lat": 42.474766,
+      "lon": -5.353926,
+      "t": 19651.3
+    },
+    {
+      "lat": 42.474916,
+      "lon": -5.353787,
+      "t": 19670.9
+    },
+    {
+      "lat": 42.475139,
+      "lon": -5.354102,
+      "t": 19705.6
+    },
+    {
+      "lat": 42.475208,
+      "lon": -5.354676,
+      "t": 19751.8
+    },
+    {
+      "lat": 42.475484,
+      "lon": -5.35481,
+      "t": 19783.4
+    },
+    {
+      "lat": 42.475335,
+      "lon": -5.355639,
+      "t": 19851.3
+    },
+    {
+      "lat": 42.475619,
+      "lon": -5.356041,
+      "t": 19895.5
+    },
+    {
+      "lat": 42.475481,
+      "lon": -5.356372,
+      "t": 19925.7
+    },
+    {
+      "lat": 42.475808,
+      "lon": -5.358229,
+      "t": 20077.5
+    },
+    {
+      "lat": 42.479021,
+      "lon": -5.365208,
+      "t": 20731.4
+    },
+    {
+      "lat": 42.485463,
+      "lon": -5.386066,
+      "t": 22528.7
+    },
+    {
+      "lat": 42.492724,
+      "lon": -5.403125,
+      "t": 24094
+    },
+    {
+      "lat": 42.493763,
+      "lon": -5.405291,
+      "t": 24299.3
+    },
+    {
+      "lat": 42.494321,
+      "lon": -5.406946,
+      "t": 24443.9
+    },
+    {
+      "lat": 42.494441,
+      "lon": -5.407883,
+      "t": 24519.5
+    },
+    {
+      "lat": 42.495281,
+      "lon": -5.408641,
+      "t": 24628.2
+    },
+    {
+      "lat": 42.497764,
+      "lon": -5.415,
+      "t": 25200
+    }
+  ],
+  "totalDistanceMeters": 26001,
+  "theirActiveSeconds": 25200,
+  "moments": [
+    {
+      "id": "stage-start",
+      "frac": 0.0001612375866402104,
+      "kind": "waypoint",
+      "label": "Bercianos del Real Camino",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 42.387840978951395,
+        "lon": -5.1451544753405125
+      },
+      "pin": {
+        "lat": 42.388,
+        "lon": -5.145
+      }
+    },
+    {
+      "id": "wp-mansilla",
+      "frac": 1,
+      "kind": "waypoint",
+      "label": "Mansilla de las Mulas",
+      "icon": "seal",
+      "at": {
+        "lat": 42.497764,
+        "lon": -5.415
+      },
+      "pin": {
+        "lat": 42.498,
+        "lon": -5.415
+      },
+      "text": "stamp available"
+    }
+  ],
+  "marks": [
+    {
+      "id": "wp-osm-accommodation-node833173979",
+      "kind": "bed",
+      "name": "Castillo El Burgo",
+      "at": {
+        "lat": 42.417493,
+        "lon": -5.215521
+      },
+      "frac": 0.25663731888453745,
+      "offLineMeters": 232.9
+    },
+    {
+      "id": "wp-osm-food-node13192534892",
+      "kind": "food",
+      "name": "La Costa del Adobe",
+      "at": {
+        "lat": 42.421641,
+        "lon": -5.218336
+      },
+      "frac": 0.27398757398663626,
+      "offLineMeters": 5.2
+    },
+    {
+      "id": "wp-osm-accommodation-node2455815232",
+      "kind": "bed",
+      "name": "Albergue El Nogal",
+      "at": {
+        "lat": 42.422708,
+        "lon": -5.217745
+      },
+      "frac": 0.2749438596529948,
+      "offLineMeters": 131
+    },
+    {
+      "id": "wp-osm-food-node2081679981",
+      "kind": "food",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.422971,
+        "lon": -5.218276
+      },
+      "frac": 0.2769626011987923,
+      "offLineMeters": 131.4
+    },
+    {
+      "id": "wp-osm-food-node2081679978",
+      "kind": "food",
+      "name": "El Camino",
+      "at": {
+        "lat": 42.42207,
+        "lon": -5.219195
+      },
+      "frac": 0.2772616396096165,
+      "offLineMeters": 6.2
+    },
+    {
+      "id": "wp-osm-supply-node2719595675",
+      "kind": "supply",
+      "name": "Autoservicio Pili",
+      "at": {
+        "lat": 42.42334,
+        "lon": -5.219596
+      },
+      "frac": 0.2802231764398149,
+      "offLineMeters": 114.1
+    },
+    {
+      "id": "wp-osm-water_source-node10781916656",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.422529,
+        "lon": -5.220318
+      },
+      "frac": 0.2812612527555179,
+      "offLineMeters": 9.6
+    },
+    {
+      "id": "wp-osm-accommodation-node2458924530",
+      "kind": "bed",
+      "name": "Albergue La Laguna",
+      "at": {
+        "lat": 42.424064,
+        "lon": -5.220597
+      },
+      "frac": 0.28421378493910565,
+      "offLineMeters": 163.8
+    },
+    {
+      "id": "wp-osm-supply-node5790389489",
+      "kind": "supply",
+      "name": "Alimentación Tere",
+      "at": {
+        "lat": 42.472321,
+        "lon": -5.352514
+      },
+      "frac": 0.7676763583809455,
+      "offLineMeters": 7.4
+    },
+    {
+      "id": "wp-osm-accommodation-node840002601",
+      "kind": "bed",
+      "name": "Vive Tu Camino",
+      "at": {
+        "lat": 42.472463,
+        "lon": -5.353194
+      },
+      "frac": 0.7691507327628533,
+      "offLineMeters": 43.4
+    },
+    {
+      "id": "wp-osm-accommodation-node3761057961",
+      "kind": "bed",
+      "name": "El Albergue de Ada",
+      "at": {
+        "lat": 42.473044,
+        "lon": -5.354188
+      },
+      "frac": 0.7728311844010841,
+      "offLineMeters": 84.1
+    },
+    {
+      "id": "wp-osm-water_source-node2719595702",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.474005,
+        "lon": -5.353544
+      },
+      "frac": 0.7755162535738462,
+      "offLineMeters": 10
+    },
+    {
+      "id": "wp-osm-accommodation-node839999819",
+      "kind": "bed",
+      "name": "Albergue de Peregrinos La Parada",
+      "at": {
+        "lat": 42.475011,
+        "lon": -5.353784
+      },
+      "frac": 0.7808658369986029,
+      "offLineMeters": 7.8
+    },
+    {
+      "id": "wp-osm-water_source-node13192158401",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.474271,
+        "lon": -5.35586
+      },
+      "frac": 0.7877481855778562,
+      "offLineMeters": 119.7
+    },
+    {
+      "id": "wp-osm-water_source-node2719595708",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.476237,
+        "lon": -5.359585
+      },
+      "frac": 0.8013248053441908,
+      "offLineMeters": 18.4
+    },
+    {
+      "id": "wp-osm-water_source-node2719595713",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.488751,
+        "lon": -5.39392
+      },
+      "frac": 0.9224759111835875,
+      "offLineMeters": 5.3
+    },
+    {
+      "id": "wp-osm-accommodation-node12466604887",
+      "kind": "bed",
+      "name": "Albergue de Peregrinos Municipal",
+      "at": {
+        "lat": 42.499321,
+        "lon": -5.412439
+      },
+      "frac": 0.9959795783254289,
+      "offLineMeters": 251.3
+    }
+  ],
+  "stage": {
+    "routeId": "camino-frances",
+    "index": 18,
+    "count": 33,
+    "name": "Bercianos del Real Camino to Mansilla de las Mulas",
+    "theme": "Endlessness",
+    "narrative": "The last stage of the meseta, and it knows it. The flatness that once terrified you has become a companion. You walk toward Mansilla de las Mulas across land so level you can see the town for an hour before you reach it. The medieval walls still stand. Tomorrow you will be in León, and the meseta will be behind you. Many pilgrims feel a strange sadness here — the emptiness they dreaded has become the space where they found themselves, and they are about to lose it.",
+    "closing": "What will you miss about the emptiness when it is gone?",
+    "warnings": [],
+    "distanceKm": 26.3,
+    "gainMeters": 31,
+    "hours": {
+      "min": 6,
+      "max": 8
+    },
+    "difficulty": "moderate",
+    "start": {
+      "name": "Bercianos del Real Camino",
+      "at": {
+        "lat": 42.388,
+        "lon": -5.145
+      }
+    },
+    "end": {
+      "name": "Mansilla de las Mulas",
+      "at": {
+        "lat": 42.498,
+        "lon": -5.415
+      }
+    }
+  }
+}

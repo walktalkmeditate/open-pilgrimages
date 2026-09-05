@@ -39,6 +39,8 @@ jobs:
       - run: npm ci
       - run: npm test
       - run: npx tsc --noEmit
+      - name: Build ways
+        run: npm run build-ways
       - name: Build index
         # shell: bash sets -o pipefail. Without it the default `bash -e` takes
         # tee's exit code, so a failing generator would pass this step.
@@ -62,6 +64,7 @@ jobs:
           if [ -n "$changes" ]; then
             echo "$changes"
             echo "docs/assets or routes is out of date — run npm run build-assets and commit the result."
+            echo "If the routes/*/ways/ drift, that comes from build-ways, not build-assets — run npm run pipeline (build-ways + build-index + validate) instead."
             exit 1
           fi
       - run: npm run check-site

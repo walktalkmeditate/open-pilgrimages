@@ -1,0 +1,30 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "fixture-way",
+  "lastUpdated": "2026-08-19T00:00:00Z",
+  "name": { "en": "Fixture Way", "es": "Camino de Prueba" },
+  "description": {
+    "en": "A synthetic three-stage route used only by the ways build's tests. Its geometry is two straight legs meeting at a right angle on the equator, so every distance in the tests is arithmetic rather than a guess."
+  },
+  "overview": {
+    "distanceKm": 4.2,
+    "estimatedDays": { "min": 3, "max": 3, "typical": 3 },
+    "topology": "linear",
+    "startPoint": { "name": { "en": "Start Town" }, "coordinates": [0, 0] },
+    "endPoint": { "name": { "en": "End Town" }, "coordinates": [0.02, 0.02] },
+    "difficulty": "easy",
+    "countries": ["ES"]
+  },
+  "tradition": { "type": "christian" },
+  "provenance": {
+    "license": "ODbL-1.0",
+    "sources": [
+      {
+        "name": "Synthetic fixture",
+        "license": "ODbL-1.0",
+        "url": "https://github.com/walktalkmeditate/open-pilgrimages",
+        "dataTypes": ["geometry", "stages", "waypoints"]
+      }
+    ]
+  }
+}

@@ -1,0 +1,3814 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "pilgrimage:camino-frances:11",
+  "title": "San Juan de Ortega to Burgos",
+  "departedAt": "2026-08-19T00:00:00Z",
+  "route": [
+    {
+      "lat": 42.375674,
+      "lon": -3.436649,
+      "t": 0
+    },
+    {
+      "lat": 42.376044,
+      "lon": -3.438437,
+      "t": 139.4
+    },
+    {
+      "lat": 42.376322,
+      "lon": -3.440927,
+      "t": 328.4
+    },
+    {
+      "lat": 42.37621,
+      "lon": -3.44123,
+      "t": 353.8
+    },
+    {
+      "lat": 42.375975,
+      "lon": -3.441324,
+      "t": 378.7
+    },
+    {
+      "lat": 42.375811,
+      "lon": -3.443054,
+      "t": 509.6
+    },
+    {
+      "lat": 42.375383,
+      "lon": -3.444548,
+      "t": 629.9
+    },
+    {
+      "lat": 42.374691,
+      "lon": -3.448382,
+      "t": 926.1
+    },
+    {
+      "lat": 42.374532,
+      "lon": -3.452242,
+      "t": 1216.3
+    },
+    {
+      "lat": 42.374274,
+      "lon": -3.45286,
+      "t": 1269.6
+    },
+    {
+      "lat": 42.374179,
+      "lon": -3.45446,
+      "t": 1390.1
+    },
+    {
+      "lat": 42.373881,
+      "lon": -3.45538,
+      "t": 1465.5
+    },
+    {
+      "lat": 42.373362,
+      "lon": -3.45824,
+      "t": 1686.5
+    },
+    {
+      "lat": 42.372322,
+      "lon": -3.461237,
+      "t": 1935.1
+    },
+    {
+      "lat": 42.371935,
+      "lon": -3.463182,
+      "t": 2086.3
+    },
+    {
+      "lat": 42.371838,
+      "lon": -3.465341,
+      "t": 2248.6
+    },
+    {
+      "lat": 42.37228,
+      "lon": -3.468449,
+      "t": 2486.2
+    },
+    {
+      "lat": 42.372112,
+      "lon": -3.469334,
+      "t": 2554.8
+    },
+    {
+      "lat": 42.372331,
+      "lon": -3.470383,
+      "t": 2636.6
+    },
+    {
+      "lat": 42.37235,
+      "lon": -3.471509,
+      "t": 2721.2
+    },
+    {
+      "lat": 42.371994,
+      "lon": -3.47334,
+      "t": 2863.3
+    },
+    {
+      "lat": 42.370224,
+      "lon": -3.476503,
+      "t": 3161.1
+    },
+    {
+      "lat": 42.369839,
+      "lon": -3.477536,
+      "t": 3248
+    },
+    {
+      "lat": 42.369738,
+      "lon": -3.478287,
+      "t": 3305.3
+    },
+    {
+      "lat": 42.369854,
+      "lon": -3.478836,
+      "t": 3348.2
+    },
+    {
+      "lat": 42.370268,
+      "lon": -3.479622,
+      "t": 3420.6
+    },
+    {
+      "lat": 42.370243,
+      "lon": -3.480481,
+      "t": 3485.1
+    },
+    {
+      "lat": 42.371212,
+      "lon": -3.48283,
+      "t": 3687.1
+    },
+    {
+      "lat": 42.371668,
+      "lon": -3.484461,
+      "t": 3818
+    },
+    {
+      "lat": 42.371717,
+      "lon": -3.489161,
+      "t": 4170.8
+    },
+    {
+      "lat": 42.374093,
+      "lon": -3.501784,
+      "t": 5148.6
+    },
+    {
+      "lat": 42.375274,
+      "lon": -3.505521,
+      "t": 5453.7
+    },
+    {
+      "lat": 42.376475,
+      "lon": -3.50777,
+      "t": 5662
+    },
+    {
+      "lat": 42.377685,
+      "lon": -3.509693,
+      "t": 5851.6
+    },
+    {
+      "lat": 42.377304,
+      "lon": -3.510365,
+      "t": 5915.2
+    },
+    {
+      "lat": 42.377141,
+      "lon": -3.512302,
+      "t": 6061.5
+    },
+    {
+      "lat": 42.377903,
+      "lon": -3.51521,
+      "t": 6293.1
+    },
+    {
+      "lat": 42.377971,
+      "lon": -3.516556,
+      "t": 6394.3
+    },
+    {
+      "lat": 42.378906,
+      "lon": -3.519722,
+      "t": 6650.2
+    },
+    {
+      "lat": 42.379101,
+      "lon": -3.521696,
+      "t": 6799.7
+    },
+    {
+      "lat": 42.379002,
+      "lon": -3.52312,
+      "t": 6907.1
+    },
+    {
+      "lat": 42.37869,
+      "lon": -3.523775,
+      "t": 6965.6
+    },
+    {
+      "lat": 42.37932,
+      "lon": -3.526128,
+      "t": 7153.4
+    },
+    {
+      "lat": 42.379236,
+      "lon": -3.52756,
+      "t": 7261.2
+    },
+    {
+      "lat": 42.379589,
+      "lon": -3.528577,
+      "t": 7345.6
+    },
+    {
+      "lat": 42.380109,
+      "lon": -3.529329,
+      "t": 7422.9
+    },
+    {
+      "lat": 42.380287,
+      "lon": -3.53077,
+      "t": 7532.5
+    },
+    {
+      "lat": 42.380014,
+      "lon": -3.531801,
+      "t": 7614.7
+    },
+    {
+      "lat": 42.380005,
+      "lon": -3.532377,
+      "t": 7658
+    },
+    {
+      "lat": 42.379597,
+      "lon": -3.534394,
+      "t": 7814.9
+    },
+    {
+      "lat": 42.378716,
+      "lon": -3.536119,
+      "t": 7972.3
+    },
+    {
+      "lat": 42.37816,
+      "lon": -3.536696,
+      "t": 8043.5
+    },
+    {
+      "lat": 42.377489,
+      "lon": -3.538183,
+      "t": 8174.3
+    },
+    {
+      "lat": 42.377201,
+      "lon": -3.540077,
+      "t": 8319.4
+    },
+    {
+      "lat": 42.377226,
+      "lon": -3.545022,
+      "t": 8690.6
+    },
+    {
+      "lat": 42.37635,
+      "lon": -3.548691,
+      "t": 8980
+    },
+    {
+      "lat": 42.375668,
+      "lon": -3.550895,
+      "t": 9159.3
+    },
+    {
+      "lat": 42.374664,
+      "lon": -3.552268,
+      "t": 9304.3
+    },
+    {
+      "lat": 42.373881,
+      "lon": -3.554102,
+      "t": 9463.3
+    },
+    {
+      "lat": 42.371972,
+      "lon": -3.553842,
+      "t": 9658.3
+    },
+    {
+      "lat": 42.370414,
+      "lon": -3.554608,
+      "t": 9826.7
+    },
+    {
+      "lat": 42.369398,
+      "lon": -3.554228,
+      "t": 9933.8
+    },
+    {
+      "lat": 42.368257,
+      "lon": -3.556466,
+      "t": 10137.9
+    },
+    {
+      "lat": 42.36763,
+      "lon": -3.55724,
+      "t": 10224.1
+    },
+    {
+      "lat": 42.367012,
+      "lon": -3.557472,
+      "t": 10289.3
+    },
+    {
+      "lat": 42.36524,
+      "lon": -3.5573,
+      "t": 10469.8
+    },
+    {
+      "lat": 42.364466,
+      "lon": -3.556822,
+      "t": 10556.2
+    },
+    {
+      "lat": 42.362997,
+      "lon": -3.55545,
+      "t": 10737.6
+    },
+    {
+      "lat": 42.36167,
+      "lon": -3.55574,
+      "t": 10874.2
+    },
+    {
+      "lat": 42.360319,
+      "lon": -3.557117,
+      "t": 11046
+    },
+    {
+      "lat": 42.359564,
+      "lon": -3.559347,
+      "t": 11230.2
+    },
+    {
+      "lat": 42.359051,
+      "lon": -3.560347,
+      "t": 11321.5
+    },
+    {
+      "lat": 42.35855,
+      "lon": -3.561793,
+      "t": 11441.5
+    },
+    {
+      "lat": 42.35848,
+      "lon": -3.562581,
+      "t": 11501
+    },
+    {
+      "lat": 42.358766,
+      "lon": -3.56478,
+      "t": 11668.7
+    },
+    {
+      "lat": 42.358491,
+      "lon": -3.566147,
+      "t": 11775
+    },
+    {
+      "lat": 42.358485,
+      "lon": -3.567687,
+      "t": 11890.7
+    },
+    {
+      "lat": 42.358992,
+      "lon": -3.569678,
+      "t": 12048.8
+    },
+    {
+      "lat": 42.359186,
+      "lon": -3.571433,
+      "t": 12182
+    },
+    {
+      "lat": 42.359524,
+      "lon": -3.573078,
+      "t": 12310.2
+    },
+    {
+      "lat": 42.359682,
+      "lon": -3.575515,
+      "t": 12493.9
+    },
+    {
+      "lat": 42.359494,
+      "lon": -3.577058,
+      "t": 12611.3
+    },
+    {
+      "lat": 42.359737,
+      "lon": -3.581124,
+      "t": 12917.5
+    },
+    {
+      "lat": 42.359873,
+      "lon": -3.581888,
+      "t": 12976.5
+    },
+    {
+      "lat": 42.360409,
+      "lon": -3.583137,
+      "t": 13085
+    },
+    {
+      "lat": 42.360377,
+      "lon": -3.583656,
+      "t": 13124.1
+    },
+    {
+      "lat": 42.359982,
+      "lon": -3.585111,
+      "t": 13240.4
+    },
+    {
+      "lat": 42.360271,
+      "lon": -3.587656,
+      "t": 13433.8
+    },
+    {
+      "lat": 42.360958,
+      "lon": -3.590312,
+      "t": 13645
+    },
+    {
+      "lat": 42.361164,
+      "lon": -3.592003,
+      "t": 13773.7
+    },
+    {
+      "lat": 42.362097,
+      "lon": -3.594116,
+      "t": 13958.5
+    },
+    {
+      "lat": 42.36211,
+      "lon": -3.595476,
+      "t": 14060.6
+    },
+    {
+      "lat": 42.362247,
+      "lon": -3.59618,
+      "t": 14115.3
+    },
+    {
+      "lat": 42.363157,
+      "lon": -3.598497,
+      "t": 14312.2
+    },
+    {
+      "lat": 42.363396,
+      "lon": -3.60003,
+      "t": 14429.9
+    },
+    {
+      "lat": 42.363661,
+      "lon": -3.600784,
+      "t": 14492.5
+    },
+    {
+      "lat": 42.364102,
+      "lon": -3.601413,
+      "t": 14557.6
+    },
+    {
+      "lat": 42.364592,
+      "lon": -3.601728,
+      "t": 14612.8
+    },
+    {
+      "lat": 42.365833,
+      "lon": -3.601401,
+      "t": 14741.2
+    },
+    {
+      "lat": 42.366488,
+      "lon": -3.601629,
+      "t": 14809.9
+    },
+    {
+      "lat": 42.367361,
+      "lon": -3.602823,
+      "t": 14936
+    },
+    {
+      "lat": 42.367501,
+      "lon": -3.603356,
+      "t": 14978.5
+    },
+    {
+      "lat": 42.367493,
+      "lon": -3.603898,
+      "t": 15019.2
+    },
+    {
+      "lat": 42.367126,
+      "lon": -3.604779,
+      "t": 15095.1
+    },
+    {
+      "lat": 42.364238,
+      "lon": -3.608424,
+      "t": 15496.3
+    },
+    {
+      "lat": 42.363961,
+      "lon": -3.608928,
+      "t": 15543.5
+    },
+    {
+      "lat": 42.363871,
+      "lon": -3.609862,
+      "t": 15614.2
+    },
+    {
+      "lat": 42.364291,
+      "lon": -3.611792,
+      "t": 15765.2
+    },
+    {
+      "lat": 42.364327,
+      "lon": -3.612735,
+      "t": 15836.1
+    },
+    {
+      "lat": 42.363873,
+      "lon": -3.614315,
+      "t": 15963.4
+    },
+    {
+      "lat": 42.362871,
+      "lon": -3.615422,
+      "t": 16094.8
+    },
+    {
+      "lat": 42.362977,
+      "lon": -3.615815,
+      "t": 16126.2
+    },
+    {
+      "lat": 42.363831,
+      "lon": -3.616409,
+      "t": 16223.8
+    },
+    {
+      "lat": 42.364089,
+      "lon": -3.616784,
+      "t": 16262.2
+    },
+    {
+      "lat": 42.364323,
+      "lon": -3.617421,
+      "t": 16315.7
+    },
+    {
+      "lat": 42.364547,
+      "lon": -3.619951,
+      "t": 16506.9
+    },
+    {
+      "lat": 42.364461,
+      "lon": -3.620462,
+      "t": 16546.3
+    },
+    {
+      "lat": 42.364247,
+      "lon": -3.620769,
+      "t": 16578
+    },
+    {
+      "lat": 42.364348,
+      "lon": -3.621511,
+      "t": 16634.6
+    },
+    {
+      "lat": 42.363505,
+      "lon": -3.625701,
+      "t": 16960.6
+    },
+    {
+      "lat": 42.36334,
+      "lon": -3.626104,
+      "t": 16995.2
+    },
+    {
+      "lat": 42.363396,
+      "lon": -3.626251,
+      "t": 17007.6
+    },
+    {
+      "lat": 42.363145,
+      "lon": -3.627566,
+      "t": 17109.6
+    },
+    {
+      "lat": 42.363399,
+      "lon": -3.627657,
+      "t": 17136.3
+    },
+    {
+      "lat": 42.362871,
+      "lon": -3.630381,
+      "t": 17347.7
+    },
+    {
+      "lat": 42.362912,
+      "lon": -3.630675,
+      "t": 17370.2
+    },
+    {
+      "lat": 42.362759,
+      "lon": -3.630954,
+      "t": 17396.2
+    },
+    {
+      "lat": 42.361333,
+      "lon": -3.638596,
+      "t": 17988
+    },
+    {
+      "lat": 42.361382,
+      "lon": -3.639033,
+      "t": 18021.2
+    },
+    {
+      "lat": 42.361702,
+      "lon": -3.639546,
+      "t": 18071.6
+    },
+    {
+      "lat": 42.361692,
+      "lon": -3.639705,
+      "t": 18083.5
+    },
+    {
+      "lat": 42.36153,
+      "lon": -3.639681,
+      "t": 18100.1
+    },
+    {
+      "lat": 42.361446,
+      "lon": -3.640163,
+      "t": 18137.3
+    },
+    {
+      "lat": 42.361702,
+      "lon": -3.640267,
+      "t": 18164.4
+    },
+    {
+      "lat": 42.361687,
+      "lon": -3.640438,
+      "t": 18177.4
+    },
+    {
+      "lat": 42.361306,
+      "lon": -3.640926,
+      "t": 18230.7
+    },
+    {
+      "lat": 42.361038,
+      "lon": -3.640877,
+      "t": 18258.1
+    },
+    {
+      "lat": 42.360858,
+      "lon": -3.641096,
+      "t": 18282.7
+    },
+    {
+      "lat": 42.359854,
+      "lon": -3.646428,
+      "t": 18695.8
+    },
+    {
+      "lat": 42.358606,
+      "lon": -3.65102,
+      "t": 19063.2
+    },
+    {
+      "lat": 42.358788,
+      "lon": -3.651251,
+      "t": 19088.5
+    },
+    {
+      "lat": 42.358673,
+      "lon": -3.651662,
+      "t": 19121.5
+    },
+    {
+      "lat": 42.358445,
+      "lon": -3.651649,
+      "t": 19144.7
+    },
+    {
+      "lat": 42.355476,
+      "lon": -3.662371,
+      "t": 20004.4
+    },
+    {
+      "lat": 42.355402,
+      "lon": -3.66294,
+      "t": 20047.8
+    },
+    {
+      "lat": 42.355547,
+      "lon": -3.663089,
+      "t": 20066.3
+    },
+    {
+      "lat": 42.355429,
+      "lon": -3.663388,
+      "t": 20091.7
+    },
+    {
+      "lat": 42.355166,
+      "lon": -3.663398,
+      "t": 20118.4
+    },
+    {
+      "lat": 42.354312,
+      "lon": -3.666504,
+      "t": 20367.3
+    },
+    {
+      "lat": 42.353448,
+      "lon": -3.668989,
+      "t": 20573.5
+    },
+    {
+      "lat": 42.348997,
+      "lon": -3.677147,
+      "t": 21334.9
+    },
+    {
+      "lat": 42.348373,
+      "lon": -3.6808,
+      "t": 21616.4
+    },
+    {
+      "lat": 42.347963,
+      "lon": -3.681484,
+      "t": 21682.6
+    },
+    {
+      "lat": 42.347634,
+      "lon": -3.681637,
+      "t": 21717.9
+    },
+    {
+      "lat": 42.34667,
+      "lon": -3.682672,
+      "t": 21842.9
+    },
+    {
+      "lat": 42.344609,
+      "lon": -3.686315,
+      "t": 22187.4
+    },
+    {
+      "lat": 42.345518,
+      "lon": -3.686725,
+      "t": 22284.8
+    },
+    {
+      "lat": 42.345441,
+      "lon": -3.68712,
+      "t": 22315.5
+    },
+    {
+      "lat": 42.345259,
+      "lon": -3.687091,
+      "t": 22334.1
+    },
+    {
+      "lat": 42.344631,
+      "lon": -3.688996,
+      "t": 22490.7
+    },
+    {
+      "lat": 42.343817,
+      "lon": -3.691937,
+      "t": 22726.6
+    },
+    {
+      "lat": 42.342885,
+      "lon": -3.69641,
+      "t": 23075.6
+    },
+    {
+      "lat": 42.34281,
+      "lon": -3.698905,
+      "t": 23263.1
+    },
+    {
+      "lat": 42.343195,
+      "lon": -3.700652,
+      "t": 23400
+    }
+  ],
+  "totalDistanceMeters": 25609.1,
+  "theirActiveSeconds": 23400,
+  "moments": [
+    {
+      "id": "stage-start",
+      "frac": 0,
+      "kind": "waypoint",
+      "label": "San Juan de Ortega",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 42.375674,
+        "lon": -3.436649
+      },
+      "pin": {
+        "lat": 42.373,
+        "lon": -3.437
+      }
+    },
+    {
+      "id": "wp-atapuerca",
+      "frac": 0.25006720301966073,
+      "kind": "waypoint",
+      "label": "Atapuerca Archaeological Site",
+      "icon": "book.closed",
+      "at": {
+        "lat": 42.377685,
+        "lon": -3.509693
+      },
+      "pin": {
+        "lat": 42.38,
+        "lon": -3.51
+      },
+      "text": "UNESCO World Heritage Site. Earliest known European human remains (800,000+ years old)."
+    },
+    {
+      "id": "wp-burgos",
+      "frac": 0.9989934944569786,
+      "kind": "waypoint",
+      "label": "Burgos",
+      "icon": "seal",
+      "at": {
+        "lat": 42.343128765893745,
+        "lon": -3.700351451990583
+      },
+      "pin": {
+        "lat": 42.344,
+        "lon": -3.7
+      },
+      "text": "Historic capital of Castile. Major rest day stop."
+    },
+    {
+      "id": "wp-burgos-cathedral",
+      "frac": 0.9989934944569786,
+      "kind": "waypoint",
+      "label": "Burgos Cathedral",
+      "icon": "seal",
+      "at": {
+        "lat": 42.343128765893745,
+        "lon": -3.700351451990583
+      },
+      "pin": {
+        "lat": 42.344,
+        "lon": -3.7
+      },
+      "text": "UNESCO World Heritage Site. First Gothic cathedral in the Crown of Castile (1221).",
+      "names": {
+        "es": "Catedral de Santa María de Burgos"
+      },
+      "sitMinutes": 5
+    }
+  ],
+  "marks": [
+    {
+      "id": "wp-osm-water_source-node1502047977",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.375544,
+        "lon": -3.436523
+      },
+      "frac": 0,
+      "offLineMeters": 17.8
+    },
+    {
+      "id": "wp-osm-water_source-node4510880501",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.374746,
+        "lon": -3.436497
+      },
+      "frac": 0,
+      "offLineMeters": 103.9
+    },
+    {
+      "id": "wp-osm-accommodation-node1056848561",
+      "kind": "bed",
+      "name": "Albergue Parroquial de San Juan de Ortega",
+      "at": {
+        "lat": 42.376009,
+        "lon": -3.437351
+      },
+      "frac": 0.002560863471789757,
+      "offLineMeters": 20.3
+    },
+    {
+      "id": "wp-osm-accommodation-node1502240738",
+      "kind": "bed",
+      "name": "Albergue San Rafael",
+      "at": {
+        "lat": 42.369704,
+        "lon": -3.478148
+      },
+      "frac": 0.14084023243763566,
+      "offLineMeters": 5.8
+    },
+    {
+      "id": "wp-osm-food-node1502240898",
+      "kind": "food",
+      "name": "El Alquimista",
+      "at": {
+        "lat": 42.369719,
+        "lon": -3.478872
+      },
+      "frac": 0.14303215787138485,
+      "offLineMeters": 15.2
+    },
+    {
+      "id": "wp-osm-water_source-node7775922183",
+      "kind": "water",
+      "name": "Fuente del Puente",
+      "at": {
+        "lat": 42.371479,
+        "lon": -3.484748
+      },
+      "frac": 0.16407220411286888,
+      "offLineMeters": 21.3
+    },
+    {
+      "id": "wp-osm-water_source-node9319391117",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.371433,
+        "lon": -3.485571
+      },
+      "frac": 0.1667069023538715,
+      "offLineMeters": 27.4
+    },
+    {
+      "id": "wp-osm-accommodation-node5849694634",
+      "kind": "bed",
+      "name": "Casa rural la Turrumbera",
+      "at": {
+        "lat": 42.374621,
+        "lon": -3.506356
+      },
+      "frac": 0.23357305149203414,
+      "offLineMeters": 99
+    },
+    {
+      "id": "wp-osm-food-node1502240755",
+      "kind": "food",
+      "name": "El Palomar",
+      "at": {
+        "lat": 42.375559,
+        "lon": -3.507485
+      },
+      "frac": 0.2388939600458795,
+      "offLineMeters": 68.9
+    },
+    {
+      "id": "wp-osm-water_source-node2303945205",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.376863,
+        "lon": -3.506696
+      },
+      "frac": 0.24015966059300034,
+      "offLineMeters": 86.6
+    },
+    {
+      "id": "wp-osm-supply-node1502240900",
+      "kind": "supply",
+      "name": "Tienda Panaderia",
+      "at": {
+        "lat": 42.375802,
+        "lon": -3.508009
+      },
+      "frac": 0.24087394490378589,
+      "offLineMeters": 72.1
+    },
+    {
+      "id": "wp-osm-accommodation-node1502240734",
+      "kind": "bed",
+      "name": "Albergue La Hutte",
+      "at": {
+        "lat": 42.377652,
+        "lon": -3.506875
+      },
+      "frac": 0.24309482268893412,
+      "offLineMeters": 147.3
+    },
+    {
+      "id": "wp-osm-water_source-node2303945199",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.376657,
+        "lon": -3.508234
+      },
+      "frac": 0.24361050952937524,
+      "offLineMeters": 9.3
+    },
+    {
+      "id": "wp-osm-supply-node2303945209",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.377116,
+        "lon": -3.508459
+      },
+      "frac": 0.24545237813343057,
+      "offLineMeters": 17.6
+    },
+    {
+      "id": "wp-osm-accommodation-node5292402498",
+      "kind": "bed",
+      "name": "Casa rural El Pesebre",
+      "at": {
+        "lat": 42.377665,
+        "lon": -3.507858
+      },
+      "frac": 0.2455319764610881,
+      "offLineMeters": 96.1
+    },
+    {
+      "id": "wp-osm-food-node1502240758",
+      "kind": "food",
+      "name": "Mesón Las Cuevas",
+      "at": {
+        "lat": 42.37791,
+        "lon": -3.50961
+      },
+      "frac": 0.25006720301966073,
+      "offLineMeters": 25.9
+    },
+    {
+      "id": "wp-osm-water_source-node4642923536",
+      "kind": "water",
+      "name": "Fuente Barruelo",
+      "at": {
+        "lat": 42.379609,
+        "lon": -3.513666
+      },
+      "frac": 0.2667423900354093,
+      "offLineMeters": 221.2
+    },
+    {
+      "id": "wp-osm-accommodation-node5157750927",
+      "kind": "bed",
+      "name": "Casa rural",
+      "at": {
+        "lat": 42.369037,
+        "lon": -3.551925
+      },
+      "frac": 0.42452099675665733,
+      "offLineMeters": 193.4
+    },
+    {
+      "id": "wp-osm-water_source-node2401541429",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.368749,
+        "lon": -3.553276
+      },
+      "frac": 0.42452099675665733,
+      "offLineMeters": 106.4
+    },
+    {
+      "id": "wp-osm-accommodation-node2574608090",
+      "kind": "bed",
+      "name": "Albergue Vía Minera",
+      "at": {
+        "lat": 42.360001,
+        "lon": -3.559695
+      },
+      "frac": 0.47992095316071687,
+      "offLineMeters": 56.4
+    },
+    {
+      "id": "wp-osm-water_source-node4435106761",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.359394,
+        "lon": -3.559787
+      },
+      "frac": 0.48150203575466416,
+      "offLineMeters": 5.1
+    },
+    {
+      "id": "wp-osm-accommodation-node3068344648",
+      "kind": "bed",
+      "name": "Albergue Santa Fe",
+      "at": {
+        "lat": 42.358876,
+        "lon": -3.559429
+      },
+      "frac": 0.48184198134649875,
+      "offLineMeters": 59
+    },
+    {
+      "id": "wp-osm-water_source-node2574608102",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.358368,
+        "lon": -3.560266
+      },
+      "frac": 0.4848496092007969,
+      "offLineMeters": 71.6
+    },
+    {
+      "id": "wp-osm-food-node2401541398",
+      "kind": "food",
+      "name": "Taberna Cardeñuela Rio Pico",
+      "at": {
+        "lat": 42.358932,
+        "lon": -3.561042
+      },
+      "frac": 0.4860639759835163,
+      "offLineMeters": 12.2
+    },
+    {
+      "id": "wp-osm-accommodation-node1502257334",
+      "kind": "bed",
+      "name": "Casa Rural La Cardeñuela",
+      "at": {
+        "lat": 42.359011,
+        "lon": -3.562427
+      },
+      "frac": 0.490732093749032,
+      "offLineMeters": 57.1
+    },
+    {
+      "id": "wp-osm-water_source-node2401541412",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.359416,
+        "lon": -3.581697
+      },
+      "frac": 0.5534920009982061,
+      "offLineMeters": 45.7
+    },
+    {
+      "id": "wp-osm-accommodation-node1502257364",
+      "kind": "bed",
+      "name": "Albergue Municipal El Peregrino",
+      "at": {
+        "lat": 42.360238,
+        "lon": -3.584739
+      },
+      "frac": 0.564327834898877,
+      "offLineMeters": 16.2
+    },
+    {
+      "id": "wp-osm-water_source-node11729952370",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.360738,
+        "lon": -3.596121
+      },
+      "frac": 0.6013655717241326,
+      "offLineMeters": 161
+    },
+    {
+      "id": "wp-osm-transport-node5298274984",
+      "kind": "transport",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.361983,
+        "lon": -3.596513
+      },
+      "frac": 0.6036211827584598,
+      "offLineMeters": 38.8
+    },
+    {
+      "id": "wp-osm-water_source-node5312249393",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.362069,
+        "lon": -3.599059
+      },
+      "frac": 0.6124219962260914,
+      "offLineMeters": 127.9
+    },
+    {
+      "id": "wp-osm-water_source-node9023333552",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.366754,
+        "lon": -3.613627
+      },
+      "frac": 0.6767576330556199,
+      "offLineMeters": 279.6
+    },
+    {
+      "id": "wp-osm-transport-node8912030094",
+      "kind": "transport",
+      "name": "Juan Alcedo de la Rocha",
+      "at": {
+        "lat": 42.366261,
+        "lon": -3.614723
+      },
+      "frac": 0.6796584017512715,
+      "offLineMeters": 259.6
+    },
+    {
+      "id": "wp-osm-water_source-node6267925953",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.364907,
+        "lon": -3.614926
+      },
+      "frac": 0.6821964160459026,
+      "offLineMeters": 125.5
+    },
+    {
+      "id": "wp-osm-water_source-node6267926069",
+      "kind": "water",
+      "name": "Fuente para beber agua potable",
+      "at": {
+        "lat": 42.36478,
+        "lon": -3.615867
+      },
+      "frac": 0.6948600234452843,
+      "offLineMeters": 107.6
+    },
+    {
+      "id": "wp-osm-water_source-node3662117354",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.365577,
+        "lon": -3.616566
+      },
+      "frac": 0.697217871596716,
+      "offLineMeters": 156.1
+    },
+    {
+      "id": "wp-osm-water_source-node2701421652",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.365157,
+        "lon": -3.617151
+      },
+      "frac": 0.6972501031294944,
+      "offLineMeters": 95.3
+    },
+    {
+      "id": "wp-osm-water_source-node2354323052",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.364768,
+        "lon": -3.619033
+      },
+      "frac": 0.7026140165431991,
+      "offLineMeters": 33.3
+    },
+    {
+      "id": "wp-osm-accommodation-node954713842",
+      "kind": "bed",
+      "name": "Buenos Aires",
+      "at": {
+        "lat": 42.364862,
+        "lon": -3.62203
+      },
+      "frac": 0.7119013824518993,
+      "offLineMeters": 66.4
+    },
+    {
+      "id": "wp-osm-accommodation-node954713834",
+      "kind": "bed",
+      "name": "Hostal Iruñako",
+      "at": {
+        "lat": 42.36465,
+        "lon": -3.622705
+      },
+      "frac": 0.7142313767993278,
+      "offLineMeters": 58.1
+    },
+    {
+      "id": "wp-osm-food-node6391637383",
+      "kind": "food",
+      "name": "Mercaburgos",
+      "at": {
+        "lat": 42.36375,
+        "lon": -3.622702
+      },
+      "frac": 0.7152487842441425,
+      "offLineMeters": 38.5
+    },
+    {
+      "id": "wp-osm-transport-node1725934429",
+      "kind": "transport",
+      "name": "Barriada Moisés",
+      "at": {
+        "lat": 42.363209,
+        "lon": -3.627178
+      },
+      "frac": 0.7299039556093442,
+      "offLineMeters": 1
+    },
+    {
+      "id": "wp-osm-accommodation-node954713833",
+      "kind": "bed",
+      "name": "Las Vegas",
+      "at": {
+        "lat": 42.363691,
+        "lon": -3.627469
+      },
+      "frac": 0.7323196772055011,
+      "offLineMeters": 36
+    },
+    {
+      "id": "wp-osm-transport-node1725934419",
+      "kind": "transport",
+      "name": "Aduana",
+      "at": {
+        "lat": 42.362797,
+        "lon": -3.629445
+      },
+      "frac": 0.7385302961232851,
+      "offLineMeters": 27.4
+    },
+    {
+      "id": "wp-osm-accommodation-node1028028793",
+      "kind": "bed",
+      "name": "Hotel Puerto Seco",
+      "at": {
+        "lat": 42.361384,
+        "lon": -3.629277
+      },
+      "frac": 0.7395678349260512,
+      "offLineMeters": 183
+    },
+    {
+      "id": "wp-osm-transport-node8035292279",
+      "kind": "transport",
+      "name": "Grupo Antolin",
+      "at": {
+        "lat": 42.3626,
+        "lon": -3.631765
+      },
+      "frac": 0.746120635764897,
+      "offLineMeters": 0.9
+    },
+    {
+      "id": "wp-osm-transport-node1725900993",
+      "kind": "transport",
+      "name": "Aeródromo",
+      "at": {
+        "lat": 42.361441,
+        "lon": -3.636528
+      },
+      "frac": 0.7621686481315622,
+      "offLineMeters": 30
+    },
+    {
+      "id": "wp-osm-transport-node1725894080",
+      "kind": "transport",
+      "name": "Mujer Trabajadora",
+      "at": {
+        "lat": 42.360206,
+        "lon": -3.642938
+      },
+      "frac": 0.7877404167616753,
+      "offLineMeters": 32.9
+    },
+    {
+      "id": "wp-osm-transport-node1725899477",
+      "kind": "transport",
+      "name": "30 de enero",
+      "at": {
+        "lat": 42.359231,
+        "lon": -3.647767
+      },
+      "frac": 0.8039339559701698,
+      "offLineMeters": 27.1
+    },
+    {
+      "id": "wp-osm-food-node4459202196",
+      "kind": "food",
+      "name": "Café Bou",
+      "at": {
+        "lat": 42.357704,
+        "lon": -3.64723
+      },
+      "frac": 0.8046037922841413,
+      "offLineMeters": 201.7
+    },
+    {
+      "id": "wp-osm-transport-node1725899476",
+      "kind": "transport",
+      "name": "30 de enero",
+      "at": {
+        "lat": 42.359244,
+        "lon": -3.648714
+      },
+      "frac": 0.8067641662309427,
+      "offLineMeters": 1.2
+    },
+    {
+      "id": "wp-osm-transport-node1725885187",
+      "kind": "transport",
+      "name": "Vitoria – Alcalde Martín Cobos",
+      "at": {
+        "lat": 42.358421,
+        "lon": -3.650707
+      },
+      "frac": 0.8140001471992774,
+      "offLineMeters": 28.2
+    },
+    {
+      "id": "wp-osm-food-node12045534913",
+      "kind": "food",
+      "name": "Route 66",
+      "at": {
+        "lat": 42.361095,
+        "lon": -3.653121
+      },
+      "frac": 0.817158869552335,
+      "offLineMeters": 294.8
+    },
+    {
+      "id": "wp-osm-transport-node9426533372",
+      "kind": "transport",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.357787,
+        "lon": -3.651138
+      },
+      "frac": 0.8181497244606873,
+      "offLineMeters": 84.4
+    },
+    {
+      "id": "wp-osm-transport-node1725885185",
+      "kind": "transport",
+      "name": "Vitoria – Alcalde Martín Cobos",
+      "at": {
+        "lat": 42.358361,
+        "lon": -3.651825
+      },
+      "frac": 0.8188064994414245,
+      "offLineMeters": 3.6
+    },
+    {
+      "id": "wp-osm-transport-node1725875136",
+      "kind": "transport",
+      "name": "Vitoria – Intendencia",
+      "at": {
+        "lat": 42.35633,
+        "lon": -3.659287
+      },
+      "frac": 0.8443203025811904,
+      "offLineMeters": 0
+    },
+    {
+      "id": "wp-osm-water_source-node1899205164",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.355948,
+        "lon": -3.663288
+      },
+      "frac": 0.8575324209854503,
+      "offLineMeters": 47.5
+    },
+    {
+      "id": "wp-osm-water_source-node5373130559",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.35752,
+        "lon": -3.663549
+      },
+      "frac": 0.8575324209854503,
+      "offLineMeters": 222.6
+    },
+    {
+      "id": "wp-osm-transport-node1706307190",
+      "kind": "transport",
+      "name": "E. S. Alvarado 13",
+      "at": {
+        "lat": 42.356868,
+        "lon": -3.664045
+      },
+      "frac": 0.8575361304530337,
+      "offLineMeters": 166.6
+    },
+    {
+      "id": "wp-osm-transport-node1706302043",
+      "kind": "transport",
+      "name": "Poza 18",
+      "at": {
+        "lat": 42.356012,
+        "lon": -3.664627
+      },
+      "frac": 0.8586200470253801,
+      "offLineMeters": 120.7
+    },
+    {
+      "id": "wp-osm-transport-node1725238639",
+      "kind": "transport",
+      "name": "Juan Ramón Jiménez 6",
+      "at": {
+        "lat": 42.354456,
+        "lon": -3.662752
+      },
+      "frac": 0.8597624444292076,
+      "offLineMeters": 95.2
+    },
+    {
+      "id": "wp-osm-transport-node1982920034",
+      "kind": "transport",
+      "name": "Juan Ramón Jiménez 6",
+      "at": {
+        "lat": 42.353974,
+        "lon": -3.662275
+      },
+      "frac": 0.8597624444292076,
+      "offLineMeters": 161.5
+    },
+    {
+      "id": "wp-osm-accommodation-node651008311",
+      "kind": "bed",
+      "name": "Acanto",
+      "at": {
+        "lat": 42.355382,
+        "lon": -3.663965
+      },
+      "frac": 0.8611399194561585,
+      "offLineMeters": 38.8
+    },
+    {
+      "id": "wp-osm-water_source-node1187023308",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.352832,
+        "lon": -3.663255
+      },
+      "frac": 0.8628657157334014,
+      "offLineMeters": 247.3
+    },
+    {
+      "id": "wp-osm-accommodation-node656741327",
+      "kind": "bed",
+      "name": "Hostal Arlanzón",
+      "at": {
+        "lat": 42.354524,
+        "lon": -3.664124
+      },
+      "frac": 0.8629188327157445,
+      "offLineMeters": 46.1
+    },
+    {
+      "id": "wp-osm-food-node3881765666",
+      "kind": "food",
+      "name": "El Pasaje",
+      "at": {
+        "lat": 42.353519,
+        "lon": -3.663847
+      },
+      "frac": 0.863605086893666,
+      "offLineMeters": 158.8
+    },
+    {
+      "id": "wp-osm-food-node1448802558",
+      "kind": "food",
+      "name": "Mandrágora",
+      "at": {
+        "lat": 42.355906,
+        "lon": -3.665312
+      },
+      "frac": 0.8643983872275203,
+      "offLineMeters": 132
+    },
+    {
+      "id": "wp-osm-transport-node8379665812",
+      "kind": "transport",
+      "name": "Vitoria 249",
+      "at": {
+        "lat": 42.35474,
+        "lon": -3.664935
+      },
+      "frac": 0.8650294927640575,
+      "offLineMeters": 0.4
+    },
+    {
+      "id": "wp-osm-water_source-node10183326992",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.352505,
+        "lon": -3.664437
+      },
+      "frac": 0.8669170903186593,
+      "offLineMeters": 247.5
+    },
+    {
+      "id": "wp-osm-medical-node1107689908",
+      "kind": "medical",
+      "name": "Ldos. Carlos y Lucia Garcia de Dueña Gel",
+      "at": {
+        "lat": 42.353621,
+        "lon": -3.665105
+      },
+      "frac": 0.8672374199958686,
+      "offLineMeters": 112.1
+    },
+    {
+      "id": "wp-osm-transport-node8492094755",
+      "kind": "transport",
+      "name": "Poza 31",
+      "at": {
+        "lat": 42.355261,
+        "lon": -3.666372
+      },
+      "frac": 0.8685626995161583,
+      "offLineMeters": 95.2
+    },
+    {
+      "id": "wp-osm-transport-node1699659732",
+      "kind": "transport",
+      "name": "Vitoria 228",
+      "at": {
+        "lat": 42.354248,
+        "lon": -3.665873
+      },
+      "frac": 0.8685967607417967,
+      "offLineMeters": 24.7
+    },
+    {
+      "id": "wp-osm-transport-node1706302059",
+      "kind": "transport",
+      "name": "Poza – Candelas",
+      "at": {
+        "lat": 42.354751,
+        "lon": -3.666628
+      },
+      "frac": 0.8701038556198731,
+      "offLineMeters": 49.3
+    },
+    {
+      "id": "wp-osm-water_source-node2316880457",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.356318,
+        "lon": -3.667848
+      },
+      "frac": 0.870590145289568,
+      "offLineMeters": 248.8
+    },
+    {
+      "id": "wp-osm-water_source-node1244222927",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.353734,
+        "lon": -3.666317
+      },
+      "frac": 0.8709227072332981,
+      "offLineMeters": 64.7
+    },
+    {
+      "id": "wp-osm-transport-node1699662691",
+      "kind": "transport",
+      "name": "Vitoria – Real y Antigua",
+      "at": {
+        "lat": 42.354131,
+        "lon": -3.666954
+      },
+      "frac": 0.872038088198566,
+      "offLineMeters": 2.5
+    },
+    {
+      "id": "wp-osm-water_source-node2913621391",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.351743,
+        "lon": -3.665838
+      },
+      "frac": 0.8732131439432941,
+      "offLineMeters": 281.8
+    },
+    {
+      "id": "wp-osm-medical-node1448802560",
+      "kind": "medical",
+      "name": "Lda. Teresa Ibánez Simón",
+      "at": {
+        "lat": 42.354779,
+        "lon": -3.668371
+      },
+      "frac": 0.8749533120198517,
+      "offLineMeters": 112.3
+    },
+    {
+      "id": "wp-osm-food-node2004312437",
+      "kind": "food",
+      "name": "Ibérico",
+      "at": {
+        "lat": 42.35277,
+        "lon": -3.667281
+      },
+      "frac": 0.8755043151597612,
+      "offLineMeters": 128
+    },
+    {
+      "id": "wp-osm-transport-node1706273657",
+      "kind": "transport",
+      "name": "Bª. Inmaculada",
+      "at": {
+        "lat": 42.355381,
+        "lon": -3.668951
+      },
+      "frac": 0.8755233626971162,
+      "offLineMeters": 193.2
+    },
+    {
+      "id": "wp-osm-food-node2156669670",
+      "kind": "food",
+      "name": "Magistral Shisha",
+      "at": {
+        "lat": 42.351717,
+        "lon": -3.667062
+      },
+      "frac": 0.8768143250347072,
+      "offLineMeters": 241.6
+    },
+    {
+      "id": "wp-osm-water_source-node2388525682",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.353926,
+        "lon": -3.668578
+      },
+      "frac": 0.8771317319741303,
+      "offLineMeters": 33.7
+    },
+    {
+      "id": "wp-osm-water_source-node12334392766",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.354618,
+        "lon": -3.66902
+      },
+      "frac": 0.8771365932240685,
+      "offLineMeters": 118.8
+    },
+    {
+      "id": "wp-osm-food-node2155251707",
+      "kind": "food",
+      "name": "Ximena",
+      "at": {
+        "lat": 42.351185,
+        "lon": -3.66694
+      },
+      "frac": 0.8774438104494675,
+      "offLineMeters": 299.4
+    },
+    {
+      "id": "wp-osm-food-node2369513998",
+      "kind": "food",
+      "name": "Valencia",
+      "at": {
+        "lat": 42.352824,
+        "lon": -3.668008
+      },
+      "frac": 0.8775140294190023,
+      "offLineMeters": 97.2
+    },
+    {
+      "id": "wp-osm-medical-node968568901",
+      "kind": "medical",
+      "name": "Ldos. Jose Juan Sánchez y Lucia Sánchez",
+      "at": {
+        "lat": 42.3523,
+        "lon": -3.667742
+      },
+      "frac": 0.8777086258448459,
+      "offLineMeters": 159.1
+    },
+    {
+      "id": "wp-osm-food-node1018121919",
+      "kind": "food",
+      "name": "Chamos",
+      "at": {
+        "lat": 42.353102,
+        "lon": -3.669062
+      },
+      "frac": 0.8802889703943884,
+      "offLineMeters": 27.4
+    },
+    {
+      "id": "wp-osm-food-node2157913972",
+      "kind": "food",
+      "name": "Café del grillo",
+      "at": {
+        "lat": 42.351956,
+        "lon": -3.66853
+      },
+      "frac": 0.881871506770516,
+      "offLineMeters": 155.8
+    },
+    {
+      "id": "wp-osm-transport-node8492094757",
+      "kind": "transport",
+      "name": "Centro",
+      "at": {
+        "lat": 42.353253,
+        "lon": -3.669855
+      },
+      "frac": 0.8819459609694188,
+      "offLineMeters": 24.8
+    },
+    {
+      "id": "wp-osm-medical-node1018121963",
+      "kind": "medical",
+      "name": "Lda. Mª Luisa García Chinchetru",
+      "at": {
+        "lat": 42.352828,
+        "lon": -3.669577
+      },
+      "frac": 0.8823253490894464,
+      "offLineMeters": 26.7
+    },
+    {
+      "id": "wp-osm-food-node3194244306",
+      "kind": "food",
+      "name": "Tapas Y Cañas",
+      "at": {
+        "lat": 42.351434,
+        "lon": -3.668506
+      },
+      "frac": 0.8831562466217294,
+      "offLineMeters": 203.7
+    },
+    {
+      "id": "wp-osm-food-node2157913997",
+      "kind": "food",
+      "name": "París",
+      "at": {
+        "lat": 42.351459,
+        "lon": -3.669278
+      },
+      "frac": 0.8850842240712777,
+      "offLineMeters": 163.8
+    },
+    {
+      "id": "wp-osm-water_source-node11386674721",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.350982,
+        "lon": -3.668827
+      },
+      "frac": 0.8851500702750562,
+      "offLineMeters": 228.6
+    },
+    {
+      "id": "wp-osm-medical-node2157913979",
+      "kind": "medical",
+      "name": "Lda. Manuela González García",
+      "at": {
+        "lat": 42.351779,
+        "lon": -3.670023
+      },
+      "frac": 0.8861806932315798,
+      "offLineMeters": 98.8
+    },
+    {
+      "id": "wp-osm-food-node2246548683",
+      "kind": "food",
+      "name": "London",
+      "at": {
+        "lat": 42.352229,
+        "lon": -3.670675
+      },
+      "frac": 0.8867049163959019,
+      "offLineMeters": 26.8
+    },
+    {
+      "id": "wp-osm-food-node2156669580",
+      "kind": "food",
+      "name": "La Pesada",
+      "at": {
+        "lat": 42.350659,
+        "lon": -3.669298
+      },
+      "frac": 0.8871994841574653,
+      "offLineMeters": 234.5
+    },
+    {
+      "id": "wp-osm-food-node6044143697",
+      "kind": "food",
+      "name": "Tacita",
+      "at": {
+        "lat": 42.353028,
+        "lon": -3.671705
+      },
+      "frac": 0.8873051968317334,
+      "offLineMeters": 95
+    },
+    {
+      "id": "wp-osm-food-node6044143692",
+      "kind": "food",
+      "name": "Punta cana gourmet",
+      "at": {
+        "lat": 42.353543,
+        "lon": -3.672282
+      },
+      "frac": 0.8874661117868363,
+      "offLineMeters": 169.2
+    },
+    {
+      "id": "wp-osm-food-node13419075063",
+      "kind": "food",
+      "name": "La Masa",
+      "at": {
+        "lat": 42.350168,
+        "lon": -3.668993
+      },
+      "frac": 0.8876773136389301,
+      "offLineMeters": 293.2
+    },
+    {
+      "id": "wp-osm-food-node3237633763",
+      "kind": "food",
+      "name": "Grandmontagne",
+      "at": {
+        "lat": 42.35098,
+        "lon": -3.669867
+      },
+      "frac": 0.8878390204494847,
+      "offLineMeters": 177.9
+    },
+    {
+      "id": "wp-osm-accommodation-node2251290901",
+      "kind": "bed",
+      "name": "Hostal Hilton",
+      "at": {
+        "lat": 42.352242,
+        "lon": -3.671364
+      },
+      "frac": 0.8884487967700891,
+      "offLineMeters": 8
+    },
+    {
+      "id": "wp-osm-transport-node1985864903",
+      "kind": "transport",
+      "name": "Severo Ochoa 59",
+      "at": {
+        "lat": 42.35369,
+        "lon": -3.673212
+      },
+      "frac": 0.889485286328327,
+      "offLineMeters": 227.8
+    },
+    {
+      "id": "wp-osm-water_source-node1875597831",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.350004,
+        "lon": -3.669648
+      },
+      "frac": 0.8897927219265375,
+      "offLineMeters": 275.9
+    },
+    {
+      "id": "wp-osm-food-node2156669528",
+      "kind": "food",
+      "name": "Gallinero",
+      "at": {
+        "lat": 42.350524,
+        "lon": -3.670356
+      },
+      "frac": 0.8902781535402555,
+      "offLineMeters": 194.8
+    },
+    {
+      "id": "wp-osm-accommodation-node1247705715",
+      "kind": "bed",
+      "name": "Torres",
+      "at": {
+        "lat": 42.35173,
+        "lon": -3.671564
+      },
+      "frac": 0.8902860179472046,
+      "offLineMeters": 28
+    },
+    {
+      "id": "wp-osm-transport-node1693496774",
+      "kind": "transport",
+      "name": "Santiago 37",
+      "at": {
+        "lat": 42.349615,
+        "lon": -3.67004
+      },
+      "frac": 0.8918065914736335,
+      "offLineMeters": 291.7
+    },
+    {
+      "id": "wp-osm-water_source-node2687660187",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.352646,
+        "lon": -3.673273
+      },
+      "frac": 0.8923361580731036,
+      "offLineMeters": 137.4
+    },
+    {
+      "id": "wp-osm-water_source-node2687660188",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.353504,
+        "lon": -3.674204
+      },
+      "frac": 0.8925287076968541,
+      "offLineMeters": 259.5
+    },
+    {
+      "id": "wp-osm-supply-node6042280137",
+      "kind": "supply",
+      "name": "Conmar",
+      "at": {
+        "lat": 42.352994,
+        "lon": -3.673938
+      },
+      "frac": 0.8931554398837789,
+      "offLineMeters": 200.9
+    },
+    {
+      "id": "wp-osm-medical-node2163341028",
+      "kind": "medical",
+      "name": "Lda. Dolores Peraita García",
+      "at": {
+        "lat": 42.350054,
+        "lon": -3.671376
+      },
+      "frac": 0.8941226501331339,
+      "offLineMeters": 187.1
+    },
+    {
+      "id": "wp-osm-food-node651008303",
+      "kind": "food",
+      "name": "África",
+      "at": {
+        "lat": 42.351351,
+        "lon": -3.67296
+      },
+      "frac": 0.8948665047604684,
+      "offLineMeters": 6.3
+    },
+    {
+      "id": "wp-osm-food-node2883879403",
+      "kind": "food",
+      "name": "Juan XXIII",
+      "at": {
+        "lat": 42.3524,
+        "lon": -3.674103
+      },
+      "frac": 0.8951142927037977,
+      "offLineMeters": 155.8
+    },
+    {
+      "id": "wp-osm-water_source-node5521954099",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.350386,
+        "lon": -3.67211
+      },
+      "frac": 0.8951618406606151,
+      "offLineMeters": 121.6
+    },
+    {
+      "id": "wp-osm-water_source-node1846763783",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.351892,
+        "lon": -3.673669
+      },
+      "frac": 0.8953021661537278,
+      "offLineMeters": 89.2
+    },
+    {
+      "id": "wp-osm-food-node2272184991",
+      "kind": "food",
+      "name": "La Malquerida",
+      "at": {
+        "lat": 42.352707,
+        "lon": -3.674757
+      },
+      "frac": 0.8960101393273198,
+      "offLineMeters": 215.2
+    },
+    {
+      "id": "wp-osm-transport-node1985866734",
+      "kind": "transport",
+      "name": "Severo Ochoa 53",
+      "at": {
+        "lat": 42.353101,
+        "lon": -3.675253
+      },
+      "frac": 0.8962727048852759,
+      "offLineMeters": 274.7
+    },
+    {
+      "id": "wp-osm-food-node2163290134",
+      "kind": "food",
+      "name": "Cironte",
+      "at": {
+        "lat": 42.35052,
+        "lon": -3.672753
+      },
+      "frac": 0.8964782766040127,
+      "offLineMeters": 78.2
+    },
+    {
+      "id": "wp-osm-food-node2163332550",
+      "kind": "food",
+      "name": "Bereca",
+      "at": {
+        "lat": 42.349775,
+        "lon": -3.672142
+      },
+      "frac": 0.8968224759193916,
+      "offLineMeters": 174.7
+    },
+    {
+      "id": "wp-osm-transport-node1690315266",
+      "kind": "transport",
+      "name": "Vitoria – Juan XXIII",
+      "at": {
+        "lat": 42.350744,
+        "lon": -3.673876
+      },
+      "frac": 0.8987973769753529,
+      "offLineMeters": 3.3
+    },
+    {
+      "id": "wp-osm-water_source-node2557997478",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.35019,
+        "lon": -3.673553
+      },
+      "frac": 0.8993945603323991,
+      "offLineMeters": 68.7
+    },
+    {
+      "id": "wp-osm-water_source-node13082723111",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.351775,
+        "lon": -3.675309
+      },
+      "frac": 0.8998389464235633,
+      "offLineMeters": 158.7
+    },
+    {
+      "id": "wp-osm-accommodation-node1004361019",
+      "kind": "bed",
+      "name": "Habitaciones Pardo",
+      "at": {
+        "lat": 42.352462,
+        "lon": -3.676226
+      },
+      "frac": 0.9004340232458393,
+      "offLineMeters": 265
+    },
+    {
+      "id": "wp-osm-water_source-node4708883762",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.348978,
+        "lon": -3.672781
+      },
+      "frac": 0.9005248902587757,
+      "offLineMeters": 214.8
+    },
+    {
+      "id": "wp-osm-supply-node4475953968",
+      "kind": "supply",
+      "name": "Linaje",
+      "at": {
+        "lat": 42.351302,
+        "lon": -3.675349
+      },
+      "frac": 0.9011607360441586,
+      "offLineMeters": 118.5
+    },
+    {
+      "id": "wp-osm-medical-node2613494670",
+      "kind": "medical",
+      "name": "Ldo. José Sicilia Sanz",
+      "at": {
+        "lat": 42.350349,
+        "lon": -3.674767
+      },
+      "frac": 0.9021177575804463,
+      "offLineMeters": 4.8
+    },
+    {
+      "id": "wp-osm-food-node1011442661",
+      "kind": "food",
+      "name": "Sabor y Fuego",
+      "at": {
+        "lat": 42.348248,
+        "lon": -3.672779
+      },
+      "frac": 0.9024036090690062,
+      "offLineMeters": 280.2
+    },
+    {
+      "id": "wp-osm-food-node959337590",
+      "kind": "food",
+      "name": "Mesón El Abuelo",
+      "at": {
+        "lat": 42.35085,
+        "lon": -3.675775
+      },
+      "frac": 0.9034274293851278,
+      "offLineMeters": 98.7
+    },
+    {
+      "id": "wp-osm-accommodation-node3696733748",
+      "kind": "bed",
+      "name": "El Pesquero",
+      "at": {
+        "lat": 42.34834,
+        "lon": -3.673449
+      },
+      "frac": 0.9038949643723755,
+      "offLineMeters": 239.3
+    },
+    {
+      "id": "wp-osm-accommodation-node2577207007",
+      "kind": "bed",
+      "name": "Santiago",
+      "at": {
+        "lat": 42.349475,
+        "lon": -3.674804
+      },
+      "frac": 0.9044674859538985,
+      "offLineMeters": 71.6
+    },
+    {
+      "id": "wp-osm-water_source-node1846763700",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.350269,
+        "lon": -3.67561
+      },
+      "frac": 0.9045005829754157,
+      "offLineMeters": 38.7
+    },
+    {
+      "id": "wp-osm-water_source-node12467909594",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.351466,
+        "lon": -3.677406
+      },
+      "frac": 0.9060503912199297,
+      "offLineMeters": 233.5
+    },
+    {
+      "id": "wp-osm-water_source-node2331672445",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.348884,
+        "lon": -3.674852
+      },
+      "frac": 0.9061139765372153,
+      "offLineMeters": 122.2
+    },
+    {
+      "id": "wp-osm-food-node959337549",
+      "kind": "food",
+      "name": "El trastero",
+      "at": {
+        "lat": 42.349551,
+        "lon": -3.675521
+      },
+      "frac": 0.906123501094192,
+      "offLineMeters": 29.8
+    },
+    {
+      "id": "wp-osm-medical-node6044143723",
+      "kind": "medical",
+      "name": "Lda. Henar Gozalo Nogales",
+      "at": {
+        "lat": 42.34849,
+        "lon": -3.674465
+      },
+      "frac": 0.9061312551524285,
+      "offLineMeters": 176.3
+    },
+    {
+      "id": "wp-osm-supply-node7009762066",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.347594,
+        "lon": -3.674216
+      },
+      "frac": 0.9077988755328361,
+      "offLineMeters": 268.6
+    },
+    {
+      "id": "wp-osm-water_source-node13072280403",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.351379,
+        "lon": -3.678426
+      },
+      "frac": 0.9089061420853384,
+      "offLineMeters": 275.6
+    },
+    {
+      "id": "wp-osm-transport-node1690317546",
+      "kind": "transport",
+      "name": "Vitoria – Academia Ingenieros",
+      "at": {
+        "lat": 42.349259,
+        "lon": -3.676542
+      },
+      "frac": 0.909512053788967,
+      "offLineMeters": 6.1
+    },
+    {
+      "id": "wp-osm-transport-node1692222506",
+      "kind": "transport",
+      "name": "Avda. Constitución 7",
+      "at": {
+        "lat": 42.348553,
+        "lon": -3.675917
+      },
+      "frac": 0.9097174699969814,
+      "offLineMeters": 99.7
+    },
+    {
+      "id": "wp-osm-water_source-node4220349133",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.347492,
+        "lon": -3.675085
+      },
+      "frac": 0.9103055582191899,
+      "offLineMeters": 235.2
+    },
+    {
+      "id": "wp-osm-food-node4220349120",
+      "kind": "food",
+      "name": "Cafetería",
+      "at": {
+        "lat": 42.34741,
+        "lon": -3.67579
+      },
+      "frac": 0.9117472457928528,
+      "offLineMeters": 208.7
+    },
+    {
+      "id": "wp-osm-water_source-node4220349143",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.347648,
+        "lon": -3.676698
+      },
+      "frac": 0.9117472457928528,
+      "offLineMeters": 154.5
+    },
+    {
+      "id": "wp-osm-water_source-node4222733065",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.346878,
+        "lon": -3.67556
+      },
+      "frac": 0.9117472457928528,
+      "offLineMeters": 269.3
+    },
+    {
+      "id": "wp-osm-supply-node5836845656",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.34661,
+        "lon": -3.676978
+      },
+      "frac": 0.9135522306567122,
+      "offLineMeters": 261.7
+    },
+    {
+      "id": "wp-osm-supply-node8908205665",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.347484,
+        "lon": -3.677649
+      },
+      "frac": 0.9147946341717422,
+      "offLineMeters": 154.6
+    },
+    {
+      "id": "wp-osm-water_source-node4220349113",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.346861,
+        "lon": -3.678012
+      },
+      "frac": 0.9165411256036982,
+      "offLineMeters": 215.4
+    },
+    {
+      "id": "wp-osm-food-node663454323",
+      "kind": "food",
+      "name": "Plan B",
+      "at": {
+        "lat": 42.348816,
+        "lon": -3.679835
+      },
+      "frac": 0.9203293651185648,
+      "offLineMeters": 30.1
+    },
+    {
+      "id": "wp-osm-water_source-node1282655352",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.349357,
+        "lon": -3.680422
+      },
+      "frac": 0.9216344662955457,
+      "offLineMeters": 99.6
+    },
+    {
+      "id": "wp-osm-food-node1499447461",
+      "kind": "food",
+      "name": "Hnos. Antón 2",
+      "at": {
+        "lat": 42.350362,
+        "lon": -3.681114
+      },
+      "frac": 0.9228159814531062,
+      "offLineMeters": 221.3
+    },
+    {
+      "id": "wp-osm-water_source-node10750377822",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.348139,
+        "lon": -3.680518
+      },
+      "frac": 0.9231261501545845,
+      "offLineMeters": 30.6
+    },
+    {
+      "id": "wp-osm-food-node1448794109",
+      "kind": "food",
+      "name": "Picasso",
+      "at": {
+        "lat": 42.349181,
+        "lon": -3.681555
+      },
+      "frac": 0.9237787471233116,
+      "offLineMeters": 109.2
+    },
+    {
+      "id": "wp-osm-food-node741497779",
+      "kind": "food",
+      "name": "Coffee Time",
+      "at": {
+        "lat": 42.35071,
+        "lon": -3.681912
+      },
+      "frac": 0.9237787471233116,
+      "offLineMeters": 275.5
+    },
+    {
+      "id": "wp-osm-water_source-node1747172581",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.348126,
+        "lon": -3.681273
+      },
+      "frac": 0.9256310977694376,
+      "offLineMeters": 3.2
+    },
+    {
+      "id": "wp-osm-transport-node6758081858",
+      "kind": "transport",
+      "name": "Avda. Castilla y León «Centro Comercial»",
+      "at": {
+        "lat": 42.349063,
+        "lon": -3.682793
+      },
+      "frac": 0.926604890469827,
+      "offLineMeters": 162.9
+    },
+    {
+      "id": "wp-osm-water_source-node1813042128",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.348661,
+        "lon": -3.683922
+      },
+      "frac": 0.926604890469827,
+      "offLineMeters": 214.9
+    },
+    {
+      "id": "wp-osm-medical-node4720905482",
+      "kind": "medical",
+      "name": "Farmaferoles",
+      "at": {
+        "lat": 42.347241,
+        "lon": -3.680932
+      },
+      "frac": 0.9281154303768506,
+      "offLineMeters": 72.5
+    },
+    {
+      "id": "wp-osm-transport-node1691090471",
+      "kind": "transport",
+      "name": "Vitoria – Bda. Militar",
+      "at": {
+        "lat": 42.347079,
+        "lon": -3.6802
+      },
+      "frac": 0.9281154303768506,
+      "offLineMeters": 133.2
+    },
+    {
+      "id": "wp-osm-food-node711720910",
+      "kind": "food",
+      "name": "Oslo",
+      "at": {
+        "lat": 42.347197,
+        "lon": -3.681569
+      },
+      "frac": 0.9294679048402008,
+      "offLineMeters": 34.6
+    },
+    {
+      "id": "wp-osm-water_source-node1747175511",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.346241,
+        "lon": -3.679962
+      },
+      "frac": 0.9295132283180415,
+      "offLineMeters": 204.1
+    },
+    {
+      "id": "wp-osm-transport-node1690319013",
+      "kind": "transport",
+      "name": "Vitoria 109",
+      "at": {
+        "lat": 42.346686,
+        "lon": -3.681234
+      },
+      "frac": 0.9305344015730064,
+      "offLineMeters": 91.4
+    },
+    {
+      "id": "wp-osm-food-node3703034944",
+      "kind": "food",
+      "name": "Payma",
+      "at": {
+        "lat": 42.348659,
+        "lon": -3.68478
+      },
+      "frac": 0.9308982231866346,
+      "offLineMeters": 273.2
+    },
+    {
+      "id": "wp-osm-food-node687061306",
+      "kind": "food",
+      "name": "La Oficina",
+      "at": {
+        "lat": 42.34812,
+        "lon": -3.684269
+      },
+      "frac": 0.9317145014744752,
+      "offLineMeters": 203
+    },
+    {
+      "id": "wp-osm-transport-node1693482130",
+      "kind": "transport",
+      "name": "Avda. Castilla y León 18",
+      "at": {
+        "lat": 42.347542,
+        "lon": -3.68346
+      },
+      "frac": 0.9320644834096438,
+      "offLineMeters": 111
+    },
+    {
+      "id": "wp-osm-transport-node1698373829",
+      "kind": "transport",
+      "name": "Dos de mayo – Colegio",
+      "at": {
+        "lat": 42.345171,
+        "lon": -3.680571
+      },
+      "frac": 0.9334588047313227,
+      "offLineMeters": 240
+    },
+    {
+      "id": "wp-osm-food-node611671823",
+      "kind": "food",
+      "name": "El Bar de Giovanni",
+      "at": {
+        "lat": 42.346847,
+        "lon": -3.682959
+      },
+      "frac": 0.9337222668745045,
+      "offLineMeters": 30
+    },
+    {
+      "id": "wp-osm-water_source-node1747172579",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.346185,
+        "lon": -3.682764
+      },
+      "frac": 0.9349737487182677,
+      "offLineMeters": 38.2
+    },
+    {
+      "id": "wp-osm-water_source-node1845128975",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.345111,
+        "lon": -3.682619
+      },
+      "frac": 0.9374369368786403,
+      "offLineMeters": 140.3
+    },
+    {
+      "id": "wp-osm-food-node711720856",
+      "kind": "food",
+      "name": "Sushi MON",
+      "at": {
+        "lat": 42.345539,
+        "lon": -3.68346
+      },
+      "frac": 0.9384530615325932,
+      "offLineMeters": 60.5
+    },
+    {
+      "id": "wp-osm-transport-node1690324179",
+      "kind": "transport",
+      "name": "Vitoria 73-75",
+      "at": {
+        "lat": 42.345093,
+        "lon": -3.684166
+      },
+      "frac": 0.9414284204631594,
+      "offLineMeters": 64.6
+    },
+    {
+      "id": "wp-osm-food-node7942784929",
+      "kind": "food",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.344026,
+        "lon": -3.683445
+      },
+      "frac": 0.9424047975677604,
+      "offLineMeters": 194.8
+    },
+    {
+      "id": "wp-osm-food-node734119379",
+      "kind": "food",
+      "name": "El Portón",
+      "at": {
+        "lat": 42.344874,
+        "lon": -3.684718
+      },
+      "frac": 0.9434128768243243,
+      "offLineMeters": 56.4
+    },
+    {
+      "id": "wp-osm-water_source-node2129298525",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.34416,
+        "lon": -3.684638
+      },
+      "frac": 0.9450943585832288,
+      "offLineMeters": 123.4
+    },
+    {
+      "id": "wp-osm-food-node1036544694",
+      "kind": "food",
+      "name": "Dayana",
+      "at": {
+        "lat": 42.343248,
+        "lon": -3.686315
+      },
+      "frac": 0.9481815856885314,
+      "offLineMeters": 151.3
+    },
+    {
+      "id": "wp-osm-food-node835518975",
+      "kind": "food",
+      "name": "La Playa",
+      "at": {
+        "lat": 42.343001,
+        "lon": -3.686982
+      },
+      "frac": 0.9481815856885314,
+      "offLineMeters": 187.1
+    },
+    {
+      "id": "wp-osm-medical-node11315881023",
+      "kind": "medical",
+      "name": "María Jesús Alonso Urruchi Logofoniatra",
+      "at": {
+        "lat": 42.34427,
+        "lon": -3.686046
+      },
+      "frac": 0.9481815856885314,
+      "offLineMeters": 43.8
+    },
+    {
+      "id": "wp-osm-transport-node4870752788",
+      "kind": "transport",
+      "name": "Avda. Arlanzón 38",
+      "at": {
+        "lat": 42.342781,
+        "lon": -3.687538
+      },
+      "frac": 0.9481815856885314,
+      "offLineMeters": 226.7
+    },
+    {
+      "id": "wp-osm-food-node1052779166",
+      "kind": "food",
+      "name": "La Cepa",
+      "at": {
+        "lat": 42.344671,
+        "lon": -3.686867
+      },
+      "frac": 0.9489979348003483,
+      "offLineMeters": 40.8
+    },
+    {
+      "id": "wp-osm-transport-node1721124558",
+      "kind": "transport",
+      "name": "Juan de Padilla – Comisaría",
+      "at": {
+        "lat": 42.347992,
+        "lon": -3.686667
+      },
+      "frac": 0.9523420064021496,
+      "offLineMeters": 275.1
+    },
+    {
+      "id": "wp-osm-transport-node416881831",
+      "kind": "transport",
+      "name": "Avda. Castilla y León – Comisaría",
+      "at": {
+        "lat": 42.346931,
+        "lon": -3.685938
+      },
+      "frac": 0.9523420064021496,
+      "offLineMeters": 169.8
+    },
+    {
+      "id": "wp-osm-water_source-node1004362444",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.346348,
+        "lon": -3.686306
+      },
+      "frac": 0.9523420064021496,
+      "offLineMeters": 98.5
+    },
+    {
+      "id": "wp-osm-water_source-node3573296172",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.345764,
+        "lon": -3.685885
+      },
+      "frac": 0.9523420064021496,
+      "offLineMeters": 74.3
+    },
+    {
+      "id": "wp-osm-transport-node1693482132",
+      "kind": "transport",
+      "name": "Avda. La Paz 32",
+      "at": {
+        "lat": 42.346026,
+        "lon": -3.68834
+      },
+      "frac": 0.9536529735592746,
+      "offLineMeters": 119.5
+    },
+    {
+      "id": "wp-osm-water_source-node1342131921",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.347601,
+        "lon": -3.688202
+      },
+      "frac": 0.9536529735592746,
+      "offLineMeters": 256.1
+    },
+    {
+      "id": "wp-osm-water_source-node7231349675",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.346495,
+        "lon": -3.688646
+      },
+      "frac": 0.9536529735592746,
+      "offLineMeters": 171.6
+    },
+    {
+      "id": "wp-osm-supply-node12084543107",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.345147,
+        "lon": -3.687503
+      },
+      "frac": 0.9558555236807077,
+      "offLineMeters": 2.4
+    },
+    {
+      "id": "wp-osm-water_source-node2343818919",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.344663,
+        "lon": -3.687786
+      },
+      "frac": 0.9575406563133775,
+      "offLineMeters": 37.3
+    },
+    {
+      "id": "wp-osm-supply-node1753936172",
+      "kind": "supply",
+      "name": "Alimentación Lyel",
+      "at": {
+        "lat": 42.345065,
+        "lon": -3.688272
+      },
+      "frac": 0.958253510554433,
+      "offLineMeters": 19.9
+    },
+    {
+      "id": "wp-osm-medical-node1004362383",
+      "kind": "medical",
+      "name": "Lda. Teresa Sáiz Martínez-Acitores",
+      "at": {
+        "lat": 42.343787,
+        "lon": -3.687651
+      },
+      "frac": 0.9586937737490286,
+      "offLineMeters": 130.8
+    },
+    {
+      "id": "wp-osm-food-node956411904",
+      "kind": "food",
+      "name": "Yague37",
+      "at": {
+        "lat": 42.346047,
+        "lon": -3.689328
+      },
+      "frac": 0.9596134811934235,
+      "offLineMeters": 154.9
+    },
+    {
+      "id": "wp-osm-food-node3206583533",
+      "kind": "food",
+      "name": "El Errante",
+      "at": {
+        "lat": 42.344065,
+        "lon": -3.688258
+      },
+      "frac": 0.9599809343152463,
+      "offLineMeters": 82.2
+    },
+    {
+      "id": "wp-osm-food-node1753936177",
+      "kind": "food",
+      "name": "Restaurante Corazas",
+      "at": {
+        "lat": 42.344731,
+        "lon": -3.68871
+      },
+      "frac": 0.9601283826885951,
+      "offLineMeters": 0.6
+    },
+    {
+      "id": "wp-osm-food-node761323095",
+      "kind": "food",
+      "name": "Bocata",
+      "at": {
+        "lat": 42.342999,
+        "lon": -3.688157
+      },
+      "frac": 0.9611427222901703,
+      "offLineMeters": 194.1
+    },
+    {
+      "id": "wp-osm-supply-node12620920787",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.34524,
+        "lon": -3.689343
+      },
+      "frac": 0.9612596359764674,
+      "offLineMeters": 73.4
+    },
+    {
+      "id": "wp-osm-transport-node1690325293",
+      "kind": "transport",
+      "name": "Vitoria – Hacienda",
+      "at": {
+        "lat": 42.343369,
+        "lon": -3.689039
+      },
+      "frac": 0.9631933018659197,
+      "offLineMeters": 130.2
+    },
+    {
+      "id": "wp-osm-food-node956411903",
+      "kind": "food",
+      "name": "La ola",
+      "at": {
+        "lat": 42.345652,
+        "lon": -3.690682
+      },
+      "frac": 0.9646545667889651,
+      "offLineMeters": 154.9
+    },
+    {
+      "id": "wp-osm-food-node1753884923",
+      "kind": "food",
+      "name": "Lima Café",
+      "at": {
+        "lat": 42.344517,
+        "lon": -3.690169
+      },
+      "frac": 0.9648404467660611,
+      "offLineMeters": 22
+    },
+    {
+      "id": "wp-osm-food-node1753884924",
+      "kind": "food",
+      "name": "Doña Margarita",
+      "at": {
+        "lat": 42.343951,
+        "lon": -3.689915
+      },
+      "frac": 0.9649402852061417,
+      "offLineMeters": 44.4
+    },
+    {
+      "id": "wp-osm-food-node4240063137",
+      "kind": "food",
+      "name": "Black Rooster",
+      "at": {
+        "lat": 42.342813,
+        "lon": -3.689412
+      },
+      "frac": 0.9651628991688886,
+      "offLineMeters": 177.4
+    },
+    {
+      "id": "wp-osm-water_source-node8747610689",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.343491,
+        "lon": -3.690273
+      },
+      "frac": 0.9667171157402148,
+      "offLineMeters": 81.9
+    },
+    {
+      "id": "wp-osm-medical-node956411907",
+      "kind": "medical",
+      "name": "Lda. María Victoria de la Cruz Martínez",
+      "at": {
+        "lat": 42.345084,
+        "lon": -3.691209
+      },
+      "frac": 0.9671027051652339,
+      "offLineMeters": 111
+    },
+    {
+      "id": "wp-osm-supply-node12084546698",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.344171,
+        "lon": -3.690772
+      },
+      "frac": 0.9671791139483901,
+      "offLineMeters": 3.3
+    },
+    {
+      "id": "wp-osm-supply-node12430182920",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.342373,
+        "lon": -3.690151
+      },
+      "frac": 0.9680535840344363,
+      "offLineMeters": 201.9
+    },
+    {
+      "id": "wp-osm-medical-node1004361728",
+      "kind": "medical",
+      "name": "Lda. Carmen Martínez de Simón Alameda",
+      "at": {
+        "lat": 42.343132,
+        "lon": -3.690976
+      },
+      "frac": 0.9693767201717945,
+      "offLineMeters": 99.1
+    },
+    {
+      "id": "wp-osm-supply-node741497775",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.344062,
+        "lon": -3.691579
+      },
+      "frac": 0.9697725744272153,
+      "offLineMeters": 15.1
+    },
+    {
+      "id": "wp-osm-supply-node12772339133",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.344535,
+        "lon": -3.691849
+      },
+      "frac": 0.9698631907228916,
+      "offLineMeters": 72.2
+    },
+    {
+      "id": "wp-osm-water_source-node2388525672",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.346187,
+        "lon": -3.692822
+      },
+      "frac": 0.9702737637291536,
+      "offLineMeters": 272.3
+    },
+    {
+      "id": "wp-osm-supply-node12430138374",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.342711,
+        "lon": -3.691423
+      },
+      "frac": 0.9712211115174239,
+      "offLineMeters": 130
+    },
+    {
+      "id": "wp-osm-supply-node12430182921",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.34211,
+        "lon": -3.691517
+      },
+      "frac": 0.9719332278335521,
+      "offLineMeters": 192
+    },
+    {
+      "id": "wp-osm-water_source-node1161322222",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.343257,
+        "lon": -3.691959
+      },
+      "frac": 0.9719483085842902,
+      "offLineMeters": 59.5
+    },
+    {
+      "id": "wp-osm-food-node2776906112",
+      "kind": "food",
+      "name": "Asociación Unión Artesana Buen Vecino de Burgos",
+      "at": {
+        "lat": 42.345379,
+        "lon": -3.692782
+      },
+      "frac": 0.9719910499451271,
+      "offLineMeters": 186
+    },
+    {
+      "id": "wp-osm-supply-node12725705332",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.344522,
+        "lon": -3.692616
+      },
+      "frac": 0.9724884811284664,
+      "offLineMeters": 90.5
+    },
+    {
+      "id": "wp-osm-food-node4040715767",
+      "kind": "food",
+      "name": "La tejera",
+      "at": {
+        "lat": 42.343673,
+        "lon": -3.692411
+      },
+      "frac": 0.9728558588269894,
+      "offLineMeters": 4.9
+    },
+    {
+      "id": "wp-osm-water_source-node2075246120",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.345721,
+        "lon": -3.69323
+      },
+      "frac": 0.9729734248301997,
+      "offLineMeters": 232.6
+    },
+    {
+      "id": "wp-osm-food-node4100661644",
+      "kind": "food",
+      "name": "La Exquisita",
+      "at": {
+        "lat": 42.346231,
+        "lon": -3.693434
+      },
+      "frac": 0.9730029108421353,
+      "offLineMeters": 291.7
+    },
+    {
+      "id": "wp-osm-transport-node1692231199",
+      "kind": "transport",
+      "name": "Avda. La Paz 15",
+      "at": {
+        "lat": 42.344849,
+        "lon": -3.693126
+      },
+      "frac": 0.9736787580138916,
+      "offLineMeters": 136.9
+    },
+    {
+      "id": "wp-osm-supply-node12430101887",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.343746,
+        "lon": -3.693053
+      },
+      "frac": 0.9747519007854858,
+      "offLineMeters": 17.3
+    },
+    {
+      "id": "wp-osm-food-node626938014",
+      "kind": "food",
+      "name": "Piñeiro",
+      "at": {
+        "lat": 42.344172,
+        "lon": -3.693255
+      },
+      "frac": 0.974874068311781,
+      "offLineMeters": 67.3
+    },
+    {
+      "id": "wp-osm-supply-node12430298451",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.341918,
+        "lon": -3.692515
+      },
+      "frac": 0.975243067850456,
+      "offLineMeters": 190.4
+    },
+    {
+      "id": "wp-osm-food-node976888088",
+      "kind": "food",
+      "name": "Boca Sushi",
+      "at": {
+        "lat": 42.344793,
+        "lon": -3.693736
+      },
+      "frac": 0.975628403332379,
+      "offLineMeters": 144.6
+    },
+    {
+      "id": "wp-osm-food-node1101889494",
+      "kind": "food",
+      "name": "Petricor",
+      "at": {
+        "lat": 42.342968,
+        "lon": -3.693053
+      },
+      "frac": 0.9756704129394147,
+      "offLineMeters": 66
+    },
+    {
+      "id": "wp-osm-supply-node12430101246",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.342384,
+        "lon": -3.693058
+      },
+      "frac": 0.9763730490104243,
+      "offLineMeters": 128.3
+    },
+    {
+      "id": "wp-osm-medical-node626938015",
+      "kind": "medical",
+      "name": "Lda. Teresa María Urbano Jiménez",
+      "at": {
+        "lat": 42.343678,
+        "lon": -3.693872
+      },
+      "frac": 0.9773610678780001,
+      "offLineMeters": 28.3
+    },
+    {
+      "id": "wp-osm-food-node667449340",
+      "kind": "food",
+      "name": "La Niña",
+      "at": {
+        "lat": 42.345441,
+        "lon": -3.694556
+      },
+      "frac": 0.9773980145171401,
+      "offLineMeters": 232.2
+    },
+    {
+      "id": "wp-osm-supply-node12426278872",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.345908,
+        "lon": -3.69478
+      },
+      "frac": 0.9775407902279214,
+      "offLineMeters": 287.2
+    },
+    {
+      "id": "wp-osm-water_source-node1832147541",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.342734,
+        "lon": -3.693658
+      },
+      "frac": 0.9778135818964572,
+      "offLineMeters": 77.5
+    },
+    {
+      "id": "wp-osm-food-node4329133402",
+      "kind": "food",
+      "name": "Clarita",
+      "at": {
+        "lat": 42.344157,
+        "lon": -3.694348
+      },
+      "frac": 0.9782692371191684,
+      "offLineMeters": 90.1
+    },
+    {
+      "id": "wp-osm-food-node1811921556",
+      "kind": "food",
+      "name": "En boca de to2",
+      "at": {
+        "lat": 42.343196,
+        "lon": -3.693989
+      },
+      "frac": 0.9782903157357963,
+      "offLineMeters": 20.7
+    },
+    {
+      "id": "wp-osm-transport-node1691052593",
+      "kind": "transport",
+      "name": "Avda. Arlanzón 19",
+      "at": {
+        "lat": 42.341612,
+        "lon": -3.693642
+      },
+      "frac": 0.9790862796594997,
+      "offLineMeters": 198
+    },
+    {
+      "id": "wp-osm-food-node719651639",
+      "kind": "food",
+      "name": "Cervecería Don Jamón",
+      "at": {
+        "lat": 42.342808,
+        "lon": -3.694363
+      },
+      "frac": 0.979904369708454,
+      "offLineMeters": 53.9
+    },
+    {
+      "id": "wp-osm-medical-node667449305",
+      "kind": "medical",
+      "name": "Ldo. Jesús Rica Ayuso",
+      "at": {
+        "lat": 42.34496,
+        "lon": -3.695539
+      },
+      "frac": 0.9810005527575252,
+      "offLineMeters": 202.7
+    },
+    {
+      "id": "wp-osm-supply-node12587520423",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.344226,
+        "lon": -3.695399
+      },
+      "frac": 0.9814348583906983,
+      "offLineMeters": 121
+    },
+    {
+      "id": "wp-osm-medical-node519841514",
+      "kind": "medical",
+      "name": "Ldo. Ramón Pérez Chomón",
+      "at": {
+        "lat": 42.341577,
+        "lon": -3.694434
+      },
+      "frac": 0.9815730803154749,
+      "offLineMeters": 184
+    },
+    {
+      "id": "wp-osm-supply-node12426278874",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.345373,
+        "lon": -3.696022
+      },
+      "frac": 0.9820073192869759,
+      "offLineMeters": 257.6
+    },
+    {
+      "id": "wp-osm-food-node667449304",
+      "kind": "food",
+      "name": "Villa Trajano",
+      "at": {
+        "lat": 42.344436,
+        "lon": -3.696021
+      },
+      "frac": 0.9831061039842599,
+      "offLineMeters": 157.3
+    },
+    {
+      "id": "wp-osm-food-node1000073852",
+      "kind": "food",
+      "name": "La Petenera",
+      "at": {
+        "lat": 42.343205,
+        "lon": -3.695761
+      },
+      "frac": 0.9837547205024051,
+      "offLineMeters": 19.8
+    },
+    {
+      "id": "wp-osm-supply-node2103971948",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.342681,
+        "lon": -3.695902
+      },
+      "frac": 0.9848076553294551,
+      "offLineMeters": 33.1
+    },
+    {
+      "id": "wp-osm-transport-node1690925406",
+      "kind": "transport",
+      "name": "Vitoria 29",
+      "at": {
+        "lat": 42.341943,
+        "lon": -3.695694
+      },
+      "frac": 0.9850336586237141,
+      "offLineMeters": 116.8
+    },
+    {
+      "id": "wp-osm-transport-node621726605",
+      "kind": "transport",
+      "name": "Reyes Católicos 7",
+      "at": {
+        "lat": 42.34479,
+        "lon": -3.696813
+      },
+      "frac": 0.9851348999392372,
+      "offLineMeters": 212.9
+    },
+    {
+      "id": "wp-osm-supply-node6303019165",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.341186,
+        "lon": -3.696086
+      },
+      "frac": 0.9861356620841659,
+      "offLineMeters": 190.8
+    },
+    {
+      "id": "wp-osm-food-node646660720",
+      "kind": "food",
+      "name": "Panadería Bertiz",
+      "at": {
+        "lat": 42.341903,
+        "lon": -3.696469
+      },
+      "frac": 0.9864993853036111,
+      "offLineMeters": 108.9
+    },
+    {
+      "id": "wp-osm-transport-node550655177",
+      "kind": "transport",
+      "name": "Plaza España – RRCC",
+      "at": {
+        "lat": 42.344263,
+        "lon": -3.696784
+      },
+      "frac": 0.9870905089341457,
+      "offLineMeters": 154.4
+    },
+    {
+      "id": "wp-osm-accommodation-node956396703",
+      "kind": "bed",
+      "name": "Hostal Manjón",
+      "at": {
+        "lat": 42.341417,
+        "lon": -3.696635
+      },
+      "frac": 0.9871167447223792,
+      "offLineMeters": 162.3
+    },
+    {
+      "id": "wp-osm-food-node662621767",
+      "kind": "food",
+      "name": "Buga Ramen",
+      "at": {
+        "lat": 42.343193,
+        "lon": -3.696962
+      },
+      "frac": 0.9878522763066632,
+      "offLineMeters": 36.1
+    },
+    {
+      "id": "wp-osm-food-node646660714",
+      "kind": "food",
+      "name": "Mesón San Lesmes",
+      "at": {
+        "lat": 42.342674,
+        "lon": -3.697176
+      },
+      "frac": 0.9886298037188674,
+      "offLineMeters": 20.9
+    },
+    {
+      "id": "wp-osm-accommodation-node447830152",
+      "kind": "bed",
+      "name": "Hotel Silken Gran Teatro",
+      "at": {
+        "lat": 42.341048,
+        "lon": -3.697165
+      },
+      "frac": 0.9888801783276067,
+      "offLineMeters": 201.6
+    },
+    {
+      "id": "wp-osm-water_source-node1750210032",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.340192,
+        "lon": -3.697198
+      },
+      "frac": 0.9891379587970986,
+      "offLineMeters": 296.6
+    },
+    {
+      "id": "wp-osm-supply-node12469244422",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.34155,
+        "lon": -3.697467
+      },
+      "frac": 0.9897597075391984,
+      "offLineMeters": 144.8
+    },
+    {
+      "id": "wp-osm-transport-node662619073",
+      "kind": "transport",
+      "name": "Plaza España – Mercado",
+      "at": {
+        "lat": 42.343801,
+        "lon": -3.69778
+      },
+      "frac": 0.9903674804131333,
+      "offLineMeters": 106.3
+    },
+    {
+      "id": "wp-osm-medical-node540665109",
+      "kind": "medical",
+      "name": "Licenciada María Isabel García Echeveste",
+      "at": {
+        "lat": 42.345497,
+        "lon": -3.697879
+      },
+      "frac": 0.9903853184790112,
+      "offLineMeters": 295.1
+    },
+    {
+      "id": "wp-osm-food-node662848382",
+      "kind": "food",
+      "name": "Montreal",
+      "at": {
+        "lat": 42.344223,
+        "lon": -3.69814
+      },
+      "frac": 0.9914477516329107,
+      "offLineMeters": 154.4
+    },
+    {
+      "id": "wp-osm-accommodation-node646660716",
+      "kind": "bed",
+      "name": "Cuéntame La Puebla",
+      "at": {
+        "lat": 42.342101,
+        "lon": -3.698098
+      },
+      "frac": 0.9916861474251648,
+      "offLineMeters": 81.5
+    },
+    {
+      "id": "wp-osm-medical-node1374644606",
+      "kind": "medical",
+      "name": "Lda. Natividad Combarro Rodríguez",
+      "at": {
+        "lat": 42.34284,
+        "lon": -3.698379
+      },
+      "frac": 0.992456485035995,
+      "offLineMeters": 1.6
+    },
+    {
+      "id": "wp-osm-transport-node1703045179",
+      "kind": "transport",
+      "name": "Avda. Arlanzón 4",
+      "at": {
+        "lat": 42.34071,
+        "lon": -3.698325
+      },
+      "frac": 0.9926616959086076,
+      "offLineMeters": 235.2
+    },
+    {
+      "id": "wp-osm-accommodation-node646660709",
+      "kind": "bed",
+      "name": "Hotel Cordón",
+      "at": {
+        "lat": 42.34185,
+        "lon": -3.698614
+      },
+      "frac": 0.9933848121930934,
+      "offLineMeters": 107.7
+    },
+    {
+      "id": "wp-osm-food-node1547265430",
+      "kind": "food",
+      "name": "Foster's Hollywood",
+      "at": {
+        "lat": 42.342346,
+        "lon": -3.698956
+      },
+      "frac": 0.9941494698731473,
+      "offLineMeters": 51.7
+    },
+    {
+      "id": "wp-osm-food-node452980875",
+      "kind": "food",
+      "name": "Casa Ojeda",
+      "at": {
+        "lat": 42.341346,
+        "lon": -3.699083
+      },
+      "frac": 0.9941494698731473,
+      "offLineMeters": 163.4
+    },
+    {
+      "id": "wp-osm-transport-node1690944460",
+      "kind": "transport",
+      "name": "Avda. Arlanzón",
+      "at": {
+        "lat": 42.340603,
+        "lon": -3.698982
+      },
+      "frac": 0.9941494698731473,
+      "offLineMeters": 245.4
+    },
+    {
+      "id": "wp-osm-transport-node515080828",
+      "kind": "transport",
+      "name": "Plaza Mio Cid",
+      "at": {
+        "lat": 42.340634,
+        "lon": -3.699762
+      },
+      "frac": 0.9941494698731473,
+      "offLineMeters": 252
+    },
+    {
+      "id": "wp-osm-transport-node515080833",
+      "kind": "transport",
+      "name": "Avda. del Cid 4",
+      "at": {
+        "lat": 42.343386,
+        "lon": -3.699004
+      },
+      "frac": 0.9951684279621589,
+      "offLineMeters": 59
+    },
+    {
+      "id": "wp-osm-transport-node515080831",
+      "kind": "transport",
+      "name": "Soportales de Antón",
+      "at": {
+        "lat": 42.341598,
+        "lon": -3.699847
+      },
+      "frac": 0.9955433540027748,
+      "offLineMeters": 151.3
+    },
+    {
+      "id": "wp-osm-food-node955075506",
+      "kind": "food",
+      "name": "Bóveda",
+      "at": {
+        "lat": 42.342675,
+        "lon": -3.699541
+      },
+      "frac": 0.9959386112676695,
+      "offLineMeters": 29.3
+    },
+    {
+      "id": "wp-osm-food-node3242699040",
+      "kind": "food",
+      "name": "Polisón",
+      "at": {
+        "lat": 42.340435,
+        "lon": -3.700559
+      },
+      "frac": 0.9962885187878149,
+      "offLineMeters": 291.9
+    },
+    {
+      "id": "wp-osm-food-node544529824",
+      "kind": "food",
+      "name": "Moeda",
+      "at": {
+        "lat": 42.342314,
+        "lon": -3.700093
+      },
+      "frac": 0.9971871168508942,
+      "offLineMeters": 80.8
+    },
+    {
+      "id": "wp-osm-food-node543438168",
+      "kind": "food",
+      "name": "Un Momento",
+      "at": {
+        "lat": 42.341266,
+        "lon": -3.700554
+      },
+      "frac": 0.9973049813928926,
+      "offLineMeters": 203.2
+    }
+  ],
+  "stage": {
+    "routeId": "camino-frances",
+    "index": 11,
+    "count": 33,
+    "name": "San Juan de Ortega to Burgos",
+    "theme": "Perspective",
+    "narrative": "You pass through Atapuerca, where archaeologists found the oldest human remains in Europe — 800,000 years of human presence in this hillside. The long approach into Burgos takes you through suburbs and industrial zones, and the contrast is deliberate: deep time beside modern sprawl. By the time you stand before the cathedral's Gothic spires, you are carrying a strange awareness that walking is the oldest human act, and that your footsteps are neither the first nor the last.",
+    "closing": "What does it mean to you that humans have walked this land for hundreds of thousands of years?",
+    "warnings": [],
+    "distanceKm": 25.8,
+    "gainMeters": 141,
+    "hours": {
+      "min": 6,
+      "max": 7
+    },
+    "difficulty": "moderate",
+    "start": {
+      "name": "San Juan de Ortega",
+      "at": {
+        "lat": 42.373,
+        "lon": -3.437
+      }
+    },
+    "end": {
+      "name": "Burgos",
+      "at": {
+        "lat": 42.344,
+        "lon": -3.7
+      }
+    }
+  }
+}

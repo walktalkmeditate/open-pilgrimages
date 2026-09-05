@@ -1,13 +1,15 @@
 {
   "name": "open-pilgrimages",
-  "version": "1.6.0",
+  "version": "1.7.0",
   "description": "Canonical open-source pilgrimage route dataset",
   "type": "module",
   "scripts": {
     "validate": "tsx scripts/validate.ts",
     "build-index": "tsx scripts/build-index.ts",
+    "build-ways": "tsx scripts/build-ways.ts",
+    "build-main-line": "tsx scripts/enrich/build-main-line.ts",
     "fetch": "tsx scripts/fetch-osm.ts",
-    "pipeline": "npm run fetch && npm run build-index && npm run validate",
+    "pipeline": "npm run fetch && npm run build-ways && npm run build-index && npm run validate",
     "stats": "tsx scripts/stats.ts",
     "build-assets": "tsx scripts/site/build-assets.ts",
     "fetch-roads": "tsx scripts/fetch-roads.ts",

@@ -4,7 +4,83 @@ All notable changes to the open-pilgrimages dataset are documented here.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html). The data file `schemaVersion` field tracks the JSON schema separately from the package version (currently `1.0.0`).
 
-The moving tag `v1` always points to the latest `v1.x.x` release. CDN consumers using `https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1/...` automatically receive the latest minor/patch on the v1 line.
+Consumers read the catalog from `https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@main/index.json` and pin every file they then download to the tag that index's `release` field names. The `v1` alias is no longer maintained — jsDelivr caches tag URLs permanently, so moving it changed nothing a consumer saw.
+
+## [1.7.0] — 2026-09-05
+
+The "a stage is a Way" release. Turns each route's stages into ready-to-walk
+Way files the Pilgrim app decodes unchanged, and publishes an honest report of
+what each route can and cannot yet promise a walker.
+
+### Added
+
+- **`routes/<route-id>/ways/`** — one `stage-NN.json` per stage in the exact
+  JSON the Pilgrim iOS app's `Way` type decodes, plus `route.json` (the route's
+  card data) and `report.json` (the coverage report). Built by
+  `npm run build-ways`, which `npm run pipeline` now runs before
+  `build-index`. Every file is validated against its schema before it is
+  written, and again by `npm run validate` afterwards.
+- **`schema/way.schema.json`, `schema/way-route.schema.json`,
+  `schema/way-report.schema.json`** — the contract. A change to
+  `way.schema.json` is a change to the app.
+- **`routes/camino-frances/route.main.geojson`** — the *walked line*: the main
+  route with the optional variants and detours left out. `route.geojson`
+  measures 994.4 km against 763.7 km of stages, so slicing stages from it
+  handed a 27 km day a 63 km geometry. OSM offers nothing to filter on — every
+  member role in all six sub-relations is empty — so the line is derived
+  instead, by `npm run build-main-line camino-frances`: a graph over the
+  relations' member ways, joined at exactly shared coordinates, walked by
+  shortest connected path between consecutive stage boundaries. 767.5 km over
+  ~32,800 points.
+- **`index.json` gains `release`** (the git tag this build will be published
+  under, which the app pins every package download to) and, per route, **`ways`
+  `{ stageCount, bytes, placesPerStage, sparse }`** for a route whose every
+  stage cleared the length gate. `sparse` is true when fewer than half the
+  route's stages carry a place beyond the day's own start and end towns; apps say so
+  on the card rather than hiding the route.
+- **`npm run build-ways`** and **`npm run build-main-line <route-id>`**.
+
+### Changed
+
+- **The `v1` moving tag is no longer maintained, and the catalog moved to
+  `@main`.** jsDelivr caches a tag URL permanently: `v1` was force-moved onto
+  the v1.6.0 commit in August 2026, and `@v1/index.json` still serves the March
+  2026 index — three routes, 1,725 bytes — while `@v1.6.0` and `@main` both
+  serve the current seven-route index. Consumers should read
+  `@main/index.json` for the catalog and pin every file they then download to
+  the exact tag its `release` field names. Existing `@v1` URLs keep resolving
+  to the bytes jsDelivr cached; `https://purge.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1/<path>`
+  is the only way to refresh one.
+- **`interior.reflection` is now required** in `stages.schema.json`. All 109
+  stages across all seven routes already carry one; requiring it means the
+  closing line a walker reads at the end of a stage can never quietly fall back
+  to a narrative's last sentence for committed data.
+- **Six Camino Francés stage anchors corrected to their OSM place nodes** —
+  Zubiri, Santo Domingo de la Calzada, Terradillos de los Templarios,
+  Bercianos del Real Camino, San Martín del Camino, and Foncebadón. Each sat
+  hundreds of meters to several kilometers off the walked line (Bercianos del
+  Real Camino by nearly 4 km), which is what made the stages on either side of
+  it measure short or long against their declared distance. No `distanceKm`
+  changed: the route total is unchanged at 763.7 km → 764.
+
+### Coverage, honestly
+
+One route is listed, and its own report says what it can and cannot promise:
+
+- **Camino Francés** clears the length gate on all 33 stages and ships a
+  complete, validating package — listed, and flagged `sparse`. Only **3 of its
+  33 stages** carry a curated place beyond their own start and end towns, about
+  **0.1 per stage**: it needs more curated places, not more code, and until it
+  has them the app's card says "few places marked yet".
+- **Shikoku 88** is the mirror image: **9 of its 10 stages** would clear the
+  coverage bar on the strength of its 88 temples, but its ten stage distances
+  sum to 907 km for a ~1,200 km circuit, so no walked line can be measured
+  against them. It is deliberately left without a `route.main.geojson`, and so
+  is not listed.
+- **Kumano Kodo** would clear the coverage bar on all four stages and fails the
+  length gate on all four, even sliced from the Nakahechi feature alone.
+- **Camino Inglés, Norte, Portugués and Primitivo** carry service waypoints
+  only — no curated places at all.
 
 ## [1.6.0] — 2026-08-21
 
@@ -201,6 +277,7 @@ Each route ships with `metadata.json` (overview, tradition, cultural, logistics)
 
 ---
 
+[1.7.0]: https://github.com/walktalkmeditate/open-pilgrimages/compare/v1.6.0...v1.7.0
 [1.6.0]: https://github.com/walktalkmeditate/open-pilgrimages/compare/v1.5.0...v1.6.0
 [1.5.0]: https://github.com/walktalkmeditate/open-pilgrimages/compare/v1.4.0...v1.5.0
 [1.4.0]: https://github.com/walktalkmeditate/open-pilgrimages/compare/v1.3.0...v1.4.0

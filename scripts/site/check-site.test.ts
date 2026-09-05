@@ -2129,10 +2129,10 @@ test("checkSite reports a CDN link pointing under docs/ as outside the published
 });
 
 test("checkSite reports a CDN link using an unrecognized version ref (synthetic readmeMd)", () => {
-  // #given a CDN URL pinned to a moving branch rather than a release tag — the README explicitly
-  // discourages this, since it isn't pinned to anything this project actually ships
+  // #given a CDN URL pinned to a ref this project never publishes against —
+  // `main` is now the catalog ref, but `latest` still names nothing
   const readmeMd =
-    "See https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@main/index.json for details.";
+    "See https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@latest/index.json for details.";
 
   // #when checkSite checks that URL's ref
   const problems = checkSite(ROOT, { readmeMd });
@@ -2142,7 +2142,7 @@ test("checkSite reports a CDN link using an unrecognized version ref (synthetic 
     problems.some(
       (p) =>
         p.file === "README.md" &&
-        p.message.includes('"@main"') &&
+        p.message.includes('"@latest"') &&
         p.message.includes("isn't one this project uses"),
     ),
   );

@@ -2,6 +2,9 @@ import Ajv2020 from "ajv/dist/2020.js";
 import addFormats from "ajv-formats";
 import { readFileSync, existsSync, readdirSync, statSync } from "fs";
 import { join, relative } from "path";
+import { resolveInvokedPath } from "./cli.js";
+import { nearestVertex, walkedLine, SNAP_METERS } from "./ways/geo.js";
+import type { Position } from "./ways/types.js";
 
 type Ajv = InstanceType<typeof Ajv2020>;
 
@@ -33,13 +36,13 @@ function findRouteDirectories(): string[] {
   return dirs;
 }
 
-interface ValidationError {
+export interface ValidationError {
   file: string;
   message: string;
   severity: "error" | "warning";
 }
 
-function createValidator() {
+export function createValidator() {
   const ajv = new Ajv2020({ allErrors: true, strict: false });
   addFormats(ajv);
 
@@ -51,6 +54,9 @@ function createValidator() {
     "stages.schema.json",
     "route.schema.json",
     "waypoints.schema.json",
+    "way.schema.json",
+    "way-route.schema.json",
+    "way-report.schema.json",
   ]) {
     ajv.addSchema(loadJson(join(schemaDir, name)), name);
   }
@@ -204,6 +210,202 @@ function validateDataConsistency(
   }
 }
 
+function stageFileNameFor(index: number): string {
+  return `stage-${String(index).padStart(2, "0")}.json`;
+}
+
+function stageIndexFromFileName(fileName: string): number {
+  return Number(fileName.slice("stage-".length, fileName.length - ".json".length));
+}
+
+/**
+ * The build validates what it writes, but the committed files are what ships:
+ * a hand-edited stage file, or one left behind by an older build, would
+ * otherwise reach the CDN unchecked. Schema validation alone can't catch a
+ * package that drifted from a correct build — a stale route.json, a copied
+ * stage file, a partial commit after a mid-build failure — because the
+ * identity and index fields the phone's importer cross-checks are each
+ * independently valid, just inconsistent with each other. This function is
+ * that cross-check, mirroring PilgrimageWayImporter's own guards.
+ */
+export function validateWays(ajv: Ajv, routeDir: string, errors: ValidationError[]): void {
+  const waysDir = join(routeDir, "ways");
+  if (!existsSync(waysDir) || !statSync(waysDir).isDirectory()) return;
+
+  const metaPath = join(routeDir, "metadata.json");
+  const routeId: string | undefined = existsSync(metaPath) ? loadJson(metaPath)?.id : undefined;
+
+  validateFile(ajv, "way-report.schema.json", join(waysDir, "report.json"), errors);
+
+  const routePath = join(waysDir, "route.json");
+  validateFile(ajv, "way-route.schema.json", routePath, errors);
+
+  let route: { stageCount?: unknown; stages?: Array<{ index?: unknown }> } | undefined;
+  if (existsSync(routePath)) {
+    try {
+      route = loadJson(routePath);
+    } catch {
+      route = undefined; // validateFile above already recorded the Invalid JSON error
+    }
+  }
+
+  if (route) {
+    const stageCount = route.stageCount;
+    const indices = (route.stages ?? []).map((s) => s.index);
+
+    if (typeof stageCount === "number" && indices.length !== stageCount) {
+      errors.push({
+        file: relative(ROOT, routePath),
+        message: `${routeId}: stageCount=${stageCount} but the stages array has ${indices.length} entries`,
+        severity: "error",
+      });
+    }
+
+    const expectedCount = typeof stageCount === "number" ? stageCount : indices.length;
+    const expectedIndices = Array.from({ length: expectedCount }, (_, i) => i);
+    const sortedIndices = [...indices].sort((a, b) => Number(a) - Number(b));
+    if (JSON.stringify(sortedIndices) !== JSON.stringify(expectedIndices)) {
+      errors.push({
+        file: relative(ROOT, routePath),
+        message: `${routeId}: stage indices ${JSON.stringify(indices)} are not exactly 0..<${expectedCount}`,
+        severity: "error",
+      });
+    }
+
+    if (typeof stageCount === "number") {
+      for (let i = 0; i < stageCount; i++) {
+        const stagePath = join(waysDir, stageFileNameFor(i));
+        if (!existsSync(stagePath)) {
+          errors.push({
+            file: relative(ROOT, stagePath),
+            message: `${routeId}: route.json declares stageCount=${stageCount} but this stage file is missing`,
+            severity: "error",
+          });
+        }
+      }
+    }
+  }
+
+  for (const entry of readdirSync(waysDir)) {
+    // stageFileName pads to at least two digits, and the schemas allow up to
+    // 200 stages, so a three-digit stage (stage-100.json) must match too.
+    if (!/^stage-\d{2,3}\.json$/.test(entry)) continue;
+    const stagePath = join(waysDir, entry);
+    validateFile(ajv, "way.schema.json", stagePath, errors);
+
+    let stageFile: { id?: unknown; stage?: { routeId?: unknown; index?: unknown; count?: unknown; hours?: { min?: unknown; max?: unknown } } } | undefined;
+    try {
+      stageFile = loadJson(stagePath);
+    } catch {
+      // validateFile above already recorded the Invalid JSON error
+    }
+    if (!stageFile) continue;
+
+    const nn = stageIndexFromFileName(entry);
+    const expectedId = `pilgrimage:${routeId}:${nn}`;
+    if (stageFile.id !== expectedId) {
+      errors.push({
+        file: relative(ROOT, stagePath),
+        message: `id "${stageFile.id}" does not match the expected "${expectedId}" for route "${routeId}"`,
+        severity: "error",
+      });
+    }
+
+    const stage = stageFile.stage;
+    if (stage) {
+      if (stage.routeId !== routeId) {
+        errors.push({
+          file: relative(ROOT, stagePath),
+          message: `stage.routeId "${stage.routeId}" does not match route "${routeId}"`,
+          severity: "error",
+        });
+      }
+      if (stage.index !== nn) {
+        errors.push({
+          file: relative(ROOT, stagePath),
+          message: `stage.index ${stage.index} does not match this file's own index ${nn}`,
+          severity: "error",
+        });
+      }
+      if (typeof stage.index === "number" && typeof stage.count === "number" && !(stage.index < stage.count)) {
+        errors.push({
+          file: relative(ROOT, stagePath),
+          message: `stage.index ${stage.index} is not less than stage.count ${stage.count}`,
+          severity: "error",
+        });
+      }
+      const hours = stage.hours;
+      if (hours && typeof hours.min === "number" && typeof hours.max === "number" && hours.min > hours.max) {
+        errors.push({
+          file: relative(ROOT, stagePath),
+          message: `hours.min ${hours.min} is greater than hours.max ${hours.max}`,
+          severity: "error",
+        });
+      }
+    }
+  }
+}
+
+interface AnchoredStage {
+  index?: unknown;
+  name?: { en?: unknown };
+  start?: { coordinates?: unknown };
+  end?: { coordinates?: unknown };
+}
+
+/**
+ * A walked line and the stage anchors it was cut for can drift apart without
+ * either file becoming invalid on its own, and CI's drift check cannot see it:
+ * that check reruns the build and diffs the output, and the build happily
+ * rebuilds from the stale line. Editing a stage's start or end in stages.json
+ * without rerunning `npm run build-main-line` is exactly that — the anchor
+ * moves off the line, build-ways quietly falls back to placing the boundary by
+ * declared distance instead of by position, and the stage that ships is cut in
+ * the wrong place.
+ *
+ * So: every anchor must be within the distance the build is willing to snap
+ * across. Only routes that have a walked line are checked; a route still
+ * cutting from route.geojson has nothing to be stale against.
+ */
+export function validateWalkedLine(routeDir: string, errors: ValidationError[]): void {
+  const linePath = join(routeDir, "route.main.geojson");
+  const stagesPath = join(routeDir, "stages.json");
+  const metaPath = join(routeDir, "metadata.json");
+  if (!existsSync(linePath) || !existsSync(stagesPath)) return;
+
+  let line: Position[];
+  let stages: unknown;
+  let routeId: unknown;
+  try {
+    line = walkedLine(loadJson(linePath));
+    stages = loadJson(stagesPath)?.stages;
+    routeId = existsSync(metaPath) ? loadJson(metaPath)?.id : undefined;
+  } catch {
+    return; // validateFile above already recorded the Invalid JSON error
+  }
+  if (line.length === 0 || !Array.isArray(stages)) return;
+
+  for (const stage of stages as AnchoredStage[]) {
+    for (const end of ["start", "end"] as const) {
+      const coordinates = stage[end]?.coordinates;
+      if (!Array.isArray(coordinates) || coordinates.length < 2) continue;
+
+      const found = nearestVertex(line, coordinates as Position);
+      if (found.meters > SNAP_METERS) {
+        errors.push({
+          file: relative(ROOT, linePath),
+          message:
+            `${routeId}: stage ${stage.index} ("${stage.name?.en}") ${end} is ` +
+            `${Math.round(found.meters)} m from the nearest point on the walked line, past the ` +
+            `${SNAP_METERS} m the build can snap across — either the anchor moved or the line is ` +
+            `stale; rerun npm run build-main-line`,
+          severity: "error",
+        });
+      }
+    }
+  }
+}
+
 function main() {
   const ajv = createValidator();
   const errors: ValidationError[] = [];
@@ -224,6 +426,9 @@ function main() {
     validateFile(ajv, "stages.schema.json", join(dir, "stages.json"), errors);
     validateFile(ajv, "route.schema.json", join(dir, "route.geojson"), errors);
     validateFile(ajv, "waypoints.schema.json", join(dir, "waypoints.geojson"), errors);
+    validateFile(ajv, "route.schema.json", join(dir, "route.main.geojson"), errors);
+    validateWays(ajv, dir, errors);
+    validateWalkedLine(dir, errors);
 
     validateDataConsistency(dir, errors);
   }
@@ -251,4 +456,6 @@ function main() {
   console.log(`Validation passed (${warns.length} warning(s))`);
 }
 
-main();
+if (import.meta.filename === resolveInvokedPath(process.argv[1])) {
+  main();
+}

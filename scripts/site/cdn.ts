@@ -37,7 +37,13 @@ const CDN_URL_PATTERN = new RegExp(
 export interface CdnRef {
   /** The full matched URL, exactly as it appears in the source text. */
   url: string;
-  /** The version ref after `@` — e.g. "v1", "v1.6.0", or (a mistake) "main". */
+  /**
+   * The version ref after `@` — e.g. `"main"` (the catalog ref, refreshed on
+   * jsDelivr's own ~12 h cycle), `"v1.6.0"` (a pinned release, what package
+   * files resolve against), or `"v1"` (the frozen moving-tag alias — no
+   * longer advanced by the release procedure, still recognized because
+   * README and schema `$id`s carry it; see isRecognizedCdnRef below).
+   */
   ref: string;
   /**
    * The repo-relative path after the ref, with the leading slash stripped.
@@ -114,15 +120,16 @@ let cachedCurrentMajorVersion: string | undefined;
 
 /**
  * The major version out of package.json's own `"version"` — "1" for
- * "1.6.0". This, not a hardcoded "v1", is what the moving CDN tag
- * (isRecognizedCdnRef below) tracks: the moving tag is always named after
- * the *current* major line (see .claude/commands/release.md's Phase 8,
- * "the v1 moving tag may need to be replaced with v2 etc."), so a hardcoded
- * "v1" here would start rejecting every real `@v2` URL the instant this
- * project ships its first major bump — the same "guard reports clean while
- * broken" shape as the rest of this file's fixes, just triggered by a
- * version bump instead of an org rename. Cached after the first read since
- * package.json doesn't change within a single process run.
+ * "1.6.0". This, not a hardcoded "v1", is what `isRecognizedCdnRef` below
+ * uses to keep tolerating `@v{major}` links: that alias is only for legacy
+ * README/schema `$id` references, and the release procedure no longer moves
+ * it (see .claude/commands/release.md's Phase 8, "the v1 alias is not
+ * maintained"), but a hardcoded "v1" here would still start rejecting every
+ * such legacy `@v2` reference the instant this project ships its first major
+ * bump — the same "guard reports clean while broken" shape as the rest of
+ * this file's fixes, just triggered by a version bump instead of an org
+ * rename. Cached after the first read since package.json doesn't change
+ * within a single process run.
  */
 function currentMajorVersion(): string {
   if (cachedCurrentMajorVersion !== undefined) return cachedCurrentMajorVersion;
@@ -143,26 +150,35 @@ function currentMajorVersion(): string {
 }
 
 /**
- * The moving CDN tag consumers are told to pin to right now — "v1" today,
- * "v2" the release after this project's first major bump. check-site.ts
- * builds its JSDELIVR_BASE suggestion text from this rather than a second
- * hardcoded "@v1", so that message can't go stale the way isRecognizedCdnRef
- * itself used to.
+ * The legacy major-version alias still tolerated in README/schema `$id`
+ * links — "v1" today, "v2" the release after this project's first major
+ * bump. Not a ref consumers are told to pin to: the catalog is read from
+ * `@main` and packages are pinned at a released `@vX.Y.Z` tag. check-site.ts
+ * builds example legacy-link text from this rather than a second hardcoded
+ * "@v1", so that text can't go stale the way isRecognizedCdnRef itself used
+ * to.
  */
 export function currentCdnMovingRef(): string {
   return `v${currentMajorVersion()}`;
 }
 
 /**
- * `@v{currentMajorVersion()}` is the moving major-version tag every CDN
- * consumer is told to pin to; a `@vX.Y.Z` ref names one specific release.
- * Both are refs this project actually produces and moves/creates as part of
- * cutting a release (see .claude/commands/release.md). Anything else —
- * `@main`, `@latest`, a branch name — is a ref this project has never
- * published against: the README's Versioning note only ever tells consumers
- * to pin to the moving major tag, never a branch, and an unpublished ref can
- * point at an in-progress commit that 404s on files added since the last
- * release, or change contents without warning.
+ * Three refs this project actually publishes against:
+ *
+ * - `@main` — the catalog ref. jsDelivr caches a *tag* URL permanently, so a
+ *   force-moved `v1` keeps serving whatever it first resolved (measured: `@v1`
+ *   still returns the March 2026 index, three routes, while the tag itself
+ *   points at the August commit). A branch ref refreshes on jsDelivr's own
+ *   ~12 h cycle, so `@main/index.json` is the only URL that reliably names the
+ *   current release. Only `index.json` is fetched this way; everything a
+ *   consumer downloads afterwards is pinned to the exact tag it named.
+ * - `@vX.Y.Z` — one specific release, and what every package file is pinned to.
+ * - `@v{currentMajorVersion()}` — the historical moving major tag. Still
+ *   recognised because README and schema `$id`s carry it, but the release
+ *   procedure no longer moves it: see .claude/commands/release.md.
+ *
+ * Anything else — `@latest`, another branch name — is a ref this project has
+ * never published against.
  *
  * `currentMajor` defaults to the real package.json-derived value but can be
  * overridden — the same DI shape as fetch-roads.ts's fetchImpl/sleepImpl —
@@ -170,7 +186,7 @@ export function currentCdnMovingRef(): string {
  * package.json.
  */
 export function isRecognizedCdnRef(ref: string, currentMajor: string = currentMajorVersion()): boolean {
-  return ref === `v${currentMajor}` || RELEASED_VERSION_REF_PATTERN.test(ref);
+  return ref === "main" || ref === `v${currentMajor}` || RELEASED_VERSION_REF_PATTERN.test(ref);
 }
 
 /**

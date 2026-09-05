@@ -1,0 +1,382 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "camino-frances",
+  "name": "Camino de Santiago (Frances)",
+  "country": "ES",
+  "region": "Europe",
+  "distanceKm": 763.7,
+  "stageCount": 33,
+  "tradition": "christian",
+  "summary": "The most popular pilgrimage route to Santiago de Compostela, crossing the Pyrenees from France and traversing northern Spain for 764 km. Walked continuously since the 9th century.",
+  "stages": [
+    {
+      "index": 0,
+      "name": "Saint-Jean-Pied-de-Port to Roncesvalles",
+      "distanceKm": 24.2,
+      "hours": {
+        "min": 7,
+        "max": 9
+      },
+      "gainMeters": 1419,
+      "difficulty": "hard"
+    },
+    {
+      "index": 1,
+      "name": "Roncesvalles to Zubiri",
+      "distanceKm": 21.4,
+      "hours": {
+        "min": 5,
+        "max": 7
+      },
+      "gainMeters": 310,
+      "difficulty": "moderate"
+    },
+    {
+      "index": 2,
+      "name": "Zubiri to Pamplona",
+      "distanceKm": 20.4,
+      "hours": {
+        "min": 5,
+        "max": 6
+      },
+      "gainMeters": 314,
+      "difficulty": "easy"
+    },
+    {
+      "index": 3,
+      "name": "Pamplona to Puente la Reina",
+      "distanceKm": 23.9,
+      "hours": {
+        "min": 6,
+        "max": 7
+      },
+      "gainMeters": 414,
+      "difficulty": "moderate"
+    },
+    {
+      "index": 4,
+      "name": "Puente la Reina to Estella",
+      "distanceKm": 21.6,
+      "hours": {
+        "min": 5,
+        "max": 7
+      },
+      "gainMeters": 399,
+      "difficulty": "moderate"
+    },
+    {
+      "index": 5,
+      "name": "Estella to Los Arcos",
+      "distanceKm": 21.3,
+      "hours": {
+        "min": 5,
+        "max": 7
+      },
+      "gainMeters": 388,
+      "difficulty": "moderate"
+    },
+    {
+      "index": 6,
+      "name": "Los Arcos to Logroño",
+      "distanceKm": 27.6,
+      "hours": {
+        "min": 6,
+        "max": 8
+      },
+      "gainMeters": 368,
+      "difficulty": "moderate"
+    },
+    {
+      "index": 7,
+      "name": "Logroño to Nájera",
+      "distanceKm": 28.5,
+      "hours": {
+        "min": 6,
+        "max": 8
+      },
+      "gainMeters": 366,
+      "difficulty": "moderate"
+    },
+    {
+      "index": 8,
+      "name": "Nájera to Santo Domingo de la Calzada",
+      "distanceKm": 20.7,
+      "hours": {
+        "min": 5,
+        "max": 6
+      },
+      "gainMeters": 327,
+      "difficulty": "easy"
+    },
+    {
+      "index": 9,
+      "name": "Santo Domingo de la Calzada to Belorado",
+      "distanceKm": 22,
+      "hours": {
+        "min": 5,
+        "max": 7
+      },
+      "gainMeters": 328,
+      "difficulty": "easy"
+    },
+    {
+      "index": 10,
+      "name": "Belorado to San Juan de Ortega",
+      "distanceKm": 23.9,
+      "hours": {
+        "min": 6,
+        "max": 7
+      },
+      "gainMeters": 430,
+      "difficulty": "moderate"
+    },
+    {
+      "index": 11,
+      "name": "San Juan de Ortega to Burgos",
+      "distanceKm": 25.8,
+      "hours": {
+        "min": 6,
+        "max": 7
+      },
+      "gainMeters": 141,
+      "difficulty": "moderate"
+    },
+    {
+      "index": 12,
+      "name": "Burgos to Hornillos del Camino",
+      "distanceKm": 20.3,
+      "hours": {
+        "min": 5,
+        "max": 6
+      },
+      "gainMeters": 103,
+      "difficulty": "moderate"
+    },
+    {
+      "index": 13,
+      "name": "Hornillos del Camino to Castrojeriz",
+      "distanceKm": 19.9,
+      "hours": {
+        "min": 5,
+        "max": 6
+      },
+      "gainMeters": 174,
+      "difficulty": "moderate"
+    },
+    {
+      "index": 14,
+      "name": "Castrojeriz to Frómista",
+      "distanceKm": 24.7,
+      "hours": {
+        "min": 6,
+        "max": 7
+      },
+      "gainMeters": 201,
+      "difficulty": "moderate"
+    },
+    {
+      "index": 15,
+      "name": "Frómista to Carrión de los Condes",
+      "distanceKm": 18.8,
+      "hours": {
+        "min": 4,
+        "max": 5
+      },
+      "gainMeters": 73,
+      "difficulty": "easy"
+    },
+    {
+      "index": 16,
+      "name": "Carrión de los Condes to Terradillos de los Templarios",
+      "distanceKm": 26.3,
+      "hours": {
+        "min": 6,
+        "max": 7
+      },
+      "gainMeters": 105,
+      "difficulty": "moderate"
+    },
+    {
+      "index": 17,
+      "name": "Terradillos de los Templarios to Bercianos del Real Camino",
+      "distanceKm": 23.2,
+      "hours": {
+        "min": 5,
+        "max": 7
+      },
+      "gainMeters": 119,
+      "difficulty": "moderate"
+    },
+    {
+      "index": 18,
+      "name": "Bercianos del Real Camino to Mansilla de las Mulas",
+      "distanceKm": 26.3,
+      "hours": {
+        "min": 6,
+        "max": 8
+      },
+      "gainMeters": 31,
+      "difficulty": "moderate"
+    },
+    {
+      "index": 19,
+      "name": "Mansilla de las Mulas to León",
+      "distanceKm": 18.4,
+      "hours": {
+        "min": 4,
+        "max": 5
+      },
+      "gainMeters": 107,
+      "difficulty": "easy"
+    },
+    {
+      "index": 20,
+      "name": "León to San Martín del Camino",
+      "distanceKm": 24.6,
+      "hours": {
+        "min": 6,
+        "max": 7
+      },
+      "gainMeters": 131,
+      "difficulty": "moderate"
+    },
+    {
+      "index": 21,
+      "name": "San Martín del Camino to Astorga",
+      "distanceKm": 23.7,
+      "hours": {
+        "min": 5,
+        "max": 7
+      },
+      "gainMeters": 190,
+      "difficulty": "moderate"
+    },
+    {
+      "index": 22,
+      "name": "Astorga to Foncebadón",
+      "distanceKm": 25.8,
+      "hours": {
+        "min": 6,
+        "max": 8
+      },
+      "gainMeters": 576,
+      "difficulty": "moderate"
+    },
+    {
+      "index": 23,
+      "name": "Foncebadón to Ponferrada",
+      "distanceKm": 26.8,
+      "hours": {
+        "min": 7,
+        "max": 9
+      },
+      "gainMeters": 232,
+      "difficulty": "hard"
+    },
+    {
+      "index": 24,
+      "name": "Ponferrada to Villafranca del Bierzo",
+      "distanceKm": 23.2,
+      "hours": {
+        "min": 5,
+        "max": 7
+      },
+      "gainMeters": 233,
+      "difficulty": "moderate"
+    },
+    {
+      "index": 25,
+      "name": "Villafranca del Bierzo to O Cebreiro",
+      "distanceKm": 27.8,
+      "hours": {
+        "min": 8,
+        "max": 10
+      },
+      "gainMeters": 845,
+      "difficulty": "hard"
+    },
+    {
+      "index": 26,
+      "name": "O Cebreiro to Triacastela",
+      "distanceKm": 20.6,
+      "hours": {
+        "min": 5,
+        "max": 7
+      },
+      "gainMeters": 273,
+      "difficulty": "moderate"
+    },
+    {
+      "index": 27,
+      "name": "Triacastela to Sarria",
+      "distanceKm": 17.8,
+      "hours": {
+        "min": 4,
+        "max": 6
+      },
+      "gainMeters": 350,
+      "difficulty": "moderate"
+    },
+    {
+      "index": 28,
+      "name": "Sarria to Portomarín",
+      "distanceKm": 22.2,
+      "hours": {
+        "min": 5,
+        "max": 7
+      },
+      "gainMeters": 398,
+      "difficulty": "moderate"
+    },
+    {
+      "index": 29,
+      "name": "Portomarín to Palas de Rei",
+      "distanceKm": 24.8,
+      "hours": {
+        "min": 6,
+        "max": 7
+      },
+      "gainMeters": 519,
+      "difficulty": "moderate"
+    },
+    {
+      "index": 30,
+      "name": "Palas de Rei to Arzúa",
+      "distanceKm": 28.5,
+      "hours": {
+        "min": 7,
+        "max": 8
+      },
+      "gainMeters": 491,
+      "difficulty": "hard"
+    },
+    {
+      "index": 31,
+      "name": "Arzúa to O Pedrouzo",
+      "distanceKm": 19.3,
+      "hours": {
+        "min": 5,
+        "max": 6
+      },
+      "gainMeters": 351,
+      "difficulty": "moderate"
+    },
+    {
+      "index": 32,
+      "name": "O Pedrouzo to Santiago de Compostela",
+      "distanceKm": 19.4,
+      "hours": {
+        "min": 5,
+        "max": 6
+      },
+      "gainMeters": 318,
+      "difficulty": "moderate"
+    }
+  ],
+  "names": {
+    "es": "Camino de Santiago (Francés)",
+    "fr": "Chemin de Saint-Jacques (Voie française)",
+    "gl": "Camiño de Santiago (Francés)",
+    "ja": "サンティアゴ巡礼路（フランス人の道）"
+  }
+}

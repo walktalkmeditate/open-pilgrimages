@@ -11,6 +11,8 @@ routes/{route-id}/          # One directory per pilgrimage
   route.gpx                 # GPX 1.1 track, generated from route.geojson (npm run build-assets)
   stages.json               # Stage breakdowns with interior journey
   waypoints.geojson         # GeoJSON FeatureCollection (Point features)
+  route.main.geojson        # Walked line: main route with variants removed (npm run build-main-line)
+  ways/                     # Stage packages for the Pilgrim app (npm run build-ways)
   variants/{variant-id}/    # Sub-routes with same file structure
 schema/                     # JSON Schema definitions
 scripts/                    # Data pipeline (fetch, process, validate)
@@ -39,6 +41,8 @@ npm run validate      # Validate all data against schemas
 npm run pipeline      # Fetch + process + validate + build index
 npm run fetch         # Fetch route geometry from OSM
 npm run build-index   # Regenerate index.json
+npm run build-ways            # Build routes/{route-id}/ways/ from the walked line + stages + waypoints
+npm run build-main-line <id>  # Derive route.main.geojson from OSM member ways (network)
 npm run fetch-roads   # Fetch road-corridor data from Overpass into .cache/ (gitignored) — the only command that touches the network
 npm run build-roads   # Render docs/assets/roads/{route-id}.svg from the .cache/ fetched above; no network access
 ```
@@ -46,7 +50,29 @@ npm run build-roads   # Render docs/assets/roads/{route-id}.svg from the .cache/
 ## Consumers
 
 - pilgrim-ios: Decodes route.geojson and waypoints.geojson via GeoJSONFeatureCollection Codable type
-- jsDelivr CDN: `https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1/routes/{routeId}/`
+- jsDelivr CDN: `https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@main/index.json` for the catalog, then `@{release}/routes/{routeId}/` for packages — see Stage Packages below
+
+## Stage Packages
+
+`ways/` holds one Way file per stage, in the wire format the Pilgrim iOS app's
+`PilgrimageWayImporter` reads — **not** what Swift's synthesized `Codable`
+would write. A moment is flat (`"kind": "waypoint"` with `label` and `icon` as
+siblings), a stage file carries no `source` field, and every field of the
+`stage` block is required. `schema/way.schema.json` is that contract; changing
+it changes the app.
+
+Stages are cut from `route.main.geojson` when a route has one, never from
+`route.geojson`, which bundles optional variants: the Camino Francés' committed
+geometry is 994 km against 764 km of stages.
+
+Everything the build writes is deterministic — `departedAt` and the report's
+`generatedAt` come from the route's own `metadata.json` `lastUpdated`, not from
+wall-clock time, so CI's drift check has something stable to diff.
+
+Consumers read `index.json` from `@main` and pin every file they then download
+to the tag its `release` field names. The `v1` alias is not maintained:
+jsDelivr caches tag URLs permanently, so moving it changes nothing anyone
+sees.
 
 ## Interior Journey Content
 

@@ -1,0 +1,1014 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "pilgrimage:camino-frances:14",
+  "title": "Castrojeriz to Frómista",
+  "departedAt": "2026-08-19T00:00:00Z",
+  "route": [
+    {
+      "lat": 42.28857,
+      "lon": -4.140368,
+      "t": 0
+    },
+    {
+      "lat": 42.289401,
+      "lon": -4.142061,
+      "t": 158.8
+    },
+    {
+      "lat": 42.290324,
+      "lon": -4.144726,
+      "t": 388.7
+    },
+    {
+      "lat": 42.290307,
+      "lon": -4.14497,
+      "t": 407.8
+    },
+    {
+      "lat": 42.290064,
+      "lon": -4.145288,
+      "t": 443.6
+    },
+    {
+      "lat": 42.289957,
+      "lon": -4.14589,
+      "t": 491.9
+    },
+    {
+      "lat": 42.289861,
+      "lon": -4.148432,
+      "t": 690.8
+    },
+    {
+      "lat": 42.290047,
+      "lon": -4.150474,
+      "t": 851.6
+    },
+    {
+      "lat": 42.289686,
+      "lon": -4.15738,
+      "t": 1392.5
+    },
+    {
+      "lat": 42.28999,
+      "lon": -4.160209,
+      "t": 1615.9
+    },
+    {
+      "lat": 42.289951,
+      "lon": -4.162848,
+      "t": 1822.2
+    },
+    {
+      "lat": 42.291106,
+      "lon": -4.165543,
+      "t": 2065.5
+    },
+    {
+      "lat": 42.290895,
+      "lon": -4.167691,
+      "t": 2234.8
+    },
+    {
+      "lat": 42.290734,
+      "lon": -4.168191,
+      "t": 2277.5
+    },
+    {
+      "lat": 42.290842,
+      "lon": -4.169343,
+      "t": 2368.2
+    },
+    {
+      "lat": 42.290736,
+      "lon": -4.16966,
+      "t": 2395.4
+    },
+    {
+      "lat": 42.290293,
+      "lon": -4.170103,
+      "t": 2453.6
+    },
+    {
+      "lat": 42.290063,
+      "lon": -4.171549,
+      "t": 2569.1
+    },
+    {
+      "lat": 42.289707,
+      "lon": -4.171922,
+      "t": 2616.7
+    },
+    {
+      "lat": 42.289478,
+      "lon": -4.172822,
+      "t": 2691.1
+    },
+    {
+      "lat": 42.28911,
+      "lon": -4.173352,
+      "t": 2747.9
+    },
+    {
+      "lat": 42.288707,
+      "lon": -4.17622,
+      "t": 2976
+    },
+    {
+      "lat": 42.288175,
+      "lon": -4.176957,
+      "t": 3056.5
+    },
+    {
+      "lat": 42.28797,
+      "lon": -4.177849,
+      "t": 3129.4
+    },
+    {
+      "lat": 42.287585,
+      "lon": -4.178262,
+      "t": 3181.4
+    },
+    {
+      "lat": 42.287287,
+      "lon": -4.179028,
+      "t": 3249
+    },
+    {
+      "lat": 42.287415,
+      "lon": -4.181864,
+      "t": 3471
+    },
+    {
+      "lat": 42.287154,
+      "lon": -4.184206,
+      "t": 3656.1
+    },
+    {
+      "lat": 42.286616,
+      "lon": -4.185529,
+      "t": 3774
+    },
+    {
+      "lat": 42.286195,
+      "lon": -4.187589,
+      "t": 3941
+    },
+    {
+      "lat": 42.285921,
+      "lon": -4.188311,
+      "t": 4004.4
+    },
+    {
+      "lat": 42.286187,
+      "lon": -4.192603,
+      "t": 4341
+    },
+    {
+      "lat": 42.285994,
+      "lon": -4.197776,
+      "t": 4745.8
+    },
+    {
+      "lat": 42.286365,
+      "lon": -4.201149,
+      "t": 5012.2
+    },
+    {
+      "lat": 42.286027,
+      "lon": -4.201748,
+      "t": 5071.1
+    },
+    {
+      "lat": 42.285781,
+      "lon": -4.203214,
+      "t": 5188.6
+    },
+    {
+      "lat": 42.285752,
+      "lon": -4.206224,
+      "t": 5423.8
+    },
+    {
+      "lat": 42.285408,
+      "lon": -4.210412,
+      "t": 5753.1
+    },
+    {
+      "lat": 42.283762,
+      "lon": -4.2158,
+      "t": 6208.6
+    },
+    {
+      "lat": 42.283189,
+      "lon": -4.220373,
+      "t": 6571
+    },
+    {
+      "lat": 42.282588,
+      "lon": -4.223103,
+      "t": 6793.6
+    },
+    {
+      "lat": 42.281751,
+      "lon": -4.225604,
+      "t": 7008.1
+    },
+    {
+      "lat": 42.281188,
+      "lon": -4.22664,
+      "t": 7108.6
+    },
+    {
+      "lat": 42.281699,
+      "lon": -4.233589,
+      "t": 7654.3
+    },
+    {
+      "lat": 42.281655,
+      "lon": -4.236727,
+      "t": 7899.6
+    },
+    {
+      "lat": 42.280859,
+      "lon": -4.239223,
+      "t": 8112
+    },
+    {
+      "lat": 42.279006,
+      "lon": -4.243036,
+      "t": 8468.5
+    },
+    {
+      "lat": 42.278708,
+      "lon": -4.244679,
+      "t": 8600.7
+    },
+    {
+      "lat": 42.277526,
+      "lon": -4.247261,
+      "t": 8838
+    },
+    {
+      "lat": 42.277502,
+      "lon": -4.247856,
+      "t": 8884.6
+    },
+    {
+      "lat": 42.277798,
+      "lon": -4.248704,
+      "t": 8957.8
+    },
+    {
+      "lat": 42.278919,
+      "lon": -4.249779,
+      "t": 9103
+    },
+    {
+      "lat": 42.279602,
+      "lon": -4.250112,
+      "t": 9179.7
+    },
+    {
+      "lat": 42.28067,
+      "lon": -4.250102,
+      "t": 9292.5
+    },
+    {
+      "lat": 42.282019,
+      "lon": -4.250574,
+      "t": 9439.7
+    },
+    {
+      "lat": 42.283601,
+      "lon": -4.252484,
+      "t": 9663.8
+    },
+    {
+      "lat": 42.284902,
+      "lon": -4.253509,
+      "t": 9822.8
+    },
+    {
+      "lat": 42.286591,
+      "lon": -4.25606,
+      "t": 10090.4
+    },
+    {
+      "lat": 42.287122,
+      "lon": -4.25651,
+      "t": 10156.6
+    },
+    {
+      "lat": 42.287025,
+      "lon": -4.257059,
+      "t": 10200.7
+    },
+    {
+      "lat": 42.287269,
+      "lon": -4.257961,
+      "t": 10275.7
+    },
+    {
+      "lat": 42.287287,
+      "lon": -4.258488,
+      "t": 10316.9
+    },
+    {
+      "lat": 42.287064,
+      "lon": -4.261435,
+      "t": 10548.4
+    },
+    {
+      "lat": 42.28693,
+      "lon": -4.261869,
+      "t": 10585.2
+    },
+    {
+      "lat": 42.285557,
+      "lon": -4.264191,
+      "t": 10817.4
+    },
+    {
+      "lat": 42.282532,
+      "lon": -4.27436,
+      "t": 11673.9
+    },
+    {
+      "lat": 42.280864,
+      "lon": -4.283654,
+      "t": 12421.3
+    },
+    {
+      "lat": 42.280777,
+      "lon": -4.285298,
+      "t": 12550.1
+    },
+    {
+      "lat": 42.280922,
+      "lon": -4.286609,
+      "t": 12653.7
+    },
+    {
+      "lat": 42.279181,
+      "lon": -4.291435,
+      "t": 13073.3
+    },
+    {
+      "lat": 42.279064,
+      "lon": -4.29212,
+      "t": 13128.2
+    },
+    {
+      "lat": 42.278941,
+      "lon": -4.295174,
+      "t": 13367.3
+    },
+    {
+      "lat": 42.278744,
+      "lon": -4.296656,
+      "t": 13484.9
+    },
+    {
+      "lat": 42.278082,
+      "lon": -4.297766,
+      "t": 13596.4
+    },
+    {
+      "lat": 42.276899,
+      "lon": -4.301667,
+      "t": 13925.8
+    },
+    {
+      "lat": 42.27638,
+      "lon": -4.302868,
+      "t": 14034.5
+    },
+    {
+      "lat": 42.274479,
+      "lon": -4.309782,
+      "t": 14611
+    },
+    {
+      "lat": 42.272557,
+      "lon": -4.314211,
+      "t": 15012.3
+    },
+    {
+      "lat": 42.272011,
+      "lon": -4.315752,
+      "t": 15145.9
+    },
+    {
+      "lat": 42.269911,
+      "lon": -4.325243,
+      "t": 15920.1
+    },
+    {
+      "lat": 42.268079,
+      "lon": -4.330258,
+      "t": 16357.3
+    },
+    {
+      "lat": 42.265242,
+      "lon": -4.336575,
+      "t": 16934.9
+    },
+    {
+      "lat": 42.263152,
+      "lon": -4.340664,
+      "t": 17323.3
+    },
+    {
+      "lat": 42.262109,
+      "lon": -4.343519,
+      "t": 17572.2
+    },
+    {
+      "lat": 42.261385,
+      "lon": -4.344828,
+      "t": 17700
+    },
+    {
+      "lat": 42.26082,
+      "lon": -4.345549,
+      "t": 17782.1
+    },
+    {
+      "lat": 42.259947,
+      "lon": -4.34603,
+      "t": 17881.6
+    },
+    {
+      "lat": 42.259477,
+      "lon": -4.346514,
+      "t": 17944.1
+    },
+    {
+      "lat": 42.259555,
+      "lon": -4.346791,
+      "t": 17967.2
+    },
+    {
+      "lat": 42.259135,
+      "lon": -4.347054,
+      "t": 18016.1
+    },
+    {
+      "lat": 42.25958,
+      "lon": -4.347634,
+      "t": 18081.4
+    },
+    {
+      "lat": 42.261218,
+      "lon": -4.34895,
+      "t": 18282.7
+    },
+    {
+      "lat": 42.261589,
+      "lon": -4.349748,
+      "t": 18356.4
+    },
+    {
+      "lat": 42.263024,
+      "lon": -4.351194,
+      "t": 18545.5
+    },
+    {
+      "lat": 42.261887,
+      "lon": -4.353788,
+      "t": 18781.2
+    },
+    {
+      "lat": 42.259454,
+      "lon": -4.358052,
+      "t": 19202
+    },
+    {
+      "lat": 42.259025,
+      "lon": -4.360108,
+      "t": 19369
+    },
+    {
+      "lat": 42.258661,
+      "lon": -4.36337,
+      "t": 19626.9
+    },
+    {
+      "lat": 42.258333,
+      "lon": -4.364331,
+      "t": 19709.7
+    },
+    {
+      "lat": 42.25834,
+      "lon": -4.380491,
+      "t": 20973
+    },
+    {
+      "lat": 42.259719,
+      "lon": -4.385729,
+      "t": 21407.6
+    },
+    {
+      "lat": 42.262858,
+      "lon": -4.388552,
+      "t": 21805.9
+    },
+    {
+      "lat": 42.263103,
+      "lon": -4.389034,
+      "t": 21851.6
+    },
+    {
+      "lat": 42.264604,
+      "lon": -4.397475,
+      "t": 22530.2
+    },
+    {
+      "lat": 42.264463,
+      "lon": -4.398063,
+      "t": 22578.5
+    },
+    {
+      "lat": 42.263761,
+      "lon": -4.399016,
+      "t": 22683.7
+    },
+    {
+      "lat": 42.263903,
+      "lon": -4.399213,
+      "t": 22705.2
+    },
+    {
+      "lat": 42.264264,
+      "lon": -4.399089,
+      "t": 22744.5
+    },
+    {
+      "lat": 42.26528,
+      "lon": -4.400501,
+      "t": 22898.4
+    },
+    {
+      "lat": 42.265659,
+      "lon": -4.400825,
+      "t": 22945.8
+    },
+    {
+      "lat": 42.266006,
+      "lon": -4.400902,
+      "t": 22983
+    },
+    {
+      "lat": 42.266205,
+      "lon": -4.401411,
+      "t": 23028
+    },
+    {
+      "lat": 42.266361,
+      "lon": -4.402059,
+      "t": 23081.2
+    },
+    {
+      "lat": 42.266117,
+      "lon": -4.405821,
+      "t": 23376.4
+    },
+    {
+      "lat": 42.266209,
+      "lon": -4.406096,
+      "t": 23400
+    }
+  ],
+  "totalDistanceMeters": 24633.5,
+  "theirActiveSeconds": 23400,
+  "moments": [
+    {
+      "id": "stage-start",
+      "frac": 0.00004920181636841492,
+      "kind": "waypoint",
+      "label": "Castrojeriz",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 42.28857602636797,
+        "lon": -4.140380277546299
+      },
+      "pin": {
+        "lat": 42.289,
+        "lon": -4.14
+      }
+    },
+    {
+      "id": "wp-fromista",
+      "frac": 1,
+      "kind": "waypoint",
+      "label": "Frómista",
+      "icon": "seal",
+      "at": {
+        "lat": 42.266209,
+        "lon": -4.406096
+      },
+      "pin": {
+        "lat": 42.268,
+        "lon": -4.406
+      },
+      "text": "stamp available"
+    }
+  ],
+  "marks": [
+    {
+      "id": "wp-osm-food-node2432392999",
+      "kind": "food",
+      "name": "Iacobus",
+      "at": {
+        "lat": 42.28792,
+        "lon": -4.140502
+      },
+      "frac": 0,
+      "offLineMeters": 73.1
+    },
+    {
+      "id": "wp-osm-transport-node6366026426",
+      "kind": "transport",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.286911,
+        "lon": -4.140052
+      },
+      "frac": 0,
+      "offLineMeters": 186.3
+    },
+    {
+      "id": "wp-osm-water_source-node3373074868",
+      "kind": "water",
+      "name": "Fuente de la Puerta del Monte",
+      "at": {
+        "lat": 42.287466,
+        "lon": -4.140635
+      },
+      "frac": 0,
+      "offLineMeters": 124.7
+    },
+    {
+      "id": "wp-osm-medical-node1362803250",
+      "kind": "medical",
+      "name": "Licenciada Rosario García Gállego",
+      "at": {
+        "lat": 42.287324,
+        "lon": -4.141774
+      },
+      "frac": 0.0008025094894138964,
+      "offLineMeters": 179.4
+    },
+    {
+      "id": "wp-osm-water_source-node3381780316",
+      "kind": "water",
+      "name": "Fuente de la Plaza",
+      "at": {
+        "lat": 42.288835,
+        "lon": -4.140637
+      },
+      "frac": 0.0014101204425336173,
+      "offLineMeters": 12.3
+    },
+    {
+      "id": "wp-osm-accommodation-node1362803286",
+      "kind": "bed",
+      "name": "La Posada de Castrojeriz",
+      "at": {
+        "lat": 42.288226,
+        "lon": -4.141279
+      },
+      "frac": 0.001673945486739907,
+      "offLineMeters": 73.3
+    },
+    {
+      "id": "wp-osm-food-node1362802505",
+      "kind": "food",
+      "name": "El Mesón",
+      "at": {
+        "lat": 42.288315,
+        "lon": -4.1419
+      },
+      "frac": 0.003626804255293702,
+      "offLineMeters": 93.3
+    },
+    {
+      "id": "wp-osm-water_source-node11139740402",
+      "kind": "water",
+      "name": "Eau potable",
+      "at": {
+        "lat": 42.287722,
+        "lon": -4.142802
+      },
+      "frac": 0.004655584705983274,
+      "offLineMeters": 189.2
+    },
+    {
+      "id": "wp-osm-supply-node1502806704",
+      "kind": "supply",
+      "name": "Pérez del Olmo",
+      "at": {
+        "lat": 42.28954,
+        "lon": -4.142306
+      },
+      "frac": 0.007791077841078137,
+      "offLineMeters": 5.5
+    },
+    {
+      "id": "wp-osm-accommodation-node2435775927",
+      "kind": "bed",
+      "name": "Refugio de peregrinos de San Juan",
+      "at": {
+        "lat": 42.289085,
+        "lon": -4.142638
+      },
+      "frac": 0.007924679136319335,
+      "offLineMeters": 52
+    },
+    {
+      "id": "wp-osm-water_source-node2713190817",
+      "kind": "water",
+      "name": "Fuente de San Juan",
+      "at": {
+        "lat": 42.290019,
+        "lon": -4.145218
+      },
+      "frac": 0.018937078567731965,
+      "offLineMeters": 7.6
+    },
+    {
+      "id": "wp-osm-water_source-node2322939132",
+      "kind": "water",
+      "name": "Fuente El Piojo",
+      "at": {
+        "lat": 42.281378,
+        "lon": -4.226383
+      },
+      "frac": 0.3025846065788714,
+      "offLineMeters": 4.5
+    },
+    {
+      "id": "wp-osm-accommodation-node775713238",
+      "kind": "bed",
+      "name": "San Nicolas de Puentefitero Hospital de Peregrinos",
+      "at": {
+        "lat": 42.278927,
+        "lon": -4.243303
+      },
+      "frac": 0.3628528299177346,
+      "offLineMeters": 3.3
+    },
+    {
+      "id": "wp-osm-water_source-node4965590961",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.285477,
+        "lon": -4.254951
+      },
+      "frac": 0.42509831961489186,
+      "offLineMeters": 31.5
+    },
+    {
+      "id": "wp-osm-accommodation-node536615085",
+      "kind": "bed",
+      "name": "Hostal Puente Fitero",
+      "at": {
+        "lat": 42.286567,
+        "lon": -4.255729
+      },
+      "frac": 0.43031613922828277,
+      "offLineMeters": 16.1
+    },
+    {
+      "id": "wp-osm-water_source-node1505776462",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.287747,
+        "lon": -4.257511
+      },
+      "frac": 0.4384609081855567,
+      "offLineMeters": 62.6
+    },
+    {
+      "id": "wp-osm-accommodation-node2453317949",
+      "kind": "bed",
+      "name": "Albergue La Mochila",
+      "at": {
+        "lat": 42.287343,
+        "lon": -4.258166
+      },
+      "frac": 0.4398331471785681,
+      "offLineMeters": 7.4
+    },
+    {
+      "id": "wp-osm-supply-node1505776252",
+      "kind": "supply",
+      "name": "La Piedad",
+      "at": {
+        "lat": 42.288292,
+        "lon": -4.258192
+      },
+      "frac": 0.44011746874252033,
+      "offLineMeters": 112.7
+    },
+    {
+      "id": "wp-osm-accommodation-node1505776237",
+      "kind": "bed",
+      "name": "Albergue Municipal de Itero de la Vega",
+      "at": {
+        "lat": 42.286905,
+        "lon": -4.258683
+      },
+      "frac": 0.4417191929308688,
+      "offLineMeters": 40.6
+    },
+    {
+      "id": "wp-osm-water_source-node1505776452",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.287264,
+        "lon": -4.260141
+      },
+      "frac": 0.4463971789838394,
+      "offLineMeters": 11.3
+    },
+    {
+      "id": "wp-osm-accommodation-node1505776239",
+      "kind": "bed",
+      "name": "Albergue Putzu",
+      "at": {
+        "lat": 42.261063,
+        "lon": -4.344578
+      },
+      "frac": 0.7568924946298758,
+      "offLineMeters": 39.5
+    },
+    {
+      "id": "wp-osm-accommodation-node1505776236",
+      "kind": "bed",
+      "name": "Albergue Municipal Boadilla del Camino",
+      "at": {
+        "lat": 42.259781,
+        "lon": -4.346057
+      },
+      "frac": 0.7648229925340785,
+      "offLineMeters": 9.4
+    },
+    {
+      "id": "wp-osm-accommodation-node1505776235",
+      "kind": "bed",
+      "name": "Albergue En El Camino",
+      "at": {
+        "lat": 42.258455,
+        "lon": -4.34656
+      },
+      "frac": 0.7699199105737031,
+      "offLineMeters": 85.8
+    },
+    {
+      "id": "wp-osm-water_source-node5896655193",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.258963,
+        "lon": -4.346691
+      },
+      "frac": 0.7699199105737031,
+      "offLineMeters": 35.5
+    },
+    {
+      "id": "wp-osm-water_source-node9425962939",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.257642,
+        "lon": -4.347809
+      },
+      "frac": 0.7699199105737031,
+      "offLineMeters": 177.3
+    },
+    {
+      "id": "wp-osm-accommodation-node2435775925",
+      "kind": "bed",
+      "name": "Juntos Albergue de peregrinos",
+      "at": {
+        "lat": 42.260397,
+        "lon": -4.348383
+      },
+      "frac": 0.777157718487118,
+      "offLineMeters": 6.6
+    },
+    {
+      "id": "wp-osm-water_source-node11128159423",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.266312,
+        "lon": -4.3953
+      },
+      "frac": 0.957566489525557,
+      "offLineMeters": 226.5
+    },
+    {
+      "id": "wp-osm-water_source-node6553893907",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.263655,
+        "lon": -4.399469
+      },
+      "frac": 0.9701356515104117,
+      "offLineMeters": 34.5
+    },
+    {
+      "id": "wp-osm-transport-node274618728",
+      "kind": "transport",
+      "name": "Frómista",
+      "at": {
+        "lat": 42.264872,
+        "lon": -4.402389
+      },
+      "frac": 0.9803830599757684,
+      "offLineMeters": 155.5
+    },
+    {
+      "id": "wp-osm-accommodation-node3817891906",
+      "kind": "bed",
+      "name": "Hotel Doña Mayor",
+      "at": {
+        "lat": 42.268981,
+        "lon": -4.40333
+      },
+      "frac": 0.989573932744619,
+      "offLineMeters": 299.3
+    },
+    {
+      "id": "wp-osm-water_source-node6064572945",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.267395,
+        "lon": -4.403142
+      },
+      "frac": 0.9895748926768825,
+      "offLineMeters": 122.3
+    },
+    {
+      "id": "wp-osm-accommodation-node3817891907",
+      "kind": "bed",
+      "name": "Hotel Rural San Telmo",
+      "at": {
+        "lat": 42.26749,
+        "lon": -4.404226
+      },
+      "frac": 0.9931417279901305,
+      "offLineMeters": 140.6
+    },
+    {
+      "id": "wp-osm-accommodation-node3817891905",
+      "kind": "bed",
+      "name": "Hostal San Pedro",
+      "at": {
+        "lat": 42.268284,
+        "lon": -4.40472
+      },
+      "frac": 0.994474724785829,
+      "offLineMeters": 232.1
+    }
+  ],
+  "stage": {
+    "routeId": "camino-frances",
+    "index": 14,
+    "count": 33,
+    "name": "Castrojeriz to Frómista",
+    "theme": "Perseverance",
+    "narrative": "The Alto de Mostelares rises like a wall out of the flat meseta — a short, steep climb that rewards you with the most expansive view on the entire plateau. From the top, the land stretches in every direction without feature. Then the descent, and then hours of walking beside a canal, flat and straight and hypnotic. This is the meseta at its most relentless. Pilgrims who are going to quit often quit around here. Those who stay discover that perseverance is not about willpower. It is about walking the next step and then the next.",
+    "closing": "What keeps you walking when there is no scenery, no company, and no visible destination?",
+    "warnings": [],
+    "distanceKm": 24.7,
+    "gainMeters": 201,
+    "hours": {
+      "min": 6,
+      "max": 7
+    },
+    "difficulty": "moderate",
+    "start": {
+      "name": "Castrojeriz",
+      "at": {
+        "lat": 42.289,
+        "lon": -4.14
+      }
+    },
+    "end": {
+      "name": "Frómista",
+      "at": {
+        "lat": 42.268,
+        "lon": -4.406
+      }
+    }
+  }
+}

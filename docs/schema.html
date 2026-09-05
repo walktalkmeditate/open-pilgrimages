@@ -68,6 +68,9 @@
         <tr><td><code>stages.schema.json</code></td><td><code>stages.json</code></td><td><a href="https://github.com/walktalkmeditate/open-pilgrimages/blob/main/schema/stages.schema.json">View</a></td></tr>
         <tr><td><code>route.schema.json</code></td><td><code>route.geojson</code></td><td><a href="https://github.com/walktalkmeditate/open-pilgrimages/blob/main/schema/route.schema.json">View</a></td></tr>
         <tr><td><code>waypoints.schema.json</code></td><td><code>waypoints.geojson</code></td><td><a href="https://github.com/walktalkmeditate/open-pilgrimages/blob/main/schema/waypoints.schema.json">View</a></td></tr>
+        <tr><td><code>way.schema.json</code></td><td><code>ways/stage-NN.json</code></td><td><a href="https://github.com/walktalkmeditate/open-pilgrimages/blob/main/schema/way.schema.json">View</a></td></tr>
+        <tr><td><code>way-route.schema.json</code></td><td><code>ways/route.json</code></td><td><a href="https://github.com/walktalkmeditate/open-pilgrimages/blob/main/schema/way-route.schema.json">View</a></td></tr>
+        <tr><td><code>way-report.schema.json</code></td><td><code>ways/report.json</code></td><td><a href="https://github.com/walktalkmeditate/open-pilgrimages/blob/main/schema/way-report.schema.json">View</a></td></tr>
         <tr><td><em>None yet</em></td><td><code>stats.json</code></td><td>No schema validates this file yet &mdash; a known gap. <code>schema/</code> has no <code>stats.schema.json</code>.</td></tr>
       </tbody>
     </table>
@@ -128,7 +131,7 @@
         <tr><td>Content correction</td><td>PATCH</td><td>1.0.0 &rarr; 1.0.1</td></tr>
       </tbody>
     </table>
-    <p>CDN URLs pin to the major version: <code>@v1</code>. All schemas use <code>additionalProperties: true</code> for forward compatibility.</p>
+    <p>Read the catalog from <code>@main</code>, then pin every file you download to the tag its <code>release</code> field names &mdash; see <a href="/usage">Usage</a>. The <code>@v1</code> alias is no longer maintained. All schemas use <code>additionalProperties: true</code> for forward compatibility.</p>
 
     <footer>
       <p>Part of the <a href="https://pilgrimapp.org">Pilgrim</a> ecosystem. <a href="https://github.com/walktalkmeditate/open-pilgrimages">GitHub</a></p>

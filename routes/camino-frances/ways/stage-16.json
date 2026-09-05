@@ -1,0 +1,712 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "pilgrimage:camino-frances:16",
+  "title": "Carrión de los Condes to Terradillos de los Templarios",
+  "departedAt": "2026-08-19T00:00:00Z",
+  "route": [
+    {
+      "lat": 42.337303,
+      "lon": -4.602218,
+      "t": 0
+    },
+    {
+      "lat": 42.337524,
+      "lon": -4.603199,
+      "t": 74.9
+    },
+    {
+      "lat": 42.337739,
+      "lon": -4.603631,
+      "t": 112.9
+    },
+    {
+      "lat": 42.338888,
+      "lon": -4.60372,
+      "t": 226.6
+    },
+    {
+      "lat": 42.339998,
+      "lon": -4.60415,
+      "t": 340.7
+    },
+    {
+      "lat": 42.339563,
+      "lon": -4.604841,
+      "t": 407
+    },
+    {
+      "lat": 42.339364,
+      "lon": -4.605867,
+      "t": 484.5
+    },
+    {
+      "lat": 42.339701,
+      "lon": -4.606724,
+      "t": 555.4
+    },
+    {
+      "lat": 42.339608,
+      "lon": -4.608341,
+      "t": 673.8
+    },
+    {
+      "lat": 42.340634,
+      "lon": -4.610192,
+      "t": 842.8
+    },
+    {
+      "lat": 42.340734,
+      "lon": -4.610644,
+      "t": 877.3
+    },
+    {
+      "lat": 42.340723,
+      "lon": -4.612975,
+      "t": 1047.5
+    },
+    {
+      "lat": 42.340493,
+      "lon": -4.613435,
+      "t": 1088.1
+    },
+    {
+      "lat": 42.340803,
+      "lon": -4.613943,
+      "t": 1136.2
+    },
+    {
+      "lat": 42.340929,
+      "lon": -4.614991,
+      "t": 1213.7
+    },
+    {
+      "lat": 42.341333,
+      "lon": -4.62109,
+      "t": 1660.9
+    },
+    {
+      "lat": 42.341128,
+      "lon": -4.62201,
+      "t": 1731.1
+    },
+    {
+      "lat": 42.341195,
+      "lon": -4.622266,
+      "t": 1750.9
+    },
+    {
+      "lat": 42.341455,
+      "lon": -4.622478,
+      "t": 1780.9
+    },
+    {
+      "lat": 42.341509,
+      "lon": -4.624011,
+      "t": 1893
+    },
+    {
+      "lat": 42.342812,
+      "lon": -4.638317,
+      "t": 2945.7
+    },
+    {
+      "lat": 42.343723,
+      "lon": -4.650685,
+      "t": 3853.3
+    },
+    {
+      "lat": 42.344026,
+      "lon": -4.653288,
+      "t": 4045.8
+    },
+    {
+      "lat": 42.344977,
+      "lon": -4.657015,
+      "t": 4333.7
+    },
+    {
+      "lat": 42.345021,
+      "lon": -4.657851,
+      "t": 4394.9
+    },
+    {
+      "lat": 42.344774,
+      "lon": -4.65894,
+      "t": 4478.1
+    },
+    {
+      "lat": 42.344404,
+      "lon": -4.659635,
+      "t": 4540.7
+    },
+    {
+      "lat": 42.344215,
+      "lon": -4.660308,
+      "t": 4593.2
+    },
+    {
+      "lat": 42.344169,
+      "lon": -4.666058,
+      "t": 5013.2
+    },
+    {
+      "lat": 42.343816,
+      "lon": -4.671112,
+      "t": 5383.9
+    },
+    {
+      "lat": 42.341825,
+      "lon": -4.690501,
+      "t": 6813.4
+    },
+    {
+      "lat": 42.340099,
+      "lon": -4.704287,
+      "t": 7834.6
+    },
+    {
+      "lat": 42.337154,
+      "lon": -4.725095,
+      "t": 9381.9
+    },
+    {
+      "lat": 42.333611,
+      "lon": -4.747736,
+      "t": 11072.2
+    },
+    {
+      "lat": 42.332092,
+      "lon": -4.758685,
+      "t": 11885.9
+    },
+    {
+      "lat": 42.329618,
+      "lon": -4.771338,
+      "t": 12841.9
+    },
+    {
+      "lat": 42.329092,
+      "lon": -4.778286,
+      "t": 13352
+    },
+    {
+      "lat": 42.328973,
+      "lon": -4.786397,
+      "t": 13944.6
+    },
+    {
+      "lat": 42.329074,
+      "lon": -4.792107,
+      "t": 14361.8
+    },
+    {
+      "lat": 42.328852,
+      "lon": -4.799074,
+      "t": 14871.2
+    },
+    {
+      "lat": 42.329228,
+      "lon": -4.804468,
+      "t": 15266.9
+    },
+    {
+      "lat": 42.32952,
+      "lon": -4.812287,
+      "t": 15838.8
+    },
+    {
+      "lat": 42.329623,
+      "lon": -4.812744,
+      "t": 15873.7
+    },
+    {
+      "lat": 42.333205,
+      "lon": -4.818778,
+      "t": 16438.9
+    },
+    {
+      "lat": 42.336495,
+      "lon": -4.825094,
+      "t": 17003.3
+    },
+    {
+      "lat": 42.338176,
+      "lon": -4.828512,
+      "t": 17303.1
+    },
+    {
+      "lat": 42.34032,
+      "lon": -4.833467,
+      "t": 17722.4
+    },
+    {
+      "lat": 42.340411,
+      "lon": -4.834264,
+      "t": 17781.3
+    },
+    {
+      "lat": 42.340669,
+      "lon": -4.835053,
+      "t": 17844.3
+    },
+    {
+      "lat": 42.342776,
+      "lon": -4.840468,
+      "t": 18291.3
+    },
+    {
+      "lat": 42.343317,
+      "lon": -4.843383,
+      "t": 18510.7
+    },
+    {
+      "lat": 42.343778,
+      "lon": -4.845034,
+      "t": 18639.6
+    },
+    {
+      "lat": 42.347956,
+      "lon": -4.856635,
+      "t": 19582
+    },
+    {
+      "lat": 42.348113,
+      "lon": -4.857506,
+      "t": 19647.5
+    },
+    {
+      "lat": 42.348109,
+      "lon": -4.858641,
+      "t": 19730.4
+    },
+    {
+      "lat": 42.347718,
+      "lon": -4.859395,
+      "t": 19797.6
+    },
+    {
+      "lat": 42.347656,
+      "lon": -4.859869,
+      "t": 19832.8
+    },
+    {
+      "lat": 42.348705,
+      "lon": -4.862099,
+      "t": 20025.8
+    },
+    {
+      "lat": 42.351282,
+      "lon": -4.864448,
+      "t": 20332.8
+    },
+    {
+      "lat": 42.351601,
+      "lon": -4.864396,
+      "t": 20364.6
+    },
+    {
+      "lat": 42.353642,
+      "lon": -4.865335,
+      "t": 20577.6
+    },
+    {
+      "lat": 42.354528,
+      "lon": -4.865545,
+      "t": 20666.4
+    },
+    {
+      "lat": 42.354746,
+      "lon": -4.865898,
+      "t": 20700
+    },
+    {
+      "lat": 42.356101,
+      "lon": -4.865069,
+      "t": 20846.9
+    },
+    {
+      "lat": 42.358424,
+      "lon": -4.865144,
+      "t": 21076.5
+    },
+    {
+      "lat": 42.358525,
+      "lon": -4.865396,
+      "t": 21097.5
+    },
+    {
+      "lat": 42.362222,
+      "lon": -4.866437,
+      "t": 21470.6
+    },
+    {
+      "lat": 42.362759,
+      "lon": -4.866856,
+      "t": 21531.8
+    },
+    {
+      "lat": 42.363242,
+      "lon": -4.867482,
+      "t": 21597.9
+    },
+    {
+      "lat": 42.365783,
+      "lon": -4.874338,
+      "t": 22157.8
+    },
+    {
+      "lat": 42.365953,
+      "lon": -4.875532,
+      "t": 22246.6
+    },
+    {
+      "lat": 42.36466,
+      "lon": -4.887489,
+      "t": 23128.8
+    },
+    {
+      "lat": 42.364084,
+      "lon": -4.889102,
+      "t": 23259.6
+    },
+    {
+      "lat": 42.362989,
+      "lon": -4.890328,
+      "t": 23400
+    }
+  ],
+  "totalDistanceMeters": 26334.5,
+  "theirActiveSeconds": 23400,
+  "moments": [
+    {
+      "id": "stage-start",
+      "frac": 0.00020711160957631445,
+      "kind": "waypoint",
+      "label": "Carrión de los Condes",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 42.33731729962348,
+        "lon": -4.602281474799255
+      },
+      "pin": {
+        "lat": 42.338,
+        "lon": -4.602
+      }
+    },
+    {
+      "id": "wp-terradillos",
+      "frac": 1,
+      "kind": "waypoint",
+      "label": "Terradillos de los Templarios",
+      "icon": "seal",
+      "at": {
+        "lat": 42.362989,
+        "lon": -4.890328
+      },
+      "pin": {
+        "lat": 42.363,
+        "lon": -4.891
+      },
+      "text": "stamp available"
+    }
+  ],
+  "marks": [
+    {
+      "id": "wp-osm-food-node4850462430",
+      "kind": "food",
+      "name": "Restaurante La Corte",
+      "at": {
+        "lat": 42.337138,
+        "lon": -4.601588
+      },
+      "frac": 0,
+      "offLineMeters": 55
+    },
+    {
+      "id": "wp-osm-accommodation-node2440420385",
+      "kind": "bed",
+      "name": "Albergue Espíritu Santo",
+      "at": {
+        "lat": 42.336275,
+        "lon": -4.602816
+      },
+      "frac": 0.0005207408263932189,
+      "offLineMeters": 123.7
+    },
+    {
+      "id": "wp-osm-accommodation-node10126258439",
+      "kind": "bed",
+      "name": "Hostal Santiago",
+      "at": {
+        "lat": 42.338159,
+        "lon": -4.602615
+      },
+      "frac": 0.0022396176168461676,
+      "offLineMeters": 81.5
+    },
+    {
+      "id": "wp-osm-accommodation-node4850462432",
+      "kind": "bed",
+      "name": "Hostal Santiago",
+      "at": {
+        "lat": 42.337553,
+        "lon": -4.603115
+      },
+      "frac": 0.002985808192923168,
+      "offLineMeters": 5.1
+    },
+    {
+      "id": "wp-osm-supply-node13196147676",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.334959,
+        "lon": -4.604322
+      },
+      "frac": 0.00320090006396868,
+      "offLineMeters": 299.8
+    },
+    {
+      "id": "wp-osm-supply-node4917780464",
+      "kind": "supply",
+      "name": "Alimentación Ultramarinos",
+      "at": {
+        "lat": 42.337166,
+        "lon": -4.60385
+      },
+      "frac": 0.004042424026876456,
+      "offLineMeters": 62.9
+    },
+    {
+      "id": "wp-osm-food-node2622201189",
+      "kind": "food",
+      "name": "Restaurante Los Condes",
+      "at": {
+        "lat": 42.338034,
+        "lon": -4.604226
+      },
+      "frac": 0.006176443608371826,
+      "offLineMeters": 46.9
+    },
+    {
+      "id": "wp-osm-medical-node2622197112",
+      "kind": "medical",
+      "name": "Lda. Oliva Sancho Martín",
+      "at": {
+        "lat": 42.338415,
+        "lon": -4.60364
+      },
+      "frac": 0.007678985277660895,
+      "offLineMeters": 3.5
+    },
+    {
+      "id": "wp-osm-supply-node4914806785",
+      "kind": "supply",
+      "name": "Sonia",
+      "at": {
+        "lat": 42.3388,
+        "lon": -4.602806
+      },
+      "frac": 0.009149767083876109,
+      "offLineMeters": 74.4
+    },
+    {
+      "id": "wp-osm-supply-node4850500434",
+      "kind": "supply",
+      "name": "Alimentación Tiendas Bravo",
+      "at": {
+        "lat": 42.338963,
+        "lon": -4.60359
+      },
+      "frac": 0.009879244989557069,
+      "offLineMeters": 12.6
+    },
+    {
+      "id": "wp-osm-food-node4925193081",
+      "kind": "food",
+      "name": "Abel",
+      "at": {
+        "lat": 42.339506,
+        "lon": -4.604103
+      },
+      "frac": 0.01252313285746769,
+      "offLineMeters": 11.3
+    },
+    {
+      "id": "wp-osm-food-node4919238846",
+      "kind": "food",
+      "name": "El Doblón",
+      "at": {
+        "lat": 42.339872,
+        "lon": -4.602895
+      },
+      "frac": 0.012973062754667268,
+      "offLineMeters": 95.3
+    },
+    {
+      "id": "wp-osm-accommodation-node3070038925",
+      "kind": "bed",
+      "name": "Albergue Casa de Espiritualidad Nuestra Señora de Belén",
+      "at": {
+        "lat": 42.341508,
+        "lon": -4.605593
+      },
+      "frac": 0.014561077410697764,
+      "offLineMeters": 205.5
+    },
+    {
+      "id": "wp-osm-water_source-node4914317752",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.34094,
+        "lon": -4.603764
+      },
+      "frac": 0.014561077410697764,
+      "offLineMeters": 109.5
+    },
+    {
+      "id": "wp-osm-water_source-node4914324823",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.340894,
+        "lon": -4.605353
+      },
+      "frac": 0.014965673301298723,
+      "offLineMeters": 140
+    },
+    {
+      "id": "wp-osm-water_source-node12033143929",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.337974,
+        "lon": -4.605602
+      },
+      "frac": 0.02070448923788126,
+      "offLineMeters": 156.1
+    },
+    {
+      "id": "wp-osm-water_source-node2701500606",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.340507,
+        "lon": -4.609817
+      },
+      "frac": 0.03475727240701368,
+      "offLineMeters": 7.2
+    },
+    {
+      "id": "wp-osm-accommodation-node2337844986",
+      "kind": "bed",
+      "name": "Hotel Real Monasterio San Zoilo",
+      "at": {
+        "lat": 42.339922,
+        "lon": -4.611069
+      },
+      "frac": 0.03883917599465281,
+      "offLineMeters": 90.1
+    },
+    {
+      "id": "wp-osm-food-node12199192002",
+      "kind": "food",
+      "name": "Coffee bar \"El camino\"",
+      "at": {
+        "lat": 42.341576,
+        "lon": -4.692915
+      },
+      "frac": 0.2987771910157434,
+      "offLineMeters": 5.8
+    },
+    {
+      "id": "wp-osm-water_source-node2719515973",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.329106,
+        "lon": -4.801631
+      },
+      "frac": 0.6435688206402554,
+      "offLineMeters": 8.3
+    },
+    {
+      "id": "wp-osm-accommodation-node1506398155",
+      "kind": "bed",
+      "name": "Albergue Camino Real",
+      "at": {
+        "lat": 42.32888,
+        "lon": -4.802497
+      },
+      "frac": 0.6461690370544114,
+      "offLineMeters": 23.4
+    },
+    {
+      "id": "wp-osm-accommodation-node1506398164",
+      "kind": "bed",
+      "name": "Hostal Camino Real",
+      "at": {
+        "lat": 42.328529,
+        "lon": -4.804499
+      },
+      "frac": 0.6522538178439149,
+      "offLineMeters": 77.6
+    },
+    {
+      "id": "wp-osm-water_source-node13119432935",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.329621,
+        "lon": -4.805654
+      },
+      "frac": 0.656215075799714,
+      "offLineMeters": 38.7
+    },
+    {
+      "id": "wp-osm-accommodation-node2440420302",
+      "kind": "bed",
+      "name": "Albergue El Palomar",
+      "at": {
+        "lat": 42.353322,
+        "lon": -4.865609
+      },
+      "frac": 0.8783792739836876,
+      "offLineMeters": 32.8
+    }
+  ],
+  "stage": {
+    "routeId": "camino-frances",
+    "index": 16,
+    "count": 33,
+    "name": "Carrión de los Condes to Terradillos de los Templarios",
+    "theme": "Desolation",
+    "narrative": "Seventeen kilometers without a village, a bar, a bench, a tree. Just the path and the wheat and the sky. This is the most exposed stretch on the entire Camino. You carry your water and food and yourself across a landscape that offers nothing but distance. The Templars named their settlement here for a reason — this was the frontier, the edge of the known. By the time you reach Terradillos, you understand in your body what 'desert' means, even in the middle of Spain's breadbasket.",
+    "closing": "What do you discover about yourself when all external support is removed?",
+    "warnings": [
+      "17 km without services after Carrión de los Condes. Carry at least 2L of water and food."
+    ],
+    "distanceKm": 26.3,
+    "gainMeters": 105,
+    "hours": {
+      "min": 6,
+      "max": 7
+    },
+    "difficulty": "moderate",
+    "start": {
+      "name": "Carrión de los Condes",
+      "at": {
+        "lat": 42.338,
+        "lon": -4.602
+      }
+    },
+    "end": {
+      "name": "Terradillos de los Templarios",
+      "at": {
+        "lat": 42.363,
+        "lon": -4.891
+      }
+    }
+  }
+}

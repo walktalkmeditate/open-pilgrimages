@@ -12,7 +12,7 @@ import {
 } from "fs";
 import { tmpdir } from "os";
 import { execFileSync } from "child_process";
-import { buildIndex, scanRoutes, readPrevious, type RouteIndex } from "./build-index.js";
+import { buildIndex, scanRoutes, readPrevious, releaseTag, waysEntry, type RouteIndex } from "./build-index.js";
 
 const ROOT = join(import.meta.dirname, "..");
 const ROUTES = join(ROOT, "routes");
@@ -63,9 +63,12 @@ function createTempScriptRepo(fixtures: RouteFixture[]): {
 
   const scriptsDir = join(dir, "scripts");
   mkdirSync(scriptsDir);
-  cpSync(join(ROOT, "scripts", "build-index.ts"), join(scriptsDir, "build-index.ts"));
-  cpSync(join(ROOT, "scripts", "cli.ts"), join(scriptsDir, "cli.ts"));
-  writeFileSync(join(dir, "package.json"), JSON.stringify({ type: "module" }));
+  for (const name of ["build-index.ts", "cli.ts", "region.ts"]) {
+    cpSync(join(ROOT, "scripts", name), join(scriptsDir, name));
+  }
+  // main() reads this for releaseTag(): a script-repo fixture with no version
+  // would fail before it ever got to writing index.json.
+  writeFileSync(join(dir, "package.json"), JSON.stringify({ type: "module", version: "1.6.0" }));
 
   return { dir, scriptPath: join(scriptsDir, "build-index.ts"), indexPath: join(dir, "index.json") };
 }
@@ -109,58 +112,59 @@ const OLD = "2020-01-01T00:00:00.000Z";
 const NEW = "2099-12-31T00:00:00.000Z";
 
 test("carries the previous generatedAt forward when route data is unchanged", () => {
-  const first = buildIndex(ROUTES, null, () => OLD, ROOT);
-  const second = buildIndex(ROUTES, first, () => NEW, ROOT);
+  const first = buildIndex(ROUTES, null, () => OLD, ROOT, RELEASE);
+  const second = buildIndex(ROUTES, first, () => NEW, ROOT, RELEASE);
 
   assert.equal(second.generatedAt, OLD);
   assert.deepEqual(second, first);
 });
 
 test("stamps a fresh generatedAt when route data changes", () => {
-  const first = buildIndex(ROUTES, null, () => OLD, ROOT);
+  const first = buildIndex(ROUTES, null, () => OLD, ROOT, RELEASE);
   const stale: RouteIndex = { ...first, routes: first.routes.slice(1) };
-  const second = buildIndex(ROUTES, stale, () => NEW, ROOT);
+  const second = buildIndex(ROUTES, stale, () => NEW, ROOT, RELEASE);
 
   assert.equal(second.generatedAt, NEW);
 });
 
 test("stamps a fresh generatedAt when there is no previous index", () => {
-  assert.equal(buildIndex(ROUTES, null, () => NEW, ROOT).generatedAt, NEW);
+  assert.equal(buildIndex(ROUTES, null, () => NEW, ROOT, RELEASE).generatedAt, NEW);
 });
 
 test("ignores a previous generatedAt timestamp when other fields are identical", () => {
-  const first = buildIndex(ROUTES, null, () => OLD, ROOT);
+  const first = buildIndex(ROUTES, null, () => OLD, ROOT, RELEASE);
   const sameContent: RouteIndex = {
     schemaVersion: first.schemaVersion,
+    release: first.release,
     generatedAt: "1999-01-01T00:00:00.000Z",
     routes: first.routes,
   };
-  const second = buildIndex(ROUTES, sameContent, () => NEW, ROOT);
+  const second = buildIndex(ROUTES, sameContent, () => NEW, ROOT, RELEASE);
 
   assert.equal(second.generatedAt, "1999-01-01T00:00:00.000Z");
 });
 
 test("stamps a fresh generatedAt when previous index is missing the field", () => {
-  const first = buildIndex(ROUTES, null, () => OLD, ROOT);
+  const first = buildIndex(ROUTES, null, () => OLD, ROOT, RELEASE);
   const missingGeneratedAt = {
     schemaVersion: first.schemaVersion,
     routes: first.routes,
   } as unknown as RouteIndex;
 
-  const second = buildIndex(ROUTES, missingGeneratedAt, () => NEW, ROOT);
+  const second = buildIndex(ROUTES, missingGeneratedAt, () => NEW, ROOT, RELEASE);
 
   assert.equal(second.generatedAt, NEW);
 });
 
 test("stamps a fresh generatedAt when previous index has a non-string generatedAt", () => {
-  const first = buildIndex(ROUTES, null, () => OLD, ROOT);
+  const first = buildIndex(ROUTES, null, () => OLD, ROOT, RELEASE);
   const numericGeneratedAt = {
     schemaVersion: first.schemaVersion,
     generatedAt: 12345,
     routes: first.routes,
   } as unknown as RouteIndex;
 
-  const second = buildIndex(ROUTES, numericGeneratedAt, () => NEW, ROOT);
+  const second = buildIndex(ROUTES, numericGeneratedAt, () => NEW, ROOT, RELEASE);
 
   assert.equal(second.generatedAt, NEW);
 });
@@ -180,9 +184,9 @@ test("scanRoutes sorts routes by metadata id, independent of directory listing o
 });
 
 test("buildIndex reuses the timestamp when previous came from disk (JSON round-trip)", () => {
-  const first = buildIndex(ROUTES, null, () => OLD, ROOT);
+  const first = buildIndex(ROUTES, null, () => OLD, ROOT, RELEASE);
   const previous: RouteIndex = JSON.parse(JSON.stringify(first));
-  const second = buildIndex(ROUTES, previous, () => NEW, ROOT);
+  const second = buildIndex(ROUTES, previous, () => NEW, ROOT, RELEASE);
 
   assert.equal(second.generatedAt, OLD);
 });
@@ -283,6 +287,7 @@ test("readPrevious parses a valid index file and returns its contents", () => {
   const validPath = join(dir, "index.json");
   const contents: RouteIndex = {
     schemaVersion: "1.0.0",
+    release: "v1.6.0",
     generatedAt: "2020-01-01T00:00:00.000Z",
     routes: [],
   };
@@ -296,3 +301,109 @@ test("readPrevious parses a valid index file and returns its contents", () => {
 });
 
 // resolveInvokedPath itself is shared CLI plumbing tested in scripts/cli.test.ts.
+
+const RELEASE = "v1.6.0";
+
+test("the index names the release tag the catalog will read", () => {
+  const index = buildIndex(ROUTES, null, () => NEW, ROOT, releaseTag(join(ROOT, "package.json")));
+  assert.match(index.release, /^v\d+\.\d+\.\d+$/);
+  const pkg = JSON.parse(readFileSync(join(ROOT, "package.json"), "utf-8")) as { version: string };
+  assert.equal(index.release, `v${pkg.version}`);
+});
+
+test("releaseTag rejects a package.json without a SemVer version", () => {
+  const dir = mkdtempSync(join(tmpdir(), "build-index-test-"));
+  try {
+    writeFileSync(join(dir, "package.json"), JSON.stringify({ version: "next" }));
+    assert.throws(() => releaseTag(join(dir, "package.json")), /not a SemVer release/);
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test("a route with no ways directory gets no ways entry", () => {
+  const { root, routesDir } = createTempRoutesDir([{ dirName: "alpha", id: "alpha" }]);
+  try {
+    assert.equal(waysEntry(join(routesDir, "alpha")), undefined);
+    assert.equal(scanRoutes(routesDir, root)[0].ways, undefined);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("a route whose every stage cleared the gate gets a sized ways entry", () => {
+  const { root, routesDir } = createTempRoutesDir([{ dirName: "alpha", id: "alpha" }]);
+  try {
+    const waysDir = join(routesDir, "alpha", "ways");
+    mkdirSync(waysDir);
+    writeFileSync(join(waysDir, "report.json"), JSON.stringify({
+      gate: { passed: true, failing: [] },
+      places: { sparse: false, stagesWithMomentBeyondEnds: 2, halfOfStages: 1, placesPerStage: 1.5 },
+      stages: [{ index: 0 }, { index: 1 }],
+    }));
+    writeFileSync(join(waysDir, "route.json"), "0123456789");
+    writeFileSync(join(waysDir, "stage-00.json"), "01234");
+
+    assert.deepEqual(waysEntry(join(routesDir, "alpha")), {
+      stageCount: 2, bytes: 15, placesPerStage: 1.5, sparse: false,
+    });
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("a sparsely curated route is still listed, flagged for the card to say so", () => {
+  const { root, routesDir } = createTempRoutesDir([{ dirName: "alpha", id: "alpha" }]);
+  try {
+    const waysDir = join(routesDir, "alpha", "ways");
+    mkdirSync(waysDir);
+    writeFileSync(join(waysDir, "report.json"), JSON.stringify({
+      gate: { passed: true, failing: [] },
+      places: { sparse: true, stagesWithMomentBeyondEnds: 1, halfOfStages: 2, placesPerStage: 0.3, note: "n" },
+      stages: [{ index: 0 }, { index: 1 }, { index: 2 }],
+    }));
+    writeFileSync(join(waysDir, "route.json"), "{}");
+
+    const entry = scanRoutes(routesDir, root)[0];
+    assert.equal(entry.ways?.sparse, true);
+    assert.equal(entry.ways?.placesPerStage, 0.3);
+    assert.equal(entry.ways?.stageCount, 3);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("a route with a stage outside the length gate gets no ways entry at all", () => {
+  const { root, routesDir } = createTempRoutesDir([{ dirName: "alpha", id: "alpha" }]);
+  try {
+    const waysDir = join(routesDir, "alpha", "ways");
+    mkdirSync(waysDir);
+    writeFileSync(join(waysDir, "report.json"), JSON.stringify({
+      gate: { passed: false, failing: [2] },
+      places: { sparse: false, stagesWithMomentBeyondEnds: 3, halfOfStages: 2, placesPerStage: 2 },
+      stages: [{ index: 0 }, { index: 1 }, { index: 2 }],
+    }));
+    writeFileSync(join(waysDir, "route.json"), "{}");
+
+    assert.equal(waysEntry(join(routesDir, "alpha")), undefined);
+    const entry = scanRoutes(routesDir, root)[0];
+    assert.equal(entry.id, "alpha");
+    assert.equal(entry.ways, undefined);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("the committed index.json names the version package.json is at", () => {
+  // The release procedure bumps package.json and then regenerates. Without
+  // this guard, forgetting the regeneration ships an index that pins every
+  // package download to the previous release, and both tags resolve on the
+  // CDN, so nothing would 404 to give it away.
+  const index = JSON.parse(readFileSync(join(ROOT, "index.json"), "utf-8")) as RouteIndex;
+  const pkg = JSON.parse(readFileSync(join(ROOT, "package.json"), "utf-8")) as { version: string };
+  assert.equal(
+    index.release,
+    `v${pkg.version}`,
+    "index.json is stale — run npm run build-index and commit the result",
+  );
+});

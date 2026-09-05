@@ -1,0 +1,873 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "pilgrimage:camino-frances:21",
+  "title": "San Martín del Camino to Astorga",
+  "departedAt": "2026-08-19T00:00:00Z",
+  "route": [
+    {
+      "lat": 42.494891,
+      "lon": -5.808845,
+      "t": 0
+    },
+    {
+      "lat": 42.494067,
+      "lon": -5.810195,
+      "t": 134.6
+    },
+    {
+      "lat": 42.492548,
+      "lon": -5.813359,
+      "t": 424.6
+    },
+    {
+      "lat": 42.492856,
+      "lon": -5.813747,
+      "t": 468.4
+    },
+    {
+      "lat": 42.492262,
+      "lon": -5.814908,
+      "t": 576.9
+    },
+    {
+      "lat": 42.491804,
+      "lon": -5.815723,
+      "t": 655.6
+    },
+    {
+      "lat": 42.491249,
+      "lon": -5.81627,
+      "t": 727.1
+    },
+    {
+      "lat": 42.486352,
+      "lon": -5.825483,
+      "t": 1599.4
+    },
+    {
+      "lat": 42.486347,
+      "lon": -5.825819,
+      "t": 1625.2
+    },
+    {
+      "lat": 42.48575,
+      "lon": -5.827202,
+      "t": 1748.3
+    },
+    {
+      "lat": 42.485233,
+      "lon": -5.829293,
+      "t": 1917.7
+    },
+    {
+      "lat": 42.484494,
+      "lon": -5.828965,
+      "t": 1998.7
+    },
+    {
+      "lat": 42.464583,
+      "lon": -5.866162,
+      "t": 5529.8
+    },
+    {
+      "lat": 42.4647,
+      "lon": -5.867536,
+      "t": 5636.1
+    },
+    {
+      "lat": 42.463915,
+      "lon": -5.873853,
+      "t": 6128.3
+    },
+    {
+      "lat": 42.464042,
+      "lon": -5.879307,
+      "t": 6547.6
+    },
+    {
+      "lat": 42.463599,
+      "lon": -5.882018,
+      "t": 6761
+    },
+    {
+      "lat": 42.46319,
+      "lon": -5.88733,
+      "t": 7171.4
+    },
+    {
+      "lat": 42.461791,
+      "lon": -5.892573,
+      "t": 7599.8
+    },
+    {
+      "lat": 42.461231,
+      "lon": -5.893718,
+      "t": 7705.4
+    },
+    {
+      "lat": 42.459479,
+      "lon": -5.896737,
+      "t": 8000.6
+    },
+    {
+      "lat": 42.458066,
+      "lon": -5.898159,
+      "t": 8183.9
+    },
+    {
+      "lat": 42.457215,
+      "lon": -5.89942,
+      "t": 8315.2
+    },
+    {
+      "lat": 42.456466,
+      "lon": -5.899998,
+      "t": 8405
+    },
+    {
+      "lat": 42.455488,
+      "lon": -5.901261,
+      "t": 8545.7
+    },
+    {
+      "lat": 42.45247,
+      "lon": -5.91811,
+      "t": 9878.2
+    },
+    {
+      "lat": 42.452207,
+      "lon": -5.919739,
+      "t": 10006.4
+    },
+    {
+      "lat": 42.452365,
+      "lon": -5.920568,
+      "t": 10072.2
+    },
+    {
+      "lat": 42.452309,
+      "lon": -5.920941,
+      "t": 10101.4
+    },
+    {
+      "lat": 42.451788,
+      "lon": -5.921975,
+      "t": 10197.7
+    },
+    {
+      "lat": 42.450606,
+      "lon": -5.928932,
+      "t": 10746.4
+    },
+    {
+      "lat": 42.449815,
+      "lon": -5.932559,
+      "t": 11037
+    },
+    {
+      "lat": 42.449861,
+      "lon": -5.932909,
+      "t": 11064.4
+    },
+    {
+      "lat": 42.448808,
+      "lon": -5.937392,
+      "t": 11426
+    },
+    {
+      "lat": 42.447223,
+      "lon": -5.942954,
+      "t": 11884.2
+    },
+    {
+      "lat": 42.447088,
+      "lon": -5.942879,
+      "t": 11899.4
+    },
+    {
+      "lat": 42.44683,
+      "lon": -5.943354,
+      "t": 11944.8
+    },
+    {
+      "lat": 42.446341,
+      "lon": -5.945541,
+      "t": 12120.4
+    },
+    {
+      "lat": 42.447586,
+      "lon": -5.967558,
+      "t": 13817.7
+    },
+    {
+      "lat": 42.448188,
+      "lon": -5.980718,
+      "t": 14831.1
+    },
+    {
+      "lat": 42.449492,
+      "lon": -5.983094,
+      "t": 15058.7
+    },
+    {
+      "lat": 42.449653,
+      "lon": -5.982928,
+      "t": 15079.8
+    },
+    {
+      "lat": 42.450814,
+      "lon": -5.984684,
+      "t": 15261
+    },
+    {
+      "lat": 42.451448,
+      "lon": -5.985013,
+      "t": 15331.7
+    },
+    {
+      "lat": 42.451542,
+      "lon": -5.985846,
+      "t": 15396.5
+    },
+    {
+      "lat": 42.453224,
+      "lon": -5.988963,
+      "t": 15693.3
+    },
+    {
+      "lat": 42.453524,
+      "lon": -5.990357,
+      "t": 15804.9
+    },
+    {
+      "lat": 42.453528,
+      "lon": -5.991067,
+      "t": 15859.4
+    },
+    {
+      "lat": 42.453293,
+      "lon": -5.992697,
+      "t": 15987.1
+    },
+    {
+      "lat": 42.453339,
+      "lon": -5.995655,
+      "t": 16214.5
+    },
+    {
+      "lat": 42.453976,
+      "lon": -6.000673,
+      "t": 16605.8
+    },
+    {
+      "lat": 42.454251,
+      "lon": -6.001513,
+      "t": 16676.4
+    },
+    {
+      "lat": 42.454545,
+      "lon": -6.003243,
+      "t": 16812.8
+    },
+    {
+      "lat": 42.454297,
+      "lon": -6.005959,
+      "t": 17023.2
+    },
+    {
+      "lat": 42.454356,
+      "lon": -6.007416,
+      "t": 17135.3
+    },
+    {
+      "lat": 42.454185,
+      "lon": -6.014638,
+      "t": 17690.6
+    },
+    {
+      "lat": 42.454655,
+      "lon": -6.022348,
+      "t": 18285.2
+    },
+    {
+      "lat": 42.454547,
+      "lon": -6.022788,
+      "t": 18320.8
+    },
+    {
+      "lat": 42.453896,
+      "lon": -6.023555,
+      "t": 18410.7
+    },
+    {
+      "lat": 42.453841,
+      "lon": -6.024127,
+      "t": 18455
+    },
+    {
+      "lat": 42.4539,
+      "lon": -6.025509,
+      "t": 18561.4
+    },
+    {
+      "lat": 42.454238,
+      "lon": -6.025539,
+      "t": 18596.7
+    },
+    {
+      "lat": 42.454316,
+      "lon": -6.025691,
+      "t": 18610.9
+    },
+    {
+      "lat": 42.454744,
+      "lon": -6.033705,
+      "t": 19228.4
+    },
+    {
+      "lat": 42.455916,
+      "lon": -6.042564,
+      "t": 19920.1
+    },
+    {
+      "lat": 42.455766,
+      "lon": -6.043428,
+      "t": 19988.3
+    },
+    {
+      "lat": 42.455926,
+      "lon": -6.043933,
+      "t": 20030.6
+    },
+    {
+      "lat": 42.455308,
+      "lon": -6.044394,
+      "t": 20104
+    },
+    {
+      "lat": 42.454715,
+      "lon": -6.044392,
+      "t": 20165.8
+    },
+    {
+      "lat": 42.454718,
+      "lon": -6.044652,
+      "t": 20185.8
+    },
+    {
+      "lat": 42.454435,
+      "lon": -6.044456,
+      "t": 20218.9
+    },
+    {
+      "lat": 42.454644,
+      "lon": -6.044605,
+      "t": 20243.5
+    },
+    {
+      "lat": 42.454461,
+      "lon": -6.044427,
+      "t": 20267
+    },
+    {
+      "lat": 42.454636,
+      "lon": -6.044606,
+      "t": 20289.8
+    },
+    {
+      "lat": 42.45435,
+      "lon": -6.044648,
+      "t": 20319.8
+    },
+    {
+      "lat": 42.45459,
+      "lon": -6.044914,
+      "t": 20352.1
+    },
+    {
+      "lat": 42.454341,
+      "lon": -6.044647,
+      "t": 20385.1
+    },
+    {
+      "lat": 42.454683,
+      "lon": -6.045127,
+      "t": 20436.4
+    },
+    {
+      "lat": 42.45474,
+      "lon": -6.047793,
+      "t": 20641.4
+    },
+    {
+      "lat": 42.454452,
+      "lon": -6.047697,
+      "t": 20672.3
+    },
+    {
+      "lat": 42.454324,
+      "lon": -6.047817,
+      "t": 20688.5
+    },
+    {
+      "lat": 42.454323,
+      "lon": -6.048236,
+      "t": 20720.7
+    },
+    {
+      "lat": 42.453836,
+      "lon": -6.049,
+      "t": 20798.3
+    },
+    {
+      "lat": 42.453469,
+      "lon": -6.050294,
+      "t": 20904.8
+    },
+    {
+      "lat": 42.452922,
+      "lon": -6.050141,
+      "t": 20963
+    },
+    {
+      "lat": 42.452788,
+      "lon": -6.050316,
+      "t": 20982.4
+    },
+    {
+      "lat": 42.45317,
+      "lon": -6.050692,
+      "t": 21031.6
+    },
+    {
+      "lat": 42.45309,
+      "lon": -6.051455,
+      "t": 21090.8
+    },
+    {
+      "lat": 42.454093,
+      "lon": -6.052395,
+      "t": 21217.8
+    },
+    {
+      "lat": 42.454198,
+      "lon": -6.052723,
+      "t": 21245.3
+    },
+    {
+      "lat": 42.454887,
+      "lon": -6.053074,
+      "t": 21322
+    },
+    {
+      "lat": 42.454778,
+      "lon": -6.053439,
+      "t": 21352.2
+    },
+    {
+      "lat": 42.456116,
+      "lon": -6.054314,
+      "t": 21507
+    },
+    {
+      "lat": 42.456408,
+      "lon": -6.055458,
+      "t": 21600
+    }
+  ],
+  "totalDistanceMeters": 23058.1,
+  "theirActiveSeconds": 21600,
+  "moments": [
+    {
+      "id": "stage-start",
+      "frac": 0.00008936983187231919,
+      "kind": "waypoint",
+      "label": "San Martín del Camino",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 42.49487918259944,
+        "lon": -5.808864361032472
+      },
+      "pin": {
+        "lat": 42.495,
+        "lon": -5.809
+      }
+    },
+    {
+      "id": "wp-astorga",
+      "frac": 1,
+      "kind": "waypoint",
+      "label": "Astorga",
+      "icon": "seal",
+      "at": {
+        "lat": 42.456408,
+        "lon": -6.055458
+      },
+      "pin": {
+        "lat": 42.456,
+        "lon": -6.056
+      },
+      "text": "Maragato capital. Gaudí's Episcopal Palace and the Cathedral."
+    },
+    {
+      "id": "wp-astorga-gaudi-palace",
+      "frac": 1,
+      "kind": "waypoint",
+      "label": "Episcopal Palace of Astorga",
+      "icon": "book.closed",
+      "at": {
+        "lat": 42.456408,
+        "lon": -6.055458
+      },
+      "pin": {
+        "lat": 42.456,
+        "lon": -6.056
+      },
+      "text": "Neo-Gothic palace designed by Antoni Gaudí. Houses the Museum of the Camino.",
+      "names": {
+        "es": "Palacio Episcopal de Astorga"
+      }
+    }
+  ],
+  "marks": [
+    {
+      "id": "wp-osm-water_source-node6343459946",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.464003,
+        "lon": -5.872268
+      },
+      "frac": 0.2780885721526317,
+      "offLineMeters": 11.9
+    },
+    {
+      "id": "wp-osm-water_source-node3643486816",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.462546,
+        "lon": -5.877011
+      },
+      "frac": 0.2947376532195779,
+      "offLineMeters": 160.4
+    },
+    {
+      "id": "wp-osm-water_source-node3643486818",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.465062,
+        "lon": -5.87696
+      },
+      "frac": 0.2949405116052683,
+      "offLineMeters": 119.4
+    },
+    {
+      "id": "wp-osm-accommodation-node2082267595",
+      "kind": "bed",
+      "name": "Albergue La Encina",
+      "at": {
+        "lat": 42.465331,
+        "lon": -5.880462
+      },
+      "frac": 0.3057988950046372,
+      "offLineMeters": 160.4
+    },
+    {
+      "id": "wp-osm-food-node2082267600",
+      "kind": "food",
+      "name": "Cafe Bar Canton",
+      "at": {
+        "lat": 42.462877,
+        "lon": -5.880966
+      },
+      "frac": 0.3101065781978363,
+      "offLineMeters": 97
+    },
+    {
+      "id": "wp-osm-food-node2082267601",
+      "kind": "food",
+      "name": "Cafeteria Jabel",
+      "at": {
+        "lat": 42.463867,
+        "lon": -5.881575
+      },
+      "frac": 0.31119019083874505,
+      "offLineMeters": 21.2
+    },
+    {
+      "id": "wp-osm-water_source-node12000367431",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.463506,
+        "lon": -5.882072
+      },
+      "frac": 0.3132455108650371,
+      "offLineMeters": 9.8
+    },
+    {
+      "id": "wp-osm-food-node10651610487",
+      "kind": "food",
+      "name": "La Encomienda",
+      "at": {
+        "lat": 42.463583,
+        "lon": -5.883547
+      },
+      "frac": 0.31842669736057916,
+      "offLineMeters": 11.2
+    },
+    {
+      "id": "wp-osm-transport-node10651856580",
+      "kind": "transport",
+      "name": "Direccion Carrizo de la Ribera",
+      "at": {
+        "lat": 42.462585,
+        "lon": -5.884313
+      },
+      "frac": 0.32163602001214087,
+      "offLineMeters": 92.6
+    },
+    {
+      "id": "wp-osm-water_source-node6343459945",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.463422,
+        "lon": -5.885306
+      },
+      "frac": 0.324732161062963,
+      "offLineMeters": 8.5
+    },
+    {
+      "id": "wp-osm-water_source-node6338116008",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.45434,
+        "lon": -6.006109
+      },
+      "frac": 0.7886522469681442,
+      "offLineMeters": 4.1
+    },
+    {
+      "id": "wp-osm-food-node2082267632",
+      "kind": "food",
+      "name": "Café Bar Oasis",
+      "at": {
+        "lat": 42.454222,
+        "lon": -6.015845
+      },
+      "frac": 0.8233041181457198,
+      "offLineMeters": 4
+    },
+    {
+      "id": "wp-osm-medical-node2082267638",
+      "kind": "medical",
+      "name": "Ldo. Manuel G. Fernández Alenda",
+      "at": {
+        "lat": 42.454405,
+        "lon": -6.016451
+      },
+      "frac": 0.8255256222396745,
+      "offLineMeters": 12.1
+    },
+    {
+      "id": "wp-osm-water_source-node3648920419",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.456806,
+        "lon": -6.01658
+      },
+      "frac": 0.8269392389212851,
+      "offLineMeters": 277.3
+    },
+    {
+      "id": "wp-osm-water_source-node5221772025",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.45428,
+        "lon": -6.017956
+      },
+      "frac": 0.8308127420018977,
+      "offLineMeters": 11.8
+    },
+    {
+      "id": "wp-osm-accommodation-node1516414616",
+      "kind": "bed",
+      "name": "Albergue Camino y Vía",
+      "at": {
+        "lat": 42.45465,
+        "lon": -6.04685
+      },
+      "frac": 0.9522523593011258,
+      "offLineMeters": 7.8
+    },
+    {
+      "id": "wp-osm-accommodation-node1023855128",
+      "kind": "bed",
+      "name": "Albergue de Peregrinos Siervas de Maria",
+      "at": {
+        "lat": 42.452873,
+        "lon": -6.051264
+      },
+      "frac": 0.9758997185744385,
+      "offLineMeters": 26
+    },
+    {
+      "id": "wp-osm-water_source-node5832421254",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.452833,
+        "lon": -6.052069
+      },
+      "frac": 0.9766485303583192,
+      "offLineMeters": 57.7
+    },
+    {
+      "id": "wp-osm-supply-node12134249780",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.452957,
+        "lon": -6.052994
+      },
+      "frac": 0.9790114540649325,
+      "offLineMeters": 112.3
+    },
+    {
+      "id": "wp-osm-accommodation-node1501412260",
+      "kind": "bed",
+      "name": "Hotel Spa Vía de la Plata",
+      "at": {
+        "lat": 42.453837,
+        "lon": -6.051709
+      },
+      "frac": 0.979900953627394,
+      "offLineMeters": 30.1
+    },
+    {
+      "id": "wp-osm-food-node1023855326",
+      "kind": "food",
+      "name": "La Peseta",
+      "at": {
+        "lat": 42.454288,
+        "lon": -6.052226
+      },
+      "frac": 0.9823061850409983,
+      "offLineMeters": 25.7
+    },
+    {
+      "id": "wp-osm-water_source-node5832556425",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.453102,
+        "lon": -6.053935
+      },
+      "frac": 0.9835783336504128,
+      "offLineMeters": 157.3
+    },
+    {
+      "id": "wp-osm-accommodation-node778396042",
+      "kind": "bed",
+      "name": "Hotel Astur Plaza",
+      "at": {
+        "lat": 42.454432,
+        "lon": -6.053246
+      },
+      "frac": 0.9852897042548607,
+      "offLineMeters": 31
+    },
+    {
+      "id": "wp-osm-supply-node13614998920",
+      "kind": "supply",
+      "name": "SANTIVERI",
+      "at": {
+        "lat": 42.454996,
+        "lon": -6.052484
+      },
+      "frac": 0.986879095780184,
+      "offLineMeters": 49.6
+    },
+    {
+      "id": "wp-osm-water_source-node5432174735",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.4554,
+        "lon": -6.053004
+      },
+      "frac": 0.9871279035175402,
+      "offLineMeters": 57.3
+    },
+    {
+      "id": "wp-osm-medical-node3957456202",
+      "kind": "medical",
+      "name": "Farmacia Diéguez Cabero",
+      "at": {
+        "lat": 42.455205,
+        "lon": -6.053792
+      },
+      "frac": 0.9909308808657898,
+      "offLineMeters": 5.5
+    },
+    {
+      "id": "wp-osm-food-node12046175235",
+      "kind": "food",
+      "name": "Pizzería Venezia",
+      "at": {
+        "lat": 42.456285,
+        "lon": -6.054031
+      },
+      "frac": 0.9956930500764077,
+      "offLineMeters": 29.8
+    },
+    {
+      "id": "wp-osm-supply-node12046175232",
+      "kind": "supply",
+      "name": "Ultramarinos La Maruja",
+      "at": {
+        "lat": 42.45657,
+        "lon": -6.053072
+      },
+      "frac": 0.9956930500764077,
+      "offLineMeters": 113.7
+    }
+  ],
+  "stage": {
+    "routeId": "camino-frances",
+    "index": 21,
+    "count": 33,
+    "name": "San Martín del Camino to Astorga",
+    "theme": "Romance",
+    "narrative": "The medieval bridge at Hospital de Órbigo is the longest on the Camino and the site of a 15th-century jousting tournament — a knight fought 300 bouts to win back his lady's honor. The story is ridiculous and romantic and somehow fitting for the Camino, where extravagant gestures feel possible. Astorga welcomes you with Gaudí's fairy-tale bishop's palace and chocolate shops. After weeks of austerity, this day is playful, even whimsical. The Camino is reminding you that not everything needs to be solemn to be meaningful.",
+    "closing": "When did you last do something extravagant for no practical reason?",
+    "warnings": [],
+    "distanceKm": 23.7,
+    "gainMeters": 190,
+    "hours": {
+      "min": 5,
+      "max": 7
+    },
+    "difficulty": "moderate",
+    "start": {
+      "name": "San Martín del Camino",
+      "at": {
+        "lat": 42.495,
+        "lon": -5.809
+      }
+    },
+    "end": {
+      "name": "Astorga",
+      "at": {
+        "lat": 42.456,
+        "lon": -6.056
+      }
+    }
+  }
+}

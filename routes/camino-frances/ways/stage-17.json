@@ -1,0 +1,1109 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "pilgrimage:camino-frances:17",
+  "title": "Terradillos de los Templarios to Bercianos del Real Camino",
+  "departedAt": "2026-08-19T00:00:00Z",
+  "route": [
+    {
+      "lat": 42.362989,
+      "lon": -4.890328,
+      "t": 0
+    },
+    {
+      "lat": 42.362502,
+      "lon": -4.890364,
+      "t": 49.5
+    },
+    {
+      "lat": 42.362035,
+      "lon": -4.891181,
+      "t": 127
+    },
+    {
+      "lat": 42.362451,
+      "lon": -4.891432,
+      "t": 173.2
+    },
+    {
+      "lat": 42.362395,
+      "lon": -4.892052,
+      "t": 220.1
+    },
+    {
+      "lat": 42.361128,
+      "lon": -4.895526,
+      "t": 510.7
+    },
+    {
+      "lat": 42.360607,
+      "lon": -4.898258,
+      "t": 722.3
+    },
+    {
+      "lat": 42.360562,
+      "lon": -4.899594,
+      "t": 822.6
+    },
+    {
+      "lat": 42.360328,
+      "lon": -4.901201,
+      "t": 945.5
+    },
+    {
+      "lat": 42.360339,
+      "lon": -4.902608,
+      "t": 1051
+    },
+    {
+      "lat": 42.3607,
+      "lon": -4.904026,
+      "t": 1163.5
+    },
+    {
+      "lat": 42.361358,
+      "lon": -4.905426,
+      "t": 1288
+    },
+    {
+      "lat": 42.359786,
+      "lon": -4.908871,
+      "t": 1591.7
+    },
+    {
+      "lat": 42.359151,
+      "lon": -4.909585,
+      "t": 1675.5
+    },
+    {
+      "lat": 42.359096,
+      "lon": -4.910083,
+      "t": 1713.3
+    },
+    {
+      "lat": 42.359401,
+      "lon": -4.911144,
+      "t": 1798.7
+    },
+    {
+      "lat": 42.359251,
+      "lon": -4.911865,
+      "t": 1854.9
+    },
+    {
+      "lat": 42.359323,
+      "lon": -4.912597,
+      "t": 1910.2
+    },
+    {
+      "lat": 42.360526,
+      "lon": -4.915884,
+      "t": 2185.4
+    },
+    {
+      "lat": 42.360821,
+      "lon": -4.917039,
+      "t": 2277.1
+    },
+    {
+      "lat": 42.360714,
+      "lon": -4.920544,
+      "t": 2540.2
+    },
+    {
+      "lat": 42.360958,
+      "lon": -4.922166,
+      "t": 2664.4
+    },
+    {
+      "lat": 42.360898,
+      "lon": -4.923229,
+      "t": 2744.3
+    },
+    {
+      "lat": 42.360263,
+      "lon": -4.926652,
+      "t": 3009
+    },
+    {
+      "lat": 42.360583,
+      "lon": -4.926995,
+      "t": 3050.5
+    },
+    {
+      "lat": 42.36008,
+      "lon": -4.927379,
+      "t": 3109.1
+    },
+    {
+      "lat": 42.359762,
+      "lon": -4.928744,
+      "t": 3216.5
+    },
+    {
+      "lat": 42.359017,
+      "lon": -4.92991,
+      "t": 3332.1
+    },
+    {
+      "lat": 42.358725,
+      "lon": -4.93107,
+      "t": 3424
+    },
+    {
+      "lat": 42.359501,
+      "lon": -4.934417,
+      "t": 3687.1
+    },
+    {
+      "lat": 42.359761,
+      "lon": -4.937342,
+      "t": 3908.1
+    },
+    {
+      "lat": 42.359405,
+      "lon": -4.939461,
+      "t": 4071.1
+    },
+    {
+      "lat": 42.359387,
+      "lon": -4.940183,
+      "t": 4125.3
+    },
+    {
+      "lat": 42.359555,
+      "lon": -4.941351,
+      "t": 4214.6
+    },
+    {
+      "lat": 42.35934,
+      "lon": -4.942242,
+      "t": 4284.9
+    },
+    {
+      "lat": 42.359147,
+      "lon": -4.94433,
+      "t": 4442.7
+    },
+    {
+      "lat": 42.359157,
+      "lon": -4.945496,
+      "t": 4530.2
+    },
+    {
+      "lat": 42.359378,
+      "lon": -4.945905,
+      "t": 4568.2
+    },
+    {
+      "lat": 42.360332,
+      "lon": -4.946601,
+      "t": 4678.2
+    },
+    {
+      "lat": 42.361274,
+      "lon": -4.946877,
+      "t": 4776.1
+    },
+    {
+      "lat": 42.36318,
+      "lon": -4.947891,
+      "t": 4984
+    },
+    {
+      "lat": 42.364233,
+      "lon": -4.949064,
+      "t": 5122.4
+    },
+    {
+      "lat": 42.364315,
+      "lon": -4.95013,
+      "t": 5202.8
+    },
+    {
+      "lat": 42.364232,
+      "lon": -4.951167,
+      "t": 5281
+    },
+    {
+      "lat": 42.363877,
+      "lon": -4.951394,
+      "t": 5320.9
+    },
+    {
+      "lat": 42.363359,
+      "lon": -4.952707,
+      "t": 5432.5
+    },
+    {
+      "lat": 42.363675,
+      "lon": -4.953887,
+      "t": 5526.7
+    },
+    {
+      "lat": 42.363663,
+      "lon": -4.954433,
+      "t": 5567.6
+    },
+    {
+      "lat": 42.364041,
+      "lon": -4.954598,
+      "t": 5608
+    },
+    {
+      "lat": 42.364128,
+      "lon": -4.954803,
+      "t": 5625.7
+    },
+    {
+      "lat": 42.363924,
+      "lon": -4.956934,
+      "t": 5786.9
+    },
+    {
+      "lat": 42.363656,
+      "lon": -4.957843,
+      "t": 5860.3
+    },
+    {
+      "lat": 42.362692,
+      "lon": -4.959848,
+      "t": 6039.7
+    },
+    {
+      "lat": 42.362157,
+      "lon": -4.961764,
+      "t": 6193.3
+    },
+    {
+      "lat": 42.361911,
+      "lon": -4.963974,
+      "t": 6361
+    },
+    {
+      "lat": 42.361055,
+      "lon": -4.966092,
+      "t": 6542.1
+    },
+    {
+      "lat": 42.360408,
+      "lon": -4.968211,
+      "t": 6714
+    },
+    {
+      "lat": 42.361138,
+      "lon": -4.969353,
+      "t": 6827.3
+    },
+    {
+      "lat": 42.361374,
+      "lon": -4.970805,
+      "t": 6938.8
+    },
+    {
+      "lat": 42.360913,
+      "lon": -4.973455,
+      "t": 7143
+    },
+    {
+      "lat": 42.360908,
+      "lon": -4.976115,
+      "t": 7342.6
+    },
+    {
+      "lat": 42.360721,
+      "lon": -4.977586,
+      "t": 7454.5
+    },
+    {
+      "lat": 42.360949,
+      "lon": -4.978732,
+      "t": 7543.5
+    },
+    {
+      "lat": 42.361017,
+      "lon": -4.982649,
+      "t": 7837.4
+    },
+    {
+      "lat": 42.362937,
+      "lon": -4.987488,
+      "t": 8249.4
+    },
+    {
+      "lat": 42.363158,
+      "lon": -4.988329,
+      "t": 8316.4
+    },
+    {
+      "lat": 42.363256,
+      "lon": -4.98949,
+      "t": 8404
+    },
+    {
+      "lat": 42.363164,
+      "lon": -4.991181,
+      "t": 8531.2
+    },
+    {
+      "lat": 42.363205,
+      "lon": -4.993823,
+      "t": 8729.4
+    },
+    {
+      "lat": 42.364332,
+      "lon": -4.997354,
+      "t": 9017.9
+    },
+    {
+      "lat": 42.366875,
+      "lon": -4.996154,
+      "t": 9291.3
+    },
+    {
+      "lat": 42.367174,
+      "lon": -4.999399,
+      "t": 9536.6
+    },
+    {
+      "lat": 42.367344,
+      "lon": -4.999982,
+      "t": 9583.6
+    },
+    {
+      "lat": 42.370451,
+      "lon": -4.999448,
+      "t": 9901.5
+    },
+    {
+      "lat": 42.370606,
+      "lon": -4.99976,
+      "t": 9929.7
+    },
+    {
+      "lat": 42.370515,
+      "lon": -5.000158,
+      "t": 9960.9
+    },
+    {
+      "lat": 42.369792,
+      "lon": -5.00119,
+      "t": 10067.6
+    },
+    {
+      "lat": 42.369529,
+      "lon": -5.00229,
+      "t": 10154.3
+    },
+    {
+      "lat": 42.36945,
+      "lon": -5.006278,
+      "t": 10453.5
+    },
+    {
+      "lat": 42.369769,
+      "lon": -5.008534,
+      "t": 10625.8
+    },
+    {
+      "lat": 42.369984,
+      "lon": -5.012131,
+      "t": 10896.4
+    },
+    {
+      "lat": 42.370282,
+      "lon": -5.012695,
+      "t": 10948.4
+    },
+    {
+      "lat": 42.370039,
+      "lon": -5.013147,
+      "t": 10990.4
+    },
+    {
+      "lat": 42.370136,
+      "lon": -5.014557,
+      "t": 11096.6
+    },
+    {
+      "lat": 42.369995,
+      "lon": -5.015809,
+      "t": 11191.6
+    },
+    {
+      "lat": 42.370166,
+      "lon": -5.022762,
+      "t": 11713.3
+    },
+    {
+      "lat": 42.37055,
+      "lon": -5.023557,
+      "t": 11784.5
+    },
+    {
+      "lat": 42.370961,
+      "lon": -5.023898,
+      "t": 11833.5
+    },
+    {
+      "lat": 42.371109,
+      "lon": -5.025152,
+      "t": 11928.7
+    },
+    {
+      "lat": 42.371435,
+      "lon": -5.025842,
+      "t": 11990.1
+    },
+    {
+      "lat": 42.370843,
+      "lon": -5.026396,
+      "t": 12063.2
+    },
+    {
+      "lat": 42.370952,
+      "lon": -5.027183,
+      "t": 12123.2
+    },
+    {
+      "lat": 42.370589,
+      "lon": -5.027532,
+      "t": 12168.4
+    },
+    {
+      "lat": 42.37076,
+      "lon": -5.029299,
+      "t": 12302.1
+    },
+    {
+      "lat": 42.370733,
+      "lon": -5.030167,
+      "t": 12367.3
+    },
+    {
+      "lat": 42.370702,
+      "lon": -5.030995,
+      "t": 12429.4
+    },
+    {
+      "lat": 42.370426,
+      "lon": -5.032025,
+      "t": 12511.6
+    },
+    {
+      "lat": 42.370365,
+      "lon": -5.033872,
+      "t": 12650.3
+    },
+    {
+      "lat": 42.370049,
+      "lon": -5.034918,
+      "t": 12735
+    },
+    {
+      "lat": 42.368761,
+      "lon": -5.035847,
+      "t": 12883.2
+    },
+    {
+      "lat": 42.368806,
+      "lon": -5.03693,
+      "t": 12964.5
+    },
+    {
+      "lat": 42.37215,
+      "lon": -5.045614,
+      "t": 13699
+    },
+    {
+      "lat": 42.373925,
+      "lon": -5.049053,
+      "t": 14013.6
+    },
+    {
+      "lat": 42.373934,
+      "lon": -5.049273,
+      "t": 14030.1
+    },
+    {
+      "lat": 42.373783,
+      "lon": -5.049487,
+      "t": 14052.3
+    },
+    {
+      "lat": 42.374105,
+      "lon": -5.049808,
+      "t": 14092.9
+    },
+    {
+      "lat": 42.374365,
+      "lon": -5.049869,
+      "t": 14119.7
+    },
+    {
+      "lat": 42.375452,
+      "lon": -5.051967,
+      "t": 14311.9
+    },
+    {
+      "lat": 42.375736,
+      "lon": -5.052942,
+      "t": 14390.4
+    },
+    {
+      "lat": 42.376612,
+      "lon": -5.057649,
+      "t": 14754.5
+    },
+    {
+      "lat": 42.37814,
+      "lon": -5.063475,
+      "t": 15218.1
+    },
+    {
+      "lat": 42.378536,
+      "lon": -5.064442,
+      "t": 15301
+    },
+    {
+      "lat": 42.380748,
+      "lon": -5.067983,
+      "t": 15648.7
+    },
+    {
+      "lat": 42.382056,
+      "lon": -5.071921,
+      "t": 15972.5
+    },
+    {
+      "lat": 42.382154,
+      "lon": -5.073737,
+      "t": 16109
+    },
+    {
+      "lat": 42.382337,
+      "lon": -5.07404,
+      "t": 16138.4
+    },
+    {
+      "lat": 42.382386,
+      "lon": -5.076529,
+      "t": 16325.1
+    },
+    {
+      "lat": 42.382521,
+      "lon": -5.076812,
+      "t": 16350.3
+    },
+    {
+      "lat": 42.382386,
+      "lon": -5.077354,
+      "t": 16393.2
+    },
+    {
+      "lat": 42.382834,
+      "lon": -5.078206,
+      "t": 16471.6
+    },
+    {
+      "lat": 42.383705,
+      "lon": -5.08357,
+      "t": 16883.5
+    },
+    {
+      "lat": 42.383855,
+      "lon": -5.085444,
+      "t": 17024.8
+    },
+    {
+      "lat": 42.384132,
+      "lon": -5.090063,
+      "t": 17372.3
+    },
+    {
+      "lat": 42.38387,
+      "lon": -5.097157,
+      "t": 17904.9
+    },
+    {
+      "lat": 42.384647,
+      "lon": -5.109201,
+      "t": 18811.4
+    },
+    {
+      "lat": 42.384501,
+      "lon": -5.110008,
+      "t": 18873.7
+    },
+    {
+      "lat": 42.385655,
+      "lon": -5.114708,
+      "t": 19245
+    },
+    {
+      "lat": 42.38619,
+      "lon": -5.117429,
+      "t": 19456.2
+    },
+    {
+      "lat": 42.386916,
+      "lon": -5.119756,
+      "t": 19645.6
+    },
+    {
+      "lat": 42.389434,
+      "lon": -5.13242,
+      "t": 20628.9
+    },
+    {
+      "lat": 42.388147,
+      "lon": -5.140204,
+      "t": 21226.9
+    },
+    {
+      "lat": 42.387691,
+      "lon": -5.144443,
+      "t": 21548.1
+    },
+    {
+      "lat": 42.387819,
+      "lon": -5.145113,
+      "t": 21600
+    }
+  ],
+  "totalDistanceMeters": 23660.2,
+  "theirActiveSeconds": 21600,
+  "moments": [
+    {
+      "id": "stage-start",
+      "frac": 0.00007565079286169647,
+      "kind": "waypoint",
+      "label": "Terradillos de los Templarios",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 42.36297292689291,
+        "lon": -4.890329188155761
+      },
+      "pin": {
+        "lat": 42.363,
+        "lon": -4.891
+      }
+    },
+    {
+      "id": "wp-sahagun",
+      "frac": 0.582292622753478,
+      "kind": "waypoint",
+      "label": "Sahagún",
+      "icon": "seal",
+      "at": {
+        "lat": 42.37039700245627,
+        "lon": -5.0329030075945695
+      },
+      "pin": {
+        "lat": 42.372,
+        "lon": -5.033
+      },
+      "text": "Historic town with Mudéjar architecture. Midpoint of the Camino."
+    },
+    {
+      "id": "wp-bercianos",
+      "frac": 0.9998332698400666,
+      "kind": "waypoint",
+      "label": "Bercianos del Real Camino",
+      "icon": "seal",
+      "at": {
+        "lat": 42.38781011595175,
+        "lon": -5.145066497559943
+      },
+      "pin": {
+        "lat": 42.388,
+        "lon": -5.145
+      },
+      "text": "stamp available"
+    }
+  ],
+  "marks": [
+    {
+      "id": "wp-osm-water_source-node536686384",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.362178,
+        "lon": -4.890793
+      },
+      "frac": 0.004401607725264378,
+      "offLineMeters": 6.9
+    },
+    {
+      "id": "wp-osm-water_source-node1506398253",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.362587,
+        "lon": -4.891582
+      },
+      "frac": 0.008460604584386895,
+      "offLineMeters": 16.6
+    },
+    {
+      "id": "wp-osm-accommodation-node1506398165",
+      "kind": "bed",
+      "name": "Hostal Moratinos",
+      "at": {
+        "lat": 42.360463,
+        "lon": -4.924882
+      },
+      "frac": 0.13311859014240793,
+      "offLineMeters": 13.8
+    },
+    {
+      "id": "wp-osm-food-node2713313815",
+      "kind": "food",
+      "name": "Restaurante el Castillo",
+      "at": {
+        "lat": 42.360695,
+        "lon": -4.925742
+      },
+      "frac": 0.1357500544599384,
+      "offLineMeters": 28.3
+    },
+    {
+      "id": "wp-osm-water_source-node2719527159",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.360614,
+        "lon": -4.926516
+      },
+      "frac": 0.14030524310458423,
+      "offLineMeters": 33
+    },
+    {
+      "id": "wp-osm-food-node380852735",
+      "kind": "food",
+      "name": "Casa Barrunta",
+      "at": {
+        "lat": 42.364647,
+        "lon": -4.95052
+      },
+      "frac": 0.2420495883943373,
+      "offLineMeters": 40.1
+    },
+    {
+      "id": "wp-osm-accommodation-node380852739",
+      "kind": "bed",
+      "name": "Albergue Laganares",
+      "at": {
+        "lat": 42.363513,
+        "lon": -4.951793
+      },
+      "frac": 0.24836699341066323,
+      "offLineMeters": 20.3
+    },
+    {
+      "id": "wp-osm-water_source-node767381301",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.36417,
+        "lon": -4.95389
+      },
+      "frac": 0.25586467279955355,
+      "offLineMeters": 55.1
+    },
+    {
+      "id": "wp-osm-water_source-node2713313834",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.367734,
+        "lon": -4.995984
+      },
+      "frac": 0.430152140008998,
+      "offLineMeters": 96.6
+    },
+    {
+      "id": "wp-osm-supply-node11047817237",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.370084,
+        "lon": -5.021842
+      },
+      "frac": 0.5390764827903785,
+      "offLineMeters": 6.6
+    },
+    {
+      "id": "wp-osm-transport-node2384166014",
+      "kind": "transport",
+      "name": "Sahagún",
+      "at": {
+        "lat": 42.369396,
+        "lon": -5.022602
+      },
+      "frac": 0.541607557559258,
+      "offLineMeters": 85.2
+    },
+    {
+      "id": "wp-osm-water_source-node2719595692",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.37069,
+        "lon": -5.02358
+      },
+      "frac": 0.5461830316305559,
+      "offLineMeters": 6.6
+    },
+    {
+      "id": "wp-osm-accommodation-node832840970",
+      "kind": "bed",
+      "name": "Albergue Viatoris",
+      "at": {
+        "lat": 42.372003,
+        "lon": -5.025212
+      },
+      "frac": 0.5546938531618513,
+      "offLineMeters": 81.1
+    },
+    {
+      "id": "wp-osm-accommodation-node10692514082",
+      "kind": "bed",
+      "name": "Hostal San Juan",
+      "at": {
+        "lat": 42.370425,
+        "lon": -5.026202
+      },
+      "frac": 0.5584813969520424,
+      "offLineMeters": 49.1
+    },
+    {
+      "id": "wp-osm-accommodation-node832714399",
+      "kind": "bed",
+      "name": "Albergue de Peregrinos Municipal Cluny",
+      "at": {
+        "lat": 42.371067,
+        "lon": -5.026936
+      },
+      "frac": 0.560519561358901,
+      "offLineMeters": 16.3
+    },
+    {
+      "id": "wp-osm-water_source-node4407815506",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.369407,
+        "lon": -5.027583
+      },
+      "frac": 0.5633540852124934,
+      "offLineMeters": 131.5
+    },
+    {
+      "id": "wp-osm-accommodation-node1506398162",
+      "kind": "bed",
+      "name": "Hostal Alfonso VI",
+      "at": {
+        "lat": 42.370709,
+        "lon": -5.02824
+      },
+      "frac": 0.5658651713482741,
+      "offLineMeters": 5.7
+    },
+    {
+      "id": "wp-osm-water_source-node5198668245",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.370787,
+        "lon": -5.028961
+      },
+      "frac": 0.568394260584659,
+      "offLineMeters": 6.5
+    },
+    {
+      "id": "wp-osm-medical-node3967538857",
+      "kind": "medical",
+      "name": "J.L. Vazquez",
+      "at": {
+        "lat": 42.371852,
+        "lon": -5.030292
+      },
+      "frac": 0.5727261703281115,
+      "offLineMeters": 124.8
+    },
+    {
+      "id": "wp-osm-food-node1506398157",
+      "kind": "food",
+      "name": "Cafe La Panera",
+      "at": {
+        "lat": 42.37077,
+        "lon": -5.030788
+      },
+      "frac": 0.5747042316800264,
+      "offLineMeters": 6.7
+    },
+    {
+      "id": "wp-osm-accommodation-node2080209364",
+      "kind": "bed",
+      "name": "Albergue Municipal (Invierno)",
+      "at": {
+        "lat": 42.37037,
+        "lon": -5.032192
+      },
+      "frac": 0.5798331676575321,
+      "offLineMeters": 5.7
+    },
+    {
+      "id": "wp-osm-food-node2080209365",
+      "kind": "food",
+      "name": "Bar-Restaurante El Peregrino",
+      "at": {
+        "lat": 42.368946,
+        "lon": -5.032769
+      },
+      "frac": 0.5821336955110352,
+      "offLineMeters": 161.7
+    },
+    {
+      "id": "wp-osm-transport-node2713313863",
+      "kind": "transport",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.371549,
+        "lon": -5.033225
+      },
+      "frac": 0.5831674224324976,
+      "offLineMeters": 129.1
+    },
+    {
+      "id": "wp-osm-accommodation-node1506398149",
+      "kind": "bed",
+      "name": "Bar restaurant El Arco",
+      "at": {
+        "lat": 42.37042,
+        "lon": -5.034049
+      },
+      "frac": 0.5861303236705259,
+      "offLineMeters": 11.2
+    },
+    {
+      "id": "wp-osm-transport-node1506191267",
+      "kind": "transport",
+      "name": "Calzada del Coto",
+      "at": {
+        "lat": 42.382423,
+        "lon": -5.076375
+      },
+      "frac": 0.7552592582838921,
+      "offLineMeters": 4.5
+    },
+    {
+      "id": "wp-osm-accommodation-node6726114696",
+      "kind": "bed",
+      "name": "Albergue La Perala",
+      "at": {
+        "lat": 42.388953,
+        "lon": -5.136845
+      },
+      "frac": 0.9705227829836498,
+      "offLineMeters": 27.1
+    },
+    {
+      "id": "wp-osm-water_source-node5442550802",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.388212,
+        "lon": -5.139877
+      },
+      "frac": 0.9815531676763434,
+      "offLineMeters": 1.2
+    },
+    {
+      "id": "wp-osm-accommodation-node1414299230",
+      "kind": "bed",
+      "name": "Hostal-Restaurante Rivero",
+      "at": {
+        "lat": 42.388135,
+        "lon": -5.142385
+      },
+      "frac": 0.9902296893460448,
+      "offLineMeters": 24.4
+    },
+    {
+      "id": "wp-osm-supply-node2081679972",
+      "kind": "supply",
+      "name": "Comestibles",
+      "at": {
+        "lat": 42.387519,
+        "lon": -5.143531
+      },
+      "frac": 0.9945831414335007,
+      "offLineMeters": 29.7
+    },
+    {
+      "id": "wp-osm-water_source-node12031849170",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.389896,
+        "lon": -5.14411
+      },
+      "frac": 0.9949604247397692,
+      "offLineMeters": 238.6
+    },
+    {
+      "id": "wp-osm-accommodation-node2440420279",
+      "kind": "bed",
+      "name": "Albergue Santa Clara",
+      "at": {
+        "lat": 42.388408,
+        "lon": -5.145234
+      },
+      "frac": 1,
+      "offLineMeters": 66.3
+    },
+    {
+      "id": "wp-osm-water_source-node7810798552",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.389686,
+        "lon": -5.145076
+      },
+      "frac": 1,
+      "offLineMeters": 207.6
+    }
+  ],
+  "stage": {
+    "routeId": "camino-frances",
+    "index": 17,
+    "count": 33,
+    "name": "Terradillos de los Templarios to Bercianos del Real Camino",
+    "theme": "Halfway",
+    "narrative": "You survived yesterday's longest stretch without shelter on the entire route, and you did not break. Sahagún marks the geographical midpoint of the Camino Frances. Its Mudéjar brick towers — Islamic architecture built by Christian hands — speak of a Spain where traditions blended rather than fought. You are halfway. The realization lands differently than you expected. There is no fanfare, no ceremony. You simply walk through a town and keep going. But halfway also means you cannot turn back without walking as far as you have already come. You are committed now, in a way you were not before.",
+    "closing": "Now that turning back is as far as going forward, what does commitment feel like in your body?",
+    "warnings": [],
+    "distanceKm": 23.2,
+    "gainMeters": 119,
+    "hours": {
+      "min": 5,
+      "max": 7
+    },
+    "difficulty": "moderate",
+    "start": {
+      "name": "Terradillos de los Templarios",
+      "at": {
+        "lat": 42.363,
+        "lon": -4.891
+      }
+    },
+    "end": {
+      "name": "Bercianos del Real Camino",
+      "at": {
+        "lat": 42.388,
+        "lon": -5.145
+      }
+    }
+  }
+}

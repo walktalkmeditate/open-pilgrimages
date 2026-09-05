@@ -1,0 +1,1433 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "pilgrimage:camino-frances:27",
+  "title": "Triacastela to Sarria",
+  "departedAt": "2026-08-19T00:00:00Z",
+  "route": [
+    {
+      "lat": 42.755994,
+      "lon": -7.239186,
+      "t": 0
+    },
+    {
+      "lat": 42.75587,
+      "lon": -7.241688,
+      "t": 208.7
+    },
+    {
+      "lat": 42.755114,
+      "lon": -7.243599,
+      "t": 389.4
+    },
+    {
+      "lat": 42.755628,
+      "lon": -7.243967,
+      "t": 455.2
+    },
+    {
+      "lat": 42.755864,
+      "lon": -7.24365,
+      "t": 492.8
+    },
+    {
+      "lat": 42.757571,
+      "lon": -7.244288,
+      "t": 693.5
+    },
+    {
+      "lat": 42.759346,
+      "lon": -7.245874,
+      "t": 934.1
+    },
+    {
+      "lat": 42.760136,
+      "lon": -7.246366,
+      "t": 1032.6
+    },
+    {
+      "lat": 42.760512,
+      "lon": -7.247034,
+      "t": 1102.6
+    },
+    {
+      "lat": 42.760751,
+      "lon": -7.247809,
+      "t": 1172.6
+    },
+    {
+      "lat": 42.76144,
+      "lon": -7.248604,
+      "t": 1275
+    },
+    {
+      "lat": 42.763136,
+      "lon": -7.249105,
+      "t": 1471.7
+    },
+    {
+      "lat": 42.763915,
+      "lon": -7.249629,
+      "t": 1570.2
+    },
+    {
+      "lat": 42.764468,
+      "lon": -7.249762,
+      "t": 1633.8
+    },
+    {
+      "lat": 42.76539,
+      "lon": -7.251808,
+      "t": 1833.6
+    },
+    {
+      "lat": 42.765822,
+      "lon": -7.252502,
+      "t": 1909.3
+    },
+    {
+      "lat": 42.765979,
+      "lon": -7.253636,
+      "t": 2005.4
+    },
+    {
+      "lat": 42.766705,
+      "lon": -7.254043,
+      "t": 2094.4
+    },
+    {
+      "lat": 42.766974,
+      "lon": -7.254685,
+      "t": 2155.9
+    },
+    {
+      "lat": 42.768373,
+      "lon": -7.255811,
+      "t": 2340.1
+    },
+    {
+      "lat": 42.768402,
+      "lon": -7.256213,
+      "t": 2373.7
+    },
+    {
+      "lat": 42.76878,
+      "lon": -7.256614,
+      "t": 2428
+    },
+    {
+      "lat": 42.768787,
+      "lon": -7.25712,
+      "t": 2470.1
+    },
+    {
+      "lat": 42.769086,
+      "lon": -7.257905,
+      "t": 2543.7
+    },
+    {
+      "lat": 42.770016,
+      "lon": -7.259239,
+      "t": 2696.8
+    },
+    {
+      "lat": 42.770591,
+      "lon": -7.261001,
+      "t": 2857.3
+    },
+    {
+      "lat": 42.770342,
+      "lon": -7.262004,
+      "t": 2945.4
+    },
+    {
+      "lat": 42.769823,
+      "lon": -7.262702,
+      "t": 3028
+    },
+    {
+      "lat": 42.76946,
+      "lon": -7.264176,
+      "t": 3157.4
+    },
+    {
+      "lat": 42.768883,
+      "lon": -7.264834,
+      "t": 3242.7
+    },
+    {
+      "lat": 42.768491,
+      "lon": -7.267552,
+      "t": 3473.2
+    },
+    {
+      "lat": 42.768624,
+      "lon": -7.268073,
+      "t": 3519.1
+    },
+    {
+      "lat": 42.767855,
+      "lon": -7.269823,
+      "t": 3688.9
+    },
+    {
+      "lat": 42.767461,
+      "lon": -7.271183,
+      "t": 3810.5
+    },
+    {
+      "lat": 42.766216,
+      "lon": -7.272503,
+      "t": 3989.4
+    },
+    {
+      "lat": 42.765733,
+      "lon": -7.274342,
+      "t": 4151.9
+    },
+    {
+      "lat": 42.765842,
+      "lon": -7.275508,
+      "t": 4249.7
+    },
+    {
+      "lat": 42.765111,
+      "lon": -7.276235,
+      "t": 4352.3
+    },
+    {
+      "lat": 42.764425,
+      "lon": -7.277746,
+      "t": 4500.2
+    },
+    {
+      "lat": 42.764314,
+      "lon": -7.278447,
+      "t": 4559.9
+    },
+    {
+      "lat": 42.76432,
+      "lon": -7.279942,
+      "t": 4684.3
+    },
+    {
+      "lat": 42.764515,
+      "lon": -7.280831,
+      "t": 4761.5
+    },
+    {
+      "lat": 42.765703,
+      "lon": -7.28254,
+      "t": 4957.4
+    },
+    {
+      "lat": 42.766115,
+      "lon": -7.282797,
+      "t": 5008.7
+    },
+    {
+      "lat": 42.766724,
+      "lon": -7.282911,
+      "t": 5078.4
+    },
+    {
+      "lat": 42.767421,
+      "lon": -7.282865,
+      "t": 5157.5
+    },
+    {
+      "lat": 42.767835,
+      "lon": -7.282645,
+      "t": 5207.9
+    },
+    {
+      "lat": 42.768064,
+      "lon": -7.283136,
+      "t": 5256.3
+    },
+    {
+      "lat": 42.767883,
+      "lon": -7.284555,
+      "t": 5376.2
+    },
+    {
+      "lat": 42.767413,
+      "lon": -7.285834,
+      "t": 5495.2
+    },
+    {
+      "lat": 42.767775,
+      "lon": -7.288453,
+      "t": 5717
+    },
+    {
+      "lat": 42.766599,
+      "lon": -7.292159,
+      "t": 6052.9
+    },
+    {
+      "lat": 42.765994,
+      "lon": -7.295923,
+      "t": 6373.6
+    },
+    {
+      "lat": 42.766034,
+      "lon": -7.296354,
+      "t": 6409.8
+    },
+    {
+      "lat": 42.766395,
+      "lon": -7.296425,
+      "t": 6451.1
+    },
+    {
+      "lat": 42.766555,
+      "lon": -7.297404,
+      "t": 6534.6
+    },
+    {
+      "lat": 42.766734,
+      "lon": -7.297615,
+      "t": 6561.4
+    },
+    {
+      "lat": 42.76656,
+      "lon": -7.298633,
+      "t": 6648.4
+    },
+    {
+      "lat": 42.76667,
+      "lon": -7.298768,
+      "t": 6665.2
+    },
+    {
+      "lat": 42.766764,
+      "lon": -7.299705,
+      "t": 6743.9
+    },
+    {
+      "lat": 42.766474,
+      "lon": -7.301626,
+      "t": 6907.1
+    },
+    {
+      "lat": 42.766598,
+      "lon": -7.302569,
+      "t": 6986.8
+    },
+    {
+      "lat": 42.766752,
+      "lon": -7.302901,
+      "t": 7019.5
+    },
+    {
+      "lat": 42.767195,
+      "lon": -7.302895,
+      "t": 7069.7
+    },
+    {
+      "lat": 42.767499,
+      "lon": -7.30308,
+      "t": 7107.4
+    },
+    {
+      "lat": 42.768642,
+      "lon": -7.305295,
+      "t": 7332.8
+    },
+    {
+      "lat": 42.768519,
+      "lon": -7.305741,
+      "t": 7372.4
+    },
+    {
+      "lat": 42.767877,
+      "lon": -7.306677,
+      "t": 7479
+    },
+    {
+      "lat": 42.767821,
+      "lon": -7.30782,
+      "t": 7574.3
+    },
+    {
+      "lat": 42.768416,
+      "lon": -7.30863,
+      "t": 7669.7
+    },
+    {
+      "lat": 42.768803,
+      "lon": -7.309606,
+      "t": 7762
+    },
+    {
+      "lat": 42.769951,
+      "lon": -7.310481,
+      "t": 7911.1
+    },
+    {
+      "lat": 42.771205,
+      "lon": -7.310667,
+      "t": 8054.1
+    },
+    {
+      "lat": 42.772992,
+      "lon": -7.309788,
+      "t": 8269.5
+    },
+    {
+      "lat": 42.772216,
+      "lon": -7.310713,
+      "t": 8386.4
+    },
+    {
+      "lat": 42.771165,
+      "lon": -7.311342,
+      "t": 8516.5
+    },
+    {
+      "lat": 42.771479,
+      "lon": -7.31144,
+      "t": 8553
+    },
+    {
+      "lat": 42.771609,
+      "lon": -7.311721,
+      "t": 8580.7
+    },
+    {
+      "lat": 42.771531,
+      "lon": -7.3121,
+      "t": 8613.4
+    },
+    {
+      "lat": 42.771093,
+      "lon": -7.312641,
+      "t": 8680.4
+    },
+    {
+      "lat": 42.77083,
+      "lon": -7.313903,
+      "t": 8789.6
+    },
+    {
+      "lat": 42.770918,
+      "lon": -7.314282,
+      "t": 8822.7
+    },
+    {
+      "lat": 42.771376,
+      "lon": -7.314936,
+      "t": 8897.9
+    },
+    {
+      "lat": 42.771382,
+      "lon": -7.315528,
+      "t": 8947.2
+    },
+    {
+      "lat": 42.771177,
+      "lon": -7.31621,
+      "t": 9008.5
+    },
+    {
+      "lat": 42.771519,
+      "lon": -7.317575,
+      "t": 9128.5
+    },
+    {
+      "lat": 42.771875,
+      "lon": -7.318298,
+      "t": 9200.9
+    },
+    {
+      "lat": 42.772463,
+      "lon": -7.318496,
+      "t": 9269.6
+    },
+    {
+      "lat": 42.772585,
+      "lon": -7.319466,
+      "t": 9351.5
+    },
+    {
+      "lat": 42.772511,
+      "lon": -7.320649,
+      "t": 9450.3
+    },
+    {
+      "lat": 42.773486,
+      "lon": -7.323301,
+      "t": 9697.1
+    },
+    {
+      "lat": 42.773946,
+      "lon": -7.325332,
+      "t": 9874
+    },
+    {
+      "lat": 42.773654,
+      "lon": -7.326817,
+      "t": 10001.9
+    },
+    {
+      "lat": 42.772761,
+      "lon": -7.327277,
+      "t": 10110.1
+    },
+    {
+      "lat": 42.772629,
+      "lon": -7.327601,
+      "t": 10140.9
+    },
+    {
+      "lat": 42.773216,
+      "lon": -7.329289,
+      "t": 10296.4
+    },
+    {
+      "lat": 42.77319,
+      "lon": -7.330809,
+      "t": 10422.9
+    },
+    {
+      "lat": 42.77279,
+      "lon": -7.333685,
+      "t": 10666.4
+    },
+    {
+      "lat": 42.77292,
+      "lon": -7.335081,
+      "t": 10783.5
+    },
+    {
+      "lat": 42.773082,
+      "lon": -7.335828,
+      "t": 10848.4
+    },
+    {
+      "lat": 42.774024,
+      "lon": -7.338118,
+      "t": 11066.8
+    },
+    {
+      "lat": 42.773822,
+      "lon": -7.339242,
+      "t": 11163.1
+    },
+    {
+      "lat": 42.774124,
+      "lon": -7.339851,
+      "t": 11224.2
+    },
+    {
+      "lat": 42.774471,
+      "lon": -7.340153,
+      "t": 11270.9
+    },
+    {
+      "lat": 42.774878,
+      "lon": -7.341619,
+      "t": 11401.3
+    },
+    {
+      "lat": 42.774825,
+      "lon": -7.342526,
+      "t": 11477
+    },
+    {
+      "lat": 42.774018,
+      "lon": -7.34631,
+      "t": 11804.9
+    },
+    {
+      "lat": 42.773852,
+      "lon": -7.351385,
+      "t": 12227.6
+    },
+    {
+      "lat": 42.773712,
+      "lon": -7.351951,
+      "t": 12277.3
+    },
+    {
+      "lat": 42.773753,
+      "lon": -7.352334,
+      "t": 12309.5
+    },
+    {
+      "lat": 42.773351,
+      "lon": -7.353626,
+      "t": 12426.3
+    },
+    {
+      "lat": 42.773836,
+      "lon": -7.355362,
+      "t": 12580.8
+    },
+    {
+      "lat": 42.773823,
+      "lon": -7.357691,
+      "t": 12774.6
+    },
+    {
+      "lat": 42.773632,
+      "lon": -7.358946,
+      "t": 12881.3
+    },
+    {
+      "lat": 42.773839,
+      "lon": -7.360285,
+      "t": 12995.2
+    },
+    {
+      "lat": 42.773633,
+      "lon": -7.361607,
+      "t": 13107.6
+    },
+    {
+      "lat": 42.773653,
+      "lon": -7.362482,
+      "t": 13180.5
+    },
+    {
+      "lat": 42.773162,
+      "lon": -7.364363,
+      "t": 13346.6
+    },
+    {
+      "lat": 42.773409,
+      "lon": -7.365761,
+      "t": 13466.2
+    },
+    {
+      "lat": 42.773207,
+      "lon": -7.366933,
+      "t": 13566.4
+    },
+    {
+      "lat": 42.77314,
+      "lon": -7.368381,
+      "t": 13687.1
+    },
+    {
+      "lat": 42.773321,
+      "lon": -7.371664,
+      "t": 13961.1
+    },
+    {
+      "lat": 42.773599,
+      "lon": -7.373099,
+      "t": 14084.6
+    },
+    {
+      "lat": 42.773541,
+      "lon": -7.374313,
+      "t": 14185.8
+    },
+    {
+      "lat": 42.773905,
+      "lon": -7.375538,
+      "t": 14295.8
+    },
+    {
+      "lat": 42.774155,
+      "lon": -7.377741,
+      "t": 14481.3
+    },
+    {
+      "lat": 42.77493,
+      "lon": -7.379851,
+      "t": 14677.6
+    },
+    {
+      "lat": 42.775748,
+      "lon": -7.38296,
+      "t": 14952.4
+    },
+    {
+      "lat": 42.776654,
+      "lon": -7.384358,
+      "t": 15107.6
+    },
+    {
+      "lat": 42.776329,
+      "lon": -7.38584,
+      "t": 15236.3
+    },
+    {
+      "lat": 42.776141,
+      "lon": -7.388492,
+      "t": 15457.9
+    },
+    {
+      "lat": 42.776414,
+      "lon": -7.393288,
+      "t": 15858.2
+    },
+    {
+      "lat": 42.776198,
+      "lon": -7.396571,
+      "t": 16132.5
+    },
+    {
+      "lat": 42.776229,
+      "lon": -7.397657,
+      "t": 16222.9
+    },
+    {
+      "lat": 42.77615,
+      "lon": -7.398516,
+      "t": 16294.9
+    },
+    {
+      "lat": 42.775628,
+      "lon": -7.400482,
+      "t": 16468.9
+    },
+    {
+      "lat": 42.775814,
+      "lon": -7.402973,
+      "t": 16677.2
+    },
+    {
+      "lat": 42.775631,
+      "lon": -7.404072,
+      "t": 16771
+    },
+    {
+      "lat": 42.775959,
+      "lon": -7.405453,
+      "t": 16891.8
+    },
+    {
+      "lat": 42.775948,
+      "lon": -7.405972,
+      "t": 16935
+    },
+    {
+      "lat": 42.775646,
+      "lon": -7.407383,
+      "t": 17057.3
+    },
+    {
+      "lat": 42.775071,
+      "lon": -7.407918,
+      "t": 17136.2
+    },
+    {
+      "lat": 42.774926,
+      "lon": -7.408417,
+      "t": 17180.8
+    },
+    {
+      "lat": 42.775051,
+      "lon": -7.408988,
+      "t": 17230.4
+    },
+    {
+      "lat": 42.775519,
+      "lon": -7.409427,
+      "t": 17294.8
+    },
+    {
+      "lat": 42.775761,
+      "lon": -7.410772,
+      "t": 17410.1
+    },
+    {
+      "lat": 42.775735,
+      "lon": -7.411249,
+      "t": 17449.9
+    },
+    {
+      "lat": 42.776216,
+      "lon": -7.411385,
+      "t": 17505.6
+    },
+    {
+      "lat": 42.776651,
+      "lon": -7.411021,
+      "t": 17563.4
+    },
+    {
+      "lat": 42.776796,
+      "lon": -7.411464,
+      "t": 17603.8
+    },
+    {
+      "lat": 42.77617,
+      "lon": -7.411881,
+      "t": 17682.8
+    },
+    {
+      "lat": 42.776079,
+      "lon": -7.412195,
+      "t": 17710.9
+    },
+    {
+      "lat": 42.776426,
+      "lon": -7.41282,
+      "t": 17776.1
+    },
+    {
+      "lat": 42.776715,
+      "lon": -7.412708,
+      "t": 17810.1
+    },
+    {
+      "lat": 42.777226,
+      "lon": -7.413832,
+      "t": 17920.1
+    },
+    {
+      "lat": 42.777186,
+      "lon": -7.414056,
+      "t": 17939.3
+    },
+    {
+      "lat": 42.777423,
+      "lon": -7.41471,
+      "t": 18000
+    }
+  ],
+  "totalDistanceMeters": 17656.5,
+  "theirActiveSeconds": 18000,
+  "moments": [
+    {
+      "id": "stage-start",
+      "frac": 0,
+      "kind": "waypoint",
+      "label": "Triacastela",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 42.755994,
+        "lon": -7.239186
+      },
+      "pin": {
+        "lat": 42.756,
+        "lon": -7.239
+      }
+    },
+    {
+      "id": "wp-sarria",
+      "frac": 1,
+      "kind": "waypoint",
+      "label": "Sarria",
+      "icon": "seal",
+      "at": {
+        "lat": 42.777423,
+        "lon": -7.41471
+      },
+      "pin": {
+        "lat": 42.78,
+        "lon": -7.414
+      },
+      "text": "111 km from Santiago. Most popular starting point for the minimum 100 km Compostela requirement."
+    }
+  ],
+  "marks": [
+    {
+      "id": "wp-osm-accommodation-node2461996906",
+      "kind": "bed",
+      "name": "Albergue Refugio del Oribio",
+      "at": {
+        "lat": 42.756506,
+        "lon": -7.239064
+      },
+      "frac": 0,
+      "offLineMeters": 57.8
+    },
+    {
+      "id": "wp-osm-food-node3979070147",
+      "kind": "food",
+      "name": "Cafe O Escondite",
+      "at": {
+        "lat": 42.756077,
+        "lon": -7.236224
+      },
+      "frac": 0,
+      "offLineMeters": 242
+    },
+    {
+      "id": "wp-osm-accommodation-node3979055204",
+      "kind": "bed",
+      "name": "Pensión Fernández",
+      "at": {
+        "lat": 42.75636,
+        "lon": -7.240714
+      },
+      "frac": 0.006894662746676802,
+      "offLineMeters": 49
+    },
+    {
+      "id": "wp-osm-accommodation-node471708567",
+      "kind": "bed",
+      "name": "Albergue-pensión Complexo Xacobeo",
+      "at": {
+        "lat": 42.75586,
+        "lon": -7.240796
+      },
+      "frac": 0.007484990874213845,
+      "offLineMeters": 6
+    },
+    {
+      "id": "wp-osm-accommodation-node2461976651",
+      "kind": "bed",
+      "name": "Albergue Aitzenea",
+      "at": {
+        "lat": 42.756127,
+        "lon": -7.241865
+      },
+      "frac": 0.011595773683966172,
+      "offLineMeters": 32
+    },
+    {
+      "id": "wp-osm-accommodation-node2461987176",
+      "kind": "bed",
+      "name": "Albergue Berce do Camiño",
+      "at": {
+        "lat": 42.755633,
+        "lon": -7.242599
+      },
+      "frac": 0.016009740086791405,
+      "offLineMeters": 12.1
+    },
+    {
+      "id": "wp-osm-accommodation-node12155914737",
+      "kind": "bed",
+      "name": "Hotel Alda Triacastela",
+      "at": {
+        "lat": 42.755264,
+        "lon": -7.243049
+      },
+      "frac": 0.018946605863694947,
+      "offLineMeters": 6.6
+    },
+    {
+      "id": "wp-osm-water_source-node6455058359",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.754682,
+        "lon": -7.243773
+      },
+      "frac": 0.021633423929478524,
+      "offLineMeters": 50.1
+    },
+    {
+      "id": "wp-osm-accommodation-node2462014206",
+      "kind": "bed",
+      "name": "Albergue Ecologico el Beso",
+      "at": {
+        "lat": 42.766098,
+        "lon": -7.25372
+      },
+      "frac": 0.11224842587416783,
+      "offLineMeters": 1.3
+    },
+    {
+      "id": "wp-osm-water_source-node2750752769",
+      "kind": "water",
+      "name": "Fonte dos Lameirós",
+      "at": {
+        "lat": 42.768712,
+        "lon": -7.265357
+      },
+      "frac": 0.1827326311935587,
+      "offLineMeters": 10.4
+    },
+    {
+      "id": "wp-osm-water_source-node5740956386",
+      "kind": "water",
+      "name": "Fonte do Chafarico",
+      "at": {
+        "lat": 42.766358,
+        "lon": -7.296686
+      },
+      "frac": 0.35952105244462373,
+      "offLineMeters": 8.6
+    },
+    {
+      "id": "wp-osm-food-node3145857648",
+      "kind": "food",
+      "name": "Casa do Campo",
+      "at": {
+        "lat": 42.767302,
+        "lon": -7.30853
+      },
+      "frac": 0.4208057048716058,
+      "offLineMeters": 81.8
+    },
+    {
+      "id": "wp-osm-food-node3737355625",
+      "kind": "food",
+      "name": "Casa Cines",
+      "at": {
+        "lat": 42.773998,
+        "lon": -7.339705
+      },
+      "frac": 0.6225613298080933,
+      "offLineMeters": 5
+    },
+    {
+      "id": "wp-osm-accommodation-node766652489",
+      "kind": "bed",
+      "name": "Albergue de peregrinos de Calvor",
+      "at": {
+        "lat": 42.773704,
+        "lon": -7.355482
+      },
+      "frac": 0.6994974770281107,
+      "offLineMeters": 14.6
+    },
+    {
+      "id": "wp-osm-water_source-node5848486710",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.772157,
+        "lon": -7.358358
+      },
+      "frac": 0.7148506053849792,
+      "offLineMeters": 170.4
+    },
+    {
+      "id": "wp-osm-food-node4602517464",
+      "kind": "food",
+      "name": "Valle Aguiada",
+      "at": {
+        "lat": 42.772609,
+        "lon": -7.362671
+      },
+      "frac": 0.7352747177188954,
+      "offLineMeters": 104.3
+    },
+    {
+      "id": "wp-osm-accommodation-node766652268",
+      "kind": "bed",
+      "name": "Albergue Paloma y Leña",
+      "at": {
+        "lat": 42.773622,
+        "lon": -7.370354
+      },
+      "frac": 0.769720525656417,
+      "offLineMeters": 41.4
+    },
+    {
+      "id": "wp-osm-water_source-node2719886649",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.775884,
+        "lon": -7.402701
+      },
+      "frac": 0.9253051428000286,
+      "offLineMeters": 10
+    },
+    {
+      "id": "wp-osm-accommodation-node2463796845",
+      "kind": "bed",
+      "name": "Albergue A Pedra",
+      "at": {
+        "lat": 42.775748,
+        "lon": -7.40432
+      },
+      "frac": 0.9330390747426832,
+      "offLineMeters": 6.1
+    },
+    {
+      "id": "wp-osm-accommodation-node2475704507",
+      "kind": "bed",
+      "name": "Albergue Oasis",
+      "at": {
+        "lat": 42.775743,
+        "lon": -7.405292
+      },
+      "frac": 0.9373054849997275,
+      "offLineMeters": 18.8
+    },
+    {
+      "id": "wp-osm-food-node3713683925",
+      "kind": "food",
+      "name": "Contrapunto",
+      "at": {
+        "lat": 42.775934,
+        "lon": -7.406857
+      },
+      "frac": 0.9447840542634913,
+      "offLineMeters": 18.7
+    },
+    {
+      "id": "wp-osm-accommodation-node3060601761",
+      "kind": "bed",
+      "name": "Albergue Alma do Camino",
+      "at": {
+        "lat": 42.776521,
+        "lon": -7.407345
+      },
+      "frac": 0.9459130802335087,
+      "offLineMeters": 92.5
+    },
+    {
+      "id": "wp-osm-food-node12365146867",
+      "kind": "food",
+      "name": "Rosyl",
+      "at": {
+        "lat": 42.776828,
+        "lon": -7.408242
+      },
+      "frac": 0.9476255225522202,
+      "offLineMeters": 148.9
+    },
+    {
+      "id": "wp-osm-food-node12775709627",
+      "kind": "food",
+      "name": "O Recuncho",
+      "at": {
+        "lat": 42.777448,
+        "lon": -7.40836
+      },
+      "frac": 0.9476255225522202,
+      "offLineMeters": 215.6
+    },
+    {
+      "id": "wp-osm-accommodation-node12797991165",
+      "kind": "bed",
+      "name": "Barullo",
+      "at": {
+        "lat": 42.775438,
+        "lon": -7.407575
+      },
+      "frac": 0.9492096158741017,
+      "offLineMeters": 0.1
+    },
+    {
+      "id": "wp-osm-water_source-node768281844",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.774823,
+        "lon": -7.408092
+      },
+      "frac": 0.9533340635495184,
+      "offLineMeters": 20.4
+    },
+    {
+      "id": "wp-osm-accommodation-node3218426261",
+      "kind": "bed",
+      "name": "Albergue Credencial",
+      "at": {
+        "lat": 42.774816,
+        "lon": -7.409337
+      },
+      "frac": 0.9572459228090915,
+      "offLineMeters": 38.6
+    },
+    {
+      "id": "wp-osm-accommodation-node12797991163",
+      "kind": "bed",
+      "name": "Baixo a Lúa",
+      "at": {
+        "lat": 42.775283,
+        "lon": -7.408994
+      },
+      "frac": 0.958466348222845,
+      "offLineMeters": 14.2
+    },
+    {
+      "id": "wp-osm-accommodation-node12797991183",
+      "kind": "bed",
+      "name": "Pensión Rúa Peregrino",
+      "at": {
+        "lat": 42.775997,
+        "lon": -7.40962
+      },
+      "frac": 0.9624079461528919,
+      "offLineMeters": 47.9
+    },
+    {
+      "id": "wp-osm-water_source-node5754222529",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.773666,
+        "lon": -7.411332
+      },
+      "frac": 0.9694368355044358,
+      "offLineMeters": 230.2
+    },
+    {
+      "id": "wp-osm-accommodation-node3218426161",
+      "kind": "bed",
+      "name": "Albergue Puente Ribeira",
+      "at": {
+        "lat": 42.775908,
+        "lon": -7.411255
+      },
+      "frac": 0.9705091432589862,
+      "offLineMeters": 3.4
+    },
+    {
+      "id": "wp-osm-food-node12318692054",
+      "kind": "food",
+      "name": "D'Orixen",
+      "at": {
+        "lat": 42.777557,
+        "lon": -7.408959
+      },
+      "frac": 0.9757455243776028,
+      "offLineMeters": 196.1
+    },
+    {
+      "id": "wp-osm-food-node5050385127",
+      "kind": "food",
+      "name": "A Arrincadeira",
+      "at": {
+        "lat": 42.778561,
+        "lon": -7.408688
+      },
+      "frac": 0.9757455243776028,
+      "offLineMeters": 285.2
+    },
+    {
+      "id": "wp-osm-supply-node6045510287",
+      "kind": "supply",
+      "name": "Shopping China",
+      "at": {
+        "lat": 42.778045,
+        "lon": -7.410091
+      },
+      "frac": 0.9757455243776028,
+      "offLineMeters": 172.6
+    },
+    {
+      "id": "wp-osm-food-node5050385124",
+      "kind": "food",
+      "name": "Santiago",
+      "at": {
+        "lat": 42.777137,
+        "lon": -7.411459
+      },
+      "frac": 0.9779876816604794,
+      "offLineMeters": 38
+    },
+    {
+      "id": "wp-osm-food-node5895818273",
+      "kind": "food",
+      "name": "Cafetería España",
+      "at": {
+        "lat": 42.779303,
+        "lon": -7.411361
+      },
+      "frac": 0.9779876816604794,
+      "offLineMeters": 278.8
+    },
+    {
+      "id": "wp-osm-medical-node3492718018",
+      "kind": "medical",
+      "name": "Farmacia López Vázquez",
+      "at": {
+        "lat": 42.77884,
+        "lon": -7.411239
+      },
+      "frac": 0.9779876816604794,
+      "offLineMeters": 228
+    },
+    {
+      "id": "wp-osm-water_source-node5050385128",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.777927,
+        "lon": -7.411064
+      },
+      "frac": 0.9779876816604794,
+      "offLineMeters": 130
+    },
+    {
+      "id": "wp-osm-food-node12426255447",
+      "kind": "food",
+      "name": "Atlántico",
+      "at": {
+        "lat": 42.774552,
+        "lon": -7.413563
+      },
+      "frac": 0.9839365713120451,
+      "offLineMeters": 203.2
+    },
+    {
+      "id": "wp-osm-food-node5046774659",
+      "kind": "food",
+      "name": "Casa del barrio",
+      "at": {
+        "lat": 42.775833,
+        "lon": -7.412218
+      },
+      "frac": 0.9839365713120451,
+      "offLineMeters": 27.4
+    },
+    {
+      "id": "wp-osm-accommodation-node12426255474",
+      "kind": "bed",
+      "name": "Hotel Villa de Sarria",
+      "at": {
+        "lat": 42.775531,
+        "lon": -7.413148
+      },
+      "frac": 0.9853658544892511,
+      "offLineMeters": 95.5
+    },
+    {
+      "id": "wp-osm-food-node3730497525",
+      "kind": "food",
+      "name": "Ateneo",
+      "at": {
+        "lat": 42.77715,
+        "lon": -7.4125
+      },
+      "frac": 0.9900770356484166,
+      "offLineMeters": 50
+    },
+    {
+      "id": "wp-osm-food-node3730491130",
+      "kind": "food",
+      "name": "Kinley",
+      "at": {
+        "lat": 42.777821,
+        "lon": -7.412768
+      },
+      "frac": 0.9933541966487999,
+      "offLineMeters": 101.9
+    },
+    {
+      "id": "wp-osm-accommodation-node2463740652",
+      "kind": "bed",
+      "name": "Pensión Escalinata",
+      "at": {
+        "lat": 42.777234,
+        "lon": -7.413733
+      },
+      "frac": 0.9951996989364071,
+      "offLineMeters": 5
+    },
+    {
+      "id": "wp-osm-accommodation-node12834509346",
+      "kind": "bed",
+      "name": "Casa da Marquesa",
+      "at": {
+        "lat": 42.77795,
+        "lon": -7.413566
+      },
+      "frac": 0.9955628811742523,
+      "offLineMeters": 83.4
+    },
+    {
+      "id": "wp-osm-water_source-node6461872532",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.779044,
+        "lon": -7.413326
+      },
+      "frac": 0.9955628811742523,
+      "offLineMeters": 206.3
+    },
+    {
+      "id": "wp-osm-accommodation-node12833773302",
+      "kind": "bed",
+      "name": "Aqua Rooms Sarria",
+      "at": {
+        "lat": 42.777103,
+        "lon": -7.41432
+      },
+      "frac": 0.9974913594887813,
+      "offLineMeters": 17.8
+    },
+    {
+      "id": "wp-osm-accommodation-node2463735473",
+      "kind": "bed",
+      "name": "Albergue Xunta de Sarria",
+      "at": {
+        "lat": 42.777469,
+        "lon": -7.414903
+      },
+      "frac": 1,
+      "offLineMeters": 16.6
+    },
+    {
+      "id": "wp-osm-accommodation-node3218422962",
+      "kind": "bed",
+      "name": "Albergue Matías Locanda Italiana",
+      "at": {
+        "lat": 42.776901,
+        "lon": -7.417102
+      },
+      "frac": 1,
+      "offLineMeters": 203.7
+    },
+    {
+      "id": "wp-osm-food-node12834509340",
+      "kind": "food",
+      "name": "Plaza",
+      "at": {
+        "lat": 42.779763,
+        "lon": -7.414986
+      },
+      "frac": 1,
+      "offLineMeters": 261.2
+    },
+    {
+      "id": "wp-osm-food-node5050385129",
+      "kind": "food",
+      "name": "Gran Camino",
+      "at": {
+        "lat": 42.777477,
+        "lon": -7.415551
+      },
+      "frac": 1,
+      "offLineMeters": 68.9
+    },
+    {
+      "id": "wp-osm-food-node538374222",
+      "kind": "food",
+      "name": "Mesón O Tapas",
+      "at": {
+        "lat": 42.777089,
+        "lon": -7.416545
+      },
+      "frac": 1,
+      "offLineMeters": 154.3
+    }
+  ],
+  "stage": {
+    "routeId": "camino-frances",
+    "index": 27,
+    "count": 33,
+    "name": "Triacastela to Sarria",
+    "theme": "Threshold of Completion",
+    "narrative": "Sarria is 111 km from Santiago — just over the 100 km minimum for the Compostela. Thousands of new pilgrims start here, and the trail suddenly fills with fresh faces, clean gear, and fast paces. For those who started in SJPP, this can feel jarring. The quiet intimacy of the meseta and mountains gives way to a crowded path. The Camino asks: can you hold your experience without needing others to validate it?",
+    "closing": "Does someone else's shorter journey diminish yours?",
+    "warnings": [],
+    "distanceKm": 17.8,
+    "gainMeters": 350,
+    "hours": {
+      "min": 4,
+      "max": 6
+    },
+    "difficulty": "moderate",
+    "start": {
+      "name": "Triacastela",
+      "at": {
+        "lat": 42.756,
+        "lon": -7.239
+      }
+    },
+    "end": {
+      "name": "Sarria",
+      "at": {
+        "lat": 42.78,
+        "lon": -7.414
+      }
+    }
+  }
+}

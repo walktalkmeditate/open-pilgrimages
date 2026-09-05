@@ -99,8 +99,13 @@ test("isRecognizedCdnRef accepts a released semver tag", () => {
   assert.ok(isRecognizedCdnRef("v1.6.0"));
 });
 
-test("isRecognizedCdnRef rejects a branch name", () => {
-  assert.ok(!isRecognizedCdnRef("main"));
+test("isRecognizedCdnRef accepts main — the ref the app reads its catalog from", () => {
+  assert.ok(isRecognizedCdnRef("main"));
+});
+
+test("isRecognizedCdnRef rejects any other branch name", () => {
+  assert.ok(!isRecognizedCdnRef("feat/ways-build"));
+  assert.ok(!isRecognizedCdnRef("latest"));
 });
 
 test("isRecognizedCdnRef rejects a bare major-version-only ref that isn't the current moving tag", () => {
