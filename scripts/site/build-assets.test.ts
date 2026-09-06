@@ -1,8 +1,9 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { existsSync, readFileSync } from "fs";
+import { existsSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from "fs";
+import { tmpdir } from "os";
 import { join } from "path";
-import { buildAssets } from "./build-assets.js";
+import { buildAssets, buildPilgrimagePages } from "./build-assets.js";
 
 const ROOT = join(import.meta.dirname, "..", "..");
 const ASSETS = join(ROOT, "docs", "assets");
@@ -57,4 +58,52 @@ test("every route with stats gets a sparkline and every route a profile", () => 
   assert.equal(counts.sparklines >= 7, true);
   assert.ok(existsSync(join(ASSETS, "profiles", "camino-primitivo.svg")));
   assert.ok(existsSync(join(ASSETS, "sparklines", "camino-frances.svg")));
+});
+
+test("a page is written for each pilgrimage, listing its sections in order", () => {
+  const root = mkdtempSync(join(tmpdir(), "build-assets-test-"));
+  try {
+    mkdirSync(join(root, "docs"), { recursive: true });
+    writeFileSync(
+      join(root, "index.json"),
+      JSON.stringify({
+        pilgrimages: [
+          { id: "kumano-kodo", name: { en: "Kumano Kodō" }, kind: "alternatives", sections: ["kumano-kodo-nakahechi", "kumano-kodo-kohechi"] },
+        ],
+        routes: [
+          { id: "kumano-kodo-nakahechi", name: { en: "Nakahechi" }, distanceKm: 70, pilgrimage: "kumano-kodo" },
+          { id: "kumano-kodo-kohechi", name: { en: "Kohechi" }, distanceKm: 70, pilgrimage: "kumano-kodo" },
+        ],
+      }),
+    );
+
+    const written = buildPilgrimagePages(root);
+
+    assert.deepEqual(written, [join(root, "docs", "kumano-kodo.html")]);
+    const html = readFileSync(written[0], "utf8");
+    assert.match(html, /Kumano Kodō/);
+    assert.ok(
+      html.indexOf('href="/kumano-kodo-nakahechi"') < html.indexOf('href="/kumano-kodo-kohechi"'),
+      "sections appear in the order the index lists them",
+    );
+    // The kind is the only thing that tells a reader whether these two links
+    // are choices or legs, so the page has to say which.
+    assert.match(html, /Each section below is its own way to the same destination/);
+    // No other route's metadata rides along in the head.
+    assert.match(html, /<link rel="canonical" href="https:\/\/open\.pilgrimag\.es\/kumano-kodo">/);
+    assert.equal(html.includes("camino-frances"), false);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("no pilgrimages means no pages", () => {
+  const root = mkdtempSync(join(tmpdir(), "build-assets-test-"));
+  try {
+    mkdirSync(join(root, "docs"), { recursive: true });
+    writeFileSync(join(root, "index.json"), JSON.stringify({ routes: [] }));
+    assert.deepEqual(buildPilgrimagePages(root), []);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
 });

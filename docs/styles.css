@@ -376,6 +376,11 @@ nav .nav-github svg {
   margin: var(--space-xl) 0;
 }
 
+.route-group {
+  display: grid;
+  gap: var(--space-lg);
+}
+
 .route-card {
   border: 1px solid var(--fog);
   border-radius: 4px;

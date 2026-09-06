@@ -8,6 +8,8 @@
   var cards = [].slice.call(grid.querySelectorAll(".route-card[data-days]"));
   if (cards.length === 0) return;
 
+  var groups = [].slice.call(grid.querySelectorAll(".route-group"));
+
   var daysInput = document.getElementById("filter-days");
   var distanceInput = document.getElementById("filter-distance");
   var difficultySelect = document.getElementById("filter-difficulty");
@@ -94,6 +96,17 @@
       card.hidden = !match;
       if (match) visible += 1;
     });
+
+    // A group heading with every card under it hidden announces a section
+    // that is not there. The heading is not a card and has no data-days, so
+    // nothing above would have hidden it.
+    groups.forEach(function (group) {
+      var cardsInGroup = [].slice.call(group.querySelectorAll(".route-card[data-days]"));
+      group.hidden = cardsInGroup.every(function (card) {
+        return card.hidden;
+      });
+    });
+
     renderStatus(visible);
   }
 
