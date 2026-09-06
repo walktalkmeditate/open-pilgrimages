@@ -1091,7 +1091,6 @@ In `scripts/validate.ts`:
 
 ```ts
 export function validateSectionChain(root: string, dirs: string[], errors: ValidationError[]): void {
-  void root; // Kept for signature parity with the sibling validators.
   const declared: { routeId: string; dir: string; block: PilgrimageBlock; circular: boolean }[] = [];
 
   for (const dir of dirs) {
@@ -1102,7 +1101,9 @@ export function validateSectionChain(root: string, dirs: string[], errors: Valid
     try {
       block = readPilgrimage(meta);
     } catch {
-      return; // validatePilgrimages already reported the malformed block.
+      // validatePilgrimages already reported this block; skip the section
+      // rather than the run, so one bad file cannot hide every other gap.
+      continue;
     }
     if (!block || block.kind !== "legs") continue;
     declared.push({
@@ -1125,7 +1126,7 @@ export function validateSectionChain(root: string, dirs: string[], errors: Valid
       const gap = haversineMeters(ends[i].last.end.coordinates, ends[i + 1].first.start.coordinates);
       if (gap > SNAP_METERS) {
         errors.push({
-          file: `pilgrimage:${id}`,
+          file: relative(root, ends[i].section.dir),
           message:
             `section "${ends[i].section.routeId}" ends at "${ends[i].last.end.name}" but ` +
             `"${ends[i + 1].section.routeId}" begins at "${ends[i + 1].first.start.name}", ${Math.round(gap)} m away`,
@@ -1139,7 +1140,7 @@ export function validateSectionChain(root: string, dirs: string[], errors: Valid
       const closing = haversineMeters(ends[ends.length - 1].last.end.coordinates, ends[0].first.start.coordinates);
       if (closing > SNAP_METERS) {
         errors.push({
-          file: `pilgrimage:${id}`,
+          file: relative(root, ends[0].section.dir),
           message:
             `the circuit does not close: "${ends[ends.length - 1].last.end.name}" is ` +
             `${Math.round(closing)} m from "${ends[0].first.start.name}"`,
@@ -1151,7 +1152,7 @@ export function validateSectionChain(root: string, dirs: string[], errors: Valid
 }
 ```
 
-Import `SNAP_METERS` and `haversineMeters` from `./ways/geo.js`. Use the file's existing stage type for `Stage`; if none is exported, inline `{ index: number; start: { name: string; coordinates: [number, number] }; end: { name: string; coordinates: [number, number] } }`.
+Import `SNAP_METERS` and `haversineMeters` from `./ways/geo.js`, and `relative` from `node:path` if not already imported. Use the file's existing stage type for `Stage`; if none is exported, inline `{ index: number; start: { name: string; coordinates: [number, number] }; end: { name: string; coordinates: [number, number] } }`.
 
 Call it from `main()` directly after `validatePilgrimages(ROOT, dirs, errors);`.
 
