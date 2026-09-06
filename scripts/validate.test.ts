@@ -1,9 +1,16 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { mkdtempSync, mkdirSync, writeFileSync, rmSync } from "fs";
+import { mkdtempSync, mkdirSync, writeFileSync, rmSync, readFileSync } from "fs";
 import { tmpdir } from "os";
 import { join } from "path";
-import { createValidator, validateWalkedLine, validateWays, type ValidationError } from "./validate.js";
+import {
+  createValidator,
+  validateWalkedLine,
+  validateWays,
+  validatePilgrimages,
+  validateFile,
+  type ValidationError,
+} from "./validate.js";
 import { SNAP_METERS } from "./ways/geo.js";
 
 const ROOT = join(import.meta.dirname, "..");
@@ -455,4 +462,122 @@ test("the committed Camino Francés walked line still reaches every one of its a
   const errors: ValidationError[] = [];
   validateWalkedLine(join(ROOT, "routes", "camino-frances"), errors);
   assert.deepEqual(errors, []);
+});
+
+test("sections of one pilgrimage may not disagree on kind", () => {
+  const root = mkdtempSync(join(tmpdir(), "validate-pilgrimage-test-"));
+  try {
+    const a = join(root, "routes", "one");
+    const b = join(root, "routes", "two");
+    mkdirSync(a, { recursive: true });
+    mkdirSync(b, { recursive: true });
+    const block = { id: "kumano-kodo", name: { en: "Kumano Kodō" }, order: 1 };
+    writeJson(join(a, "metadata.json"), { id: "one", pilgrimage: { ...block, kind: "legs" } });
+    writeJson(join(b, "metadata.json"), { id: "two", pilgrimage: { ...block, kind: "alternatives", order: 2 } });
+
+    const errors: ValidationError[] = [];
+    validatePilgrimages(root, [a, b], errors);
+
+    assert.equal(errors.length, 1);
+    assert.match(errors[0].message, /kumano-kodo/);
+    assert.match(errors[0].message, /kind/);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("two sections may not claim the same order in one pilgrimage", () => {
+  const root = mkdtempSync(join(tmpdir(), "validate-pilgrimage-test-"));
+  try {
+    const a = join(root, "routes", "one");
+    const b = join(root, "routes", "two");
+    mkdirSync(a, { recursive: true });
+    mkdirSync(b, { recursive: true });
+    const block = { id: "kumano-kodo", name: { en: "Kumano Kodō" }, kind: "alternatives", order: 1 };
+    writeJson(join(a, "metadata.json"), { id: "one", pilgrimage: block });
+    writeJson(join(b, "metadata.json"), { id: "two", pilgrimage: block });
+
+    const errors: ValidationError[] = [];
+    validatePilgrimages(root, [a, b], errors);
+
+    assert.equal(errors.length, 1);
+    assert.match(errors[0].message, /order 1/);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("a route with no pilgrimage block raises nothing", () => {
+  const root = mkdtempSync(join(tmpdir(), "validate-pilgrimage-test-"));
+  try {
+    const a = join(root, "routes", "one");
+    mkdirSync(a, { recursive: true });
+    writeJson(join(a, "metadata.json"), { id: "one" });
+    const errors: ValidationError[] = [];
+    validatePilgrimages(root, [a], errors);
+    assert.deepEqual(errors, []);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+/**
+ * The real Camino Francés metadata, so the schema's eight other required
+ * root fields are satisfied by data the repo already validates and these
+ * two tests can say something about the pilgrimage and osm blocks alone.
+ */
+function metadataFixture(extra: Record<string, unknown>): Record<string, unknown> {
+  const base = JSON.parse(
+    readFileSync(join(ROOT, "routes", "camino-frances", "metadata.json"), "utf-8"),
+  ) as Record<string, unknown>;
+  return { ...base, ...extra };
+}
+
+test("the schema accepts a well-formed pilgrimage block and pinned relations", () => {
+  const root = mkdtempSync(join(tmpdir(), "validate-schema-test-"));
+  try {
+    const path = join(root, "metadata.json");
+    writeJson(
+      path,
+      metadataFixture({
+        pilgrimage: { id: "camino-de-santiago", name: { en: "Camino de Santiago" }, kind: "alternatives", order: 1 },
+        osm: { relations: [2163569] },
+      }),
+    );
+
+    const errors: ValidationError[] = [];
+    validateFile(createValidator(), "pilgrimage.schema.json", path, errors);
+
+    assert.deepEqual(errors, []);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("the schema refuses a third kind and an osm.relations that pins nothing", () => {
+  const root = mkdtempSync(join(tmpdir(), "validate-schema-test-"));
+  try {
+    const kindPath = join(root, "kind.json");
+    writeJson(
+      kindPath,
+      metadataFixture({
+        pilgrimage: { id: "camino-de-santiago", name: { en: "Camino de Santiago" }, kind: "chain", order: 1 },
+      }),
+    );
+    const emptyPath = join(root, "empty.json");
+    writeJson(emptyPath, metadataFixture({ osm: { relations: [] } }));
+
+    const ajv = createValidator();
+    const kindErrors: ValidationError[] = [];
+    const relationErrors: ValidationError[] = [];
+    validateFile(ajv, "pilgrimage.schema.json", kindPath, kindErrors);
+    validateFile(ajv, "pilgrimage.schema.json", emptyPath, relationErrors);
+
+    // readPilgrimage refuses both; the schema has to refuse them too, or one
+    // of the two gates would let a file through the other stops.
+    assert.ok(kindErrors.length > 0, `"chain" is not one of the two kinds`);
+    assert.ok(relationErrors.length > 0, "an empty relations array pins nothing");
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
 });

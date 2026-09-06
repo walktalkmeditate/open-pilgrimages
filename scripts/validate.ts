@@ -1,10 +1,11 @@
 import Ajv2020 from "ajv/dist/2020.js";
 import addFormats from "ajv-formats";
 import { readFileSync, existsSync, readdirSync, statSync } from "fs";
-import { join, relative } from "path";
+import { basename, join, relative } from "path";
 import { resolveInvokedPath } from "./cli.js";
 import { nearestVertex, walkedLine, SNAP_METERS } from "./ways/geo.js";
 import type { Position } from "./ways/types.js";
+import { readPilgrimage, groupSections, type PilgrimageBlock } from "./pilgrimage.js";
 
 type Ajv = InstanceType<typeof Ajv2020>;
 
@@ -64,7 +65,7 @@ export function createValidator() {
   return ajv;
 }
 
-function validateFile(
+export function validateFile(
   ajv: Ajv,
   schemaName: string,
   filePath: string,
@@ -406,6 +407,51 @@ export function validateWalkedLine(routeDir: string, errors: ValidationError[]):
   }
 }
 
+export function validatePilgrimages(root: string, dirs: string[], errors: ValidationError[]): void {
+  const declared: { routeId: string; dir: string; block: PilgrimageBlock }[] = [];
+
+  for (const dir of dirs) {
+    const metaPath = join(dir, "metadata.json");
+    if (!existsSync(metaPath)) continue;
+    const meta = loadJson(metaPath) as { id?: string };
+    try {
+      const block = readPilgrimage(meta);
+      if (block) declared.push({ routeId: meta.id ?? basename(dir), dir, block });
+    } catch (error) {
+      errors.push({
+        file: relative(root, metaPath),
+        message: error instanceof Error ? error.message : String(error),
+        severity: "error",
+      });
+    }
+  }
+
+  for (const id of groupSections(declared.map(({ routeId, block }) => ({ routeId, block }))).keys()) {
+    const members = declared.filter((d) => d.block.id === id);
+    // One pilgrimage, one identity: build-index derives a single entry from
+    // whichever section it reads first, so disagreement would be silent.
+    for (const field of ["kind", "name"] as const) {
+      const values = new Set(members.map((m) => JSON.stringify(m.block[field])));
+      if (values.size > 1) {
+        errors.push({
+          file: `pilgrimage:${id}`,
+          message: `sections of "${id}" declare conflicting ${field}: ${[...values].join(" vs ")}`,
+          severity: "error",
+        });
+      }
+    }
+    const orders = members.map((m) => m.block.order);
+    const duplicate = orders.find((o, i) => orders.indexOf(o) !== i);
+    if (duplicate !== undefined) {
+      errors.push({
+        file: `pilgrimage:${id}`,
+        message: `two sections of "${id}" claim order ${duplicate}`,
+        severity: "error",
+      });
+    }
+  }
+}
+
 function main() {
   const ajv = createValidator();
   const errors: ValidationError[] = [];
@@ -432,6 +478,8 @@ function main() {
 
     validateDataConsistency(dir, errors);
   }
+
+  validatePilgrimages(ROOT, routeDirs, errors);
 
   const errs = errors.filter((e) => e.severity === "error");
   const warns = errors.filter((e) => e.severity === "warning");
