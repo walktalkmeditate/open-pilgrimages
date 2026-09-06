@@ -525,6 +525,43 @@ export function validateSectionChain(root: string, dirs: string[], errors: Valid
   }
 }
 
+const FENCE_LINE = /^(`{3,}|~{3,})/;
+const INDENTED_CODE_LINE = /^(?: {4,}|\t)/;
+
+/**
+ * Per spec section 6, docs/review/<id>.md quotes each stage's drafted text
+ * verbatim, so a line shaped like "- [x] stage N" can appear inside that
+ * quoted prose without anyone having reviewed anything. Both the "mentioned"
+ * and "ticked" checks below read this filtered view instead of the raw file
+ * so a quote buried in a fence, blockquote, or indented aside can never
+ * masquerade as a real checklist entry.
+ */
+function topLevelChecklistLines(checklist: string): string {
+  const kept: string[] = [];
+  let fenceMarker: string | null = null;
+
+  for (const line of checklist.split("\n")) {
+    const trimmed = line.trimStart();
+
+    if (fenceMarker !== null) {
+      if (trimmed.startsWith(fenceMarker)) fenceMarker = null;
+      continue;
+    }
+
+    if (INDENTED_CODE_LINE.test(line) || trimmed.startsWith(">")) continue;
+
+    const fenceOpen = FENCE_LINE.exec(trimmed);
+    if (fenceOpen) {
+      fenceMarker = fenceOpen[1];
+      continue;
+    }
+
+    kept.push(line);
+  }
+
+  return kept.join("\n");
+}
+
 /**
  * The gate is at merge, not at tagging: release.md Phase 2b requires the tag
  * to follow the merge immediately, so a slow review would leave @main naming
@@ -550,7 +587,7 @@ export function validateDraftedText(root: string, dirs: string[], errors: Valida
 
     const checklistPath = join(root, "docs", "review", `${routeId}.md`);
     if (!existsSync(checklistPath)) continue;
-    const checklist = readFileSync(checklistPath, "utf8");
+    const checklist = topLevelChecklistLines(readFileSync(checklistPath, "utf8"));
     for (const stage of stages) {
       if (stage.drafted === true) continue;
       const mentioned = new RegExp(`^\\s*- \\[[ x]\\] stage ${stage.index}\\b`, "m").test(checklist);
