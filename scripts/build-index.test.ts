@@ -145,6 +145,9 @@ test("ignores a previous generatedAt timestamp when other fields are identical",
     schemaVersion: first.schemaVersion,
     release: first.release,
     generatedAt: "1999-01-01T00:00:00.000Z",
+    // Carried forward so "other fields are identical" stays true regardless
+    // of whether the live routes/ tree currently declares any pilgrimages.
+    pilgrimages: first.pilgrimages,
     routes: first.routes,
   };
   const second = buildIndex(ROUTES, sameContent, () => NEW, ROOT, RELEASE);
