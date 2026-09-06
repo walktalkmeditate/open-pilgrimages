@@ -3,7 +3,7 @@ import addFormats from "ajv-formats";
 import { readFileSync, existsSync, readdirSync, statSync } from "fs";
 import { basename, join, relative } from "path";
 import { resolveInvokedPath } from "./cli.js";
-import { nearestVertex, walkedLine, SNAP_METERS } from "./ways/geo.js";
+import { nearestVertex, walkedLine, haversineMeters, SNAP_METERS } from "./ways/geo.js";
 import type { Position } from "./ways/types.js";
 import { readPilgrimage, groupSections, type PilgrimageBlock } from "./pilgrimage.js";
 
@@ -452,6 +452,79 @@ export function validatePilgrimages(root: string, dirs: string[], errors: Valida
   }
 }
 
+interface ChainStage {
+  index: number;
+  start: { name: { en: string }; coordinates: [number, number] };
+  end: { name: { en: string }; coordinates: [number, number] };
+}
+
+/**
+ * A `legs` pilgrimage is one walk cut into sections that ship as separate
+ * routes; nothing else checks that section N+1 actually starts where N left
+ * off. `alternatives` pilgrimages have no such seam — a walker picks one
+ * section, not all of them — so only `legs` blocks are chained here.
+ */
+export function validateSectionChain(root: string, dirs: string[], errors: ValidationError[]): void {
+  const declared: { routeId: string; dir: string; block: PilgrimageBlock; circular: boolean }[] = [];
+
+  for (const dir of dirs) {
+    const metaPath = join(dir, "metadata.json");
+    if (!existsSync(metaPath) || !existsSync(join(dir, "stages.json"))) continue;
+    const meta = loadJson(metaPath) as { id?: string; overview?: { topology?: string } };
+    let block: PilgrimageBlock | undefined;
+    try {
+      block = readPilgrimage(meta);
+    } catch {
+      // validatePilgrimages already reported this block; skip the section
+      // rather than the run, so one bad file cannot hide every other gap.
+      continue;
+    }
+    if (!block || block.kind !== "legs") continue;
+    declared.push({
+      routeId: meta.id ?? basename(dir),
+      dir,
+      block,
+      circular: meta.overview?.topology === "circular",
+    });
+  }
+
+  for (const [, { routeIds }] of groupSections(declared.map(({ routeId, block }) => ({ routeId, block })))) {
+    const ordered = routeIds.map((routeId) => declared.find((d) => d.routeId === routeId)!);
+    const ends = ordered.map((section) => {
+      const stages = (loadJson(join(section.dir, "stages.json")) as { stages: ChainStage[] }).stages;
+      const sorted = [...stages].sort((a, b) => a.index - b.index);
+      return { section, first: sorted[0], last: sorted[sorted.length - 1] };
+    });
+
+    for (let i = 0; i < ends.length - 1; i++) {
+      const gap = haversineMeters(ends[i].last.end.coordinates, ends[i + 1].first.start.coordinates);
+      if (gap > SNAP_METERS) {
+        errors.push({
+          file: relative(root, ends[i].section.dir),
+          message:
+            `section "${ends[i].section.routeId}" ends at "${ends[i].last.end.name.en}" but ` +
+            `"${ends[i + 1].section.routeId}" begins at "${ends[i + 1].first.start.name.en}", ${Math.round(gap)} m away`,
+          severity: "error",
+        });
+      }
+    }
+
+    // A circuit the route claims but never walks is the gap this catches.
+    if (ends.length > 0 && ends.every((e) => e.section.circular)) {
+      const closing = haversineMeters(ends[ends.length - 1].last.end.coordinates, ends[0].first.start.coordinates);
+      if (closing > SNAP_METERS) {
+        errors.push({
+          file: relative(root, ends[0].section.dir),
+          message:
+            `the circuit does not close: "${ends[ends.length - 1].last.end.name.en}" is ` +
+            `${Math.round(closing)} m from "${ends[0].first.start.name.en}"`,
+          severity: "error",
+        });
+      }
+    }
+  }
+}
+
 function main() {
   const ajv = createValidator();
   const errors: ValidationError[] = [];
@@ -480,6 +553,7 @@ function main() {
   }
 
   validatePilgrimages(ROOT, routeDirs, errors);
+  validateSectionChain(ROOT, routeDirs, errors);
 
   const errs = errors.filter((e) => e.severity === "error");
   const warns = errors.filter((e) => e.severity === "warning");
