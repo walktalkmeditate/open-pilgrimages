@@ -11,6 +11,12 @@
     "fr": "Chemin du Nord",
     "ja": "北の道"
   },
+  "pilgrimage": {
+    "id": "camino-de-santiago",
+    "name": { "en": "Camino de Santiago", "es": "Camino de Santiago" },
+    "kind": "alternatives",
+    "order": 2
+  },
   "description": {
     "en": "The coastal Camino de Santiago along the Bay of Biscay from Irún on the French border, through the Basque Country, Cantabria, Asturias, and into Galicia where it joins the Camino Francés at Arzúa for the final approach to Santiago de Compostela. Approximately 784 km in 34 native stages plus a 39 km shared run on the Francés to Santiago (~820 km total Irún → Santiago per Cicerone). Among the oldest Caminos — walked when inland Iberia was under Moorish control and the Atlantic coast remained the safer Christian corridor. The longest non-Francés Camino and the only major Camino that stays within sight of the sea for most of its length. UNESCO inscribed in 2015 as part of the Routes of Northern Spain extension.",
     "es": "El Camino de Santiago costero desde Irún por el Cantábrico a través del País Vasco, Cantabria, Asturias y Galicia, uniéndose al Camino Francés en Arzúa.",

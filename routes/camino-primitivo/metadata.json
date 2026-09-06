@@ -10,6 +10,12 @@
     "gl": "Camiño Primitivo",
     "ja": "プリミティーボの道"
   },
+  "pilgrimage": {
+    "id": "camino-de-santiago",
+    "name": { "en": "Camino de Santiago", "es": "Camino de Santiago" },
+    "kind": "alternatives",
+    "order": 3
+  },
   "description": {
     "en": "The original Camino — the route walked by King Alfonso II of Asturias from Oviedo to Santiago in 814 CE shortly after the discovery of the apostle's tomb. The most physically demanding of the major Caminos, crossing the Asturian and Galician mountains via the high Hospitales/Puerto del Palo route (1,146 m), through the walled Roman city of Lugo, before joining the Camino Francés at Melide for the final descent to Santiago. UNESCO inscribed (2015 Northern Spain extension to the 1993 Camino Francés inscription).",
     "es": "El Camino original — la ruta caminada por el rey Alfonso II de Asturias desde Oviedo hasta Santiago en 814, poco después del descubrimiento del sepulcro del apóstol. El más exigente físicamente de los Caminos principales.",

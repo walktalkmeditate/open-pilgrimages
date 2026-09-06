@@ -10,6 +10,12 @@
     "gl": "Camiño Portugués (Central)",
     "ja": "ポルトガル人の道（中央ルート）"
   },
+  "pilgrimage": {
+    "id": "camino-de-santiago",
+    "name": { "en": "Camino de Santiago", "es": "Camino de Santiago" },
+    "kind": "alternatives",
+    "order": 5
+  },
   "description": {
     "en": "The second most-walked route to Santiago de Compostela, traversing the Minho region of northern Portugal before crossing the Miño river border at Tui and continuing through Galicia. Walked since the 12th century. Shorter, flatter, and less crowded than the Camino Francés, with a distinctive sequence of Romanesque churches, medieval stone villages, and the iconic river-crossing from Portugal into Spain.",
     "pt": "A segunda rota mais percorrida até Santiago de Compostela, atravessando a região do Minho no norte de Portugal antes de cruzar o rio Minho em Tui e continuar pela Galiza.",

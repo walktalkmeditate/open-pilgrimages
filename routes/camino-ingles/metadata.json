@@ -9,6 +9,12 @@
     "gl": "Camiño Inglés",
     "ja": "イギリス人の道"
   },
+  "pilgrimage": {
+    "id": "camino-de-santiago",
+    "name": { "en": "Camino de Santiago", "es": "Camino de Santiago" },
+    "kind": "alternatives",
+    "order": 4
+  },
   "description": {
     "en": "The shortest of the major Caminos to Santiago de Compostela, walked since the medieval period by English, Irish, Scandinavian, and Flemish pilgrims who arrived by sea at the Galician ports of Ferrol and A Coruña. The standard route from Ferrol covers approximately 112 km along the Ría de Ferrol coast, through the medieval Gothic town of Betanzos, over the Bruma highlands, and down into Santiago. Modern revival began in earnest in the 2000s; in 2025 over 30,000 pilgrims walked it.",
     "gl": "O camiño máis curto a Santiago de Compostela polo norte, percorrido desde a Idade Media por peregrinos ingleses, irlandeses, escandinavos e flamengos que chegaban por mar aos portos galegos de Ferrol e A Coruña.",

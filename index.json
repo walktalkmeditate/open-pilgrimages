@@ -1,7 +1,24 @@
 {
   "schemaVersion": "1.0.0",
   "release": "v1.7.0",
-  "generatedAt": "2026-09-05T14:25:57.590Z",
+  "generatedAt": "2026-09-06T20:09:39.479Z",
+  "pilgrimages": [
+    {
+      "id": "camino-de-santiago",
+      "name": {
+        "en": "Camino de Santiago",
+        "es": "Camino de Santiago"
+      },
+      "kind": "alternatives",
+      "sections": [
+        "camino-frances",
+        "camino-norte",
+        "camino-primitivo",
+        "camino-ingles",
+        "camino-portugues"
+      ]
+    }
+  ],
   "routes": [
     {
       "id": "camino-frances",
@@ -18,6 +35,7 @@
       "topology": "linear",
       "tradition": "christian",
       "path": "routes/camino-frances",
+      "pilgrimage": "camino-de-santiago",
       "ways": {
         "stageCount": 33,
         "bytes": 1049489,
@@ -39,6 +57,7 @@
       "topology": "linear",
       "tradition": "christian",
       "path": "routes/camino-ingles",
+      "pilgrimage": "camino-de-santiago",
       "variants": [
         {
           "id": "a-coruna",
@@ -67,7 +86,8 @@
       "distanceKm": 784,
       "topology": "linear",
       "tradition": "christian",
-      "path": "routes/camino-norte"
+      "path": "routes/camino-norte",
+      "pilgrimage": "camino-de-santiago"
     },
     {
       "id": "camino-portugues",
@@ -84,6 +104,7 @@
       "topology": "linear",
       "tradition": "christian",
       "path": "routes/camino-portugues",
+      "pilgrimage": "camino-de-santiago",
       "variants": [
         {
           "id": "coastal",
@@ -134,7 +155,8 @@
       "distanceKm": 263,
       "topology": "linear",
       "tradition": "christian",
-      "path": "routes/camino-primitivo"
+      "path": "routes/camino-primitivo",
+      "pilgrimage": "camino-de-santiago"
     },
     {
       "id": "kumano-kodo",
