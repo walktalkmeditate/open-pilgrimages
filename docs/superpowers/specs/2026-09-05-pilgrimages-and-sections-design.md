@@ -125,7 +125,7 @@ Each content PR carries `docs/review/<id>.md` — the pilgrimage id, or the sect
 
 The gate is at merge, not at tagging. `validate` fails when any stage in `routes/*/stages.json` carries `"drafted": true`, so drafted text never reaches `main` and review happens on the content PR against its checklist, before merge. A release-runbook gate cannot do this job: `release.md` Phase 2b requires the tag to follow the merge immediately, so a slow review would leave `@main/index.json` naming a release tag that does not exist — and because `PilgrimageCatalogService.packageURL` builds every route's package URL from that one global `release` field, the whole catalog, the Camino included, would stop downloading.
 
-Clearing the flag is checked too. The same gate reads `docs/review/<id>.md` alongside the stage files: a stage the checklist lists whose `"drafted": true` is gone must carry a recorded reviewed mark there, so the flag cannot be stripped in one pass without a review being recorded.
+Clearing the flag is checked too. The same gate reads `docs/review/<id>.md` alongside the stage files: a stage the checklist lists whose `"drafted": true` is gone must carry a recorded reviewed mark there, so the flag cannot be stripped in one pass without a review being recorded. Only a line at the top level of the checklist counts as that mark: a checkbox inside a code fence or a blockquote does not, because the checklist quotes the drafted text verbatim and the guarded prose must not be able to satisfy its own gate.
 
 ## 7. Testing
 
