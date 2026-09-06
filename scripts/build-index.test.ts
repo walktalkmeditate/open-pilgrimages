@@ -13,6 +13,7 @@ import {
 import { tmpdir } from "os";
 import { execFileSync } from "child_process";
 import { buildIndex, scanRoutes, readPrevious, releaseTag, waysEntry, type RouteIndex } from "./build-index.js";
+import { createValidator, validateFile, type ValidationError } from "./validate.js";
 
 const ROOT = join(import.meta.dirname, "..");
 const ROUTES = join(ROOT, "routes");
@@ -20,6 +21,8 @@ const ROUTES = join(ROOT, "routes");
 interface RouteFixture {
   dirName: string;
   id: string;
+  /** Merged over minimalMetadata(id) — what a section's pilgrimage block rides in on. */
+  metadata?: Record<string, unknown>;
 }
 
 function minimalMetadata(id: string): Record<string, unknown> {
@@ -35,7 +38,10 @@ function writeRouteFixtures(routesDir: string, fixtures: RouteFixture[]): void {
   for (const fixture of fixtures) {
     const routeDir = join(routesDir, fixture.dirName);
     mkdirSync(routeDir);
-    writeFileSync(join(routeDir, "metadata.json"), JSON.stringify(minimalMetadata(fixture.id)));
+    writeFileSync(
+      join(routeDir, "metadata.json"),
+      JSON.stringify({ ...minimalMetadata(fixture.id), ...fixture.metadata }),
+    );
   }
 }
 
@@ -63,7 +69,7 @@ function createTempScriptRepo(fixtures: RouteFixture[]): {
 
   const scriptsDir = join(dir, "scripts");
   mkdirSync(scriptsDir);
-  for (const name of ["build-index.ts", "cli.ts", "region.ts"]) {
+  for (const name of ["build-index.ts", "cli.ts", "region.ts", "pilgrimage.ts"]) {
     cpSync(join(ROOT, "scripts", name), join(scriptsDir, name));
   }
   // main() reads this for releaseTag(): a script-repo fixture with no version
@@ -406,4 +412,109 @@ test("the committed index.json names the version package.json is at", () => {
     `v${pkg.version}`,
     "index.json is stale — run npm run build-index and commit the result",
   );
+});
+
+const KUMANO = { id: "kumano-kodo", name: { en: "Kumano Kodō" }, kind: "alternatives" };
+
+test("pilgrimages are derived from the sections that declare them", () => {
+  const { root, routesDir } = createTempRoutesDir([
+    { dirName: "one", id: "one", metadata: { pilgrimage: { ...KUMANO, order: 2 } } },
+    { dirName: "two", id: "two", metadata: { pilgrimage: { ...KUMANO, order: 1 } } },
+  ]);
+  try {
+    const index = buildIndex(routesDir, null, () => NEW, root, RELEASE);
+
+    assert.equal(index.pilgrimages?.length, 1);
+    assert.equal(index.pilgrimages?.[0].id, "kumano-kodo");
+    assert.deepEqual(index.pilgrimages?.[0].sections, ["two", "one"]);
+    assert.equal(index.routes.find((r) => r.id === "one")?.pilgrimage, "kumano-kodo");
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("a legs pilgrimage carries totals and an alternatives one does not", () => {
+  const shikoku = { id: "shikoku-88", name: { en: "Shikoku" }, kind: "legs" };
+  const { root, routesDir } = createTempRoutesDir([
+    { dirName: "awa", id: "awa", metadata: { pilgrimage: { ...shikoku, order: 1 } } },
+    { dirName: "tosa", id: "tosa", metadata: { pilgrimage: { ...shikoku, order: 2 } } },
+    { dirName: "norte", id: "norte", metadata: { pilgrimage: { ...KUMANO, order: 1 } } },
+  ]);
+  try {
+    const index = buildIndex(routesDir, null, () => NEW, root, RELEASE);
+    const legs = index.pilgrimages?.find((p) => p.id === "shikoku-88");
+    const alternatives = index.pilgrimages?.find((p) => p.id === "kumano-kodo");
+
+    // minimalMetadata gives every fixture overview.distanceKm = 1.
+    assert.equal(legs?.distanceKm, 2);
+    assert.equal(legs?.stageCount, 0);
+    assert.equal(alternatives?.distanceKm, undefined);
+    assert.equal(alternatives?.stageCount, undefined);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("a route with no pilgrimage block is left ungrouped", () => {
+  const { root, routesDir } = createTempRoutesDir([{ dirName: "lone", id: "lone" }]);
+  try {
+    const index = buildIndex(routesDir, null, () => NEW, root, RELEASE);
+    assert.equal(index.pilgrimages, undefined);
+    assert.equal(index.routes[0].pilgrimage, undefined);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("index.schema.json accepts pilgrimages[] and a route that names one", () => {
+  const root = mkdtempSync(join(tmpdir(), "build-index-schema-test-"));
+  try {
+    const base = JSON.parse(readFileSync(join(ROOT, "index.json"), "utf-8")) as RouteIndex;
+    const path = join(root, "index.json");
+    writeFileSync(
+      path,
+      JSON.stringify({
+        ...base,
+        pilgrimages: [
+          { id: "camino-de-santiago", name: { en: "Camino de Santiago" }, kind: "alternatives", sections: ["camino-frances"] },
+        ],
+        routes: base.routes.map((route) =>
+          route.id === "camino-frances" ? { ...route, pilgrimage: "camino-de-santiago" } : route,
+        ),
+      }),
+    );
+
+    const errors: ValidationError[] = [];
+    validateFile(createValidator(), "index.schema.json", path, errors);
+
+    assert.deepEqual(errors, []);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("index.schema.json refuses a third kind and a pilgrimage with no sections", () => {
+  const root = mkdtempSync(join(tmpdir(), "build-index-schema-test-"));
+  try {
+    const base = JSON.parse(readFileSync(join(ROOT, "index.json"), "utf-8")) as RouteIndex;
+    const write = (name: string, pilgrimage: Record<string, unknown>): string => {
+      const path = join(root, name);
+      writeFileSync(path, JSON.stringify({ ...base, pilgrimages: [pilgrimage] }));
+      return path;
+    };
+    const named = { id: "camino-de-santiago", name: { en: "Camino de Santiago" } };
+    const kindPath = write("kind.json", { ...named, kind: "chain", sections: ["camino-frances"] });
+    const emptyPath = write("empty.json", { ...named, kind: "alternatives", sections: [] });
+
+    const ajv = createValidator();
+    const kindErrors: ValidationError[] = [];
+    const sectionErrors: ValidationError[] = [];
+    validateFile(ajv, "index.schema.json", kindPath, kindErrors);
+    validateFile(ajv, "index.schema.json", emptyPath, sectionErrors);
+
+    assert.ok(kindErrors.length > 0, `"chain" is not one of the two kinds`);
+    assert.ok(sectionErrors.length > 0, "a pilgrimage with no sections groups nothing");
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
 });

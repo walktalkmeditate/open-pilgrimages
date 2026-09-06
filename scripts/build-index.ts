@@ -2,6 +2,7 @@ import { readFileSync, writeFileSync, existsSync, readdirSync, statSync } from "
 import { join, relative } from "path";
 import { byCodepoint, resolveInvokedPath } from "./cli.js";
 import { primaryCountry, regionOf } from "./region.js";
+import { readPilgrimage, groupSections, type PilgrimageBlock } from "./pilgrimage.js";
 
 const ROOT = join(import.meta.dirname, "..");
 
@@ -31,6 +32,7 @@ export interface RouteEntry {
   path: string;
   variants?: VariantEntry[];
   ways?: WaysEntry;
+  pilgrimage?: string;
 }
 
 /** What the app needs to size a download, and to say how curated it is. */
@@ -47,6 +49,7 @@ export interface RouteIndex {
   schemaVersion: string;
   release: string;
   generatedAt: string;
+  pilgrimages?: PilgrimageEntry[];
   routes: RouteEntry[];
 }
 
@@ -151,6 +154,9 @@ export function scanRoutes(routesDir: string, root: string): RouteEntry[] {
       path: relative(root, routeDir),
     };
 
+    const pilgrimage = readPilgrimage(meta);
+    if (pilgrimage) routeEntry.pilgrimage = pilgrimage.id;
+
     const variants = scanVariants(routeDir, root);
     if (variants.length > 0) {
       routeEntry.variants = variants;
@@ -165,6 +171,50 @@ export function scanRoutes(routesDir: string, root: string): RouteEntry[] {
   }
 
   return routes.sort(byIdThenPath);
+}
+
+export interface PilgrimageEntry {
+  id: string;
+  name: Record<string, string>;
+  kind: "legs" | "alternatives";
+  sections: string[];
+  distanceKm?: number;
+  stageCount?: number;
+}
+
+export function scanPilgrimages(routesDir: string): PilgrimageEntry[] {
+  const declared: { routeId: string; block: PilgrimageBlock; distanceKm: number; stageCount: number }[] = [];
+
+  for (const entry of readdirSync(routesDir)) {
+    const routeDir = join(routesDir, entry);
+    const metaPath = join(routeDir, "metadata.json");
+    if (!statSync(routeDir).isDirectory() || !existsSync(metaPath)) continue;
+    const meta = loadJson(metaPath);
+    const block = readPilgrimage(meta);
+    if (!block) continue;
+    const ways = waysEntry(routeDir);
+    declared.push({
+      routeId: meta.id,
+      block,
+      distanceKm: meta.overview?.distanceKm ?? 0,
+      stageCount: ways?.stageCount ?? 0,
+    });
+  }
+
+  const grouped = groupSections(declared.map(({ routeId, block }) => ({ routeId, block })));
+  return [...grouped.entries()]
+    .map(([id, { block, routeIds }]) => {
+      const members = declared.filter((d) => d.block.id === id);
+      const entry: PilgrimageEntry = { id, name: block.name, kind: block.kind, sections: routeIds };
+      // A walker walks one alternative, so a total across them describes no
+      // walk anyone takes; only a chained pilgrimage has a meaningful sum.
+      if (block.kind === "legs") {
+        entry.distanceKm = Number(members.reduce((sum, m) => sum + m.distanceKm, 0).toFixed(1));
+        entry.stageCount = members.reduce((sum, m) => sum + m.stageCount, 0);
+      }
+      return entry;
+    })
+    .sort((a, b) => a.id.localeCompare(b.id));
 }
 
 const SCHEMA_VERSION = "1.0.0";
@@ -191,6 +241,8 @@ export function buildIndex(
           routes: previous.routes,
         });
 
+  const pilgrimages = scanPilgrimages(routesDir);
+
   return {
     schemaVersion: SCHEMA_VERSION,
     release,
@@ -198,6 +250,7 @@ export function buildIndex(
       content === previousContent && typeof previous?.generatedAt === "string"
         ? previous.generatedAt
         : now(),
+    ...(pilgrimages.length > 0 ? { pilgrimages } : {}),
     routes,
   };
 }
