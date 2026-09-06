@@ -227,21 +227,29 @@ export function buildIndex(
   release: string,
 ): RouteIndex {
   const routes = scanRoutes(routesDir, root);
+  const pilgrimages = scanPilgrimages(routesDir);
 
   // Compare everything except the timestamp. Identical content keeps the old
   // stamp so re-running the generator is a genuine no-op and the CI drift
-  // check has something stable to diff against.
-  const content = JSON.stringify({ schemaVersion: SCHEMA_VERSION, release, routes });
+  // check has something stable to diff against. pilgrimages is normalized to
+  // undefined when empty on both sides, matching how it's only ever emitted
+  // (or read back) as a present, non-empty array — so "nobody declares one"
+  // never differs from itself as undefined vs. an absent key.
+  const content = JSON.stringify({
+    schemaVersion: SCHEMA_VERSION,
+    release,
+    pilgrimages: pilgrimages.length > 0 ? pilgrimages : undefined,
+    routes,
+  });
   const previousContent =
     previous === null
       ? null
       : JSON.stringify({
           schemaVersion: previous.schemaVersion,
           release: previous.release,
+          pilgrimages: previous.pilgrimages,
           routes: previous.routes,
         });
-
-  const pilgrimages = scanPilgrimages(routesDir);
 
   return {
     schemaVersion: SCHEMA_VERSION,

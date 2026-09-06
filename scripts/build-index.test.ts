@@ -37,7 +37,9 @@ function minimalMetadata(id: string): Record<string, unknown> {
 function writeRouteFixtures(routesDir: string, fixtures: RouteFixture[]): void {
   for (const fixture of fixtures) {
     const routeDir = join(routesDir, fixture.dirName);
-    mkdirSync(routeDir);
+    // recursive: true so a second call can overwrite an existing fixture's
+    // metadata.json in place, e.g. to change only its pilgrimage block.
+    mkdirSync(routeDir, { recursive: true });
     writeFileSync(
       join(routeDir, "metadata.json"),
       JSON.stringify({ ...minimalMetadata(fixture.id), ...fixture.metadata }),
@@ -461,6 +463,31 @@ test("a route with no pilgrimage block is left ungrouped", () => {
     const index = buildIndex(routesDir, null, () => NEW, root, RELEASE);
     assert.equal(index.pilgrimages, undefined);
     assert.equal(index.routes[0].pilgrimage, undefined);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("stamps a fresh generatedAt when a shared pilgrimage's name changes", () => {
+  const { root, routesDir } = createTempRoutesDir([
+    { dirName: "one", id: "one", metadata: { pilgrimage: { ...KUMANO, order: 2 } } },
+    { dirName: "two", id: "two", metadata: { pilgrimage: { ...KUMANO, order: 1 } } },
+  ]);
+  try {
+    const first = buildIndex(routesDir, null, () => OLD, root, RELEASE);
+
+    // Only the pilgrimage's own metadata changes here — neither route's own
+    // fields move at all — which is exactly what the comparison used to miss.
+    const renamed = { ...KUMANO, name: { en: "Kumano Kodō, renamed" } };
+    writeRouteFixtures(routesDir, [
+      { dirName: "one", id: "one", metadata: { pilgrimage: { ...renamed, order: 2 } } },
+      { dirName: "two", id: "two", metadata: { pilgrimage: { ...renamed, order: 1 } } },
+    ]);
+
+    const second = buildIndex(routesDir, first, () => NEW, root, RELEASE);
+
+    assert.equal(second.generatedAt, NEW);
+    assert.equal(second.pilgrimages?.[0].name.en, "Kumano Kodō, renamed");
   } finally {
     rmSync(root, { recursive: true, force: true });
   }
