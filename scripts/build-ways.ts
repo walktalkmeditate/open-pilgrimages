@@ -307,9 +307,9 @@ function buildRouteDirectory(routeDir: string, ajv: Ajv, failures: string[]): vo
   // — a package that would not decode on the phone — exits non-zero.
   if (!result.emitted) {
     const reasons = result.report.gate.reasons ?? [];
-    const chainNote = reasons.length > 0 ? `, ${reasons.length} break(s) in the stage chain` : "";
+    const reasonNote = reasons.length > 0 ? `, ${reasons.length} route-level reason(s)` : "";
     console.log(
-      `${metadata.id}: no package — ${result.report.gate.failing.length} stage(s) outside the gate${chainNote}`,
+      `${metadata.id}: no package — ${result.report.gate.failing.length} stage(s) outside the gate${reasonNote}`,
     );
     for (const index of result.report.gate.failing) {
       // A stalled, skipped stage leaves a gap in report.stages, so a failing

@@ -239,7 +239,7 @@ npm run build-ways && npm run build-index && git status --porcelain routes index
 ```
 Expected: `build-ways` prints its usual per-route summary; `git status` shows no change under `routes/camino-frances/`, and may show `gate.reasons` updates to `shikoku-88`, `camino-norte`, and `kumano-kodo`'s `report.json` — nothing else. If `routes/camino-frances/ways/` changed, stop — the forward search altered a route the spec says builds byte-identically, and the cause needs understanding before continuing.
 
-Three routes may legitimately gain `gate.reasons` entries in their `ways/report.json`: `shikoku-88`, `camino-norte`, `kumano-kodo`. All three already fail the gate, so no package appears or disappears. Commit any such report changes with this task.
+Three routes' `ways/report.json` legitimately change: `shikoku-88`, `camino-norte`, and `kumano-kodo`. Expect more than a new `gate.reasons` entry — a forward-only search resolves their reversed anchors to different vertices, so per-stage slices, ratios, `boundaryMode`, and the derived coverage numbers move too, and a stalled stage drops out of `stages[]` entirely. All three already fail the gate, so no package appears or disappears; the numbers are rebuilt from scratch when each route gets its own walked line in PR B, C, or D. Commit the regenerated reports with this task.
 
 - [ ] **Step 8: Commit**
 
