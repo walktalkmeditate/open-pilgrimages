@@ -15,6 +15,7 @@
 - Every commit message ends with the trailer `Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>`.
 - Comments explain why, never what. No comment restates the line below it.
 - `npm test` runs `node --import tsx --test "scripts/**/*.test.ts"`. Every task ends with it green, plus `npx tsc --noEmit` clean.
+- Green beats scope. When a task's change turns an earlier task's test red, fix that test in the same task as a separate commit and say so in the report — a data-only task may touch a test for this reason and no other. Fix the cause, never the assertion.
 - The committed `routes/` and `index.json` must equal what `npm run build-ways && npm run build-index` emit. CI checks this with `git status --porcelain`. If a task changes emitted output, regenerate and commit the data in the same task.
 - `npm run check-site` must end "Site is in sync with route data" before any task that touched `docs/`, `README.md`, or `index.json` is committed.
 - Coordinates are `[longitude, latitude]`. Distances in the dataset are kilometres; `SNAP_METERS` and `offMeters` are metres.
