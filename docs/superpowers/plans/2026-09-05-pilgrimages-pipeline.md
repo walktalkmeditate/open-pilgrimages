@@ -215,7 +215,9 @@ Guard the cut loop at lines 125-127 so it does not run when a stall was found:
 
 ```ts
   for (const stage of input.stages) {
-    if (boundaryStalls.length > 0) break;
+    // A stalled pair is skipped, not the whole route: the other stages still
+    // get measured, so the coverage report still says what to fix.
+    if (boundaries[stage.index + 1].index <= boundaries[stage.index].index) continue;
     const from = boundaries[stage.index].index;
     const to = boundaries[stage.index + 1].index;
 ```
