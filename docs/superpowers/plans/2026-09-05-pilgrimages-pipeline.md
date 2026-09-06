@@ -856,7 +856,7 @@ In `buildIndex` (lines 172-203), call it and attach the result only when non-emp
   if (pilgrimages.length > 0) index.pilgrimages = pilgrimages;
 ```
 
-Place the assignment so `pilgrimages` sits before `routes` in the emitted object, and leave the `generatedAt` idempotency logic untouched.
+Place the assignment so `pilgrimages` sits before `routes` in the emitted object, and widen the `generatedAt` idempotency comparison to cover `pilgrimages` as well — a route entry carries only its pilgrimage's id, so a change confined to a pilgrimage's `name`, `kind`, or section order would otherwise rewrite the file while the timestamp claimed nothing moved. Two builds that declare no pilgrimage at all must still compare equal.
 
 - [ ] **Step 4: Extend the index schema**
 
