@@ -423,3 +423,26 @@ test("a route that loses an input file leaves no stale package behind", () => {
     rmSync(dir, { recursive: true, force: true });
   }
 });
+
+test("a stage whose anchors land on one point fails the gate and emits nothing", () => {
+  const result = build({
+    stages: [
+      {
+        index: 0,
+        name: { en: "There and back" },
+        start: { name: { en: "Ryōzen-ji" }, coordinates: [0, 0] },
+        end: { name: { en: "Ryōzen-ji again" }, coordinates: [0, 0] },
+        distanceKm: 1.1,
+      },
+    ],
+  });
+
+  assert.equal(result.emitted, false);
+  assert.equal(result.report.gate.passed, false);
+  assert.match(
+    (result.report.gate.reasons ?? []).join("\n"),
+    /both anchors land on the same point of the walked line/,
+  );
+  assert.match((result.report.gate.reasons ?? []).join("\n"), /Ryōzen-ji/);
+  assert.equal(result.ways.length, 0);
+});

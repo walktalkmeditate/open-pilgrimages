@@ -83,10 +83,15 @@ export function lineLengthMeters(line: Position[]): number {
   return total;
 }
 
-export function nearestVertex(line: Position[], p: Position): { index: number; meters: number } {
-  let index = 0;
+export function nearestVertex(
+  line: Position[],
+  p: Position,
+  fromIndex = 0,
+): { index: number; meters: number } {
+  const start = Math.max(0, Math.min(fromIndex, line.length - 1));
+  let index = start;
   let meters = Infinity;
-  for (let i = 0; i < line.length; i++) {
+  for (let i = start; i < line.length; i++) {
     const d = haversineMeters(line[i], p);
     if (d < meters) {
       meters = d;
@@ -128,13 +133,17 @@ export function stageBoundaries(
   let declaredSoFar = 0;
 
   for (let i = 0; i < anchors.length; i++) {
-    const found = nearestVertex(line, anchors[i]);
+    // Each boundary is searched forward of the one before it. A line that
+    // passes a place twice would otherwise snap a stage's end behind its
+    // start, and the slice between them would be empty or reversed.
+    const searchFrom = i === 0 ? 0 : boundaries[i - 1].index;
+    const found = nearestVertex(line, anchors[i], searchFrom);
     if (found.meters <= snapMeters || totalDeclaredMeters === 0) {
       boundaries.push({ index: found.index, offMeters: found.meters, mode: "snap" });
     } else {
       const along = (declaredSoFar / totalDeclaredMeters) * totalLineMeters;
       boundaries.push({
-        index: indexAtMeters(cumulative, along),
+        index: Math.max(indexAtMeters(cumulative, along), searchFrom),
         offMeters: found.meters,
         mode: "proportional",
       });

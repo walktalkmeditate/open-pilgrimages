@@ -119,12 +119,24 @@ export function buildRouteWays(input: RouteWaysInput): RouteWaysResult {
     input.stages.map((s) => s.distanceKm),
   );
 
+  // A boundary that does not advance means an empty slice: the anchors
+  // resolved to one point of the line. Report it and cut nothing, rather
+  // than handing routePoints a slice with no vertices.
+  const boundaryStalls = input.stages
+    .filter((stage) => boundaries[stage.index + 1].index <= boundaries[stage.index].index)
+    .map(
+      (stage) =>
+        `stage ${stage.index} runs from "${stage.start.name.en}" to "${stage.end.name.en}", ` +
+        `but both anchors land on the same point of the walked line`,
+    );
+
   const ways: WayFile[] = [];
   const reportStages: ReportStageInput[] = [];
 
   for (const stage of input.stages) {
-    const from = Math.min(boundaries[stage.index].index, boundaries[stage.index + 1].index);
-    const to = Math.max(boundaries[stage.index].index, boundaries[stage.index + 1].index);
+    if (boundaryStalls.length > 0) break;
+    const from = boundaries[stage.index].index;
+    const to = boundaries[stage.index + 1].index;
 
     // Round last: the app measures the rounded line, so the build must too.
     const slice = roundLine(
@@ -188,7 +200,7 @@ export function buildRouteWays(input: RouteWaysInput): RouteWaysResult {
     },
     stages: reportStages,
     dropped: routeDropped,
-    gateReasons: chainBreaks,
+    gateReasons: [...chainBreaks, ...boundaryStalls],
   });
 
   return {

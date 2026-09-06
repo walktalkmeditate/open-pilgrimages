@@ -198,3 +198,38 @@ test("the fixture's three stages measure what the plan says they measure", () =>
   assert.ok(Math.abs(measured[2] - 1.111949) < 1e-4, `${measured[2]}`);
   assert.deepEqual(measured.map((m, k) => withinGate(m, declared[k])), [true, true, false]);
 });
+
+test("a boundary is searched forward of the one before it", () => {
+  // A line that runs east to (0.03,0), doubles back west to (0.01,0), then
+  // strikes east again. The middle anchor sits where the line has already
+  // been: on the whole line its nearest vertex is index 1, behind the first
+  // anchor's index 3, so the stage between them would be cut backwards.
+  const line: Position[] = [
+    [0, 0], [0.01, 0], [0.02, 0], [0.03, 0], [0.02, 0], [0.01, 0], [0.04, 0],
+  ];
+  const cumulative = cumulativeMeters(line);
+  const anchors: Position[] = [[0.03, 0], [0.01, 0], [0.04, 0]];
+  const boundaries = stageBoundaries(line, cumulative, anchors, [1.1, 2.2]);
+
+  assert.deepEqual(
+    boundaries.map((b) => b.index),
+    [3, 5, 6],
+    "the middle anchor must snap to the second time the line passes it",
+  );
+});
+
+test("nearestVertex ignores everything before fromIndex", () => {
+  const line: Position[] = [[0, 0], [0.01, 0], [0.02, 0]];
+  assert.equal(nearestVertex(line, [0, 0]).index, 0);
+  assert.equal(nearestVertex(line, [0, 0], 2).index, 2);
+});
+
+test("a proportional boundary never falls behind its predecessor", () => {
+  const line: Position[] = [[0, 0], [0.01, 0], [0.02, 0], [0.03, 0]];
+  const cumulative = cumulativeMeters(line);
+  // The second anchor is 200 km off the line, so it takes the proportional
+  // branch; its declared share puts it behind the first boundary.
+  const anchors: Position[] = [[0.03, 0], [2, 0]];
+  const boundaries = stageBoundaries(line, cumulative, anchors, [100]);
+  assert.ok(boundaries[1].index >= boundaries[0].index);
+});
