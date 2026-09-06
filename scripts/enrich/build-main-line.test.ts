@@ -1,6 +1,8 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { readFileSync } from "node:fs";
+import { readFileSync, mkdtempSync, mkdirSync, writeFileSync, rmSync } from "node:fs";
+import { join } from "node:path";
+import { tmpdir } from "node:os";
 import {
   buildWayGraph,
   nearestGraphNode,
@@ -8,6 +10,7 @@ import {
   mainLine,
   refuseIncompleteLine,
   relationsFrom,
+  requireRelations,
 } from "./build-main-line.js";
 import type { Position } from "../ways/types.js";
 
@@ -190,4 +193,37 @@ test("main calls the guard, and calls it before writing the line", () => {
   assert.ok(guard > 0, "main() never calls refuseIncompleteLine");
   assert.ok(write > 0, "main() never writes route.main.geojson");
   assert.ok(guard < write, "the line is written before the gaps are checked");
+});
+
+test("a section with only an osm.query is refused", () => {
+  const root = mkdtempSync(join(tmpdir(), "main-line-test-"));
+  try {
+    const dir = join(root, "routes", "kumano-kodo");
+    mkdirSync(dir, { recursive: true });
+    writeFileSync(
+      join(dir, "metadata.json"),
+      JSON.stringify({ id: "kumano-kodo", name: { en: "Kumano Kodō" }, osm: { query: 'relation["name"~"熊野古道"]' } }),
+    );
+    writeFileSync(join(dir, "stages.json"), JSON.stringify({ stages: [] }));
+
+    assert.throws(() => requireRelations(dir, "kumano-kodo"), /kumano-kodo/);
+    assert.throws(() => requireRelations(dir, "kumano-kodo"), /osm\.relations/);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("a section with pinned relations passes", () => {
+  const root = mkdtempSync(join(tmpdir(), "main-line-test-"));
+  try {
+    const dir = join(root, "routes", "camino-frances");
+    mkdirSync(dir, { recursive: true });
+    writeFileSync(
+      join(dir, "metadata.json"),
+      JSON.stringify({ id: "camino-frances", name: { en: "Camino Francés" }, osm: { relations: [2163569] } }),
+    );
+    assert.deepEqual(requireRelations(dir, "camino-frances"), [2163569]);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
 });

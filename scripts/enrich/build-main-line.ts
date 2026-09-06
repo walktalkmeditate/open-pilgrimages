@@ -256,6 +256,25 @@ function extractWays(relations: OsmRelation[]): Position[][] {
   return ways;
 }
 
+/**
+ * A name query pulls in every spur and variant that shares the trail's name —
+ * Shikoku's 4,020 km line came from 89 such relations. The walked line is cut
+ * from the section's own trail, so the relations are pinned or nothing runs.
+ */
+export function requireRelations(routeDir: string, routeId: string): number[] {
+  const metadata = loadJson(join(routeDir, "metadata.json")) as {
+    osm?: { relations?: number[] };
+  };
+  const relations = metadata.osm?.relations;
+  if (!Array.isArray(relations) || relations.length === 0) {
+    throw new Error(
+      `${routeId}: metadata.json needs osm.relations to build a walked line. ` +
+        `A section whose relations cannot be pinned ships metadata-only with ways: null.`,
+    );
+  }
+  return relations;
+}
+
 async function main(): Promise<void> {
   const routeId = process.argv[2];
   if (!routeId) {
@@ -264,10 +283,7 @@ async function main(): Promise<void> {
   }
 
   const routeDir = join(ROOT, "routes", routeId);
-  const metadata = loadJson(join(routeDir, "metadata.json")) as {
-    name: { en: string };
-    osm?: { relations?: number[]; query?: string };
-  };
+  const metadata = loadJson(join(routeDir, "metadata.json")) as { name: { en: string } };
   const stagesPath = join(routeDir, "stages.json");
   if (!existsSync(stagesPath)) {
     console.error(`${routeId} has no stages.json, so there is nothing to anchor a walked line to.`);
@@ -281,12 +297,8 @@ async function main(): Promise<void> {
     end: { coordinates: Position };
   }>;
 
-  const relationIds: number[] | undefined = metadata.osm?.relations;
-  const query = relationIds ? buildRelationGeomQuery(relationIds) : metadata.osm?.query;
-  if (!query) {
-    console.error(`${routeId}'s metadata.json has no osm.relations or osm.query.`);
-    process.exit(1);
-  }
+  const relationIds = requireRelations(routeDir, routeId);
+  const query = buildRelationGeomQuery(relationIds);
 
   console.log(`Fetching member way geometry for ${routeId}…`);
   // geometry.ts builds this same query from this same metadata.osm config and

@@ -9,6 +9,7 @@ import {
   validateWays,
   validatePilgrimages,
   validateSectionChain,
+  validatePinnedRelations,
   validateFile,
   type ValidationError,
 } from "./validate.js";
@@ -463,6 +464,54 @@ test("the committed Camino Francés walked line still reaches every one of its a
   const errors: ValidationError[] = [];
   validateWalkedLine(join(ROOT, "routes", "camino-frances"), errors);
   assert.deepEqual(errors, []);
+});
+
+test("a shipped ways/ package with only an osm.query is refused", () => {
+  const { root, routeDir, waysDir } = makeFixtureRoute();
+  try {
+    writeJson(join(routeDir, "metadata.json"), { id: "fixture-route", osm: { query: 'relation["name"~"x"]' } });
+    writeJson(join(waysDir, "route.json"), validRouteCard("fixture-route", 1));
+
+    const errors: ValidationError[] = [];
+    validatePinnedRelations(root, [routeDir], errors);
+
+    assert.equal(errors.length, 1);
+    assert.match(errors[0].message, /fixture-route/);
+    assert.match(errors[0].message, /osm\.relations/);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("a shipped ways/ package with pinned relations raises nothing", () => {
+  const { root, routeDir, waysDir } = makeFixtureRoute();
+  try {
+    writeJson(join(routeDir, "metadata.json"), { id: "fixture-route", osm: { relations: [123] } });
+    writeJson(join(waysDir, "route.json"), validRouteCard("fixture-route", 1));
+
+    const errors: ValidationError[] = [];
+    validatePinnedRelations(root, [routeDir], errors);
+
+    assert.deepEqual(errors, []);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("a route whose ways/ holds only a report.json is not asked to pin relations", () => {
+  const { root, routeDir, waysDir } = makeFixtureRoute();
+  try {
+    // The shape a refused route leaves behind — shikoku-88 and kumano-kodo
+    // both look like this today, with no osm.relations pinned either.
+    writeJson(join(waysDir, "report.json"), validReport("fixture-route", 0));
+
+    const errors: ValidationError[] = [];
+    validatePinnedRelations(root, [routeDir], errors);
+
+    assert.deepEqual(errors, []);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
 });
 
 test("sections of one pilgrimage may not disagree on kind", () => {

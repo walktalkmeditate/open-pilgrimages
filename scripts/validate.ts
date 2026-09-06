@@ -525,6 +525,23 @@ export function validateSectionChain(root: string, dirs: string[], errors: Valid
   }
 }
 
+export function validatePinnedRelations(root: string, dirs: string[], errors: ValidationError[]): void {
+  for (const dir of dirs) {
+    const metaPath = join(dir, "metadata.json");
+    // ways/route.json, not ways/: a refused route still leaves a report.json
+    // behind, and a route with no walked line has nothing to pin.
+    if (!existsSync(metaPath) || !existsSync(join(dir, "ways", "route.json"))) continue;
+    const meta = loadJson(metaPath) as { id?: string; osm?: { relations?: number[] } };
+    if (!Array.isArray(meta.osm?.relations) || meta.osm.relations.length === 0) {
+      errors.push({
+        file: relative(root, metaPath),
+        message: `"${meta.id ?? basename(dir)}" has a ways/ package but no osm.relations to rebuild its walked line from`,
+        severity: "error",
+      });
+    }
+  }
+}
+
 function main() {
   const ajv = createValidator();
   const errors: ValidationError[] = [];
@@ -554,6 +571,7 @@ function main() {
 
   validatePilgrimages(ROOT, routeDirs, errors);
   validateSectionChain(ROOT, routeDirs, errors);
+  validatePinnedRelations(ROOT, routeDirs, errors);
 
   const errs = errors.filter((e) => e.severity === "error");
   const warns = errors.filter((e) => e.severity === "warning");
