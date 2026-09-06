@@ -396,19 +396,22 @@ function isIndexVariantShape(value: unknown): value is IndexVariantShape {
 
 interface IndexRouteShape {
   id: string;
+  pilgrimage?: string;
   variants?: IndexVariantShape[];
 }
 
 function isIndexRouteShape(value: unknown): value is IndexRouteShape {
   if (typeof value !== "object" || value === null) return false;
-  const route = value as { id?: unknown; variants?: unknown };
+  const route = value as { id?: unknown; pilgrimage?: unknown; variants?: unknown };
   if (typeof route.id !== "string") return false;
+  if (route.pilgrimage !== undefined && typeof route.pilgrimage !== "string") return false;
   if (route.variants === undefined) return true;
   return Array.isArray(route.variants) && route.variants.every(isIndexVariantShape);
 }
 
 interface IndexRoute {
   id: string;
+  pilgrimage?: string;
   variants: IndexVariantShape[];
 }
 
@@ -439,7 +442,29 @@ function readIndexRoutes(indexPath: string): IndexRoute[] {
     );
   }
 
-  return routes.map((route) => ({ id: route.id, variants: route.variants ?? [] }));
+  return routes.map((route) => ({
+    id: route.id,
+    pilgrimage: route.pilgrimage,
+    variants: route.variants ?? [],
+  }));
+}
+
+interface IndexPilgrimage {
+  id: string;
+  sections: string[];
+}
+
+/**
+ * readIndexRoutes has already thrown on a missing or malformed index.json by
+ * the time this runs, so this reader can parse without repeating those guards.
+ */
+function readIndexPilgrimages(indexPath: string): IndexPilgrimage[] {
+  const parsed = JSON.parse(readFileSync(indexPath, "utf-8")) as { pilgrimages?: unknown };
+  if (!Array.isArray(parsed.pilgrimages)) return [];
+  return parsed.pilgrimages.map((p: { id?: unknown; sections?: unknown }) => ({
+    id: String(p.id),
+    sections: Array.isArray(p.sections) ? p.sections : [],
+  }));
 }
 
 function isExternalOrAnchor(href: string): boolean {
@@ -479,8 +504,15 @@ export function checkSite(root: string, overrides: PageOverrides = {}): Problem[
     return existsSync(path) ? readFileSync(path, "utf-8") : "";
   };
 
-  const indexRoutes = readIndexRoutes(join(root, "index.json"));
+  const indexPath = join(root, "index.json");
+  const indexRoutes = readIndexRoutes(indexPath);
   const ids = indexRoutes.map((route) => route.id);
+  const routeIdSet = new Set(ids);
+  const pilgrimages = readIndexPilgrimages(indexPath);
+  const pilgrimageIds = new Set(pilgrimages.map((p) => p.id));
+  // A pilgrimage has no directory but does have a page, and both live in the
+  // same flat namespace under open.pilgrimag.es.
+  const pageIds = new Set([...routeIdSet, ...pilgrimageIds]);
   const stats = computeStats(root);
   const statsById = new Map(stats.routes.map((route) => [route.id, route]));
 
@@ -1073,6 +1105,28 @@ export function checkSite(root: string, overrides: PageOverrides = {}): Problem[
     }
   }
 
+  for (const id of pilgrimageIds) {
+    if (RESERVED_PAGE_NAMES.has(id)) {
+      add("index.json", `pilgrimage id "${id}" collides with a reserved page name`);
+    }
+    if (routeIdSet.has(id)) {
+      add("index.json", `"${id}" is claimed twice — it is both a pilgrimage and a route id`);
+    }
+  }
+  for (const pilgrimage of pilgrimages) {
+    if (pilgrimage.sections.length === 0) {
+      add("index.json", `pilgrimage "${pilgrimage.id}" has no sections`);
+    }
+  }
+  for (const route of indexRoutes) {
+    if (route.pilgrimage && !pilgrimageIds.has(route.pilgrimage)) {
+      add(
+        "index.json",
+        `route "${route.id}" names pilgrimage "${route.pilgrimage}", which is not in pilgrimages[]`,
+      );
+    }
+  }
+
   checkCoastalVariantGpx();
   checkRoadsAsset(
     COASTAL_VARIANT_ASSET_ID,
@@ -1093,7 +1147,7 @@ export function checkSite(root: string, overrides: PageOverrides = {}): Problem[
     for (const entry of readdirSync(docs)) {
       if (!entry.endsWith(".html")) continue;
       const stem = entry.slice(0, -".html".length);
-      if (RESERVED_PAGE_NAMES.has(stem) || ids.includes(stem)) continue;
+      if (RESERVED_PAGE_NAMES.has(stem) || pageIds.has(stem)) continue;
       add(
         `docs/${entry}`,
         `orphaned detail page — "${stem}" is not a route in index.json; delete this page or add the route back to index.json`,

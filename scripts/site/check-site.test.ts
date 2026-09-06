@@ -16,13 +16,20 @@ interface FixtureVariant {
 interface FixtureRoute {
   id: string;
   variants?: FixtureVariant[];
+  pilgrimage?: string;
 }
 
-function createFixtureRoot(indexRoutes: FixtureRoute[]): string {
+function createFixtureRoot(
+  indexRoutes: FixtureRoute[],
+  indexExtras: Record<string, unknown> = {},
+): string {
   const root = mkdtempSync(join(tmpdir(), "check-site-test-"));
   mkdirSync(join(root, "routes"));
   mkdirSync(join(root, "docs"), { recursive: true });
-  writeFileSync(join(root, "index.json"), JSON.stringify({ routes: indexRoutes }));
+  writeFileSync(
+    join(root, "index.json"),
+    JSON.stringify({ routes: indexRoutes, ...indexExtras }),
+  );
   return root;
 }
 
@@ -2263,4 +2270,66 @@ test("checkSite reports a bad CDN link in an overridden docs page (synthetic ind
         p.message.includes("does not exist in the repo"),
     ),
   );
+});
+
+
+test("a route naming a pilgrimage that does not exist is a problem", () => {
+  // #given a route's `pilgrimage` field names an id absent from pilgrimages[]
+  const root = createFixtureRoot([{ id: "awa", pilgrimage: "shikoku-88" }], { pilgrimages: [] });
+
+  try {
+    // #when / #then checkSite reports the route and the missing pilgrimage id together
+    const problems = checkSite(root);
+    assert.ok(problems.some((p) => /shikoku-88/.test(p.message) && /awa/.test(p.message)));
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("a pilgrimage with no sections is a problem", () => {
+  // #given a pilgrimage entry whose sections[] is empty
+  const root = createFixtureRoot([], { pilgrimages: [{ id: "shikoku-88", sections: [] }] });
+
+  try {
+    // #when / #then checkSite reports the pilgrimage id and the missing sections
+    const problems = checkSite(root);
+    assert.ok(problems.some((p) => /shikoku-88/.test(p.message) && /no sections/.test(p.message)));
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("a pilgrimage page is not an orphaned detail page", () => {
+  // #given a pilgrimage with a section, and both the section's and the pilgrimage's
+  // pages already exist under docs/
+  const root = createFixtureRoot(
+    [{ id: "awa", pilgrimage: "shikoku-88" }],
+    { pilgrimages: [{ id: "shikoku-88", sections: ["awa"] }] },
+  );
+  writeFileSync(join(root, "docs", "awa.html"), "");
+  writeFileSync(join(root, "docs", "shikoku-88.html"), "");
+
+  try {
+    // #when / #then neither page is flagged as an orphan
+    const problems = checkSite(root);
+    assert.equal(problems.filter((p) => /orphaned detail page/.test(p.message)).length, 0);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("a pilgrimage id may not collide with a route id", () => {
+  // #given the same id claimed by both a pilgrimage and a route
+  const root = createFixtureRoot(
+    [{ id: "awa", pilgrimage: "awa" }],
+    { pilgrimages: [{ id: "awa", sections: ["awa"] }] },
+  );
+
+  try {
+    // #when / #then checkSite reports the id as claimed twice
+    const problems = checkSite(root);
+    assert.ok(problems.some((p) => /awa/.test(p.message) && /claimed twice/.test(p.message)));
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
 });
