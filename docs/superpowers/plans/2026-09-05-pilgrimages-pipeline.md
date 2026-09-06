@@ -1999,4 +1999,6 @@ EOF
 
 PRs B, C, and D — the content work for Camino del Norte, Kumano Kodō, and Shikoku 88 — each get their own plan, written against this one's validators once it has merged. Nothing here renames a directory or adds a section; the renames land with the pilgrimage whose sections they belong to (spec §2.1, §9).
 
+Task 5's circular-close check gates on every section declaring `circular` in its own `overview.topology`, so sections that disagree skip the check silently. The fix that matches this repo's own pattern is to add `topology` to `validatePilgrimages`' existing conflicting-`kind`/`name` check, making disagreement an error; it is left for the PR that first ships a `legs` pilgrimage, since none exists to exercise it here.
+
 Spec §4.4 also lets `check-site` drop its coastal-only special cases "where the generic check covers them". Nothing in PR A turns a variant into a section, so the generic checks do not yet cover what those special cases cover, and removing them here would delete working checks with nothing in their place. It belongs to whichever PR first promotes a variant.
