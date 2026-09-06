@@ -150,6 +150,11 @@ function pilgrimagePage(
 ${items}
     </ul>
 
+    <div class="attribution">
+      <p>Contains information from OpenStreetMap, which is made available under the ODbL by the OpenStreetMap Foundation.<br>
+      &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>.</p>
+    </div>
+
     <footer>
       <p>Part of the <a href="https://pilgrimapp.org">Pilgrim</a> ecosystem. <a href="https://github.com/walktalkmeditate/open-pilgrimages">GitHub</a></p>
     </footer>
