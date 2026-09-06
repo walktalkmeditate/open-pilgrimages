@@ -53,14 +53,16 @@ export interface RouteWaysResult {
 export function buildRouteWays(input: RouteWaysInput): RouteWaysResult {
   const { routeId, stages } = input;
 
-  // Everything below indexes boundaries[] and report.stages[] by stage.index
-  // as a plain array subscript, on the assumption that a stage's declared
-  // index is also its position in the array. A stages.json with no `stages`
-  // key hands this an undefined; an empty one has no last stage for the
-  // anchors.push below to read; a gap or duplicate index would silently pair
-  // a stage with another stage's boundary. All three fail loud here instead
-  // of as a bare TypeError naming neither route nor file, or as a wrong
-  // package deep in the build.
+  // Everything below indexes boundaries[] by stage.index as a plain array
+  // subscript, on the assumption that a stage's declared index is also its
+  // position in the array. A stages.json with no `stages` key hands this an
+  // undefined; an empty one has no last stage for the anchors.push below to
+  // read; a gap or duplicate index would silently pair a stage with another
+  // stage's boundary. All three fail loud here instead of as a bare
+  // TypeError naming neither route nor file, or as a wrong package deep in
+  // the build. (The report's own stages array is different: a stalled stage
+  // is skipped, so its index can be missing from that array entirely —
+  // callers must look a stage up by its `index` field, never by position.)
   if (!Array.isArray(stages) || stages.length === 0) {
     throw new Error(`${routeId}: stages.json has no stages array to build from`);
   }
@@ -120,8 +122,9 @@ export function buildRouteWays(input: RouteWaysInput): RouteWaysResult {
   );
 
   // A boundary that does not advance means an empty slice: the anchors
-  // resolved to one point of the line. Report it and cut nothing, rather
-  // than handing routePoints a slice with no vertices.
+  // resolved to one point of the line. Report it and skip that stage alone,
+  // rather than handing routePoints a slice with no vertices — a stall in
+  // one stage says nothing about whether its neighbors' own anchors advance.
   const boundaryStalls = input.stages
     .filter((stage) => boundaries[stage.index + 1].index <= boundaries[stage.index].index)
     .map(
@@ -134,7 +137,7 @@ export function buildRouteWays(input: RouteWaysInput): RouteWaysResult {
   const reportStages: ReportStageInput[] = [];
 
   for (const stage of input.stages) {
-    if (boundaryStalls.length > 0) break;
+    if (boundaries[stage.index + 1].index <= boundaries[stage.index].index) continue;
     const from = boundaries[stage.index].index;
     const to = boundaries[stage.index + 1].index;
 
@@ -309,7 +312,10 @@ function buildRouteDirectory(routeDir: string, ajv: Ajv, failures: string[]): vo
       `${metadata.id}: no package — ${result.report.gate.failing.length} stage(s) outside the gate${chainNote}`,
     );
     for (const index of result.report.gate.failing) {
-      const stage = result.report.stages[index];
+      // A stalled, skipped stage leaves a gap in report.stages, so a failing
+      // index is no longer that array's position — find the stage that
+      // declares it instead of subscripting.
+      const stage = result.report.stages.find((s) => s.index === index)!;
       console.log(
         `    stage ${index} ("${stage.name}"): the walked line measures ` +
           `${stage.sliceKm.toFixed(2)} km against a declared ${stage.distanceKm} km`,

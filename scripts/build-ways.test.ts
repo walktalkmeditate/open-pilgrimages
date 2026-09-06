@@ -446,3 +446,33 @@ test("a stage whose anchors land on one point fails the gate and emits nothing",
   assert.match((result.report.gate.reasons ?? []).join("\n"), /Ryōzen-ji/);
   assert.equal(result.ways.length, 0);
 });
+
+test("a stalled stage is skipped alone; its neighbor still cuts and reports", () => {
+  const result = build({
+    stages: [
+      {
+        index: 0,
+        name: { en: "There and back" },
+        start: { name: { en: "Ryōzen-ji" }, coordinates: [0, 0] },
+        end: { name: { en: "Ryōzen-ji again" }, coordinates: [0, 0] },
+        distanceKm: 1.1,
+      },
+      {
+        index: 1,
+        name: { en: "Ryōzen-ji to End Town" },
+        start: { name: { en: "Ryōzen-ji again" }, coordinates: [0, 0] },
+        end: { name: { en: "End Town" }, coordinates: [0.02, 0.02] },
+        distanceKm: 4.2,
+      },
+    ],
+  });
+
+  assert.equal(result.emitted, false);
+  assert.equal(result.report.gate.passed, false);
+  assert.match((result.report.gate.reasons ?? []).join("\n"), /stage 0 runs from "Ryōzen-ji"/);
+  assert.equal(result.ways.length, 0);
+  assert.deepEqual(
+    result.report.stages.map((s) => s.index),
+    [1],
+  );
+});
