@@ -597,10 +597,10 @@ test("a gap between two legs sections is an error naming both", () => {
   const root = mkdtempSync(join(tmpdir(), "validate-chain-test-"));
   try {
     const a = sectionWithStages(root, "awa", legs(1), [
-      { index: 0, name: "d1", start: { name: "T1", coordinates: [0, 0] }, end: { name: "T23", coordinates: [0.1, 0] }, distanceKm: 11 },
+      { index: 0, name: "d1", start: { name: { en: "T1" }, coordinates: [0, 0] }, end: { name: { en: "T23" }, coordinates: [0.1, 0] }, distanceKm: 11 },
     ]);
     const b = sectionWithStages(root, "tosa", legs(2), [
-      { index: 0, name: "d1", start: { name: "T24", coordinates: [0.5, 0] }, end: { name: "T39", coordinates: [0.6, 0] }, distanceKm: 11 },
+      { index: 0, name: "d1", start: { name: { en: "T24" }, coordinates: [0.5, 0] }, end: { name: { en: "T39" }, coordinates: [0.6, 0] }, distanceKm: 11 },
     ]);
 
     const errors: ValidationError[] = [];
@@ -609,6 +609,10 @@ test("a gap between two legs sections is an error naming both", () => {
     assert.equal(errors.length, 1);
     assert.match(errors[0].message, /awa/);
     assert.match(errors[0].message, /tosa/);
+    // Section ids alone would still pass if the interpolated names silently
+    // rendered as "undefined" — these pin the actual place names too.
+    assert.match(errors[0].message, /"T23"/);
+    assert.match(errors[0].message, /"T24"/);
   } finally {
     rmSync(root, { recursive: true, force: true });
   }
@@ -618,10 +622,10 @@ test("sections that meet within the snap distance chain cleanly", () => {
   const root = mkdtempSync(join(tmpdir(), "validate-chain-test-"));
   try {
     const a = sectionWithStages(root, "awa", legs(1), [
-      { index: 0, name: "d1", start: { name: "T1", coordinates: [0, 0] }, end: { name: "T23", coordinates: [0.1, 0] }, distanceKm: 11 },
+      { index: 0, name: "d1", start: { name: { en: "T1" }, coordinates: [0, 0] }, end: { name: { en: "T23" }, coordinates: [0.1, 0] }, distanceKm: 11 },
     ]);
     const b = sectionWithStages(root, "tosa", legs(2), [
-      { index: 0, name: "d1", start: { name: "T23", coordinates: [0.1, 0] }, end: { name: "T39", coordinates: [0.2, 0] }, distanceKm: 11 },
+      { index: 0, name: "d1", start: { name: { en: "T23" }, coordinates: [0.1, 0] }, end: { name: { en: "T39" }, coordinates: [0.2, 0] }, distanceKm: 11 },
     ]);
     const errors: ValidationError[] = [];
     validateSectionChain(root, [a, b], errors);
@@ -635,10 +639,10 @@ test("a circular pilgrimage must close back to its first start", () => {
   const root = mkdtempSync(join(tmpdir(), "validate-chain-test-"));
   try {
     const a = sectionWithStages(root, "awa", legs(1), [
-      { index: 0, name: "d1", start: { name: "T1", coordinates: [0, 0] }, end: { name: "T23", coordinates: [0.1, 0] }, distanceKm: 11 },
+      { index: 0, name: "d1", start: { name: { en: "T1" }, coordinates: [0, 0] }, end: { name: { en: "T23" }, coordinates: [0.1, 0] }, distanceKm: 11 },
     ], "circular");
     const b = sectionWithStages(root, "sanuki", legs(2), [
-      { index: 0, name: "d1", start: { name: "T23", coordinates: [0.1, 0] }, end: { name: "T88", coordinates: [0.2, 0] }, distanceKm: 11 },
+      { index: 0, name: "d1", start: { name: { en: "T23" }, coordinates: [0.1, 0] }, end: { name: { en: "T88" }, coordinates: [0.2, 0] }, distanceKm: 11 },
     ], "circular");
 
     const errors: ValidationError[] = [];
@@ -646,6 +650,10 @@ test("a circular pilgrimage must close back to its first start", () => {
 
     assert.equal(errors.length, 1);
     assert.match(errors[0].message, /circuit/);
+    // Same guard as the gap test: the circuit-closing message interpolates
+    // both endpoint names, and "undefined" would still match /circuit/.
+    assert.match(errors[0].message, /"T88"/);
+    assert.match(errors[0].message, /"T1"/);
   } finally {
     rmSync(root, { recursive: true, force: true });
   }
@@ -656,14 +664,44 @@ test("alternatives sections are exempt from chaining", () => {
   try {
     const block = (order: number) => ({ id: "camino-de-santiago", name: { en: "Camino" }, kind: "alternatives", order });
     const a = sectionWithStages(root, "frances", block(1), [
-      { index: 0, name: "d1", start: { name: "SJPP", coordinates: [0, 0] }, end: { name: "Zubiri", coordinates: [0.1, 0] }, distanceKm: 11 },
+      { index: 0, name: "d1", start: { name: { en: "SJPP" }, coordinates: [0, 0] }, end: { name: { en: "Zubiri" }, coordinates: [0.1, 0] }, distanceKm: 11 },
     ]);
     const b = sectionWithStages(root, "norte", block(2), [
-      { index: 0, name: "d1", start: { name: "Irún", coordinates: [9, 9] }, end: { name: "San Sebastián", coordinates: [9.1, 9] }, distanceKm: 11 },
+      { index: 0, name: "d1", start: { name: { en: "Irún" }, coordinates: [9, 9] }, end: { name: { en: "San Sebastián" }, coordinates: [9.1, 9] }, distanceKm: 11 },
     ]);
     const errors: ValidationError[] = [];
     validateSectionChain(root, [a, b], errors);
     assert.deepEqual(errors, []);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("a malformed pilgrimage block does not silence the gap check for the rest", () => {
+  const root = mkdtempSync(join(tmpdir(), "validate-chain-test-"));
+  try {
+    const a = sectionWithStages(root, "awa", legs(1), [
+      { index: 0, name: "d1", start: { name: { en: "T1" }, coordinates: [0, 0] }, end: { name: { en: "T23" }, coordinates: [0.1, 0] }, distanceKm: 11 },
+    ]);
+    // "loop" is outside readPilgrimage's two allowed kinds, so it throws here.
+    // validatePilgrimages is what reports that block; this run must still
+    // reach and report the real gap between the other two sections.
+    const malformed = sectionWithStages(
+      root,
+      "middle",
+      { id: "shikoku-88", name: { en: "Shikoku" }, kind: "loop", order: 2 },
+      [{ index: 0, name: "d1", start: { name: { en: "M1" }, coordinates: [5, 5] }, end: { name: { en: "M2" }, coordinates: [5.1, 5] }, distanceKm: 11 }],
+    );
+    const c = sectionWithStages(root, "tosa", legs(3), [
+      { index: 0, name: "d1", start: { name: { en: "T24" }, coordinates: [0.5, 0] }, end: { name: { en: "T39" }, coordinates: [0.6, 0] }, distanceKm: 11 },
+    ]);
+
+    const errors: ValidationError[] = [];
+    validateSectionChain(root, [a, malformed, c], errors);
+
+    assert.equal(errors.length, 1);
+    assert.match(errors[0].message, /awa/);
+    assert.match(errors[0].message, /tosa/);
   } finally {
     rmSync(root, { recursive: true, force: true });
   }
