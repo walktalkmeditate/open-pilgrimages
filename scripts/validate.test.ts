@@ -10,6 +10,7 @@ import {
   validatePilgrimages,
   validateSectionChain,
   validatePinnedRelations,
+  validateDraftedText,
   validateFile,
   type ValidationError,
 } from "./validate.js";
@@ -751,6 +752,63 @@ test("a malformed pilgrimage block does not silence the gap check for the rest",
     assert.equal(errors.length, 1);
     assert.match(errors[0].message, /awa/);
     assert.match(errors[0].message, /tosa/);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("a drafted stage cannot reach main", () => {
+  const root = mkdtempSync(join(tmpdir(), "validate-drafted-test-"));
+  try {
+    const dir = join(root, "routes", "one");
+    mkdirSync(dir, { recursive: true });
+    writeJson(join(dir, "metadata.json"), { id: "one" });
+    writeJson(join(dir, "stages.json"), {
+      stages: [{ index: 0, name: "d1", drafted: true }, { index: 1, name: "d2" }],
+    });
+
+    const errors: ValidationError[] = [];
+    validateDraftedText(root, [dir], errors);
+
+    assert.equal(errors.length, 1);
+    assert.match(errors[0].message, /stage 0/);
+    assert.match(errors[0].message, /drafted/);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("clearing a flag without a reviewed mark is refused", () => {
+  const root = mkdtempSync(join(tmpdir(), "validate-drafted-test-"));
+  try {
+    const dir = join(root, "routes", "one");
+    mkdirSync(dir, { recursive: true });
+    mkdirSync(join(root, "docs", "review"), { recursive: true });
+    writeJson(join(dir, "metadata.json"), { id: "one" });
+    writeJson(join(dir, "stages.json"), { stages: [{ index: 0, name: "d1" }, { index: 1, name: "d2" }] });
+    writeFileSync(join(root, "docs", "review", "one.md"), "# one\n\n- [x] stage 0 — reviewed\n- [ ] stage 1\n");
+
+    const errors: ValidationError[] = [];
+    validateDraftedText(root, [dir], errors);
+
+    assert.equal(errors.length, 1);
+    assert.match(errors[0].message, /stage 1/);
+    assert.match(errors[0].message, /docs\/review\/one\.md/);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("a section with no checklist and no drafted flags is clean", () => {
+  const root = mkdtempSync(join(tmpdir(), "validate-drafted-test-"));
+  try {
+    const dir = join(root, "routes", "one");
+    mkdirSync(dir, { recursive: true });
+    writeJson(join(dir, "metadata.json"), { id: "one" });
+    writeJson(join(dir, "stages.json"), { stages: [{ index: 0, name: "d1" }] });
+    const errors: ValidationError[] = [];
+    validateDraftedText(root, [dir], errors);
+    assert.deepEqual(errors, []);
   } finally {
     rmSync(root, { recursive: true, force: true });
   }

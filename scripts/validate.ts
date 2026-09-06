@@ -525,6 +525,47 @@ export function validateSectionChain(root: string, dirs: string[], errors: Valid
   }
 }
 
+/**
+ * The gate is at merge, not at tagging: release.md Phase 2b requires the tag
+ * to follow the merge immediately, so a slow review would leave @main naming
+ * a release tag that does not exist and every package URL 404ing.
+ */
+export function validateDraftedText(root: string, dirs: string[], errors: ValidationError[]): void {
+  for (const dir of dirs) {
+    const stagesPath = join(dir, "stages.json");
+    const metaPath = join(dir, "metadata.json");
+    if (!existsSync(stagesPath) || !existsSync(metaPath)) continue;
+    const routeId = (loadJson(metaPath) as { id?: string }).id ?? basename(dir);
+    const stages = (loadJson(stagesPath) as { stages?: { index: number; drafted?: boolean }[] }).stages ?? [];
+
+    for (const stage of stages) {
+      if (stage.drafted === true) {
+        errors.push({
+          file: relative(root, stagesPath),
+          message: `stage ${stage.index} is still marked drafted; review it before this merges`,
+          severity: "error",
+        });
+      }
+    }
+
+    const checklistPath = join(root, "docs", "review", `${routeId}.md`);
+    if (!existsSync(checklistPath)) continue;
+    const checklist = readFileSync(checklistPath, "utf8");
+    for (const stage of stages) {
+      if (stage.drafted === true) continue;
+      const mentioned = new RegExp(`^\\s*- \\[[ x]\\] stage ${stage.index}\\b`, "m").test(checklist);
+      const reviewed = new RegExp(`^\\s*- \\[x\\] stage ${stage.index}\\b`, "m").test(checklist);
+      if (mentioned && !reviewed) {
+        errors.push({
+          file: `docs/review/${routeId}.md`,
+          message: `stage ${stage.index} carries no drafted flag but is unticked in docs/review/${routeId}.md`,
+          severity: "error",
+        });
+      }
+    }
+  }
+}
+
 export function validatePinnedRelations(root: string, dirs: string[], errors: ValidationError[]): void {
   for (const dir of dirs) {
     const metaPath = join(dir, "metadata.json");
@@ -572,6 +613,7 @@ function main() {
   validatePilgrimages(ROOT, routeDirs, errors);
   validateSectionChain(ROOT, routeDirs, errors);
   validatePinnedRelations(ROOT, routeDirs, errors);
+  validateDraftedText(ROOT, routeDirs, errors);
 
   const errs = errors.filter((e) => e.severity === "error");
   const warns = errors.filter((e) => e.severity === "warning");
