@@ -9,12 +9,18 @@ Consumers read the catalog from `https://cdn.jsdelivr.net/gh/walktalkmeditate/op
 ## [Unreleased]
 
 ### Added
-- `pilgrimages[]` in `index.json`: a pilgrimage groups the sections that name it, with `kind` distinguishing sections walked in sequence from alternative ways to the same end. Additive — `routes[]` is unchanged.
-- `validate` checks that the sections of a `legs` pilgrimage meet, that a circular pilgrimage closes, and that no stage still carries drafted text.
+- `pilgrimages[]` in `index.json`: a pilgrimage groups the sections that name it, with `kind` distinguishing sections walked in sequence from alternative ways to the same end. Additive — every `routes[]` entry keeps every field it had, and gains an optional `pilgrimage` naming the one it belongs to.
+- **`pilgrimage.circular`** in a section's `metadata.json`: the walk returns to where it began, so the last section's final stage must close back against the first section's first stage. It is the whole pilgrimage's claim rather than each section's — Shikoku's four dōjō are each linear, and only the circuit they add up to closes — so every section of one pilgrimage has to declare it the same way.
+- `validate` checks that the sections of a `legs` pilgrimage meet, that a circular pilgrimage closes, that no directory under `variants/` declares itself a section, and that no stage still carries drafted text.
 - A generated page per pilgrimage, listing its sections and saying whether they are choices or legs. The catalog groups them under one heading, and each section page links back up.
 
+### Changed
+- **A section that ships metadata-only warns instead of holding the release.** A section whose way graph cannot yet be closed may ship with `ways: null` and wait for a later release; the chain check was refusing exactly that, so one unbuildable section would have made its whole pilgrimage unshippable. A section `index.json` says shipped a package — or does not list at all — is still an error.
+- **The drafted-text gate asks for the review, not only for the absence of an unticked one.** Where a section has a review checklist, every one of its stages needs a recognised line there, and a stage listed nowhere is named; a section that ships drafted text with no checklist anywhere is told which file to create and what to put in it. Deleting the flag and the checklist entry in one pass used to clear a stage more quietly than leaving the flag on.
+
 ### Fixed
-- Stage boundaries advance along the walked line. A route that passes a place twice could put a stage's end behind its start; the slice was cut anyway and the report never said so. Such a pair is now a named gate reason with nothing emitted (#7).
+- Stage boundaries advance along the walked line. A route that passes a place twice could put a stage's end behind its start; the slice was cut anyway and the report never said so. Such a pair is now a named gate reason with nothing emitted (#7), and the reason names both anchors, the vertex they landed on together, and how far each is from the line — so the one to re-pin can be found.
+- A route's `ways/report.json` counts every stage the route declares. A stage the cut skipped was left out of the coverage figures too, so the Camino del Norte's report read "only 0 of 33 stages" for a route of 34.
 - `build-main-line` requires `osm.relations`. A name query pulled in every spur sharing the trail's name.
 
 ## [1.7.0] — 2026-09-05
