@@ -41,8 +41,15 @@ For 34 stages, `halfOfStages` is **17**. The route stops being `sparse` when **a
 - `routes/camino-norte/metadata.json` already declares `osm.relations: [1116809, 360167, 2201058, 1554697]` and the `pilgrimage` block (`camino-de-santiago`, `alternatives`, order 2).
 - 34 stages, all chaining. `overview.topology` is `linear`, `overview.distanceKm` is 784.
 - **No `route.main.geojson`** — stages are being cut from raw `route.geojson`.
-- The gate fails with exactly one reason: stage 23, `Soto de Luiña` → `Cadavedo`, both anchors landing on vertex 31648 of 38639. Soto de Luiña is 43 m off the line and snapped; Cadavedo is 1247 m off and placed proportionally.
 - 3,634 waypoints, every one a service type. Zero `MOMENT_TYPES` waypoints.
+
+**Corrected by Task 4, which measured it.** This plan first said the gate fails on stage 23, `Soto de Luiña` → `Cadavedo`, at vertex 31648. That holds only against `route.geojson` — the four relations concatenated raw, 1367 km for a 798 km route. Against the way graph `build-main-line` actually derives, stage 23 **passes** at ratio 1.0995, nine metres inside the limit.
+
+The real failure is **stage 11, `Güemes` → `Santander`: 18.78 km measured against 15.3 km declared, ratio 1.228.** No anchor placement reaches it. The OSM relation carries the Somo–Santander ferry ways, so the derived line crosses the Bay of Santander while the declared figure counts only the walk to Somo. On the real route the ferry is the standard crossing; walking round the bay is ~35 km of industrial road almost nobody takes.
+
+The plan owner ruled: **declare the measured distance** — spec §5 step 3, the line beats the guidebook figure past the tolerance — and say in the stage's `terrainNotes` and in the CHANGELOG that the figure includes the ferry, so nobody reads 18.8 km as 18.8 km on foot. `terrainNotes` is a top-level stage field, not part of `interior`, so writing it does not breach the no-drafting constraint.
+
+Two anchors sit beyond `SNAP_METERS`, and Task 4 moved neither, correctly: Cadavedo's OSM node is the same village under its Asturian name `Cadavéu`, 107 m *further* from the line than the declared point; Güemes' declared coordinate already is its node, rounded to four decimals. Pinning all 35 anchors regardless would have changed 24 legs and introduced a new failure on stage 6, because Bilbao's city node sits 608 m inland.
 
 ## File Structure
 
