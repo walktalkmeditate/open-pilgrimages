@@ -51,6 +51,11 @@ jobs:
       - name: Check index.json is up to date
         run: git diff --exit-code index.json
       - run: npm run validate
+      - name: No drafted text cleared without a review
+        if: github.event_name == 'pull_request'
+        run: |
+          git fetch --no-tags --depth=1 origin "${{ github.base_ref }}"
+          npm run check-drafted-diff -- FETCH_HEAD
       - run: npm run build-assets
       - name: Check generated assets are up to date
         # git diff --exit-code alone misses brand-new files (e.g. the first

@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "validate": "tsx scripts/validate.ts",
+    "check-drafted-diff": "tsx scripts/check-drafted-diff.ts",
     "build-index": "tsx scripts/build-index.ts",
     "build-ways": "tsx scripts/build-ways.ts",
     "build-main-line": "tsx scripts/enrich/build-main-line.ts",
