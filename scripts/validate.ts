@@ -518,6 +518,36 @@ function chainEnd(stage: ChainStage | undefined, side: "start" | "end"): ChainEn
 }
 
 /**
+ * Spec sections 4.3 and 5.2: a section whose way graph cannot be closed ships
+ * metadata-only with `ways: null` and waits for a later release, rather than
+ * holding its pilgrimage's release open. So a deferred section's absent
+ * stages.json is a state the design intends, and one unbuildable dōjō must not
+ * make the whole of Shikoku unshippable.
+ *
+ * A route absent from index.json is not read as deferred: build-index has
+ * simply not run since it was added, and guessing the generous reading there
+ * would turn every unlisted section's missing package into a warning.
+ */
+function deferredSectionIds(root: string, errors: ValidationError[]): Set<string> {
+  const indexPath = join(root, "index.json");
+  if (!existsSync(indexPath)) return new Set();
+
+  const index = readJsonOrReport(root, indexPath, errors, "which sections are deferred") as
+    | { routes?: { id?: unknown; ways?: unknown }[] }
+    | undefined;
+
+  const deferred = new Set<string>();
+  for (const route of index?.routes ?? []) {
+    // build-index omits the key entirely rather than writing null, and the
+    // design's phrase for the same state is `ways: null`.
+    if (typeof route.id === "string" && (route.ways === undefined || route.ways === null)) {
+      deferred.add(route.id);
+    }
+  }
+  return deferred;
+}
+
+/**
  * A `legs` pilgrimage is one walk cut into sections that ship as separate
  * routes; nothing else checks that section N+1 actually starts where N left
  * off. `alternatives` pilgrimages have no such seam — a walker picks one
@@ -550,20 +580,26 @@ export function validateSectionChain(root: string, dirs: string[], errors: Valid
     });
   }
 
+  if (declared.length === 0) return;
+  const deferredIds = deferredSectionIds(root, errors);
+
   for (const [, { routeIds }] of groupSections(declared.map(({ routeId, block }) => ({ routeId, block })))) {
     const ordered = routeIds.map((routeId) => declared.find((d) => d.routeId === routeId)!);
     const ends = ordered.map((section) => {
       const stagesPath = join(section.dir, "stages.json");
-      // The design lets a section ship metadata-only and wait for a later
-      // release, so an absent file is a state that reaches here — it used to
-      // be skipped in silence, which left the chain measuring across it.
+      // Either way the chain breaks here rather than bridging across: measuring
+      // on would compare two sections that are not adjacent and report the
+      // distance between them as a gap nobody's data claims.
       if (!existsSync(stagesPath)) {
+        const deferred = deferredIds.has(section.routeId);
         errors.push({
           file: relative(root, stagesPath),
-          message:
-            `section "${section.routeId}" of "${section.block.id}" has no stages.json, ` +
-            `so the chain cannot be checked through it`,
-          severity: "error",
+          message: deferred
+            ? `section "${section.routeId}" of "${section.block.id}" ships metadata-only ` +
+              `(no ways in index.json), so the chain is not checked through it`
+            : `section "${section.routeId}" of "${section.block.id}" has no stages.json, ` +
+              `so the chain cannot be checked through it`,
+          severity: deferred ? "warning" : "error",
         });
         return { section, first: undefined, last: undefined };
       }

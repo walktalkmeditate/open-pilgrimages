@@ -757,11 +757,11 @@ test("a malformed pilgrimage block does not silence the gap check for the rest",
   }
 });
 
-test("a legs section with no stages.json is named, not skipped", () => {
+test("a legs section with no stages.json and no deferral is named, not skipped", () => {
   const root = mkdtempSync(join(tmpdir(), "validate-chain-test-"));
   try {
-    // #given Iyo has shipped metadata only, as the design permits, between
-    // Tosa and Sanuki
+    // #given Iyo sits between Tosa and Sanuki with no stages.json and no
+    // index.json deferring it — a broken tree, not a planned wait
     const tosa = sectionWithStages(root, "tosa", legs(1), [
       { index: 0, name: "d1", start: { name: { en: "T24" }, coordinates: [0, 0] }, end: { name: { en: "Kiyotaki-ji" }, coordinates: [0.1, 0] }, distanceKm: 11 },
     ]);
@@ -1302,6 +1302,66 @@ test("an anchor with coordinates but no name is a named error too", () => {
     assert.match(errors[0].file, /awa[/\\]stages\.json/);
     assert.match(errors[0].message, /stage 0/);
     assert.doesNotMatch(errors[0].message, /undefined/);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("a legs section deferred to a later release warns, and breaks the chain there", () => {
+  const root = mkdtempSync(join(tmpdir(), "validate-chain-test-"));
+  try {
+    // #given Iyo's way graph could not be closed, so per the design it ships
+    // metadata-only and index.json carries no ways block for it
+    const tosa = sectionWithStages(root, "tosa", legs(1), [
+      { index: 0, name: "d1", start: { name: { en: "T24" }, coordinates: [0, 0] }, end: { name: { en: "Kiyotaki-ji" }, coordinates: [0.1, 0] }, distanceKm: 11 },
+    ]);
+    const iyo = join(root, "routes", "iyo");
+    mkdirSync(iyo, { recursive: true });
+    writeJson(join(iyo, "metadata.json"), { id: "iyo", pilgrimage: legs(2) });
+    const sanuki = sectionWithStages(root, "sanuki", legs(3), [
+      { index: 0, name: "d1", start: { name: { en: "Ōkubo-ji" }, coordinates: [3, 0] }, end: { name: { en: "T88" }, coordinates: [3.1, 0] }, distanceKm: 11 },
+    ]);
+    writeJson(join(root, "index.json"), {
+      routes: [{ id: "tosa" }, { id: "iyo" }, { id: "sanuki" }],
+    });
+
+    // #when the chain is checked
+    const errors: ValidationError[] = [];
+    validateSectionChain(root, [tosa, iyo, sanuki], errors);
+
+    // #then the release is not held for it — one warning, no error — and the
+    // chain breaks there rather than measuring a gap nobody's data claims
+    assert.equal(errors.length, 1);
+    assert.equal(errors[0].severity, "warning");
+    assert.match(errors[0].message, /iyo/);
+    assert.doesNotMatch(errors[0].message, /Kiyotaki-ji/);
+    assert.doesNotMatch(errors[0].message, /m away/);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("a legs section with a shipped package but no stages.json is still a hard error", () => {
+  const root = mkdtempSync(join(tmpdir(), "validate-chain-test-"));
+  try {
+    // #given index.json says Iyo shipped a package, so its missing stages.json
+    // is a broken tree rather than a deferral
+    const tosa = sectionWithStages(root, "tosa", legs(1), [
+      { index: 0, name: "d1", start: { name: { en: "T24" }, coordinates: [0, 0] }, end: { name: { en: "Kiyotaki-ji" }, coordinates: [0.1, 0] }, distanceKm: 11 },
+    ]);
+    const iyo = join(root, "routes", "iyo");
+    mkdirSync(iyo, { recursive: true });
+    writeJson(join(iyo, "metadata.json"), { id: "iyo", pilgrimage: legs(2) });
+    writeJson(join(root, "index.json"), {
+      routes: [{ id: "tosa" }, { id: "iyo", ways: { stageCount: 4, bytes: 100, placesPerStage: 1, sparse: false } }],
+    });
+
+    const errors: ValidationError[] = [];
+    validateSectionChain(root, [tosa, iyo], errors);
+
+    assert.equal(errors.length, 1);
+    assert.equal(errors[0].severity, "error");
+    assert.match(errors[0].file, /iyo[/\\]stages\.json/);
   } finally {
     rmSync(root, { recursive: true, force: true });
   }
