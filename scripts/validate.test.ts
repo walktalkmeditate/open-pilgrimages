@@ -757,6 +757,58 @@ test("a malformed pilgrimage block does not silence the gap check for the rest",
   }
 });
 
+test("a legs section with no stages.json is named, not skipped", () => {
+  const root = mkdtempSync(join(tmpdir(), "validate-chain-test-"));
+  try {
+    // #given Iyo has shipped metadata only, as the design permits, between
+    // Tosa and Sanuki
+    const tosa = sectionWithStages(root, "tosa", legs(1), [
+      { index: 0, name: "d1", start: { name: { en: "T24" }, coordinates: [0, 0] }, end: { name: { en: "Kiyotaki-ji" }, coordinates: [0.1, 0] }, distanceKm: 11 },
+    ]);
+    const iyo = join(root, "routes", "iyo");
+    mkdirSync(iyo, { recursive: true });
+    writeJson(join(iyo, "metadata.json"), { id: "iyo", overview: { topology: "linear" }, pilgrimage: legs(2) });
+    const sanuki = sectionWithStages(root, "sanuki", legs(3), [
+      { index: 0, name: "d1", start: { name: { en: "Ōkubo-ji" }, coordinates: [3, 0] }, end: { name: { en: "T88" }, coordinates: [3.1, 0] }, distanceKm: 11 },
+    ]);
+
+    // #when the chain is checked
+    const errors: ValidationError[] = [];
+    validateSectionChain(root, [tosa, iyo, sanuki], errors);
+
+    // #then the missing file is named, and no gap is invented between two
+    // sections that were never adjacent
+    assert.equal(errors.length, 1);
+    assert.match(errors[0].file, /iyo[/\\]stages\.json/);
+    assert.match(errors[0].message, /iyo/);
+    assert.doesNotMatch(errors[0].message, /Kiyotaki-ji/);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("an alternatives section with no stages.json is not an error", () => {
+  const root = mkdtempSync(join(tmpdir(), "validate-chain-test-"));
+  try {
+    // #given only legs sections chain, so a package-less alternative owes
+    // the chain nothing
+    const dir = join(root, "routes", "ohechi");
+    mkdirSync(dir, { recursive: true });
+    writeJson(join(dir, "metadata.json"), {
+      id: "ohechi",
+      overview: { topology: "linear" },
+      pilgrimage: { id: "kumano-kodo", name: { en: "Kumano Kodō" }, kind: "alternatives", order: 1 },
+    });
+
+    const errors: ValidationError[] = [];
+    validateSectionChain(root, [dir], errors);
+
+    assert.deepEqual(errors, []);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
 test("a section whose stages array is empty is a named error, not a crash", () => {
   const root = mkdtempSync(join(tmpdir(), "validate-chain-test-"));
   try {

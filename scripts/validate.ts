@@ -469,7 +469,7 @@ export function validateSectionChain(root: string, dirs: string[], errors: Valid
 
   for (const dir of dirs) {
     const metaPath = join(dir, "metadata.json");
-    if (!existsSync(metaPath) || !existsSync(join(dir, "stages.json"))) continue;
+    if (!existsSync(metaPath)) continue;
     const meta = loadJson(metaPath) as { id?: string; overview?: { topology?: string } };
     let block: PilgrimageBlock | undefined;
     try {
@@ -492,6 +492,20 @@ export function validateSectionChain(root: string, dirs: string[], errors: Valid
     const ordered = routeIds.map((routeId) => declared.find((d) => d.routeId === routeId)!);
     const ends = ordered.map((section) => {
       const stagesPath = join(section.dir, "stages.json");
+      // The design lets a section ship metadata-only and wait for a later
+      // release, so an absent file is a state that reaches here — it used to
+      // be skipped in silence, which left the chain measuring across it.
+      if (!existsSync(stagesPath)) {
+        errors.push({
+          file: relative(root, stagesPath),
+          message:
+            `section "${section.routeId}" of "${section.block.id}" has no stages.json, ` +
+            `so the chain cannot be checked through it`,
+          severity: "error",
+        });
+        return { section, first: undefined, last: undefined };
+      }
+
       const stages = (loadJson(stagesPath) as { stages?: ChainStage[] }).stages;
       // main() collects errors rather than exiting, so a stages.json that
       // already failed its schema still arrives here. Reading sorted[0] off
