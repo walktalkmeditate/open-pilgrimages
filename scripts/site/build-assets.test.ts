@@ -86,6 +86,9 @@ test("a page is written for each pilgrimage, listing its sections in order", () 
       html.indexOf('href="/kumano-kodo-nakahechi"') < html.indexOf('href="/kumano-kodo-kohechi"'),
       "sections appear in the order the index lists them",
     );
+    // Pinned as a pair with the no-distance case below: without this, the
+    // dash and the unit could drift out of the measured branch unnoticed.
+    assert.match(html, /<li><a href="\/kumano-kodo-nakahechi">Nakahechi<\/a> — 70 km<\/li>/);
     // The kind is the only thing that tells a reader whether these two links
     // are choices or legs, so the page has to say which.
     assert.match(html, /Each section below is its own way to the same destination/);
