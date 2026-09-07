@@ -48,6 +48,8 @@ index.json                  # Route registry (auto-generated)
   on a section's `overview.topology`, which describes that section alone:
   Shikoku's four dōjō are each linear, and only the circuit they add up to
   closes.
+- A `legs` section that ships metadata-only with `ways: null` warns instead of
+  failing, and the chain breaks at it rather than measuring across it.
 - Walked line: `osm.relations` is required for any section with a ways/
   package. A name query pulls in spurs and variants.
 - Drafted stage text carries `"drafted": true` and cannot be merged; clearing

@@ -80,6 +80,8 @@ Whole-pilgrimage download reverses a standing principle — the app's own design
 
 `validate` checks, for each `legs` pilgrimage, that section N's last stage `end` is within `SNAP_METERS` of section N+1's first stage `start`, naming both sections on failure. For a circular `legs` pilgrimage the last section's final stage `end` must close the same way against the first section's first stage `start`, or the circuit the route claims is never walked. A boundary stage therefore ends and starts at the boundary place itself, never at a nearby lodging town (§5.3). `alternatives` pilgrimages are exempt.
 
+A `legs` section that ships metadata-only with `ways: null` (§4.3, §5.2) has no stages to chain. `validate` warns rather than failing there and breaks the chain at that section, so one deferred section cannot make its pilgrimage's release unshippable, and no gap is measured between two sections that were never adjacent. A `legs` section with no stages that is *not* deferred stays an error.
+
 A circuit is claimed by the pilgrimage, with an optional `"circular": true` in the `pilgrimage` block that every section of it repeats — `validate` rejects sections that disagree, as it does for `kind` and `name` (§2.2). It is not read off any section's `overview.topology`, which keeps its own meaning: Shikoku's four dōjō are each individually linear (Awa runs Temple 1 to 23 and does not return), and only the circuit they add up to closes, so no honest section-level topology could arm this check.
 
 ### 4.3 Walked line from pinned relations
