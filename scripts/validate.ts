@@ -583,8 +583,8 @@ export function validatePilgrimages(root: string, dirs: string[], errors: Valida
 
 interface ChainStage {
   index: number;
-  start?: { name?: { en?: string }; coordinates?: number[] };
-  end?: { name?: { en?: string }; coordinates?: number[] };
+  start?: { name?: { en?: string }; coordinates?: Position };
+  end?: { name?: { en?: string }; coordinates?: Position };
 }
 
 /** Where a section begins or ends: the one place and point the chain compares. */
@@ -835,7 +835,7 @@ export function validateDraftedText(root: string, dirs: string[], errors: Valida
     }
 
     const checklist = reviewChecklist(root, routeId, pilgrimageId, stages.map((stage) => stage.index));
-    const sectionFile = `docs/review/${routeId}.md`;
+    const sectionFile = relative(root, join(root, "docs", "review", `${routeId}.md`));
     const example = (index: number, box: string) =>
       `- [${box}] ${checklist?.qualifier ?? ""}stage ${index}`;
 
@@ -923,7 +923,10 @@ export function validatePinnedRelations(root: string, dirs: string[], errors: Va
     if (!Array.isArray(meta.osm?.relations) || meta.osm.relations.length === 0) {
       errors.push({
         file: relative(root, metaPath),
-        message: `"${meta.id ?? basename(dir)}" has a ways/ package but no osm.relations to rebuild its walked line from`,
+        message:
+          `${relative(root, metaPath)} ships a ways package but pins no osm.relations. ` +
+          `Add the relation ids, or ship the section metadata-only with ways: null ` +
+          `and pin them in a later release.`,
         severity: "error",
       });
     }

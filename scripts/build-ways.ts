@@ -126,8 +126,15 @@ export function buildRouteWays(input: RouteWaysInput): RouteWaysResult {
   // resolved to one point of the line. Report it and skip that stage alone,
   // rather than handing routePoints a slice with no vertices — a stall in
   // one stage says nothing about whether its neighbors' own anchors advance.
+  // Two copies of this test drifted apart once already; one set is the fix.
+  const stalled = new Set(
+    input.stages
+      .filter((s) => boundaries[s.index + 1].index <= boundaries[s.index].index)
+      .map((s) => s.index),
+  );
+
   const boundaryStalls = input.stages
-    .filter((stage) => boundaries[stage.index + 1].index <= boundaries[stage.index].index)
+    .filter((stage) => stalled.has(stage.index))
     .map((stage) => {
       // Boundaries only move forward, so one anchor pinned too far ahead
       // stalls every stage after it — and N-1 stages each reported the same
@@ -151,7 +158,7 @@ export function buildRouteWays(input: RouteWaysInput): RouteWaysResult {
   const reportStages: ReportStageInput[] = [];
 
   for (const stage of input.stages) {
-    if (boundaries[stage.index + 1].index <= boundaries[stage.index].index) continue;
+    if (stalled.has(stage.index)) continue;
     const from = boundaries[stage.index].index;
     const to = boundaries[stage.index + 1].index;
 

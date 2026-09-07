@@ -112,7 +112,11 @@ export function indexAtMeters(cumulative: number[], meters: number): number {
 
 export interface Boundary {
   index: number;
-  /** How far the anchor is from the whole line, not from the part still ahead. */
+  /**
+   * Distance from the anchor to the whole line, not to the forward remainder
+   * the index search was restricted to. The two diverge once a boundary is
+   * pinned ahead of where the anchor actually sits.
+   */
   offMeters: number;
   mode: "snap" | "proportional";
 }

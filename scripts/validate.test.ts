@@ -1831,3 +1831,53 @@ test("a fence that never closes cannot swallow the checklist", () => {
     rmSync(root, { recursive: true, force: true });
   }
 });
+
+// Issue #9: six small traps left in the pipeline for the next two content
+// PRs. Two are behavioural; these fixtures and tests cover those two.
+
+function fixtureWithWaysButNoRelations(): string {
+  const root = mkdtempSync(join(tmpdir(), "validate-relations-test-"));
+  const dir = join(root, "routes", "a");
+  mkdirSync(join(dir, "ways"), { recursive: true });
+  writeJson(join(dir, "metadata.json"), { id: "a" });
+  writeJson(join(dir, "ways", "route.json"), validRouteCard("a", 1));
+  return root;
+}
+
+test("a pinned-relations failure names the metadata-only way out", () => {
+  // #given a section with a ways package and no osm.relations
+  const root = fixtureWithWaysButNoRelations();
+  try {
+    // #when validate runs
+    const errors: ValidationError[] = [];
+    validatePinnedRelations(root, [join(root, "routes", "a")], errors);
+    // #then the message says what to do, the way build-main-line's does
+    assert.equal(errors.length, 1);
+    assert.match(errors[0].message, /osm\.relations/);
+    assert.match(errors[0].message, /ways: null/);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+function fixtureWithDraftedStage(): string {
+  const root = mkdtempSync(join(tmpdir(), "validate-drafted-test-"));
+  draftedSection(root, "a", [{ index: 0, name: "d1", drafted: true }]);
+  writeChecklist(root, "a", "# a\n");
+  return root;
+}
+
+test("a still-drafted stage is not also reported as unticked", () => {
+  // #given a drafted stage and a checklist that does not list it
+  const root = fixtureWithDraftedStage();
+  try {
+    // #when validate runs
+    const errors: ValidationError[] = [];
+    validateDraftedText(root, [join(root, "routes", "a")], errors);
+    // #then it is named once, as drafted — not twice
+    assert.equal(errors.length, 1);
+    assert.match(errors[0].message, /still marked drafted/);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
