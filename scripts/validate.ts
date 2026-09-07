@@ -15,6 +15,31 @@ function loadJson(path: string) {
   return JSON.parse(readFileSync(path, "utf-8"));
 }
 
+/**
+ * One contributor's syntax error is one file's problem. Read bare, it threw an
+ * unattributed SyntaxError out of whichever check reached the file first and
+ * took every error already collected with it — from the tool whose whole job
+ * is naming files. `unchecked` says what the run lost, since the same file is
+ * read by several checks and each loses something different.
+ */
+function readJsonOrReport(
+  root: string,
+  path: string,
+  errors: ValidationError[],
+  unchecked: string,
+): unknown | undefined {
+  try {
+    return loadJson(path);
+  } catch {
+    errors.push({
+      file: relative(root, path),
+      message: `Invalid JSON, so ${unchecked} was not checked`,
+      severity: "error",
+    });
+    return undefined;
+  }
+}
+
 function findRouteDirectories(): string[] {
   const routesDir = join(ROOT, "routes");
   const dirs: string[] = [];
@@ -108,10 +133,17 @@ function validateDataConsistency(
   const routePath = join(routeDir, "route.geojson");
   const wpPath = join(routeDir, "waypoints.geojson");
 
-  const meta = existsSync(metaPath) ? loadJson(metaPath) : null;
-  const stages = existsSync(stagesPath) ? loadJson(stagesPath) : null;
-  const route = existsSync(routePath) ? loadJson(routePath) : null;
-  const wp = existsSync(wpPath) ? loadJson(wpPath) : null;
+  // main() reaches this before the pilgrimage-level checks, so an unguarded
+  // read here would kill the run just as surely as one of theirs.
+  // The shapes are the schemas' business, and validateFile has already run
+  // them; this function only cross-checks fields against each other.
+  const read = (path: string, unchecked: string): any =>
+    existsSync(path) ? readJsonOrReport(ROOT, path, errors, unchecked) : null;
+
+  const meta = read(metaPath, "this route's cross-checks");
+  const stages = read(stagesPath, "its stage cross-checks");
+  const route = read(routePath, "its route cross-checks");
+  const wp = read(wpPath, "its waypoint cross-checks");
 
   if (!meta) return;
   const routeId = meta.id;
@@ -234,7 +266,10 @@ export function validateWays(ajv: Ajv, routeDir: string, errors: ValidationError
   if (!existsSync(waysDir) || !statSync(waysDir).isDirectory()) return;
 
   const metaPath = join(routeDir, "metadata.json");
-  const routeId: string | undefined = existsSync(metaPath) ? loadJson(metaPath)?.id : undefined;
+  const meta = existsSync(metaPath)
+    ? (readJsonOrReport(ROOT, metaPath, errors, "the ways package's identity") as { id?: string } | undefined)
+    : undefined;
+  const routeId: string | undefined = meta?.id;
 
   validateFile(ajv, "way-report.schema.json", join(waysDir, "report.json"), errors);
 
@@ -413,7 +448,10 @@ export function validatePilgrimages(root: string, dirs: string[], errors: Valida
   for (const dir of dirs) {
     const metaPath = join(dir, "metadata.json");
     if (!existsSync(metaPath)) continue;
-    const meta = loadJson(metaPath) as { id?: string };
+    const meta = readJsonOrReport(root, metaPath, errors, "its pilgrimage block") as
+      | { id?: string }
+      | undefined;
+    if (!meta) continue;
     try {
       const block = readPilgrimage(meta);
       if (block) declared.push({ routeId: meta.id ?? basename(dir), dir, block });
@@ -470,7 +508,10 @@ export function validateSectionChain(root: string, dirs: string[], errors: Valid
   for (const dir of dirs) {
     const metaPath = join(dir, "metadata.json");
     if (!existsSync(metaPath)) continue;
-    const meta = loadJson(metaPath) as { id?: string; overview?: { topology?: string } };
+    const meta = readJsonOrReport(root, metaPath, errors, "the chain through this section") as
+      | { id?: string; overview?: { topology?: string } }
+      | undefined;
+    if (!meta) continue;
     let block: PilgrimageBlock | undefined;
     try {
       block = readPilgrimage(meta);
@@ -506,7 +547,15 @@ export function validateSectionChain(root: string, dirs: string[], errors: Valid
         return { section, first: undefined, last: undefined };
       }
 
-      const stages = (loadJson(stagesPath) as { stages?: ChainStage[] }).stages;
+      const stagesFile = readJsonOrReport(
+        root,
+        stagesPath,
+        errors,
+        `the chain through "${section.routeId}"`,
+      ) as { stages?: ChainStage[] } | undefined;
+      if (!stagesFile) return { section, first: undefined, last: undefined };
+
+      const stages = stagesFile.stages;
       // main() collects errors rather than exiting, so a stages.json that
       // already failed its schema still arrives here. Reading sorted[0] off
       // it threw a bare TypeError naming no file, from the tool whose job is
@@ -643,9 +692,16 @@ export function validateDraftedText(root: string, dirs: string[], errors: Valida
     const stagesPath = join(dir, "stages.json");
     const metaPath = join(dir, "metadata.json");
     if (!existsSync(stagesPath) || !existsSync(metaPath)) continue;
-    const meta = loadJson(metaPath) as { id?: string };
+    const meta = readJsonOrReport(root, metaPath, errors, "its drafted stage text") as
+      | { id?: string }
+      | undefined;
+    if (!meta) continue;
     const routeId = meta.id ?? basename(dir);
-    const stages = (loadJson(stagesPath) as { stages?: { index: number; drafted?: boolean }[] }).stages ?? [];
+    const stagesFile = readJsonOrReport(root, stagesPath, errors, "its drafted stage text") as
+      | { stages?: { index: number; drafted?: boolean }[] }
+      | undefined;
+    if (!stagesFile) continue;
+    const stages = stagesFile.stages ?? [];
 
     for (const stage of stages) {
       if (stage.drafted === true) {
@@ -706,7 +762,10 @@ export function validatePinnedRelations(root: string, dirs: string[], errors: Va
     // ways/route.json, not ways/: a refused route still leaves a report.json
     // behind, and a route with no walked line has nothing to pin.
     if (!existsSync(metaPath) || !existsSync(join(dir, "ways", "route.json"))) continue;
-    const meta = loadJson(metaPath) as { id?: string; osm?: { relations?: number[] } };
+    const meta = readJsonOrReport(root, metaPath, errors, "its pinned relations") as
+      | { id?: string; osm?: { relations?: number[] } }
+      | undefined;
+    if (!meta) continue;
     if (!Array.isArray(meta.osm?.relations) || meta.osm.relations.length === 0) {
       errors.push({
         file: relative(root, metaPath),

@@ -1133,3 +1133,122 @@ test("a qualified line in a per-section checklist is not the form that file uses
     rmSync(root, { recursive: true, force: true });
   }
 });
+
+test("a metadata.json that is not JSON names its file and leaves the pilgrimage check running", () => {
+  const root = mkdtempSync(join(tmpdir(), "validate-parse-test-"));
+  try {
+    // #given one contributor's syntax error alongside two sections that
+    // genuinely disagree
+    const broken = join(root, "routes", "broken");
+    mkdirSync(broken, { recursive: true });
+    writeFileSync(join(broken, "metadata.json"), '{ "id": "broken",\n');
+    const block = { id: "kumano-kodo", name: { en: "Kumano Kodō" }, order: 1 };
+    const a = join(root, "routes", "one");
+    const b = join(root, "routes", "two");
+    mkdirSync(a, { recursive: true });
+    mkdirSync(b, { recursive: true });
+    writeJson(join(a, "metadata.json"), { id: "one", pilgrimage: { ...block, kind: "legs" } });
+    writeJson(join(b, "metadata.json"), { id: "two", pilgrimage: { ...block, kind: "alternatives", order: 2 } });
+
+    // #when the pilgrimages are checked
+    const errors: ValidationError[] = [];
+    validatePilgrimages(root, [broken, a, b], errors);
+
+    // #then the unreadable file is named, and the conflict behind it is still
+    // reported rather than discarded with the run
+    assert.ok(
+      errors.some((e) => e.file.includes("broken") && /JSON/i.test(e.message)),
+      JSON.stringify(errors),
+    );
+    assert.ok(errors.some((e) => /conflicting kind/.test(e.message)), JSON.stringify(errors));
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("a metadata.json that is not JSON does not kill the chain check", () => {
+  const root = mkdtempSync(join(tmpdir(), "validate-parse-test-"));
+  try {
+    const a = sectionWithStages(root, "awa", legs(1), [
+      { index: 0, name: "d1", start: { name: { en: "T1" }, coordinates: [0, 0] }, end: { name: { en: "T23" }, coordinates: [0.1, 0] }, distanceKm: 11 },
+    ]);
+    const broken = join(root, "routes", "broken");
+    mkdirSync(broken, { recursive: true });
+    writeFileSync(join(broken, "metadata.json"), "not json at all");
+    const c = sectionWithStages(root, "tosa", legs(3), [
+      { index: 0, name: "d1", start: { name: { en: "T24" }, coordinates: [0.5, 0] }, end: { name: { en: "T39" }, coordinates: [0.6, 0] }, distanceKm: 11 },
+    ]);
+
+    const errors: ValidationError[] = [];
+    validateSectionChain(root, [a, broken, c], errors);
+
+    assert.ok(
+      errors.some((e) => e.file.includes("broken") && /JSON/i.test(e.message)),
+      JSON.stringify(errors),
+    );
+    assert.ok(errors.some((e) => /awa/.test(e.message) && /tosa/.test(e.message)), JSON.stringify(errors));
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("a stages.json that is not JSON is named by the chain check, and bridges nothing", () => {
+  const root = mkdtempSync(join(tmpdir(), "validate-parse-test-"));
+  try {
+    const a = sectionWithStages(root, "awa", legs(1), [
+      { index: 0, name: "d1", start: { name: { en: "T1" }, coordinates: [0, 0] }, end: { name: { en: "T23" }, coordinates: [0.1, 0] }, distanceKm: 11 },
+    ]);
+    const iyo = sectionWithStages(root, "iyo", legs(2), []);
+    writeFileSync(join(iyo, "stages.json"), '{ "stages": [ }');
+    const c = sectionWithStages(root, "sanuki", legs(3), [
+      { index: 0, name: "d1", start: { name: { en: "T66" }, coordinates: [0.5, 0] }, end: { name: { en: "T88" }, coordinates: [0.6, 0] }, distanceKm: 11 },
+    ]);
+
+    const errors: ValidationError[] = [];
+    validateSectionChain(root, [a, iyo, c], errors);
+
+    assert.equal(errors.length, 1);
+    assert.match(errors[0].file, /iyo[/\\]stages\.json/);
+    assert.match(errors[0].message, /JSON/i);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("a metadata.json that is not JSON does not kill the pinned-relations check", () => {
+  const root = mkdtempSync(join(tmpdir(), "validate-parse-test-"));
+  try {
+    const dir = join(root, "routes", "broken");
+    mkdirSync(join(dir, "ways"), { recursive: true });
+    writeFileSync(join(dir, "metadata.json"), '{ "id": ');
+    writeJson(join(dir, "ways", "route.json"), validRouteCard("broken", 1));
+
+    const errors: ValidationError[] = [];
+    validatePinnedRelations(root, [dir], errors);
+
+    assert.equal(errors.length, 1);
+    assert.match(errors[0].file, /broken[/\\]metadata\.json/);
+    assert.match(errors[0].message, /JSON/i);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("a stages.json that is not JSON does not kill the drafted-text gate", () => {
+  const root = mkdtempSync(join(tmpdir(), "validate-parse-test-"));
+  try {
+    const dir = join(root, "routes", "one");
+    mkdirSync(dir, { recursive: true });
+    writeJson(join(dir, "metadata.json"), { id: "one" });
+    writeFileSync(join(dir, "stages.json"), "{ oops }");
+
+    const errors: ValidationError[] = [];
+    validateDraftedText(root, [dir], errors);
+
+    assert.equal(errors.length, 1);
+    assert.match(errors[0].file, /one[/\\]stages\.json/);
+    assert.match(errors[0].message, /JSON/i);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
