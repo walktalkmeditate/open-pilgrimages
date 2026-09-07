@@ -38,10 +38,16 @@ index.json                  # Route registry (auto-generated)
 - Localized strings: `{ "en": "...", "es": "...", "ja": "..." }` — `en` always required
 - Schema version: SemVer in every file (`"schemaVersion": "1.0.0"`)
 - Route IDs: kebab-case (`camino-frances`, `shikoku-88`, `kumano-kodo`)
-- Pilgrimage: `pilgrimage: { id, name, kind, order }` in a section's metadata.
-  `kind` is `legs` (walked one after another; the sections must chain, and a
-  circular pilgrimage must close) or `alternatives` (each section its own way
-  to the same end; exempt from chaining, and no summed distance).
+- Pilgrimage: `pilgrimage: { id, name, kind, order }` in a section's metadata,
+  plus an optional `circular`. `kind` is `legs` (walked one after another; the
+  sections must chain) or `alternatives` (each section its own way to the same
+  end; exempt from chaining, and no summed distance). `circular: true` says the
+  legs return to where they began, so the last section's final stage must close
+  against the first section's first stage. Every section of one pilgrimage
+  repeats it, as they repeat `kind` and `name`. It belongs on the block and not
+  on a section's `overview.topology`, which describes that section alone:
+  Shikoku's four dōjō are each linear, and only the circuit they add up to
+  closes.
 - Walked line: `osm.relations` is required for any section with a ways/
   package. A name query pulls in spurs and variants.
 - Drafted stage text carries `"drafted": true` and cannot be merged; clearing

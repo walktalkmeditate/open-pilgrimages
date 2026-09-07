@@ -32,3 +32,18 @@ test("sections group by id and sort by order", () => {
   ]);
   assert.deepEqual(grouped.get("kumano-kodo")?.routeIds, ["a", "b"]);
 });
+
+test("an optional circular flag reads back with the block", () => {
+  assert.deepEqual(readPilgrimage({ pilgrimage: { ...block, kind: "legs", circular: true } }), {
+    ...block,
+    kind: "legs",
+    circular: true,
+  });
+});
+
+test("a circular that is not a boolean is refused", () => {
+  assert.throws(
+    () => readPilgrimage({ pilgrimage: { ...block, circular: "yes" } }),
+    /pilgrimage\.circular/,
+  );
+});

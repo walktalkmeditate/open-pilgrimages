@@ -3,6 +3,13 @@ export interface PilgrimageBlock {
   name: Record<string, string>;
   kind: "legs" | "alternatives";
   order: number;
+  /**
+   * The walk returns to where it began. It belongs here and not on a section's
+   * `overview.topology`, because Shikoku's four dōjō are each linear — Awa runs
+   * Temple 1 to 23 and does not come back — and only the circuit they add up to
+   * closes.
+   */
+  circular?: boolean;
 }
 
 const KINDS = new Set(["legs", "alternatives"]);
@@ -30,12 +37,16 @@ export function readPilgrimage(metadata: unknown): PilgrimageBlock | undefined {
   if (typeof block.order !== "number" || !Number.isInteger(block.order) || block.order < 1) {
     throw new Error("pilgrimage.order must be a positive integer");
   }
+  if (block.circular !== undefined && typeof block.circular !== "boolean") {
+    throw new Error("pilgrimage.circular must be a boolean");
+  }
 
   return {
     id: block.id,
     name: block.name as Record<string, string>,
     kind: block.kind as "legs" | "alternatives",
     order: block.order,
+    ...(block.circular === undefined ? {} : { circular: block.circular as boolean }),
   };
 }
 

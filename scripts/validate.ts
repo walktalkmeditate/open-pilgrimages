@@ -477,6 +477,17 @@ export function validatePilgrimages(root: string, dirs: string[], errors: Valida
       });
     }
 
+    // The flag decides whether the circuit is checked at all, so one section
+    // quietly leaving it out would decide for the other three.
+    const circles = new Set(members.map((m) => m.block.circular === true));
+    if (circles.size > 1) {
+      errors.push({
+        file: `pilgrimage:${id}`,
+        message: `sections of "${id}" declare conflicting circular: ${[...circles].join(" vs ")}`,
+        severity: "error",
+      });
+    }
+
     // Locale by locale, not block against block: the same name hand-copied
     // into four metadata.json files differs only in the order its keys were
     // typed, and comparing serialized objects read that as a conflict. The
@@ -568,13 +579,13 @@ function deferredSectionIds(root: string, errors: ValidationError[]): Set<string
  * section, not all of them — so only `legs` blocks are chained here.
  */
 export function validateSectionChain(root: string, dirs: string[], errors: ValidationError[]): void {
-  const declared: { routeId: string; dir: string; block: PilgrimageBlock; circular: boolean }[] = [];
+  const declared: { routeId: string; dir: string; block: PilgrimageBlock }[] = [];
 
   for (const dir of dirs) {
     const metaPath = join(dir, "metadata.json");
     if (!existsSync(metaPath)) continue;
     const meta = readJsonOrReport(root, metaPath, errors, "the chain through this section") as
-      | { id?: string; overview?: { topology?: string } }
+      | { id?: string }
       | undefined;
     if (!meta) continue;
     let block: PilgrimageBlock | undefined;
@@ -586,18 +597,15 @@ export function validateSectionChain(root: string, dirs: string[], errors: Valid
       continue;
     }
     if (!block || block.kind !== "legs") continue;
-    declared.push({
-      routeId: meta.id ?? basename(dir),
-      dir,
-      block,
-      circular: meta.overview?.topology === "circular",
-    });
+    declared.push({ routeId: meta.id ?? basename(dir), dir, block });
   }
 
   if (declared.length === 0) return;
   const deferredIds = deferredSectionIds(root, errors);
 
-  for (const [, { routeIds }] of groupSections(declared.map(({ routeId, block }) => ({ routeId, block })))) {
+  for (const [, { block: pilgrimage, routeIds }] of groupSections(
+    declared.map(({ routeId, block }) => ({ routeId, block })),
+  )) {
     const ordered = routeIds.map((routeId) => declared.find((d) => d.routeId === routeId)!);
     const ends = ordered.map((section) => {
       const stagesPath = join(section.dir, "stages.json");
@@ -677,10 +685,13 @@ export function validateSectionChain(root: string, dirs: string[], errors: Valid
       }
     }
 
-    // A circuit the route claims but never walks is the gap this catches.
+    // A circuit the pilgrimage claims but never walks is the gap this catches.
+    // The claim is the pilgrimage's own, checked for agreement across its
+    // sections in validatePilgrimages; a section's `overview.topology`
+    // describes that section and says nothing about the circuit.
     const closes = ends[ends.length - 1]?.last;
     const opens = ends[0]?.first;
-    if (closes && opens && ends.every((e) => e.section.circular)) {
+    if (closes && opens && pilgrimage.circular) {
       const closing = haversineMeters(closes.coordinates, opens.coordinates);
       if (closing > SNAP_METERS) {
         errors.push({

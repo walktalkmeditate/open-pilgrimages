@@ -642,6 +642,7 @@ function sectionWithStages(root: string, id: string, block: object, stages: obje
 }
 
 const legs = (order: number) => ({ id: "shikoku-88", name: { en: "Shikoku" }, kind: "legs", order });
+const closedLegs = (order: number) => ({ ...legs(order), circular: true });
 
 test("a gap between two legs sections is an error naming both", () => {
   const root = mkdtempSync(join(tmpdir(), "validate-chain-test-"));
@@ -688,12 +689,14 @@ test("sections that meet within the snap distance chain cleanly", () => {
 test("a circular pilgrimage must close back to its first start", () => {
   const root = mkdtempSync(join(tmpdir(), "validate-chain-test-"));
   try {
-    const a = sectionWithStages(root, "awa", legs(1), [
+    // #given the honest Shikoku shape: Awa runs Temple 1 to 23 and does not
+    // return, so each section is linear and only the circuit is circular
+    const a = sectionWithStages(root, "awa", closedLegs(1), [
       { index: 0, name: "d1", start: { name: { en: "T1" }, coordinates: [0, 0] }, end: { name: { en: "T23" }, coordinates: [0.1, 0] }, distanceKm: 11 },
-    ], "circular");
-    const b = sectionWithStages(root, "sanuki", legs(2), [
+    ]);
+    const b = sectionWithStages(root, "sanuki", closedLegs(2), [
       { index: 0, name: "d1", start: { name: { en: "T23" }, coordinates: [0.1, 0] }, end: { name: { en: "T88" }, coordinates: [0.2, 0] }, distanceKm: 11 },
-    ], "circular");
+    ]);
 
     const errors: ValidationError[] = [];
     validateSectionChain(root, [a, b], errors);
@@ -1448,6 +1451,89 @@ test("identical names written in different key orders do not read as conflicting
     validatePilgrimages(root, [a, b], errors);
 
     assert.deepEqual(errors, []);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("a section's own topology no longer arms the circuit check", () => {
+  const root = mkdtempSync(join(tmpdir(), "validate-chain-test-"));
+  try {
+    // #given sections that call themselves circular but whose pilgrimage
+    // claims no circuit — topology describes the section, not the walk
+    const a = sectionWithStages(root, "awa", legs(1), [
+      { index: 0, name: "d1", start: { name: { en: "T1" }, coordinates: [0, 0] }, end: { name: { en: "T23" }, coordinates: [0.1, 0] }, distanceKm: 11 },
+    ], "circular");
+    const b = sectionWithStages(root, "sanuki", legs(2), [
+      { index: 0, name: "d1", start: { name: { en: "T23" }, coordinates: [0.1, 0] }, end: { name: { en: "T88" }, coordinates: [0.2, 0] }, distanceKm: 11 },
+    ], "circular");
+
+    const errors: ValidationError[] = [];
+    validateSectionChain(root, [a, b], errors);
+
+    assert.deepEqual(errors, []);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("a closed circuit whose last stage returns to the first start raises nothing", () => {
+  const root = mkdtempSync(join(tmpdir(), "validate-chain-test-"));
+  try {
+    const a = sectionWithStages(root, "awa", closedLegs(1), [
+      { index: 0, name: "d1", start: { name: { en: "T1" }, coordinates: [0, 0] }, end: { name: { en: "T23" }, coordinates: [0.1, 0] }, distanceKm: 11 },
+    ]);
+    const b = sectionWithStages(root, "sanuki", closedLegs(2), [
+      { index: 0, name: "d1", start: { name: { en: "T23" }, coordinates: [0.1, 0] }, end: { name: { en: "T1" }, coordinates: [0, 0] }, distanceKm: 11 },
+    ]);
+
+    const errors: ValidationError[] = [];
+    validateSectionChain(root, [a, b], errors);
+
+    assert.deepEqual(errors, []);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("sections of one pilgrimage may not disagree on circular", () => {
+  const root = mkdtempSync(join(tmpdir(), "validate-pilgrimage-test-"));
+  try {
+    // #given the flag decides whether the circuit is checked at all, so one
+    // section quietly omitting it would decide for the other three
+    const a = join(root, "routes", "awa");
+    const b = join(root, "routes", "sanuki");
+    mkdirSync(a, { recursive: true });
+    mkdirSync(b, { recursive: true });
+    writeJson(join(a, "metadata.json"), { id: "awa", pilgrimage: closedLegs(1) });
+    writeJson(join(b, "metadata.json"), { id: "sanuki", pilgrimage: legs(2) });
+
+    const errors: ValidationError[] = [];
+    validatePilgrimages(root, [a, b], errors);
+
+    assert.equal(errors.length, 1);
+    assert.match(errors[0].message, /shikoku-88/);
+    assert.match(errors[0].message, /circular/);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("the schema refuses a circular flag that is not a boolean", () => {
+  const root = mkdtempSync(join(tmpdir(), "validate-schema-test-"));
+  try {
+    const path = join(root, "metadata.json");
+    writeJson(
+      path,
+      metadataFixture({
+        pilgrimage: { id: "shikoku-88", name: { en: "Shikoku 88" }, kind: "legs", order: 1, circular: "yes" },
+      }),
+    );
+
+    const errors: ValidationError[] = [];
+    validateFile(createValidator(), "pilgrimage.schema.json", path, errors);
+
+    assert.ok(errors.length > 0, "a circuit is claimed with true, not with a word");
   } finally {
     rmSync(root, { recursive: true, force: true });
   }

@@ -317,7 +317,11 @@
         "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
         "name": { "$ref": "#/$defs/LocalizedString" },
         "kind": { "type": "string", "enum": ["legs", "alternatives"] },
-        "order": { "type": "integer", "minimum": 1 }
+        "order": { "type": "integer", "minimum": 1 },
+        "circular": {
+          "type": "boolean",
+          "description": "The legs return to where they began, so the last section's final stage must close against the first section's first stage. A property of the whole walk: the sections it is made of are each linear."
+        }
       },
       "description": "The pilgrimage this section belongs to. Index-level only; a pilgrimage has no directory."
     },
