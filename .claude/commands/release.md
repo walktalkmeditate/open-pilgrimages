@@ -124,6 +124,10 @@ they cannot download. The PR that introduces a route's first `ways/` directory
 must say so in its description, so whoever merges it knows a release is due
 right behind it, not queued for whenever.
 
+`validate` also refuses any stage still marked `"drafted": true`, so drafted
+text is stopped at merge rather than here — a gate at tagging would strand
+every package URL in the window Phase 2b forbids.
+
 ## Phase 3: Update `README.md` with current stats
 
 The README has hardcoded dataset stats that need to be refreshed every release. Use the Phase 1 numbers to update:

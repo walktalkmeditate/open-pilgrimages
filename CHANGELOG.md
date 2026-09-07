@@ -6,6 +6,17 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 Consumers read the catalog from `https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@main/index.json` and pin every file they then download to the tag that index's `release` field names. The `v1` alias is no longer maintained — jsDelivr caches tag URLs permanently, so moving it changed nothing a consumer saw.
 
+## [Unreleased]
+
+### Added
+- `pilgrimages[]` in `index.json`: a pilgrimage groups the sections that name it, with `kind` distinguishing sections walked in sequence from alternative ways to the same end. Additive — `routes[]` is unchanged.
+- `validate` checks that the sections of a `legs` pilgrimage meet, that a circular pilgrimage closes, and that no stage still carries drafted text.
+- A generated page per pilgrimage, listing its sections and saying whether they are choices or legs. The catalog groups them under one heading, and each section page links back up.
+
+### Fixed
+- Stage boundaries advance along the walked line. A route that passes a place twice could put a stage's end behind its start; the slice was cut anyway and the report never said so. Such a pair is now a named gate reason with nothing emitted (#7).
+- `build-main-line` requires `osm.relations`. A name query pulled in every spur sharing the trail's name.
+
 ## [1.7.0] — 2026-09-05
 
 The "a stage is a Way" release. Turns each route's stages into ready-to-walk

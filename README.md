@@ -8,6 +8,8 @@ A canonical, open-source dataset of pilgrimage routes worldwide.
 
 The Route Points column counts `route.geojson` only. `route.main.geojson`, where a route has one, is a derived view of the same OSM data trimmed to the walked line, not additional coverage — counting it too would double the Camino Francés.
 
+### Camino de Santiago
+
 | Route | Distance | Topology | Tradition | Route Points | Waypoints | Stats |
 |-------|----------|----------|-----------|-------------|-----------|-------|
 | [Camino Frances](routes/camino-frances/) | 764 km | Linear | Christian | 33,192 | 2,957 | 41 years (1985-2025) |
@@ -16,6 +18,9 @@ The Route Points column counts `route.geojson` only. `route.main.geojson`, where
 | [Camino Portugués (Central)](routes/camino-portugues/) | 243 km | Linear | Christian | 13,722 | 1,634 | 23 years (2003-2025) |
 | [Camino Portugués da Costa (Coastal)](routes/camino-portugues/variants/coastal/) | 110 km | Linear | Christian | 5,546 | 1,043 | 23 years (2003-2025) |
 | [Camino Inglés](routes/camino-ingles/) | 112 km | Linear | Christian | 4,823 | 482 | 23 years (2003-2025) |
+
+| Route | Distance | Topology | Tradition | Route Points | Waypoints | Stats |
+|-------|----------|----------|-----------|-------------|-----------|-------|
 | [Shikoku 88](routes/shikoku-88/) | 1,200 km | Circular | Buddhist | 49,097 | 2,980 | 21 years (2005-2025) |
 | [Kumano Kodo](routes/kumano-kodo/) | 39-170 km | Network | Shinto/Buddhist | 6,847 | 157 | 22 years (2003-2024) |
 
@@ -202,6 +207,7 @@ All data files conform to [JSON Schema 2020-12](schema/) definitions. See the [d
 - **Route IDs:** kebab-case (`camino-frances`, `shikoku-88`, `kumano-kodo`)
 - **Schema version:** SemVer in every file (`"schemaVersion": "1.0.0"`)
 - **Versioning:** Read the catalog from `@main`, then pin every file you download to the exact tag its `release` field names. `@v1` is frozen at whatever jsDelivr cached — it is no longer moved on release. MINOR adds optional fields. MAJOR = breaking.
+- **Pilgrimage / section / stage:** A pilgrimage groups the sections (route directories) that name it; see [CLAUDE.md](CLAUDE.md) for the model.
 
 ### Waypoint Types
 

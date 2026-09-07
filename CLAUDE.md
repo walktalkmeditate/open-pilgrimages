@@ -4,6 +4,11 @@ Canonical open-source pilgrimage route dataset. Three-layer schema: geometry, lo
 
 ## Project Structure
 
+A pilgrimage is a grouping in index.json, not a directory: every route
+directory is a section, and a section's metadata.json names the pilgrimage
+it belongs to. Pilgrimage ids and section ids share the docs site's page
+namespace and may not collide.
+
 ```
 routes/{route-id}/          # One directory per pilgrimage
   metadata.json             # Overview, tradition, culture, logistics
@@ -33,6 +38,14 @@ index.json                  # Route registry (auto-generated)
 - Localized strings: `{ "en": "...", "es": "...", "ja": "..." }` — `en` always required
 - Schema version: SemVer in every file (`"schemaVersion": "1.0.0"`)
 - Route IDs: kebab-case (`camino-frances`, `shikoku-88`, `kumano-kodo`)
+- Pilgrimage: `pilgrimage: { id, name, kind, order }` in a section's metadata.
+  `kind` is `legs` (walked one after another; the sections must chain, and a
+  circular pilgrimage must close) or `alternatives` (each section its own way
+  to the same end; exempt from chaining, and no summed distance).
+- Walked line: `osm.relations` is required for any section with a ways/
+  package. A name query pulls in spurs and variants.
+- Drafted stage text carries `"drafted": true` and cannot be merged; clearing
+  the flag needs a ticked line in `docs/review/<id>.md`.
 
 ## Commands
 
