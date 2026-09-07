@@ -688,6 +688,29 @@ test("one malformed pilgrimage block does not hide the next", () => {
   }
 });
 
+test("an unparseable metadata.json is one directory's problem, not the scan's", () => {
+  // #given one directory whose metadata.json will not parse at all, and a
+  // second, later in the alphabet, whose pilgrimage block is refused
+  const { root, routesDir } = createTempRoutesDir([
+    { dirName: "tosa", id: "tosa", metadata: { pilgrimage: { ...SHIKOKU, kind: "loop", order: 2 } } },
+  ]);
+  try {
+    mkdirSync(join(routesDir, "awa"));
+    writeFileSync(join(routesDir, "awa", "metadata.json"), "{ not json");
+
+    // #when / #then one run names both files, and the syntax error is
+    // attributed to the file that carries it
+    assert.throws(() => scanSections(routesDir, root), (error: Error) => {
+      assert.match(error.message, /routes[/\\]awa[/\\]metadata\.json/);
+      assert.match(error.message, /routes[/\\]tosa[/\\]metadata\.json/);
+      assert.match(error.message, /pilgrimage\.kind/);
+      return true;
+    });
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
 test("build-index exits with a named failure, writing no index.json", () => {
   const { dir, scriptPath, indexPath } = createTempScriptRepo([
     { dirName: "tosa", id: "tosa", metadata: { pilgrimage: { ...SHIKOKU, kind: "loop", order: 1 } } },

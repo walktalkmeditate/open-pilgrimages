@@ -144,6 +144,19 @@ export interface ScannedSection {
   declaredDistanceKm?: number;
 }
 
+/**
+ * The fields a route's `metadata.json` contributes to its index entry, as
+ * `schema/pilgrimage.schema.json` requires them. Taking the file's word is
+ * safe here and nowhere else: `validate` runs the schema over the same file,
+ * and every field this scan reads without one is defaulted below.
+ */
+interface RouteMetadataFile {
+  id: string;
+  name: Record<string, string>;
+  overview?: { countries?: string[]; distanceKm?: number; topology?: string };
+  tradition?: { type?: string };
+}
+
 export function scanSections(routesDir: string, root: string): ScannedSection[] {
   const sections: ScannedSection[] = [];
   const failures: string[] = [];
@@ -153,7 +166,26 @@ export function scanSections(routesDir: string, root: string): ScannedSection[] 
     const metaPath = join(routeDir, "metadata.json");
     if (!statSync(routeDir).isDirectory() || !existsSync(metaPath)) continue;
 
-    const meta = loadJson(metaPath);
+    // Per route directory, the isolation build-ways gives each of its own:
+    // readPilgrimage names the field it refused but not the file it came
+    // from, and thrown bare from here a single typo killed the run with a
+    // stack trace pointing at pilgrimage.ts. The read that feeds it belongs
+    // under the same guard — a contributor's syntax error is one file's
+    // problem too, and bare it aborted the scan before any collecting could
+    // happen. Collecting instead of throwing means twelve directories report
+    // twelve problems, not the first one.
+    let meta: RouteMetadataFile;
+    let pilgrimage: PilgrimageBlock | undefined;
+    try {
+      meta = loadJson(metaPath) as RouteMetadataFile;
+      pilgrimage = readPilgrimage(meta);
+    } catch (error) {
+      failures.push(
+        `${relative(root, metaPath)}: ${error instanceof Error ? error.message : String(error)}`,
+      );
+      continue;
+    }
+
     const country = primaryCountry(meta.overview?.countries);
 
     const routeEntry: RouteEntry = {
@@ -167,20 +199,6 @@ export function scanSections(routesDir: string, root: string): ScannedSection[] 
       path: relative(root, routeDir),
     };
 
-    // Per route directory, the isolation build-ways gives each of its own:
-    // readPilgrimage names the field it refused but not the file it came
-    // from, and thrown bare from here a single typo killed the run with a
-    // stack trace pointing at pilgrimage.ts. Collecting instead of throwing
-    // means twelve directories report twelve problems, not the first one.
-    let pilgrimage: PilgrimageBlock | undefined;
-    try {
-      pilgrimage = readPilgrimage(meta);
-    } catch (error) {
-      failures.push(
-        `${relative(root, metaPath)}: ${error instanceof Error ? error.message : String(error)}`,
-      );
-      continue;
-    }
     if (pilgrimage) routeEntry.pilgrimage = pilgrimage.id;
 
     const variants = scanVariants(routeDir, root);
