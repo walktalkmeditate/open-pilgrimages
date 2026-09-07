@@ -681,6 +681,21 @@ export function validateDraftedText(root: string, dirs: string[], errors: Valida
           severity: "error",
         });
       }
+
+      // A pilgrimage-level file only has the qualified form: the bare form
+      // matches nothing above, so writing it here is the exact silent hole
+      // the qualified form exists to close, just moved from the wrong
+      // filename to the wrong line shape.
+      if (
+        checklist.qualifier &&
+        new RegExp(`^\\s*- \\[[ x]\\] stage ${stage.index}\\b`, "m").test(checklist.lines)
+      ) {
+        errors.push({
+          file: checklist.file,
+          message: `stage ${stage.index} of "${routeId}" is unqualified in ${checklist.file}; a pilgrimage-level checklist line must carry its section id, e.g. "- [ ] ${routeId} stage ${stage.index}"`,
+          severity: "error",
+        });
+      }
     }
   }
 }

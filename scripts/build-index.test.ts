@@ -534,10 +534,8 @@ test("a legs pilgrimage with a section that declares no distance emits no distan
   }
 });
 
-test("a pilgrimage's sections are the routes[] entries, read once", () => {
-  // #given a section whose directory name sorts against its route id, so a
-  // second independent traversal in readdir order would reduce its sums in a
-  // different sequence from the one routes[] is emitted in
+test("a pilgrimage's sections and totals agree with the emitted routes[]", () => {
+  // #given two sections of one pilgrimage
   const { root, routesDir } = createTempRoutesDir([
     { dirName: "zzz", id: "awa", metadata: { pilgrimage: { ...SHIKOKU, order: 1 } } },
     { dirName: "aaa", id: "tosa", metadata: { pilgrimage: { ...SHIKOKU, order: 2 } } },
@@ -549,7 +547,12 @@ test("a pilgrimage's sections are the routes[] entries, read once", () => {
     const index = buildIndex(routesDir, null, () => NEW, root, RELEASE);
     const legs = index.pilgrimages?.[0];
 
-    // #then every section resolves to a route in the same index
+    // #then every section named in the pilgrimage resolves to a route in the
+    // same index, and its stage count is the sum of what those routes
+    // report. This is not a guard against readdir-order regressions:
+    // groupSections sorts by (order, routeId) regardless of input order, and
+    // toFixed(1) rounds away any reduce-order difference these sums could
+    // show, so a reintroduced second traversal would still pass here.
     for (const sectionId of legs!.sections) {
       assert.ok(index.routes.some((route) => route.id === sectionId), sectionId);
     }

@@ -1034,10 +1034,34 @@ test("an unqualified line in a pilgrimage-level checklist clears nothing", () =>
     const errors: ValidationError[] = [];
     validateDraftedText(root, [dir], errors);
 
-    // #then the unqualified tick does not satisfy the qualified line
-    assert.equal(errors.length, 1);
+    // #then the unqualified tick does not satisfy the qualified line, and the
+    // stray bare line is itself named as needing the section id
+    assert.equal(errors.length, 2);
     assert.match(errors[0].message, /stage 0/);
     assert.match(errors[0].message, /unticked/);
+    assert.match(errors[1].message, /stage 0/);
+    assert.match(errors[1].message, /kumano-kodo-kohechi stage 0/);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("an unqualified line in a pilgrimage-level checklist is reported", () => {
+  const root = mkdtempSync(join(tmpdir(), "validate-drafted-test-"));
+  try {
+    // #given a shared file written with the per-section form instead of the
+    // section-qualified one that files
+    const dir = draftedSection(root, "kumano-kodo-kohechi", [{ index: 0, name: "d1" }], KOHECHI);
+    writeChecklist(root, "kumano-kodo", "# Kumano Kodō\n\n- [ ] stage 0\n");
+
+    const errors: ValidationError[] = [];
+    validateDraftedText(root, [dir], errors);
+
+    // #then the bare line is named as needing its section id, with the
+    // qualified form shown
+    assert.equal(errors.length, 1);
+    assert.match(errors[0].message, /stage 0/);
+    assert.match(errors[0].message, /kumano-kodo-kohechi stage 0/);
   } finally {
     rmSync(root, { recursive: true, force: true });
   }
