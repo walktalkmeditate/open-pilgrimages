@@ -100,6 +100,63 @@ test("a page is written for each pilgrimage, listing its sections in order", () 
   }
 });
 
+test("a legs pilgrimage reads as one walk cut into sections, not a set of choices", () => {
+  const root = mkdtempSync(join(tmpdir(), "build-assets-test-"));
+  try {
+    mkdirSync(join(root, "docs"), { recursive: true });
+    writeFileSync(
+      join(root, "index.json"),
+      JSON.stringify({
+        pilgrimages: [
+          { id: "shikoku-88", name: { en: "Shikoku 88" }, kind: "legs", sections: ["awa", "tosa"] },
+        ],
+        routes: [
+          { id: "awa", name: { en: "Awa" }, distanceKm: 190 },
+          { id: "tosa", name: { en: "Tosa" }, distanceKm: 380 },
+        ],
+      }),
+    );
+
+    const html = readFileSync(buildPilgrimagePages(root)[0], "utf8");
+
+    // #then the intro and the description both say sequence, and neither
+    // offers the reader a choice of one section over the rest
+    assert.match(
+      html,
+      /The sections below are walked in sequence, each beginning where the one before it ends\./,
+    );
+    assert.match(
+      html,
+      /<meta name="description" content="Shikoku 88: 2 sections walked in sequence — Awa, Tosa\. Route geometry, stages, and statistics for each\.">/,
+    );
+    assert.equal(html.includes("its own way to the same destination"), false);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("a kind the page has no copy for is refused, not rendered as alternatives", () => {
+  const root = mkdtempSync(join(tmpdir(), "build-assets-test-"));
+  try {
+    mkdirSync(join(root, "docs"), { recursive: true });
+    writeFileSync(
+      join(root, "index.json"),
+      JSON.stringify({
+        pilgrimages: [
+          { id: "shikoku-88", name: { en: "Shikoku 88" }, kind: "loop", sections: ["awa"] },
+        ],
+        routes: [{ id: "awa", name: { en: "Awa" }, distanceKm: 190 }],
+      }),
+    );
+
+    // #then it fails by name rather than telling a walker to pick one leg
+    assert.throws(() => buildPilgrimagePages(root), /loop/);
+    assert.equal(existsSync(join(root, "docs", "shikoku-88.html")), false);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
 test("a section with no measured distance renders no distance at all", () => {
   const root = mkdtempSync(join(tmpdir(), "build-assets-test-"));
   try {

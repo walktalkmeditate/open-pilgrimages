@@ -7,6 +7,7 @@ import {
   writeFileSync,
 } from "fs";
 import { join } from "path";
+import type { PilgrimageEntry } from "../build-index.js";
 import { byCodepoint, resolveInvokedPath } from "../cli.js";
 import { PAGE_ID_PATTERN } from "../pages.js";
 import { GLYPH_BOX, glyphFrom } from "./glyphs.js";
@@ -218,7 +219,7 @@ function pageTarget(root: string, id: string): string {
  */
 export function buildPilgrimagePages(root: string): string[] {
   const index = JSON.parse(readFileSync(join(root, "index.json"), "utf8")) as {
-    pilgrimages?: { id: string; name: Record<string, string>; kind: string; sections: string[] }[];
+    pilgrimages?: PilgrimageEntry[];
     routes: { id: string; name: Record<string, string>; distanceKm?: number }[];
   };
   const written: string[] = [];
@@ -245,14 +246,26 @@ export function buildPilgrimagePages(root: string): string[] {
     // it is what the page opens with and what its description is built from.
     const name = pilgrimage.name.en;
     const sectionNames = sections.map((s) => s.name.en).join(", ");
-    const intro =
-      pilgrimage.kind === "legs"
-        ? "The sections below are walked in sequence, each beginning where the one before it ends."
-        : "Each section below is its own way to the same destination. Walk one, not all of them.";
-    const description =
-      pilgrimage.kind === "legs"
-        ? `${name}: ${sections.length} sections walked in sequence — ${sectionNames}. Route geometry, stages, and statistics for each.`
-        : `${name}: ${sections.length} alternative ways to the same destination — ${sectionNames}. Route geometry, stages, and statistics for each.`;
+
+    let intro: string;
+    let description: string;
+    if (pilgrimage.kind === "legs") {
+      intro =
+        "The sections below are walked in sequence, each beginning where the one before it ends.";
+      description = `${name}: ${sections.length} sections walked in sequence — ${sectionNames}. Route geometry, stages, and statistics for each.`;
+    } else if (pilgrimage.kind === "alternatives") {
+      intro = "Each section below is its own way to the same destination. Walk one, not all of them.";
+      description = `${name}: ${sections.length} alternative ways to the same destination — ${sectionNames}. Route geometry, stages, and statistics for each.`;
+    } else {
+      // index.json is a file on disk, so the union above describes what the
+      // generator is fed, not what it can be handed. Falling through to the
+      // alternatives copy told a walker to pick one leg of a sequence and
+      // skip the rest, in a page that read as deliberate.
+      throw new Error(
+        `pilgrimage "${pilgrimage.id}" has kind ${JSON.stringify(pilgrimage.kind)}, which is ` +
+          `neither "legs" nor "alternatives", so the page has no copy for it`,
+      );
+    }
 
     const path = pageTarget(root, pilgrimage.id);
     writeFileSync(path, pilgrimagePage(pilgrimage.id, name, description, intro, items));
