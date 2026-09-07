@@ -916,48 +916,68 @@ EOF
 **Files:**
 - Modify: `routes/camino-norte/waypoints.geojson`, `routes/camino-norte/ways/**`, `index.json`
 
-- [ ] **Step 1: Fetch**
-
-```bash
-npm run fetch -- camino-norte --force
-```
-
-- [ ] **Step 2: Select, do not dump**
-
-The fetch returns far more than belongs on a card. Keep a candidate only when **all** hold:
-
-- Its type is one of `sacred_site`, `cultural_site`, `viewpoint`, `town`.
-- It has a real `name` — not `Unnamed`.
-- It lies within `MOMENT_DROP_METERS` (300 m) of `route.main.geojson`. Further is a detour, and `marks.ts` drops it anyway.
-- It is more than `PLACE_MATCH_METERS` (150 m) from its stage's own start and end, or it counts as that place rather than as something passed.
-
-Target **2–3 per stage**, and never more than 4. Prefer, in order: a named church, monastery or hermitage on the day's path; a viewpoint at a pass or a headland; a village between the day's ends.
-
-Each kept feature takes the committed shape — this is the Roncesvalles feature, and the new ones must match it field for field, plus the two the spec requires:
+The places are **machine-derived, not hand-authored** — decided by the plan owner at pre-flight. `scripts/enrich/waypoints.ts` already emits exactly the shape spec §5.1 asks for:
 
 ```json
 {
   "type": "Feature",
-  "id": "wp-<kebab-slug>",
-  "geometry": { "type": "Point", "coordinates": [-1.319, 43.01, 945] },
+  "id": "wp-osm-sacred_site-node357129888",
+  "geometry": { "type": "Point", "coordinates": [-1.319, 43.01] },
   "properties": {
     "routeId": "camino-norte",
-    "name": "Collegiate Church of Roncesvalles",
-    "nameLocalized": { "es": "Real Colegiata de Roncesvalles" },
+    "name": "Real Colegiata de Roncesvalles",
     "type": "sacred_site",
     "subtype": "church",
     "stageIndex": 0,
     "kmFromStart": 24.2,
     "icon": "church",
-    "description": "Medieval pilgrim hospital and church. Nightly pilgrim blessing at 20:00.",
-    "elevation": 945,
     "source": "osm",
     "osmId": "node/357129888"
   }
 }
 ```
 
-`description` is one or two factual sentences from the node's own tags — what it is, and anything a walker acts on. **No invented history, no atmosphere.** A node whose tags support no honest sentence gets no `description`; that is better than a guess.
+That tool is the whole of this task. **Author no feature by hand.** It reads the existing `waypoints.geojson`, preserves every feature whose `source` is not `"osm"`, regenerates the rest from the Overpass query Task 7 widened, and assigns `stageIndex` and `kmFromStart` by projection. `description` is not emitted and must not be added — an `osm`-sourced feature is rebuilt on every run, so anything hand-written on it is lost.
+
+- [ ] **Step 1: Expose the tool and run it**
+
+`scripts/enrich/waypoints.ts` takes a route id but is not in `package.json`. Add it beside `build-main-line`:
+
+```json
+"enrich-waypoints": "tsx scripts/enrich/waypoints.ts",
+```
+
+Then:
+
+```bash
+npm run enrich-waypoints -- camino-norte
+```
+
+Do **not** use `npm run fetch`. That fetches relation geometry into `.cache/osm/`, never calls `buildPoiQuery`, and takes no route filter — it would touch all seven routes, which this plan does not do.
+
+Read its summary: it prints how many curated waypoints it preserved, how many OSM waypoints it added, and how many it skipped for distance and for dedup.
+
+- [ ] **Step 2: Tune inclusion, do not curate by hand**
+
+Two constants in `scripts/enrich/waypoints.ts` decide what lands, and one of them disagrees with the ways builder:
+
+- `BUFFER_KM = 0.5` — the enricher admits a place within 500 m of the line.
+- `DEDUP_KM = 0.05` — two places within 50 m collapse to one.
+- `MOMENT_DROP_METERS = 300` in `scripts/ways/moments.ts` — the ways builder then **drops** anything beyond 300 m.
+
+So a place between 300 m and 500 m off the line is written to `waypoints.geojson` and silently discarded from the package. Set `BUFFER_KM` to `0.3` so the two agree, and say why in a comment:
+
+```ts
+/**
+ * The ways builder drops a place more than MOMENT_DROP_METERS from the line,
+ * so admitting one past that only writes a waypoint no package will carry.
+ */
+const BUFFER_KM = 0.3;
+```
+
+If the run is still over-inclusive — every hamlet on 784 km of coast — raise `DEDUP_KM` or narrow Task 7's `place` regex to `city|town|village`, dropping `hamlet`. Change the query or the constants, never the output file.
+
+Judge the result against the bar in Step 3, not against a target per stage.
 
 - [ ] **Step 3: Rebuild and check the coverage bar**
 
@@ -988,13 +1008,14 @@ A short list is fine. A long one means the selection ignored the 300 m rule — 
 
 ```bash
 npm run build-index && npm run build-assets && npm run validate 2>&1 | tail -2 && npm run check-site 2>&1 | tail -1
-git add routes/camino-norte/waypoints.geojson routes/camino-norte/ways index.json docs
+git add package.json scripts/enrich/waypoints.ts routes/camino-norte/waypoints.geojson routes/camino-norte/ways index.json docs
 git commit -m "$(cat <<'EOF'
 feat(camino-norte): places worth stopping at, so the card stops apologising
 
-Two or three per stage, each within 300 m of the walked line and each
-carrying the OSM node it came from, so a walker sees what the day passes
-rather than only where to sleep and drink.
+Derived from OSM rather than written down, so anyone can re-run the
+enricher and get the same places back. Its buffer now matches the one
+the ways builder drops on, which had been writing waypoints into the
+file that no package would ever carry.
 
 Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>
 EOF
