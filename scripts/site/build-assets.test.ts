@@ -127,6 +127,62 @@ test("a section with no measured distance renders no distance at all", () => {
   }
 });
 
+test("a hostile section id cannot break out of the href it is written into", () => {
+  const root = mkdtempSync(join(tmpdir(), "build-assets-test-"));
+  try {
+    mkdirSync(join(root, "docs"), { recursive: true });
+    // #given a section id and distance carrying markup — the id is a path
+    // segment on the page, and nothing upstream of the template escapes it
+    const hostileId = 'hostile" onmouseover="alert(1)';
+    writeFileSync(
+      join(root, "index.json"),
+      JSON.stringify({
+        pilgrimages: [
+          { id: "kumano-kodo", name: { en: "Kumano Kodō" }, kind: "alternatives", sections: [hostileId] },
+        ],
+        routes: [{ id: hostileId, name: { en: "Section A" }, distanceKm: '1"><script>' }],
+      }),
+    );
+
+    // #when the page is generated
+    const html = readFileSync(buildPilgrimagePages(root)[0], "utf8");
+
+    // #then both land as text inside the attribute they were written into,
+    // opening no attribute and no element of their own
+    assert.equal(html.includes('onmouseover="alert(1)"'), false);
+    assert.match(html, /href="\/hostile&quot; onmouseover=&quot;alert\(1\)"/);
+    assert.match(html, /— 1&quot;&gt;&lt;script&gt; km/);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("an apostrophe in a section name is escaped like every other delimiter", () => {
+  const root = mkdtempSync(join(tmpdir(), "build-assets-test-"));
+  try {
+    mkdirSync(join(root, "docs"), { recursive: true });
+    writeFileSync(
+      join(root, "index.json"),
+      JSON.stringify({
+        pilgrimages: [
+          { id: "kumano-kodo", name: { en: "Pilgrim's Way" }, kind: "alternatives", sections: ["a"] },
+        ],
+        routes: [{ id: "a", name: { en: "Saint's Path" }, distanceKm: 1 }],
+      }),
+    );
+
+    const html = readFileSync(buildPilgrimagePages(root)[0], "utf8");
+
+    // Every interpolation sits in a double-quoted attribute or element text
+    // today, so this changes nothing that renders — it is what keeps the
+    // escaping honest the day a single-quoted attribute joins the template.
+    assert.equal(html.includes("Saint's Path"), false);
+    assert.match(html, /Saint&#39;s Path/);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
 test("a pilgrimage id that is not a bare slug never becomes a path", () => {
   const root = mkdtempSync(join(tmpdir(), "build-assets-test-"));
   try {

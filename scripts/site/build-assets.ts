@@ -89,12 +89,20 @@ function glyphSvg(d: string): string {
   );
 }
 
+/**
+ * Every interpolation below sits in element text or a double-quoted
+ * attribute, so the apostrophe is not load-bearing today — it is here so the
+ * escaping does not quietly stop covering the template the day a
+ * single-quoted attribute joins it. `&` runs first or it would re-escape the
+ * entities the later replacements introduce.
+ */
 function escapeHtml(value: string): string {
   return value
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;");
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
 }
 
 function pilgrimagePage(
@@ -108,7 +116,7 @@ function pilgrimagePage(
   const safeDescription = escapeHtml(description);
   const safeIntro = escapeHtml(intro);
   const titleTag = `${safeName} &mdash; Open Pilgrimages`;
-  const canonicalUrl = `https://open.pilgrimag.es/${id}`;
+  const canonicalUrl = `https://open.pilgrimag.es/${escapeHtml(id)}`;
 
   return `<!DOCTYPE html>
 ${GENERATED_MARKER}
@@ -223,11 +231,13 @@ export function buildPilgrimagePages(root: string): string[] {
     // exactly 0 km are different facts; falling back to 0 would report the
     // former as the latter, turning "not measured" into a false measurement.
     const items = sections
-      .map((s) =>
-        s.distanceKm === undefined
-          ? `      <li><a href="/${s.id}">${escapeHtml(s.name.en)}</a></li>`
-          : `      <li><a href="/${s.id}">${escapeHtml(s.name.en)}</a> — ${s.distanceKm} km</li>`,
-      )
+      .map((s) => {
+        const href = escapeHtml(s.id);
+        const name = escapeHtml(s.name.en);
+        return s.distanceKm === undefined
+          ? `      <li><a href="/${href}">${name}</a></li>`
+          : `      <li><a href="/${href}">${name}</a> — ${escapeHtml(String(s.distanceKm))} km</li>`;
+      })
       .join("\n");
 
     // Five same-weight links say nothing about how they relate. The kind is
