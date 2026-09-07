@@ -916,6 +916,127 @@ EOF
 
 ---
 
+### Task 5b: An anchor may sit off the trail, if it says how far
+
+**Inserted after execution began.** Task 5 derived the walked line, and `validateWalkedLine` immediately failed with four errors: Güemes 577 m and Cadavedo 1247 m from the line, each flagged twice — once as a stage's end, once as the next stage's start. Its message offers two causes, *"either the anchor moved or the line is stale"*, and neither is true. Task 4 established that Güemes' declared coordinate **is** its OSM node and Cadavedo's node is 107 m worse. The villages are simply off the trail.
+
+A third cause exists and the code does not model it. The plan owner ruled: **let an anchor be off-trail when it declares how far**, rather than moving the boundary onto the trail. The village keeps its real coordinates, so anything showing a stage's end pins Cadavedo at Cadavedo. This generalises — Shikoku's anchors are temples and many sit well up mountainsides, so PR D would otherwise hit this across a large fraction of its ~45 stages.
+
+The declaration is a number, not prose, so a genuinely stale line still fails.
+
+**Files:**
+- Modify: `scripts/validate.ts` (`validateWalkedLine`), `schema/stages.schema.json`, `routes/camino-norte/stages.json`
+- Test: `scripts/validate.test.ts`
+
+**Interfaces:**
+- Produces: an optional `offLineMeters` integer on a stage's `start` and `end` anchor. When present and the measured distance agrees with it, `validateWalkedLine` records a **warning** naming the anchor and the distance. When present and the measured distance has drifted past the tolerance, or when absent and the anchor is beyond `SNAP_METERS`, it stays an **error**.
+
+- [ ] **Step 1: Write the failing tests**
+
+Append to `scripts/validate.test.ts`, matching the file's existing fixture idiom:
+
+```ts
+test("an anchor that declares its distance off the line is a warning, not an error", () => {
+  // #given a stage whose end sits 800 m off the line and says so
+  const root = offLineFixture(800, 800);
+  const errors: ValidationError[] = [];
+  // #when the walked line is validated
+  validateWalkedLine(join(root, "routes", "a"), errors);
+  // #then it is reported, but it does not fail the build
+  assert.equal(errors.length, 1);
+  assert.equal(errors[0].severity, "warning");
+  assert.match(errors[0].message, /800 m/);
+});
+
+test("an undeclared anchor past the snap radius is still an error", () => {
+  // #given the same stage with no declaration
+  const root = offLineFixture(800, undefined);
+  const errors: ValidationError[] = [];
+  validateWalkedLine(join(root, "routes", "a"), errors);
+  // #then the build fails, as it did before this rule existed
+  assert.equal(errors.length, 1);
+  assert.equal(errors[0].severity, "error");
+});
+
+test("a declaration that no longer matches the line is an error", () => {
+  // #given an anchor that declares 800 m while the line now puts it 3 km away
+  const root = offLineFixture(3000, 800);
+  const errors: ValidationError[] = [];
+  validateWalkedLine(join(root, "routes", "a"), errors);
+  // #then the stale line is caught, which is what the rule must not silence
+  assert.equal(errors.length, 1);
+  assert.equal(errors[0].severity, "error");
+  assert.match(errors[0].message, /declares 800 m/);
+});
+
+test("an anchor within the snap radius needs no declaration", () => {
+  const root = offLineFixture(200, undefined);
+  const errors: ValidationError[] = [];
+  validateWalkedLine(join(root, "routes", "a"), errors);
+  assert.deepEqual(errors, []);
+});
+```
+
+Write `offLineFixture(actualMeters, declaredMeters)` beside the file's other fixture builders: a temp root with `routes/a/` holding a `route.main.geojson` whose line is a short straight segment, and a `stages.json` whose single stage's `end` sits `actualMeters` north of that line, carrying `offLineMeters: declaredMeters` when the second argument is defined.
+
+- [ ] **Step 2: Run them and watch them fail**
+
+```bash
+node --import tsx --test scripts/validate.test.ts 2>&1 | tail -8
+```
+Expected: the first three fail — every case is currently an `error`, and no message mentions a declaration.
+
+- [ ] **Step 3: Teach the validator the third cause**
+
+In `validateWalkedLine`, replace the single `found.meters > SNAP_METERS` branch with the three outcomes. `OFF_LINE_TOLERANCE_METERS` is the drift a rebuild may legitimately introduce — Task 5's own rebuild moved the line by 0.8 km over 800 km, so a per-anchor allowance of 50 m is generous without being permissive:
+
+```ts
+/**
+ * A stage may legitimately end at a village or a temple the trail only passes
+ * near; the walk ends where you turn off. Declaring the distance keeps that
+ * case distinct from the two the build cannot tell it from — an anchor that
+ * moved, and a line that went stale — because a declaration that stops
+ * matching the line is itself the error.
+ */
+const OFF_LINE_TOLERANCE_METERS = 50;
+```
+
+Add `offLineMeters?: number` to the anchor type this function reads, and to `schema/stages.schema.json`'s anchor definition as an optional non-negative integer.
+
+- [ ] **Step 4: Declare the two anchors**
+
+In `routes/camino-norte/stages.json`, add `offLineMeters` to Güemes (stage 10 `end`, stage 11 `start`) and Cadavedo (stage 23 `end`, stage 24 `start`), using the measured values. Give each a `note` in the Camino Francés form saying which village it is and why the trail does not reach it — for Cadavedo, that its OSM node is `node/108478808`, `place=hamlet`, named `Cadavéu` in Asturian.
+
+- [ ] **Step 5: Verify**
+
+```bash
+npx tsc --noEmit
+npm test 2>&1 | grep -E "^ℹ (tests|pass|fail)"
+npm run validate 2>&1 | tail -4
+```
+Expected: `ℹ fail 0`; `Validation passed (4 warning(s))` — the four that were errors are now warnings, and no error remains.
+
+- [ ] **Step 6: Commit**
+
+```bash
+git add scripts/validate.ts scripts/validate.test.ts schema/stages.schema.json routes/camino-norte/stages.json
+git commit -m "$(cat <<'EOF'
+feat(validate): a stage may end at a place the trail only passes near
+
+The walked line put Güemes 577 m away and Cadavedo 1247 m, and the
+check knew only two reasons an anchor could be that far off — it moved,
+or the line went stale. Neither was true: the villages sit off the
+trail, as Shikoku's temples will. Declaring the distance separates that
+from the two failures the radius exists to catch, because a declaration
+that stops matching the line is itself an error.
+
+Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>
+EOF
+)"
+```
+
+---
+
 ### Task 6: Clear the gate
 
 **Files:**
