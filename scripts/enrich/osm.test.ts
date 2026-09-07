@@ -3,7 +3,7 @@ import assert from "node:assert/strict";
 import { existsSync, mkdtempSync, readdirSync, rmSync, writeFileSync } from "fs";
 import { tmpdir } from "os";
 import { join } from "path";
-import { CLIENT_TIMEOUT_MS, queryOverpass } from "./osm.js";
+import { CLIENT_TIMEOUT_MS, queryOverpass, buildPoiQuery, classifyNode } from "./osm.js";
 
 // This suite never touches the network: every test injects a fake `fetch` and
 // a temp cache directory through queryOverpass's OverpassRuntime, so nothing
@@ -160,4 +160,38 @@ test("queryOverpass bounds the socket with AbortSignal.timeout, and hands fetch 
   } finally {
     rmSync(dir, { recursive: true, force: true });
   }
+});
+
+test("the POI query asks for the places a walk is remembered by", () => {
+  const q = buildPoiQuery([-2, 43, -1, 44]);
+  // #then every moment type has at least one tag that can produce it
+  assert.match(q, /amenity"="place_of_worship/);
+  assert.match(q, /historic"="monastery/);
+  assert.match(q, /tourism"="viewpoint/);
+  assert.match(q, /place"~"city\|town\|village/);
+});
+
+test("a church classifies as a sacred site, not as nothing", () => {
+  assert.deepEqual(
+    classifyNode({ type: "node", id: 1, lat: 43, lon: -2, tags: { amenity: "place_of_worship", religion: "christian" } }),
+    { type: "sacred_site", subtype: "church" },
+  );
+});
+
+test("a viewpoint and a village classify to their own types", () => {
+  assert.deepEqual(
+    classifyNode({ type: "node", id: 2, lat: 43, lon: -2, tags: { tourism: "viewpoint" } }),
+    { type: "viewpoint", subtype: "viewpoint" },
+  );
+  assert.deepEqual(
+    classifyNode({ type: "node", id: 3, lat: 43, lon: -2, tags: { place: "village" } }),
+    { type: "town", subtype: "village" },
+  );
+});
+
+test("a service tag still wins over a place tag on the same node", () => {
+  // #given a node tagged both — a village with a shop record on it
+  const n = { type: "node" as const, id: 4, lat: 43, lon: -2, tags: { shop: "convenience", place: "village" } };
+  // #then the service classification is unchanged, so no existing waypoint moves type
+  assert.deepEqual(classifyNode(n), { type: "supply", subtype: "convenience_store" });
 });

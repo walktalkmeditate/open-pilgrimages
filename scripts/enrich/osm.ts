@@ -115,6 +115,13 @@ export function buildPoiQuery(bbox: [number, number, number, number]): string {
   node["highway"="bus_stop"]${bb};
   node["railway"="station"]${bb};
   node["railway"="halt"]${bb};
+  node["amenity"="place_of_worship"]${bb};
+  node["historic"="monastery"]${bb};
+  node["historic"="wayside_cross"]${bb};
+  node["historic"="wayside_shrine"]${bb};
+  node["historic"="ruins"]${bb};
+  node["tourism"="viewpoint"]${bb};
+  node["place"~"city|town|village|hamlet"]${bb};
 );
 out body;`;
 }
@@ -162,6 +169,16 @@ export const OSM_TAG_MAP: Record<string, { type: string; subtype: string }> = {
   "highway=bus_stop": { type: "transport", subtype: "bus_stop" },
   "railway=station": { type: "transport", subtype: "train_station" },
   "railway=halt": { type: "transport", subtype: "train_station" },
+  "amenity=place_of_worship": { type: "sacred_site", subtype: "church" },
+  "historic=monastery": { type: "sacred_site", subtype: "monastery" },
+  "historic=wayside_cross": { type: "sacred_site", subtype: "wayside_cross" },
+  "historic=wayside_shrine": { type: "sacred_site", subtype: "wayside_shrine" },
+  "historic=ruins": { type: "cultural_site", subtype: "ruins" },
+  "tourism=viewpoint": { type: "viewpoint", subtype: "viewpoint" },
+  "place=city": { type: "town", subtype: "city" },
+  "place=town": { type: "town", subtype: "town" },
+  "place=village": { type: "town", subtype: "village" },
+  "place=hamlet": { type: "town", subtype: "hamlet" },
 };
 
 export function classifyNode(node: OsmNode): { type: string; subtype: string } | null {
