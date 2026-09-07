@@ -45,7 +45,14 @@ index.json                  # Route registry (auto-generated)
 - Walked line: `osm.relations` is required for any section with a ways/
   package. A name query pulls in spurs and variants.
 - Drafted stage text carries `"drafted": true` and cannot be merged; clearing
-  the flag needs a ticked line in `docs/review/<id>.md`.
+  the flag needs a ticked line in the section's review checklist —
+  `docs/review/<section-id>.md` where the PR's content work is one section,
+  otherwise `docs/review/<pilgrimage-id>.md`. In a section's own file a line
+  reads `- [x] stage 0`; in a pilgrimage's it must name the section,
+  `- [x] kumano-kodo-kohechi stage 0`, since every section has a stage 0 and
+  one bare tick would otherwise clear them all. Only the file's own form
+  counts, and only at the top level: a tick inside a fence or blockquote is
+  quoted prose, not a review.
 
 ## Commands
 

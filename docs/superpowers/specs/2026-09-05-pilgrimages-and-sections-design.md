@@ -125,7 +125,16 @@ Each content PR carries `docs/review/<id>.md` — the pilgrimage id, or the sect
 
 The gate is at merge, not at tagging. `validate` fails when any stage in `routes/*/stages.json` carries `"drafted": true`, so drafted text never reaches `main` and review happens on the content PR against its checklist, before merge. A release-runbook gate cannot do this job: `release.md` Phase 2b requires the tag to follow the merge immediately, so a slow review would leave `@main/index.json` naming a release tag that does not exist — and because `PilgrimageCatalogService.packageURL` builds every route's package URL from that one global `release` field, the whole catalog, the Camino included, would stop downloading.
 
-Clearing the flag is checked too. The same gate reads `docs/review/<id>.md` alongside the stage files: a stage the checklist lists whose `"drafted": true` is gone must carry a recorded reviewed mark there, so the flag cannot be stripped in one pass without a review being recorded. Only a line at the top level of the checklist counts as that mark: a checkbox inside a code fence or a blockquote does not, because the checklist quotes the drafted text verbatim and the guarded prose must not be able to satisfy its own gate.
+Clearing the flag is checked too. The same gate reads `docs/review/<id>.md` alongside the stage files: a stage the checklist lists whose `"drafted": true` is gone must carry a recorded reviewed mark there, so the flag cannot be stripped in one pass without a review being recorded. For each section the gate looks for `docs/review/<section-id>.md` first and falls back to `docs/review/<pilgrimage-id>.md`, so a whole-pilgrimage PR is covered by the file it actually carries. Only a line at the top level of the checklist counts as that mark: a checkbox inside a code fence or a blockquote does not, because the checklist quotes the drafted text verbatim and the guarded prose must not be able to satisfy its own gate.
+
+The two files take different line forms, and each file counts only its own:
+
+| File | Line | Why |
+|---|---|---|
+| `docs/review/<section-id>.md` | `- [x] stage 0` | The file names the section already. |
+| `docs/review/<pilgrimage-id>.md` | `- [x] kumano-kodo-kohechi stage 0` | Four sections each have a stage 0; unqualified, one tick would clear all four. |
+
+So an unqualified line in a pilgrimage-level file records nothing, and a qualified line in a section-level file is not the form that file uses.
 
 ## 7. Testing
 

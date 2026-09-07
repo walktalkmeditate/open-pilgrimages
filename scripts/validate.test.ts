@@ -880,3 +880,133 @@ test("a blockquoted tick does not count as a review", () => {
     rmSync(root, { recursive: true, force: true });
   }
 });
+
+const KOHECHI = { id: "kumano-kodo", name: { en: "Kumano Kodō" }, kind: "alternatives", order: 2 };
+
+function draftedSection(
+  root: string,
+  id: string,
+  stages: object[],
+  pilgrimage?: object,
+): string {
+  const dir = join(root, "routes", id);
+  mkdirSync(dir, { recursive: true });
+  writeJson(join(dir, "metadata.json"), pilgrimage ? { id, pilgrimage } : { id });
+  writeJson(join(dir, "stages.json"), { stages });
+  return dir;
+}
+
+function writeChecklist(root: string, name: string, body: string): void {
+  mkdirSync(join(root, "docs", "review"), { recursive: true });
+  writeFileSync(join(root, "docs", "review", `${name}.md`), body);
+}
+
+test("a section falls back to its pilgrimage's checklist", () => {
+  const root = mkdtempSync(join(tmpdir(), "validate-drafted-test-"));
+  try {
+    // #given a section whose PR scoped its review to the whole pilgrimage
+    const dir = draftedSection(root, "kumano-kodo-kohechi", [{ index: 0, name: "d1" }], KOHECHI);
+    writeChecklist(root, "kumano-kodo", "# Kumano Kodō\n\n- [ ] kumano-kodo-kohechi stage 0\n");
+
+    // #when the gate runs
+    const errors: ValidationError[] = [];
+    validateDraftedText(root, [dir], errors);
+
+    // #then it reads the pilgrimage-level file and names it
+    assert.equal(errors.length, 1);
+    assert.match(errors[0].message, /stage 0/);
+    assert.match(errors[0].message, /docs\/review\/kumano-kodo\.md/);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("an unqualified line in a pilgrimage-level checklist clears nothing", () => {
+  const root = mkdtempSync(join(tmpdir(), "validate-drafted-test-"));
+  try {
+    // #given four sections share one file, so a bare "stage 0" names no one
+    const dir = draftedSection(root, "kumano-kodo-kohechi", [{ index: 0, name: "d1" }], KOHECHI);
+    writeChecklist(
+      root,
+      "kumano-kodo",
+      "# Kumano Kodō\n\n- [x] stage 0\n- [ ] kumano-kodo-kohechi stage 0\n",
+    );
+
+    const errors: ValidationError[] = [];
+    validateDraftedText(root, [dir], errors);
+
+    // #then the unqualified tick does not satisfy the qualified line
+    assert.equal(errors.length, 1);
+    assert.match(errors[0].message, /stage 0/);
+    assert.match(errors[0].message, /unticked/);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("a qualified tick clears its own section and no other", () => {
+  const root = mkdtempSync(join(tmpdir(), "validate-drafted-test-"));
+  try {
+    // #given two sections of one pilgrimage, each with a stage 0
+    const kohechi = draftedSection(root, "kumano-kodo-kohechi", [{ index: 0, name: "d1" }], KOHECHI);
+    const iseji = draftedSection(root, "kumano-kodo-iseji", [{ index: 0, name: "d1" }], {
+      ...KOHECHI,
+      order: 3,
+    });
+    writeChecklist(
+      root,
+      "kumano-kodo",
+      "# Kumano Kodō\n\n- [x] kumano-kodo-kohechi stage 0\n- [ ] kumano-kodo-iseji stage 0\n",
+    );
+
+    const errors: ValidationError[] = [];
+    validateDraftedText(root, [kohechi, iseji], errors);
+
+    // #then only the unticked section is reported
+    assert.equal(errors.length, 1);
+    assert.match(errors[0].message, /kumano-kodo-iseji/);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("a section's own checklist is preferred over its pilgrimage's", () => {
+  const root = mkdtempSync(join(tmpdir(), "validate-drafted-test-"));
+  try {
+    // #given both files exist and disagree about stage 0
+    const dir = draftedSection(root, "camino-norte", [{ index: 0, name: "d1" }], {
+      id: "camino-de-santiago",
+      name: { en: "Camino de Santiago" },
+      kind: "alternatives",
+      order: 2,
+    });
+    writeChecklist(root, "camino-norte", "# Norte\n\n- [x] stage 0 — reviewed\n");
+    writeChecklist(root, "camino-de-santiago", "# Camino\n\n- [ ] camino-norte stage 0\n");
+
+    const errors: ValidationError[] = [];
+    validateDraftedText(root, [dir], errors);
+
+    // #then the section-scoped file is the one that counts
+    assert.deepEqual(errors, []);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("a qualified line in a per-section checklist is not the form that file uses", () => {
+  const root = mkdtempSync(join(tmpdir(), "validate-drafted-test-"));
+  try {
+    // #given a per-section file whose only line carries a redundant qualifier
+    const dir = draftedSection(root, "camino-norte", [{ index: 0, name: "d1" }]);
+    writeChecklist(root, "camino-norte", "# Norte\n\n- [ ] camino-norte stage 0\n");
+
+    const errors: ValidationError[] = [];
+    validateDraftedText(root, [dir], errors);
+
+    // #then the stage reads as unmentioned rather than as unreviewed: this
+    // file's form is the bare one, and a section cannot be listed twice in it
+    assert.deepEqual(errors, []);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});

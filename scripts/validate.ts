@@ -529,7 +529,7 @@ const FENCE_LINE = /^(`{3,}|~{3,})/;
 const INDENTED_CODE_LINE = /^(?: {4,}|\t)/;
 
 /**
- * Per spec section 6, docs/review/<id>.md quotes each stage's drafted text
+ * Per spec section 6, the checklist quotes each stage's drafted text
  * verbatim, so a line shaped like "- [x] stage N" can appear inside that
  * quoted prose without anyone having reviewed anything. Both the "mentioned"
  * and "ticked" checks below read this filtered view instead of the raw file
@@ -562,6 +562,41 @@ function topLevelChecklistLines(checklist: string): string {
   return kept.join("\n");
 }
 
+interface ReviewChecklist {
+  file: string;
+  lines: string;
+  /** Prefixes every entry in a pilgrimage-level file, and nothing in a section's own. */
+  qualifier: string;
+}
+
+/**
+ * Spec section 6 names the checklist for the pilgrimage, or for the section
+ * where a PR's content work is scoped to one — so both have to be looked for,
+ * or the anti-strip half of the gate never fires for a whole-pilgrimage PR.
+ *
+ * Which file it is decides the form of its lines. Four sections of one
+ * pilgrimage each have a stage 0, so in a shared file every entry names its
+ * section ("- [x] kumano-kodo-kohechi stage 0") and only that form counts:
+ * a bare "stage 0" there would clear all four at once.
+ */
+function reviewChecklist(root: string, routeId: string, pilgrimageId?: string): ReviewChecklist | undefined {
+  const read = (id: string, qualifier: string): ReviewChecklist | undefined => {
+    const path = join(root, "docs", "review", `${id}.md`);
+    if (!existsSync(path)) return undefined;
+    return {
+      file: `docs/review/${id}.md`,
+      lines: topLevelChecklistLines(readFileSync(path, "utf8")),
+      qualifier,
+    };
+  };
+
+  return read(routeId, "") ?? (pilgrimageId ? read(pilgrimageId, `${escapeForPattern(routeId)} `) : undefined);
+}
+
+function escapeForPattern(value: string): string {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
 /**
  * The gate is at merge, not at tagging: release.md Phase 2b requires the tag
  * to follow the merge immediately, so a slow review would leave @main naming
@@ -572,7 +607,8 @@ export function validateDraftedText(root: string, dirs: string[], errors: Valida
     const stagesPath = join(dir, "stages.json");
     const metaPath = join(dir, "metadata.json");
     if (!existsSync(stagesPath) || !existsSync(metaPath)) continue;
-    const routeId = (loadJson(metaPath) as { id?: string }).id ?? basename(dir);
+    const meta = loadJson(metaPath) as { id?: string };
+    const routeId = meta.id ?? basename(dir);
     const stages = (loadJson(stagesPath) as { stages?: { index: number; drafted?: boolean }[] }).stages ?? [];
 
     for (const stage of stages) {
@@ -585,17 +621,27 @@ export function validateDraftedText(root: string, dirs: string[], errors: Valida
       }
     }
 
-    const checklistPath = join(root, "docs", "review", `${routeId}.md`);
-    if (!existsSync(checklistPath)) continue;
-    const checklist = topLevelChecklistLines(readFileSync(checklistPath, "utf8"));
+    let pilgrimageId: string | undefined;
+    try {
+      pilgrimageId = readPilgrimage(meta)?.id;
+    } catch {
+      // validatePilgrimages already reported this block; a section whose
+      // pilgrimage cannot be read simply has no shared checklist to fall
+      // back to, and its own file still applies.
+    }
+
+    const checklist = reviewChecklist(root, routeId, pilgrimageId);
+    if (!checklist) continue;
     for (const stage of stages) {
       if (stage.drafted === true) continue;
-      const mentioned = new RegExp(`^\\s*- \\[[ x]\\] stage ${stage.index}\\b`, "m").test(checklist);
-      const reviewed = new RegExp(`^\\s*- \\[x\\] stage ${stage.index}\\b`, "m").test(checklist);
-      if (mentioned && !reviewed) {
+      // One pattern for both reads, so "mentioned" and "ticked" cannot come
+      // to disagree about what an entry for this stage looks like.
+      const entry = (box: string) =>
+        new RegExp(`^\\s*- \\[${box}\\] ${checklist.qualifier}stage ${stage.index}\\b`, "m").test(checklist.lines);
+      if (entry("[ x]") && !entry("x")) {
         errors.push({
-          file: `docs/review/${routeId}.md`,
-          message: `stage ${stage.index} carries no drafted flag but is unticked in docs/review/${routeId}.md`,
+          file: checklist.file,
+          message: `stage ${stage.index} of "${routeId}" carries no drafted flag but is unticked in ${checklist.file}`,
           severity: "error",
         });
       }
