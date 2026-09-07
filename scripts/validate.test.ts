@@ -836,6 +836,48 @@ test("a malformed pilgrimage block does not silence the gap check for the rest",
   }
 });
 
+test("a variant's legs block is refused, not chained into a fabricated gap", () => {
+  const root = mkdtempSync(join(tmpdir(), "validate-chain-test-"));
+  try {
+    // #given one real legs section, and a variant that also declares a legs
+    // block in the same pilgrimage. validatePilgrimages already refuses the
+    // variant's block outright; this walk asks whether validateSectionChain's
+    // own collection loop still picks it up and chains it anyway, reporting a
+    // gap against "bekkaku" — a route id with no entry in index.json — while
+    // "tosa" sits alone with nothing real left to chain it to.
+    const tosa = sectionWithStages(root, "tosa", legs(1), [
+      { index: 0, name: "d1", start: { name: { en: "T24" }, coordinates: [0, 0] }, end: { name: { en: "E0" }, coordinates: [0.1, 0] }, distanceKm: 11 },
+    ]);
+    const bekkaku = join(root, "routes", "awa", "variants", "bekkaku");
+    mkdirSync(bekkaku, { recursive: true });
+    writeJson(join(bekkaku, "metadata.json"), { id: "bekkaku", overview: { topology: "linear" }, pilgrimage: legs(2) });
+    writeJson(join(bekkaku, "stages.json"), {
+      schemaVersion: "1.0.0",
+      routeId: "bekkaku",
+      stageCount: 1,
+      stages: [
+        { index: 0, name: "d1", start: { name: { en: "S0" }, coordinates: [5, 5] }, end: { name: { en: "E1" }, coordinates: [5.1, 5] }, distanceKm: 11 },
+      ],
+    });
+
+    // #when both checks run over the same directories, the way main() does
+    const errors: ValidationError[] = [];
+    validatePilgrimages(root, [tosa, bekkaku], errors);
+    validateSectionChain(root, [tosa, bekkaku], errors);
+
+    // #then the variant is refused where it sits, and that is the only error
+    // — no chain-gap message naming "bekkaku" or "tosa" 261984-odd meters apart
+    assert.equal(errors.length, 1);
+    assert.match(errors[0].message, /variant is not a section/);
+    assert.ok(
+      !errors.some((e) => /m away/.test(e.message)),
+      `expected no fabricated gap, got: ${JSON.stringify(errors)}`,
+    );
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
 test("a legs section with no stages.json and no deferral is named, not skipped", () => {
   const root = mkdtempSync(join(tmpdir(), "validate-chain-test-"));
   try {

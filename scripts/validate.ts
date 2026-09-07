@@ -443,6 +443,18 @@ export function validateWalkedLine(routeDir: string, errors: ValidationError[]):
   }
 }
 
+/**
+ * A variant is not a section: `findRouteDirectories` walks into every route's
+ * `variants` subdirectory, but build-index's scanSections reads only the
+ * top-level route directories. Both `validatePilgrimages` and
+ * `validateSectionChain` collect from the same `dirs`, so both need this same
+ * question asked the same way, or the chain would still pick up what the
+ * other check just refused.
+ */
+function isVariantDir(dir: string): boolean {
+  return basename(dirname(dir)) === "variants";
+}
+
 export function validatePilgrimages(root: string, dirs: string[], errors: ValidationError[]): void {
   const declared: { routeId: string; dir: string; block: PilgrimageBlock }[] = [];
   const routeIds = new Set<string>();
@@ -466,7 +478,7 @@ export function validatePilgrimages(root: string, dirs: string[], errors: Valida
       // section and never emitted as one — and validateSectionChain then
       // reports a gap against a route id that is absent from index.json,
       // which check-site's guard runs the other way and cannot catch.
-      if (block && basename(dirname(dir)) === "variants") {
+      if (block && isVariantDir(dir)) {
         errors.push({
           file: relative(root, metaPath),
           message:
@@ -642,6 +654,10 @@ export function validateSectionChain(root: string, dirs: string[], errors: Valid
       continue;
     }
     if (!block || block.kind !== "legs") continue;
+    // validatePilgrimages already refused this block as "not a section";
+    // chaining it here anyway would report a gap against a route id that
+    // never gets an entry in index.json.
+    if (isVariantDir(dir)) continue;
     declared.push({ routeId: meta.id ?? basename(dir), dir, block });
   }
 
