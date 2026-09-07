@@ -1366,3 +1366,89 @@ test("a legs section with a shipped package but no stages.json is still a hard e
     rmSync(root, { recursive: true, force: true });
   }
 });
+
+test("sections of one pilgrimage may not disagree on name", () => {
+  const root = mkdtempSync(join(tmpdir(), "validate-pilgrimage-test-"));
+  try {
+    // #given two sections whose hand-copied name blocks drifted in one locale
+    const a = join(root, "routes", "one");
+    const b = join(root, "routes", "two");
+    mkdirSync(a, { recursive: true });
+    mkdirSync(b, { recursive: true });
+    const block = { id: "kumano-kodo", kind: "alternatives", order: 1 };
+    writeJson(join(a, "metadata.json"), {
+      id: "one",
+      pilgrimage: { ...block, name: { en: "Kumano Kodō", ja: "熊野古道" } },
+    });
+    writeJson(join(b, "metadata.json"), {
+      id: "two",
+      pilgrimage: { ...block, order: 2, name: { en: "Kumano Kodō", ja: "クマノコドウ" } },
+    });
+
+    const errors: ValidationError[] = [];
+    validatePilgrimages(root, [a, b], errors);
+
+    // #then the locale that actually disagrees is the one named
+    assert.equal(errors.length, 1);
+    assert.match(errors[0].message, /kumano-kodo/);
+    assert.match(errors[0].message, /name\.ja/);
+    assert.match(errors[0].message, /熊野古道/);
+    assert.match(errors[0].message, /クマノコドウ/);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("a locale one section leaves out is a conflict too", () => {
+  const root = mkdtempSync(join(tmpdir(), "validate-pilgrimage-test-"));
+  try {
+    // #given build-index derives the pilgrimage entry from whichever section
+    // it reads first, so a missing locale is a silent difference
+    const a = join(root, "routes", "one");
+    const b = join(root, "routes", "two");
+    mkdirSync(a, { recursive: true });
+    mkdirSync(b, { recursive: true });
+    const block = { id: "kumano-kodo", kind: "alternatives", order: 1 };
+    writeJson(join(a, "metadata.json"), {
+      id: "one",
+      pilgrimage: { ...block, name: { en: "Kumano Kodō", ja: "熊野古道" } },
+    });
+    writeJson(join(b, "metadata.json"), { id: "two", pilgrimage: { ...block, order: 2, name: { en: "Kumano Kodō" } } });
+
+    const errors: ValidationError[] = [];
+    validatePilgrimages(root, [a, b], errors);
+
+    assert.equal(errors.length, 1);
+    assert.match(errors[0].message, /name\.ja/);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("identical names written in different key orders do not read as conflicting", () => {
+  const root = mkdtempSync(join(tmpdir(), "validate-pilgrimage-test-"));
+  try {
+    // #given the same name block hand-copied into two metadata.json files,
+    // with the locales typed in a different order
+    const a = join(root, "routes", "one");
+    const b = join(root, "routes", "two");
+    mkdirSync(a, { recursive: true });
+    mkdirSync(b, { recursive: true });
+    const block = { id: "kumano-kodo", kind: "alternatives", order: 1 };
+    writeJson(join(a, "metadata.json"), {
+      id: "one",
+      pilgrimage: { ...block, name: { en: "Kumano Kodō", ja: "熊野古道" } },
+    });
+    writeJson(join(b, "metadata.json"), {
+      id: "two",
+      pilgrimage: { ...block, order: 2, name: { ja: "熊野古道", en: "Kumano Kodō" } },
+    });
+
+    const errors: ValidationError[] = [];
+    validatePilgrimages(root, [a, b], errors);
+
+    assert.deepEqual(errors, []);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});

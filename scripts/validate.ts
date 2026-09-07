@@ -468,12 +468,26 @@ export function validatePilgrimages(root: string, dirs: string[], errors: Valida
     const members = declared.filter((d) => d.block.id === id);
     // One pilgrimage, one identity: build-index derives a single entry from
     // whichever section it reads first, so disagreement would be silent.
-    for (const field of ["kind", "name"] as const) {
-      const values = new Set(members.map((m) => JSON.stringify(m.block[field])));
+    const kinds = new Set(members.map((m) => m.block.kind));
+    if (kinds.size > 1) {
+      errors.push({
+        file: `pilgrimage:${id}`,
+        message: `sections of "${id}" declare conflicting kind: ${[...kinds].map((k) => `"${k}"`).join(" vs ")}`,
+        severity: "error",
+      });
+    }
+
+    // Locale by locale, not block against block: the same name hand-copied
+    // into four metadata.json files differs only in the order its keys were
+    // typed, and comparing serialized objects read that as a conflict. The
+    // locale is also the thing a contributor has to go and fix.
+    for (const locale of [...new Set(members.flatMap((m) => Object.keys(m.block.name)))].sort()) {
+      const values = new Set(members.map((m): string | undefined => m.block.name[locale]));
       if (values.size > 1) {
+        const written = [...values].map((v) => (v === undefined ? "(absent)" : `"${v}"`));
         errors.push({
           file: `pilgrimage:${id}`,
-          message: `sections of "${id}" declare conflicting ${field}: ${[...values].join(" vs ")}`,
+          message: `sections of "${id}" declare conflicting name.${locale}: ${written.join(" vs ")}`,
           severity: "error",
         });
       }
