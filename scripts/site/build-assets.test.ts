@@ -100,6 +100,39 @@ test("a page is written for each pilgrimage, listing its sections in order", () 
   }
 });
 
+test("a generated page carries the OSM attribution every OSM-derived page carries", () => {
+  const root = mkdtempSync(join(tmpdir(), "build-assets-test-"));
+  try {
+    mkdirSync(join(root, "docs"), { recursive: true });
+    writeFileSync(
+      join(root, "index.json"),
+      JSON.stringify({
+        pilgrimages: [
+          { id: "kumano-kodo", name: { en: "Kumano Kodō" }, kind: "alternatives", sections: ["a"] },
+        ],
+        routes: [{ id: "a", name: { en: "Nakahechi" }, distanceKm: 70 }],
+      }),
+    );
+
+    const html = readFileSync(buildPilgrimagePages(root)[0], "utf8");
+
+    // #then the ODbL notice and the contributors credit are both on the page —
+    // it lists distances derived from OpenStreetMap, so it owes the same
+    // attribution as every hand-authored page that does
+    assert.match(html, /<div class="attribution">/);
+    assert.match(
+      html,
+      /Contains information from OpenStreetMap, which is made available under the ODbL by the OpenStreetMap Foundation\./,
+    );
+    assert.match(
+      html,
+      /<a href="https:\/\/www\.openstreetmap\.org\/copyright">OpenStreetMap contributors<\/a>/,
+    );
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
 test("a legs pilgrimage reads as one walk cut into sections, not a set of choices", () => {
   const root = mkdtempSync(join(tmpdir(), "build-assets-test-"));
   try {

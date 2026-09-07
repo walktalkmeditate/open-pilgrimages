@@ -338,6 +338,30 @@ test("checkSite reports a route id that collides with a reserved page name", () 
   }
 });
 
+test("checkSite reports a pilgrimage id that collides with a reserved page name", () => {
+  // #given a pilgrimage id that shadows a hand-authored page, the same way a
+  // route id can — a pilgrimage has no directory but does have a page, and
+  // both live in one flat namespace
+  const root = createFixtureRoot([{ id: "awa", pilgrimage: "schema" }], {
+    pilgrimages: [{ id: "schema", sections: ["awa"] }],
+  });
+
+  try {
+    // #when / #then checkSite flags the collision by name
+    const problems = checkSite(root);
+    assert.ok(
+      problems.some(
+        (p) =>
+          p.file === "index.json" &&
+          p.message.includes('"schema"') &&
+          p.message.includes("reserved"),
+      ),
+    );
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
 test("the committed docs/ already has inlined assets matching their generated SVGs for every route (positive control)", () => {
   // #given every glyph, elevation profile, and sparkline is duplicated inline
   // into the HTML rather than referenced
