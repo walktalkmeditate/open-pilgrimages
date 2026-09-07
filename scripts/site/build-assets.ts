@@ -90,20 +90,34 @@ function glyphSvg(d: string): string {
   );
 }
 
+// Every hand-authored page under docs/ spells these accented Latin-1
+// characters as named entities rather than raw UTF-8; matching that keeps
+// the generated pages source-consistent with the rest of the site. Anything
+// without an entry here — the ō in Kumano Kodō, Japanese script — has no
+// named entity and stays UTF-8, which is what those hand-authored pages do.
+const NAMED_ENTITIES: Record<string, string> = {
+  "á": "&aacute;", "é": "&eacute;", "í": "&iacute;", "ó": "&oacute;", "ú": "&uacute;",
+  "ñ": "&ntilde;", "ü": "&uuml;", "ç": "&ccedil;", "Á": "&Aacute;", "É": "&Eacute;",
+  "Í": "&Iacute;", "Ó": "&Oacute;", "Ú": "&Uacute;", "Ñ": "&Ntilde;",
+};
+
 /**
  * Every interpolation below sits in element text or a double-quoted
  * attribute, so the apostrophe is not load-bearing today — it is here so the
  * escaping does not quietly stop covering the template the day a
  * single-quoted attribute joins it. `&` runs first or it would re-escape the
- * entities the later replacements introduce.
+ * entities the later replacements introduce, including the named entities
+ * below, which must run after the structural ones for the same reason.
  */
 function escapeHtml(value: string): string {
-  return value
+  const structural = value
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#39;");
+
+  return structural.replace(/[áéíóúñüçÁÉÍÓÚÑ]/g, (char) => NAMED_ENTITIES[char]);
 }
 
 function pilgrimagePage(

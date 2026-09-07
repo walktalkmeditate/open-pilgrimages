@@ -354,3 +354,27 @@ test("no pilgrimages means no pages", () => {
     rmSync(root, { recursive: true, force: true });
   }
 });
+
+test("a section name with an accent is written as a named entity", () => {
+  const root = mkdtempSync(join(tmpdir(), "build-assets-test-"));
+  try {
+    mkdirSync(join(root, "docs"), { recursive: true });
+    writeFileSync(
+      join(root, "index.json"),
+      JSON.stringify({
+        pilgrimages: [
+          { id: "p", name: { en: "P" }, kind: "alternatives", sections: ["a"] },
+        ],
+        routes: [{ id: "a", name: { en: "Camino Inglés" }, distanceKm: 112 }],
+      }),
+    );
+
+    const html = readFileSync(buildPilgrimagePages(root)[0], "utf8");
+
+    // #then the entity form the hand-authored pages use, not the raw codepoint
+    assert.match(html, /Camino Ingl&eacute;s/);
+    assert.equal(html.includes("Camino Inglés"), false);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
