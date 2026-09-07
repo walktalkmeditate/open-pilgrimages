@@ -14,17 +14,21 @@ import { tmpdir } from "os";
 import { execFileSync } from "child_process";
 import {
   buildIndex,
-  scanRoutes,
   scanSections,
   readPrevious,
   releaseTag,
   waysEntry,
+  type RouteEntry,
   type RouteIndex,
 } from "./build-index.js";
 import { createValidator, validateFile, type ValidationError } from "./validate.js";
 
 const ROOT = join(import.meta.dirname, "..");
 const ROUTES = join(ROOT, "routes");
+
+/** The routes[] half of a scan, which is all these tests read of it. */
+const scannedEntries = (routesDir: string, root: string): RouteEntry[] =>
+  scanSections(routesDir, root).map((section) => section.entry);
 
 interface RouteFixture {
   dirName: string;
@@ -90,7 +94,7 @@ function createTempScriptRepo(fixtures: RouteFixture[]): {
 }
 
 test("scans every top-level route directory", () => {
-  const ids = scanRoutes(ROUTES, ROOT).map((r) => r.id).sort();
+  const ids = scannedEntries(ROUTES, ROOT).map((r) => r.id).sort();
   assert.deepEqual(ids, [
     "camino-frances",
     "camino-ingles",
@@ -103,7 +107,7 @@ test("scans every top-level route directory", () => {
 });
 
 test("attaches variants only to routes that have them", () => {
-  const byId = new Map(scanRoutes(ROUTES, ROOT).map((r) => [r.id, r]));
+  const byId = new Map(scannedEntries(ROUTES, ROOT).map((r) => [r.id, r]));
 
   assert.deepEqual(
     byId.get("camino-portugues")!.variants!.map((v) => v.id).sort(),
@@ -117,7 +121,7 @@ test("attaches variants only to routes that have them", () => {
 });
 
 test("resolves paths relative to the repo root", () => {
-  const frances = scanRoutes(ROUTES, ROOT).find((r) => r.id === "camino-frances")!;
+  const frances = scannedEntries(ROUTES, ROOT).find((r) => r.id === "camino-frances")!;
   assert.equal(frances.path, "routes/camino-frances");
   assert.equal(frances.distanceKm, 764);
   assert.equal(frances.country, "ES");
@@ -188,14 +192,14 @@ test("stamps a fresh generatedAt when previous index has a non-string generatedA
   assert.equal(second.generatedAt, NEW);
 });
 
-test("scanRoutes sorts routes by metadata id, independent of directory listing order", () => {
+test("scanSections sorts routes by metadata id, independent of directory listing order", () => {
   const { root, routesDir } = createTempRoutesDir([
     { dirName: "01-zulu", id: "zulu" },
     { dirName: "02-alpha", id: "alpha" },
   ]);
 
   try {
-    const ids = scanRoutes(routesDir, root).map((r) => r.id);
+    const ids = scannedEntries(routesDir, root).map((r) => r.id);
     assert.deepEqual(ids, ["alpha", "zulu"]);
   } finally {
     rmSync(root, { recursive: true, force: true });
@@ -344,7 +348,7 @@ test("a route with no ways directory gets no ways entry", () => {
   const { root, routesDir } = createTempRoutesDir([{ dirName: "alpha", id: "alpha" }]);
   try {
     assert.equal(waysEntry(join(routesDir, "alpha")), undefined);
-    assert.equal(scanRoutes(routesDir, root)[0].ways, undefined);
+    assert.equal(scannedEntries(routesDir, root)[0].ways, undefined);
   } finally {
     rmSync(root, { recursive: true, force: true });
   }
@@ -383,7 +387,7 @@ test("a sparsely curated route is still listed, flagged for the card to say so",
     }));
     writeFileSync(join(waysDir, "route.json"), "{}");
 
-    const entry = scanRoutes(routesDir, root)[0];
+    const entry = scannedEntries(routesDir, root)[0];
     assert.equal(entry.ways?.sparse, true);
     assert.equal(entry.ways?.placesPerStage, 0.3);
     assert.equal(entry.ways?.stageCount, 3);
@@ -405,7 +409,7 @@ test("a route with a stage outside the length gate gets no ways entry at all", (
     writeFileSync(join(waysDir, "route.json"), "{}");
 
     assert.equal(waysEntry(join(routesDir, "alpha")), undefined);
-    const entry = scanRoutes(routesDir, root)[0];
+    const entry = scannedEntries(routesDir, root)[0];
     assert.equal(entry.id, "alpha");
     assert.equal(entry.ways, undefined);
   } finally {

@@ -226,10 +226,6 @@ export function scanSections(routesDir: string, root: string): ScannedSection[] 
   return sections.sort((a, b) => byIdThenPath(a.entry, b.entry));
 }
 
-export function scanRoutes(routesDir: string, root: string): RouteEntry[] {
-  return scanSections(routesDir, root).map((section) => section.entry);
-}
-
 export interface PilgrimageEntry {
   id: string;
   name: Record<string, string>;
