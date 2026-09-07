@@ -4,7 +4,7 @@ import { readFileSync, existsSync, readdirSync, statSync } from "fs";
 import { basename, dirname, join, relative } from "path";
 import { resolveInvokedPath } from "./cli.js";
 import { RESERVED_PAGE_NAMES } from "./pages.js";
-import { nearestVertex, walkedLine, haversineMeters, SNAP_METERS } from "./ways/geo.js";
+import { nearestVertex, walkedLine, haversineMeters, SNAP_METERS, OFF_LINE_TOLERANCE_METERS } from "./ways/geo.js";
 import type { Position } from "./ways/types.js";
 import { readPilgrimage, groupSections, type PilgrimageBlock } from "./pilgrimage.js";
 import {
@@ -412,8 +412,13 @@ interface AnchoredStage {
  * longer bears out is stale either way. Do not reintroduce the snap-radius
  * check ahead of this one as an optimisation — that is what let a wrong
  * declaration pass silently before.
+ *
+ * OFF_LINE_TOLERANCE_METERS itself lives in geo.ts and is imported, not
+ * redeclared: stageBoundaries bounds its own snap radius by the same figure,
+ * and a validate that calls a declaration fresh while a build snaps past it
+ * by more than this would be two copies of one rule reading different
+ * numbers.
  */
-const OFF_LINE_TOLERANCE_METERS = 50;
 
 /**
  * A walked line and the stage anchors it was cut for can drift apart without

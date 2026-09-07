@@ -22,6 +22,16 @@ export const MAX_ROUTE_POINTS = 1000;
  */
 export const SNAP_METERS = 500;
 
+/**
+ * How far a measured distance may sit from a declared offLineMeters and still
+ * count as the same figure it declares. Two readers share this number:
+ * validate.ts treats a bigger gap as a stale declaration, and stageBoundaries
+ * below treats declared + this as the farthest it will ever snap for that
+ * anchor. One constant, so a future edit to the slack cannot update one
+ * reader and forget the other.
+ */
+export const OFF_LINE_TOLERANCE_METERS = 50;
+
 const GATE_TOLERANCE = 0.1;
 
 const toRadians = (degrees: number): number => (degrees * Math.PI) / 180;
@@ -127,14 +137,24 @@ export interface Boundary {
  * runs parallel to `anchors`, not to `declaredKm`.
  *
  * An entry in `offLineMeters` is a stage's declared, measured distance from
- * that anchor to the line, and it lifts the snap radius for that anchor alone.
- * The radius exists because an anchor far from the line is ambiguous: a place
- * the trail merely passes near looks exactly like a mis-pinned coordinate, and
- * snapping the second one would hand the neighbouring stages each other's
- * kilometres. A declaration removes the ambiguity — the place has been
- * measured and is where it says it is — so its nearest vertex is the honest
- * boundary, and the proportional guess, which only interpolates the declared
- * distances it is meant to be checking, is not.
+ * that anchor to the line, and it raises the snap radius for that anchor
+ * alone. The radius exists because an anchor far from the line is ambiguous:
+ * a place the trail merely passes near looks exactly like a mis-pinned
+ * coordinate, and snapping the second one would hand the neighbouring stages
+ * each other's kilometres. A declaration removes the ambiguity — the place
+ * has been measured and is where it says it is — so its nearest vertex is the
+ * honest boundary, and the proportional guess, which only interpolates the
+ * declared distances it is meant to be checking, is not.
+ *
+ * The raise is bounded by the declaration itself (see
+ * OFF_LINE_TOLERANCE_METERS), not lifted without limit: `build-ways` runs
+ * before `validate` in the pipeline, so nothing has confirmed yet that this
+ * declaration is still fresh. An unbounded radius would let a stale or
+ * outright wrong figure snap to whatever vertex happens to be nearest — and
+ * because the search below is forward-only, a boundary pinned too far ahead
+ * by an earlier mistake stays reachable for every declaring anchor after it,
+ * compounding rather than repeating once. Refusing to snap past what the file
+ * itself claims turns that failure back into a visible proportional guess.
  *
  * Whether a declaration still matches the line is validate's question, not
  * this one's; it errors on a stale figure. Re-checking it here would be the
@@ -166,7 +186,8 @@ export function stageBoundaries(
     // Against the whole line the number keeps its one meaning: how far this
     // anchor is from the route.
     const offMeters = searchFrom === 0 ? found.meters : nearestVertex(line, anchors[i]).meters;
-    const radius = offLineMeters[i] === undefined ? snapMeters : Infinity;
+    const declared = offLineMeters[i];
+    const radius = declared === undefined ? snapMeters : Math.max(snapMeters, declared + OFF_LINE_TOLERANCE_METERS);
     if (found.meters <= radius || totalDeclaredMeters === 0) {
       boundaries.push({ index: found.index, offMeters, mode: "snap" });
     } else {

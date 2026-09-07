@@ -138,6 +138,28 @@ test("an anchor that declares how far off the line it sits snaps instead of inte
   assert.deepEqual(declared.map((b) => b.index), [0, 20, 30, 40]);
 });
 
+test("a declaration bounds the snap radius by its own figure, not without limit", () => {
+  const line = fixtureLine();
+  const cum = cumulativeMeters(line);
+  // Same mis-pinned anchor as the test above — its true nearest vertex is
+  // ~4.4 km away — but declaring 577 m, the figure Güemes actually carries on
+  // the Norte. A radius that only asked "is a declaration present" would
+  // still snap this to vertex 20; bounding the radius by what the file says
+  // must refuse that vertex and fall back to interpolating instead.
+  const anchors: Position[] = [[0, 0], [0.02, -0.04], [0.02, 0.01], [0.02, 0.02]];
+  const declaredKm = [1.1, 2.2, 0.9];
+
+  const bounds = stageBoundaries(line, cum, anchors, declaredKm, SNAP_METERS, [
+    undefined,
+    577,
+    undefined,
+    undefined,
+  ]);
+
+  assert.equal(bounds[1].mode, "proportional");
+  assert.equal(bounds[1].index, 10);
+});
+
 test("simplify drops a vertex inside the tolerance and keeps one outside it", () => {
   const line = fixtureLine();
   // Stage 0's slice: the only bend is 5.6 m off the straight, inside 8 m.
