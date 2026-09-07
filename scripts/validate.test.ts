@@ -536,6 +536,19 @@ test("an anchor within the snap radius needs no declaration", () => {
   assert.deepEqual(errors, []);
 });
 
+test("a declaration the line now contradicts fails even when the anchor came closer", () => {
+  // #given an anchor declaring 1247 m that the line now puts 100 m away
+  const root = offLineFixture(100, 1247);
+  const errors: ValidationError[] = [];
+  // #when the walked line is validated
+  validateWalkedLine(join(root, "routes", "a"), errors);
+  // #then the stale declaration is an error, not a silent pass —
+  // a line that moved is what this field exists to catch
+  assert.equal(errors.length, 1);
+  assert.equal(errors[0].severity, "error");
+  assert.match(errors[0].message, /declares 1247 m/);
+});
+
 test("the committed Camino Francés package passes every cross-check", () => {
   const ajv = createValidator();
   const errors: ValidationError[] = [];
