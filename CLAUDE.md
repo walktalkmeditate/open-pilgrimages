@@ -58,7 +58,14 @@ npm run build-ways            # Build routes/{route-id}/ways/ from the walked li
 npm run build-main-line <id>  # Derive route.main.geojson from OSM member ways (network)
 npm run fetch-roads   # Fetch road-corridor data from Overpass into .cache/ (gitignored) — the only command that touches the network
 npm run build-roads   # Render docs/assets/roads/{route-id}.svg from the .cache/ fetched above; no network access
+npm run build-assets  # Regenerate docs/ pages and assets — routes/{route-id}/route.gpx, the glyphs, profiles and sparklines, and docs/{pilgrimage-id}.html
+npm run check-site    # Check docs/, README.md and index.json still agree; run it after build-assets
 ```
+
+`pipeline` stops at `validate`. A change that adds or renames a section, or
+touches anything a page renders, needs `build-assets` and `check-site` after
+it, and the regenerated pages committed — CI compares the whole of `docs`
+against a fresh build.
 
 ## Consumers
 

@@ -1118,6 +1118,18 @@ export function checkSite(root: string, overrides: PageOverrides = {}): Problem[
       add("index.json", `pilgrimage "${pilgrimage.id}" has no sections`);
     }
 
+    // The reverse orphan scan permits a pilgrimage page; nothing required one,
+    // so a pilgrimage whose page was never generated locally shipped a 404 at
+    // open.pilgrimag.es/<id> with every guard green. The route contract asks
+    // the same of every route id a few loops above.
+    if (!existsSync(join(docs, `${pilgrimage.id}.html`))) {
+      add(
+        `docs/${pilgrimage.id}.html`,
+        `pilgrimage "${pilgrimage.id}" is in index.json but has no generated page — ` +
+          `run npm run build-assets and commit the page`,
+      );
+    }
+
     // build-index derives sections from the same walk that emits routes[],
     // so this can't happen from that path today. It becomes reachable once a
     // route is nested under a variants[] parent while still declaring a
