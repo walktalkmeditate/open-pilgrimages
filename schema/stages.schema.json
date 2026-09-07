@@ -46,7 +46,12 @@
       "required": ["name", "coordinates"],
       "properties": {
         "name": { "$ref": "#/$defs/LocalizedString" },
-        "coordinates": { "$ref": "#/$defs/Coordinates" }
+        "coordinates": { "$ref": "#/$defs/Coordinates" },
+        "offLineMeters": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Measured distance from this anchor to the nearest point on the walked line, declared when the place is a village or landmark the trail passes near but does not reach. validateWalkedLine turns a measurement that still agrees with this figure into a warning instead of an error."
+        }
       },
       "additionalProperties": true
     },

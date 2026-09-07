@@ -395,9 +395,18 @@ export function validateWays(ajv: Ajv, routeDir: string, errors: ValidationError
 interface AnchoredStage {
   index?: unknown;
   name?: { en?: unknown };
-  start?: { coordinates?: unknown };
-  end?: { coordinates?: unknown };
+  start?: { coordinates?: unknown; offLineMeters?: number };
+  end?: { coordinates?: unknown; offLineMeters?: number };
 }
+
+/**
+ * A stage may legitimately end at a village or a temple the trail only passes
+ * near; the walk ends where you turn off. Declaring the distance keeps that
+ * case distinct from the two the build cannot tell it from — an anchor that
+ * moved, and a line that went stale — because a declaration that stops
+ * matching the line is itself the error.
+ */
+const OFF_LINE_TOLERANCE_METERS = 50;
 
 /**
  * A walked line and the stage anchors it was cut for can drift apart without
@@ -410,7 +419,10 @@ interface AnchoredStage {
  * the wrong place.
  *
  * So: every anchor must be within the distance the build is willing to snap
- * across. Only routes that have a walked line are checked; a route still
+ * across, unless it declares how far off it sits via offLineMeters — in which
+ * case a measurement that still agrees with the declaration is a warning, not
+ * an error, and only a declaration the line no longer bears out fails the
+ * build. Only routes that have a walked line are checked; a route still
  * cutting from route.geojson has nothing to be stale against.
  */
 export function validateWalkedLine(routeDir: string, errors: ValidationError[]): void {
@@ -437,17 +449,41 @@ export function validateWalkedLine(routeDir: string, errors: ValidationError[]):
       if (!Array.isArray(coordinates) || coordinates.length < 2) continue;
 
       const found = nearestVertex(line, coordinates as Position);
-      if (found.meters > SNAP_METERS) {
-        errors.push({
-          file: relative(ROOT, linePath),
-          message:
-            `${routeId}: stage ${stage.index} ("${stage.name?.en}") ${end} is ` +
-            `${Math.round(found.meters)} m from the nearest point on the walked line, past the ` +
-            `${SNAP_METERS} m the build can snap across — either the anchor moved or the line is ` +
-            `stale; rerun npm run build-main-line`,
-          severity: "error",
-        });
+      if (found.meters <= SNAP_METERS) continue;
+
+      const meters = Math.round(found.meters);
+      const label = `${routeId}: stage ${stage.index} ("${stage.name?.en}") ${end}`;
+      const offLineMeters = stage[end]?.offLineMeters;
+
+      if (typeof offLineMeters === "number") {
+        if (Math.abs(found.meters - offLineMeters) <= OFF_LINE_TOLERANCE_METERS) {
+          errors.push({
+            file: relative(ROOT, linePath),
+            message:
+              `${label} is ${meters} m from the nearest point on the walked line, matching its ` +
+              `declared offLineMeters of ${offLineMeters} m — the trail passes near but does not reach it`,
+            severity: "warning",
+          });
+        } else {
+          errors.push({
+            file: relative(ROOT, linePath),
+            message:
+              `${label} declares ${offLineMeters} m off the walked line but is now ${meters} m away ` +
+              `— the declaration or the line is stale; rerun npm run build-main-line or update offLineMeters`,
+            severity: "error",
+          });
+        }
+        continue;
       }
+
+      errors.push({
+        file: relative(ROOT, linePath),
+        message:
+          `${label} is ${meters} m from the nearest point on the walked line, past the ` +
+          `${SNAP_METERS} m the build can snap across — either the anchor moved or the line is ` +
+          `stale; rerun npm run build-main-line`,
+        severity: "error",
+      });
     }
   }
 }

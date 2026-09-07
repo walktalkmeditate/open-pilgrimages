@@ -14,7 +14,7 @@ import {
   validateFile,
   type ValidationError,
 } from "./validate.js";
-import { SNAP_METERS } from "./ways/geo.js";
+import { SNAP_METERS, haversineMeters } from "./ways/geo.js";
 
 const ROOT = join(import.meta.dirname, "..");
 
@@ -403,6 +403,48 @@ function stagesFile(routeId: string, endCoordinates: number[]) {
   };
 }
 
+// haversineMeters reduces to exactly metersPerDegreeLat * dLat when two points
+// share a longitude, so holding the end anchor's longitude equal to the
+// line's far vertex turns "actualMeters north of the line" into an exact
+// figure instead of a small-angle approximation.
+const metersPerDegreeLat = haversineMeters([0.01, 0], [0.01, 1]);
+
+/**
+ * A route directory at routes/a/ whose walked line is the same two-vertex
+ * segment as walkedLineFile, and whose single stage's end sits actualMeters
+ * due north of the line's far vertex — declaring offLineMeters when
+ * declaredMeters is given, and omitting it when undefined.
+ */
+function offLineFixture(actualMeters: number, declaredMeters: number | undefined): string {
+  const root = mkdtempSync(join(tmpdir(), "validate-offline-test-"));
+  const routeDir = join(root, "routes", "a");
+  mkdirSync(routeDir, { recursive: true });
+  writeJson(join(routeDir, "route.main.geojson"), walkedLineFile("a"));
+
+  const end: { name: { en: string }; coordinates: number[]; offLineMeters?: number } = {
+    name: { en: "End" },
+    coordinates: [0.01, actualMeters / metersPerDegreeLat],
+  };
+  if (declaredMeters !== undefined) end.offLineMeters = declaredMeters;
+
+  writeJson(join(routeDir, "stages.json"), {
+    schemaVersion: "1.0.0",
+    routeId: "a",
+    stageCount: 1,
+    stages: [
+      {
+        index: 0,
+        name: { en: "Start to End" },
+        start: { name: { en: "Start" }, coordinates: [0, 0] },
+        end,
+        distanceKm: 1.1,
+      },
+    ],
+  });
+
+  return root;
+}
+
 test("an anchor still on the walked line raises nothing", () => {
   const { root, routeDir } = makeFixtureRoute();
   try {
@@ -452,6 +494,46 @@ test("a route still cutting from route.geojson has no walked line to be stale ag
   } finally {
     rmSync(root, { recursive: true, force: true });
   }
+});
+
+test("an anchor that declares its distance off the line is a warning, not an error", () => {
+  // #given a stage whose end sits 800 m off the line and says so
+  const root = offLineFixture(800, 800);
+  const errors: ValidationError[] = [];
+  // #when the walked line is validated
+  validateWalkedLine(join(root, "routes", "a"), errors);
+  // #then it is reported, but it does not fail the build
+  assert.equal(errors.length, 1);
+  assert.equal(errors[0].severity, "warning");
+  assert.match(errors[0].message, /800 m/);
+});
+
+test("an undeclared anchor past the snap radius is still an error", () => {
+  // #given the same stage with no declaration
+  const root = offLineFixture(800, undefined);
+  const errors: ValidationError[] = [];
+  validateWalkedLine(join(root, "routes", "a"), errors);
+  // #then the build fails, as it did before this rule existed
+  assert.equal(errors.length, 1);
+  assert.equal(errors[0].severity, "error");
+});
+
+test("a declaration that no longer matches the line is an error", () => {
+  // #given an anchor that declares 800 m while the line now puts it 3 km away
+  const root = offLineFixture(3000, 800);
+  const errors: ValidationError[] = [];
+  validateWalkedLine(join(root, "routes", "a"), errors);
+  // #then the stale line is caught, which is what the rule must not silence
+  assert.equal(errors.length, 1);
+  assert.equal(errors[0].severity, "error");
+  assert.match(errors[0].message, /declares 800 m/);
+});
+
+test("an anchor within the snap radius needs no declaration", () => {
+  const root = offLineFixture(200, undefined);
+  const errors: ValidationError[] = [];
+  validateWalkedLine(join(root, "routes", "a"), errors);
+  assert.deepEqual(errors, []);
 });
 
 test("the committed Camino Francés package passes every cross-check", () => {
