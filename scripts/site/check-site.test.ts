@@ -2383,3 +2383,44 @@ test("the committed docs/ already has a page for every pilgrimage (positive cont
     [],
   );
 });
+
+test("a pilgrimages field that is not an array fails loudly, not silently", () => {
+  // #given an index.json whose pilgrimages[] is not a list at all
+  const root = createFixtureRoot([{ id: "awa" }], { pilgrimages: "kumano-kodo" });
+
+  try {
+    // #when / #then the guard throws rather than reading it as "no
+    // pilgrimages" and reporting a site with unchecked pilgrimages as clean
+    assert.throws(() => checkSite(root), /pilgrimages/);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("a pilgrimage entry whose sections are not strings fails loudly", () => {
+  // #given a pilgrimage whose sections[] holds something that is not an id
+  const root = createFixtureRoot([{ id: "awa" }], {
+    pilgrimages: [{ id: "shikoku-88", sections: [{ id: "awa" }] }],
+  });
+
+  try {
+    // #when / #then the shape is refused by name, the same way a malformed
+    // routes[] is
+    assert.throws(() => checkSite(root), /pilgrimages/);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("an index.json with no pilgrimages field at all is not malformed", () => {
+  // #given the shape every index.json had before pilgrimages existed
+  const root = createFixtureRoot([{ id: "awa" }]);
+
+  try {
+    // #when / #then the absent field reads as "no pilgrimages", not as a
+    // reason to refuse the file
+    assert.doesNotThrow(() => checkSite(root));
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});

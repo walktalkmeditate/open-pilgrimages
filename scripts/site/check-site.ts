@@ -444,16 +444,39 @@ interface IndexPilgrimage {
   sections: string[];
 }
 
+function isIndexPilgrimageShape(value: unknown): value is IndexPilgrimage {
+  if (typeof value !== "object" || value === null) return false;
+  const pilgrimage = value as { id?: unknown; sections?: unknown };
+  if (typeof pilgrimage.id !== "string") return false;
+  return (
+    Array.isArray(pilgrimage.sections) &&
+    pilgrimage.sections.every((section): section is string => typeof section === "string")
+  );
+}
+
 /**
  * readIndexRoutes has already thrown on a missing or malformed index.json by
  * the time this runs, so this reader can parse without repeating those guards.
+ * What it does repeat is that reader's refusal to degrade: `String(p.id)` and
+ * an `Array.isArray(...) ? ... : []` fallback turned a reshaped pilgrimages[]
+ * into an empty list, and an empty list silently switches off every
+ * pilgrimage check below — a clean report about nothing. An absent field is
+ * the one thing that legitimately means "no pilgrimages"; a present one that
+ * is the wrong shape is reported.
  */
 function readIndexPilgrimages(indexPath: string): IndexPilgrimage[] {
   const parsed = JSON.parse(readFileSync(indexPath, "utf-8")) as { pilgrimages?: unknown };
-  if (!Array.isArray(parsed.pilgrimages)) return [];
-  return parsed.pilgrimages.map((p: { id?: unknown; sections?: unknown }) => ({
-    id: String(p.id),
-    sections: Array.isArray(p.sections) ? p.sections : [],
+  if (parsed.pilgrimages === undefined) return [];
+
+  if (!Array.isArray(parsed.pilgrimages) || !parsed.pilgrimages.every(isIndexPilgrimageShape)) {
+    throw new Error(
+      `${indexPath}: expected { pilgrimages?: Array<{ id: string, sections: string[] }> }, got something else`,
+    );
+  }
+
+  return parsed.pilgrimages.map((pilgrimage) => ({
+    id: pilgrimage.id,
+    sections: pilgrimage.sections,
   }));
 }
 
