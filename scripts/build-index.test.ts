@@ -562,6 +562,41 @@ test("a pilgrimage's sections and totals agree with the emitted routes[]", () =>
   }
 });
 
+test("pilgrimage order is decided by codepoint, not by the machine's collation", () => {
+  // #given ids inside the ^[a-z0-9-]+$ an id is allowed, on a machine whose
+  // default collation is Danish: there "aa" sorts after "ab", the way "å"
+  // does. Both sorts under test decide bytes CI diffs, and CHANGELOG 1.6.0
+  // records what that costs — an ordering that differed between macOS and
+  // Linux. No divergence has been measured at en-US, so what is pinned here
+  // is the mechanism: a collation nobody chose must not decide the file.
+  const AA = { id: "aa-way", name: { en: "Aa" }, kind: "legs" };
+  const AB = { id: "ab-way", name: { en: "Ab" }, kind: "legs" };
+  const { root, routesDir } = createTempRoutesDir([
+    // Both sections claim order 1, which is the only state the routeId
+    // tie-break ever decides — validate refuses it, build-index runs first.
+    { dirName: "aa-one", id: "aa-one", metadata: { pilgrimage: { ...AA, order: 1 } } },
+    { dirName: "ab-two", id: "ab-two", metadata: { pilgrimage: { ...AA, order: 1 } } },
+    { dirName: "other", id: "other", metadata: { pilgrimage: { ...AB, order: 1 } } },
+  ]);
+
+  const localeCompare = String.prototype.localeCompare;
+  String.prototype.localeCompare = function (this: string, that: string): number {
+    return localeCompare.call(this, that, "da-DK");
+  };
+
+  try {
+    const index = buildIndex(routesDir, null, () => NEW, root, RELEASE);
+
+    // #then both the pilgrimage list and a pilgrimage's sections read in
+    // codepoint order, which is the order every machine agrees on
+    assert.deepEqual(index.pilgrimages?.map((p) => p.id), ["aa-way", "ab-way"]);
+    assert.deepEqual(index.pilgrimages?.[0].sections, ["aa-one", "ab-two"]);
+  } finally {
+    String.prototype.localeCompare = localeCompare;
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
 test("a route with no pilgrimage block is left ungrouped", () => {
   const { root, routesDir } = createTempRoutesDir([{ dirName: "lone", id: "lone" }]);
   try {

@@ -281,7 +281,7 @@ export function scanPilgrimages(sections: ScannedSection[]): PilgrimageEntry[] {
       }
       return entry;
     })
-    .sort((a, b) => a.id.localeCompare(b.id));
+    .sort((a, b) => byCodepoint(a.id, b.id));
 }
 
 const SCHEMA_VERSION = "1.0.0";

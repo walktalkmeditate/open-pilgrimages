@@ -1,3 +1,5 @@
+import { byCodepoint } from "./cli.js";
+
 export interface PilgrimageBlock {
   id: string;
   name: Record<string, string>;
@@ -55,7 +57,7 @@ export function groupSections(
 ): Map<string, { block: PilgrimageBlock; routeIds: string[] }> {
   const grouped = new Map<string, { block: PilgrimageBlock; routeIds: string[] }>();
   for (const { routeId, block } of [...sections].sort(
-    (a, b) => a.block.order - b.block.order || a.routeId.localeCompare(b.routeId),
+    (a, b) => a.block.order - b.block.order || byCodepoint(a.routeId, b.routeId),
   )) {
     const existing = grouped.get(block.id);
     if (existing) existing.routeIds.push(routeId);
