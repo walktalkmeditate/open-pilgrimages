@@ -60,7 +60,12 @@ index.json                  # Route registry (auto-generated)
   `- [x] kumano-kodo-kohechi stage 0`, since every section has a stage 0 and
   one bare tick would otherwise clear them all. Only the file's own form
   counts, and only at the top level: a tick inside a fence or blockquote is
-  quoted prose, not a review.
+  quoted prose, not a review. A section shipping drafted text must have one of
+  those files, and where a checklist applies to a section every one of its
+  stages needs a line in it — an unlisted stage is refused exactly as an
+  unticked one is, or deleting the flag and its line together would be quieter
+  than leaving the flag on. Any task-list bullet GitHub renders counts (`-`,
+  `*`, `+`, `1.`), nested under a heading item included.
 
 ## Commands
 

@@ -872,9 +872,10 @@ test("a drafted stage cannot reach main", () => {
     const errors: ValidationError[] = [];
     validateDraftedText(root, [dir], errors);
 
-    assert.equal(errors.length, 1);
-    assert.match(errors[0].message, /stage 0/);
-    assert.match(errors[0].message, /drafted/);
+    assert.ok(
+      errors.some((e) => /stage 0/.test(e.message) && /drafted/.test(e.message)),
+      JSON.stringify(errors),
+    );
   } finally {
     rmSync(root, { recursive: true, force: true });
   }
@@ -1129,9 +1130,11 @@ test("a qualified line in a per-section checklist is not the form that file uses
     const errors: ValidationError[] = [];
     validateDraftedText(root, [dir], errors);
 
-    // #then the stage reads as unmentioned rather than as unreviewed: this
-    // file's form is the bare one, and a section cannot be listed twice in it
-    assert.deepEqual(errors, []);
+    // #then the stage reads as unlisted: the bare form is this file's form, so
+    // a line in the other one records no review of anything
+    assert.equal(errors.length, 1);
+    assert.match(errors[0].message, /stage 0/);
+    assert.match(errors[0].message, /not listed/);
   } finally {
     rmSync(root, { recursive: true, force: true });
   }
@@ -1534,6 +1537,178 @@ test("the schema refuses a circular flag that is not a boolean", () => {
     validateFile(createValidator(), "pilgrimage.schema.json", path, errors);
 
     assert.ok(errors.length > 0, "a circuit is claimed with true, not with a word");
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("a section with drafted text but no checklist is told where to record the review", () => {
+  const root = mkdtempSync(join(tmpdir(), "validate-drafted-test-"));
+  try {
+    // #given the state a content PR starts in: drafted text, no docs/review
+    const dir = draftedSection(root, "one", [{ index: 0, name: "d1", drafted: true }]);
+
+    const errors: ValidationError[] = [];
+    validateDraftedText(root, [dir], errors);
+
+    // #then the stage is refused and the file that would clear it is named,
+    // with the line to paste — a review needs somewhere to be recorded
+    assert.equal(errors.length, 2);
+    assert.match(errors[0].message, /stage 0/);
+    assert.match(errors[0].message, /docs\/review\/one\.md/);
+    assert.match(errors[0].message, /- \[x\] stage 0/);
+    assert.match(errors[1].message, /no review checklist/);
+    assert.match(errors[1].message, /docs\/review\/one\.md/);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("a stage the checklist never lists is not a reviewed stage", () => {
+  const root = mkdtempSync(join(tmpdir(), "validate-drafted-test-"));
+  try {
+    // #given a checklist that lists stage 0 and quietly forgets stage 1
+    const dir = draftedSection(root, "one", [{ index: 0, name: "d1" }, { index: 1, name: "d2" }]);
+    writeChecklist(root, "one", "# one\n\n- [x] stage 0 — reviewed\n");
+
+    const errors: ValidationError[] = [];
+    validateDraftedText(root, [dir], errors);
+
+    // #then the unlisted stage is named: a flag deleted in the same pass that
+    // never added its line would otherwise pass in silence
+    assert.equal(errors.length, 1);
+    assert.match(errors[0].message, /stage 1/);
+    assert.match(errors[0].message, /not listed/);
+    assert.match(errors[0].message, /docs\/review\/one\.md/);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("a pilgrimage-level tick counts when the section's own file mentions no stage", () => {
+  const root = mkdtempSync(join(tmpdir(), "validate-drafted-test-"));
+  try {
+    // #given a section file kept for notes and a pilgrimage file doing the
+    // reviewing, as a whole-pilgrimage PR leaves things
+    const dir = draftedSection(root, "kumano-kodo-kohechi", [{ index: 0, name: "d1" }], KOHECHI);
+    writeChecklist(root, "kumano-kodo-kohechi", "# Kohechi\n\nAnchors pinned against OSM.\n");
+    writeChecklist(root, "kumano-kodo", "# Kumano Kodō\n\n- [x] kumano-kodo-kohechi stage 0\n");
+
+    const errors: ValidationError[] = [];
+    validateDraftedText(root, [dir], errors);
+
+    assert.deepEqual(errors, []);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("an unticked pilgrimage-level line is read even when a section file exists", () => {
+  const root = mkdtempSync(join(tmpdir(), "validate-drafted-test-"));
+  try {
+    const dir = draftedSection(root, "kumano-kodo-kohechi", [{ index: 0, name: "d1" }], KOHECHI);
+    writeChecklist(root, "kumano-kodo-kohechi", "# Kohechi\n\nAnchors pinned against OSM.\n");
+    writeChecklist(root, "kumano-kodo", "# Kumano Kodō\n\n- [ ] kumano-kodo-kohechi stage 0\n");
+
+    const errors: ValidationError[] = [];
+    validateDraftedText(root, [dir], errors);
+
+    assert.equal(errors.length, 1);
+    assert.match(errors[0].message, /unticked/);
+    assert.match(errors[0].message, /docs\/review\/kumano-kodo\.md/);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("every task-list form GitHub renders is a checklist entry", () => {
+  const root = mkdtempSync(join(tmpdir(), "validate-drafted-test-"));
+  try {
+    // #given the forms a reviewer's editor and GitHub both accept
+    const dir = draftedSection(
+      root,
+      "one",
+      [0, 1, 2, 3, 4, 5].map((index) => ({ index, name: `d${index}` })),
+    );
+    writeChecklist(
+      root,
+      "one",
+      "# one\n\n* [x] stage 0\n+ [x] stage 1\n- [X] stage 2\n-  [x] stage 3\n- [x]  stage 4\n1. [x] stage 5\n",
+    );
+
+    const errors: ValidationError[] = [];
+    validateDraftedText(root, [dir], errors);
+
+    assert.deepEqual(errors, []);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("an unticked box in any of those forms is still unticked", () => {
+  const root = mkdtempSync(join(tmpdir(), "validate-drafted-test-"));
+  try {
+    const dir = draftedSection(root, "one", [{ index: 0, name: "d1" }]);
+    writeChecklist(root, "one", "# one\n\n* [ ] stage 0\n");
+
+    const errors: ValidationError[] = [];
+    validateDraftedText(root, [dir], errors);
+
+    assert.equal(errors.length, 1);
+    assert.match(errors[0].message, /unticked/);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("a nested list item is a checklist entry, not quoted code", () => {
+  const root = mkdtempSync(join(tmpdir(), "validate-drafted-test-"));
+  try {
+    // #given stages grouped under their section heading, four spaces in
+    const dir = draftedSection(root, "one", [{ index: 0, name: "d1" }]);
+    writeChecklist(root, "one", "# one\n\n- Awa, temples 1–23\n    - [ ] stage 0\n");
+
+    const errors: ValidationError[] = [];
+    validateDraftedText(root, [dir], errors);
+
+    assert.equal(errors.length, 1);
+    assert.match(errors[0].message, /unticked/);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("a tick in an indented code block still does not count as a review", () => {
+  const root = mkdtempSync(join(tmpdir(), "validate-drafted-test-"));
+  try {
+    // #given the drafted text quoted by indentation rather than by fence
+    const dir = draftedSection(root, "one", [{ index: 0, name: "d1" }]);
+    writeChecklist(root, "one", "# one\n\nQuoted verbatim:\n\n    - [x] stage 0\n\n- [ ] stage 0\n");
+
+    const errors: ValidationError[] = [];
+    validateDraftedText(root, [dir], errors);
+
+    assert.equal(errors.length, 1);
+    assert.match(errors[0].message, /unticked/);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("a fence that never closes cannot swallow the checklist", () => {
+  const root = mkdtempSync(join(tmpdir(), "validate-drafted-test-"));
+  try {
+    // #given a quote opened with backticks and closed with tildes, which
+    // hid every line after it from the gate
+    const dir = draftedSection(root, "one", [{ index: 0, name: "d1" }]);
+    writeChecklist(root, "one", "# one\n\n```\ndrafted text\n~~~\n\n- [x] stage 0\n");
+
+    const errors: ValidationError[] = [];
+    validateDraftedText(root, [dir], errors);
+
+    assert.equal(errors.length, 1);
+    assert.match(errors[0].message, /stage 0/);
+    assert.match(errors[0].message, /not listed/);
   } finally {
     rmSync(root, { recursive: true, force: true });
   }

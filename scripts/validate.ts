@@ -134,9 +134,9 @@ function validateDataConsistency(
   const wpPath = join(routeDir, "waypoints.geojson");
 
   // main() reaches this before the pilgrimage-level checks, so an unguarded
-  // read here would kill the run just as surely as one of theirs.
-  // The shapes are the schemas' business, and validateFile has already run
-  // them; this function only cross-checks fields against each other.
+  // read here would kill the run just as surely as one of theirs. The shapes
+  // stay loose: validateFile has already run them against their schemas, and
+  // this function only cross-checks fields against each other.
   const read = (path: string, unchecked: string): any =>
     existsSync(path) ? readJsonOrReport(ROOT, path, errors, unchecked) : null;
 
@@ -707,19 +707,25 @@ export function validateSectionChain(root: string, dirs: string[], errors: Valid
 }
 
 const FENCE_LINE = /^(`{3,}|~{3,})/;
-const INDENTED_CODE_LINE = /^(?: {4,}|\t)/;
+const INDENTED_LINE = /^(?: {4,}|\t)/;
+const LIST_ITEM_LINE = /^[ \t]*(?:[-*+]|\d+[.)])[ \t]/;
 
 /**
  * Per spec section 6, the checklist quotes each stage's drafted text
  * verbatim, so a line shaped like "- [x] stage N" can appear inside that
- * quoted prose without anyone having reviewed anything. Both the "mentioned"
- * and "ticked" checks below read this filtered view instead of the raw file
- * so a quote buried in a fence, blockquote, or indented aside can never
- * masquerade as a real checklist entry.
+ * quoted prose without anyone having reviewed anything. Every read below uses
+ * this filtered view instead of the raw file, so a quote buried in a fence,
+ * blockquote, or indented aside can never masquerade as a real entry.
+ *
+ * An indented line is dropped as code only where markdown would render it as
+ * code. Four spaces under a list item is a nested entry, which is how a
+ * checklist that groups its stages under their section is written — dropping
+ * those hid real entries, and a hidden entry reads as no entry at all.
  */
 function topLevelChecklistLines(checklist: string): string {
   const kept: string[] = [];
   let fenceMarker: string | null = null;
+  let inList = false;
 
   for (const line of checklist.split("\n")) {
     const trimmed = line.trimStart();
@@ -729,18 +735,41 @@ function topLevelChecklistLines(checklist: string): string {
       continue;
     }
 
-    if (INDENTED_CODE_LINE.test(line) || trimmed.startsWith(">")) continue;
-
     const fenceOpen = FENCE_LINE.exec(trimmed);
     if (fenceOpen) {
       fenceMarker = fenceOpen[1];
       continue;
     }
 
+    if (trimmed.startsWith(">")) continue;
+    if (trimmed === "") {
+      kept.push(line);
+      continue;
+    }
+
+    const isListItem = LIST_ITEM_LINE.test(line);
+    if (INDENTED_LINE.test(line) && !(inList && isListItem)) continue;
+
+    inList = isListItem;
     kept.push(line);
   }
 
   return kept.join("\n");
+}
+
+/** Every bullet GitHub renders as a task list, including the ordered forms. */
+const BULLET = String.raw`(?:[-*+]|\d+[.)])`;
+const ANY_BOX = " xX";
+const TICKED_BOX = "xX";
+
+/**
+ * One builder for every read, so "listed" and "ticked" cannot come to disagree
+ * about what an entry for a stage looks like — and one that accepts what a
+ * reviewer's editor and GitHub both accept, since a line that renders as a
+ * ticked box and does not match here is a review the gate cannot see.
+ */
+function checklistEntry(lines: string, box: string, label: string): boolean {
+  return new RegExp(`^[ \\t]*${BULLET}[ \\t]+\\[[${box}]\\][ \\t]+${label}\\b`, "m").test(lines);
 }
 
 interface ReviewChecklist {
@@ -750,28 +779,48 @@ interface ReviewChecklist {
   qualifier: string;
 }
 
+function readChecklist(root: string, id: string, qualifier: string): ReviewChecklist | undefined {
+  const path = join(root, "docs", "review", `${id}.md`);
+  if (!existsSync(path)) return undefined;
+  return {
+    file: `docs/review/${id}.md`,
+    lines: topLevelChecklistLines(readFileSync(path, "utf8")),
+    qualifier,
+  };
+}
+
+function mentionsAnyStage(checklist: ReviewChecklist, indices: number[]): boolean {
+  return indices.some((index) =>
+    checklistEntry(checklist.lines, ANY_BOX, `${checklist.qualifier}stage ${index}`),
+  );
+}
+
 /**
  * Spec section 6 names the checklist for the pilgrimage, or for the section
  * where a PR's content work is scoped to one — so both have to be looked for,
  * or the anti-strip half of the gate never fires for a whole-pilgrimage PR.
+ * The file that reviews these stages is the one that names them: a section
+ * file kept for notes must not shadow the pilgrimage file doing the reviewing.
  *
  * Which file it is decides the form of its lines. Four sections of one
  * pilgrimage each have a stage 0, so in a shared file every entry names its
  * section ("- [x] kumano-kodo-kohechi stage 0") and only that form counts:
  * a bare "stage 0" there would clear all four at once.
  */
-function reviewChecklist(root: string, routeId: string, pilgrimageId?: string): ReviewChecklist | undefined {
-  const read = (id: string, qualifier: string): ReviewChecklist | undefined => {
-    const path = join(root, "docs", "review", `${id}.md`);
-    if (!existsSync(path)) return undefined;
-    return {
-      file: `docs/review/${id}.md`,
-      lines: topLevelChecklistLines(readFileSync(path, "utf8")),
-      qualifier,
-    };
-  };
+function reviewChecklist(
+  root: string,
+  routeId: string,
+  pilgrimageId: string | undefined,
+  indices: number[],
+): ReviewChecklist | undefined {
+  const section = readChecklist(root, routeId, "");
+  const pilgrimage = pilgrimageId
+    ? readChecklist(root, pilgrimageId, `${escapeForPattern(routeId)} `)
+    : undefined;
 
-  return read(routeId, "") ?? (pilgrimageId ? read(pilgrimageId, `${escapeForPattern(routeId)} `) : undefined);
+  if (section && mentionsAnyStage(section, indices)) return section;
+  if (pilgrimage && mentionsAnyStage(pilgrimage, indices)) return pilgrimage;
+  return section ?? pilgrimage;
 }
 
 function escapeForPattern(value: string): string {
@@ -799,16 +848,6 @@ export function validateDraftedText(root: string, dirs: string[], errors: Valida
     if (!stagesFile) continue;
     const stages = stagesFile.stages ?? [];
 
-    for (const stage of stages) {
-      if (stage.drafted === true) {
-        errors.push({
-          file: relative(root, stagesPath),
-          message: `stage ${stage.index} is still marked drafted; review it before this merges`,
-          severity: "error",
-        });
-      }
-    }
-
     let pilgrimageId: string | undefined;
     try {
       pilgrimageId = readPilgrimage(meta)?.id;
@@ -818,30 +857,72 @@ export function validateDraftedText(root: string, dirs: string[], errors: Valida
       // back to, and its own file still applies.
     }
 
-    const checklist = reviewChecklist(root, routeId, pilgrimageId);
-    if (!checklist) continue;
+    const checklist = reviewChecklist(root, routeId, pilgrimageId, stages.map((stage) => stage.index));
+    const sectionFile = `docs/review/${routeId}.md`;
+    const example = (index: number, box: string) =>
+      `- [${box}] ${checklist?.qualifier ?? ""}stage ${index}`;
+
+    for (const stage of stages) {
+      if (stage.drafted !== true) continue;
+      errors.push({
+        file: relative(root, stagesPath),
+        message:
+          `stage ${stage.index} is still marked drafted; review it, tick ` +
+          `"${example(stage.index, "x")}" in ${checklist?.file ?? sectionFile}, then remove ` +
+          `the flag before this merges`,
+        severity: "error",
+      });
+    }
+
+    const drafted = stages.find((stage) => stage.drafted === true);
+    if (!checklist) {
+      // A review with nowhere to be recorded is no review: the flag could be
+      // stripped in the same pass that wrote the text, and nothing would be
+      // left in the tree to say a reviewer had ever read it.
+      if (drafted) {
+        errors.push({
+          file: sectionFile,
+          message:
+            `"${routeId}" ships drafted stage text but has no review checklist; create ` +
+            `${sectionFile}, or docs/review/<pilgrimage-id>.md where the PR covers a whole ` +
+            `pilgrimage, listing every stage — e.g. "- [ ] stage ${drafted.index}"`,
+          severity: "error",
+        });
+      }
+      continue;
+    }
+
     for (const stage of stages) {
       if (stage.drafted === true) continue;
-      // One pattern for both reads, so "mentioned" and "ticked" cannot come
-      // to disagree about what an entry for this stage looks like.
-      const entry = (box: string) =>
-        new RegExp(`^\\s*- \\[${box}\\] ${checklist.qualifier}stage ${stage.index}\\b`, "m").test(checklist.lines);
-      if (entry("[ x]") && !entry("x")) {
+      const label = `${checklist.qualifier}stage ${stage.index}`;
+      const listed = checklistEntry(checklist.lines, ANY_BOX, label);
+      // A pilgrimage-level file only has the qualified form: the bare form
+      // matches nothing above, so writing it here is the exact silent hole
+      // the qualified form exists to close, just moved from the wrong
+      // filename to the wrong line shape.
+      const unqualified =
+        checklist.qualifier !== "" && checklistEntry(checklist.lines, ANY_BOX, `stage ${stage.index}`);
+
+      if (listed && !checklistEntry(checklist.lines, TICKED_BOX, label)) {
         errors.push({
           file: checklist.file,
           message: `stage ${stage.index} of "${routeId}" carries no drafted flag but is unticked in ${checklist.file}`,
           severity: "error",
         });
+      } else if (!listed && !unqualified) {
+        // The gate's other half: an unticked line is refused, and so is no
+        // line at all. Without this, deleting the flag and the checklist entry
+        // in one pass cleared the stage more quietly than leaving the flag on.
+        errors.push({
+          file: checklist.file,
+          message:
+            `stage ${stage.index} of "${routeId}" is not listed in ${checklist.file}; ` +
+            `a reviewed stage needs its own line there, e.g. "${example(stage.index, "x")}"`,
+          severity: "error",
+        });
       }
 
-      // A pilgrimage-level file only has the qualified form: the bare form
-      // matches nothing above, so writing it here is the exact silent hole
-      // the qualified form exists to close, just moved from the wrong
-      // filename to the wrong line shape.
-      if (
-        checklist.qualifier &&
-        new RegExp(`^\\s*- \\[[ x]\\] stage ${stage.index}\\b`, "m").test(checklist.lines)
-      ) {
+      if (unqualified) {
         errors.push({
           file: checklist.file,
           message: `stage ${stage.index} of "${routeId}" is unqualified in ${checklist.file}; a pilgrimage-level checklist line must carry its section id, e.g. "- [ ] ${routeId} stage ${stage.index}"`,
