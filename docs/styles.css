@@ -392,8 +392,10 @@ nav .nav-github svg {
 
 /* The group heading was an h3 sharing a level with the h3 inside each card
    it contains; promoting it to h2 fixes the hierarchy but the generic h2
-   rule sizes and spaces it for the page's section headings, not this one —
-   1.2rem/0 margin is what the generic h3 rule gave it before the promotion. */
+   rule sizes it for the page's section headings, not for this one. The size
+   is what the generic h3 rule gave it before the promotion; the zero margin
+   is deliberately not — .route-group is a grid and its gap already spaces
+   the heading from the first card, so a margin here would double it. */
 .route-group > h2 {
   font-size: 1.2rem;
   margin: 0;
