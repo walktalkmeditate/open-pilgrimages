@@ -233,3 +233,22 @@ test("a proportional boundary never falls behind its predecessor", () => {
   const boundaries = stageBoundaries(line, cumulative, anchors, [100]);
   assert.ok(boundaries[1].index >= boundaries[0].index);
 });
+
+test("a boundary reports its distance from the line, not from the rest of the line", () => {
+  // Only the second anchor is mis-pinned — to the far end. The two after it
+  // sit exactly on the line, and the forward-only search has to carry their
+  // indices past them; measured against the remainder alone, both then report
+  // kilometres off a route they are standing on, and a reader chasing
+  // offMeters goes hunting three bad anchors when the data has one.
+  const line: Position[] = [[0, 0], [0.01, 0], [0.02, 0], [0.03, 0], [0.04, 0]];
+  const cumulative = cumulativeMeters(line);
+  const anchors: Position[] = [[0, 0], [0.04, 0], [0.02, 0], [0.03, 0]];
+  const boundaries = stageBoundaries(line, cumulative, anchors, [1.1, 1.1, 1.1]);
+
+  assert.deepEqual(
+    boundaries.map((b) => b.index),
+    [0, 4, 4, 4],
+    "the index is still searched forward only",
+  );
+  assert.deepEqual(boundaries.map((b) => Math.round(b.offMeters)), [0, 0, 0, 0]);
+});

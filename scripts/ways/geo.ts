@@ -112,6 +112,7 @@ export function indexAtMeters(cumulative: number[], meters: number): number {
 
 export interface Boundary {
   index: number;
+  /** How far the anchor is from the whole line, not from the part still ahead. */
   offMeters: number;
   mode: "snap" | "proportional";
 }
@@ -138,13 +139,20 @@ export function stageBoundaries(
     // start, and the slice between them would be empty or reversed.
     const searchFrom = i === 0 ? 0 : boundaries[i - 1].index;
     const found = nearestVertex(line, anchors[i], searchFrom);
+    // The index is searched forward; the distance reported is not. Measured
+    // against the remainder alone, an anchor standing exactly on a stretch the
+    // line has already covered reads as kilometres off a route it is on — so
+    // one mis-pinned anchor makes every anchor after it look mis-pinned too.
+    // Against the whole line the number keeps its one meaning: how far this
+    // anchor is from the route.
+    const offMeters = searchFrom === 0 ? found.meters : nearestVertex(line, anchors[i]).meters;
     if (found.meters <= snapMeters || totalDeclaredMeters === 0) {
-      boundaries.push({ index: found.index, offMeters: found.meters, mode: "snap" });
+      boundaries.push({ index: found.index, offMeters, mode: "snap" });
     } else {
       const along = (declaredSoFar / totalDeclaredMeters) * totalLineMeters;
       boundaries.push({
         index: Math.max(indexAtMeters(cumulative, along), searchFrom),
-        offMeters: found.meters,
+        offMeters,
         mode: "proportional",
       });
     }

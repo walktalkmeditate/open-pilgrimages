@@ -1502,7 +1502,7 @@
       33
     ],
     "reasons": [
-      "stage 23 runs from \"Soto de Luiña\" to \"Cadavedo\", but both anchors land on the same point of the walked line"
+      "stage 23 runs from \"Soto de Luiña\" to \"Cadavedo\", but both anchors land on the same point of the walked line — vertex 31648 of 38639: \"Soto de Luiña\" is 43 m off the line (snap), \"Cadavedo\" is 1247 m off the line (proportional)"
     ]
   },
   "dropped": [],

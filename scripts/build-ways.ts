@@ -19,6 +19,7 @@ import {
   RDP_TOLERANCE_METERS,
   MAX_ROUTE_POINTS,
   SNAP_METERS,
+  type Boundary,
 } from "./ways/geo.js";
 import { buildMoments, MOMENT_TYPES, type WaypointFeature } from "./ways/moments.js";
 import { buildMarks } from "./ways/marks.js";
@@ -127,11 +128,24 @@ export function buildRouteWays(input: RouteWaysInput): RouteWaysResult {
   // one stage says nothing about whether its neighbors' own anchors advance.
   const boundaryStalls = input.stages
     .filter((stage) => boundaries[stage.index + 1].index <= boundaries[stage.index].index)
-    .map(
-      (stage) =>
+    .map((stage) => {
+      // Boundaries only move forward, so one anchor pinned too far ahead
+      // stalls every stage after it — and N-1 stages each reported the same
+      // sentence, none of which said which anchor, or where it landed. Both
+      // of this stage's boundaries are named instead, with the vertex they
+      // share and how each was placed: the one that is hundreds of metres off
+      // the line, or fell back to proportional, is the one to go and re-pin.
+      const from = boundaries[stage.index];
+      const to = boundaries[stage.index + 1];
+      const placed = (name: string, boundary: Boundary) =>
+        `"${name}" is ${Math.round(boundary.offMeters)} m off the line (${boundary.mode})`;
+      return (
         `stage ${stage.index} runs from "${stage.start.name.en}" to "${stage.end.name.en}", ` +
-        `but both anchors land on the same point of the walked line`,
-    );
+        `but both anchors land on the same point of the walked line — vertex ${from.index} ` +
+        `of ${line.length - 1}: ${placed(stage.start.name.en, from)}, ` +
+        `${placed(stage.end.name.en, to)}`
+      );
+    });
 
   const ways: WayFile[] = [];
   const reportStages: ReportStageInput[] = [];

@@ -447,6 +447,49 @@ test("a stage whose anchors land on one point fails the gate and emits nothing",
   assert.equal(result.ways.length, 0);
 });
 
+test("a stall names the boundary that would not leave room", () => {
+  // One mis-pinned anchor — stage 1's start, put at the line's far end —
+  // stalls stage 1 and every stage after it. Both stalls used to say only
+  // "both anchors land on the same point", which is true of both and names
+  // neither the anchor that put them there nor where on the line it landed.
+  const result = build({
+    stages: [
+      {
+        index: 0,
+        name: { en: "Start to the end" },
+        start: { name: { en: "Ryōzen-ji" }, coordinates: [0, 0] },
+        end: { name: { en: "End Town" }, coordinates: [0.02, 0.02] },
+        distanceKm: 4.4,
+      },
+      {
+        index: 1,
+        name: { en: "Backwards" },
+        start: { name: { en: "End Town" }, coordinates: [0.02, 0.02] },
+        end: { name: { en: "Middle Village" }, coordinates: [0.01, 0] },
+        distanceKm: 1.1,
+      },
+      {
+        index: 2,
+        name: { en: "Backwards again" },
+        start: { name: { en: "Middle Village" }, coordinates: [0.01, 0] },
+        end: { name: { en: "Corner Hamlet" }, coordinates: [0.02, 0.01] },
+        distanceKm: 1.1,
+      },
+    ],
+  });
+
+  const reasons = result.report.gate.reasons ?? [];
+  assert.equal(reasons.length, 2);
+  assert.match(reasons[0], /stage 1 runs from "End Town" to "Middle Village"/);
+  assert.match(reasons[0], /vertex 40 of 40/);
+  // Every anchor here sits exactly on the line: nothing is mis-mapped, the
+  // boundaries simply ran out of line to advance along.
+  assert.match(reasons[0], /"End Town" is 0 m off the line \(snap\)/);
+  assert.match(reasons[0], /"Middle Village" is 0 m off the line \(proportional\)/);
+  assert.match(reasons[1], /stage 2 runs from "Middle Village" to "Corner Hamlet"/);
+  assert.match(reasons[1], /"Corner Hamlet" is 0 m off the line \(proportional\)/);
+});
+
 test("a stalled stage is skipped alone; its neighbor still cuts and reports", () => {
   const result = build({
     stages: [
