@@ -80,7 +80,7 @@ The missing check is a *diff* against the PR's base ref: if a stage stopped bein
 - Modify: `.github/workflows/validate.yml`, `package.json` (scripts)
 
 **Interfaces:**
-- Produces: `export function checkDraftedDiff(before: string, after: string, checklistAfter: string, routeId: string): string[]` — returns error strings, empty when clean. `before`/`after` are the two versions of one `stages.json` as text; `checklistAfter` is the concatenated `docs/review/*.md` content at the head commit, or `""`.
+- Produces: `export function checkDraftedDiff(before: string, after: string, routeId: string, sectionChecklist: string | undefined, pilgrimageId: string | undefined, pilgrimageChecklist: string | undefined): string[]` — returns error strings, empty when clean. `before`/`after` are the two versions of one `stages.json` as text. `sectionChecklist` is `docs/review/<routeId>.md` at head, or `undefined` if absent; `pilgrimageChecklist` is `docs/review/<pilgrimageId>.md` at head (per the route's own `metadata.json`), or `undefined` if there is no pilgrimage or no file. The function stays pure — no filesystem or git access — reusing `topLevelChecklistLines`, `checklistEntry`, and `selectReviewChecklist` from the new `scripts/review-checklist.ts` module (shared with `validate.ts`) rather than reimplementing the fence/blockquote stripping and file-selection rules spec section 6 already required `validate.ts` to get right.
 
 - [ ] **Step 1: Write the failing test**
 
@@ -148,20 +148,36 @@ Expected: a file-level `SyntaxError` — `check-drafted-diff.js` does not exist.
 
 - [ ] **Step 3: Write the checker**
 
-Create `scripts/check-drafted-diff.ts`:
+Create `scripts/check-drafted-diff.ts`, sharing `scripts/review-checklist.ts` with `validate.ts` rather than re-solving fence/blockquote stripping and section-vs-pilgrimage file selection a second time:
 
 ```ts
+import {
+  buildReviewChecklist,
+  checklistEntry,
+  escapeForPattern,
+  selectReviewChecklist,
+  TICKED_BOX,
+} from "./review-checklist.js";
+
 /**
  * `validate` sees one tree, so it cannot tell a stage that was never drafted
  * from one whose flag was deleted in the same commit that deleted its review.
  * Only a diff against the base ref can, which is why this is a CI step rather
  * than another validator.
+ *
+ * Pure by design — every git and filesystem read happens in main() below —
+ * so this stays unit-testable without touching disk or git. Each route's own
+ * two checklist files are passed in separately (not one string pooled across
+ * every route in the repo), which is what stops a bare tick belonging to a
+ * different section from ever being read as this one's review.
  */
 export function checkDraftedDiff(
   before: string,
   after: string,
-  checklistAfter: string,
   routeId: string,
+  sectionChecklist: string | undefined,
+  pilgrimageId: string | undefined,
+  pilgrimageChecklist: string | undefined,
 ): string[] {
   let baseStages: { index: number; drafted?: boolean }[];
   let headStages: { index: number; drafted?: boolean }[];
@@ -175,29 +191,39 @@ export function checkDraftedDiff(
   const stillDrafted = new Set(
     headStages.filter((s) => s.drafted === true).map((s) => s.index),
   );
-  const errors: string[] = [];
+  const clearedIndices = baseStages
+    .filter((s) => s.drafted === true && !stillDrafted.has(s.index))
+    .map((s) => s.index);
 
-  for (const stage of baseStages) {
-    if (stage.drafted !== true || stillDrafted.has(stage.index)) continue;
-    if (hasTick(checklistAfter, routeId, stage.index)) continue;
-    errors.push(
-      `${routeId}: stage ${stage.index} stopped being drafted in this PR, but no ticked ` +
-        `line records the review. Add "- [x] stage ${stage.index}" to ` +
-        `docs/review/${routeId}.md, or "- [x] ${routeId} stage ${stage.index}" to the ` +
+  if (clearedIndices.length === 0) return [];
+
+  const section =
+    sectionChecklist !== undefined
+      ? buildReviewChecklist(`docs/review/${routeId}.md`, sectionChecklist, "")
+      : undefined;
+  const pilgrimage =
+    pilgrimageId !== undefined && pilgrimageChecklist !== undefined
+      ? buildReviewChecklist(
+          `docs/review/${pilgrimageId}.md`,
+          pilgrimageChecklist,
+          `${escapeForPattern(routeId)} `,
+        )
+      : undefined;
+  const checklist = selectReviewChecklist(section, pilgrimage, clearedIndices);
+
+  return clearedIndices
+    .filter(
+      (index) =>
+        !checklist ||
+        !checklistEntry(checklist.lines, TICKED_BOX, `${checklist.qualifier}stage ${index}`),
+    )
+    .map(
+      (index) =>
+        `${routeId}: stage ${index} stopped being drafted in this PR, but no ticked ` +
+        `line records the review. Add "- [x] stage ${index}" to ` +
+        `docs/review/${routeId}.md, or "- [x] ${routeId} stage ${index}" to the ` +
         `pilgrimage's shared checklist.`,
     );
-  }
-
-  return errors;
-}
-
-function hasTick(checklist: string, routeId: string, index: number): boolean {
-  const bare = new RegExp(`^\\s{0,3}[-*+]\\s+\\[[xX]\\]\\s+stage\\s+${index}\\b`, "m");
-  const qualified = new RegExp(
-    `^\\s{0,3}[-*+]\\s+\\[[xX]\\]\\s+${routeId}\\s+stage\\s+${index}\\b`,
-    "m",
-  );
-  return bare.test(checklist) || qualified.test(checklist);
 }
 ```
 
@@ -217,16 +243,36 @@ import { execFileSync } from "child_process";
 import { existsSync, readdirSync, readFileSync } from "fs";
 import { join } from "path";
 import { resolveInvokedPath } from "./cli.js";
+import { readPilgrimage } from "./pilgrimage.js";
 
 const ROOT = join(import.meta.dirname, "..");
 
+/**
+ * A missing path and a bad ref both exit `git show` with status 128, so exit
+ * code cannot tell them apart — only the message can. Everything but the
+ * missing-path case (a bad ref, a failed `git fetch`, a corrupt repo) must
+ * exit non-zero with the git error: this gate exists to close a fail-open
+ * path, so failing open on an infrastructure error would be the same mistake
+ * again, just moved one level down.
+ */
 function showAtRef(ref: string, path: string): string {
   try {
-    return execFileSync("git", ["show", `${ref}:${path}`], { encoding: "utf8" });
-  } catch {
-    // A file absent at the base ref is a new section, which has nothing to strip.
-    return '{"stages":[]}';
+    return execFileSync("git", ["show", `${ref}:${path}`], {
+      encoding: "utf8",
+      stdio: ["ignore", "pipe", "pipe"],
+    });
+  } catch (error) {
+    const stderr = (error as { stderr?: string }).stderr ?? "";
+    if (stderr.includes("does not exist in")) {
+      // A path absent at the base ref is a new section, which has nothing to strip.
+      return '{"stages":[]}';
+    }
+    throw error;
   }
+}
+
+function readChecklistFile(path: string): string | undefined {
+  return existsSync(path) ? readFileSync(path, "utf8") : undefined;
 }
 
 function main(): void {
@@ -236,20 +282,55 @@ function main(): void {
     process.exit(2);
   }
 
-  const reviewDir = join(ROOT, "docs", "review");
-  const checklist = existsSync(reviewDir)
-    ? readdirSync(reviewDir)
-        .filter((f) => f.endsWith(".md"))
-        .map((f) => readFileSync(join(reviewDir, f), "utf8"))
-        .join("\n")
-    : "";
-
   const problems: string[] = [];
   for (const entry of readdirSync(join(ROOT, "routes")).sort()) {
     const rel = `routes/${entry}/stages.json`;
     if (!existsSync(join(ROOT, rel))) continue;
+
+    const metaPath = join(ROOT, "routes", entry, "metadata.json");
+    let meta: { id?: string } = {};
+    if (existsSync(metaPath)) {
+      try {
+        meta = JSON.parse(readFileSync(metaPath, "utf8"));
+      } catch {
+        // Malformed metadata is validate.ts's problem to name; this gate
+        // still has a route id — the directory name — to check stages against.
+      }
+    }
+    const routeId = meta.id ?? entry;
+    let pilgrimageId: string | undefined;
+    try {
+      pilgrimageId = readPilgrimage(meta)?.id;
+    } catch {
+      // A section whose pilgrimage cannot be read simply has no shared
+      // checklist to fall back to, and its own file still applies.
+    }
+
+    const sectionChecklist = readChecklistFile(join(ROOT, "docs", "review", `${routeId}.md`));
+    const pilgrimageChecklist = pilgrimageId
+      ? readChecklistFile(join(ROOT, "docs", "review", `${pilgrimageId}.md`))
+      : undefined;
+
+    let before: string;
+    try {
+      before = showAtRef(baseRef, rel);
+    } catch (error) {
+      console.error(`Could not read ${rel} at ${baseRef}:`);
+      for (const line of (error instanceof Error ? error.message : String(error)).split("\n")) {
+        console.error(`  ✗ ${line}`);
+      }
+      process.exit(1);
+    }
+
     problems.push(
-      ...checkDraftedDiff(showAtRef(baseRef, rel), readFileSync(join(ROOT, rel), "utf8"), checklist, entry),
+      ...checkDraftedDiff(
+        before,
+        readFileSync(join(ROOT, rel), "utf8"),
+        routeId,
+        sectionChecklist,
+        pilgrimageId,
+        pilgrimageChecklist,
+      ),
     );
   }
 
@@ -308,6 +389,8 @@ Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>
 EOF
 )"
 ```
+
+A post-implementation review pass found this task's first draft ignoring fence/blockquote stripping and file-scoping for the checklist's two tick forms, and swallowing every `git show` failure as "nothing to strip." The fence-stripping and per-file scoping above come from spec section 6, not from this plan's own drafting; `scripts/review-checklist.ts` and the `showAtRef` error handling shown in Steps 3 and 5 are the corrected versions.
 
 ---
 
