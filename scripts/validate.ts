@@ -1,8 +1,9 @@
 import Ajv2020 from "ajv/dist/2020.js";
 import addFormats from "ajv-formats";
 import { readFileSync, existsSync, readdirSync, statSync } from "fs";
-import { basename, join, relative } from "path";
+import { basename, dirname, join, relative } from "path";
 import { resolveInvokedPath } from "./cli.js";
+import { RESERVED_PAGE_NAMES } from "./pages.js";
 import { nearestVertex, walkedLine, haversineMeters, SNAP_METERS } from "./ways/geo.js";
 import type { Position } from "./ways/types.js";
 import { readPilgrimage, groupSections, type PilgrimageBlock } from "./pilgrimage.js";
@@ -444,6 +445,7 @@ export function validateWalkedLine(routeDir: string, errors: ValidationError[]):
 
 export function validatePilgrimages(root: string, dirs: string[], errors: ValidationError[]): void {
   const declared: { routeId: string; dir: string; block: PilgrimageBlock }[] = [];
+  const routeIds = new Set<string>();
 
   for (const dir of dirs) {
     const metaPath = join(dir, "metadata.json");
@@ -452,9 +454,13 @@ export function validatePilgrimages(root: string, dirs: string[], errors: Valida
       | { id?: string }
       | undefined;
     if (!meta) continue;
+    const routeId = meta.id ?? basename(dir);
+    // A variant ships no page of its own, so only a top-level route competes
+    // with a pilgrimage for docs/<id>.html.
+    if (dirname(dir) === join(root, "routes")) routeIds.add(routeId);
     try {
       const block = readPilgrimage(meta);
-      if (block) declared.push({ routeId: meta.id ?? basename(dir), dir, block });
+      if (block) declared.push({ routeId, dir, block });
     } catch (error) {
       errors.push({
         file: relative(root, metaPath),
@@ -466,6 +472,28 @@ export function validatePilgrimages(root: string, dirs: string[], errors: Valida
 
   for (const id of groupSections(declared.map(({ routeId, block }) => ({ routeId, block }))).keys()) {
     const members = declared.filter((d) => d.block.id === id);
+
+    // Both collisions are also checked by check-site, but only after
+    // build-assets has already written docs/<id>.html over whatever was
+    // there. validate runs before the generator in the pipeline and in CI, so
+    // this is where a claim on someone else's page can still be refused
+    // rather than reported as damage.
+    if (RESERVED_PAGE_NAMES.has(id)) {
+      errors.push({
+        file: `pilgrimage:${id}`,
+        message: `pilgrimage id "${id}" collides with a reserved page name; its generated page would shadow docs/${id}.html`,
+        severity: "error",
+      });
+    }
+
+    if (routeIds.has(id)) {
+      errors.push({
+        file: `pilgrimage:${id}`,
+        message: `"${id}" is claimed twice — it is both a pilgrimage and a route id, and the two share one page under docs/`,
+        severity: "error",
+      });
+    }
+
     // One pilgrimage, one identity: build-index derives a single entry from
     // whichever section it reads first, so disagreement would be silent.
     const kinds = new Set(members.map((m) => m.block.kind));

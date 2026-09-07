@@ -127,6 +127,77 @@ test("a section with no measured distance renders no distance at all", () => {
   }
 });
 
+test("a pilgrimage id that is not a bare slug never becomes a path", () => {
+  const root = mkdtempSync(join(tmpdir(), "build-assets-test-"));
+  try {
+    mkdirSync(join(root, "docs"), { recursive: true });
+    writeFileSync(
+      join(root, "index.json"),
+      JSON.stringify({
+        pilgrimages: [
+          { id: "../pwned", name: { en: "Pwned" }, kind: "alternatives", sections: [] },
+        ],
+        routes: [],
+      }),
+    );
+
+    // #when / #then the generator refuses the id by name, and writes nothing
+    // outside docs/
+    assert.throws(() => buildPilgrimagePages(root), /\.\.\/pwned/);
+    assert.equal(existsSync(join(root, "pwned.html")), false);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("a page the generator did not write is refused, not overwritten", () => {
+  const root = mkdtempSync(join(tmpdir(), "build-assets-test-"));
+  try {
+    mkdirSync(join(root, "docs"), { recursive: true });
+    // docs/kumano-kodo.html is hand-authored today and kumano-kodo becomes a
+    // pilgrimage id in a later PR — the exact collision this guards.
+    const handAuthored = "<!DOCTYPE html>\n<html><body>hand-authored</body></html>\n";
+    writeFileSync(join(root, "docs", "kumano-kodo.html"), handAuthored);
+    writeFileSync(
+      join(root, "index.json"),
+      JSON.stringify({
+        pilgrimages: [
+          { id: "kumano-kodo", name: { en: "Kumano Kodō" }, kind: "alternatives", sections: ["nakahechi"] },
+        ],
+        routes: [{ id: "nakahechi", name: { en: "Nakahechi" }, distanceKm: 70 }],
+      }),
+    );
+
+    assert.throws(() => buildPilgrimagePages(root), /kumano-kodo/);
+    assert.equal(readFileSync(join(root, "docs", "kumano-kodo.html"), "utf8"), handAuthored);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("a page this generator wrote is regenerated over itself", () => {
+  const root = mkdtempSync(join(tmpdir(), "build-assets-test-"));
+  try {
+    mkdirSync(join(root, "docs"), { recursive: true });
+    writeFileSync(
+      join(root, "index.json"),
+      JSON.stringify({
+        pilgrimages: [
+          { id: "kumano-kodo", name: { en: "Kumano Kodō" }, kind: "alternatives", sections: ["nakahechi"] },
+        ],
+        routes: [{ id: "nakahechi", name: { en: "Nakahechi" }, distanceKm: 70 }],
+      }),
+    );
+
+    const first = readFileSync(buildPilgrimagePages(root)[0], "utf8");
+    const second = readFileSync(buildPilgrimagePages(root)[0], "utf8");
+
+    assert.equal(first, second);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
 test("no pilgrimages means no pages", () => {
   const root = mkdtempSync(join(tmpdir(), "build-assets-test-"));
   try {

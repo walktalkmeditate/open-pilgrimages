@@ -572,6 +572,56 @@ test("a route with no pilgrimage block raises nothing", () => {
   }
 });
 
+test("a pilgrimage id may not shadow a reserved page name", () => {
+  const root = mkdtempSync(join(tmpdir(), "validate-pilgrimage-test-"));
+  try {
+    // #given a pilgrimage whose id names one of the hand-authored site pages
+    const a = join(root, "routes", "one");
+    mkdirSync(a, { recursive: true });
+    writeJson(join(a, "metadata.json"), {
+      id: "one",
+      pilgrimage: { id: "routes", name: { en: "Routes" }, kind: "alternatives", order: 1 },
+    });
+
+    // #when validate reads the pilgrimage blocks, before build-assets writes
+    const errors: ValidationError[] = [];
+    validatePilgrimages(root, [a], errors);
+
+    // #then the collision is reported here, not after the page is overwritten
+    assert.equal(errors.length, 1);
+    assert.match(errors[0].message, /"routes"/);
+    assert.match(errors[0].message, /reserved/);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("a pilgrimage id may not also be a route id", () => {
+  const root = mkdtempSync(join(tmpdir(), "validate-pilgrimage-test-"));
+  try {
+    // #given a pilgrimage and a route claiming the same page under docs/
+    const a = join(root, "routes", "one");
+    const b = join(root, "routes", "kumano-kodo");
+    mkdirSync(a, { recursive: true });
+    mkdirSync(b, { recursive: true });
+    writeJson(join(a, "metadata.json"), {
+      id: "one",
+      pilgrimage: { id: "kumano-kodo", name: { en: "Kumano Kodō" }, kind: "alternatives", order: 1 },
+    });
+    writeJson(join(b, "metadata.json"), { id: "kumano-kodo" });
+
+    // #when / #then the double claim is reported, naming the id
+    const errors: ValidationError[] = [];
+    validatePilgrimages(root, [a, b], errors);
+
+    assert.equal(errors.length, 1);
+    assert.match(errors[0].message, /kumano-kodo/);
+    assert.match(errors[0].message, /claimed twice/);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
 /**
  * The real Camino Francés metadata, so the schema's eight other required
  * root fields are satisfied by data the repo already validates and these

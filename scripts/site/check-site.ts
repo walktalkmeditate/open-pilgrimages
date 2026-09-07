@@ -1,6 +1,7 @@
 import { existsSync, readFileSync, readdirSync } from "fs";
 import { join } from "path";
 import { resolveInvokedPath } from "../cli.js";
+import { RESERVED_PAGE_NAMES } from "../pages.js";
 import { computeStats, type RouteStats } from "../stats.js";
 import {
   CDN_REPO_BASE,
@@ -14,17 +15,6 @@ import { segmentsOf } from "./glyphs.js";
 import { hashRouteGeometry, isWellFormedXml } from "./roads.js";
 
 const ROOT = join(import.meta.dirname, "..", "..");
-
-const RESERVED_PAGE_NAMES = new Set([
-  "index",
-  "routes",
-  "schema",
-  "usage",
-  "contribute",
-  "404",
-  "styles",
-  "hero",
-]);
 
 const HERO_FIELDS: Record<string, keyof ReturnType<typeof computeStats>["totals"]> = {
   Routes: "routes",
