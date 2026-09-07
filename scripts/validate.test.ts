@@ -622,6 +622,32 @@ test("a pilgrimage id may not also be a route id", () => {
   }
 });
 
+test("a variant may not declare a pilgrimage block", () => {
+  const root = mkdtempSync(join(tmpdir(), "validate-pilgrimage-test-"));
+  try {
+    // #given a variant carrying a pilgrimage block. This walk recurses into
+    // routes/*/variants/*; build-index's scanSections does not — so the
+    // section it names is validated as one and never indexed as one, and the
+    // chain then reports a gap against a route id absent from index.json.
+    const awa = join(root, "routes", "awa");
+    const bekkaku = join(awa, "variants", "bekkaku");
+    mkdirSync(bekkaku, { recursive: true });
+    const block = { id: "shikoku-88", name: { en: "Shikoku 88" }, kind: "legs" };
+    writeJson(join(awa, "metadata.json"), { id: "awa", pilgrimage: { ...block, order: 1 } });
+    writeJson(join(bekkaku, "metadata.json"), { id: "bekkaku", pilgrimage: { ...block, order: 3 } });
+
+    // #when / #then the block is refused where it sits, and the file is named
+    const errors: ValidationError[] = [];
+    validatePilgrimages(root, [awa, bekkaku], errors);
+
+    assert.equal(errors.length, 1);
+    assert.match(errors[0].file, /variants[/\\]bekkaku[/\\]metadata\.json/);
+    assert.match(errors[0].message, /variant is not a section/);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
 /**
  * The real Camino Francés metadata, so the schema's eight other required
  * root fields are satisfied by data the repo already validates and these

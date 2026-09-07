@@ -460,7 +460,24 @@ export function validatePilgrimages(root: string, dirs: string[], errors: Valida
     if (dirname(dir) === join(root, "routes")) routeIds.add(routeId);
     try {
       const block = readPilgrimage(meta);
-      if (block) declared.push({ routeId, dir, block });
+      // A variant is not a section. This walk recurses into
+      // routes/*/variants/*; build-index's scanSections reads only the
+      // top-level directories, so a block declared down here is checked as a
+      // section and never emitted as one — and validateSectionChain then
+      // reports a gap against a route id that is absent from index.json,
+      // which check-site's guard runs the other way and cannot catch.
+      if (block && basename(dirname(dir)) === "variants") {
+        errors.push({
+          file: relative(root, metaPath),
+          message:
+            `a variant is not a section: "${routeId}" is nested under variants/, so it gets no ` +
+            `entry in index.json and no page of its own — remove the pilgrimage block, or ` +
+            `promote it to a route directory under routes/`,
+          severity: "error",
+        });
+      } else if (block) {
+        declared.push({ routeId, dir, block });
+      }
     } catch (error) {
       errors.push({
         file: relative(root, metaPath),
