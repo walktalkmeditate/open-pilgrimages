@@ -490,6 +490,39 @@ test("a stall names the boundary that would not leave room", () => {
   assert.match(reasons[1], /"Corner Hamlet" is 0 m off the line \(proportional\)/);
 });
 
+test("coverage counts the route's stages, not the ones that survived the cut", () => {
+  const result = build({
+    stages: [
+      {
+        index: 0,
+        name: { en: "Start to the end" },
+        start: { name: { en: "Ryōzen-ji" }, coordinates: [0, 0] },
+        end: { name: { en: "End Town" }, coordinates: [0.02, 0.02] },
+        distanceKm: 4.4,
+      },
+      {
+        index: 1,
+        name: { en: "Backwards" },
+        start: { name: { en: "End Town" }, coordinates: [0.02, 0.02] },
+        end: { name: { en: "Middle Village" }, coordinates: [0.01, 0] },
+        distanceKm: 1.1,
+      },
+      {
+        index: 2,
+        name: { en: "Backwards again" },
+        start: { name: { en: "Middle Village" }, coordinates: [0.01, 0] },
+        end: { name: { en: "Corner Hamlet" }, coordinates: [0.02, 0.01] },
+        distanceKm: 1.1,
+      },
+    ],
+  });
+
+  // Two of the three stages stalled and were skipped, so report.stages holds
+  // one row. Coverage still describes the route: half of three is two.
+  assert.deepEqual(result.report.stages.map((s) => s.index), [0]);
+  assert.equal(result.report.places.halfOfStages, 2);
+});
+
 test("a stalled stage is skipped alone; its neighbor still cuts and reports", () => {
   const result = build({
     stages: [

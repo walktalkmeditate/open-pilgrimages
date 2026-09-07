@@ -93,6 +93,12 @@ export interface ReportInput {
   routeId: string;
   generatedAt: string;
   walkedLine: { source: "route.main.geojson" | "route.geojson"; points: number; lengthKm: number };
+  /**
+   * Every stage the route declares. `stages` below carries only the ones the
+   * cut produced — a stage whose boundaries stall is skipped — so coverage,
+   * which describes the route a walker downloads, cannot be counted off it.
+   */
+  stageCount: number;
   stages: ReportStageInput[];
   /** Waypoints a stage filter never saw at all — see WayReportFile.dropped. */
   dropped?: string[];
@@ -125,12 +131,13 @@ export function buildReport(input: ReportInput): WayReportFile {
   const failing = stages.filter((s) => !s.passedGate).map((s) => s.index);
   const reasons = input.gateReasons ?? [];
   const withMoment = stages.filter((s) => s.momentsBeyondEnds > 0).length;
-  const half = halfOfStages(stages.length);
+  const half = halfOfStages(input.stageCount);
   const sparse = withMoment < half;
   const placesPerStage =
-    stages.length === 0
+    input.stageCount === 0
       ? 0
-      : Math.round((stages.reduce((sum, s) => sum + s.momentsBeyondEnds, 0) / stages.length) * 10) / 10;
+      : Math.round((stages.reduce((sum, s) => sum + s.momentsBeyondEnds, 0) / input.stageCount) * 10) /
+        10;
 
   return {
     schemaVersion: SCHEMA_VERSION,
@@ -156,7 +163,7 @@ export function buildReport(input: ReportInput): WayReportFile {
       ...(sparse
         ? {
             note:
-              `only ${withMoment} of ${stages.length} stages carry a place beyond their own ` +
+              `only ${withMoment} of ${input.stageCount} stages carry a place beyond their own ` +
               `start and end; the app's card will say "few places marked yet"`,
           }
         : {}),

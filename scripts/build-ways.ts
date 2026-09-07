@@ -215,6 +215,7 @@ export function buildRouteWays(input: RouteWaysInput): RouteWaysResult {
       points: line.length,
       lengthKm: lineLengthMeters(line) / 1000,
     },
+    stageCount: input.stages.length,
     stages: reportStages,
     dropped: routeDropped,
     gateReasons: [...chainBreaks, ...boundaryStalls],

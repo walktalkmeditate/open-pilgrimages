@@ -85,6 +85,7 @@ test("the report records each stage against its declared distance", () => {
     routeId: "fixture-way",
     generatedAt: metadata.lastUpdated,
     walkedLine: { source: "route.main.geojson", points: 41, lengthKm: 4.450563 },
+    stageCount: 3,
     stages: [
       { index: 0, name: "a", sliceKm: 1.111949, distanceKm: 1.1, boundaryMode: "snap", routePoints: 2, moments: 4, momentsBeyondEnds: 2, momentsWithText: 3, marks: 1, marksTrimmed: 0, dropped: [] },
       { index: 1, name: "b", sliceKm: 2.226387, distanceKm: 2.2, boundaryMode: "snap", routePoints: 6, moments: 5, momentsBeyondEnds: 3, momentsWithText: 3, marks: 1, marksTrimmed: 0, dropped: ["wp-far-chapel is 440 m from the line"] },
@@ -120,17 +121,26 @@ test("a route is sparse when fewer than half its stages carry a place beyond the
     walkedLine: { source: "route.main.geojson" as const, points: 41, lengthKm: 3 },
   };
 
-  const wellCurated = buildReport({ ...base, stages: stageRows([2, 1, 0]) });
+  const wellCurated = buildReport({ ...base, stageCount: 3, stages: stageRows([2, 1, 0]) });
   assert.equal(wellCurated.places.sparse, false);
   assert.equal(wellCurated.places.stagesWithMomentBeyondEnds, 2);
   assert.equal(wellCurated.places.halfOfStages, 2);
   assert.equal(wellCurated.places.placesPerStage, 1);
   assert.equal(wellCurated.places.note, undefined);
 
-  const sparse = buildReport({ ...base, stages: stageRows([1, 0, 0]) });
+  const sparse = buildReport({ ...base, stageCount: 3, stages: stageRows([1, 0, 0]) });
   assert.equal(sparse.places.sparse, true);
   assert.ok(Math.abs(sparse.places.placesPerStage - 0.3) < 1e-9);
   assert.match(sparse.places.note!, /1 of 3/);
+
+  // #given a route of five stages, two of which stalled and were skipped:
+  // coverage describes the route a walker downloads, so all three figures
+  // count its stages, not the rows the cut happened to produce. The
+  // committed camino-norte report read "only 0 of 33 stages" for 34.
+  const stalled = buildReport({ ...base, stageCount: 5, stages: stageRows([1, 0, 0]) });
+  assert.equal(stalled.places.halfOfStages, 3);
+  assert.ok(Math.abs(stalled.places.placesPerStage - 0.2) < 1e-9);
+  assert.match(stalled.places.note!, /1 of 5/);
 });
 
 test("the gate and the coverage flag are independent verdicts", () => {
@@ -140,6 +150,7 @@ test("the gate and the coverage flag are independent verdicts", () => {
     routeId: "fixture-way",
     generatedAt: metadata.lastUpdated,
     walkedLine: { source: "route.geojson", points: 41, lengthKm: 9 },
+    stageCount: 1,
     stages: [
       { index: 0, name: "a", sliceKm: 9, distanceKm: 1, boundaryMode: "snap", routePoints: 2, moments: 5, momentsBeyondEnds: 3, momentsWithText: 1, marks: 0, marksTrimmed: 0, dropped: [] },
     ],
