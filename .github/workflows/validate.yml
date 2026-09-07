@@ -53,8 +53,10 @@ jobs:
       - run: npm run validate
       - name: No drafted text cleared without a review
         if: github.event_name == 'pull_request'
+        env:
+          BASE_REF: ${{ github.base_ref }}
         run: |
-          git fetch --no-tags --depth=1 origin "${{ github.base_ref }}"
+          git fetch --no-tags --depth=1 origin "$BASE_REF"
           npm run check-drafted-diff -- FETCH_HEAD
       - run: npm run build-assets
       - name: Check generated assets are up to date
