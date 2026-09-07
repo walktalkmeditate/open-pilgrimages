@@ -438,23 +438,114 @@ test("pilgrimages are derived from the sections that declare them", () => {
   }
 });
 
+const SHIKOKU = { id: "shikoku-88", name: { en: "Shikoku" }, kind: "legs" };
+
+/** A gate-passing ways package, the only thing that gives a section a stageCount. */
+function writePassingWays(routesDir: string, dirName: string, stageCount: number): void {
+  const waysDir = join(routesDir, dirName, "ways");
+  mkdirSync(waysDir, { recursive: true });
+  writeFileSync(
+    join(waysDir, "report.json"),
+    JSON.stringify({
+      gate: { passed: true, failing: [] },
+      places: { sparse: false, placesPerStage: 2 },
+      stages: Array.from({ length: stageCount }, (_, index) => ({ index })),
+    }),
+  );
+  writeFileSync(join(waysDir, "route.json"), "{}");
+}
+
 test("a legs pilgrimage carries totals and an alternatives one does not", () => {
-  const shikoku = { id: "shikoku-88", name: { en: "Shikoku" }, kind: "legs" };
   const { root, routesDir } = createTempRoutesDir([
-    { dirName: "awa", id: "awa", metadata: { pilgrimage: { ...shikoku, order: 1 } } },
-    { dirName: "tosa", id: "tosa", metadata: { pilgrimage: { ...shikoku, order: 2 } } },
+    { dirName: "awa", id: "awa", metadata: { pilgrimage: { ...SHIKOKU, order: 1 } } },
+    { dirName: "tosa", id: "tosa", metadata: { pilgrimage: { ...SHIKOKU, order: 2 } } },
     { dirName: "norte", id: "norte", metadata: { pilgrimage: { ...KUMANO, order: 1 } } },
   ]);
   try {
+    writePassingWays(routesDir, "awa", 3);
+    writePassingWays(routesDir, "tosa", 4);
+
     const index = buildIndex(routesDir, null, () => NEW, root, RELEASE);
     const legs = index.pilgrimages?.find((p) => p.id === "shikoku-88");
     const alternatives = index.pilgrimages?.find((p) => p.id === "kumano-kodo");
 
     // minimalMetadata gives every fixture overview.distanceKm = 1.
     assert.equal(legs?.distanceKm, 2);
-    assert.equal(legs?.stageCount, 0);
+    assert.equal(legs?.stageCount, 7);
     assert.equal(alternatives?.distanceKm, undefined);
     assert.equal(alternatives?.stageCount, undefined);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("a legs pilgrimage with a section still awaiting its package emits no stage count", () => {
+  // #given two sections, only one of which cleared the ways gate — the spec
+  // lets the other ship metadata-only and wait for a later release
+  const { root, routesDir } = createTempRoutesDir([
+    { dirName: "awa", id: "awa", metadata: { pilgrimage: { ...SHIKOKU, order: 1 } } },
+    { dirName: "tosa", id: "tosa", metadata: { pilgrimage: { ...SHIKOKU, order: 2 } } },
+  ]);
+  try {
+    writePassingWays(routesDir, "awa", 3);
+
+    const index = buildIndex(routesDir, null, () => NEW, root, RELEASE);
+    const legs = index.pilgrimages?.find((p) => p.id === "shikoku-88");
+
+    // #then the complete distance still stands, and no partial day count is
+    // paired with it — 3 would read as the whole pilgrimage's stages
+    assert.equal(legs?.distanceKm, 2);
+    assert.equal(legs?.stageCount, undefined);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("a legs pilgrimage with a section that declares no distance emits no distance", () => {
+  // #given a section whose metadata omits overview.distanceKm — a file
+  // schema/pilgrimage.schema.json requires it in, so validate will refuse it,
+  // but build-index runs first and must not invent a total from it
+  const { root, routesDir } = createTempRoutesDir([
+    { dirName: "awa", id: "awa", metadata: { pilgrimage: { ...SHIKOKU, order: 1 } } },
+    {
+      dirName: "tosa",
+      id: "tosa",
+      metadata: {
+        pilgrimage: { ...SHIKOKU, order: 2 },
+        overview: { countries: ["JP"], topology: "linear" },
+      },
+    },
+  ]);
+  try {
+    const index = buildIndex(routesDir, null, () => NEW, root, RELEASE);
+    const legs = index.pilgrimages?.find((p) => p.id === "shikoku-88");
+
+    assert.equal(legs?.distanceKm, undefined);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("a pilgrimage's sections are the routes[] entries, read once", () => {
+  // #given a section whose directory name sorts against its route id, so a
+  // second independent traversal in readdir order would reduce its sums in a
+  // different sequence from the one routes[] is emitted in
+  const { root, routesDir } = createTempRoutesDir([
+    { dirName: "zzz", id: "awa", metadata: { pilgrimage: { ...SHIKOKU, order: 1 } } },
+    { dirName: "aaa", id: "tosa", metadata: { pilgrimage: { ...SHIKOKU, order: 2 } } },
+  ]);
+  try {
+    writePassingWays(routesDir, "zzz", 3);
+    writePassingWays(routesDir, "aaa", 4);
+
+    const index = buildIndex(routesDir, null, () => NEW, root, RELEASE);
+    const legs = index.pilgrimages?.[0];
+
+    // #then every section resolves to a route in the same index
+    for (const sectionId of legs!.sections) {
+      assert.ok(index.routes.some((route) => route.id === sectionId), sectionId);
+    }
+    assert.equal(legs?.stageCount, 7);
   } finally {
     rmSync(root, { recursive: true, force: true });
   }

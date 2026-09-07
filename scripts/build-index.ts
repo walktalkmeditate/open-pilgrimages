@@ -132,8 +132,20 @@ export function waysEntry(routeDir: string): WaysEntry | undefined {
   };
 }
 
-export function scanRoutes(routesDir: string, root: string): RouteEntry[] {
-  const routes: RouteEntry[] = [];
+/**
+ * One route directory as read from disk: the entry it contributes to
+ * `routes[]`, plus what only the directory itself can say — the pilgrimage
+ * block, and whether `metadata.json` actually declared a distance, which the
+ * entry's own `distanceKm` has already collapsed to 0.
+ */
+export interface ScannedSection {
+  entry: RouteEntry;
+  block?: PilgrimageBlock;
+  declaredDistanceKm?: number;
+}
+
+export function scanSections(routesDir: string, root: string): ScannedSection[] {
+  const sections: ScannedSection[] = [];
 
   for (const entry of readdirSync(routesDir)) {
     const routeDir = join(routesDir, entry);
@@ -167,10 +179,19 @@ export function scanRoutes(routesDir: string, root: string): RouteEntry[] {
       routeEntry.ways = ways;
     }
 
-    routes.push(routeEntry);
+    sections.push({
+      entry: routeEntry,
+      block: pilgrimage,
+      declaredDistanceKm:
+        typeof meta.overview?.distanceKm === "number" ? meta.overview.distanceKm : undefined,
+    });
   }
 
-  return routes.sort(byIdThenPath);
+  return sections.sort((a, b) => byIdThenPath(a.entry, b.entry));
+}
+
+export function scanRoutes(routesDir: string, root: string): RouteEntry[] {
+  return scanSections(routesDir, root).map((section) => section.entry);
 }
 
 export interface PilgrimageEntry {
@@ -182,26 +203,18 @@ export interface PilgrimageEntry {
   stageCount?: number;
 }
 
-export function scanPilgrimages(routesDir: string): PilgrimageEntry[] {
-  const declared: { routeId: string; block: PilgrimageBlock; distanceKm: number; stageCount: number }[] = [];
+/**
+ * Derived from the sections `scanSections` already read, not from a second
+ * walk of routes/: the two traversals disagreed about order (one sorted, one
+ * raw readdir), which decided the order these floating-point sums were
+ * reduced in, and that differs between macOS and ubuntu-latest.
+ */
+export function scanPilgrimages(sections: ScannedSection[]): PilgrimageEntry[] {
+  const declared = sections.filter(
+    (section): section is ScannedSection & { block: PilgrimageBlock } => section.block !== undefined,
+  );
 
-  for (const entry of readdirSync(routesDir)) {
-    const routeDir = join(routesDir, entry);
-    const metaPath = join(routeDir, "metadata.json");
-    if (!statSync(routeDir).isDirectory() || !existsSync(metaPath)) continue;
-    const meta = loadJson(metaPath);
-    const block = readPilgrimage(meta);
-    if (!block) continue;
-    const ways = waysEntry(routeDir);
-    declared.push({
-      routeId: meta.id,
-      block,
-      distanceKm: meta.overview?.distanceKm ?? 0,
-      stageCount: ways?.stageCount ?? 0,
-    });
-  }
-
-  const grouped = groupSections(declared.map(({ routeId, block }) => ({ routeId, block })));
+  const grouped = groupSections(declared.map(({ entry, block }) => ({ routeId: entry.id, block })));
   return [...grouped.entries()]
     .map(([id, { block, routeIds }]) => {
       const members = declared.filter((d) => d.block.id === id);
@@ -209,8 +222,26 @@ export function scanPilgrimages(routesDir: string): PilgrimageEntry[] {
       // A walker walks one alternative, so a total across them describes no
       // walk anyone takes; only a chained pilgrimage has a meaningful sum.
       if (block.kind === "legs") {
-        entry.distanceKm = Number(members.reduce((sum, m) => sum + m.distanceKm, 0).toFixed(1));
-        entry.stageCount = members.reduce((sum, m) => sum + m.stageCount, 0);
+        // A total is emitted only when every section fed it. Summing a
+        // missing input as zero would pair a whole pilgrimage's distance
+        // with three quarters of its days, and the app renders the pair as
+        // fact. The two inputs fail for different reasons: a section with no
+        // distanceKm is a file schema/pilgrimage.schema.json requires it in,
+        // so validate refuses it; a section with no stageCount has simply
+        // not shipped its ways package yet, which the design allows.
+        const distances = members
+          .map((m) => m.declaredDistanceKm)
+          .filter((km): km is number => km !== undefined);
+        if (distances.length === members.length) {
+          entry.distanceKm = Number(distances.reduce((sum, km) => sum + km, 0).toFixed(1));
+        }
+
+        const stageCounts = members
+          .map((m) => m.entry.ways?.stageCount)
+          .filter((count): count is number => count !== undefined);
+        if (stageCounts.length === members.length) {
+          entry.stageCount = stageCounts.reduce((sum, count) => sum + count, 0);
+        }
       }
       return entry;
     })
@@ -226,8 +257,9 @@ export function buildIndex(
   root: string,
   release: string,
 ): RouteIndex {
-  const routes = scanRoutes(routesDir, root);
-  const pilgrimages = scanPilgrimages(routesDir);
+  const sections = scanSections(routesDir, root);
+  const routes = sections.map((section) => section.entry);
+  const pilgrimages = scanPilgrimages(sections);
 
   // Compare everything except the timestamp. Identical content keeps the old
   // stamp so re-running the generator is a genuine no-op and the CI drift
