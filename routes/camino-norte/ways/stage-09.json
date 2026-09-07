@@ -1389,18 +1389,384 @@
   "theirActiveSeconds": 28800,
   "moments": [
     {
-      "id": "stage-start",
+      "id": "wp-osm-town-node288260564",
       "frac": 0,
       "kind": "waypoint",
-      "label": "Castro Urdiales",
+      "label": "Castro-Urdiales",
       "icon": "house.lodge",
       "at": {
         "lat": 43.384449,
         "lon": -3.216411
       },
       "pin": {
-        "lat": 43.384,
-        "lon": -3.215
+        "lat": 43.3843347,
+        "lon": -3.2162576
+      }
+    },
+    {
+      "id": "wp-osm-viewpoint-node5178326324",
+      "frac": 0,
+      "kind": "waypoint",
+      "label": "Unnamed",
+      "icon": "eye",
+      "at": {
+        "lat": 43.384449,
+        "lon": -3.216411
+      },
+      "pin": {
+        "lat": 43.3854269,
+        "lon": -3.2154226
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-viewpoint-node9804607718",
+      "frac": 0,
+      "kind": "waypoint",
+      "label": "Unnamed",
+      "icon": "eye",
+      "at": {
+        "lat": 43.384449,
+        "lon": -3.216411
+      },
+      "pin": {
+        "lat": 43.3837714,
+        "lon": -3.2145736
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-viewpoint-node5178326222",
+      "frac": 0.0023782646256491793,
+      "kind": "waypoint",
+      "label": "Unnamed",
+      "icon": "eye",
+      "at": {
+        "lat": 43.38481108233006,
+        "lon": -3.217162152162983
+      },
+      "pin": {
+        "lat": 43.3855697,
+        "lon": -3.2164698
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-town-node871762555",
+      "frac": 0.07017831907932336,
+      "kind": "waypoint",
+      "label": "Barrio Campijo",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.387266006137864,
+        "lon": -3.2350731064583362
+      },
+      "pin": {
+        "lat": 43.3869265,
+        "lon": -3.2352579
+      }
+    },
+    {
+      "id": "wp-osm-town-node288260392",
+      "frac": 0.12062314772935788,
+      "kind": "waypoint",
+      "label": "Allendelagua",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.396001504510465,
+        "lon": -3.247580982967423
+      },
+      "pin": {
+        "lat": 43.3960238,
+        "lon": -3.2475742
+      }
+    },
+    {
+      "id": "wp-osm-town-node288260440",
+      "frac": 0.1806827630432337,
+      "kind": "waypoint",
+      "label": "Cerdigo",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.399139211344604,
+        "lon": -3.2664498857289064
+      },
+      "pin": {
+        "lat": 43.3993497,
+        "lon": -3.26633
+      }
+    },
+    {
+      "id": "wp-osm-viewpoint-node4696021847",
+      "frac": 0.21476149093184332,
+      "kind": "waypoint",
+      "label": "Calero",
+      "icon": "eye",
+      "at": {
+        "lat": 43.401625,
+        "lon": -3.274078
+      },
+      "pin": {
+        "lat": 43.4020442,
+        "lon": -3.2740709
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-viewpoint-node4696021848",
+      "frac": 0.27211558609144676,
+      "kind": "waypoint",
+      "label": "Cotonera",
+      "icon": "eye",
+      "at": {
+        "lat": 43.40427918991327,
+        "lon": -3.2950959362853274
+      },
+      "pin": {
+        "lat": 43.4053653,
+        "lon": -3.2948004
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-town-node288260794",
+      "frac": 0.2829136756937922,
+      "kind": "waypoint",
+      "label": "Islares",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.404856,
+        "lon": -3.299112
+      },
+      "pin": {
+        "lat": 43.40434,
+        "lon": -3.29955
+      }
+    },
+    {
+      "id": "wp-osm-town-node288260325",
+      "frac": 0.4279814040191005,
+      "kind": "waypoint",
+      "label": "Nocina",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.3779670440949,
+        "lon": -3.3183522078064387
+      },
+      "pin": {
+        "lat": 43.3781842,
+        "lon": -3.317768
+      }
+    },
+    {
+      "id": "wp-osm-town-node288260377",
+      "frac": 0.48311564202129864,
+      "kind": "waypoint",
+      "label": "Rioseco",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.364434661906365,
+        "lon": -3.31703338605055
+      },
+      "pin": {
+        "lat": 43.3646827,
+        "lon": -3.3174481
+      }
+    },
+    {
+      "id": "wp-osm-town-node288260367",
+      "frac": 0.5089312065241636,
+      "kind": "waypoint",
+      "label": "Lendagua",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.366021,
+        "lon": -3.324255
+      },
+      "pin": {
+        "lat": 43.36764,
+        "lon": -3.32403
+      }
+    },
+    {
+      "id": "wp-osm-town-node288260337",
+      "frac": 0.5318014817799379,
+      "kind": "waypoint",
+      "label": "Tresagua",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.363128704255914,
+        "lon": -3.3289309789645185
+      },
+      "pin": {
+        "lat": 43.36333,
+        "lon": -3.32872
+      }
+    },
+    {
+      "id": "wp-osm-town-node288260381",
+      "frac": 0.5838539625840603,
+      "kind": "waypoint",
+      "label": "Lugarejos",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.36558279087046,
+        "lon": -3.340149038232267
+      },
+      "pin": {
+        "lat": 43.36565,
+        "lon": -3.3403
+      }
+    },
+    {
+      "id": "wp-osm-town-node288260519",
+      "frac": 0.7315014618165523,
+      "kind": "waypoint",
+      "label": "Iseca Nueva",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.38251518522932,
+        "lon": -3.370088499136158
+      },
+      "pin": {
+        "lat": 43.3825279,
+        "lon": -3.3699082
+      }
+    },
+    {
+      "id": "wp-osm-town-node288260565",
+      "frac": 0.7354758098294959,
+      "kind": "waypoint",
+      "label": "Mendina",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.38360476007691,
+        "lon": -3.3702339674403485
+      },
+      "pin": {
+        "lat": 43.38383,
+        "lon": -3.36704
+      }
+    },
+    {
+      "id": "wp-osm-town-node288260465",
+      "frac": 0.7469639685696662,
+      "kind": "waypoint",
+      "label": "Rocillo",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.386122488653925,
+        "lon": -3.3725766699963153
+      },
+      "pin": {
+        "lat": 43.38611,
+        "lon": -3.37271
+      }
+    },
+    {
+      "id": "wp-osm-town-node288260513",
+      "frac": 0.7550616734867573,
+      "kind": "waypoint",
+      "label": "Sopeña",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.38806289544252,
+        "lon": -3.373846584230274
+      },
+      "pin": {
+        "lat": 43.3882049,
+        "lon": -3.3733144
+      }
+    },
+    {
+      "id": "wp-osm-town-node288260464",
+      "frac": 0.7825934634067757,
+      "kind": "waypoint",
+      "label": "Hazas",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.39373294869759,
+        "lon": -3.3804473404016346
+      },
+      "pin": {
+        "lat": 43.39374,
+        "lon": -3.38044
+      }
+    },
+    {
+      "id": "wp-osm-town-node288260462",
+      "frac": 0.8846542013705957,
+      "kind": "waypoint",
+      "label": "Tarrueza",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.392965667623656,
+        "lon": -3.3992817859735585
+      },
+      "pin": {
+        "lat": 43.39267,
+        "lon": -3.39942
+      }
+    },
+    {
+      "id": "wp-osm-town-node5760111892",
+      "frac": 0.9159242687264157,
+      "kind": "waypoint",
+      "label": "Barrio Santa Ana",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.399269,
+        "lon": -3.404137
+      },
+      "pin": {
+        "lat": 43.3988743,
+        "lon": -3.404635
+      }
+    },
+    {
+      "id": "wp-osm-viewpoint-node2831589094",
+      "frac": 0.9638487415111422,
+      "kind": "waypoint",
+      "label": "Mirador del Alto de Laredo",
+      "icon": "eye",
+      "at": {
+        "lat": 43.40830128117607,
+        "lon": -3.4110749837665013
+      },
+      "pin": {
+        "lat": 43.4082209,
+        "lon": -3.4119241
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-town-node891630739",
+      "frac": 0.9809311117227845,
+      "kind": "waypoint",
+      "label": "Barrio de San Antonio",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.41181880494018,
+        "lon": -3.4105604902461444
+      },
+      "pin": {
+        "lat": 43.4130524,
+        "lon": -3.4072991
+      }
+    },
+    {
+      "id": "wp-osm-town-node891630719",
+      "frac": 0.9822792016914118,
+      "kind": "waypoint",
+      "label": "Puebla Vieja",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.411726699153085,
+        "lon": -3.4110088013967252
+      },
+      "pin": {
+        "lat": 43.4125005,
+        "lon": -3.4114458
       }
     },
     {
@@ -1654,7 +2020,7 @@
     {
       "id": "wp-osm-supply-node5181782068",
       "kind": "supply",
-      "name": "Carrefour Express",
+      "name": "Coaliment",
       "at": {
         "lat": 43.387735,
         "lon": -3.231733
@@ -1685,6 +2051,17 @@
       "offLineMeters": 6.6
     },
     {
+      "id": "wp-osm-transport-node14051198191",
+      "kind": "transport",
+      "name": "Allendeleagua cta nacional (Allendeleagua)",
+      "at": {
+        "lat": 43.398152,
+        "lon": -3.247318
+      },
+      "frac": 0.12656692752066848,
+      "offLineMeters": 91.5
+    },
+    {
       "id": "wp-osm-water_source-node9696107045",
       "kind": "water",
       "name": "Unnamed",
@@ -1709,13 +2086,13 @@
     {
       "id": "wp-osm-transport-node4467676762",
       "kind": "transport",
-      "name": "Unnamed",
+      "name": "Cerdigo cta nacional (Cerdigo)",
       "at": {
-        "lat": 43.40042,
-        "lon": -3.267624
+        "lat": 43.400408,
+        "lon": -3.267623
       },
       "frac": 0.18377688606389633,
-      "offLineMeters": 89.4
+      "offLineMeters": 88.1
     },
     {
       "id": "wp-osm-water_source-node9990849774",
@@ -1738,17 +2115,6 @@
       },
       "frac": 0.26706531736016703,
       "offLineMeters": 139.5
-    },
-    {
-      "id": "wp-osm-water_source-node12649740098",
-      "kind": "water",
-      "name": "Unnamed",
-      "at": {
-        "lat": 43.404107,
-        "lon": -3.299635
-      },
-      "frac": 0.2829136756937922,
-      "offLineMeters": 93.4
     },
     {
       "id": "wp-osm-supply-node12649791632",
@@ -1797,7 +2163,7 @@
     {
       "id": "wp-osm-transport-node707804731",
       "kind": "transport",
-      "name": "Unnamed",
+      "name": "Camping Arenillas (Islares)",
       "at": {
         "lat": 43.403393,
         "lon": -3.311032
@@ -1819,7 +2185,7 @@
     {
       "id": "wp-osm-transport-node707804719",
       "kind": "transport",
-      "name": "Unnamed",
+      "name": "Casatablas (Nocina)",
       "at": {
         "lat": 43.389113,
         "lon": -3.317865
@@ -1841,13 +2207,13 @@
     {
       "id": "wp-osm-transport-node5154985812",
       "kind": "transport",
-      "name": "Unnamed",
+      "name": "El Pontarron (Nocina)",
       "at": {
-        "lat": 43.379213,
-        "lon": -3.320785
+        "lat": 43.379275,
+        "lon": -3.320792
       },
       "frac": 0.4241351362915451,
-      "offLineMeters": 156.1
+      "offLineMeters": 158.1
     },
     {
       "id": "wp-osm-transport-node603711486",
@@ -1870,17 +2236,6 @@
       },
       "frac": 0.47980494697403764,
       "offLineMeters": 7.2
-    },
-    {
-      "id": "wp-osm-transport-node2315681189",
-      "kind": "transport",
-      "name": "Rioseco",
-      "at": {
-        "lat": 43.364608,
-        "lon": -3.316925
-      },
-      "frac": 0.48244885594186,
-      "offLineMeters": 5.4
     },
     {
       "id": "wp-osm-transport-node5194386017",
@@ -1927,17 +2282,6 @@
       "offLineMeters": 10.5
     },
     {
-      "id": "wp-osm-water_source-node9696092165",
-      "kind": "water",
-      "name": "Unnamed",
-      "at": {
-        "lat": 43.387853,
-        "lon": -3.373667
-      },
-      "frac": 0.7541820875599277,
-      "offLineMeters": 5.6
-    },
-    {
       "id": "wp-osm-food-node4363429390",
       "kind": "food",
       "name": "Casa Varona",
@@ -1975,11 +2319,11 @@
       "kind": "water",
       "name": "Unnamed",
       "at": {
-        "lat": 43.394841,
-        "lon": -3.378893
+        "lat": 43.394923,
+        "lon": -3.379008
       },
-      "frac": 0.7817496445945465,
-      "offLineMeters": 174.1
+      "frac": 0.7821715827723192,
+      "offLineMeters": 175.6
     },
     {
       "id": "wp-osm-food-node6153164811",
@@ -1991,6 +2335,17 @@
       },
       "frac": 0.7865733908676401,
       "offLineMeters": 86.7
+    },
+    {
+      "id": "wp-osm-transport-node14051137240",
+      "kind": "transport",
+      "name": "Tarrueza (Tarrueza)",
+      "at": {
+        "lat": 43.399213,
+        "lon": -3.398578
+      },
+      "frac": 0.908253598306383,
+      "offLineMeters": 282.6
     },
     {
       "id": "wp-osm-food-node1414446794",
@@ -2123,6 +2478,17 @@
       },
       "frac": 0.9874491494352873,
       "offLineMeters": 39
+    },
+    {
+      "id": "wp-osm-transport-node14040446442",
+      "kind": "transport",
+      "name": "Teminal de  autobuses  de Laredo",
+      "at": {
+        "lat": 43.409846,
+        "lon": -3.413167
+      },
+      "frac": 0.9887358410070693,
+      "offLineMeters": 121.8
     },
     {
       "id": "wp-osm-medical-node2087009535",

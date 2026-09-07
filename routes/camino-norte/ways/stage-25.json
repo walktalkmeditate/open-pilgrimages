@@ -1444,6 +1444,727 @@
       }
     },
     {
+      "id": "wp-osm-viewpoint-node5814581033",
+      "frac": 0.010794850152175314,
+      "kind": "waypoint",
+      "label": "Mirador del Chano",
+      "icon": "eye",
+      "at": {
+        "lat": 43.54328,
+        "lon": -6.536857
+      },
+      "pin": {
+        "lat": 43.5440883,
+        "lon": -6.5371549
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-town-node7539099604",
+      "frac": 0.03954788439201358,
+      "kind": "waypoint",
+      "label": "Ribadebaxu",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.539073,
+        "lon": -6.54464
+      },
+      "pin": {
+        "lat": 43.53811,
+        "lon": -6.544328
+      },
+      "names": {
+        "ast": "Ribadebaxu",
+        "es": "Ribadebajo"
+      }
+    },
+    {
+      "id": "wp-osm-town-node13118851160",
+      "frac": 0.04469545087158576,
+      "kind": "waypoint",
+      "label": "San Xustu",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.539992547384486,
+        "lon": -6.546034401470809
+      },
+      "pin": {
+        "lat": 43.5419333,
+        "lon": -6.5456958
+      }
+    },
+    {
+      "id": "wp-osm-town-node13266860571",
+      "frac": 0.06025395796760391,
+      "kind": "waypoint",
+      "label": "La Corripia",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.537412,
+        "lon": -6.549025
+      },
+      "pin": {
+        "lat": 43.5367156,
+        "lon": -6.5483669
+      }
+    },
+    {
+      "id": "wp-osm-town-node7539099605",
+      "frac": 0.06853720083774466,
+      "kind": "waypoint",
+      "label": "Tabarcias",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.535978296937046,
+        "lon": -6.551368766728396
+      },
+      "pin": {
+        "lat": 43.5355171,
+        "lon": -6.5509046
+      },
+      "names": {
+        "ast": "Tabarcias",
+        "es": "Taborcías"
+      }
+    },
+    {
+      "id": "wp-osm-town-node7539091104",
+      "frac": 0.09742097383570625,
+      "kind": "waypoint",
+      "label": "Viḷḷuir",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.53410632031172,
+        "lon": -6.561688821905925
+      },
+      "pin": {
+        "lat": 43.5335902,
+        "lon": -6.5614297
+      }
+    },
+    {
+      "id": "wp-osm-town-node13266238862",
+      "frac": 0.11702839978219763,
+      "kind": "waypoint",
+      "label": "C’Alcabo",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.532205432090194,
+        "lon": -6.568495721986765
+      },
+      "pin": {
+        "lat": 43.53099,
+        "lon": -6.5677139
+      }
+    },
+    {
+      "id": "wp-osm-town-node13266245848",
+      "frac": 0.13230853161331715,
+      "kind": "waypoint",
+      "label": "Las Pontigas",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.53277997886662,
+        "lon": -6.573506319743408
+      },
+      "pin": {
+        "lat": 43.534307,
+        "lon": -6.571662
+      }
+    },
+    {
+      "id": "wp-osm-town-node180960831",
+      "frac": 0.19052041007744505,
+      "kind": "waypoint",
+      "label": "Outur",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.53703635774761,
+        "lon": -6.592411717953277
+      },
+      "pin": {
+        "lat": 43.5391284,
+        "lon": -6.5917553
+      },
+      "names": {
+        "ast": "Outur",
+        "es": "Otur"
+      }
+    },
+    {
+      "id": "wp-osm-town-node6429376478",
+      "frac": 0.19180867955879463,
+      "kind": "waypoint",
+      "label": "El Carral",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.536947937776596,
+        "lon": -6.592872113696968
+      },
+      "pin": {
+        "lat": 43.5371488,
+        "lon": -6.5929586
+      }
+    },
+    {
+      "id": "wp-osm-town-node5912725078",
+      "frac": 0.22301444550235408,
+      "kind": "waypoint",
+      "label": "Rellón",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.538964400607526,
+        "lon": -6.603223471999899
+      },
+      "pin": {
+        "lat": 43.5390871,
+        "lon": -6.6030573
+      }
+    },
+    {
+      "id": "wp-osm-town-node13266285826",
+      "frac": 0.25430391264365204,
+      "kind": "waypoint",
+      "label": "Hervedosas",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.54106358022745,
+        "lon": -6.613146146693952
+      },
+      "pin": {
+        "lat": 43.541063,
+        "lon": -6.613151
+      }
+    },
+    {
+      "id": "wp-osm-cultural_site-node11987130407",
+      "frac": 0.30483338403094057,
+      "kind": "waypoint",
+      "label": "Unnamed",
+      "icon": "book.closed",
+      "at": {
+        "lat": 43.545331844708635,
+        "lon": -6.623109783170153
+      },
+      "pin": {
+        "lat": 43.5466346,
+        "lon": -6.625118
+      }
+    },
+    {
+      "id": "wp-osm-town-node3297014771",
+      "frac": 0.3419405862358744,
+      "kind": "waypoint",
+      "label": "El Vau y Barayu",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.54119481914876,
+        "lon": -6.631316320330778
+      },
+      "pin": {
+        "lat": 43.5412638,
+        "lon": -6.6311943
+      }
+    },
+    {
+      "id": "wp-osm-town-node13144631168",
+      "frac": 0.3838527127586045,
+      "kind": "waypoint",
+      "label": "Viḷḷeirán",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.54367353749419,
+        "lon": -6.64097901821021
+      },
+      "pin": {
+        "lat": 43.5431778,
+        "lon": -6.6412681
+      },
+      "names": {
+        "ast": "Viḷḷeirán",
+        "es": "Villainclán"
+      }
+    },
+    {
+      "id": "wp-osm-town-node13495716824",
+      "frac": 0.3966200096010686,
+      "kind": "waypoint",
+      "label": "Calvario",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.544169176687724,
+        "lon": -6.645573286788692
+      },
+      "pin": {
+        "lat": 43.5441417,
+        "lon": -6.6456033
+      },
+      "names": {
+        "ast": "El Calvariu",
+        "es": "Calvario"
+      }
+    },
+    {
+      "id": "wp-osm-town-node3297014773",
+      "frac": 0.42356123173028076,
+      "kind": "waypoint",
+      "label": "Viḷḷapedre",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.547441,
+        "lon": -6.652038
+      },
+      "pin": {
+        "lat": 43.5484418,
+        "lon": -6.6502772
+      },
+      "names": {
+        "ast": "Viḷḷapedre",
+        "gl": "Villapedre"
+      }
+    },
+    {
+      "id": "wp-osm-town-node13144692385",
+      "frac": 0.4262573005496485,
+      "kind": "waypoint",
+      "label": "El Villar",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.547978,
+        "lon": -6.652721
+      },
+      "pin": {
+        "lat": 43.5495056,
+        "lon": -6.6511231
+      },
+      "names": {
+        "ast": "Viḷḷar",
+        "es": "El Villar"
+      }
+    },
+    {
+      "id": "wp-osm-town-node13144692382",
+      "frac": 0.4356906765098635,
+      "kind": "waypoint",
+      "label": "Viḷḷaíz",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.548537,
+        "lon": -6.656136
+      },
+      "pin": {
+        "lat": 43.5505231,
+        "lon": -6.6560133
+      },
+      "names": {
+        "ast": "Viḷḷaíz",
+        "es": "Villaiz"
+      }
+    },
+    {
+      "id": "wp-osm-town-node13144631185",
+      "frac": 0.4361546064259783,
+      "kind": "waypoint",
+      "label": "La Pena",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.5485121990418,
+        "lon": -6.656305989900987
+      },
+      "pin": {
+        "lat": 43.5485378,
+        "lon": -6.6563131
+      },
+      "names": {
+        "ast": "La Pena",
+        "es": "La Peña"
+      }
+    },
+    {
+      "id": "wp-osm-town-node13144692384",
+      "frac": 0.4370725610584142,
+      "kind": "waypoint",
+      "label": "El Barbeitín",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.548420109607065,
+        "lon": -6.656618911358595
+      },
+      "pin": {
+        "lat": 43.5498817,
+        "lon": -6.6578642
+      },
+      "names": {
+        "ast": "El Barbeitín",
+        "es": "Barbeitín"
+      }
+    },
+    {
+      "id": "wp-osm-town-node3296850567",
+      "frac": 0.4751354313889077,
+      "kind": "waypoint",
+      "label": "Piñeira",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.545095,
+        "lon": -6.668133
+      },
+      "pin": {
+        "lat": 43.5455416,
+        "lon": -6.6679894
+      },
+      "names": {
+        "ast": "Piñeira",
+        "gl": "Piñeira"
+      }
+    },
+    {
+      "id": "wp-osm-town-node3296850568",
+      "frac": 0.5348085681763033,
+      "kind": "waypoint",
+      "label": "Villauril",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.53940841029551,
+        "lon": -6.681281351451774
+      },
+      "pin": {
+        "lat": 43.5385052,
+        "lon": -6.6822712
+      },
+      "names": {
+        "gl": "Villauril"
+      }
+    },
+    {
+      "id": "wp-osm-town-node3295675562",
+      "frac": 0.5834635756576312,
+      "kind": "waypoint",
+      "label": "La Venta",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.537331197598405,
+        "lon": -6.697861351324469
+      },
+      "pin": {
+        "lat": 43.5374171,
+        "lon": -6.6978813
+      },
+      "names": {
+        "gl": "La Venta"
+      }
+    },
+    {
+      "id": "wp-osm-town-node13124541144",
+      "frac": 0.590997263672205,
+      "kind": "waypoint",
+      "label": "La Venta",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.53699239095314,
+        "lon": -6.700637564426205
+      },
+      "pin": {
+        "lat": 43.536878,
+        "lon": -6.700611
+      },
+      "names": {
+        "gl": "La Venta"
+      }
+    },
+    {
+      "id": "wp-osm-town-node3295662338",
+      "frac": 0.6137352056989276,
+      "kind": "waypoint",
+      "label": "La Colorada",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.537183,
+        "lon": -6.708791
+      },
+      "pin": {
+        "lat": 43.5372935,
+        "lon": -6.7090642
+      },
+      "names": {
+        "gl": "La Colorada"
+      }
+    },
+    {
+      "id": "wp-osm-town-node13124568712",
+      "frac": 0.617900553914619,
+      "kind": "waypoint",
+      "label": "La Colorada",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.53607236774593,
+        "lon": -6.709066075197809
+      },
+      "pin": {
+        "lat": 43.5359612,
+        "lon": -6.708212
+      },
+      "names": {
+        "gl": "La Colorada"
+      }
+    },
+    {
+      "id": "wp-osm-town-node13144896853",
+      "frac": 0.6501882500855273,
+      "kind": "waypoint",
+      "label": "Las Calellas",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.54030204885272,
+        "lon": -6.717565675469964
+      },
+      "pin": {
+        "lat": 43.541167,
+        "lon": -6.7168702
+      },
+      "names": {
+        "gl": "Las Calellas"
+      }
+    },
+    {
+      "id": "wp-osm-town-node101423199",
+      "frac": 0.6652990964179017,
+      "kind": "waypoint",
+      "label": "Navia",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.53942,
+        "lon": -6.722887
+      },
+      "pin": {
+        "lat": 43.5391112,
+        "lon": -6.7233704
+      },
+      "names": {
+        "gl": "Navia"
+      }
+    },
+    {
+      "id": "wp-osm-town-node2972870389",
+      "frac": 0.6828208685069482,
+      "kind": "waypoint",
+      "label": "El Espín",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.542094324052805,
+        "lon": -6.727232645863418
+      },
+      "pin": {
+        "lat": 43.5420454,
+        "lon": -6.7271554
+      },
+      "names": {
+        "gl": "El Espín"
+      }
+    },
+    {
+      "id": "wp-osm-town-node2972870380",
+      "frac": 0.6994087562613286,
+      "kind": "waypoint",
+      "label": "Barqueiros",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.53965538170608,
+        "lon": -6.731764207311773
+      },
+      "pin": {
+        "lat": 43.5386332,
+        "lon": -6.7322181
+      },
+      "names": {
+        "gl": "Barqueiros"
+      }
+    },
+    {
+      "id": "wp-osm-town-node2972870388",
+      "frac": 0.7356312725278419,
+      "kind": "waypoint",
+      "label": "Xarrio",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.53938444676207,
+        "lon": -6.744624547163116
+      },
+      "pin": {
+        "lat": 43.5395137,
+        "lon": -6.7447188
+      },
+      "names": {
+        "ast": "Xarrio",
+        "es": "Jarrio",
+        "gl": "Xarrio"
+      }
+    },
+    {
+      "id": "wp-osm-town-node13148219384",
+      "frac": 0.7886812900905827,
+      "kind": "waypoint",
+      "label": "Outeiro",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.53880195588072,
+        "lon": -6.763483279446349
+      },
+      "pin": {
+        "lat": 43.5378272,
+        "lon": -6.7633959
+      },
+      "names": {
+        "gl": "Outeiro"
+      }
+    },
+    {
+      "id": "wp-osm-town-node2972870404",
+      "frac": 0.8138169086290628,
+      "kind": "waypoint",
+      "label": "Torce",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.53948132627338,
+        "lon": -6.7720829894821435
+      },
+      "pin": {
+        "lat": 43.5371207,
+        "lon": -6.770927
+      },
+      "names": {
+        "gl": "Torce"
+      }
+    },
+    {
+      "id": "wp-osm-town-node2968227181",
+      "frac": 0.8238576969967437,
+      "kind": "waypoint",
+      "label": "El Esteler",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.540754082231764,
+        "lon": -6.773986197593056
+      },
+      "pin": {
+        "lat": 43.5414833,
+        "lon": -6.7721527
+      },
+      "names": {
+        "gl": "El Esteler"
+      }
+    },
+    {
+      "id": "wp-osm-town-node2968227180",
+      "frac": 0.8669701191524,
+      "kind": "waypoint",
+      "label": "Cartavio",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.5446783719171,
+        "lon": -6.786516448373495
+      },
+      "pin": {
+        "lat": 43.5447149,
+        "lon": -6.786506
+      },
+      "names": {
+        "gl": "Cartavio"
+      }
+    },
+    {
+      "id": "wp-osm-town-node2968227187",
+      "frac": 0.8980982910394865,
+      "kind": "waypoint",
+      "label": "Xonte",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.544762,
+        "lon": -6.796416
+      },
+      "pin": {
+        "lat": 43.5422174,
+        "lon": -6.7975506
+      },
+      "names": {
+        "gl": "Xonte"
+      }
+    },
+    {
+      "id": "wp-osm-town-node2975119890",
+      "frac": 0.9313909682145785,
+      "kind": "waypoint",
+      "label": "Castello",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.54754,
+        "lon": -6.806916
+      },
+      "pin": {
+        "lat": 43.5483261,
+        "lon": -6.8053149
+      },
+      "names": {
+        "gl": "Castello"
+      }
+    },
+    {
+      "id": "wp-osm-town-node2975083390",
+      "frac": 0.9519367753518838,
+      "kind": "waypoint",
+      "label": "Arboces",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.5483997205361,
+        "lon": -6.813509161474601
+      },
+      "pin": {
+        "lat": 43.5485506,
+        "lon": -6.8133273
+      },
+      "names": {
+        "gl": "Arboces"
+      }
+    },
+    {
+      "id": "wp-osm-town-node2975083395",
+      "frac": 0.9830319386761566,
+      "kind": "waypoint",
+      "label": "Llóngara",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.549029,
+        "lon": -6.823696
+      },
+      "pin": {
+        "lat": 43.5504786,
+        "lon": -6.821571
+      },
+      "names": {
+        "ast": "Llóngara",
+        "es": "Lóngara",
+        "gl": "Llóngara"
+      }
+    },
+    {
+      "id": "wp-osm-town-node13157816216",
+      "frac": 0.9977882834083128,
+      "kind": "waypoint",
+      "label": "El Trigal",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.550980057782795,
+        "lon": -6.8280632076969665
+      },
+      "pin": {
+        "lat": 43.5535274,
+        "lon": -6.8271805
+      },
+      "names": {
+        "gl": "El Trigal"
+      }
+    },
+    {
       "id": "stage-end",
       "frac": 1,
       "kind": "waypoint",
@@ -1508,15 +2229,15 @@
       "offLineMeters": 82.6
     },
     {
-      "id": "wp-osm-food-node3569489396",
+      "id": "wp-osm-food-node12057157852",
       "kind": "food",
-      "name": "Café La Sucursal",
+      "name": "Sidrería El Duernu",
       "at": {
-        "lat": 43.543848,
-        "lon": -6.536168
+        "lat": 43.544069,
+        "lon": -6.536346
       },
-      "frac": 0.010042253460872381,
-      "offLineMeters": 81
+      "frac": 0.010794850152175314,
+      "offLineMeters": 96.9
     },
     {
       "id": "wp-osm-accommodation-node3793526936",
@@ -1750,17 +2471,6 @@
       "offLineMeters": 286.3
     },
     {
-      "id": "wp-osm-accommodation-node4311862392",
-      "kind": "bed",
-      "name": "Pension Cantábrico",
-      "at": {
-        "lat": 43.539527,
-        "lon": -6.723412
-      },
-      "frac": 0.6661085429210097,
-      "offLineMeters": 36.6
-    },
-    {
       "id": "wp-osm-food-node5558684246",
       "kind": "food",
       "name": "La Bolera",
@@ -1838,17 +2548,6 @@
       "offLineMeters": 238.2
     },
     {
-      "id": "wp-osm-medical-node3021382682",
-      "kind": "medical",
-      "name": "Consultorio Médico de Cuaña",
-      "at": {
-        "lat": 43.54214,
-        "lon": -6.726847
-      },
-      "frac": 0.6818082397830251,
-      "offLineMeters": 11.9
-    },
-    {
       "id": "wp-osm-food-node4918256674",
       "kind": "food",
       "name": "Las Camelias",
@@ -1869,6 +2568,17 @@
       },
       "frac": 0.7816700967627196,
       "offLineMeters": 4
+    },
+    {
+      "id": "wp-osm-supply-node13893730120",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 43.539942,
+        "lon": -6.773556
+      },
+      "frac": 0.8205763836486297,
+      "offLineMeters": 4.2
     },
     {
       "id": "wp-osm-accommodation-node4918245596",

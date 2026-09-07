@@ -168,7 +168,21 @@ test("the POI query asks for the places a walk is remembered by", () => {
   assert.match(q, /amenity"="place_of_worship/);
   assert.match(q, /historic"="monastery/);
   assert.match(q, /tourism"="viewpoint/);
-  assert.match(q, /place"~"city\|town\|village/);
+  assert.match(q, /place"~"\^\(city\|town\|village\|hamlet\)\$/);
+});
+
+test("the place regex is anchored, so it cannot match a value that merely contains one", () => {
+  const q = buildPoiQuery([-2, 43, -1, 44]);
+  const pattern = q.match(/node\["place"~"([^"]+)"\]/)?.[1];
+  assert.ok(pattern, "the query must still ask for place nodes");
+  const places = new RegExp(pattern);
+  // #then the four settlement sizes still match
+  for (const value of ["city", "town", "village", "hamlet"]) assert.match(value, places);
+  // #and a value that merely contains one does not — `city_block` is a real
+  // OSM place value, and unanchored it would have come back as a settlement
+  for (const value of ["city_block", "township"]) {
+    assert.doesNotMatch(value, places);
+  }
 });
 
 test("a church classifies as a sacred site, not as nothing", () => {

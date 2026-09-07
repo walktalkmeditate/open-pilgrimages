@@ -744,7 +744,7 @@
   "theirActiveSeconds": 21600,
   "moments": [
     {
-      "id": "stage-start",
+      "id": "wp-osm-town-node36303485",
       "frac": 0,
       "kind": "waypoint",
       "label": "Colombres",
@@ -754,8 +754,221 @@
         "lon": -4.541031
       },
       "pin": {
-        "lat": 43.375,
-        "lon": -4.541
+        "lat": 43.3749259,
+        "lon": -4.5409351
+      }
+    },
+    {
+      "id": "wp-osm-sacred_site-node558553089",
+      "frac": 0.057173423965622486,
+      "kind": "waypoint",
+      "label": "Ermita del Santo Cristo",
+      "icon": "building.columns",
+      "at": {
+        "lat": 43.37997,
+        "lon": -4.553977
+      },
+      "pin": {
+        "lat": 43.380363,
+        "lon": -4.5561786
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-town-node60277100",
+      "frac": 0.05726538423258063,
+      "kind": "waypoint",
+      "label": "El Peral",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.37997229655679,
+        "lon": -4.5539527009475815
+      },
+      "pin": {
+        "lat": 43.3804703,
+        "lon": -4.5540418
+      }
+    },
+    {
+      "id": "wp-osm-town-node544132358",
+      "frac": 0.1479649434752282,
+      "kind": "waypoint",
+      "label": "La Franca",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.38586498332542,
+        "lon": -4.573249501012505
+      },
+      "pin": {
+        "lat": 43.3859425,
+        "lon": -4.5732097
+      }
+    },
+    {
+      "id": "wp-osm-sacred_site-node12408092374",
+      "frac": 0.2716267735492279,
+      "kind": "waypoint",
+      "label": "Humilladero de Santiuste",
+      "icon": "building.columns",
+      "at": {
+        "lat": 43.39409574881408,
+        "lon": -4.5967111905483975
+      },
+      "pin": {
+        "lat": 43.3939262,
+        "lon": -4.5966303
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-town-node535117040",
+      "frac": 0.3405188528347173,
+      "kind": "waypoint",
+      "label": "Buelna",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.39213046084943,
+        "lon": -4.6147468517689125
+      },
+      "pin": {
+        "lat": 43.3928475,
+        "lon": -4.6146643
+      }
+    },
+    {
+      "id": "wp-osm-town-node55703144",
+      "frac": 0.43204905665565,
+      "kind": "waypoint",
+      "label": "Pendueles",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.39666048444528,
+        "lon": -4.63650222957047
+      },
+      "pin": {
+        "lat": 43.3963356,
+        "lon": -4.6366767
+      }
+    },
+    {
+      "id": "wp-osm-town-node3925428731",
+      "frac": 0.5505443920506832,
+      "kind": "waypoint",
+      "label": "Vidiago",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.395760642496995,
+        "lon": -4.665569006410154
+      },
+      "pin": {
+        "lat": 43.3961459,
+        "lon": -4.6653459
+      }
+    },
+    {
+      "id": "wp-osm-sacred_site-node5753847835",
+      "frac": 0.55430358989529,
+      "kind": "waypoint",
+      "label": "Santa María de la Paz",
+      "icon": "building.columns",
+      "at": {
+        "lat": 43.396043012750255,
+        "lon": -4.666492509122289
+      },
+      "pin": {
+        "lat": 43.3967277,
+        "lon": -4.666096
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-town-node919330832",
+      "frac": 0.5820572283176967,
+      "kind": "waypoint",
+      "label": "Riegu",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.396251279961035,
+        "lon": -4.673784893536377
+      },
+      "pin": {
+        "lat": 43.3962024,
+        "lon": -4.6737933
+      },
+      "names": {
+        "ast": "Riegu",
+        "es": "Riego"
+      }
+    },
+    {
+      "id": "wp-osm-town-node55688557",
+      "frac": 0.6297297245465985,
+      "kind": "waypoint",
+      "label": "Puertas de Vidiago",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.39728602668026,
+        "lon": -4.686342223317296
+      },
+      "pin": {
+        "lat": 43.3981275,
+        "lon": -4.6863254
+      }
+    },
+    {
+      "id": "wp-osm-town-node418841653",
+      "frac": 0.8056205520767163,
+      "kind": "waypoint",
+      "label": "San Roque l'Acebal",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.39641109411632,
+        "lon": -4.730820320162279
+      },
+      "pin": {
+        "lat": 43.3964165,
+        "lon": -4.7308142
+      },
+      "names": {
+        "ast": "San Roque l'Acebal"
+      }
+    },
+    {
+      "id": "wp-osm-town-node418831981",
+      "frac": 0.9444765986595604,
+      "kind": "waypoint",
+      "label": "La Portiella",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.411246951809765,
+        "lon": -4.7519912551070895
+      },
+      "pin": {
+        "lat": 43.4108243,
+        "lon": -4.7556565
+      },
+      "names": {
+        "ast": "La Portiella",
+        "es": "La Portilla"
+      }
+    },
+    {
+      "id": "wp-osm-town-node30157832",
+      "frac": 0.9968317875159463,
+      "kind": "waypoint",
+      "label": "Llanes",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.42080424971153,
+        "lon": -4.7551002653070364
+      },
+      "pin": {
+        "lat": 43.4211205,
+        "lon": -4.7530835
+      },
+      "names": {
+        "la": "Libunca",
+        "uk": "Льянес"
       }
     },
     {
@@ -919,17 +1132,6 @@
       "offLineMeters": 11.1
     },
     {
-      "id": "wp-osm-water_source-node6491287119",
-      "kind": "water",
-      "name": "Unnamed",
-      "at": {
-        "lat": 43.392777,
-        "lon": -4.614567
-      },
-      "frac": 0.34012596917274107,
-      "offLineMeters": 72.8
-    },
-    {
       "id": "wp-osm-food-node6157844625",
       "kind": "food",
       "name": "Meson el Paso",
@@ -983,6 +1185,17 @@
       },
       "frac": 0.43663240136486786,
       "offLineMeters": 9.5
+    },
+    {
+      "id": "wp-osm-supply-node14114761792",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 43.398712,
+        "lon": -4.65096
+      },
+      "frac": 0.49875259404962025,
+      "offLineMeters": 282.6
     },
     {
       "id": "wp-osm-food-node1931199838",
@@ -1280,17 +1493,6 @@
       },
       "frac": 0.995139173097302,
       "offLineMeters": 112.5
-    },
-    {
-      "id": "wp-osm-water_source-node11142934517",
-      "kind": "water",
-      "name": "Unnamed",
-      "at": {
-        "lat": 43.421219,
-        "lon": -4.75251
-      },
-      "frac": 0.9968727022601995,
-      "offLineMeters": 214.2
     },
     {
       "id": "wp-osm-food-node1799748258",

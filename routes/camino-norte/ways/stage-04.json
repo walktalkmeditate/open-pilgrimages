@@ -1544,6 +1544,106 @@
       }
     },
     {
+      "id": "wp-osm-town-node292768894",
+      "frac": 0.012707185148515786,
+      "kind": "waypoint",
+      "label": "Markina-Xemein",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.26749418738037,
+        "lon": -2.498707363688117
+      },
+      "pin": {
+        "lat": 43.2671892,
+        "lon": -2.4982177
+      },
+      "names": {
+        "ar": "ماركاينا-كزيماين",
+        "es": "Marquina-Jeméin",
+        "eu": "Markina-Xemein",
+        "fr": "Markina-Xemein",
+        "la": "Marquina-Jeméin",
+        "pt": "Markina-Xemein",
+        "ru": "Маркина-Хемейн",
+        "uk": "Маркіна-Шемейн",
+        "uz": "Markina-Xemein",
+        "zh": "马尔基纳-克塞门"
+      }
+    },
+    {
+      "id": "wp-osm-town-node332517966",
+      "frac": 0.2519101073982295,
+      "kind": "waypoint",
+      "label": "Ziortza-Bolibar",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.25001573513059,
+        "lon": -2.5478336193126547
+      },
+      "pin": {
+        "lat": 43.2506116,
+        "lon": -2.5478839
+      },
+      "names": {
+        "es": "Cenarruza-Bolívar",
+        "eu": "Ziortza-Bolibar",
+        "fr": "Ziortza-Bolibar",
+        "ru": "Сенарруса-Боливар",
+        "uk": "Сіорца-Болібар",
+        "zh": "西奥尔特萨-沃利瓦尔"
+      }
+    },
+    {
+      "id": "wp-osm-town-node3459095030",
+      "frac": 0.39363588203439387,
+      "kind": "waypoint",
+      "label": "Uriona",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.25469296830922,
+        "lon": -2.581357195957868
+      },
+      "pin": {
+        "lat": 43.2546368,
+        "lon": -2.5814158
+      },
+      "names": {
+        "eu": "Uriona"
+      }
+    },
+    {
+      "id": "wp-osm-sacred_site-node3774929718",
+      "frac": 0.9759484870364472,
+      "kind": "waypoint",
+      "label": "Crucero de Rentería",
+      "icon": "building.columns",
+      "at": {
+        "lat": 43.31827888343418,
+        "lon": -2.6738517315573365
+      },
+      "pin": {
+        "lat": 43.3182788,
+        "lon": -2.6738518
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-sacred_site-node3774910725",
+      "frac": 0.9778156781435007,
+      "kind": "waypoint",
+      "label": "San Bartolomé",
+      "icon": "building.columns",
+      "at": {
+        "lat": 43.31807824942169,
+        "lon": -2.6743657317948792
+      },
+      "pin": {
+        "lat": 43.3188823,
+        "lon": -2.6749593
+      },
+      "sitMinutes": 5
+    },
+    {
       "id": "stage-end",
       "frac": 1,
       "kind": "waypoint",
@@ -1773,6 +1873,28 @@
       "offLineMeters": 6
     },
     {
+      "id": "wp-osm-transport-node14131486161",
+      "kind": "transport",
+      "name": "Arta",
+      "at": {
+        "lat": 43.249952,
+        "lon": -2.543008
+      },
+      "frac": 0.23521141529917292,
+      "offLineMeters": 4
+    },
+    {
+      "id": "wp-osm-transport-node14131486162",
+      "kind": "transport",
+      "name": "Arta",
+      "at": {
+        "lat": 43.249699,
+        "lon": -2.543532
+      },
+      "frac": 0.23722237787681813,
+      "offLineMeters": 1
+    },
+    {
       "id": "wp-osm-water_source-node6478003885",
       "kind": "water",
       "name": "Unnamed",
@@ -1848,6 +1970,28 @@
       },
       "frac": 0.3066913005437203,
       "offLineMeters": 12.2
+    },
+    {
+      "id": "wp-osm-transport-node14131486156",
+      "kind": "transport",
+      "name": "Gerrika",
+      "at": {
+        "lat": 43.252173,
+        "lon": -2.57199
+      },
+      "frac": 0.36134186623656017,
+      "offLineMeters": 30.2
+    },
+    {
+      "id": "wp-osm-transport-node14131486155",
+      "kind": "transport",
+      "name": "Gerrika",
+      "at": {
+        "lat": 43.252706,
+        "lon": -2.572426
+      },
+      "frac": 0.3626947497116138,
+      "offLineMeters": 47.4
     },
     {
       "id": "wp-osm-water_source-node12285030201",
@@ -1971,6 +2115,28 @@
       "offLineMeters": 55.3
     },
     {
+      "id": "wp-osm-transport-node14129903781",
+      "kind": "transport",
+      "name": "Lorategieta",
+      "at": {
+        "lat": 43.319278,
+        "lon": -2.668858
+      },
+      "frac": 0.9596530621181351,
+      "offLineMeters": 256.8
+    },
+    {
+      "id": "wp-osm-transport-node14129903782",
+      "kind": "transport",
+      "name": "Lorategieta",
+      "at": {
+        "lat": 43.31924,
+        "lon": -2.668222
+      },
+      "frac": 0.9596530621181351,
+      "offLineMeters": 263.3
+    },
+    {
       "id": "wp-osm-medical-node12032717483",
       "kind": "medical",
       "name": "Gernikaldea Osasun Zentroa",
@@ -1984,7 +2150,7 @@
     {
       "id": "wp-osm-transport-node3778176108",
       "kind": "transport",
-      "name": "Unnamed",
+      "name": "Errenteria",
       "at": {
         "lat": 43.318811,
         "lon": -2.672204
@@ -1993,20 +2159,9 @@
       "offLineMeters": 119.1
     },
     {
-      "id": "wp-osm-medical-node5393634778",
-      "kind": "medical",
-      "name": "José Ramón Elejaga Larrinaga",
-      "at": {
-        "lat": 43.318457,
-        "lon": -2.673608
-      },
-      "frac": 0.9756791003324932,
-      "offLineMeters": 27.1
-    },
-    {
       "id": "wp-osm-transport-node3778189439",
       "kind": "transport",
-      "name": "Unnamed",
+      "name": "Errenteria",
       "at": {
         "lat": 43.31806,
         "lon": -2.674495
@@ -2061,7 +2216,7 @@
     {
       "id": "wp-osm-transport-node3778184660",
       "kind": "transport",
-      "name": "Unnamed",
+      "name": "Carlos Gangoiti",
       "at": {
         "lat": 43.318464,
         "lon": -2.678888

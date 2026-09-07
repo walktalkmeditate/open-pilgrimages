@@ -1584,19 +1584,744 @@
   "theirActiveSeconds": 37800,
   "moments": [
     {
-      "id": "stage-start",
-      "frac": 0,
+      "id": "wp-osm-town-node476290914",
+      "frac": 0.0025030134080585675,
       "kind": "waypoint",
       "label": "Baamonde",
       "icon": "house.lodge",
       "at": {
-        "lat": 43.175098,
-        "lon": -7.756945
+        "lat": 43.17422583786257,
+        "lon": -7.757266148189518
       },
       "pin": {
-        "lat": 43.175,
-        "lon": -7.756
+        "lat": 43.1741905,
+        "lon": -7.7570857
       }
+    },
+    {
+      "id": "wp-osm-sacred_site-node3188710463",
+      "frac": 0.007803331910914701,
+      "kind": "waypoint",
+      "label": "Calvario do Adro de Santiago de Baamonde",
+      "icon": "building.columns",
+      "at": {
+        "lat": 43.173663201146816,
+        "lon": -7.759641007805142
+      },
+      "pin": {
+        "lat": 43.1739438,
+        "lon": -7.7597287
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-town-node9373212013",
+      "frac": 0.013858084653858713,
+      "kind": "waypoint",
+      "label": "Aldea de Arriba",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.173177767289616,
+        "lon": -7.762561471365262
+      },
+      "pin": {
+        "lat": 43.1742002,
+        "lon": -7.762881
+      }
+    },
+    {
+      "id": "wp-osm-sacred_site-node3584444370",
+      "frac": 0.014871747237622815,
+      "kind": "waypoint",
+      "label": "Unnamed",
+      "icon": "building.columns",
+      "at": {
+        "lat": 43.17309649788708,
+        "lon": -7.763050403740178
+      },
+      "pin": {
+        "lat": 43.1731992,
+        "lon": -7.7630825
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-town-node9373212014",
+      "frac": 0.042332005000086353,
+      "kind": "waypoint",
+      "label": "Riocovo",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.172749527820585,
+        "lon": -7.776089531323603
+      },
+      "pin": {
+        "lat": 43.173296,
+        "lon": -7.7756651
+      }
+    },
+    {
+      "id": "wp-osm-sacred_site-node3273510580",
+      "frac": 0.08318866987180468,
+      "kind": "waypoint",
+      "label": "Cruceiro de San Alberte",
+      "icon": "building.columns",
+      "at": {
+        "lat": 43.17113191840067,
+        "lon": -7.794722935346353
+      },
+      "pin": {
+        "lat": 43.1712046,
+        "lon": -7.7947978
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-town-node1935877211",
+      "frac": 0.12500410032720827,
+      "kind": "waypoint",
+      "label": "As Penas",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.165118622974,
+        "lon": -7.810960698708713
+      },
+      "pin": {
+        "lat": 43.165286,
+        "lon": -7.811309
+      }
+    },
+    {
+      "id": "wp-osm-town-node1935875199",
+      "frac": 0.12800026663333425,
+      "kind": "waypoint",
+      "label": "A Fonte",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.16421594304277,
+        "lon": -7.811776073722797
+      },
+      "pin": {
+        "lat": 43.1644459,
+        "lon": -7.8122546
+      }
+    },
+    {
+      "id": "wp-osm-town-node1935880977",
+      "frac": 0.12858425504196855,
+      "kind": "waypoint",
+      "label": "Toar",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.16404,
+        "lon": -7.811935
+      },
+      "pin": {
+        "lat": 43.1642891,
+        "lon": -7.8143302
+      }
+    },
+    {
+      "id": "wp-osm-town-node1935880924",
+      "frac": 0.1304190923444255,
+      "kind": "waypoint",
+      "label": "Sobreouteiro",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.16344819104908,
+        "lon": -7.811528317215885
+      },
+      "pin": {
+        "lat": 43.1633236,
+        "lon": -7.8118691
+      }
+    },
+    {
+      "id": "wp-osm-town-node1935877290",
+      "frac": 0.13481695307324834,
+      "kind": "waypoint",
+      "label": "Bandoncel",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.16193108944959,
+        "lon": -7.810910651161009
+      },
+      "pin": {
+        "lat": 43.1619299,
+        "lon": -7.8109168
+      }
+    },
+    {
+      "id": "wp-osm-town-node3151820563",
+      "frac": 0.13717527984787195,
+      "kind": "waypoint",
+      "label": "O Carballo",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.16112832701005,
+        "lon": -7.81105991194752
+      },
+      "pin": {
+        "lat": 43.1605306,
+        "lon": -7.8090046
+      }
+    },
+    {
+      "id": "wp-osm-town-node3151820662",
+      "frac": 0.14003214285732465,
+      "kind": "waypoint",
+      "label": "A Eirexe",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.160158746333835,
+        "lon": -7.81138767942466
+      },
+      "pin": {
+        "lat": 43.1595995,
+        "lon": -7.8149935
+      }
+    },
+    {
+      "id": "wp-osm-town-node3151820562",
+      "frac": 0.14765696703275127,
+      "kind": "waypoint",
+      "label": "Cainzos",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.15744383876214,
+        "lon": -7.811333299347551
+      },
+      "pin": {
+        "lat": 43.1575235,
+        "lon": -7.8122464
+      }
+    },
+    {
+      "id": "wp-osm-town-node1935878430",
+      "frac": 0.1908077346454974,
+      "kind": "waypoint",
+      "label": "Digañe",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.145706401235955,
+        "lon": -7.821201653946202
+      },
+      "pin": {
+        "lat": 43.1457259,
+        "lon": -7.8212772
+      }
+    },
+    {
+      "id": "wp-osm-town-node1935876303",
+      "frac": 0.19888144566087582,
+      "kind": "waypoint",
+      "label": "A Raposeira",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.14445985077436,
+        "lon": -7.824247103134694
+      },
+      "pin": {
+        "lat": 43.1444309,
+        "lon": -7.8241896
+      }
+    },
+    {
+      "id": "wp-osm-sacred_site-node7966255465",
+      "frac": 0.20629231852659102,
+      "kind": "waypoint",
+      "label": "Unnamed",
+      "icon": "building.columns",
+      "at": {
+        "lat": 43.14199665206846,
+        "lon": -7.823574317143646
+      },
+      "pin": {
+        "lat": 43.1406387,
+        "lon": -7.8266792
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-town-node11388842811",
+      "frac": 0.21012568003751994,
+      "kind": "waypoint",
+      "label": "A Laxe",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.14071758993447,
+        "lon": -7.822969628623346
+      },
+      "pin": {
+        "lat": 43.1406668,
+        "lon": -7.8235347
+      }
+    },
+    {
+      "id": "wp-osm-town-node765305716",
+      "frac": 0.23131003052836996,
+      "kind": "waypoint",
+      "label": "Leocadia",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.13355108685408,
+        "lon": -7.822925898953073
+      },
+      "pin": {
+        "lat": 43.1327857,
+        "lon": -7.8251217
+      }
+    },
+    {
+      "id": "wp-osm-town-node1935877538",
+      "frac": 0.2335785695441126,
+      "kind": "waypoint",
+      "label": "Carballedo",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.13279118769125,
+        "lon": -7.822534594950563
+      },
+      "pin": {
+        "lat": 43.1325827,
+        "lon": -7.8242006
+      }
+    },
+    {
+      "id": "wp-osm-town-node1935876802",
+      "frac": 0.2438230541636272,
+      "kind": "waypoint",
+      "label": "Aldar",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.132092485942906,
+        "lon": -7.8192637052234515
+      },
+      "pin": {
+        "lat": 43.13202,
+        "lon": -7.8192177
+      }
+    },
+    {
+      "id": "wp-osm-town-node1935875729",
+      "frac": 0.264946210726611,
+      "kind": "waypoint",
+      "label": "A Pedranegra",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.12888919918329,
+        "lon": -7.8129331674823534
+      },
+      "pin": {
+        "lat": 43.128623,
+        "lon": -7.8141
+      }
+    },
+    {
+      "id": "wp-osm-town-node1935880838",
+      "frac": 0.29184906306611047,
+      "kind": "waypoint",
+      "label": "Seixón de Abaixo",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.12033051246484,
+        "lon": -7.815997706533516
+      },
+      "pin": {
+        "lat": 43.1204087,
+        "lon": -7.8163515
+      }
+    },
+    {
+      "id": "wp-osm-town-node1935880851",
+      "frac": 0.3064127805669352,
+      "kind": "waypoint",
+      "label": "Seixón de Arriba",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.115761581568215,
+        "lon": -7.816423106097243
+      },
+      "pin": {
+        "lat": 43.1160922,
+        "lon": -7.8164545
+      }
+    },
+    {
+      "id": "wp-osm-town-node1935880939",
+      "frac": 0.31334200017671066,
+      "kind": "waypoint",
+      "label": "Sucampo",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.11601246685709,
+        "lon": -7.819584535842251
+      },
+      "pin": {
+        "lat": 43.1162502,
+        "lon": -7.8194156
+      }
+    },
+    {
+      "id": "wp-osm-town-node12216281713",
+      "frac": 0.36788955676221335,
+      "kind": "waypoint",
+      "label": "O Curral da Fonte",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.11383873642764,
+        "lon": -7.841023939826398
+      },
+      "pin": {
+        "lat": 43.1140694,
+        "lon": -7.8408536
+      }
+    },
+    {
+      "id": "wp-osm-town-node12216281714",
+      "frac": 0.37444295423191243,
+      "kind": "waypoint",
+      "label": "O Outeiro",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.11340611501294,
+        "lon": -7.843967524977399
+      },
+      "pin": {
+        "lat": 43.1138248,
+        "lon": -7.8441883
+      }
+    },
+    {
+      "id": "wp-osm-town-node12216281715",
+      "frac": 0.3780385310430169,
+      "kind": "waypoint",
+      "label": "O Outeiro Grande",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.11271772182891,
+        "lon": -7.845351173686784
+      },
+      "pin": {
+        "lat": 43.1112704,
+        "lon": -7.8447075
+      }
+    },
+    {
+      "id": "wp-osm-town-node1935877154",
+      "frac": 0.38099749216914053,
+      "kind": "waypoint",
+      "label": "As Laxes",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.112499493201476,
+        "lon": -7.846758675066124
+      },
+      "pin": {
+        "lat": 43.1127076,
+        "lon": -7.8470432
+      }
+    },
+    {
+      "id": "wp-osm-town-node1935874281",
+      "frac": 0.4741435840658664,
+      "kind": "waypoint",
+      "label": "A Braña",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.096645,
+        "lon": -7.88249
+      },
+      "pin": {
+        "lat": 43.0969379,
+        "lon": -7.882583
+      }
+    },
+    {
+      "id": "wp-osm-town-node1935880584",
+      "frac": 0.4838540967374176,
+      "kind": "waypoint",
+      "label": "Portolamas",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.09352221673717,
+        "lon": -7.883535283155093
+      },
+      "pin": {
+        "lat": 43.0937378,
+        "lon": -7.8826864
+      }
+    },
+    {
+      "id": "wp-osm-town-node1935874859",
+      "frac": 0.492704909412669,
+      "kind": "waypoint",
+      "label": "A Devesa",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.09059946978141,
+        "lon": -7.882562507012779
+      },
+      "pin": {
+        "lat": 43.0899457,
+        "lon": -7.8839107
+      }
+    },
+    {
+      "id": "wp-osm-town-node1957382851",
+      "frac": 0.5378625892073701,
+      "kind": "waypoint",
+      "label": "As Fontes",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.07671946017825,
+        "lon": -7.883081680583636
+      },
+      "pin": {
+        "lat": 43.0753854,
+        "lon": -7.8808181
+      }
+    },
+    {
+      "id": "wp-osm-town-node1957383624",
+      "frac": 0.5950363847962601,
+      "kind": "waypoint",
+      "label": "Mantelle",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.066850514952094,
+        "lon": -7.90129417137779
+      },
+      "pin": {
+        "lat": 43.0669683,
+        "lon": -7.8984149
+      }
+    },
+    {
+      "id": "wp-osm-town-node1957382617",
+      "frac": 0.6194124697096126,
+      "kind": "waypoint",
+      "label": "A Roxica",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.066585989698986,
+        "lon": -7.9120709412532335
+      },
+      "pin": {
+        "lat": 43.0663565,
+        "lon": -7.9118293
+      }
+    },
+    {
+      "id": "wp-osm-town-node1957382294",
+      "frac": 0.6352770215720556,
+      "kind": "waypoint",
+      "label": "A Cabana",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.064899141494735,
+        "lon": -7.919178975323795
+      },
+      "pin": {
+        "lat": 43.0654304,
+        "lon": -7.9207468
+      }
+    },
+    {
+      "id": "wp-osm-town-node1957382664",
+      "frac": 0.6665116441384359,
+      "kind": "waypoint",
+      "label": "A Travesa de Ledro",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.05434580402487,
+        "lon": -7.918179590149707
+      },
+      "pin": {
+        "lat": 43.0540919,
+        "lon": -7.9186935
+      }
+    },
+    {
+      "id": "wp-osm-town-node1957382443",
+      "frac": 0.6784908432410187,
+      "kind": "waypoint",
+      "label": "A Marcela",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.05120468737426,
+        "lon": -7.914267769899399
+      },
+      "pin": {
+        "lat": 43.050426,
+        "lon": -7.9164132
+      }
+    },
+    {
+      "id": "wp-osm-town-node1957383261",
+      "frac": 0.7165165771045411,
+      "kind": "waypoint",
+      "label": "Corteporcos",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.03993,
+        "lon": -7.911203
+      },
+      "pin": {
+        "lat": 43.0402321,
+        "lon": -7.9111813
+      }
+    },
+    {
+      "id": "wp-osm-town-node3130362445",
+      "frac": 0.7856076972285183,
+      "kind": "waypoint",
+      "label": "O Marco das Pías",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.03227257940688,
+        "lon": -7.931161796005543
+      },
+      "pin": {
+        "lat": 43.0323632,
+        "lon": -7.9311652
+      }
+    },
+    {
+      "id": "wp-osm-town-node5261733947",
+      "frac": 0.8498039911775868,
+      "kind": "waypoint",
+      "label": "Vilariño",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.037890579601545,
+        "lon": -7.957567701745033
+      },
+      "pin": {
+        "lat": 43.0385151,
+        "lon": -7.9581182
+      }
+    },
+    {
+      "id": "wp-osm-town-node5261733945",
+      "frac": 0.8711285342578371,
+      "kind": "waypoint",
+      "label": "A Esgueva",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.03979768855721,
+        "lon": -7.966473408363304
+      },
+      "pin": {
+        "lat": 43.0398216,
+        "lon": -7.966442
+      }
+    },
+    {
+      "id": "wp-osm-town-node3130362547",
+      "frac": 0.875828193959413,
+      "kind": "waypoint",
+      "label": "Muradelo",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.04082496001567,
+        "lon": -7.968288072482478
+      },
+      "pin": {
+        "lat": 43.0408683,
+        "lon": -7.9682379
+      }
+    },
+    {
+      "id": "wp-osm-town-node3130377229",
+      "frac": 0.8934378343315739,
+      "kind": "waypoint",
+      "label": "A Lagoa",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.04134054879375,
+        "lon": -7.975393706512368
+      },
+      "pin": {
+        "lat": 43.0413533,
+        "lon": -7.9753941
+      }
+    },
+    {
+      "id": "wp-osm-town-node5261733497",
+      "frac": 0.9135617840098981,
+      "kind": "waypoint",
+      "label": "A Anuqueira",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.03771804774371,
+        "lon": -7.982781275104805
+      },
+      "pin": {
+        "lat": 43.0375409,
+        "lon": -7.9827432
+      }
+    },
+    {
+      "id": "wp-osm-town-node3133950344",
+      "frac": 0.9478636275999749,
+      "kind": "waypoint",
+      "label": "Guitizá",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.0369745224114,
+        "lon": -7.999287284645556
+      },
+      "pin": {
+        "lat": 43.0367146,
+        "lon": -7.9992003
+      }
+    },
+    {
+      "id": "wp-osm-town-node5260993125",
+      "frac": 0.9851354647051144,
+      "kind": "waypoint",
+      "label": "A Porcariza",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.038559,
+        "lon": -8.016737
+      },
+      "pin": {
+        "lat": 43.0370371,
+        "lon": -8.0169481
+      }
+    },
+    {
+      "id": "wp-osm-town-node5260993124",
+      "frac": 0.9902308665090258,
+      "kind": "waypoint",
+      "label": "A Carreira",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.03889150324915,
+        "lon": -8.019143290389401
+      },
+      "pin": {
+        "lat": 43.0389827,
+        "lon": -8.019123
+      }
+    },
+    {
+      "id": "wp-osm-sacred_site-node719361931",
+      "frac": 0.998579127131309,
+      "kind": "waypoint",
+      "label": "Cruceiro da Vía Sacra",
+      "icon": "building.columns",
+      "at": {
+        "lat": 43.04022313074214,
+        "lon": -8.022654389160268
+      },
+      "pin": {
+        "lat": 43.0394839,
+        "lon": -8.0229479
+      },
+      "sitMinutes": 5
     },
     {
       "id": "stage-end",
@@ -1625,28 +2350,6 @@
       },
       "frac": 0.0015619509649702353,
       "offLineMeters": 92.2
-    },
-    {
-      "id": "wp-osm-accommodation-node10147245403",
-      "kind": "bed",
-      "name": "A Casiña do Camiño | Baamonde",
-      "at": {
-        "lat": 43.174379,
-        "lon": -7.757383
-      },
-      "frac": 0.0021542226882640117,
-      "offLineMeters": 13.6
-    },
-    {
-      "id": "wp-osm-medical-node1706489272",
-      "kind": "medical",
-      "name": "Farmacia del Camino",
-      "at": {
-        "lat": 43.17405,
-        "lon": -7.756916
-      },
-      "frac": 0.0027897802105752182,
-      "offLineMeters": 32.5
     },
     {
       "id": "wp-osm-food-node1706486485",
@@ -1680,17 +2383,6 @@
       },
       "frac": 0.021388724564123968,
       "offLineMeters": 17.3
-    },
-    {
-      "id": "wp-osm-accommodation-node3814718315",
-      "kind": "bed",
-      "name": "Unnamed",
-      "at": {
-        "lat": 43.132607,
-        "lon": -7.825019
-      },
-      "frac": 0.23184582489372704,
-      "offLineMeters": 198.5
     },
     {
       "id": "wp-osm-water_source-node7534116990",
@@ -1770,17 +2462,6 @@
       "offLineMeters": 0.7
     },
     {
-      "id": "wp-osm-food-node3814718321",
-      "kind": "food",
-      "name": "Casa Roxica",
-      "at": {
-        "lat": 43.06624,
-        "lon": -7.911984
-      },
-      "frac": 0.6198571669810132,
-      "offLineMeters": 34.8
-    },
-    {
       "id": "wp-osm-accommodation-node6201643685",
       "kind": "bed",
       "name": "Albergue",
@@ -1801,17 +2482,6 @@
       },
       "frac": 0.6348873935993687,
       "offLineMeters": 5.5
-    },
-    {
-      "id": "wp-osm-transport-node3816394654",
-      "kind": "transport",
-      "name": "Unnamed",
-      "at": {
-        "lat": 43.054421,
-        "lon": -7.918285
-      },
-      "frac": 0.6662191757959887,
-      "offLineMeters": 2.4
     },
     {
       "id": "wp-osm-food-node4860493423",

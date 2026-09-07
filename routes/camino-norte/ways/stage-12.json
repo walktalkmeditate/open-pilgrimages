@@ -1469,6 +1469,411 @@
       }
     },
     {
+      "id": "wp-osm-sacred_site-node7704619785",
+      "frac": 0.005305608384240836,
+      "kind": "waypoint",
+      "label": "Parroquia del Santísimo Cristo",
+      "icon": "building.columns",
+      "at": {
+        "lat": 43.46156714629902,
+        "lon": -3.8071161295134326
+      },
+      "pin": {
+        "lat": 43.4608059,
+        "lon": -3.8070128
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-sacred_site-node6631732137",
+      "frac": 0.007167066085864422,
+      "kind": "waypoint",
+      "label": "Unnamed",
+      "icon": "building.columns",
+      "at": {
+        "lat": 43.46150615021954,
+        "lon": -3.8079690844299443
+      },
+      "pin": {
+        "lat": 43.4608027,
+        "lon": -3.8078736
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-town-node26562214",
+      "frac": 0.012000207611391416,
+      "kind": "waypoint",
+      "label": "Santander",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.46161526674776,
+        "lon": -3.8101541227756006
+      },
+      "pin": {
+        "lat": 43.4618932,
+        "lon": -3.8100255
+      },
+      "names": {
+        "ar": "سانتاندير",
+        "be": "Сантандэр",
+        "bg": "Сантандер",
+        "br": "Santander",
+        "ca": "Santander",
+        "el": "Σανταντέρ",
+        "eo": "Santandero",
+        "es": "Santander",
+        "fa": "سانتاندر",
+        "fr": "Santander",
+        "he": "סנטנדר",
+        "hu": "Santander",
+        "ja": "サンタンデール",
+        "kn": "ಸಂಟಂಡೆರ್",
+        "lt": "Santanderas",
+        "ml": "സണ്ടണ്ഡെർ",
+        "os": "Сантандер",
+        "ru": "Сантандер",
+        "uk": "Сантандер",
+        "zh": "桑坦德"
+      }
+    },
+    {
+      "id": "wp-osm-cultural_site-node6869207614",
+      "frac": 0.01543310263351344,
+      "kind": "waypoint",
+      "label": "Casa de Recogidas de Santa María Egipciaca",
+      "icon": "book.closed",
+      "at": {
+        "lat": 43.461903671202734,
+        "lon": -3.811665163561006
+      },
+      "pin": {
+        "lat": 43.4610167,
+        "lon": -3.8115599
+      }
+    },
+    {
+      "id": "wp-osm-sacred_site-node7494640298",
+      "frac": 0.01576480421198098,
+      "kind": "waypoint",
+      "label": "Iglesia Evangélica Pentecostal Ministerio Ebenezer",
+      "icon": "building.columns",
+      "at": {
+        "lat": 43.46189415735547,
+        "lon": -3.8118173284872565
+      },
+      "pin": {
+        "lat": 43.4636769,
+        "lon": -3.8120289
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-town-node5316407204",
+      "frac": 0.05080959846146962,
+      "kind": "waypoint",
+      "label": "Cuatro Caminos",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.458545740588505,
+        "lon": -3.826677835560279
+      },
+      "pin": {
+        "lat": 43.4586109,
+        "lon": -3.8267122
+      }
+    },
+    {
+      "id": "wp-osm-town-node3081593391",
+      "frac": 0.07736556840496588,
+      "kind": "waypoint",
+      "label": "Cajo",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.45427467554552,
+        "lon": -3.8363238778119593
+      },
+      "pin": {
+        "lat": 43.4543517,
+        "lon": -3.8363358
+      }
+    },
+    {
+      "id": "wp-osm-town-node6550910707",
+      "frac": 0.10094116191051487,
+      "kind": "waypoint",
+      "label": "Barrio Cañas",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.45377107759411,
+        "lon": -3.846897529514016
+      },
+      "pin": {
+        "lat": 43.454571,
+        "lon": -3.8471739
+      }
+    },
+    {
+      "id": "wp-osm-town-node807820167",
+      "frac": 0.13899382738921814,
+      "kind": "waypoint",
+      "label": "Barrio La Peña",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.449314371383025,
+        "lon": -3.8630161919498724
+      },
+      "pin": {
+        "lat": 43.4486627,
+        "lon": -3.8623341
+      }
+    },
+    {
+      "id": "wp-osm-town-node290143861",
+      "frac": 0.14052386717482687,
+      "kind": "waypoint",
+      "label": "Urbanización Peña Verde",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.449005,
+        "lon": -3.863577
+      },
+      "pin": {
+        "lat": 43.4467525,
+        "lon": -3.8621959
+      }
+    },
+    {
+      "id": "wp-osm-town-node288260868",
+      "frac": 0.24860258086187362,
+      "kind": "waypoint",
+      "label": "Santa Cruz de Bezana",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.44286187174231,
+        "lon": -3.904945566938092
+      },
+      "pin": {
+        "lat": 43.4429407,
+        "lon": -3.9049243
+      }
+    },
+    {
+      "id": "wp-osm-town-node288260869",
+      "frac": 0.28392421046691846,
+      "kind": "waypoint",
+      "label": "Mompía",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.44046781963911,
+        "lon": -3.918803505781348
+      },
+      "pin": {
+        "lat": 43.4405511,
+        "lon": -3.9188524
+      }
+    },
+    {
+      "id": "wp-osm-sacred_site-node2315712890",
+      "frac": 0.3651054862569477,
+      "kind": "waypoint",
+      "label": "Iglesia de San José",
+      "icon": "building.columns",
+      "at": {
+        "lat": 43.426397728033955,
+        "lon": -3.940262495025779
+      },
+      "pin": {
+        "lat": 43.4265077,
+        "lon": -3.9402849
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-town-node2265995581",
+      "frac": 0.4569941419396635,
+      "kind": "waypoint",
+      "label": "Urbanización La Mina",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.414221,
+        "lon": -3.945002
+      },
+      "pin": {
+        "lat": 43.415205,
+        "lon": -3.944229
+      }
+    },
+    {
+      "id": "wp-osm-sacred_site-node2265995580",
+      "frac": 0.4598038735265156,
+      "kind": "waypoint",
+      "label": "Iglesia de Santa María",
+      "icon": "building.columns",
+      "at": {
+        "lat": 43.413368688465496,
+        "lon": -3.9445475660950033
+      },
+      "pin": {
+        "lat": 43.41318,
+        "lon": -3.9447233
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-town-node288260755",
+      "frac": 0.47329251173635134,
+      "kind": "waypoint",
+      "label": "Arce",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.40972956190361,
+        "lon": -3.94273113027831
+      },
+      "pin": {
+        "lat": 43.4098414,
+        "lon": -3.9427107
+      }
+    },
+    {
+      "id": "wp-osm-town-node288260800",
+      "frac": 0.5067545436073267,
+      "kind": "waypoint",
+      "label": "Oruña",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.40252187485048,
+        "lon": -3.949342004947872
+      },
+      "pin": {
+        "lat": 43.4023668,
+        "lon": -3.9493584
+      }
+    },
+    {
+      "id": "wp-osm-sacred_site-node2314255056",
+      "frac": 0.5138166180357295,
+      "kind": "waypoint",
+      "label": "Iglesia de Santa Eulalia",
+      "icon": "building.columns",
+      "at": {
+        "lat": 43.402702632571014,
+        "lon": -3.95258093820466
+      },
+      "pin": {
+        "lat": 43.4034105,
+        "lon": -3.9525061
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-cultural_site-node2942290314",
+      "frac": 0.5764625886905786,
+      "kind": "waypoint",
+      "label": "Torre de Gornazo",
+      "icon": "book.closed",
+      "at": {
+        "lat": 43.40223476362647,
+        "lon": -3.977993570816927
+      },
+      "pin": {
+        "lat": 43.4038471,
+        "lon": -3.9792584
+      }
+    },
+    {
+      "id": "wp-osm-sacred_site-node2308298288",
+      "frac": 0.682938573215553,
+      "kind": "waypoint",
+      "label": "Ermita de San Miguel",
+      "icon": "building.columns",
+      "at": {
+        "lat": 43.400113304473855,
+        "lon": -4.009212685547308
+      },
+      "pin": {
+        "lat": 43.3999614,
+        "lon": -4.0091962
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-town-node288260435",
+      "frac": 0.6832932408932112,
+      "kind": "waypoint",
+      "label": "Mar",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.40010398703288,
+        "lon": -4.009375317244342
+      },
+      "pin": {
+        "lat": 43.4007,
+        "lon": -4.00944
+      }
+    },
+    {
+      "id": "wp-osm-town-node288260447",
+      "frac": 0.7520194734528577,
+      "kind": "waypoint",
+      "label": "Requejada",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.38899730400305,
+        "lon": -4.028382797417795
+      },
+      "pin": {
+        "lat": 43.38889,
+        "lon": -4.02814
+      }
+    },
+    {
+      "id": "wp-osm-town-node288260324",
+      "frac": 0.789934671471265,
+      "kind": "waypoint",
+      "label": "Barrio Obrero",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.37941656360679,
+        "lon": -4.038386680773748
+      },
+      "pin": {
+        "lat": 43.3792311,
+        "lon": -4.0376524
+      }
+    },
+    {
+      "id": "wp-osm-sacred_site-node2308400534",
+      "frac": 0.8785087943564109,
+      "kind": "waypoint",
+      "label": "Ermita",
+      "icon": "building.columns",
+      "at": {
+        "lat": 43.38752250998985,
+        "lon": -4.060163517732889
+      },
+      "pin": {
+        "lat": 43.3878002,
+        "lon": -4.0598956
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-town-node288260450",
+      "frac": 0.9639125330196398,
+      "kind": "waypoint",
+      "label": "Camplengo",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.393928849306235,
+        "lon": -4.091693582881799
+      },
+      "pin": {
+        "lat": 43.39444,
+        "lon": -4.09272
+      }
+    },
+    {
       "id": "stage-end",
       "frac": 0.9996939255408975,
       "kind": "waypoint",
@@ -1598,7 +2003,7 @@
     {
       "id": "wp-osm-food-node10984462629",
       "kind": "food",
-      "name": "Costa Norte",
+      "name": "Costa",
       "at": {
         "lat": 43.460239,
         "lon": -3.806887
@@ -1682,17 +2087,6 @@
       },
       "frac": 0.007740412963365043,
       "offLineMeters": 104.4
-    },
-    {
-      "id": "wp-osm-food-node11492584599",
-      "kind": "food",
-      "name": "La Jaula",
-      "at": {
-        "lat": 43.46103,
-        "lon": -3.808339
-      },
-      "frac": 0.008105552167849951,
-      "offLineMeters": 49.7
     },
     {
       "id": "wp-osm-food-node4124214087",
@@ -1805,6 +2199,17 @@
       "offLineMeters": 250.4
     },
     {
+      "id": "wp-osm-transport-node2545628299",
+      "kind": "transport",
+      "name": "Las Estaciones",
+      "at": {
+        "lat": 43.459134,
+        "lon": -3.810786
+      },
+      "frac": 0.010938050876872153,
+      "offLineMeters": 277.8
+    },
+    {
       "id": "wp-osm-accommodation-node1438188790",
       "kind": "bed",
       "name": "Hostal Cabo Mayor",
@@ -1838,15 +2243,15 @@
       "offLineMeters": 240.9
     },
     {
-      "id": "wp-osm-transport-node2545629263",
-      "kind": "transport",
-      "name": "Plaza Ayuntamiento",
+      "id": "wp-osm-accommodation-node13949057901",
+      "kind": "bed",
+      "name": "Isabel Rooms",
       "at": {
-        "lat": 43.461693,
-        "lon": -3.81013
+        "lat": 43.461274,
+        "lon": -3.8104
       },
-      "frac": 0.012024430901544099,
-      "offLineMeters": 8.8
+      "frac": 0.012180791887294371,
+      "offLineMeters": 42.3
     },
     {
       "id": "wp-osm-food-node1782630723",
@@ -1919,11 +2324,11 @@
       "kind": "food",
       "name": "Restaurante Bodega El Figón",
       "at": {
-        "lat": 43.463134,
-        "lon": -3.811619
+        "lat": 43.463139,
+        "lon": -3.81165
       },
-      "frac": 0.01501664380557538,
-      "offLineMeters": 136
+      "frac": 0.015082757529861093,
+      "offLineMeters": 136.7
     },
     {
       "id": "wp-osm-supply-node2592652518",
@@ -2124,6 +2529,28 @@
       "offLineMeters": 195.9
     },
     {
+      "id": "wp-osm-food-node13818667677",
+      "kind": "food",
+      "name": "Frida Street Food",
+      "at": {
+        "lat": 43.462108,
+        "lon": -3.816691
+      },
+      "frac": 0.02640084819234821,
+      "offLineMeters": 101.7
+    },
+    {
+      "id": "wp-osm-food-node4124214424",
+      "kind": "food",
+      "name": "Mesón El Castellano",
+      "at": {
+        "lat": 43.461226,
+        "lon": -3.81673
+      },
+      "frac": 0.027392027493821677,
+      "offLineMeters": 10.7
+    },
+    {
       "id": "wp-osm-food-node2719802305",
       "kind": "food",
       "name": "Subtil",
@@ -2133,17 +2560,6 @@
       },
       "frac": 0.027691193904921856,
       "offLineMeters": 181.6
-    },
-    {
-      "id": "wp-osm-food-node2592653120",
-      "kind": "food",
-      "name": "Regma",
-      "at": {
-        "lat": 43.461175,
-        "lon": -3.816927
-      },
-      "frac": 0.027844322797663575,
-      "offLineMeters": 10.9
     },
     {
       "id": "wp-osm-food-node4124214407",
@@ -2755,11 +3171,11 @@
       "kind": "transport",
       "name": "Cazoña",
       "at": {
-        "lat": 43.454247,
-        "lon": -3.840396
+        "lat": 43.454115,
+        "lon": -3.840424
       },
-      "frac": 0.08609725617600064,
-      "offLineMeters": 35.7
+      "frac": 0.08604835365756082,
+      "offLineMeters": 50.5
     },
     {
       "id": "wp-osm-transport-node2545628024",
@@ -3114,6 +3530,17 @@
       "offLineMeters": 12.9
     },
     {
+      "id": "wp-osm-transport-node5531581719",
+      "kind": "transport",
+      "name": "Unnamed",
+      "at": {
+        "lat": 43.444652,
+        "lon": -3.902699
+      },
+      "frac": 0.2409516278272201,
+      "offLineMeters": 201.1
+    },
+    {
       "id": "wp-osm-water_source-node3032576330",
       "kind": "water",
       "name": "Unnamed",
@@ -3158,17 +3585,6 @@
       "offLineMeters": 282.3
     },
     {
-      "id": "wp-osm-transport-node12578813104",
-      "kind": "transport",
-      "name": "Iglesia de Bezana",
-      "at": {
-        "lat": 43.442863,
-        "lon": -3.904614
-      },
-      "frac": 0.24789574686606575,
-      "offLineMeters": 5.3
-    },
-    {
       "id": "wp-osm-water_source-node9705832708",
       "kind": "water",
       "name": "Unnamed",
@@ -3178,17 +3594,6 @@
       },
       "frac": 0.2777255686071185,
       "offLineMeters": 7.4
-    },
-    {
-      "id": "wp-osm-transport-node4970388371",
-      "kind": "transport",
-      "name": "Iglesia de Mompía",
-      "at": {
-        "lat": 43.440574,
-        "lon": -3.91869
-      },
-      "frac": 0.28357353429799426,
-      "offLineMeters": 7.3
     },
     {
       "id": "wp-osm-transport-node3073688485",
@@ -3312,6 +3717,17 @@
       "offLineMeters": 10.7
     },
     {
+      "id": "wp-osm-supply-node14018048700",
+      "kind": "supply",
+      "name": "Boo Market",
+      "at": {
+        "lat": 43.424441,
+        "lon": -3.94973
+      },
+      "frac": 0.3854388698010505,
+      "offLineMeters": 206.9
+    },
+    {
       "id": "wp-osm-water_source-node3649650073",
       "kind": "water",
       "name": "Unnamed",
@@ -3356,17 +3772,6 @@
       "offLineMeters": 152.8
     },
     {
-      "id": "wp-osm-food-node12647533507",
-      "kind": "food",
-      "name": "Unnamed",
-      "at": {
-        "lat": 43.40975,
-        "lon": -3.942271
-      },
-      "frac": 0.4723601945582027,
-      "offLineMeters": 8.8
-    },
-    {
       "id": "wp-osm-food-node3040203183",
       "kind": "food",
       "name": "El Nuevo Molino",
@@ -3409,28 +3814,6 @@
       },
       "frac": 0.5035166826707237,
       "offLineMeters": 11.5
-    },
-    {
-      "id": "wp-osm-water_source-node3679234243",
-      "kind": "water",
-      "name": "Unnamed",
-      "at": {
-        "lat": 43.402719,
-        "lon": -3.949146
-      },
-      "frac": 0.5063752944930766,
-      "offLineMeters": 23.1
-    },
-    {
-      "id": "wp-osm-food-node9921908136",
-      "kind": "food",
-      "name": "El Hostal del Pericote",
-      "at": {
-        "lat": 43.402655,
-        "lon": -3.949795
-      },
-      "frac": 0.5077666921518592,
-      "offLineMeters": 11.9
     },
     {
       "id": "wp-osm-food-node1621507609",
@@ -3479,7 +3862,7 @@
     {
       "id": "wp-osm-water_source-node6648091004",
       "kind": "water",
-      "name": "Drinking water",
+      "name": "Unnamed",
       "at": {
         "lat": 43.400147,
         "lon": -3.99382
@@ -3578,7 +3961,7 @@
     {
       "id": "wp-osm-transport-node3672593477",
       "kind": "transport",
-      "name": "Unnamed",
+      "name": "Colegio",
       "at": {
         "lat": 43.387353,
         "lon": -4.030899
@@ -3589,7 +3972,7 @@
     {
       "id": "wp-osm-medical-node3032689424",
       "kind": "medical",
-      "name": "Lda. Begoña Amparan Ruiz",
+      "name": "Licenciada Begoña Amparán Ruiz",
       "at": {
         "lat": 43.380121,
         "lon": -4.037347

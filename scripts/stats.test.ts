@@ -13,7 +13,7 @@ test("totals match the figures published on the site and README", () => {
 
   assert.equal(totals.routes, 7);
   assert.equal(totals.routePoints, 159624);
-  assert.equal(totals.waypoints, 12576);
+  assert.equal(totals.waypoints, 12426);
   assert.equal(totals.stages, 109);
 });
 

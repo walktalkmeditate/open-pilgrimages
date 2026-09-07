@@ -1047,6 +1047,174 @@
       }
     },
     {
+      "id": "wp-osm-viewpoint-node6492868642",
+      "frac": 0.1923348089383322,
+      "kind": "waypoint",
+      "label": "Mirador de Masustegi",
+      "icon": "eye",
+      "at": {
+        "lat": 43.25739202481254,
+        "lon": -2.95723088906053
+      },
+      "pin": {
+        "lat": 43.2564236,
+        "lon": -2.9574346
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-town-node3618314500",
+      "frac": 0.3925490913455974,
+      "kind": "waypoint",
+      "label": "Agate Deuna",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.25753808413893,
+        "lon": -2.9805517376477257
+      },
+      "pin": {
+        "lat": 43.2577053,
+        "lon": -2.9805024
+      },
+      "names": {
+        "es": "Santa Águeda",
+        "eu": "Agate Deuna"
+      }
+    },
+    {
+      "id": "wp-osm-town-node301424404",
+      "frac": 0.6766484892838448,
+      "kind": "waypoint",
+      "label": "Barakaldo",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.293687,
+        "lon": -2.990765
+      },
+      "pin": {
+        "lat": 43.2949177,
+        "lon": -2.9887476
+      },
+      "names": {
+        "es": "Baracaldo",
+        "eu": "Barakaldo",
+        "uk": "Баракальдо"
+      }
+    },
+    {
+      "id": "wp-osm-sacred_site-node4556202791",
+      "frac": 0.7916730825542082,
+      "kind": "waypoint",
+      "label": "Unnamed",
+      "icon": "building.columns",
+      "at": {
+        "lat": 43.30277552160291,
+        "lon": -2.9937643929532536
+      },
+      "pin": {
+        "lat": 43.3019001,
+        "lon": -2.9937741
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-town-node301423963",
+      "frac": 0.9096084792655722,
+      "kind": "waypoint",
+      "label": "Sestao",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.30962257101671,
+        "lon": -3.007308645733611
+      },
+      "pin": {
+        "lat": 43.309341,
+        "lon": -3.0074501
+      },
+      "names": {
+        "eu": "Sestao"
+      }
+    },
+    {
+      "id": "wp-osm-sacred_site-node4402765044",
+      "frac": 0.910039643048507,
+      "kind": "waypoint",
+      "label": "Hornacina de Santa Rosa",
+      "icon": "building.columns",
+      "at": {
+        "lat": 43.309649,
+        "lon": -3.007408
+      },
+      "pin": {
+        "lat": 43.3087818,
+        "lon": -3.0083671
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-sacred_site-node4180814725",
+      "frac": 0.9197776373149543,
+      "kind": "waypoint",
+      "label": "Hornacina de San Miguel",
+      "icon": "building.columns",
+      "at": {
+        "lat": 43.311244,
+        "lon": -3.006743
+      },
+      "pin": {
+        "lat": 43.3120567,
+        "lon": -3.0042334
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-cultural_site-node5806982336",
+      "frac": 0.9520042222970184,
+      "kind": "waypoint",
+      "label": "Estructura antiguo Ferrocarril a Galdames",
+      "icon": "book.closed",
+      "at": {
+        "lat": 43.31510090345838,
+        "lon": -3.012266944607615
+      },
+      "pin": {
+        "lat": 43.3155316,
+        "lon": -3.0108099
+      }
+    },
+    {
+      "id": "wp-osm-viewpoint-node5760408121",
+      "frac": 0.9876546408531743,
+      "kind": "waypoint",
+      "label": "Unnamed",
+      "icon": "eye",
+      "at": {
+        "lat": 43.320038,
+        "lon": -3.016838
+      },
+      "pin": {
+        "lat": 43.3203097,
+        "lon": -3.01679
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-viewpoint-node9804607917",
+      "frac": 0.9876546408531743,
+      "kind": "waypoint",
+      "label": "Unnamed",
+      "icon": "eye",
+      "at": {
+        "lat": 43.320038,
+        "lon": -3.016838
+      },
+      "pin": {
+        "lat": 43.3215626,
+        "lon": -3.0167681
+      },
+      "sitMinutes": 5
+    },
+    {
       "id": "stage-end",
       "frac": 0.9998592860511931,
       "kind": "waypoint",
@@ -1161,6 +1329,17 @@
       },
       "frac": 0.004157296437742824,
       "offLineMeters": 154.2
+    },
+    {
+      "id": "wp-osm-food-node13970178137",
+      "kind": "food",
+      "name": "Sushi Casco",
+      "at": {
+        "lat": 43.255902,
+        "lon": -2.924011
+      },
+      "frac": 0.005307162219511297,
+      "offLineMeters": 4.7
     },
     {
       "id": "wp-osm-food-node4378868271",
@@ -1460,15 +1639,15 @@
       "offLineMeters": 5.7
     },
     {
-      "id": "wp-osm-medical-node3541867456",
-      "kind": "medical",
-      "name": "Mesedeetako Osasun Zentroa",
+      "id": "wp-osm-transport-node4739796158",
+      "kind": "transport",
+      "name": "Muelle de la Merced 3",
       "at": {
-        "lat": 43.257052,
-        "lon": -2.927299
+        "lat": 43.257056,
+        "lon": -2.927173
       },
-      "frac": 0.041531418713953265,
-      "offLineMeters": 157.9
+      "frac": 0.04108377744502779,
+      "offLineMeters": 162.9
     },
     {
       "id": "wp-osm-water_source-node6563363185",
@@ -1680,6 +1859,17 @@
       "offLineMeters": 86.9
     },
     {
+      "id": "wp-osm-transport-node791086802",
+      "kind": "transport",
+      "name": "Juan de Garay 11",
+      "at": {
+        "lat": 43.254931,
+        "lon": -2.933413
+      },
+      "frac": 0.0636228823411479,
+      "offLineMeters": 247
+    },
+    {
       "id": "wp-osm-transport-node3440859464",
       "kind": "transport",
       "name": "Zabalburu (Juan de Garay)",
@@ -1691,26 +1881,26 @@
       "offLineMeters": 50.5
     },
     {
-      "id": "wp-osm-food-node3440859481",
+      "id": "wp-osm-food-node4745228939",
       "kind": "food",
-      "name": "La Tramoya",
+      "name": "Casa Vieja",
       "at": {
-        "lat": 43.259404,
-        "lon": -2.933115
+        "lat": 43.259347,
+        "lon": -2.932741
       },
       "frac": 0.06748575698488117,
-      "offLineMeters": 219
+      "offLineMeters": 222.9
     },
     {
-      "id": "wp-osm-food-node4745248598",
+      "id": "wp-osm-food-node4745248600",
       "kind": "food",
-      "name": "Koala",
+      "name": "Sukalde",
       "at": {
-        "lat": 43.259081,
-        "lon": -2.932559
+        "lat": 43.258904,
+        "lon": -2.932448
       },
       "frac": 0.06748575698488117,
-      "offLineMeters": 202.9
+      "offLineMeters": 191.1
     },
     {
       "id": "wp-osm-food-node4746884022",
@@ -1755,6 +1945,17 @@
       },
       "frac": 0.06882974929985297,
       "offLineMeters": 218.5
+    },
+    {
+      "id": "wp-osm-food-node4723790310",
+      "kind": "food",
+      "name": "Colmado Ibérico",
+      "at": {
+        "lat": 43.259782,
+        "lon": -2.933863
+      },
+      "frac": 0.06882974929985297,
+      "offLineMeters": 248
     },
     {
       "id": "wp-osm-water_source-node3187689615",
@@ -1889,26 +2090,15 @@
       "offLineMeters": 94.9
     },
     {
-      "id": "wp-osm-food-node4748887445",
+      "id": "wp-osm-food-node4748828055",
       "kind": "food",
-      "name": "Bacalao Zuluaga &+",
+      "name": "Rallye",
       "at": {
-        "lat": 43.258442,
-        "lon": -2.936177
+        "lat": 43.258106,
+        "lon": -2.936382
       },
-      "frac": 0.0784361904644859,
-      "offLineMeters": 117.1
-    },
-    {
-      "id": "wp-osm-food-node4747208736",
-      "kind": "food",
-      "name": "Asador Kalamua",
-      "at": {
-        "lat": 43.257882,
-        "lon": -2.936334
-      },
-      "frac": 0.07885196535920673,
-      "offLineMeters": 54.1
+      "frac": 0.07913567828641896,
+      "offLineMeters": 78.6
     },
     {
       "id": "wp-osm-food-node514121698",
@@ -2021,17 +2211,6 @@
       "offLineMeters": 106.4
     },
     {
-      "id": "wp-osm-medical-node10560725811",
-      "kind": "medical",
-      "name": "Clínica Indautxu",
-      "at": {
-        "lat": 43.259222,
-        "lon": -2.939026
-      },
-      "frac": 0.0903362087206558,
-      "offLineMeters": 187.3
-    },
-    {
       "id": "wp-osm-medical-node5393632847",
       "kind": "medical",
       "name": "Ana María del Carre López",
@@ -2047,11 +2226,11 @@
       "kind": "food",
       "name": "Mesón 1800",
       "at": {
-        "lat": 43.257283,
-        "lon": -2.939404
+        "lat": 43.257324,
+        "lon": -2.939342
       },
-      "frac": 0.0911068816980579,
-      "offLineMeters": 29.9
+      "frac": 0.09087078174025957,
+      "offLineMeters": 25
     },
     {
       "id": "wp-osm-accommodation-node514122687",
@@ -2091,11 +2270,11 @@
       "kind": "food",
       "name": "Toca Café Brasil",
       "at": {
-        "lat": 43.256762,
-        "lon": -2.940405
+        "lat": 43.256783,
+        "lon": -2.940375
       },
-      "frac": 0.09497753729828681,
-      "offLineMeters": 93.4
+      "frac": 0.09486013110941806,
+      "offLineMeters": 90.9
     },
     {
       "id": "wp-osm-food-node2341870419",
@@ -2208,15 +2387,15 @@
       "offLineMeters": 15.6
     },
     {
-      "id": "wp-osm-food-node12356258910",
-      "kind": "food",
-      "name": "Aritz",
+      "id": "wp-osm-medical-node12355682214",
+      "kind": "medical",
+      "name": "Aitira",
       "at": {
-        "lat": 43.25699,
-        "lon": -2.942905
+        "lat": 43.257055,
+        "lon": -2.94264
       },
-      "frac": 0.10523774226034269,
-      "offLineMeters": 82.3
+      "frac": 0.10418447819554838,
+      "offLineMeters": 73.7
     },
     {
       "id": "wp-osm-medical-node5393642260",
@@ -2241,6 +2420,17 @@
       "offLineMeters": 173.2
     },
     {
+      "id": "wp-osm-transport-node3784956287",
+      "kind": "transport",
+      "name": "Etxetxua - Autonomia",
+      "at": {
+        "lat": 43.257788,
+        "lon": -2.943256
+      },
+      "frac": 0.10698097594348015,
+      "offLineMeters": 4.1
+    },
+    {
       "id": "wp-osm-water_source-node3187689567",
       "kind": "water",
       "name": "Unnamed",
@@ -2250,17 +2440,6 @@
       },
       "frac": 0.10730182793608012,
       "offLineMeters": 196.2
-    },
-    {
-      "id": "wp-osm-transport-node3784956287",
-      "kind": "transport",
-      "name": "La Casilla - Autonomía",
-      "at": {
-        "lat": 43.257787,
-        "lon": -2.943575
-      },
-      "frac": 0.10828119583231513,
-      "offLineMeters": 2.2
     },
     {
       "id": "wp-osm-water_source-node3700364437",
@@ -2615,6 +2794,17 @@
       "offLineMeters": 77.6
     },
     {
+      "id": "wp-osm-accommodation-node14103291526",
+      "kind": "bed",
+      "name": "Students Residence Micampus San Mames",
+      "at": {
+        "lat": 43.259506,
+        "lon": -2.951276
+      },
+      "frac": 0.14399097777636669,
+      "offLineMeters": 55.2
+    },
+    {
       "id": "wp-osm-water_source-node3666892660",
       "kind": "water",
       "name": "Unnamed",
@@ -2683,7 +2873,7 @@
     {
       "id": "wp-osm-transport-node5301954699",
       "kind": "transport",
-      "name": "Basurto Hospital",
+      "name": "Basurto-Ospitalea/Hospital",
       "at": {
         "lat": 43.259648,
         "lon": -2.953223
@@ -2846,17 +3036,6 @@
       "offLineMeters": 241
     },
     {
-      "id": "wp-osm-water_source-node6811545932",
-      "kind": "water",
-      "name": "Unnamed",
-      "at": {
-        "lat": 43.256035,
-        "lon": -2.957237
-      },
-      "frac": 0.19120696021349656,
-      "offLineMeters": 149.3
-    },
-    {
       "id": "wp-osm-water_source-node6811545933",
       "kind": "water",
       "name": "Unnamed",
@@ -2866,17 +3045,6 @@
       },
       "frac": 0.19300888435542332,
       "offLineMeters": 204.5
-    },
-    {
-      "id": "wp-osm-water_source-node6625177681",
-      "kind": "water",
-      "name": "Unnamed",
-      "at": {
-        "lat": 43.256311,
-        "lon": -2.957968
-      },
-      "frac": 0.19399840559729764,
-      "offLineMeters": 128.1
     },
     {
       "id": "wp-osm-transport-node3776885732",
@@ -3110,17 +3278,6 @@
       "offLineMeters": 85.9
     },
     {
-      "id": "wp-osm-water_source-node3665197563",
-      "kind": "water",
-      "name": "Unnamed",
-      "at": {
-        "lat": 43.257664,
-        "lon": -2.980658
-      },
-      "frac": 0.39357146618727723,
-      "offLineMeters": 6.7
-    },
-    {
       "id": "wp-osm-water_source-node3665197594",
       "kind": "water",
       "name": "Unnamed",
@@ -3317,6 +3474,17 @@
       },
       "frac": 0.563561727603915,
       "offLineMeters": 162
+    },
+    {
+      "id": "wp-osm-water_source-node14133669876",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 43.278435,
+        "lon": -2.99254
+      },
+      "frac": 0.575842035958063,
+      "offLineMeters": 130.7
     },
     {
       "id": "wp-osm-water_source-node1652030419",
@@ -3638,6 +3806,17 @@
       "offLineMeters": 97.4
     },
     {
+      "id": "wp-osm-supply-node5357545025",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 43.287856,
+        "lon": -2.996457
+      },
+      "frac": 0.6368705714187075,
+      "offLineMeters": 248.3
+    },
+    {
       "id": "wp-osm-supply-node5357545024",
       "kind": "supply",
       "name": "Unnamed",
@@ -3946,15 +4125,15 @@
       "offLineMeters": 243.5
     },
     {
-      "id": "wp-osm-food-node3797438027",
+      "id": "wp-osm-food-node4126513540",
       "kind": "food",
-      "name": "Tempus Fugit",
+      "name": "Sine Die",
       "at": {
-        "lat": 43.29466,
-        "lon": -2.988773
+        "lat": 43.294364,
+        "lon": -2.989013
       },
       "frac": 0.6766484892838448,
-      "offLineMeters": 194.2
+      "offLineMeters": 160.5
     },
     {
       "id": "wp-osm-food-node6462703891",
@@ -3992,7 +4171,7 @@
     {
       "id": "wp-osm-medical-node4460225736",
       "kind": "medical",
-      "name": "Farmacia Zabala",
+      "name": "Zabala",
       "at": {
         "lat": 43.295734,
         "lon": -2.989641
@@ -4584,6 +4763,17 @@
       "offLineMeters": 5.4
     },
     {
+      "id": "wp-osm-water_source-node4881683155",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 43.300794,
+        "lon": -2.990686
+      },
+      "frac": 0.7993238484504435,
+      "offLineMeters": 248.1
+    },
+    {
       "id": "wp-osm-transport-node4111359137",
       "kind": "transport",
       "name": "Polideportivo Lasesarre kiroldegia",
@@ -5046,17 +5236,6 @@
       "offLineMeters": 198.5
     },
     {
-      "id": "wp-osm-medical-node4482608286",
-      "kind": "medical",
-      "name": "Farmacia Maialen Eguskiza",
-      "at": {
-        "lat": 43.308594,
-        "lon": -3.008134
-      },
-      "frac": 0.910039643048507,
-      "offLineMeters": 131.2
-    },
-    {
       "id": "wp-osm-medical-node4482608287",
       "kind": "medical",
       "name": "Unnamed",
@@ -5066,17 +5245,6 @@
       },
       "frac": 0.910039643048507,
       "offLineMeters": 137.4
-    },
-    {
-      "id": "wp-osm-water_source-node1812891886",
-      "kind": "water",
-      "name": "Unnamed",
-      "at": {
-        "lat": 43.309233,
-        "lon": -3.007708
-      },
-      "frac": 0.910039643048507,
-      "offLineMeters": 52.3
     },
     {
       "id": "wp-osm-transport-node4467957154",

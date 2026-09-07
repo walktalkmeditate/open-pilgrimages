@@ -1219,19 +1219,304 @@
   "theirActiveSeconds": 27000,
   "moments": [
     {
-      "id": "stage-start",
-      "frac": 0.00014002000049834112,
+      "id": "wp-osm-town-node891671759",
+      "frac": 0,
+      "kind": "waypoint",
+      "label": "Barrio de Pescadores",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.411026,
+        "lon": -3.417395
+      },
+      "pin": {
+        "lat": 43.4122211,
+        "lon": -3.4164301
+      }
+    },
+    {
+      "id": "wp-osm-town-node288260761",
+      "frac": 0.00011257371440391026,
       "kind": "waypoint",
       "label": "Laredo",
       "icon": "house.lodge",
       "at": {
-        "lat": 43.411016803983415,
-        "lon": -3.417445067201409
+        "lat": 43.41101860655805,
+        "lon": -3.4174352531839194
       },
       "pin": {
-        "lat": 43.4106,
+        "lat": 43.41063,
         "lon": -3.4173
       }
+    },
+    {
+      "id": "wp-osm-viewpoint-node14051902262",
+      "frac": 0.104510320887501,
+      "kind": "waypoint",
+      "label": "Unnamed",
+      "icon": "eye",
+      "at": {
+        "lat": 43.42471255751236,
+        "lon": -3.445528943770496
+      },
+      "pin": {
+        "lat": 43.4248304,
+        "lon": -3.4450225
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-viewpoint-node1654406651",
+      "frac": 0.16934006079174663,
+      "kind": "waypoint",
+      "label": "Unnamed",
+      "icon": "eye",
+      "at": {
+        "lat": 43.43913942559751,
+        "lon": -3.4549796374027952
+      },
+      "pin": {
+        "lat": 43.4391326,
+        "lon": -3.4550225
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-town-node288260865",
+      "frac": 0.1925454232724344,
+      "kind": "waypoint",
+      "label": "Santoña",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.44493397202772,
+        "lon": -3.45573796468967
+      },
+      "pin": {
+        "lat": 43.4449362,
+        "lon": -3.4553628
+      },
+      "names": {
+        "eu": "Santoña",
+        "ru": "Сантонья"
+      }
+    },
+    {
+      "id": "wp-osm-viewpoint-node9430381426",
+      "frac": 0.22498705656146686,
+      "kind": "waypoint",
+      "label": "Mirador Sorbal",
+      "icon": "eye",
+      "at": {
+        "lat": 43.45293354729057,
+        "lon": -3.457796497124668
+      },
+      "pin": {
+        "lat": 43.4529273,
+        "lon": -3.4578448
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-viewpoint-node9807291417",
+      "frac": 0.3083018250010149,
+      "kind": "waypoint",
+      "label": "Unnamed",
+      "icon": "eye",
+      "at": {
+        "lat": 43.46522497311849,
+        "lon": -3.477687384886357
+      },
+      "pin": {
+        "lat": 43.4652248,
+        "lon": -3.4776869
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-viewpoint-node14131447702",
+      "frac": 0.31387719689643473,
+      "kind": "waypoint",
+      "label": "Unnamed",
+      "icon": "eye",
+      "at": {
+        "lat": 43.46656538758499,
+        "lon": -3.4767788817479506
+      },
+      "pin": {
+        "lat": 43.4665469,
+        "lon": -3.4767271
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-viewpoint-node14131464906",
+      "frac": 0.3190158752233169,
+      "kind": "waypoint",
+      "label": "Unnamed",
+      "icon": "eye",
+      "at": {
+        "lat": 43.46788531211693,
+        "lon": -3.4765571916969042
+      },
+      "pin": {
+        "lat": 43.4679323,
+        "lon": -3.477141
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-viewpoint-node9807291517",
+      "frac": 0.3212732340127507,
+      "kind": "waypoint",
+      "label": "Unnamed",
+      "icon": "eye",
+      "at": {
+        "lat": 43.46838291199501,
+        "lon": -3.476836599553197
+      },
+      "pin": {
+        "lat": 43.4683922,
+        "lon": -3.4768344
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-viewpoint-node13039144562",
+      "frac": 0.42923658752721383,
+      "kind": "waypoint",
+      "label": "Observatorio de aves de la Marisma Victoria",
+      "icon": "eye",
+      "at": {
+        "lat": 43.472892697898324,
+        "lon": -3.513337214336413
+      },
+      "pin": {
+        "lat": 43.4728174,
+        "lon": -3.5135613
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-town-node288260814",
+      "frac": 0.4660431819241231,
+      "kind": "waypoint",
+      "label": "Noja",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.480518,
+        "lon": -3.520334
+      },
+      "pin": {
+        "lat": 43.4813309,
+        "lon": -3.5210066
+      }
+    },
+    {
+      "id": "wp-osm-town-node1260905895",
+      "frac": 0.4784958105457287,
+      "kind": "waypoint",
+      "label": "Barrio Tregandín",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.478743897921156,
+        "lon": -3.5234207604065317
+      },
+      "pin": {
+        "lat": 43.4794719,
+        "lon": -3.5232803
+      }
+    },
+    {
+      "id": "wp-osm-sacred_site-node12790499754",
+      "frac": 0.49594972738740833,
+      "kind": "waypoint",
+      "label": "Capilla",
+      "icon": "building.columns",
+      "at": {
+        "lat": 43.476015732366804,
+        "lon": -3.5281014060680436
+      },
+      "pin": {
+        "lat": 43.4771485,
+        "lon": -3.5305787
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-town-node1260889138",
+      "frac": 0.5038414954707736,
+      "kind": "waypoint",
+      "label": "Barrio Cabanzo",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.47449939251572,
+        "lon": -3.52906644668087
+      },
+      "pin": {
+        "lat": 43.4753539,
+        "lon": -3.5296782
+      }
+    },
+    {
+      "id": "wp-osm-town-node288260845",
+      "frac": 0.5766070892461067,
+      "kind": "waypoint",
+      "label": "Castillo Siete Villas",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.461263,
+        "lon": -3.543752
+      },
+      "pin": {
+        "lat": 43.4605951,
+        "lon": -3.543732
+      }
+    },
+    {
+      "id": "wp-osm-sacred_site-node4352435143",
+      "frac": 0.6952317531771668,
+      "kind": "waypoint",
+      "label": "Unnamed",
+      "icon": "building.columns",
+      "at": {
+        "lat": 43.458548,
+        "lon": -3.581056
+      },
+      "pin": {
+        "lat": 43.4575611,
+        "lon": -3.5795883
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-town-node288260829",
+      "frac": 0.7718505021208731,
+      "kind": "waypoint",
+      "label": "Bareyo",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.46818084636666,
+        "lon": -3.598189088717913
+      },
+      "pin": {
+        "lat": 43.46812,
+        "lon": -3.59844
+      }
+    },
+    {
+      "id": "wp-osm-sacred_site-node7839854585",
+      "frac": 0.9189594836687783,
+      "kind": "waypoint",
+      "label": "Ermita de San Juan",
+      "icon": "building.columns",
+      "at": {
+        "lat": 43.448058543658256,
+        "lon": -3.6294665172749356
+      },
+      "pin": {
+        "lat": 43.4483012,
+        "lon": -3.6294041
+      },
+      "sitMinutes": 5
     },
     {
       "id": "stage-end",
@@ -1255,11 +1540,11 @@
       "kind": "food",
       "name": "Cafetería Salvé",
       "at": {
-        "lat": 43.411124,
-        "lon": -3.417002
+        "lat": 43.411121,
+        "lon": -3.417113
       },
       "frac": 0,
-      "offLineMeters": 33.5
+      "offLineMeters": 25.1
     },
     {
       "id": "wp-osm-supply-node2936692313",
@@ -1277,11 +1562,11 @@
       "kind": "water",
       "name": "Unnamed",
       "at": {
-        "lat": 43.410479,
-        "lon": -3.422728
+        "lat": 43.410481,
+        "lon": -3.422717
       },
-      "frac": 0.015807772715601933,
-      "offLineMeters": 8.8
+      "frac": 0.015777154381387753,
+      "offLineMeters": 9.1
     },
     {
       "id": "wp-osm-transport-node3268882380",
@@ -1343,11 +1628,11 @@
       "kind": "water",
       "name": "Unnamed",
       "at": {
-        "lat": 43.413047,
-        "lon": -3.43344
+        "lat": 43.413029,
+        "lon": -3.433414
       },
-      "frac": 0.049282450649045205,
-      "offLineMeters": 8.9
+      "frac": 0.04918380029171898,
+      "offLineMeters": 9.1
     },
     {
       "id": "wp-osm-food-node3194760163",
@@ -1376,11 +1661,11 @@
       "kind": "water",
       "name": "Unnamed",
       "at": {
-        "lat": 43.414678,
-        "lon": -3.435618
+        "lat": 43.414715,
+        "lon": -3.435518
       },
-      "frac": 0.05776144305634037,
-      "offLineMeters": 5.7
+      "frac": 0.05767484758871745,
+      "offLineMeters": 14.4
     },
     {
       "id": "wp-osm-food-node3005287434",
@@ -1398,11 +1683,11 @@
       "kind": "water",
       "name": "Unnamed",
       "at": {
-        "lat": 43.415333,
-        "lon": -3.436416
+        "lat": 43.415398,
+        "lon": -3.436469
       },
-      "frac": 0.06102296765629277,
-      "offLineMeters": 9
+      "frac": 0.0612974342805922,
+      "offLineMeters": 10.8
     },
     {
       "id": "wp-osm-transport-node9677818090",
@@ -1420,11 +1705,11 @@
       "kind": "water",
       "name": "Unnamed",
       "at": {
-        "lat": 43.415986,
-        "lon": -3.437316
+        "lat": 43.416032,
+        "lon": -3.43732
       },
-      "frac": 0.06446938383727131,
-      "offLineMeters": 6
+      "frac": 0.06460365852509878,
+      "offLineMeters": 9.3
     },
     {
       "id": "wp-osm-water_source-node2936694801",
@@ -1482,26 +1767,15 @@
       "offLineMeters": 107.8
     },
     {
-      "id": "wp-osm-water_source-node2936692317",
+      "id": "wp-osm-water_source-node2936692319",
       "kind": "water",
       "name": "Unnamed",
       "at": {
-        "lat": 43.416048,
-        "lon": -3.441405
+        "lat": 43.416242,
+        "lon": -3.44092
       },
-      "frac": 0.0712466758589294,
-      "offLineMeters": 241.4
-    },
-    {
-      "id": "wp-osm-water_source-node2936692326",
-      "kind": "water",
-      "name": "Unnamed",
-      "at": {
-        "lat": 43.416685,
-        "lon": -3.440558
-      },
-      "frac": 0.07181390539954824,
-      "offLineMeters": 144.5
+      "frac": 0.07105638358472471,
+      "offLineMeters": 197.1
     },
     {
       "id": "wp-osm-water_source-node2936692318",
@@ -1581,15 +1855,15 @@
       "offLineMeters": 251.4
     },
     {
-      "id": "wp-osm-supply-node6155263597",
-      "kind": "supply",
-      "name": "Jamones, quesos y vinos",
+      "id": "wp-osm-food-node13609111110",
+      "kind": "food",
+      "name": "Laguillo",
       "at": {
-        "lat": 43.418948,
-        "lon": -3.444874
+        "lat": 43.418875,
+        "lon": -3.444369
       },
-      "frac": 0.08553005202748584,
-      "offLineMeters": 278
+      "frac": 0.0845048382276008,
+      "offLineMeters": 249.8
     },
     {
       "id": "wp-osm-water_source-node3258063351",
@@ -1618,11 +1892,11 @@
       "kind": "water",
       "name": "Unnamed",
       "at": {
-        "lat": 43.421479,
-        "lon": -3.443019
+        "lat": 43.421474,
+        "lon": -3.442992
       },
-      "frac": 0.0902058965462479,
-      "offLineMeters": 8.9
+      "frac": 0.09014461880611736,
+      "offLineMeters": 10.3
     },
     {
       "id": "wp-osm-water_source-node8692778853",
@@ -1867,26 +2141,15 @@
       "offLineMeters": 162.5
     },
     {
-      "id": "wp-osm-water_source-node6525460252",
-      "kind": "water",
-      "name": "Unnamed",
-      "at": {
-        "lat": 43.442241,
-        "lon": -3.454675
-      },
-      "frac": 0.18247047222432933,
-      "offLineMeters": 83.4
-    },
-    {
       "id": "wp-osm-medical-node10848269069",
       "kind": "medical",
       "name": "Unnamed",
       "at": {
-        "lat": 43.442274,
-        "lon": -3.457091
+        "lat": 43.442302,
+        "lon": -3.457105
       },
-      "frac": 0.18264644256589685,
-      "offLineMeters": 111.7
+      "frac": 0.18275125814856882,
+      "offLineMeters": 112.8
     },
     {
       "id": "wp-osm-water_source-node6525460243",
@@ -1926,11 +2189,11 @@
       "kind": "medical",
       "name": "Farmacia Salvador Alonso CB",
       "at": {
-        "lat": 43.44354,
-        "lon": -3.457038
+        "lat": 43.443554,
+        "lon": -3.457017
       },
-      "frac": 0.1873713145030967,
-      "offLineMeters": 106.2
+      "frac": 0.1874249700033307,
+      "offLineMeters": 104.5
     },
     {
       "id": "wp-osm-water_source-node3711548698",
@@ -1966,17 +2229,6 @@
       "offLineMeters": 66.7
     },
     {
-      "id": "wp-osm-water_source-node2936706401",
-      "kind": "water",
-      "name": "Unnamed",
-      "at": {
-        "lat": 43.445138,
-        "lon": -3.455504
-      },
-      "frac": 0.19330207419897225,
-      "offLineMeters": 19.1
-    },
-    {
       "id": "wp-osm-accommodation-node8849868115",
       "kind": "bed",
       "name": "Hostal El Cantal",
@@ -1986,17 +2238,6 @@
       },
       "frac": 0.19553893092600383,
       "offLineMeters": 122.2
-    },
-    {
-      "id": "wp-osm-water_source-node6525103674",
-      "kind": "water",
-      "name": "Unnamed",
-      "at": {
-        "lat": 43.446295,
-        "lon": -3.458259
-      },
-      "frac": 0.19553893092600383,
-      "offLineMeters": 212.1
     },
     {
       "id": "wp-osm-food-node12408092373",
@@ -2019,6 +2260,17 @@
       },
       "frac": 0.19635619169791746,
       "offLineMeters": 79.3
+    },
+    {
+      "id": "wp-osm-water_source-node6525103674",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 43.446822,
+        "lon": -3.458702
+      },
+      "frac": 0.19720422530662574,
+      "offLineMeters": 264.3
     },
     {
       "id": "wp-osm-accommodation-node9208318634",
@@ -2120,6 +2372,17 @@
       "offLineMeters": 5.2
     },
     {
+      "id": "wp-osm-supply-node14006576701",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 43.463575,
+        "lon": -3.472927
+      },
+      "frac": 0.2892371741523422,
+      "offLineMeters": 28.8
+    },
+    {
       "id": "wp-osm-food-node3034162582",
       "kind": "food",
       "name": "Mijedo",
@@ -2173,6 +2436,17 @@
       },
       "frac": 0.4188600660999682,
       "offLineMeters": 18
+    },
+    {
+      "id": "wp-osm-water_source-node13995001341",
+      "kind": "water",
+      "name": "Drink water",
+      "at": {
+        "lat": 43.474889,
+        "lon": -3.514707
+      },
+      "frac": 0.4375460889884421,
+      "offLineMeters": 9.9
     },
     {
       "id": "wp-osm-water_source-node6222456890",
@@ -2256,11 +2530,11 @@
       "kind": "bed",
       "name": "Pelayo Noja",
       "at": {
-        "lat": 43.48141,
-        "lon": -3.522707
+        "lat": 43.481321,
+        "lon": -3.52236
       },
       "frac": 0.4660431819241231,
-      "offLineMeters": 215.6
+      "offLineMeters": 186.3
     },
     {
       "id": "wp-osm-food-node13084390214",
@@ -2305,17 +2579,6 @@
       },
       "frac": 0.4660431819241231,
       "offLineMeters": 126.2
-    },
-    {
-      "id": "wp-osm-water_source-node11795204669",
-      "kind": "water",
-      "name": "Unnamed",
-      "at": {
-        "lat": 43.48156,
-        "lon": -3.520939
-      },
-      "frac": 0.4660431819241231,
-      "offLineMeters": 125.8
     },
     {
       "id": "wp-osm-water_source-node11816894869",

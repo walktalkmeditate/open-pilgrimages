@@ -1309,6 +1309,117 @@
       }
     },
     {
+      "id": "wp-osm-sacred_site-node3735090630",
+      "frac": 0.1671854712040542,
+      "kind": "waypoint",
+      "label": "Unnamed",
+      "icon": "building.columns",
+      "at": {
+        "lat": 43.29851854618226,
+        "lon": -2.3825978875403817
+      },
+      "pin": {
+        "lat": 43.29852,
+        "lon": -2.382623
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-sacred_site-node3735090487",
+      "frac": 0.17787867817648173,
+      "kind": "waypoint",
+      "label": "Unnamed",
+      "icon": "building.columns",
+      "at": {
+        "lat": 43.29648638627184,
+        "lon": -2.3822973287378124
+      },
+      "pin": {
+        "lat": 43.2964862,
+        "lon": -2.382301
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-sacred_site-node3735090451",
+      "frac": 0.18006836563530912,
+      "kind": "waypoint",
+      "label": "Unnamed",
+      "icon": "building.columns",
+      "at": {
+        "lat": 43.2960308106966,
+        "lon": -2.3822536927644373
+      },
+      "pin": {
+        "lat": 43.2960301,
+        "lon": -2.3822677
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-sacred_site-node3735090436",
+      "frac": 0.1832665733670994,
+      "kind": "waypoint",
+      "label": "Unnamed",
+      "icon": "building.columns",
+      "at": {
+        "lat": 43.295401054220264,
+        "lon": -2.3823363909205915
+      },
+      "pin": {
+        "lat": 43.2953625,
+        "lon": -2.3822754
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-sacred_site-node5173468766",
+      "frac": 0.23580589992257037,
+      "kind": "waypoint",
+      "label": "Apaingo ama",
+      "icon": "building.columns",
+      "at": {
+        "lat": 43.291169,
+        "lon": -2.390426
+      },
+      "pin": {
+        "lat": 43.2911826,
+        "lon": -2.3904316
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-cultural_site-node4073612606",
+      "frac": 0.29257381190686615,
+      "kind": "waypoint",
+      "label": "Arrikrutzeko hilarria",
+      "icon": "book.closed",
+      "at": {
+        "lat": 43.290003152035375,
+        "lon": -2.399315845218893
+      },
+      "pin": {
+        "lat": 43.2900305,
+        "lon": -2.3993107
+      }
+    },
+    {
+      "id": "wp-osm-viewpoint-node12281827701",
+      "frac": 0.813352707743255,
+      "kind": "waypoint",
+      "label": "Unnamed",
+      "icon": "eye",
+      "at": {
+        "lat": 43.268851679599564,
+        "lon": -2.4669690686730736
+      },
+      "pin": {
+        "lat": 43.268612,
+        "lon": -2.466902
+      },
+      "sitMinutes": 5
+    },
+    {
       "id": "stage-end",
       "frac": 1,
       "kind": "waypoint",
@@ -1390,17 +1501,6 @@
       },
       "frac": 0.02459817688446334,
       "offLineMeters": 6
-    },
-    {
-      "id": "wp-osm-water_source-node5173468787",
-      "kind": "water",
-      "name": "Unnamed",
-      "at": {
-        "lat": 43.298399,
-        "lon": -2.382715
-      },
-      "frac": 0.16778733063282444,
-      "offLineMeters": 8.4
     },
     {
       "id": "wp-osm-water_source-node12281357601",

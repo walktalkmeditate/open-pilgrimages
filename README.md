@@ -2,7 +2,7 @@
 
 A canonical, open-source dataset of pilgrimage routes worldwide.
 
-159,624 GPS points. 12,576 waypoints. 109 stages. 7 routes across 3 traditions. All structured as JSON and GeoJSON.
+159,624 GPS points. 12,426 waypoints. 109 stages. 7 routes across 3 traditions. All structured as JSON and GeoJSON.
 
 ## What's In the Box
 

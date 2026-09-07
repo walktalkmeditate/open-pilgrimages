@@ -764,6 +764,583 @@
       }
     },
     {
+      "id": "wp-osm-sacred_site-node11580051232",
+      "frac": 0.011737566819407998,
+      "kind": "waypoint",
+      "label": "Esmoleiro de San Antonio",
+      "icon": "building.columns",
+      "at": {
+        "lat": 43.364076,
+        "lon": -7.478057
+      },
+      "pin": {
+        "lat": 43.3626023,
+        "lon": -7.4784964
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-town-node1835890950",
+      "frac": 0.03538152376596829,
+      "kind": "waypoint",
+      "label": "Fernandaño",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.36364445282834,
+        "lon": -7.483049490646928
+      },
+      "pin": {
+        "lat": 43.3614497,
+        "lon": -7.4829545
+      }
+    },
+    {
+      "id": "wp-osm-town-node1835890645",
+      "frac": 0.06976041469494756,
+      "kind": "waypoint",
+      "label": "A Torre",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.36283795894597,
+        "lon": -7.490500539207572
+      },
+      "pin": {
+        "lat": 43.3626126,
+        "lon": -7.4898882
+      }
+    },
+    {
+      "id": "wp-osm-sacred_site-node12066361103",
+      "frac": 0.07460449308027996,
+      "kind": "waypoint",
+      "label": "Unnamed",
+      "icon": "building.columns",
+      "at": {
+        "lat": 43.362123056265624,
+        "lon": -7.491247863905832
+      },
+      "pin": {
+        "lat": 43.3608379,
+        "lon": -7.4890209
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-town-node11018082882",
+      "frac": 0.11779836312835266,
+      "kind": "waypoint",
+      "label": "Rozavella",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.360002392201295,
+        "lon": -7.500099962817792
+      },
+      "pin": {
+        "lat": 43.3610789,
+        "lon": -7.5033636
+      }
+    },
+    {
+      "id": "wp-osm-town-node1835891105",
+      "frac": 0.12646960410776614,
+      "kind": "waypoint",
+      "label": "Ponterroxal",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.358715,
+        "lon": -7.501366
+      },
+      "pin": {
+        "lat": 43.35857,
+        "lon": -7.5012199
+      }
+    },
+    {
+      "id": "wp-osm-town-node1835891092",
+      "frac": 0.13607708690389178,
+      "kind": "waypoint",
+      "label": "Os Castros",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.357747714467365,
+        "lon": -7.503401509584054
+      },
+      "pin": {
+        "lat": 43.3575097,
+        "lon": -7.5033767
+      }
+    },
+    {
+      "id": "wp-osm-town-node11018082887",
+      "frac": 0.15668379197938878,
+      "kind": "waypoint",
+      "label": "A Galgueira",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.3549662078059,
+        "lon": -7.506002741107504
+      },
+      "pin": {
+        "lat": 43.3544446,
+        "lon": -7.505349
+      }
+    },
+    {
+      "id": "wp-osm-town-node1835890660",
+      "frac": 0.17764681301844487,
+      "kind": "waypoint",
+      "label": "As Prazas",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.3523173365456,
+        "lon": -7.509786630591788
+      },
+      "pin": {
+        "lat": 43.3519241,
+        "lon": -7.5095369
+      }
+    },
+    {
+      "id": "wp-osm-town-node11022657268",
+      "frac": 0.2309371925048552,
+      "kind": "waypoint",
+      "label": "A Canteirada",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.34740619747126,
+        "lon": -7.521275447447349
+      },
+      "pin": {
+        "lat": 43.3471595,
+        "lon": -7.5210219
+      }
+    },
+    {
+      "id": "wp-osm-town-node1835890659",
+      "frac": 0.2777943906262632,
+      "kind": "waypoint",
+      "label": "As Paredes",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.34515093539269,
+        "lon": -7.531495862780762
+      },
+      "pin": {
+        "lat": 43.3442678,
+        "lon": -7.5313788
+      }
+    },
+    {
+      "id": "wp-osm-town-node11022657252",
+      "frac": 0.33216534312805646,
+      "kind": "waypoint",
+      "label": "O Barral",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.34351018010264,
+        "lon": -7.544116934185771
+      },
+      "pin": {
+        "lat": 43.3437449,
+        "lon": -7.5439905
+      }
+    },
+    {
+      "id": "wp-osm-town-node1673703961",
+      "frac": 0.3722242871864953,
+      "kind": "waypoint",
+      "label": "Os Fieitás",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.34098696416946,
+        "lon": -7.553190133818012
+      },
+      "pin": {
+        "lat": 43.3396206,
+        "lon": -7.5506251
+      }
+    },
+    {
+      "id": "wp-osm-town-node10680679600",
+      "frac": 0.41542551223640717,
+      "kind": "waypoint",
+      "label": "Martiñán de Arriba",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.335139758810655,
+        "lon": -7.560066080795062
+      },
+      "pin": {
+        "lat": 43.3345076,
+        "lon": -7.5588378
+      }
+    },
+    {
+      "id": "wp-osm-town-node1686252951",
+      "frac": 0.5148413211202509,
+      "kind": "waypoint",
+      "label": "A Cruz",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.32491522877964,
+        "lon": -7.579452794560486
+      },
+      "pin": {
+        "lat": 43.3232715,
+        "lon": -7.5784535
+      }
+    },
+    {
+      "id": "wp-osm-town-node12384557188",
+      "frac": 0.5914718822594424,
+      "kind": "waypoint",
+      "label": "Os Gardados",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.317135075087705,
+        "lon": -7.595619128508129
+      },
+      "pin": {
+        "lat": 43.3158103,
+        "lon": -7.594396
+      }
+    },
+    {
+      "id": "wp-osm-town-node1675034054",
+      "frac": 0.5964273340031617,
+      "kind": "waypoint",
+      "label": "Aciveiro",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.31664895476367,
+        "lon": -7.59668760576208
+      },
+      "pin": {
+        "lat": 43.3144115,
+        "lon": -7.595641
+      }
+    },
+    {
+      "id": "wp-osm-sacred_site-node12384557186",
+      "frac": 0.6149611251624048,
+      "kind": "waypoint",
+      "label": "O Cristo de Ver",
+      "icon": "building.columns",
+      "at": {
+        "lat": 43.31584930485929,
+        "lon": -7.60128301260514
+      },
+      "pin": {
+        "lat": 43.3157761,
+        "lon": -7.6012618
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-town-node1675034098",
+      "frac": 0.6267368537286552,
+      "kind": "waypoint",
+      "label": "O Fontao",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.316733305100655,
+        "lon": -7.604031276161588
+      },
+      "pin": {
+        "lat": 43.3175522,
+        "lon": -7.6036962
+      }
+    },
+    {
+      "id": "wp-osm-town-node1675034213",
+      "frac": 0.6305852158419402,
+      "kind": "waypoint",
+      "label": "Ver",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.31693723984412,
+        "lon": -7.604972786736823
+      },
+      "pin": {
+        "lat": 43.3143953,
+        "lon": -7.6060129
+      }
+    },
+    {
+      "id": "wp-osm-town-node12384557189",
+      "frac": 0.6646217035975927,
+      "kind": "waypoint",
+      "label": "O Outeiro",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.317934452558276,
+        "lon": -7.612961168784166
+      },
+      "pin": {
+        "lat": 43.3161429,
+        "lon": -7.6132446
+      }
+    },
+    {
+      "id": "wp-osm-town-node1675034197",
+      "frac": 0.6725277747303062,
+      "kind": "waypoint",
+      "label": "O Tronco",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.318293,
+        "lon": -7.614901
+      },
+      "pin": {
+        "lat": 43.3206816,
+        "lon": -7.614086
+      }
+    },
+    {
+      "id": "wp-osm-town-node1675034161",
+      "frac": 0.6959300774920523,
+      "kind": "waypoint",
+      "label": "Pígara",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.31795144180171,
+        "lon": -7.619746054556567
+      },
+      "pin": {
+        "lat": 43.3205722,
+        "lon": -7.6195147
+      }
+    },
+    {
+      "id": "wp-osm-town-node1674006104",
+      "frac": 0.7103290709110572,
+      "kind": "waypoint",
+      "label": "Campo do Cristo",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.316985155148565,
+        "lon": -7.6231575211297455
+      },
+      "pin": {
+        "lat": 43.3177406,
+        "lon": -7.6234557
+      }
+    },
+    {
+      "id": "wp-osm-town-node12384557197",
+      "frac": 0.7128802139753121,
+      "kind": "waypoint",
+      "label": "O Campo do Cristo",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.31680087516043,
+        "lon": -7.623752645068634
+      },
+      "pin": {
+        "lat": 43.3177531,
+        "lon": -7.6244907
+      }
+    },
+    {
+      "id": "wp-osm-sacred_site-node3813134677",
+      "frac": 0.7276663313099768,
+      "kind": "waypoint",
+      "label": "Cruz do Xan Paz",
+      "icon": "building.columns",
+      "at": {
+        "lat": 43.316542,
+        "lon": -7.627002
+      },
+      "pin": {
+        "lat": 43.3165456,
+        "lon": -7.627115
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-sacred_site-node10684384214",
+      "frac": 0.7296701673429187,
+      "kind": "waypoint",
+      "label": "Unnamed",
+      "icon": "building.columns",
+      "at": {
+        "lat": 43.316912,
+        "lon": -7.626947
+      },
+      "pin": {
+        "lat": 43.3179166,
+        "lon": -7.6270607
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-sacred_site-node12633214145",
+      "frac": 0.7296701673429187,
+      "kind": "waypoint",
+      "label": "Unnamed",
+      "icon": "building.columns",
+      "at": {
+        "lat": 43.316912,
+        "lon": -7.626947
+      },
+      "pin": {
+        "lat": 43.3170907,
+        "lon": -7.626518
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-town-node12384566631",
+      "frac": 0.7431997490670175,
+      "kind": "waypoint",
+      "label": "Chozas",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.31647740306008,
+        "lon": -7.630242749111316
+      },
+      "pin": {
+        "lat": 43.3159194,
+        "lon": -7.6302042
+      }
+    },
+    {
+      "id": "wp-osm-town-node1674006126",
+      "frac": 0.7748476864958638,
+      "kind": "waypoint",
+      "label": "Fontoira",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.317555712718125,
+        "lon": -7.6379887559248925
+      },
+      "pin": {
+        "lat": 43.3188337,
+        "lon": -7.6380383
+      }
+    },
+    {
+      "id": "wp-osm-town-node1674006085",
+      "frac": 0.776305737559203,
+      "kind": "waypoint",
+      "label": "A Torre",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.317548077869716,
+        "lon": -7.6383608000243575
+      },
+      "pin": {
+        "lat": 43.3158972,
+        "lon": -7.6382968
+      }
+    },
+    {
+      "id": "wp-osm-town-node12384644866",
+      "frac": 0.7903578628531523,
+      "kind": "waypoint",
+      "label": "O Francés",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.31698625787021,
+        "lon": -7.641837109627055
+      },
+      "pin": {
+        "lat": 43.3176725,
+        "lon": -7.6420323
+      }
+    },
+    {
+      "id": "wp-osm-town-node1674006147",
+      "frac": 0.7917109042124214,
+      "kind": "waypoint",
+      "label": "Liñares",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.31693533356502,
+        "lon": -7.642175326774508
+      },
+      "pin": {
+        "lat": 43.3158109,
+        "lon": -7.6418555
+      }
+    },
+    {
+      "id": "wp-osm-town-node1675165495",
+      "frac": 0.8082602878717483,
+      "kind": "waypoint",
+      "label": "As Casas Novas",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.31703998981629,
+        "lon": -7.646364725202227
+      },
+      "pin": {
+        "lat": 43.3189649,
+        "lon": -7.6459596
+      }
+    },
+    {
+      "id": "wp-osm-town-node1674006094",
+      "frac": 0.8261828877858939,
+      "kind": "waypoint",
+      "label": "Bidueiros",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.314775427708206,
+        "lon": -7.649114325233624
+      },
+      "pin": {
+        "lat": 43.3165559,
+        "lon": -7.6518816
+      }
+    },
+    {
+      "id": "wp-osm-town-node1674006075",
+      "frac": 0.8368940551574823,
+      "kind": "waypoint",
+      "label": "A Casilla",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.313285188209655,
+        "lon": -7.65092542290303
+      },
+      "pin": {
+        "lat": 43.313148,
+        "lon": -7.6507122
+      }
+    },
+    {
+      "id": "wp-osm-town-node12384566616",
+      "frac": 0.8482918799034912,
+      "kind": "waypoint",
+      "label": "Lousada",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.311739431246835,
+        "lon": -7.652907393829213
+      },
+      "pin": {
+        "lat": 43.3101155,
+        "lon": -7.6509492
+      }
+    },
+    {
+      "id": "wp-osm-sacred_site-node10680953355",
+      "frac": 0.9940933802631445,
+      "kind": "waypoint",
+      "label": "Unnamed",
+      "icon": "building.columns",
+      "at": {
+        "lat": 43.299533,
+        "lon": -7.678823
+      },
+      "pin": {
+        "lat": 43.3014797,
+        "lon": -7.6792529
+      },
+      "sitMinutes": 5
+    },
+    {
       "id": "stage-end",
       "frac": 1,
       "kind": "waypoint",
@@ -801,17 +1378,6 @@
       },
       "frac": 0.7188342628748854,
       "offLineMeters": 88.3
-    },
-    {
-      "id": "wp-osm-food-node1092440858",
-      "kind": "food",
-      "name": "Restaurante Montero",
-      "at": {
-        "lat": 43.310973,
-        "lon": -7.648837
-      },
-      "frac": 0.8408020024591963,
-      "offLineMeters": 296.9
     },
     {
       "id": "wp-osm-accommodation-node1414379561",

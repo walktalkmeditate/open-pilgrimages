@@ -121,7 +121,7 @@ export function buildPoiQuery(bbox: [number, number, number, number]): string {
   node["historic"="wayside_shrine"]${bb};
   node["historic"="ruins"]${bb};
   node["tourism"="viewpoint"]${bb};
-  node["place"~"city|town|village|hamlet"]${bb};
+  node["place"~"^(city|town|village|hamlet)$"]${bb};
 );
 out body;`;
 }

@@ -879,18 +879,225 @@
   "theirActiveSeconds": 16200,
   "moments": [
     {
-      "id": "stage-start",
+      "id": "wp-osm-town-node880515019",
       "frac": 0,
       "kind": "waypoint",
-      "label": "Muros de Nalón",
+      "label": "Muros",
       "icon": "house.lodge",
       "at": {
         "lat": 43.542355,
         "lon": -6.105156
       },
       "pin": {
-        "lat": 43.543,
-        "lon": -6.1046
+        "lat": 43.5429839,
+        "lon": -6.1046293
+      }
+    },
+    {
+      "id": "wp-osm-town-node2974400722",
+      "frac": 0.22822882343655515,
+      "kind": "waypoint",
+      "label": "La Vana",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.54665567046243,
+        "lon": -6.133146176033909
+      },
+      "pin": {
+        "lat": 43.5464209,
+        "lon": -6.1335571
+      }
+    },
+    {
+      "id": "wp-osm-town-node880517541",
+      "frac": 0.2438034752937568,
+      "kind": "waypoint",
+      "label": "Arancés",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.54830476260303,
+        "lon": -6.135025903553443
+      },
+      "pin": {
+        "lat": 43.5500373,
+        "lon": -6.1329186
+      }
+    },
+    {
+      "id": "wp-osm-town-node60282906",
+      "frac": 0.254496081786646,
+      "kind": "waypoint",
+      "label": "El Pito",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.54907391371266,
+        "lon": -6.136701927644256
+      },
+      "pin": {
+        "lat": 43.5488962,
+        "lon": -6.1367714
+      }
+    },
+    {
+      "id": "wp-osm-town-node2767582736",
+      "frac": 0.38547432247763586,
+      "kind": "waypoint",
+      "label": "El Penéu",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.550719,
+        "lon": -6.154975
+      },
+      "pin": {
+        "lat": 43.5515171,
+        "lon": -6.1549323
+      },
+      "names": {
+        "ast": "El Penéu",
+        "es": "El Peñedo"
+      }
+    },
+    {
+      "id": "wp-osm-town-node2974400731",
+      "frac": 0.3958559124575249,
+      "kind": "waypoint",
+      "label": "San Xuan",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.550493980385156,
+        "lon": -6.15692130367889
+      },
+      "pin": {
+        "lat": 43.5482813,
+        "lon": -6.1564343
+      },
+      "names": {
+        "ast": "San Xuan",
+        "es": "San Juan"
+      }
+    },
+    {
+      "id": "wp-osm-town-node2974400714",
+      "frac": 0.4102387376951627,
+      "kind": "waypoint",
+      "label": "Belandres",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.55035664038649,
+        "lon": -6.159593022865254
+      },
+      "pin": {
+        "lat": 43.5502001,
+        "lon": -6.1596496
+      }
+    },
+    {
+      "id": "wp-osm-town-node2767582732",
+      "frac": 0.4399495550900389,
+      "kind": "waypoint",
+      "label": "Villazones",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.55276,
+        "lon": -6.163612
+      },
+      "pin": {
+        "lat": 43.554302,
+        "lon": -6.163177
+      }
+    },
+    {
+      "id": "wp-osm-town-node2974400717",
+      "frac": 0.4421829734981201,
+      "kind": "waypoint",
+      "label": "El Mantu",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.55246333098259,
+        "lon": -6.163698309747001
+      },
+      "pin": {
+        "lat": 43.5524289,
+        "lon": -6.1636285
+      }
+    },
+    {
+      "id": "wp-osm-town-node2767582722",
+      "frac": 0.5682383821303868,
+      "kind": "waypoint",
+      "label": "El Rellayo",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.55989146709709,
+        "lon": -6.181093327812193
+      },
+      "pin": {
+        "lat": 43.5605427,
+        "lon": -6.181025
+      },
+      "names": {
+        "ast": "El Rellayu",
+        "es": "El Rellayo"
+      }
+    },
+    {
+      "id": "wp-osm-town-node2767582726",
+      "frac": 0.6494078089628399,
+      "kind": "waypoint",
+      "label": "La Magdalena",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.55913140903207,
+        "lon": -6.186937826380802
+      },
+      "pin": {
+        "lat": 43.5591101,
+        "lon": -6.1869023
+      }
+    },
+    {
+      "id": "wp-osm-town-node2974400732",
+      "frac": 0.8233449853964774,
+      "kind": "waypoint",
+      "label": "Umayor",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.551299337512724,
+        "lon": -6.209367668527639
+      },
+      "pin": {
+        "lat": 43.5514054,
+        "lon": -6.2094314
+      }
+    },
+    {
+      "id": "wp-osm-town-node2974400733",
+      "frac": 0.9186806553173886,
+      "kind": "waypoint",
+      "label": "Veiciella",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.552104,
+        "lon": -6.225368
+      },
+      "pin": {
+        "lat": 43.5504166,
+        "lon": -6.2270882
+      }
+    },
+    {
+      "id": "wp-osm-town-node2974400716",
+      "frac": 0.9702604253928755,
+      "kind": "waypoint",
+      "label": "El Cepéu",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.558007,
+        "lon": -6.228094
+      },
+      "pin": {
+        "lat": 43.5580455,
+        "lon": -6.2281425
       }
     },
     {
@@ -1008,17 +1215,6 @@
       },
       "frac": 0.37320747207290744,
       "offLineMeters": 128.9
-    },
-    {
-      "id": "wp-osm-water_source-node8832854579",
-      "kind": "water",
-      "name": "Unnamed",
-      "at": {
-        "lat": 43.552638,
-        "lon": -6.163672
-      },
-      "frac": 0.44087393517327433,
-      "offLineMeters": 2.9
     },
     {
       "id": "wp-osm-supply-node12639027150",

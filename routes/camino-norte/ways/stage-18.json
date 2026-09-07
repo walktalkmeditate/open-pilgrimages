@@ -839,18 +839,211 @@
   "theirActiveSeconds": 16200,
   "moments": [
     {
-      "id": "stage-start",
-      "frac": 0.0003466859528066151,
+      "id": "wp-osm-town-node29948100",
+      "frac": 0.00019199907328536548,
       "kind": "waypoint",
       "label": "Colunga",
       "icon": "house.lodge",
       "at": {
-        "lat": 43.48501973513219,
-        "lon": -5.2706757098797
+        "lat": 43.485024761373474,
+        "lon": -5.270644160027294
       },
       "pin": {
-        "lat": 43.4851,
-        "lon": -5.2707
+        "lat": 43.4851194,
+        "lon": -5.2706728
+      }
+    },
+    {
+      "id": "wp-osm-town-node1578598639",
+      "frac": 0.22564160015494641,
+      "kind": "waypoint",
+      "label": "El Conyéu",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.47881126553346,
+        "lon": -5.31082627605757
+      },
+      "pin": {
+        "lat": 43.4777998,
+        "lon": -5.3097974
+      },
+      "names": {
+        "ast": "El Conyéu",
+        "es": "Conlledo"
+      }
+    },
+    {
+      "id": "wp-osm-town-node1578583860",
+      "frac": 0.25042126474389115,
+      "kind": "waypoint",
+      "label": "Beldréu",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.478481,
+        "lon": -5.315318
+      },
+      "pin": {
+        "lat": 43.4762226,
+        "lon": -5.3153433
+      },
+      "names": {
+        "ast": "Beldréu",
+        "es": "Beldredo"
+      }
+    },
+    {
+      "id": "wp-osm-sacred_site-node13004585203",
+      "frac": 0.25320214115456235,
+      "kind": "waypoint",
+      "label": "Unnamed",
+      "icon": "building.columns",
+      "at": {
+        "lat": 43.47868419589281,
+        "lon": -5.315826650890025
+      },
+      "pin": {
+        "lat": 43.478776,
+        "lon": -5.315757
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-town-node1581237449",
+      "frac": 0.3001984724139682,
+      "kind": "waypoint",
+      "label": "Pernús",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.478926,
+        "lon": -5.324446
+      },
+      "pin": {
+        "lat": 43.479071,
+        "lon": -5.324433
+      }
+    },
+    {
+      "id": "wp-osm-town-node1895644848",
+      "frac": 0.32867959835658217,
+      "kind": "waypoint",
+      "label": "La Vega",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.47771568230367,
+        "lon": -5.329937501340296
+      },
+      "pin": {
+        "lat": 43.477885,
+        "lon": -5.3299998
+      }
+    },
+    {
+      "id": "wp-osm-town-node1895644843",
+      "frac": 0.40492748874588025,
+      "kind": "waypoint",
+      "label": "La Llera",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.48125426613821,
+        "lon": -5.343924050684157
+      },
+      "pin": {
+        "lat": 43.4813285,
+        "lon": -5.3437251
+      }
+    },
+    {
+      "id": "wp-osm-town-node12892682171",
+      "frac": 0.4194096044975325,
+      "kind": "waypoint",
+      "label": "La Llastra",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.48226914725341,
+        "lon": -5.34600924987311
+      },
+      "pin": {
+        "lat": 43.4814507,
+        "lon": -5.3466156
+      }
+    },
+    {
+      "id": "wp-osm-town-node1733106702",
+      "frac": 0.4852622159522777,
+      "kind": "waypoint",
+      "label": "La Quintana",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.48538609621575,
+        "lon": -5.358349502009064
+      },
+      "pin": {
+        "lat": 43.4849957,
+        "lon": -5.3586382
+      }
+    },
+    {
+      "id": "wp-osm-town-node4075620133",
+      "frac": 0.5416263277877446,
+      "kind": "waypoint",
+      "label": "Fongabin",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.49144770927136,
+        "lon": -5.3630726865496685
+      },
+      "pin": {
+        "lat": 43.4910384,
+        "lon": -5.3641777
+      }
+    },
+    {
+      "id": "wp-osm-town-node12892766785",
+      "frac": 0.5555460218801019,
+      "kind": "waypoint",
+      "label": "La Vega",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.49337213350723,
+        "lon": -5.3636712284545585
+      },
+      "pin": {
+        "lat": 43.4933422,
+        "lon": -5.3635866
+      }
+    },
+    {
+      "id": "wp-osm-town-node12915266809",
+      "frac": 0.5879082691313109,
+      "kind": "waypoint",
+      "label": "Les Tarandielles",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.494307960819214,
+        "lon": -5.369560630618092
+      },
+      "pin": {
+        "lat": 43.4925269,
+        "lon": -5.3694514
+      }
+    },
+    {
+      "id": "wp-osm-town-node1895653266",
+      "frac": 0.655748197735483,
+      "kind": "waypoint",
+      "label": "Sebrayu",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.49973974458246,
+        "lon": -5.379703236574294
+      },
+      "pin": {
+        "lat": 43.4994298,
+        "lon": -5.3799243
+      },
+      "names": {
+        "ast": "Sebrayu",
+        "es": "Sebrayo"
       }
     },
     {
@@ -948,17 +1141,6 @@
       "offLineMeters": 11.4
     },
     {
-      "id": "wp-osm-accommodation-node5310299923",
-      "kind": "bed",
-      "name": "Albergue La Rectoral de Priesca",
-      "at": {
-        "lat": 43.48506,
-        "lon": -5.358328
-      },
-      "frac": 0.4841534832824031,
-      "offLineMeters": 31.2
-    },
-    {
       "id": "wp-osm-water_source-node3677252184",
       "kind": "water",
       "name": "Fuente Santagueda",
@@ -990,6 +1172,17 @@
       },
       "frac": 0.7342154745749203,
       "offLineMeters": 13
+    },
+    {
+      "id": "wp-osm-accommodation-node13819248902",
+      "kind": "bed",
+      "name": "Albergue La Casa de Montse",
+      "at": {
+        "lat": 43.491657,
+        "lon": -5.424047
+      },
+      "frac": 0.9213326203594333,
+      "offLineMeters": 99.5
     }
   ],
   "stage": {

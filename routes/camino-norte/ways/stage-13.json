@@ -1229,6 +1229,442 @@
       }
     },
     {
+      "id": "wp-osm-town-node288260444",
+      "frac": 0.02265190373283815,
+      "kind": "waypoint",
+      "label": "Santillana del Mar",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.390676,
+        "lon": -4.10818
+      },
+      "pin": {
+        "lat": 43.3906511,
+        "lon": -4.108048
+      }
+    },
+    {
+      "id": "wp-osm-sacred_site-node2308417512",
+      "frac": 0.12301579277232814,
+      "kind": "waypoint",
+      "label": "Ermita de Nuestra Señora",
+      "icon": "building.columns",
+      "at": {
+        "lat": 43.40315027751451,
+        "lon": -4.125946192796664
+      },
+      "pin": {
+        "lat": 43.403118,
+        "lon": -4.1260154
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-town-node288260785",
+      "frac": 0.1249167558721352,
+      "kind": "waypoint",
+      "label": "Arroyo",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.40342394387641,
+        "lon": -4.126283373349974
+      },
+      "pin": {
+        "lat": 43.403652,
+        "lon": -4.1261664
+      }
+    },
+    {
+      "id": "wp-osm-sacred_site-node2308417514",
+      "frac": 0.17630657663702268,
+      "kind": "waypoint",
+      "label": "Ermita de San Tito",
+      "icon": "building.columns",
+      "at": {
+        "lat": 43.395867,
+        "lon": -4.134436
+      },
+      "pin": {
+        "lat": 43.3954695,
+        "lon": -4.1334822
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-town-node288260382",
+      "frac": 0.17856274772499642,
+      "kind": "waypoint",
+      "label": "Oreña",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.396040873766324,
+        "lon": -4.135012373038153
+      },
+      "pin": {
+        "lat": 43.3958,
+        "lon": -4.13515
+      }
+    },
+    {
+      "id": "wp-osm-sacred_site-node2308420713",
+      "frac": 0.2742106442223995,
+      "kind": "waypoint",
+      "label": "Ermita de San Bartolomé",
+      "icon": "building.columns",
+      "at": {
+        "lat": 43.39906418938468,
+        "lon": -4.156496022484503
+      },
+      "pin": {
+        "lat": 43.3989781,
+        "lon": -4.1565495
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-town-node10553226191",
+      "frac": 0.275720822359295,
+      "kind": "waypoint",
+      "label": "Caborredondo",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.3991890556103,
+        "lon": -4.15687678365308
+      },
+      "pin": {
+        "lat": 43.3987254,
+        "lon": -4.1571648
+      }
+    },
+    {
+      "id": "wp-osm-town-node288260515",
+      "frac": 0.4102998840614697,
+      "kind": "waypoint",
+      "label": "Cigüenza",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.387865051103795,
+        "lon": -4.181505002373032
+      },
+      "pin": {
+        "lat": 43.38771,
+        "lon": -4.18114
+      }
+    },
+    {
+      "id": "wp-osm-sacred_site-node1323954007",
+      "frac": 0.415137615633396,
+      "kind": "waypoint",
+      "label": "Iglesia de San Martín de Tours",
+      "icon": "building.columns",
+      "at": {
+        "lat": 43.38715574386539,
+        "lon": -4.182394566140095
+      },
+      "pin": {
+        "lat": 43.3873276,
+        "lon": -4.182597
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-sacred_site-node1986587300",
+      "frac": 0.44584687876204027,
+      "kind": "waypoint",
+      "label": "Ermita de San Pantaleón",
+      "icon": "building.columns",
+      "at": {
+        "lat": 43.38342446998115,
+        "lon": -4.188849340090572
+      },
+      "pin": {
+        "lat": 43.383454,
+        "lon": -4.1888754
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-sacred_site-node2308435812",
+      "frac": 0.5343065530426684,
+      "kind": "waypoint",
+      "label": "Iglesia de Santa Ana",
+      "icon": "building.columns",
+      "at": {
+        "lat": 43.382916,
+        "lon": -4.209208
+      },
+      "pin": {
+        "lat": 43.3818785,
+        "lon": -4.2105785
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-town-node288260501",
+      "frac": 0.5487073887318781,
+      "kind": "waypoint",
+      "label": "Cóbreces",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.38515263092835,
+        "lon": -4.21079478648985
+      },
+      "pin": {
+        "lat": 43.3848811,
+        "lon": -4.2111661
+      }
+    },
+    {
+      "id": "wp-osm-sacred_site-node2308435810",
+      "frac": 0.5630970459808678,
+      "kind": "waypoint",
+      "label": "Ermita de San Felices",
+      "icon": "building.columns",
+      "at": {
+        "lat": 43.387462,
+        "lon": -4.212681
+      },
+      "pin": {
+        "lat": 43.38959,
+        "lon": -4.2118047
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-sacred_site-node2308435808",
+      "frac": 0.5695258108607517,
+      "kind": "waypoint",
+      "label": "Unnamed",
+      "icon": "building.columns",
+      "at": {
+        "lat": 43.387623,
+        "lon": -4.21442
+      },
+      "pin": {
+        "lat": 43.38713,
+        "lon": -4.2145189
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-viewpoint-node11020192505",
+      "frac": 0.6127031669063132,
+      "kind": "waypoint",
+      "label": "Mirador de Luaña",
+      "icon": "eye",
+      "at": {
+        "lat": 43.39362061919835,
+        "lon": -4.219599832576982
+      },
+      "pin": {
+        "lat": 43.3945363,
+        "lon": -4.2194009
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-town-node288260461",
+      "frac": 0.682648434118437,
+      "kind": "waypoint",
+      "label": "Trasierra",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.392878808570536,
+        "lon": -4.23077902155855
+      },
+      "pin": {
+        "lat": 43.3924129,
+        "lon": -4.2298958
+      }
+    },
+    {
+      "id": "wp-osm-sacred_site-node2318459780",
+      "frac": 0.6877317939902827,
+      "kind": "waypoint",
+      "label": "Ermita de Santa Eulalia",
+      "icon": "building.columns",
+      "at": {
+        "lat": 43.392052,
+        "lon": -4.231605
+      },
+      "pin": {
+        "lat": 43.3914908,
+        "lon": -4.23057
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-town-node288260511",
+      "frac": 0.7497188595516129,
+      "kind": "waypoint",
+      "label": "Sierra",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.38873512639361,
+        "lon": -4.242980676731236
+      },
+      "pin": {
+        "lat": 43.38848,
+        "lon": -4.24187
+      }
+    },
+    {
+      "id": "wp-osm-sacred_site-node2318399080",
+      "frac": 0.7708279991636166,
+      "kind": "waypoint",
+      "label": "Ermita de San Pantaleón",
+      "icon": "building.columns",
+      "at": {
+        "lat": 43.38561042494426,
+        "lon": -4.244227276339703
+      },
+      "pin": {
+        "lat": 43.3854979,
+        "lon": -4.2441233
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-town-node288260535",
+      "frac": 0.8160984494216402,
+      "kind": "waypoint",
+      "label": "La Iglesia",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.381035,
+        "lon": -4.252024
+      },
+      "pin": {
+        "lat": 43.380764,
+        "lon": -4.2519889
+      }
+    },
+    {
+      "id": "wp-osm-sacred_site-node2316151464",
+      "frac": 0.8568055614735922,
+      "kind": "waypoint",
+      "label": "Ermita de San Roque",
+      "icon": "building.columns",
+      "at": {
+        "lat": 43.37804202140322,
+        "lon": -4.260827372770307
+      },
+      "pin": {
+        "lat": 43.3779394,
+        "lon": -4.2607088
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-town-node288260313",
+      "frac": 0.86166037668873,
+      "kind": "waypoint",
+      "label": "Pando",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.378760935201086,
+        "lon": -4.261367728801437
+      },
+      "pin": {
+        "lat": 43.37875,
+        "lon": -4.26144
+      }
+    },
+    {
+      "id": "wp-osm-town-node288260487",
+      "frac": 0.9061380891594373,
+      "kind": "waypoint",
+      "label": "Concha",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.38566578486057,
+        "lon": -4.266369703851013
+      },
+      "pin": {
+        "lat": 43.38542,
+        "lon": -4.26634
+      }
+    },
+    {
+      "id": "wp-osm-sacred_site-node2318459783",
+      "frac": 0.908587720691148,
+      "kind": "waypoint",
+      "label": "Ermita de la Virgen del Carmen",
+      "icon": "building.columns",
+      "at": {
+        "lat": 43.385998,
+        "lon": -4.26661
+      },
+      "pin": {
+        "lat": 43.3860769,
+        "lon": -4.2662818
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-town-node288260512",
+      "frac": 0.9145828647990819,
+      "kind": "waypoint",
+      "label": "Casasola",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.385992,
+        "lon": -4.268268
+      },
+      "pin": {
+        "lat": 43.38842,
+        "lon": -4.26943
+      }
+    },
+    {
+      "id": "wp-osm-viewpoint-node5846248486",
+      "frac": 0.9640901219436383,
+      "kind": "waypoint",
+      "label": "Unnamed",
+      "icon": "eye",
+      "at": {
+        "lat": 43.387472,
+        "lon": -4.279652
+      },
+      "pin": {
+        "lat": 43.3878073,
+        "lon": -4.2796206
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-viewpoint-node2756042146",
+      "frac": 0.9806435109093268,
+      "kind": "waypoint",
+      "label": "Unnamed",
+      "icon": "eye",
+      "at": {
+        "lat": 43.38715498218412,
+        "lon": -4.283881896654288
+      },
+      "pin": {
+        "lat": 43.3865219,
+        "lon": -4.2838901
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-viewpoint-node2756042273",
+      "frac": 0.9894665237952713,
+      "kind": "waypoint",
+      "label": "Mirador de Santa Lucía",
+      "icon": "eye",
+      "at": {
+        "lat": 43.3870842892723,
+        "lon": -4.286312425175052
+      },
+      "pin": {
+        "lat": 43.3881651,
+        "lon": -4.2865634
+      },
+      "sitMinutes": 5
+    },
+    {
       "id": "stage-end",
       "frac": 0.9991185240668371,
       "kind": "waypoint",
@@ -1290,6 +1726,17 @@
       "offLineMeters": 17.8
     },
     {
+      "id": "wp-osm-accommodation-node864007752",
+      "kind": "bed",
+      "name": "Posada Ansorena",
+      "at": {
+        "lat": 43.390691,
+        "lon": -4.107151
+      },
+      "frac": 0.012478719980680496,
+      "offLineMeters": 4.3
+    },
+    {
       "id": "wp-osm-supply-node471942053",
       "kind": "supply",
       "name": "Cada Dia",
@@ -1301,15 +1748,15 @@
       "offLineMeters": 60.1
     },
     {
-      "id": "wp-osm-food-node864007718",
-      "kind": "food",
-      "name": "Gran Duque",
+      "id": "wp-osm-water_source-node3027114103",
+      "kind": "water",
+      "name": "Unnamed",
       "at": {
-        "lat": 43.390283,
-        "lon": -4.107854
+        "lat": 43.390166,
+        "lon": -4.107702
       },
-      "frac": 0.015713361378218195,
-      "offLineMeters": 9.6
+      "frac": 0.01572059207945969,
+      "offLineMeters": 8.3
     },
     {
       "id": "wp-osm-supply-node12101132358",
@@ -1411,6 +1858,17 @@
       "offLineMeters": 213.5
     },
     {
+      "id": "wp-osm-accommodation-node4358596589",
+      "kind": "bed",
+      "name": "Los Ángeles",
+      "at": {
+        "lat": 43.388622,
+        "lon": -4.111561
+      },
+      "frac": 0.019412367809014258,
+      "offLineMeters": 292.6
+    },
+    {
       "id": "wp-osm-food-node11994211069",
       "kind": "food",
       "name": "Restaurante Plaza Mayor",
@@ -1431,17 +1889,6 @@
       },
       "frac": 0.11779734011732702,
       "offLineMeters": 9.9
-    },
-    {
-      "id": "wp-osm-water_source-node9712418885",
-      "kind": "water",
-      "name": "Unnamed",
-      "at": {
-        "lat": 43.402813,
-        "lon": -4.125585
-      },
-      "frac": 0.12089802114548072,
-      "offLineMeters": 4.2
     },
     {
       "id": "wp-osm-water_source-node6763961290",
@@ -1510,17 +1957,6 @@
       "offLineMeters": 53.2
     },
     {
-      "id": "wp-osm-water_source-node6763961291",
-      "kind": "water",
-      "name": "Unnamed",
-      "at": {
-        "lat": 43.399098,
-        "lon": -4.156921
-      },
-      "frac": 0.27567800537728926,
-      "offLineMeters": 10.7
-    },
-    {
       "id": "wp-osm-water_source-node12168294537",
       "kind": "water",
       "name": "Unnamed",
@@ -1541,17 +1977,6 @@
       },
       "frac": 0.28627655192173057,
       "offLineMeters": 2.9
-    },
-    {
-      "id": "wp-osm-water_source-node6483588498",
-      "kind": "water",
-      "name": "Unnamed",
-      "at": {
-        "lat": 43.387412,
-        "lon": -4.182214
-      },
-      "frac": 0.4138132523410448,
-      "offLineMeters": 12.1
     },
     {
       "id": "wp-osm-accommodation-node3091011610",
@@ -1585,17 +2010,6 @@
       },
       "frac": 0.5398692923696055,
       "offLineMeters": 13.5
-    },
-    {
-      "id": "wp-osm-water_source-node8914585792",
-      "kind": "water",
-      "name": "Unnamed",
-      "at": {
-        "lat": 43.384874,
-        "lon": -4.211576
-      },
-      "frac": 0.5497332546826241,
-      "offLineMeters": 66.5
     },
     {
       "id": "wp-osm-food-node3797438032",
@@ -1686,39 +2100,6 @@
       "offLineMeters": 0.6
     },
     {
-      "id": "wp-osm-transport-node3674106245",
-      "kind": "transport",
-      "name": "Unnamed",
-      "at": {
-        "lat": 43.388485,
-        "lon": -4.242211
-      },
-      "frac": 0.7499386770667706,
-      "offLineMeters": 67.8
-    },
-    {
-      "id": "wp-osm-food-node4359317992",
-      "kind": "food",
-      "name": "La Cigoña",
-      "at": {
-        "lat": 43.380898,
-        "lon": -4.251696
-      },
-      "frac": 0.8160984494216402,
-      "offLineMeters": 30.6
-    },
-    {
-      "id": "wp-osm-water_source-node1878513122",
-      "kind": "water",
-      "name": "Unnamed",
-      "at": {
-        "lat": 43.380474,
-        "lon": -4.252102
-      },
-      "frac": 0.8160984494216402,
-      "offLineMeters": 62.7
-    },
-    {
       "id": "wp-osm-accommodation-node3674103049",
       "kind": "bed",
       "name": "Albergue juvenil Gargantía",
@@ -1739,17 +2120,6 @@
       },
       "frac": 0.8577530358883884,
       "offLineMeters": 37.5
-    },
-    {
-      "id": "wp-osm-water_source-node1878513116",
-      "kind": "water",
-      "name": "Unnamed",
-      "at": {
-        "lat": 43.378731,
-        "lon": -4.261452
-      },
-      "frac": 0.861578059798879,
-      "offLineMeters": 7.3
     },
     {
       "id": "wp-osm-transport-node5653316628",

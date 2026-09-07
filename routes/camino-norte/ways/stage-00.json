@@ -1454,22 +1454,375 @@
   "theirActiveSeconds": 25200,
   "moments": [
     {
-      "id": "stage-start",
+      "id": "wp-osm-sacred_site-node3123776859",
       "frac": 0,
       "kind": "waypoint",
-      "label": "Irún",
+      "label": "Iglesia evangélica",
+      "icon": "building.columns",
+      "at": {
+        "lat": 43.339388,
+        "lon": -1.789358
+      },
+      "pin": {
+        "lat": 43.3410266,
+        "lon": -1.7876768
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-town-node27552575",
+      "frac": 0,
+      "kind": "waypoint",
+      "label": "Irun",
       "icon": "house.lodge",
       "at": {
         "lat": 43.339388,
         "lon": -1.789358
       },
       "pin": {
-        "lat": 43.338,
-        "lon": -1.789
+        "lat": 43.3383176,
+        "lon": -1.7888095
       },
       "names": {
-        "eu": "Irun"
+        "ar": "إرون",
+        "br": "Irun",
+        "de": "Irun",
+        "el": "Ιρούν",
+        "es": "Irún",
+        "eu": "Irun",
+        "fr": "Irun"
       }
+    },
+    {
+      "id": "wp-osm-viewpoint-node7902549024",
+      "frac": 0.07097914201659201,
+      "kind": "waypoint",
+      "label": "Lertxuntxoaren begiratokia",
+      "icon": "eye",
+      "at": {
+        "lat": 43.34944779930788,
+        "lon": -1.7999612319145304
+      },
+      "pin": {
+        "lat": 43.3487083,
+        "lon": -1.7975137
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-viewpoint-node2081426171",
+      "frac": 0.20447810716529594,
+      "kind": "waypoint",
+      "label": "Unnamed",
+      "icon": "eye",
+      "at": {
+        "lat": 43.366668644707765,
+        "lon": -1.8212127917299992
+      },
+      "pin": {
+        "lat": 43.3666778,
+        "lon": -1.8208875
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-viewpoint-node7796889486",
+      "frac": 0.24556754274435744,
+      "kind": "waypoint",
+      "label": "Unnamed",
+      "icon": "eye",
+      "at": {
+        "lat": 43.36055719020271,
+        "lon": -1.8278224614560106
+      },
+      "pin": {
+        "lat": 43.3614363,
+        "lon": -1.8300428
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-viewpoint-node9783410518",
+      "frac": 0.27481686161548946,
+      "kind": "waypoint",
+      "label": "Unnamed",
+      "icon": "eye",
+      "at": {
+        "lat": 43.356313817560604,
+        "lon": -1.834290808105905
+      },
+      "pin": {
+        "lat": 43.3562281,
+        "lon": -1.8342754
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-viewpoint-node9783410519",
+      "frac": 0.2991359832182074,
+      "kind": "waypoint",
+      "label": "Unnamed",
+      "icon": "eye",
+      "at": {
+        "lat": 43.35258603547793,
+        "lon": -1.837516786513749
+      },
+      "pin": {
+        "lat": 43.3525837,
+        "lon": -1.8375037
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-viewpoint-node286620060",
+      "frac": 0.3074893133952509,
+      "kind": "waypoint",
+      "label": "Unnamed",
+      "icon": "eye",
+      "at": {
+        "lat": 43.351572,
+        "lon": -1.839648
+      },
+      "pin": {
+        "lat": 43.3531086,
+        "lon": -1.841577
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-viewpoint-node4333090254",
+      "frac": 0.49713375796380616,
+      "kind": "waypoint",
+      "label": "Torre 2",
+      "icon": "eye",
+      "at": {
+        "lat": 43.333898948028924,
+        "lon": -1.8797718442872897
+      },
+      "pin": {
+        "lat": 43.3351368,
+        "lon": -1.8809574
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-viewpoint-node4333090253",
+      "frac": 0.551859974048827,
+      "kind": "waypoint",
+      "label": "Tower 1",
+      "icon": "eye",
+      "at": {
+        "lat": 43.331240262767736,
+        "lon": -1.8949693291542866
+      },
+      "pin": {
+        "lat": 43.3324522,
+        "lon": -1.8957024
+      },
+      "names": {
+        "es": "Torre 1",
+        "eu": "Dorrea 1",
+        "fr": "Tour 1"
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-viewpoint-node9783568217",
+      "frac": 0.6598553328937329,
+      "kind": "waypoint",
+      "label": "Unnamed",
+      "icon": "eye",
+      "at": {
+        "lat": 43.32825570925021,
+        "lon": -1.9214666453222888
+      },
+      "pin": {
+        "lat": 43.3282344,
+        "lon": -1.9215457
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-town-node27552570",
+      "frac": 0.6723642713925126,
+      "kind": "waypoint",
+      "label": "Pasaia",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.326148,
+        "lon": -1.920003
+      },
+      "pin": {
+        "lat": 43.3239952,
+        "lon": -1.9200587
+      },
+      "names": {
+        "es": "Pasajes",
+        "eu": "Pasaia"
+      }
+    },
+    {
+      "id": "wp-osm-viewpoint-node10197195133",
+      "frac": 0.6881153609610646,
+      "kind": "waypoint",
+      "label": "Unnamed",
+      "icon": "eye",
+      "at": {
+        "lat": 43.32787,
+        "lon": -1.923189
+      },
+      "pin": {
+        "lat": 43.3278064,
+        "lon": -1.9243294
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-cultural_site-node1392871852",
+      "frac": 0.744041422626756,
+      "kind": "waypoint",
+      "label": "Almirantearen Fuerte Zarra",
+      "icon": "book.closed",
+      "at": {
+        "lat": 43.331679302043,
+        "lon": -1.9321741927318679
+      },
+      "pin": {
+        "lat": 43.330355,
+        "lon": -1.9337284
+      }
+    },
+    {
+      "id": "wp-osm-viewpoint-node3971791923",
+      "frac": 0.7542266584154773,
+      "kind": "waypoint",
+      "label": "Unnamed",
+      "icon": "eye",
+      "at": {
+        "lat": 43.333419,
+        "lon": -1.934142
+      },
+      "pin": {
+        "lat": 43.3335662,
+        "lon": -1.9337941
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-sacred_site-node7706564385",
+      "frac": 0.8287660895777431,
+      "kind": "waypoint",
+      "label": "Las Doce Tribus",
+      "icon": "building.columns",
+      "at": {
+        "lat": 43.327806904659205,
+        "lon": -1.9488597762934372
+      },
+      "pin": {
+        "lat": 43.3282445,
+        "lon": -1.9489756
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-viewpoint-node3406103378",
+      "frac": 0.8592650469720549,
+      "kind": "waypoint",
+      "label": "Unnamed",
+      "icon": "eye",
+      "at": {
+        "lat": 43.329111,
+        "lon": -1.957668
+      },
+      "pin": {
+        "lat": 43.330316,
+        "lon": -1.9584203
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-viewpoint-node3406103742",
+      "frac": 0.8936716225190144,
+      "kind": "waypoint",
+      "label": "Unnamed",
+      "icon": "eye",
+      "at": {
+        "lat": 43.33108433941657,
+        "lon": -1.967002842290353
+      },
+      "pin": {
+        "lat": 43.3331689,
+        "lon": -1.9667047
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-viewpoint-node3406103343",
+      "frac": 0.9092472262301444,
+      "kind": "waypoint",
+      "label": "Unnamed",
+      "icon": "eye",
+      "at": {
+        "lat": 43.32981743947607,
+        "lon": -1.9698495392399928
+      },
+      "pin": {
+        "lat": 43.3298079,
+        "lon": -1.9698579
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-viewpoint-node13249737854",
+      "frac": 0.9187224442329335,
+      "kind": "waypoint",
+      "label": "Unnamed",
+      "icon": "eye",
+      "at": {
+        "lat": 43.328192,
+        "lon": -1.96834
+      },
+      "pin": {
+        "lat": 43.327939,
+        "lon": -1.9657399
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-viewpoint-node6822763788",
+      "frac": 0.965218469584985,
+      "kind": "waypoint",
+      "label": "Unnamed",
+      "icon": "eye",
+      "at": {
+        "lat": 43.324982,
+        "lon": -1.980195
+      },
+      "pin": {
+        "lat": 43.3259284,
+        "lon": -1.980801
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-sacred_site-node859271271",
+      "frac": 0.9919391447253112,
+      "kind": "waypoint",
+      "label": "Santa Teresa monasterioa",
+      "icon": "building.columns",
+      "at": {
+        "lat": 43.322117,
+        "lon": -1.98542
+      },
+      "pin": {
+        "lat": 43.3241766,
+        "lon": -1.9873002
+      },
+      "names": {
+        "es": "Convento de Santa Teresa",
+        "eu": "Santa Teresa monasterioa"
+      },
+      "sitMinutes": 5
     },
     {
       "id": "stage-end",
@@ -1536,15 +1889,15 @@
       "offLineMeters": 294
     },
     {
-      "id": "wp-osm-food-node3308252208",
+      "id": "wp-osm-food-node3308252211",
       "kind": "food",
-      "name": "Gaztelumendi Antxon",
+      "name": "Hanba",
       "at": {
-        "lat": 43.338058,
-        "lon": -1.78929
+        "lat": 43.338208,
+        "lon": -1.789483
       },
       "frac": 0,
-      "offLineMeters": 148
+      "offLineMeters": 131.7
     },
     {
       "id": "wp-osm-food-node6238513172",
@@ -1578,17 +1931,6 @@
       },
       "frac": 0,
       "offLineMeters": 283.1
-    },
-    {
-      "id": "wp-osm-supply-node2626987610",
-      "kind": "supply",
-      "name": "Juan",
-      "at": {
-        "lat": 43.338389,
-        "lon": -1.788527
-      },
-      "frac": 0,
-      "offLineMeters": 129.8
     },
     {
       "id": "wp-osm-water_source-node1974927283",
@@ -1811,6 +2153,17 @@
       "offLineMeters": 85.4
     },
     {
+      "id": "wp-osm-water_source-node14045715516",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 43.340561,
+        "lon": -1.793594
+      },
+      "frac": 0.01463089392314745,
+      "offLineMeters": 33.1
+    },
+    {
       "id": "wp-osm-medical-node3250738511",
       "kind": "medical",
       "name": "Farmacia - Pº de Colón, 36",
@@ -1842,6 +2195,17 @@
       },
       "frac": 0.01715178210895873,
       "offLineMeters": 77.7
+    },
+    {
+      "id": "wp-osm-medical-node3250738503",
+      "kind": "medical",
+      "name": "Farmacia - Avda. de Gipuzkoa, 28",
+      "at": {
+        "lat": 43.337935,
+        "lon": -1.79546
+      },
+      "frac": 0.01729180876679013,
+      "offLineMeters": 288.8
     },
     {
       "id": "wp-osm-water_source-node3273766141",
@@ -1923,7 +2287,7 @@
     {
       "id": "wp-osm-transport-node540584790",
       "kind": "transport",
-      "name": "Colon 43",
+      "name": "Colon pasealekua 43",
       "at": {
         "lat": 43.340728,
         "lon": -1.796291
@@ -2273,6 +2637,17 @@
       "offLineMeters": 146.6
     },
     {
+      "id": "wp-osm-food-node13813980101",
+      "kind": "food",
+      "name": "Ballestanea Jatetxea",
+      "at": {
+        "lat": 43.358603,
+        "lon": -1.807776
+      },
+      "frac": 0.1364068668871064,
+      "offLineMeters": 68
+    },
+    {
       "id": "wp-osm-water_source-node6702828784",
       "kind": "water",
       "name": "Unnamed",
@@ -2370,6 +2745,17 @@
       },
       "frac": 0.6703921483540445,
       "offLineMeters": 18.1
+    },
+    {
+      "id": "wp-osm-water_source-node13851910203",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 43.325256,
+        "lon": -1.916491
+      },
+      "frac": 0.6707756196671729,
+      "offLineMeters": 298.3
     },
     {
       "id": "wp-osm-food-node2207144882",
@@ -2911,9 +3297,20 @@
       "offLineMeters": 196.7
     },
     {
+      "id": "wp-osm-food-node4459073589",
+      "kind": "food",
+      "name": "Café Loft",
+      "at": {
+        "lat": 43.322717,
+        "lon": -1.975336
+      },
+      "frac": 0.9531149142538565,
+      "offLineMeters": 282.5
+    },
+    {
       "id": "wp-osm-transport-node1781666498",
       "kind": "transport",
-      "name": "Kursaal",
+      "name": "Zurriola (Kursaal)",
       "at": {
         "lat": 43.324757,
         "lon": -1.976814
@@ -3234,11 +3631,11 @@
       "kind": "transport",
       "name": "Plaza Gipuzkoa",
       "at": {
-        "lat": 43.32147,
-        "lon": -1.981981
+        "lat": 43.321461,
+        "lon": -1.982011
       },
-      "frac": 0.9823970045638576,
-      "offLineMeters": 160.8
+      "frac": 0.9825015893030367,
+      "offLineMeters": 161
     },
     {
       "id": "wp-osm-water_source-node2158186485",

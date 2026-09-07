@@ -774,6 +774,212 @@
       }
     },
     {
+      "id": "wp-osm-cultural_site-node12395843970",
+      "frac": 0.1768880167261717,
+      "kind": "waypoint",
+      "label": "Molino de Romano",
+      "icon": "book.closed",
+      "at": {
+        "lat": 43.46852,
+        "lon": -3.670004
+      },
+      "pin": {
+        "lat": 43.4693019,
+        "lon": -3.6684966
+      }
+    },
+    {
+      "id": "wp-osm-town-node288260830",
+      "frac": 0.1798574571419006,
+      "kind": "waypoint",
+      "label": "Galizano",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.46884588592234,
+        "lon": -3.6705228276538486
+      },
+      "pin": {
+        "lat": 43.4682658,
+        "lon": -3.6712146
+      }
+    },
+    {
+      "id": "wp-osm-viewpoint-node9810951817",
+      "frac": 0.2521023355738524,
+      "kind": "waypoint",
+      "label": "Unnamed",
+      "icon": "eye",
+      "at": {
+        "lat": 43.47886687508199,
+        "lon": -3.6756492340572873
+      },
+      "pin": {
+        "lat": 43.4789576,
+        "lon": -3.6756937
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-viewpoint-node9810951917",
+      "frac": 0.27234526653255237,
+      "kind": "waypoint",
+      "label": "Unnamed",
+      "icon": "eye",
+      "at": {
+        "lat": 43.47789935416268,
+        "lon": -3.679497333720224
+      },
+      "pin": {
+        "lat": 43.4780669,
+        "lon": -3.6800016
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-viewpoint-node14132892801",
+      "frac": 0.2995780323371081,
+      "kind": "waypoint",
+      "label": "Unnamed",
+      "icon": "eye",
+      "at": {
+        "lat": 43.47586885974909,
+        "lon": -3.684189206491737
+      },
+      "pin": {
+        "lat": 43.476472,
+        "lon": -3.6846461
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-viewpoint-node9810952017",
+      "frac": 0.3201832365123888,
+      "kind": "waypoint",
+      "label": "Unnamed",
+      "icon": "eye",
+      "at": {
+        "lat": 43.47437715703192,
+        "lon": -3.6884085983095374
+      },
+      "pin": {
+        "lat": 43.4743578,
+        "lon": -3.6884058
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-viewpoint-node14133481601",
+      "frac": 0.34962323843500603,
+      "kind": "waypoint",
+      "label": "Unnamed",
+      "icon": "eye",
+      "at": {
+        "lat": 43.476162081903624,
+        "lon": -3.6941067306200344
+      },
+      "pin": {
+        "lat": 43.4762423,
+        "lon": -3.6940418
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-viewpoint-node9810952018",
+      "frac": 0.37319426728031657,
+      "kind": "waypoint",
+      "label": "Unnamed",
+      "icon": "eye",
+      "at": {
+        "lat": 43.478962409439625,
+        "lon": -3.6960246201907676
+      },
+      "pin": {
+        "lat": 43.4789873,
+        "lon": -3.6960359
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-viewpoint-node9810952117",
+      "frac": 0.4154532158007882,
+      "kind": "waypoint",
+      "label": "Unnamed",
+      "icon": "eye",
+      "at": {
+        "lat": 43.478492184175096,
+        "lon": -3.7051635266022713
+      },
+      "pin": {
+        "lat": 43.4785192,
+        "lon": -3.7051965
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-viewpoint-node9810951918",
+      "frac": 0.4712700108012863,
+      "kind": "waypoint",
+      "label": "Unnamed",
+      "icon": "eye",
+      "at": {
+        "lat": 43.474679,
+        "lon": -3.715792
+      },
+      "pin": {
+        "lat": 43.4748636,
+        "lon": -3.7158904
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-viewpoint-node3300697005",
+      "frac": 0.5302902507622521,
+      "kind": "waypoint",
+      "label": "Mirador de los Tranquilos",
+      "icon": "eye",
+      "at": {
+        "lat": 43.469787,
+        "lon": -3.726178
+      },
+      "pin": {
+        "lat": 43.4697573,
+        "lon": -3.7263878
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-sacred_site-node1594554691",
+      "frac": 0.6949402122564886,
+      "kind": "waypoint",
+      "label": "Iglesia de Somo",
+      "icon": "building.columns",
+      "at": {
+        "lat": 43.453067,
+        "lon": -3.746555
+      },
+      "pin": {
+        "lat": 43.4533688,
+        "lon": -3.7444042
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-viewpoint-node9810952217",
+      "frac": 0.9896661129001779,
+      "kind": "waypoint",
+      "label": "Unnamed",
+      "icon": "eye",
+      "at": {
+        "lat": 43.46105640155872,
+        "lon": -3.8032692207285326
+      },
+      "pin": {
+        "lat": 43.4603978,
+        "lon": -3.8038349
+      },
+      "sitMinutes": 5
+    },
+    {
       "id": "stage-end",
       "frac": 1,
       "kind": "waypoint",
@@ -870,7 +1076,7 @@
     {
       "id": "wp-osm-water_source-node5846403386",
       "kind": "water",
-      "name": "Water",
+      "name": "Unnamed",
       "at": {
         "lat": 43.46265,
         "lon": -3.724536
@@ -905,11 +1111,11 @@
       "kind": "supply",
       "name": "Unnamed",
       "at": {
-        "lat": 43.456231,
-        "lon": -3.74273
+        "lat": 43.456281,
+        "lon": -3.742643
       },
-      "frac": 0.6611422903307771,
-      "offLineMeters": 76.1
+      "frac": 0.6607309528923533,
+      "offLineMeters": 71.4
     },
     {
       "id": "wp-osm-medical-node1603458489",
@@ -998,17 +1204,6 @@
       },
       "frac": 0.6949402122564886,
       "offLineMeters": 226.7
-    },
-    {
-      "id": "wp-osm-water_source-node3546322358",
-      "kind": "water",
-      "name": "Unnamed",
-      "at": {
-        "lat": 43.453246,
-        "lon": -3.744229
-      },
-      "frac": 0.6949402122564886,
-      "offLineMeters": 188.8
     },
     {
       "id": "wp-osm-water_source-node9177483586",
@@ -1165,6 +1360,17 @@
       "offLineMeters": 173.6
     },
     {
+      "id": "wp-osm-food-node9853206077",
+      "kind": "food",
+      "name": "Chiringuito El Embarcadero",
+      "at": {
+        "lat": 43.461601,
+        "lon": -3.801504
+      },
+      "frac": 0.9809684628663292,
+      "offLineMeters": 13.2
+    },
+    {
       "id": "wp-osm-food-node600478528",
       "kind": "food",
       "name": "Pastelería Gómez",
@@ -1174,17 +1380,6 @@
       },
       "frac": 0.9810456782352128,
       "offLineMeters": 90.6
-    },
-    {
-      "id": "wp-osm-supply-node5653321239",
-      "kind": "supply",
-      "name": "Unnamed",
-      "at": {
-        "lat": 43.461556,
-        "lon": -3.801721
-      },
-      "frac": 0.981685704783777,
-      "offLineMeters": 0.8
     },
     {
       "id": "wp-osm-food-node10720798086",

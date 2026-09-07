@@ -1334,6 +1334,392 @@
       }
     },
     {
+      "id": "wp-osm-viewpoint-node2756042255",
+      "frac": 0,
+      "kind": "waypoint",
+      "label": "Unnamed",
+      "icon": "eye",
+      "at": {
+        "lat": 43.386732,
+        "lon": -4.289185
+      },
+      "pin": {
+        "lat": 43.38796,
+        "lon": -4.2891733
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-viewpoint-node2756042331",
+      "frac": 0.0032161140309538146,
+      "kind": "waypoint",
+      "label": "Unnamed",
+      "icon": "eye",
+      "at": {
+        "lat": 43.386698,
+        "lon": -4.290311
+      },
+      "pin": {
+        "lat": 43.3890612,
+        "lon": -4.2912889
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-town-node288260473",
+      "frac": 0.006849720361638229,
+      "kind": "waypoint",
+      "label": "Comillas",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.38591304044732,
+        "lon": -4.290985198388804
+      },
+      "pin": {
+        "lat": 43.3855344,
+        "lon": -4.2901505
+      }
+    },
+    {
+      "id": "wp-osm-town-node288260520",
+      "frac": 0.04640294762807664,
+      "kind": "waypoint",
+      "label": "Rubárcena",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.38291038398686,
+        "lon": -4.303927490179765
+      },
+      "pin": {
+        "lat": 43.38238,
+        "lon": -4.30367
+      }
+    },
+    {
+      "id": "wp-osm-town-node288260532",
+      "frac": 0.08815494144449774,
+      "kind": "waypoint",
+      "label": "La Rabia",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.379357754808865,
+        "lon": -4.316962213943674
+      },
+      "pin": {
+        "lat": 43.3793259,
+        "lon": -4.3170139
+      }
+    },
+    {
+      "id": "wp-osm-sacred_site-node2316161375",
+      "frac": 0.15600765277756373,
+      "kind": "waypoint",
+      "label": "Ermita de Santa María",
+      "icon": "building.columns",
+      "at": {
+        "lat": 43.37352709387961,
+        "lon": -4.328572205225253
+      },
+      "pin": {
+        "lat": 43.3734798,
+        "lon": -4.3284296
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-sacred_site-node2316161373",
+      "frac": 0.17580780656922687,
+      "kind": "waypoint",
+      "label": "Ermita de Santa Ana",
+      "icon": "building.columns",
+      "at": {
+        "lat": 43.370630979178486,
+        "lon": -4.333259085711906
+      },
+      "pin": {
+        "lat": 43.3705739,
+        "lon": -4.3331597
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-town-node288260298",
+      "frac": 0.17689869165400768,
+      "kind": "waypoint",
+      "label": "El Tejo",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.370413,
+        "lon": -4.333496
+      },
+      "pin": {
+        "lat": 43.3692245,
+        "lon": -4.3320712
+      }
+    },
+    {
+      "id": "wp-osm-sacred_site-node2316161369",
+      "frac": 0.19830602871110364,
+      "kind": "waypoint",
+      "label": "Ermita de San Juan",
+      "icon": "building.columns",
+      "at": {
+        "lat": 43.37331591435337,
+        "lon": -4.339225186340328
+      },
+      "pin": {
+        "lat": 43.3731898,
+        "lon": -4.3394309
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-town-node10553226113",
+      "frac": 0.2016808148092721,
+      "kind": "waypoint",
+      "label": "Cara",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.37397287274932,
+        "lon": -4.339987441203921
+      },
+      "pin": {
+        "lat": 43.375235,
+        "lon": -4.3379287
+      }
+    },
+    {
+      "id": "wp-osm-sacred_site-node2316161374",
+      "frac": 0.24516762643974868,
+      "kind": "waypoint",
+      "label": "Ermita de Santa Marina",
+      "icon": "building.columns",
+      "at": {
+        "lat": 43.3756514763824,
+        "lon": -4.352822413872003
+      },
+      "pin": {
+        "lat": 43.3757071,
+        "lon": -4.3527968
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-sacred_site-node2316161371",
+      "frac": 0.26698238752261044,
+      "kind": "waypoint",
+      "label": "Ermita de San Pedro",
+      "icon": "building.columns",
+      "at": {
+        "lat": 43.375669,
+        "lon": -4.359859
+      },
+      "pin": {
+        "lat": 43.3758459,
+        "lon": -4.3597902
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-town-node288260311",
+      "frac": 0.28705201906833727,
+      "kind": "waypoint",
+      "label": "La Revilla",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.377955,
+        "lon": -4.364505
+      },
+      "pin": {
+        "lat": 43.37924,
+        "lon": -4.3644
+      }
+    },
+    {
+      "id": "wp-osm-viewpoint-node7803283452",
+      "frac": 0.383857004624561,
+      "kind": "waypoint",
+      "label": "Unnamed",
+      "icon": "eye",
+      "at": {
+        "lat": 43.382155,
+        "lon": -4.391131
+      },
+      "pin": {
+        "lat": 43.3821818,
+        "lon": -4.3911093
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-sacred_site-node2300085650",
+      "frac": 0.4038914557439359,
+      "kind": "waypoint",
+      "label": "Convento de San Luis",
+      "icon": "building.columns",
+      "at": {
+        "lat": 43.381318193567736,
+        "lon": -4.397690458325708
+      },
+      "pin": {
+        "lat": 43.3807639,
+        "lon": -4.3983978
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-town-node288260583",
+      "frac": 0.4080823051002074,
+      "kind": "waypoint",
+      "label": "San Vicente de la Barquera",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.381701852769794,
+        "lon": -4.399020809958022
+      },
+      "pin": {
+        "lat": 43.38318,
+        "lon": -4.40027
+      }
+    },
+    {
+      "id": "wp-osm-town-node288260357",
+      "frac": 0.4881687568665501,
+      "kind": "waypoint",
+      "label": "La Acebosa",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.366587022604385,
+        "lon": -4.409232125510976
+      },
+      "pin": {
+        "lat": 43.36649,
+        "lon": -4.4090759
+      }
+    },
+    {
+      "id": "wp-osm-viewpoint-node12724959301",
+      "frac": 0.5258203059797788,
+      "kind": "waypoint",
+      "label": "Unnamed",
+      "icon": "eye",
+      "at": {
+        "lat": 43.360839976102156,
+        "lon": -4.408409015711605
+      },
+      "pin": {
+        "lat": 43.3608393,
+        "lon": -4.4084187
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-town-node288260127",
+      "frac": 0.5821687104734905,
+      "kind": "waypoint",
+      "label": "Hortigal",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.3595924105389,
+        "lon": -4.424716493592895
+      },
+      "pin": {
+        "lat": 43.358586,
+        "lon": -4.4242116
+      }
+    },
+    {
+      "id": "wp-osm-town-node288260126",
+      "frac": 0.6469153381786896,
+      "kind": "waypoint",
+      "label": "Estrada",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.35826180037148,
+        "lon": -4.445908971033075
+      },
+      "pin": {
+        "lat": 43.35835,
+        "lon": -4.44586
+      }
+    },
+    {
+      "id": "wp-osm-sacred_site-node12725040501",
+      "frac": 0.6766712413508974,
+      "kind": "waypoint",
+      "label": "Unnamed",
+      "icon": "building.columns",
+      "at": {
+        "lat": 43.362177764359664,
+        "lon": -4.448126095048193
+      },
+      "pin": {
+        "lat": 43.3621924,
+        "lon": -4.4481161
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-town-node288260334",
+      "frac": 0.6808871542120676,
+      "kind": "waypoint",
+      "label": "Serdio",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.36259908416188,
+        "lon": -4.449474531357038
+      },
+      "pin": {
+        "lat": 43.3627386,
+        "lon": -4.4494389
+      }
+    },
+    {
+      "id": "wp-osm-town-node288260261",
+      "frac": 0.843697298544616,
+      "kind": "waypoint",
+      "label": "Pesués",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.37391853759999,
+        "lon": -4.487713383134661
+      },
+      "pin": {
+        "lat": 43.3749469,
+        "lon": -4.4871637
+      }
+    },
+    {
+      "id": "wp-osm-town-node288260262",
+      "frac": 0.922294884391804,
+      "kind": "waypoint",
+      "label": "Unquera",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.37453202999997,
+        "lon": -4.514506485769335
+      },
+      "pin": {
+        "lat": 43.3745998,
+        "lon": -4.5145487
+      }
+    },
+    {
+      "id": "wp-osm-town-node30440814",
+      "frac": 0.9363845882111305,
+      "kind": "waypoint",
+      "label": "Bustio",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.375038,
+        "lon": -4.519142
+      },
+      "pin": {
+        "lat": 43.3755098,
+        "lon": -4.5192832
+      }
+    },
+    {
       "id": "stage-end",
       "frac": 0.9999520788451985,
       "kind": "waypoint",
@@ -1362,6 +1748,17 @@
       "offLineMeters": 25.4
     },
     {
+      "id": "wp-osm-supply-node14051018763",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 43.388794,
+        "lon": -4.289379
+      },
+      "frac": 0.0002163927835038362,
+      "offLineMeters": 229.8
+    },
+    {
       "id": "wp-osm-water_source-node2756042281",
       "kind": "water",
       "name": "Unnamed",
@@ -1386,7 +1783,7 @@
     {
       "id": "wp-osm-supply-node12647333832",
       "kind": "supply",
-      "name": "Unnamed",
+      "name": "Tinita",
       "at": {
         "lat": 43.386089,
         "lon": -4.29116
@@ -1406,26 +1803,15 @@
       "offLineMeters": 167.9
     },
     {
-      "id": "wp-osm-food-node2235076017",
+      "id": "wp-osm-food-node4230397189",
       "kind": "food",
-      "name": "Los Castaños",
+      "name": "La Churreria/La Chocolatería",
       "at": {
-        "lat": 43.385467,
-        "lon": -4.290584
+        "lat": 43.385075,
+        "lon": -4.290705
       },
-      "frac": 0.006988778685331364,
-      "offLineMeters": 57.7
-    },
-    {
-      "id": "wp-osm-food-node11061782517",
-      "kind": "food",
-      "name": "La Terrazuca",
-      "at": {
-        "lat": 43.384972,
-        "lon": -4.290417
-      },
-      "frac": 0.0072164884608880925,
-      "offLineMeters": 111.9
+      "frac": 0.007744710439984781,
+      "offLineMeters": 90.7
     },
     {
       "id": "wp-osm-water_source-node1416381457",
@@ -1516,6 +1902,17 @@
       "offLineMeters": 11.6
     },
     {
+      "id": "wp-osm-supply-node5531742302",
+      "kind": "supply",
+      "name": "Coviran",
+      "at": {
+        "lat": 43.384746,
+        "lon": -4.296247
+      },
+      "frac": 0.023334448615119935,
+      "offLineMeters": 13
+    },
+    {
       "id": "wp-osm-food-node5531747608",
       "kind": "food",
       "name": "La Fragua",
@@ -1549,15 +1946,15 @@
       "offLineMeters": 9.3
     },
     {
-      "id": "wp-osm-food-node3674106063",
-      "kind": "food",
+      "id": "wp-osm-water_source-node14074968647",
+      "kind": "water",
       "name": "Unnamed",
       "at": {
-        "lat": 43.379571,
-        "lon": -4.317386
+        "lat": 43.381952,
+        "lon": -4.306505
       },
-      "frac": 0.0894692231662686,
-      "offLineMeters": 11.9
+      "frac": 0.05470484180316537,
+      "offLineMeters": 5.8
     },
     {
       "id": "wp-osm-transport-node5653318821",
@@ -1569,17 +1966,6 @@
       },
       "frac": 0.1045913465028268,
       "offLineMeters": 150.5
-    },
-    {
-      "id": "wp-osm-food-node3674103051",
-      "kind": "food",
-      "name": "Casa Albertino",
-      "at": {
-        "lat": 43.370761,
-        "lon": -4.332956
-      },
-      "frac": 0.1748714592385106,
-      "offLineMeters": 10.3
     },
     {
       "id": "wp-osm-food-node11220481439",
@@ -1670,17 +2056,6 @@
       "offLineMeters": 193.6
     },
     {
-      "id": "wp-osm-food-node2303155863",
-      "kind": "food",
-      "name": "Augusto",
-      "at": {
-        "lat": 43.383223,
-        "lon": -4.39974
-      },
-      "frac": 0.4080661946915898,
-      "offLineMeters": 178.8
-    },
-    {
       "id": "wp-osm-food-node2303155869",
       "kind": "food",
       "name": "Carma",
@@ -1692,15 +2067,37 @@
       "offLineMeters": 152.1
     },
     {
-      "id": "wp-osm-supply-node8971859309",
+      "id": "wp-osm-supply-node14087186073",
       "kind": "supply",
       "name": "Unnamed",
       "at": {
-        "lat": 43.384204,
-        "lon": -4.399173
+        "lat": 43.383939,
+        "lon": -4.398972
       },
       "frac": 0.4080661946915898,
-      "offLineMeters": 278.3
+      "offLineMeters": 248.5
+    },
+    {
+      "id": "wp-osm-water_source-node2302819401",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 43.384349,
+        "lon": -4.399399
+      },
+      "frac": 0.4080661946915898,
+      "offLineMeters": 295.7
+    },
+    {
+      "id": "wp-osm-water_source-node6956217191",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 43.383136,
+        "lon": -4.399604
+      },
+      "frac": 0.4080661946915898,
+      "offLineMeters": 166.2
     },
     {
       "id": "wp-osm-accommodation-node10720839405",
@@ -1714,17 +2111,6 @@
       "offLineMeters": 18.3
     },
     {
-      "id": "wp-osm-water_source-node12850619787",
-      "kind": "water",
-      "name": "Unnamed",
-      "at": {
-        "lat": 43.3664,
-        "lon": -4.408907
-      },
-      "frac": 0.4905771056071029,
-      "offLineMeters": 22.7
-    },
-    {
       "id": "wp-osm-accommodation-node12725033401",
       "kind": "bed",
       "name": "El Corralucu",
@@ -1736,15 +2122,15 @@
       "offLineMeters": 20.9
     },
     {
-      "id": "wp-osm-food-node5713383021",
-      "kind": "food",
-      "name": "Gloria Bar and Restaurant",
+      "id": "wp-osm-water_source-node6774697188",
+      "kind": "water",
+      "name": "Unnamed",
       "at": {
-        "lat": 43.362296,
-        "lon": -4.449344
+        "lat": 43.362225,
+        "lon": -4.449923
       },
-      "frac": 0.6803037056478568,
-      "offLineMeters": 31.2
+      "frac": 0.6821720985613356,
+      "offLineMeters": 45.8
     },
     {
       "id": "wp-osm-accommodation-node2968473083",
@@ -1791,6 +2177,17 @@
       "offLineMeters": 20.6
     },
     {
+      "id": "wp-osm-food-node13953623101",
+      "kind": "food",
+      "name": "Unnamed",
+      "at": {
+        "lat": 43.370703,
+        "lon": -4.479546
+      },
+      "frac": 0.810792472888121,
+      "offLineMeters": 9.2
+    },
+    {
       "id": "wp-osm-water_source-node3674409192",
       "kind": "water",
       "name": "Unnamed",
@@ -1800,17 +2197,6 @@
       },
       "frac": 0.842116410537262,
       "offLineMeters": 10.1
-    },
-    {
-      "id": "wp-osm-water_source-node9733348196",
-      "kind": "water",
-      "name": "Unnamed",
-      "at": {
-        "lat": 43.374945,
-        "lon": -4.486876
-      },
-      "frac": 0.8429307592749807,
-      "offLineMeters": 130.9
     },
     {
       "id": "wp-osm-food-node3225468073",
@@ -1835,6 +2221,17 @@
       "offLineMeters": 97.3
     },
     {
+      "id": "wp-osm-supply-node14074184592",
+      "kind": "supply",
+      "name": "R'Spiro",
+      "at": {
+        "lat": 43.374794,
+        "lon": -4.50239
+      },
+      "frac": 0.8873985139069254,
+      "offLineMeters": 80.6
+    },
+    {
       "id": "wp-osm-water_source-node9727229429",
       "kind": "water",
       "name": "Unnamed",
@@ -1855,17 +2252,6 @@
       },
       "frac": 0.9191474484643761,
       "offLineMeters": 13.5
-    },
-    {
-      "id": "wp-osm-food-node6157816535",
-      "kind": "food",
-      "name": "Cafe Bar La Granja",
-      "at": {
-        "lat": 43.374484,
-        "lon": -4.51438
-      },
-      "frac": 0.9220451508350991,
-      "offLineMeters": 9.1
     },
     {
       "id": "wp-osm-food-node9060952680",
@@ -1989,15 +2375,15 @@
       "offLineMeters": 7.9
     },
     {
-      "id": "wp-osm-medical-node5489490148",
-      "kind": "medical",
+      "id": "wp-osm-supply-node13952053201",
+      "kind": "supply",
       "name": "Unnamed",
       "at": {
-        "lat": 43.375045,
-        "lon": -4.541415
+        "lat": 43.373618,
+        "lon": -4.539755
       },
-      "frac": 1,
-      "offLineMeters": 33.3
+      "frac": 0.9975584985927658,
+      "offLineMeters": 151.1
     }
   ],
   "stage": {

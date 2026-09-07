@@ -749,21 +749,638 @@
   "theirActiveSeconds": 19800,
   "moments": [
     {
-      "id": "stage-start",
-      "frac": 0.0003102750364381281,
+      "id": "wp-osm-town-node194308250",
+      "frac": 0.0002238196908669449,
       "kind": "waypoint",
-      "label": "La Caridad",
+      "label": "A Caridá",
       "icon": "house.lodge",
       "at": {
-        "lat": 43.551142040935225,
-        "lon": -6.828947284056639
+        "lat": 43.55113757127304,
+        "lon": -6.82892435634504
       },
       "pin": {
-        "lat": 43.551,
-        "lon": -6.829
+        "lat": 43.5509739,
+        "lon": -6.8289851
       },
       "names": {
-        "ast": "A Caridá"
+        "ast": "A Caridá",
+        "es": "La Caridad",
+        "gl": "A Caridá"
+      }
+    },
+    {
+      "id": "wp-osm-town-node13158054027",
+      "frac": 0.06862658468614105,
+      "kind": "waypoint",
+      "label": "Novales",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.552825114047515,
+        "lon": -6.844207810571254
+      },
+      "pin": {
+        "lat": 43.5526729,
+        "lon": -6.8441695
+      },
+      "names": {
+        "gl": "Novales"
+      }
+    },
+    {
+      "id": "wp-osm-town-node2975139595",
+      "frac": 0.11495067773837167,
+      "kind": "waypoint",
+      "label": "San Pelayo",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.55671338099927,
+        "lon": -6.85286762134951
+      },
+      "pin": {
+        "lat": 43.5567248,
+        "lon": -6.8532313
+      },
+      "names": {
+        "gl": "San Pelaio"
+      }
+    },
+    {
+      "id": "wp-osm-town-node13158054016",
+      "frac": 0.14561702804712828,
+      "kind": "waypoint",
+      "label": "Fonfría",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.559511546911395,
+        "lon": -6.859448237605213
+      },
+      "pin": {
+        "lat": 43.5600646,
+        "lon": -6.8588272
+      },
+      "names": {
+        "gl": "Fonfría"
+      }
+    },
+    {
+      "id": "wp-osm-town-node2975139596",
+      "frac": 0.1548578583734001,
+      "kind": "waypoint",
+      "label": "Valdepares",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.55859883149743,
+        "lon": -6.861166903143385
+      },
+      "pin": {
+        "lat": 43.5583702,
+        "lon": -6.8608024
+      },
+      "names": {
+        "gl": "Valdepares"
+      }
+    },
+    {
+      "id": "wp-osm-town-node13158054013",
+      "frac": 0.17240976234627234,
+      "kind": "waypoint",
+      "label": "A Molle",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.55636028676945,
+        "lon": -6.8648529913851375
+      },
+      "pin": {
+        "lat": 43.5564774,
+        "lon": -6.8649805
+      },
+      "names": {
+        "gl": "A Molle"
+      }
+    },
+    {
+      "id": "wp-osm-town-node13158054011",
+      "frac": 0.19514333799318295,
+      "kind": "waypoint",
+      "label": "Armaior",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.554921979274994,
+        "lon": -6.870555740904622
+      },
+      "pin": {
+        "lat": 43.5537264,
+        "lon": -6.8705245
+      },
+      "names": {
+        "gl": "Armaior"
+      }
+    },
+    {
+      "id": "wp-osm-town-node13158054010",
+      "frac": 0.2152836404736194,
+      "kind": "waypoint",
+      "label": "Os Escaleiros",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.55539287782709,
+        "lon": -6.875710681094925
+      },
+      "pin": {
+        "lat": 43.5569823,
+        "lon": -6.8746381
+      },
+      "names": {
+        "gl": "Os Escaleiros"
+      }
+    },
+    {
+      "id": "wp-osm-town-node219220635",
+      "frac": 0.23309608058869286,
+      "kind": "waypoint",
+      "label": "Porcía",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.556600249963466,
+        "lon": -6.879401958849152
+      },
+      "pin": {
+        "lat": 43.5567841,
+        "lon": -6.879381
+      },
+      "names": {
+        "gl": "Porcía"
+      }
+    },
+    {
+      "id": "wp-osm-town-node13158054073",
+      "frac": 0.2769624933099902,
+      "kind": "waypoint",
+      "label": "El Calvario",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.558044,
+        "lon": -6.889114
+      },
+      "pin": {
+        "lat": 43.5590757,
+        "lon": -6.89054
+      },
+      "names": {
+        "gl": "El Calvario"
+      }
+    },
+    {
+      "id": "wp-osm-town-node13158054067",
+      "frac": 0.28437022714627197,
+      "kind": "waypoint",
+      "label": "El Vardascón",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.55660256416764,
+        "lon": -6.88949715301926
+      },
+      "pin": {
+        "lat": 43.5566481,
+        "lon": -6.8896894
+      },
+      "names": {
+        "gl": "El Vardascón"
+      }
+    },
+    {
+      "id": "wp-osm-town-node534345266",
+      "frac": 0.5711089989540741,
+      "kind": "waypoint",
+      "label": "Barrionovo",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.53193177177732,
+        "lon": -6.948327410892516
+      },
+      "pin": {
+        "lat": 43.53178,
+        "lon": -6.94834
+      },
+      "names": {
+        "gl": "Barrionovo"
+      }
+    },
+    {
+      "id": "wp-osm-town-node2957403362",
+      "frac": 0.5865894948015803,
+      "kind": "waypoint",
+      "label": "A Fonte",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.531277232724555,
+        "lon": -6.952340466414196
+      },
+      "pin": {
+        "lat": 43.531208,
+        "lon": -6.9523406
+      },
+      "names": {
+        "gl": "A Fonte"
+      }
+    },
+    {
+      "id": "wp-osm-town-node534327893",
+      "frac": 0.5980231482774516,
+      "kind": "waypoint",
+      "label": "Tol",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.53114785440636,
+        "lon": -6.955436664800954
+      },
+      "pin": {
+        "lat": 43.5315375,
+        "lon": -6.9557031
+      },
+      "names": {
+        "gl": "Tol"
+      }
+    },
+    {
+      "id": "wp-osm-town-node2957403367",
+      "frac": 0.6189308537001884,
+      "kind": "waypoint",
+      "label": "Cabaleiros",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.528704768327636,
+        "lon": -6.9598918107964165
+      },
+      "pin": {
+        "lat": 43.5262528,
+        "lon": -6.9585831
+      },
+      "names": {
+        "gl": "Cabaleiros"
+      }
+    },
+    {
+      "id": "wp-osm-town-node534327890",
+      "frac": 0.6264075353062466,
+      "kind": "waypoint",
+      "label": "El Tombín",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.52847308845465,
+        "lon": -6.961893150160191
+      },
+      "pin": {
+        "lat": 43.528407,
+        "lon": -6.9618896
+      },
+      "names": {
+        "gl": "El Tombín"
+      }
+    },
+    {
+      "id": "wp-osm-town-node534367287",
+      "frac": 0.7518756695271972,
+      "kind": "waypoint",
+      "label": "Campón",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.53637016561655,
+        "lon": -6.994192622443765
+      },
+      "pin": {
+        "lat": 43.5362938,
+        "lon": -6.9942305
+      },
+      "names": {
+        "gl": "El Campón"
+      }
+    },
+    {
+      "id": "wp-osm-town-node534367601",
+      "frac": 0.7599686334592461,
+      "kind": "waypoint",
+      "label": "A Viña",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.53716739973794,
+        "lon": -6.996104216285812
+      },
+      "pin": {
+        "lat": 43.5390448,
+        "lon": -6.994307
+      },
+      "names": {
+        "gl": "A Viña"
+      }
+    },
+    {
+      "id": "wp-osm-town-node534367599",
+      "frac": 0.7781499144536732,
+      "kind": "waypoint",
+      "label": "Barres",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.53866911614732,
+        "lon": -7.00060398699619
+      },
+      "pin": {
+        "lat": 43.5386786,
+        "lon": -7.0005993
+      },
+      "names": {
+        "gl": "Barres"
+      }
+    },
+    {
+      "id": "wp-osm-town-node534367295",
+      "frac": 0.7792975460176825,
+      "kind": "waypoint",
+      "label": "Louteiro",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.53874615361587,
+        "lon": -7.000900627658222
+      },
+      "pin": {
+        "lat": 43.5402043,
+        "lon": -7.00018
+      },
+      "names": {
+        "gl": "Louteiro"
+      }
+    },
+    {
+      "id": "wp-osm-town-node534367596",
+      "frac": 0.7833511797428389,
+      "kind": "waypoint",
+      "label": "Villarveyo",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.53901826331589,
+        "lon": -7.001948413924803
+      },
+      "pin": {
+        "lat": 43.5414448,
+        "lon": -7.0007492
+      },
+      "names": {
+        "gl": "Vilarvello"
+      }
+    },
+    {
+      "id": "wp-osm-town-node1113172828",
+      "frac": 0.7839136883102397,
+      "kind": "waypoint",
+      "label": "Oubías",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.53905602302678,
+        "lon": -7.00209381155856
+      },
+      "pin": {
+        "lat": 43.537032,
+        "lon": -7.0030941
+      },
+      "names": {
+        "gl": "Oubías"
+      }
+    },
+    {
+      "id": "wp-osm-town-node2954482512",
+      "frac": 0.8218811006699639,
+      "kind": "waypoint",
+      "label": "El Teso de Lois",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.539933742900615,
+        "lon": -7.012151294831033
+      },
+      "pin": {
+        "lat": 43.541783,
+        "lon": -7.013083
+      },
+      "names": {
+        "gl": "El Teso de Lois"
+      }
+    },
+    {
+      "id": "wp-osm-town-node1424985667",
+      "frac": 0.8324796736645805,
+      "kind": "waypoint",
+      "label": "Lois",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.53922418191756,
+        "lon": -7.0148889315073575
+      },
+      "pin": {
+        "lat": 43.5392209,
+        "lon": -7.0148886
+      },
+      "names": {
+        "gl": "Lois"
+      }
+    },
+    {
+      "id": "wp-osm-town-node59170529",
+      "frac": 0.8522410901904326,
+      "kind": "waypoint",
+      "label": "As Figueiras",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.54007,
+        "lon": -7.019874
+      },
+      "pin": {
+        "lat": 43.5387114,
+        "lon": -7.0219461
+      },
+      "names": {
+        "ast": "As Figueiras",
+        "es": "Figueras",
+        "gl": "As Figueiras"
+      }
+    },
+    {
+      "id": "wp-osm-town-node13198653814",
+      "frac": 0.8560634800928641,
+      "kind": "waypoint",
+      "label": "A Lagúa",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.54083038936889,
+        "lon": -7.019839927287428
+      },
+      "pin": {
+        "lat": 43.5408228,
+        "lon": -7.0195176
+      },
+      "names": {
+        "gl": "A Lagúa"
+      }
+    },
+    {
+      "id": "wp-osm-town-node2955703579",
+      "frac": 0.8806694738879944,
+      "kind": "waypoint",
+      "label": "Granda",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.54282495406462,
+        "lon": -7.024579340310634
+      },
+      "pin": {
+        "lat": 43.5406291,
+        "lon": -7.0244206
+      },
+      "names": {
+        "gl": "Granda"
+      }
+    },
+    {
+      "id": "wp-osm-town-node2955777028",
+      "frac": 0.8936458345533727,
+      "kind": "waypoint",
+      "label": "San Román",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.542691283195026,
+        "lon": -7.028137604565137
+      },
+      "pin": {
+        "lat": 43.5411963,
+        "lon": -7.0281631
+      },
+      "names": {
+        "gl": "San Román"
+      }
+    },
+    {
+      "id": "wp-osm-viewpoint-node5033122222",
+      "frac": 0.9221608912944174,
+      "kind": "waypoint",
+      "label": "Miradoiro do Cargadoiro do Ferro",
+      "icon": "eye",
+      "at": {
+        "lat": 43.542808430196345,
+        "lon": -7.0358790516499194
+      },
+      "pin": {
+        "lat": 43.5449643,
+        "lon": -7.03591
+      },
+      "names": {
+        "es": "Mirador del cargadero de hierro"
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-town-node1830040783",
+      "frac": 0.9424437730137958,
+      "kind": "waypoint",
+      "label": "A Lodeira",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.54248632260736,
+        "lon": -7.040132420360544
+      },
+      "pin": {
+        "lat": 43.5416721,
+        "lon": -7.0432801
+      }
+    },
+    {
+      "id": "wp-osm-town-node967154453",
+      "frac": 0.9455985792034716,
+      "kind": "waypoint",
+      "label": "As Barreiras",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.543112,
+        "lon": -7.040168
+      },
+      "pin": {
+        "lat": 43.5435193,
+        "lon": -7.041691
+      }
+    },
+    {
+      "id": "wp-osm-town-node10658055910",
+      "frac": 0.9495484105492238,
+      "kind": "waypoint",
+      "label": "O Cargadoiro",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.54307479223541,
+        "lon": -7.039084648342569
+      },
+      "pin": {
+        "lat": 43.5436844,
+        "lon": -7.0390448
+      }
+    },
+    {
+      "id": "wp-osm-viewpoint-node13011942393",
+      "frac": 0.9547280041892732,
+      "kind": "waypoint",
+      "label": "Unnamed",
+      "icon": "eye",
+      "at": {
+        "lat": 43.543026,
+        "lon": -7.037664
+      },
+      "pin": {
+        "lat": 43.5439299,
+        "lon": -7.0373095
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-viewpoint-node9851571519",
+      "frac": 0.961258949897637,
+      "kind": "waypoint",
+      "label": "Unnamed",
+      "icon": "eye",
+      "at": {
+        "lat": 43.541741037022575,
+        "lon": -7.037894872434907
+      },
+      "pin": {
+        "lat": 43.5416603,
+        "lon": -7.0376728
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-sacred_site-node8069907394",
+      "frac": 0.9915177720134599,
+      "kind": "waypoint",
+      "label": "Unnamed",
+      "icon": "building.columns",
+      "at": {
+        "lat": 43.537511,
+        "lon": -7.042918
+      },
+      "pin": {
+        "lat": 43.5390804,
+        "lon": -7.0439928
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-town-node127766530",
+      "frac": 0.9987827690919866,
+      "kind": "waypoint",
+      "label": "Ribadeo",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.53625965887258,
+        "lon": -7.043917531208557
+      },
+      "pin": {
+        "lat": 43.5361589,
+        "lon": -7.0436775
       }
     },
     {
@@ -783,17 +1400,6 @@
     }
   ],
   "marks": [
-    {
-      "id": "wp-osm-accommodation-node4910379743",
-      "kind": "bed",
-      "name": "Apartamentos Casa Josefina",
-      "at": {
-        "lat": 43.550733,
-        "lon": -6.828822
-      },
-      "frac": 0,
-      "offLineMeters": 43.9
-    },
     {
       "id": "wp-osm-water_source-node8832854592",
       "kind": "water",
@@ -815,17 +1421,6 @@
       },
       "frac": 0.034374628234265195,
       "offLineMeters": 298.9
-    },
-    {
-      "id": "wp-osm-water_source-node3807995208",
-      "kind": "water",
-      "name": "Unnamed",
-      "at": {
-        "lat": 43.55874,
-        "lon": -6.860777
-      },
-      "frac": 0.1533915264448302,
-      "offLineMeters": 13.5
     },
     {
       "id": "wp-osm-accommodation-node3807994763",
@@ -927,28 +1522,6 @@
       "offLineMeters": 12.7
     },
     {
-      "id": "wp-osm-transport-node1424985665",
-      "kind": "transport",
-      "name": "Barres",
-      "at": {
-        "lat": 43.538629,
-        "lon": -7.000718
-      },
-      "frac": 0.778474060507685,
-      "offLineMeters": 7.3
-    },
-    {
-      "id": "wp-osm-supply-node534397263",
-      "kind": "supply",
-      "name": "Ultramarinos - Carnicería",
-      "at": {
-        "lat": 43.538371,
-        "lon": -7.021869
-      },
-      "frac": 0.8510982953359214,
-      "offLineMeters": 246.8
-    },
-    {
       "id": "wp-osm-water_source-node8832854594",
       "kind": "water",
       "name": "Unnamed",
@@ -971,17 +1544,6 @@
       "offLineMeters": 40.3
     },
     {
-      "id": "wp-osm-accommodation-node12541218139",
-      "kind": "bed",
-      "name": "Albergue El Olivo",
-      "at": {
-        "lat": 43.543635,
-        "lon": -7.041586
-      },
-      "frac": 0.9455985792034716,
-      "offLineMeters": 128.2
-    },
-    {
       "id": "wp-osm-water_source-node1839751270",
       "kind": "water",
       "name": "Unnamed",
@@ -991,17 +1553,6 @@
       },
       "frac": 0.9547280041892732,
       "offLineMeters": 243.5
-    },
-    {
-      "id": "wp-osm-water_source-node1838993126",
-      "kind": "water",
-      "name": "Unnamed",
-      "at": {
-        "lat": 43.540684,
-        "lon": -7.037419
-      },
-      "frac": 0.9652281251326716,
-      "offLineMeters": 87
     },
     {
       "id": "wp-osm-water_source-node11075318377",
@@ -1173,11 +1724,11 @@
       "kind": "water",
       "name": "Unnamed",
       "at": {
-        "lat": 43.535858,
-        "lon": -7.040904
+        "lat": 43.535866,
+        "lon": -7.040851
       },
       "frac": 0.9893453231496815,
-      "offLineMeters": 205.9
+      "offLineMeters": 207.7
     },
     {
       "id": "wp-osm-accommodation-node9957299017",
@@ -1211,17 +1762,6 @@
       },
       "frac": 0.9956686840434238,
       "offLineMeters": 218.9
-    },
-    {
-      "id": "wp-osm-food-node11331408470",
-      "kind": "food",
-      "name": "Don Buchi",
-      "at": {
-        "lat": 43.536529,
-        "lon": -7.043598
-      },
-      "frac": 0.9970273885066774,
-      "offLineMeters": 7.3
     },
     {
       "id": "wp-osm-water_source-node1838992989",

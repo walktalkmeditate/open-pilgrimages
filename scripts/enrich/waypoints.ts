@@ -10,7 +10,11 @@ import {
 } from "./geo-utils.js";
 
 const ROOT = join(import.meta.dirname, "../..");
-const BUFFER_KM = 0.5;
+/**
+ * The ways builder drops a place more than MOMENT_DROP_METERS from the line,
+ * so admitting one past that only writes a waypoint no package will carry.
+ */
+const BUFFER_KM = 0.3;
 const DEDUP_KM = 0.05;
 
 function loadJson(path: string) {
@@ -241,8 +245,8 @@ async function main() {
   for (const [type, count] of Object.entries(added).sort()) {
     console.log(`    ${type}: ${count}`);
   }
-  console.log(`  Skipped (>500m from route): ${skippedDistance}`);
-  console.log(`  Skipped (duplicate <50m): ${skippedDedup}`);
+  console.log(`  Skipped (>${BUFFER_KM * 1000}m from route): ${skippedDistance}`);
+  console.log(`  Skipped (duplicate <${DEDUP_KM * 1000}m): ${skippedDedup}`);
   console.log(`  Total waypoints: ${allWaypoints.length}`);
 }
 

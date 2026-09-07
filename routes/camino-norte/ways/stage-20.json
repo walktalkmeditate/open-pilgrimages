@@ -1047,6 +1047,459 @@
       }
     },
     {
+      "id": "wp-osm-town-node3051923796",
+      "frac": 0.18106656950476138,
+      "kind": "waypoint",
+      "label": "El Puente Secu",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.53608573398624,
+        "lon": -5.717622047676996
+      },
+      "pin": {
+        "lat": 43.5359708,
+        "lon": -5.7175518
+      },
+      "names": {
+        "es": "Puente Seco"
+      }
+    },
+    {
+      "id": "wp-osm-town-node3051923804",
+      "frac": 0.1852528273031559,
+      "kind": "waypoint",
+      "label": "Veriña de Baxo",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.535938,
+        "lon": -5.718914
+      },
+      "pin": {
+        "lat": 43.5350586,
+        "lon": -5.7201194
+      },
+      "names": {
+        "ast": "Veriña de Baxo",
+        "es": "Veriña de Abajo"
+      }
+    },
+    {
+      "id": "wp-osm-town-node3051923800",
+      "frac": 0.21351493382713965,
+      "kind": "waypoint",
+      "label": "La Estación",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.54108175959039,
+        "lon": -5.723279768354168
+      },
+      "pin": {
+        "lat": 43.5412731,
+        "lon": -5.7231166
+      }
+    },
+    {
+      "id": "wp-osm-town-node13111189484",
+      "frac": 0.22481296810746615,
+      "kind": "waypoint",
+      "label": "Muniello",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.540985413184714,
+        "lon": -5.72657099436203
+      },
+      "pin": {
+        "lat": 43.5426256,
+        "lon": -5.7285164
+      }
+    },
+    {
+      "id": "wp-osm-town-node1016777675",
+      "frac": 0.2691958932043337,
+      "kind": "waypoint",
+      "label": "Puao",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.53653395002301,
+        "lon": -5.733024080975108
+      },
+      "pin": {
+        "lat": 43.5369024,
+        "lon": -5.7333363
+      },
+      "names": {
+        "es": "Poao"
+      }
+    },
+    {
+      "id": "wp-osm-town-node2993455515",
+      "frac": 0.2806085782909764,
+      "kind": "waypoint",
+      "label": "El Pozón",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.536289034688835,
+        "lon": -5.736383379148242
+      },
+      "pin": {
+        "lat": 43.536003,
+        "lon": -5.7362969
+      }
+    },
+    {
+      "id": "wp-osm-town-node2993455513",
+      "frac": 0.2827437981433523,
+      "kind": "waypoint",
+      "label": "Zarracina",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.53618146137981,
+        "lon": -5.7370604101513765
+      },
+      "pin": {
+        "lat": 43.5349831,
+        "lon": -5.7366981
+      }
+    },
+    {
+      "id": "wp-osm-town-node2790661819",
+      "frac": 0.3744129733810573,
+      "kind": "waypoint",
+      "label": "San Pablo",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.536925,
+        "lon": -5.764566
+      },
+      "pin": {
+        "lat": 43.5382736,
+        "lon": -5.7637936
+      }
+    },
+    {
+      "id": "wp-osm-town-node2812231585",
+      "frac": 0.4249097683207235,
+      "kind": "waypoint",
+      "label": "Ramos",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.5344460934223,
+        "lon": -5.777359349663965
+      },
+      "pin": {
+        "lat": 43.5344489,
+        "lon": -5.7773667
+      }
+    },
+    {
+      "id": "wp-osm-town-node2812231586",
+      "frac": 0.45192058984585554,
+      "kind": "waypoint",
+      "label": "Sopeñes",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.534947,
+        "lon": -5.784843
+      },
+      "pin": {
+        "lat": 43.5343273,
+        "lon": -5.784674
+      }
+    },
+    {
+      "id": "wp-osm-town-node2799262189",
+      "frac": 0.4566832568775718,
+      "kind": "waypoint",
+      "label": "Santolaya",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.535644514749585,
+        "lon": -5.786053062762608
+      },
+      "pin": {
+        "lat": 43.5356918,
+        "lon": -5.7860012
+      }
+    },
+    {
+      "id": "wp-osm-town-node2812231584",
+      "frac": 0.4590693196305169,
+      "kind": "waypoint",
+      "label": "La Vega",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.5359314183671,
+        "lon": -5.78671520902658
+      },
+      "pin": {
+        "lat": 43.5370605,
+        "lon": -5.785908
+      }
+    },
+    {
+      "id": "wp-osm-town-node2812022743",
+      "frac": 0.46873467501813176,
+      "kind": "waypoint",
+      "label": "La Maquila",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.53731736095076,
+        "lon": -5.789044746754667
+      },
+      "pin": {
+        "lat": 43.5369242,
+        "lon": -5.7900272
+      }
+    },
+    {
+      "id": "wp-osm-town-node2812231583",
+      "frac": 0.4918475431718378,
+      "kind": "waypoint",
+      "label": "La Torre",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.53535467482822,
+        "lon": -5.794711082646473
+      },
+      "pin": {
+        "lat": 43.5346552,
+        "lon": -5.7941711
+      }
+    },
+    {
+      "id": "wp-osm-town-node2811963613",
+      "frac": 0.6097668881615732,
+      "kind": "waypoint",
+      "label": "Alredor de la Ilesia",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.53071196452323,
+        "lon": -5.830279207076292
+      },
+      "pin": {
+        "lat": 43.530689,
+        "lon": -5.8302983
+      }
+    },
+    {
+      "id": "wp-osm-town-node2812056158",
+      "frac": 0.6213895810331141,
+      "kind": "waypoint",
+      "label": "El Cascayu",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.532786,
+        "lon": -5.832653
+      },
+      "pin": {
+        "lat": 43.5343225,
+        "lon": -5.8331361
+      }
+    },
+    {
+      "id": "wp-osm-town-node2812056162",
+      "frac": 0.6296918687898193,
+      "kind": "waypoint",
+      "label": "La Calle la Vega",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.53269090475358,
+        "lon": -5.834862443286947
+      },
+      "pin": {
+        "lat": 43.5325506,
+        "lon": -5.8352169
+      }
+    },
+    {
+      "id": "wp-osm-town-node2812022747",
+      "frac": 0.6372861015472806,
+      "kind": "waypoint",
+      "label": "La Velilla",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.53405390793909,
+        "lon": -5.836332448861582
+      },
+      "pin": {
+        "lat": 43.5336152,
+        "lon": -5.8370485
+      }
+    },
+    {
+      "id": "wp-osm-town-node2812022749",
+      "frac": 0.6438230603410756,
+      "kind": "waypoint",
+      "label": "Les Tranques",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.534419,
+        "lon": -5.838202
+      },
+      "pin": {
+        "lat": 43.5336262,
+        "lon": -5.8396203
+      }
+    },
+    {
+      "id": "wp-osm-town-node2812056160",
+      "frac": 0.6519520092096757,
+      "kind": "waypoint",
+      "label": "El Redal",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.536227,
+        "lon": -5.838169
+      },
+      "pin": {
+        "lat": 43.5361447,
+        "lon": -5.8414175
+      }
+    },
+    {
+      "id": "wp-osm-town-node2812022746",
+      "frac": 0.6524010167887713,
+      "kind": "waypoint",
+      "label": "La Vallina",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.53629505789506,
+        "lon": -5.838057512164123
+      },
+      "pin": {
+        "lat": 43.5362415,
+        "lon": -5.8379953
+      }
+    },
+    {
+      "id": "wp-osm-town-node2812022752",
+      "frac": 0.668849936854398,
+      "kind": "waypoint",
+      "label": "Tabaza",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.538021,
+        "lon": -5.835039
+      },
+      "pin": {
+        "lat": 43.537103,
+        "lon": -5.833565
+      }
+    },
+    {
+      "id": "wp-osm-town-node2392227227",
+      "frac": 0.7432613693008324,
+      "kind": "waypoint",
+      "label": "Silvota",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.54754519496802,
+        "lon": -5.854755467668372
+      },
+      "pin": {
+        "lat": 43.5466688,
+        "lon": -5.8557243
+      }
+    },
+    {
+      "id": "wp-osm-town-node2392227221",
+      "frac": 0.7723433942207221,
+      "kind": "waypoint",
+      "label": "Rovés",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.55116839898429,
+        "lon": -5.8620441144891
+      },
+      "pin": {
+        "lat": 43.5512286,
+        "lon": -5.8620206
+      }
+    },
+    {
+      "id": "wp-osm-town-node2392227182",
+      "frac": 0.778188256803904,
+      "kind": "waypoint",
+      "label": "Gudín",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.551574424027166,
+        "lon": -5.8635666396933495
+      },
+      "pin": {
+        "lat": 43.5517077,
+        "lon": -5.8635349
+      }
+    },
+    {
+      "id": "wp-osm-town-node2392227165",
+      "frac": 0.7971918454991244,
+      "kind": "waypoint",
+      "label": "El Pedrero / El Pedréu",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.55076191367826,
+        "lon": -5.869339573437386
+      },
+      "pin": {
+        "lat": 43.5512101,
+        "lon": -5.8691997
+      },
+      "names": {
+        "ast": "El Pedréu",
+        "es": "El Pedrero"
+      }
+    },
+    {
+      "id": "wp-osm-town-node2392227157",
+      "frac": 0.8024958402993889,
+      "kind": "waypoint",
+      "label": "El Cuetu",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.550966329646364,
+        "lon": -5.870925078660542
+      },
+      "pin": {
+        "lat": 43.5503766,
+        "lon": -5.8708757
+      }
+    },
+    {
+      "id": "wp-osm-town-node2392227224",
+      "frac": 0.8096786082269601,
+      "kind": "waypoint",
+      "label": "San Pelayo",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.55086394571279,
+        "lon": -5.873252924219956
+      },
+      "pin": {
+        "lat": 43.5511479,
+        "lon": -5.8732767
+      }
+    },
+    {
+      "id": "wp-osm-town-node290701276",
+      "frac": 0.8235023465401298,
+      "kind": "waypoint",
+      "label": "Tresona / Trasona",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.55127795303261,
+        "lon": -5.877695438671514
+      },
+      "pin": {
+        "lat": 43.551007,
+        "lon": -5.8777827
+      },
+      "names": {
+        "ast": "Tresona",
+        "es": "Trasona"
+      }
+    },
+    {
       "id": "stage-end",
       "frac": 1,
       "kind": "waypoint",
@@ -1117,6 +1570,17 @@
       },
       "frac": 0.0039787171814563045,
       "offLineMeters": 259.4
+    },
+    {
+      "id": "wp-osm-supply-node14113751177",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 43.546718,
+        "lon": -5.666405
+      },
+      "frac": 0.0039787171814563045,
+      "offLineMeters": 262.5
     },
     {
       "id": "wp-osm-food-node1893747657",
@@ -1194,17 +1658,6 @@
       },
       "frac": 0.011308973659053657,
       "offLineMeters": 63.2
-    },
-    {
-      "id": "wp-osm-transport-node1274494635",
-      "kind": "transport",
-      "name": "Fomentín",
-      "at": {
-        "lat": 43.543796,
-        "lon": -5.665608
-      },
-      "frac": 0.011367638067020928,
-      "offLineMeters": 7.6
     },
     {
       "id": "wp-osm-transport-node1032498861",
@@ -1361,6 +1814,17 @@
       "offLineMeters": 50.2
     },
     {
+      "id": "wp-osm-water_source-node13972188229",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 43.540879,
+        "lon": -5.668728
+      },
+      "frac": 0.025374082683818387,
+      "offLineMeters": 143.7
+    },
+    {
       "id": "wp-osm-accommodation-node3441941593",
       "kind": "bed",
       "name": "Hotel Avenida",
@@ -1436,6 +1900,17 @@
       },
       "frac": 0.033556022682391176,
       "offLineMeters": 21.9
+    },
+    {
+      "id": "wp-osm-food-node14053701901",
+      "kind": "food",
+      "name": "Under Wonder Cafe",
+      "at": {
+        "lat": 43.540533,
+        "lon": -5.67149
+      },
+      "frac": 0.0342413024856266,
+      "offLineMeters": 97.9
     },
     {
       "id": "wp-osm-transport-node1274494610",
@@ -1537,17 +2012,6 @@
       "offLineMeters": 224.7
     },
     {
-      "id": "wp-osm-transport-node998853294",
-      "kind": "transport",
-      "name": "Acuario",
-      "at": {
-        "lat": 43.539699,
-        "lon": -5.675885
-      },
-      "frac": 0.04814488781635053,
-      "offLineMeters": 55.8
-    },
-    {
       "id": "wp-osm-accommodation-node31729331",
       "kind": "bed",
       "name": "La Polar",
@@ -1570,9 +2034,9 @@
       "offLineMeters": 264
     },
     {
-      "id": "wp-osm-transport-node12640857586",
+      "id": "wp-osm-transport-node998853294",
       "kind": "transport",
-      "name": "Unnamed",
+      "name": "Acuario",
       "at": {
         "lat": 43.539489,
         "lon": -5.676633
@@ -1636,6 +2100,17 @@
       "offLineMeters": 70.3
     },
     {
+      "id": "wp-osm-food-node5558665481",
+      "kind": "food",
+      "name": "Sidreria La Collota",
+      "at": {
+        "lat": 43.537548,
+        "lon": -5.680585
+      },
+      "frac": 0.062076495002387426,
+      "offLineMeters": 300
+    },
+    {
       "id": "wp-osm-transport-node1175610812",
       "kind": "transport",
       "name": "Revillagigedo",
@@ -1678,17 +2153,6 @@
       },
       "frac": 0.06965020212773407,
       "offLineMeters": 6.2
-    },
-    {
-      "id": "wp-osm-transport-node996165548",
-      "kind": "transport",
-      "name": "Plaza de La Habana",
-      "at": {
-        "lat": 43.537775,
-        "lon": -5.683255
-      },
-      "frac": 0.07035931387352226,
-      "offLineMeters": 296.8
     },
     {
       "id": "wp-osm-transport-node1175611405",
@@ -2197,17 +2661,6 @@
       "offLineMeters": 8.8
     },
     {
-      "id": "wp-osm-transport-node4962165195",
-      "kind": "transport",
-      "name": "El Puente Secu",
-      "at": {
-        "lat": 43.536062,
-        "lon": -5.717596
-      },
-      "frac": 0.1810336709368004,
-      "offLineMeters": 3.3
-    },
-    {
       "id": "wp-osm-transport-node4961788334",
       "kind": "transport",
       "name": "Veriña",
@@ -2228,17 +2681,6 @@
       },
       "frac": 0.21326695785843044,
       "offLineMeters": 92.9
-    },
-    {
-      "id": "wp-osm-transport-node5301102790",
-      "kind": "transport",
-      "name": "Báscula",
-      "at": {
-        "lat": 43.541298,
-        "lon": -5.723661
-      },
-      "frac": 0.2149334233492238,
-      "offLineMeters": 5.2
     },
     {
       "id": "wp-osm-transport-node4961788338",
@@ -2307,17 +2749,6 @@
       "offLineMeters": 16.2
     },
     {
-      "id": "wp-osm-water_source-node2799263533",
-      "kind": "water",
-      "name": "Unnamed",
-      "at": {
-        "lat": 43.535565,
-        "lon": -5.78606
-      },
-      "frac": 0.45649098444138186,
-      "offLineMeters": 7.2
-    },
-    {
       "id": "wp-osm-food-node6163421885",
       "kind": "food",
       "name": "La Cantina de Tamon",
@@ -2360,17 +2791,6 @@
       },
       "frac": 0.7501186008984148,
       "offLineMeters": 20.6
-    },
-    {
-      "id": "wp-osm-transport-node5772128134",
-      "kind": "transport",
-      "name": "Gudín 2",
-      "at": {
-        "lat": 43.551199,
-        "lon": -5.86207
-      },
-      "frac": 0.7724544058542145,
-      "offLineMeters": 2.7
     },
     {
       "id": "wp-osm-transport-node5772128135",
@@ -2417,17 +2837,6 @@
       "offLineMeters": 2.5
     },
     {
-      "id": "wp-osm-food-node6163421379",
-      "kind": "food",
-      "name": "Restaurante Casa Xavina",
-      "at": {
-        "lat": 43.550749,
-        "lon": -5.870803
-      },
-      "frac": 0.8021765585247731,
-      "offLineMeters": 24.8
-    },
-    {
       "id": "wp-osm-transport-node5768681788",
       "kind": "transport",
       "name": "Xavina",
@@ -2470,17 +2879,6 @@
       },
       "frac": 0.8165487174244995,
       "offLineMeters": 12.6
-    },
-    {
-      "id": "wp-osm-transport-node5768691385",
-      "kind": "transport",
-      "name": "San Pelayu",
-      "at": {
-        "lat": 43.551211,
-        "lon": -5.877289
-      },
-      "frac": 0.8222198398347892,
-      "offLineMeters": 0.2
     },
     {
       "id": "wp-osm-transport-node5768691384",
@@ -2637,6 +3035,17 @@
       "offLineMeters": 111.7
     },
     {
+      "id": "wp-osm-accommodation-node14089795981",
+      "kind": "bed",
+      "name": "Puente Azud",
+      "at": {
+        "lat": 43.551423,
+        "lon": -5.914615
+      },
+      "frac": 0.9643726587764208,
+      "offLineMeters": 81.1
+    },
+    {
       "id": "wp-osm-food-node12639067247",
       "kind": "food",
       "name": "Unnamed",
@@ -2694,7 +3103,7 @@
     {
       "id": "wp-osm-medical-node10021411215",
       "kind": "medical",
-      "name": "Unnamed",
+      "name": "Farmacia Barral Gavilanes",
       "at": {
         "lat": 43.551653,
         "lon": -5.919426
@@ -2725,6 +3134,28 @@
       "offLineMeters": 7.3
     },
     {
+      "id": "wp-osm-food-node13800927443",
+      "kind": "food",
+      "name": "Libertad",
+      "at": {
+        "lat": 43.553398,
+        "lon": -5.919512
+      },
+      "frac": 0.9880040710747061,
+      "offLineMeters": 76.8
+    },
+    {
+      "id": "wp-osm-food-node14118565471",
+      "kind": "food",
+      "name": "Bucle",
+      "at": {
+        "lat": 43.554825,
+        "lon": -5.918839
+      },
+      "frac": 0.9952190911449944,
+      "offLineMeters": 196.7
+    },
+    {
       "id": "wp-osm-food-node12147663358",
       "kind": "food",
       "name": "Crespo",
@@ -2734,6 +3165,17 @@
       },
       "frac": 0.9953249828702118,
       "offLineMeters": 131.4
+    },
+    {
+      "id": "wp-osm-medical-node5657565174",
+      "kind": "medical",
+      "name": "Farmacia Laviana Lada",
+      "at": {
+        "lat": 43.554936,
+        "lon": -5.921355
+      },
+      "frac": 0.9966643364703013,
+      "offLineMeters": 2.9
     },
     {
       "id": "wp-osm-food-node12133562045",

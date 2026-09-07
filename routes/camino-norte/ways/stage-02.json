@@ -1149,6 +1149,235 @@
       }
     },
     {
+      "id": "wp-osm-viewpoint-node403344702",
+      "frac": 0.045155991226170734,
+      "kind": "waypoint",
+      "label": "Unnamed",
+      "icon": "eye",
+      "at": {
+        "lat": 43.28856974299896,
+        "lon": -2.182306646397296
+      },
+      "pin": {
+        "lat": 43.2888756,
+        "lon": -2.1816608
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-town-node10946679177",
+      "frac": 0.1303582030674782,
+      "kind": "waypoint",
+      "label": "Eitzaga",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.293838,
+        "lon": -2.20227
+      },
+      "pin": {
+        "lat": 43.2952541,
+        "lon": -2.201879
+      }
+    },
+    {
+      "id": "wp-osm-viewpoint-node2441795319",
+      "frac": 0.19943750434191454,
+      "kind": "waypoint",
+      "label": "Unnamed",
+      "icon": "eye",
+      "at": {
+        "lat": 43.302873,
+        "lon": -2.20463
+      },
+      "pin": {
+        "lat": 43.3030309,
+        "lon": -2.2033147
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-town-node27552586",
+      "frac": 0.20008412327335037,
+      "kind": "waypoint",
+      "label": "Getaria",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.302982,
+        "lon": -2.204723
+      },
+      "pin": {
+        "lat": 43.3044559,
+        "lon": -2.2037374
+      },
+      "names": {
+        "es": "Guetaria",
+        "eu": "Getaria"
+      }
+    },
+    {
+      "id": "wp-osm-viewpoint-node5873689990",
+      "frac": 0.20008412327335037,
+      "kind": "waypoint",
+      "label": "Unnamed",
+      "icon": "eye",
+      "at": {
+        "lat": 43.302982,
+        "lon": -2.204723
+      },
+      "pin": {
+        "lat": 43.3041845,
+        "lon": -2.2029369
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-town-node657844865",
+      "frac": 0.2625577061280729,
+      "kind": "waypoint",
+      "label": "San Prudentzio",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.30316067578188,
+        "lon": -2.2208916615537095
+      },
+      "pin": {
+        "lat": 43.3043985,
+        "lon": -2.2198325
+      }
+    },
+    {
+      "id": "wp-osm-town-node448855864",
+      "frac": 0.2982818225119322,
+      "kind": "waypoint",
+      "label": "Askizu",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.303209652988095,
+        "lon": -2.2301199267069225
+      },
+      "pin": {
+        "lat": 43.3031553,
+        "lon": -2.2301011
+      }
+    },
+    {
+      "id": "wp-osm-viewpoint-node9787150419",
+      "frac": 0.3633197012113355,
+      "kind": "waypoint",
+      "label": "Unnamed",
+      "icon": "eye",
+      "at": {
+        "lat": 43.302044,
+        "lon": -2.24282
+      },
+      "pin": {
+        "lat": 43.3033568,
+        "lon": -2.2423618
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-town-node27552528",
+      "frac": 0.4415045248685042,
+      "kind": "waypoint",
+      "label": "Zumaia",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.296712981882386,
+        "lon": -2.2570533687423544
+      },
+      "pin": {
+        "lat": 43.296653,
+        "lon": -2.2571182
+      },
+      "names": {
+        "es": "Zumaia",
+        "eu": "Zumaia"
+      }
+    },
+    {
+      "id": "wp-osm-sacred_site-node12633593700",
+      "frac": 0.4525377727919669,
+      "kind": "waypoint",
+      "label": "Arritokietako bideko gurutzea",
+      "icon": "building.columns",
+      "at": {
+        "lat": 43.29667648049445,
+        "lon": -2.2596670931537215
+      },
+      "pin": {
+        "lat": 43.2966047,
+        "lon": -2.2596983
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-viewpoint-node2441837885",
+      "frac": 0.45438410474692115,
+      "kind": "waypoint",
+      "label": "Unnamed",
+      "icon": "eye",
+      "at": {
+        "lat": 43.296787,
+        "lon": -2.260147
+      },
+      "pin": {
+        "lat": 43.2991162,
+        "lon": -2.2613297
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-town-node307793716",
+      "frac": 0.6078332834914385,
+      "kind": "waypoint",
+      "label": "Elorriaga",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.285906000000004,
+        "lon": -2.291966
+      },
+      "pin": {
+        "lat": 43.285906,
+        "lon": -2.2918053
+      }
+    },
+    {
+      "id": "wp-osm-viewpoint-node9787157718",
+      "frac": 0.855158405729406,
+      "kind": "waypoint",
+      "label": "Unnamed",
+      "icon": "eye",
+      "at": {
+        "lat": 43.27739631180732,
+        "lon": -2.334516346640717
+      },
+      "pin": {
+        "lat": 43.2774633,
+        "lon": -2.3344694
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-town-node27552539",
+      "frac": 0.9981784045211985,
+      "kind": "waypoint",
+      "label": "Deba",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.294182430883126,
+        "lon": -2.3541124212949147
+      },
+      "pin": {
+        "lat": 43.294141,
+        "lon": -2.3539311
+      },
+      "names": {
+        "es": "Deva",
+        "eu": "Deba"
+      }
+    },
+    {
       "id": "stage-end",
       "frac": 1,
       "kind": "waypoint",
@@ -1529,17 +1758,6 @@
       "offLineMeters": 70.4
     },
     {
-      "id": "wp-osm-food-node2131687817",
-      "kind": "food",
-      "name": "Alda-bier",
-      "at": {
-        "lat": 43.304176,
-        "lon": -2.203262
-      },
-      "frac": 0.20008412327335037,
-      "offLineMeters": 177.8
-    },
-    {
       "id": "wp-osm-food-node2131687818",
       "kind": "food",
       "name": "Elkano",
@@ -1571,39 +1789,6 @@
       },
       "frac": 0.21936472518209996,
       "offLineMeters": 45
-    },
-    {
-      "id": "wp-osm-water_source-node12572398426",
-      "kind": "water",
-      "name": "Unnamed",
-      "at": {
-        "lat": 43.304402,
-        "lon": -2.219662
-      },
-      "frac": 0.2620366876453309,
-      "offLineMeters": 169.8
-    },
-    {
-      "id": "wp-osm-accommodation-node12576870997",
-      "kind": "bed",
-      "name": "Xabin Etxea",
-      "at": {
-        "lat": 43.30459,
-        "lon": -2.220307
-      },
-      "frac": 0.26454640412691677,
-      "offLineMeters": 159.9
-    },
-    {
-      "id": "wp-osm-water_source-node4329062717",
-      "kind": "water",
-      "name": "Unnamed",
-      "at": {
-        "lat": 43.303002,
-        "lon": -2.230208
-      },
-      "frac": 0.2994216962335653,
-      "offLineMeters": 8.6
     },
     {
       "id": "wp-osm-accommodation-node2442654165",
@@ -1859,15 +2044,15 @@
       "offLineMeters": 108.6
     },
     {
-      "id": "wp-osm-supply-node13639357436",
-      "kind": "supply",
-      "name": "Sartaia",
+      "id": "wp-osm-food-node13615875484",
+      "kind": "food",
+      "name": "Txopa gastrolekua",
       "at": {
-        "lat": 43.296666,
-        "lon": -2.256524
+        "lat": 43.296199,
+        "lon": -2.257061
       },
-      "frac": 0.4398301549404028,
-      "offLineMeters": 22.3
+      "frac": 0.4389396343160358,
+      "offLineMeters": 36.3
     },
     {
       "id": "wp-osm-water_source-node9221653451",
@@ -1892,48 +2077,15 @@
       "offLineMeters": 297.8
     },
     {
-      "id": "wp-osm-food-node561181302",
-      "kind": "food",
-      "name": "Trapaia",
-      "at": {
-        "lat": 43.296467,
-        "lon": -2.257381
-      },
-      "frac": 0.4416834691550557,
-      "offLineMeters": 37.9
-    },
-    {
-      "id": "wp-osm-food-node561238481",
-      "kind": "food",
-      "name": "Gure Txokoa",
-      "at": {
-        "lat": 43.29699,
-        "lon": -2.257007
-      },
-      "frac": 0.44223319361059527,
-      "offLineMeters": 26.6
-    },
-    {
       "id": "wp-osm-food-node561221174",
       "kind": "food",
       "name": "Marina",
       "at": {
-        "lat": 43.298181,
-        "lon": -2.255834
+        "lat": 43.298137,
+        "lon": -2.255783
       },
-      "frac": 0.44256205706103136,
-      "offLineMeters": 189.3
-    },
-    {
-      "id": "wp-osm-food-node6656922883",
-      "kind": "food",
-      "name": "Sayalero",
-      "at": {
-        "lat": 43.298667,
-        "lon": -2.256436
-      },
-      "frac": 0.4436729317918251,
-      "offLineMeters": 207.1
+      "frac": 0.44228034708520375,
+      "offLineMeters": 188.1
     },
     {
       "id": "wp-osm-medical-node561187510",
@@ -2044,17 +2196,6 @@
       },
       "frac": 0.5805285911340152,
       "offLineMeters": 6.8
-    },
-    {
-      "id": "wp-osm-water_source-node10989677385",
-      "kind": "water",
-      "name": "Unnamed",
-      "at": {
-        "lat": 43.285893,
-        "lon": -2.29196
-      },
-      "frac": 0.6079003128351651,
-      "offLineMeters": 0.5
     },
     {
       "id": "wp-osm-food-node308010003",
@@ -2222,6 +2363,17 @@
       "offLineMeters": 32.4
     },
     {
+      "id": "wp-osm-water_source-node14019740169",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 43.290579,
+        "lon": -2.35555
+      },
+      "frac": 0.9814388939147032,
+      "offLineMeters": 169.4
+    },
+    {
       "id": "wp-osm-medical-node5393688787",
       "kind": "medical",
       "name": "Hiart Burgoa Zuazo",
@@ -2233,26 +2385,48 @@
       "offLineMeters": 58.1
     },
     {
-      "id": "wp-osm-food-node13421820701",
-      "kind": "food",
-      "name": "Labatai Taverna",
+      "id": "wp-osm-water_source-node14017580143",
+      "kind": "water",
+      "name": "Unnamed",
       "at": {
-        "lat": 43.293813,
-        "lon": -2.354963
+        "lat": 43.293583,
+        "lon": -2.352674
       },
-      "frac": 0.996322037144205,
-      "offLineMeters": 56.6
+      "frac": 0.9947239585050166,
+      "offLineMeters": 96.5
     },
     {
-      "id": "wp-osm-food-node662762248",
+      "id": "wp-osm-food-node4460225734",
       "kind": "food",
-      "name": "Atozte",
+      "name": "Oskarbi",
       "at": {
-        "lat": 43.294034,
-        "lon": -2.354089
+        "lat": 43.293757,
+        "lon": -2.354368
       },
-      "frac": 0.9974908584677044,
-      "offLineMeters": 6.8
+      "frac": 0.996322037144205,
+      "offLineMeters": 11.8
+    },
+    {
+      "id": "wp-osm-water_source-node13925497501",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 43.296281,
+        "lon": -2.352397
+      },
+      "frac": 0.9982447985111417,
+      "offLineMeters": 270.1
+    },
+    {
+      "id": "wp-osm-water_source-node14017486994",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 43.295353,
+        "lon": -2.351683
+      },
+      "frac": 0.9982447985111417,
+      "offLineMeters": 234.7
     },
     {
       "id": "wp-osm-water_source-node662763819",

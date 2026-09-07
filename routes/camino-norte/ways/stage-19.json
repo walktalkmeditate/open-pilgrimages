@@ -1399,21 +1399,393 @@
       }
     },
     {
-      "id": "stage-end",
-      "frac": 1,
+      "id": "wp-osm-town-node29539081",
+      "frac": 0.007296249666900081,
+      "kind": "waypoint",
+      "label": "Villaviciosa",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.48128366889341,
+        "lon": -5.434444678056074
+      },
+      "pin": {
+        "lat": 43.4813776,
+        "lon": -5.4344978
+      },
+      "names": {
+        "uk": "Вільявісьйоса"
+      }
+    },
+    {
+      "id": "wp-osm-town-node12960867920",
+      "frac": 0.05279389212825856,
+      "kind": "waypoint",
+      "label": "El Sur",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.47340116546184,
+        "lon": -5.440933257711494
+      },
+      "pin": {
+        "lat": 43.4732119,
+        "lon": -5.4401469
+      }
+    },
+    {
+      "id": "wp-osm-town-node12952867509",
+      "frac": 0.06181355053084617,
+      "kind": "waypoint",
+      "label": "El Palaciu",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.471248640364614,
+        "lon": -5.442108883164925
+      },
+      "pin": {
+        "lat": 43.470958,
+        "lon": -5.4416719
+      }
+    },
+    {
+      "id": "wp-osm-town-node3282616779",
+      "frac": 0.07788482336587886,
+      "kind": "waypoint",
+      "label": "San Xuan",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.46757828037631,
+        "lon": -5.444864222815838
+      },
+      "pin": {
+        "lat": 43.4673642,
+        "lon": -5.4443893
+      }
+    },
+    {
+      "id": "wp-osm-sacred_site-node3677474616",
+      "frac": 0.08283932405239268,
+      "kind": "waypoint",
+      "label": "Capilla San Xuan",
+      "icon": "building.columns",
+      "at": {
+        "lat": 43.46644542951577,
+        "lon": -5.445713435628713
+      },
+      "pin": {
+        "lat": 43.4663564,
+        "lon": -5.4456618
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-town-node1887752247",
+      "frac": 0.09861987875026573,
+      "kind": "waypoint",
+      "label": "La Parra",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.46533226660726,
+        "lon": -5.450914335987687
+      },
+      "pin": {
+        "lat": 43.4655157,
+        "lon": -5.4509386
+      }
+    },
+    {
+      "id": "wp-osm-town-node1887752245",
+      "frac": 0.1297166219628744,
+      "kind": "waypoint",
+      "label": "Casquita",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.46629343972556,
+        "lon": -5.461956040845858
+      },
+      "pin": {
+        "lat": 43.4661382,
+        "lon": -5.4619856
+      }
+    },
+    {
+      "id": "wp-osm-town-node12961558593",
+      "frac": 0.13651868543588117,
+      "kind": "waypoint",
+      "label": "Casquita",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.46667812457204,
+        "lon": -5.4643291757495565
+      },
+      "pin": {
+        "lat": 43.466291,
+        "lon": -5.464248
+      }
+    },
+    {
+      "id": "wp-osm-town-node1887752248",
+      "frac": 0.14100877462241226,
+      "kind": "waypoint",
+      "label": "Maoxu",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.466497,
+        "lon": -5.465969
+      },
+      "pin": {
+        "lat": 43.46824,
+        "lon": -5.4679003
+      }
+    },
+    {
+      "id": "wp-osm-town-node1887752246",
+      "frac": 0.1698149538876428,
+      "kind": "waypoint",
+      "label": "Grases",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.46552304943881,
+        "lon": -5.476030347356626
+      },
+      "pin": {
+        "lat": 43.4673727,
+        "lon": -5.4772528
+      }
+    },
+    {
+      "id": "wp-osm-town-node12979481836",
+      "frac": 0.18996227015822342,
+      "kind": "waypoint",
+      "label": "Grases de Riba",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.46238434136065,
+        "lon": -5.481899626416625
+      },
+      "pin": {
+        "lat": 43.464122,
+        "lon": -5.484354
+      }
+    },
+    {
+      "id": "wp-osm-town-node12978013135",
+      "frac": 0.28858223014210377,
+      "kind": "waypoint",
+      "label": "Turbeñu",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.466538,
+        "lon": -5.501751
+      },
+      "pin": {
+        "lat": 43.468061,
+        "lon": -5.504201
+      }
+    },
+    {
+      "id": "wp-osm-town-node7788454275",
+      "frac": 0.3235440307792069,
+      "kind": "waypoint",
+      "label": "Niévares",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.47170303937915,
+        "lon": -5.496911581691173
+      },
+      "pin": {
+        "lat": 43.4718019,
+        "lon": -5.4970342
+      }
+    },
+    {
+      "id": "wp-osm-town-node12977984764",
+      "frac": 0.3261911678272039,
+      "kind": "waypoint",
+      "label": "El Pueblu",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.47128542827741,
+        "lon": -5.49733526180564
+      },
+      "pin": {
+        "lat": 43.471284,
+        "lon": -5.497335
+      }
+    },
+    {
+      "id": "wp-osm-viewpoint-node5758545723",
+      "frac": 0.39342363796016777,
+      "kind": "waypoint",
+      "label": "La Cruz",
+      "icon": "eye",
+      "at": {
+        "lat": 43.473433,
+        "lon": -5.51433
+      },
+      "pin": {
+        "lat": 43.4733758,
+        "lon": -5.5144506
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-town-node1887752249",
+      "frac": 0.5342039022215498,
+      "kind": "waypoint",
+      "label": "Peón",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.48971177825515,
+        "lon": -5.544222902713707
+      },
+      "pin": {
+        "lat": 43.4899018,
+        "lon": -5.5440513
+      },
+      "names": {
+        "ast": "Pión",
+        "es": "Peón"
+      }
+    },
+    {
+      "id": "wp-osm-town-node12975093424",
+      "frac": 0.618177209456046,
+      "kind": "waypoint",
+      "label": "El Curviellu",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.499648599555286,
+        "lon": -5.565489777678748
+      },
+      "pin": {
+        "lat": 43.499702,
+        "lon": -5.565443
+      }
+    },
+    {
+      "id": "wp-osm-town-node2977384428",
+      "frac": 0.6318501413269401,
+      "kind": "waypoint",
+      "label": "Castañera",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.50131231743999,
+        "lon": -5.569769463844561
+      },
+      "pin": {
+        "lat": 43.5025799,
+        "lon": -5.5680536
+      }
+    },
+    {
+      "id": "wp-osm-town-node2989469653",
+      "frac": 0.6524249334894209,
+      "kind": "waypoint",
+      "label": "La Olla",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.50391199466217,
+        "lon": -5.574217833519527
+      },
+      "pin": {
+        "lat": 43.5039806,
+        "lon": -5.5741475
+      }
+    },
+    {
+      "id": "wp-osm-town-node2975785239",
+      "frac": 0.7530929015051194,
+      "kind": "waypoint",
+      "label": "La Pontica",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.517729,
+        "lon": -5.598474
+      },
+      "pin": {
+        "lat": 43.518957,
+        "lon": -5.6013478
+      }
+    },
+    {
+      "id": "wp-osm-sacred_site-node29273715",
+      "frac": 0.786956392027069,
+      "kind": "waypoint",
+      "label": "Iglesia de Santolaya de Cabueñes",
+      "icon": "building.columns",
+      "at": {
+        "lat": 43.52347915823268,
+        "lon": -5.603253552344763
+      },
+      "pin": {
+        "lat": 43.5230817,
+        "lon": -5.6051098
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-sacred_site-node9947502349",
+      "frac": 0.9392340895042908,
+      "kind": "waypoint",
+      "label": "Crucero",
+      "icon": "building.columns",
+      "at": {
+        "lat": 43.53628617953045,
+        "lon": -5.645500874576421
+      },
+      "pin": {
+        "lat": 43.5385136,
+        "lon": -5.6436203
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-viewpoint-node9833796619",
+      "frac": 0.9958352815413626,
+      "kind": "waypoint",
+      "label": "Unnamed",
+      "icon": "eye",
+      "at": {
+        "lat": 43.545035,
+        "lon": -5.66163
+      },
+      "pin": {
+        "lat": 43.5458228,
+        "lon": -5.6600775
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-town-node529391484",
+      "frac": 0.999518133569114,
       "kind": "waypoint",
       "label": "Gijón",
       "icon": "house.lodge",
       "at": {
-        "lat": 43.545083,
-        "lon": -5.662954
+        "lat": 43.5450990777039,
+        "lon": -5.662777145257099
       },
       "pin": {
-        "lat": 43.545,
-        "lon": -5.663
+        "lat": 43.5449422,
+        "lon": -5.66275
       },
       "names": {
-        "ast": "Xixón"
+        "ar": "خيخون",
+        "ast": "Xixón",
+        "br": "Xixón",
+        "ca": "Gijón",
+        "el": "Χιχόν",
+        "es": "Gijón",
+        "et": "Gijón",
+        "eu": "Gijón",
+        "fi": "Gijón",
+        "fr": "Gijon",
+        "gl": "Xixón",
+        "ko": "히혼",
+        "ml": "ഖീഖോൻ",
+        "ru": "Хихон",
+        "sr": "Хихон",
+        "uk": "Хіхон"
       }
     }
   ],
@@ -1507,26 +1879,26 @@
       "offLineMeters": 85.7
     },
     {
-      "id": "wp-osm-medical-node449681635",
-      "kind": "medical",
-      "name": "Farmacia Villazón",
+      "id": "wp-osm-food-node13960538803",
+      "kind": "food",
+      "name": "La Carboneria",
       "at": {
-        "lat": 43.481156,
-        "lon": -5.434159
+        "lat": 43.482021,
+        "lon": -5.434037
       },
-      "frac": 0.006761951337721507,
-      "offLineMeters": 21.8
+      "frac": 0.005232688259056053,
+      "offLineMeters": 63.3
     },
     {
-      "id": "wp-osm-accommodation-node3677474612",
-      "kind": "bed",
-      "name": "Albergue de Villaviciosa",
+      "id": "wp-osm-supply-node5901608490",
+      "kind": "supply",
+      "name": "Heladería los Valencianos",
       "at": {
-        "lat": 43.481461,
-        "lon": -5.434741
+        "lat": 43.481143,
+        "lon": -5.43392
       },
-      "frac": 0.007555906674156203,
-      "offLineMeters": 29.7
+      "frac": 0.0061833211614175905,
+      "offLineMeters": 30.5
     },
     {
       "id": "wp-osm-water_source-node5901608489",
@@ -1683,17 +2055,6 @@
       "offLineMeters": 114.8
     },
     {
-      "id": "wp-osm-water_source-node6648090992",
-      "kind": "water",
-      "name": "Drinking Water",
-      "at": {
-        "lat": 43.466379,
-        "lon": -5.445595
-      },
-      "frac": 0.0826414293099068,
-      "offLineMeters": 10.6
-    },
-    {
       "id": "wp-osm-food-node8463094190",
       "kind": "food",
       "name": "Casa Aurelia",
@@ -1703,17 +2064,6 @@
       },
       "frac": 0.09173849602783368,
       "offLineMeters": 12.1
-    },
-    {
-      "id": "wp-osm-water_source-node6648090993",
-      "kind": "water",
-      "name": "Unnamed",
-      "at": {
-        "lat": 43.465316,
-        "lon": -5.451359
-      },
-      "frac": 0.09983764585029904,
-      "offLineMeters": 0.2
     },
     {
       "id": "wp-osm-water_source-node3677482435",
@@ -1914,17 +2264,6 @@
       "offLineMeters": 255.3
     },
     {
-      "id": "wp-osm-supply-node13206819277",
-      "kind": "supply",
-      "name": "Unnamed",
-      "at": {
-        "lat": 43.528553,
-        "lon": -5.614321
-      },
-      "frac": 0.8352765516323313,
-      "offLineMeters": 16.4
-    },
-    {
       "id": "wp-osm-transport-node240972086",
       "kind": "transport",
       "name": "Museo Evaristo Valle",
@@ -1945,6 +2284,17 @@
       },
       "frac": 0.864742927435632,
       "offLineMeters": 43.6
+    },
+    {
+      "id": "wp-osm-transport-node4955485772",
+      "kind": "transport",
+      "name": "La Corolla",
+      "at": {
+        "lat": 43.536539,
+        "lon": -5.620344
+      },
+      "frac": 0.8659455764390755,
+      "offLineMeters": 294.7
     },
     {
       "id": "wp-osm-food-node1651873466",
@@ -2015,7 +2365,7 @@
     {
       "id": "wp-osm-transport-node1279858118",
       "kind": "transport",
-      "name": "Campu La Guía",
+      "name": "La Guía",
       "at": {
         "lat": 43.533517,
         "lon": -5.632618
@@ -2132,6 +2482,28 @@
       },
       "frac": 0.9117798683849813,
       "offLineMeters": 5.4
+    },
+    {
+      "id": "wp-osm-water_source-node14130629255",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 43.536853,
+        "lon": -5.636436
+      },
+      "frac": 0.9138763826851213,
+      "offLineMeters": 297.1
+    },
+    {
+      "id": "wp-osm-food-node14041321102",
+      "kind": "food",
+      "name": "Mesón Pulpería Tierras Gallegas",
+      "at": {
+        "lat": 43.536,
+        "lon": -5.636638
+      },
+      "frac": 0.9141716759497689,
+      "offLineMeters": 201.2
     },
     {
       "id": "wp-osm-transport-node315489452",
@@ -2310,6 +2682,17 @@
       "offLineMeters": 164.4
     },
     {
+      "id": "wp-osm-transport-node1769002588",
+      "kind": "transport",
+      "name": "Avenida de Castilla",
+      "at": {
+        "lat": 43.538928,
+        "lon": -5.645444
+      },
+      "frac": 0.9442467739310727,
+      "offLineMeters": 253
+    },
+    {
       "id": "wp-osm-transport-node500056812",
       "kind": "transport",
       "name": "Parque Las Cocheras",
@@ -2396,6 +2779,28 @@
       },
       "frac": 0.9485512102475718,
       "offLineMeters": 152.8
+    },
+    {
+      "id": "wp-osm-food-node14014085002",
+      "kind": "food",
+      "name": "La Casa del Fideo Ran (Ramen de China)",
+      "at": {
+        "lat": 43.539823,
+        "lon": -5.646681
+      },
+      "frac": 0.9488426375011995,
+      "offLineMeters": 285.8
+    },
+    {
+      "id": "wp-osm-food-node13928140901",
+      "kind": "food",
+      "name": "Terra Angels",
+      "at": {
+        "lat": 43.539048,
+        "lon": -5.647465
+      },
+      "frac": 0.9491402787558129,
+      "offLineMeters": 179.3
     },
     {
       "id": "wp-osm-food-node13022691106",
@@ -2629,6 +3034,17 @@
       "offLineMeters": 107.9
     },
     {
+      "id": "wp-osm-food-node13031096802",
+      "kind": "food",
+      "name": "Pasiones vegan bar",
+      "at": {
+        "lat": 43.540005,
+        "lon": -5.652404
+      },
+      "frac": 0.9623949356069377,
+      "offLineMeters": 62.3
+    },
+    {
       "id": "wp-osm-food-node10606688463",
       "kind": "food",
       "name": "Tiffanyss",
@@ -2660,17 +3076,6 @@
       },
       "frac": 0.9639310217020259,
       "offLineMeters": 118.4
-    },
-    {
-      "id": "wp-osm-transport-node483573988",
-      "kind": "transport",
-      "name": "La Playa",
-      "at": {
-        "lat": 43.538992,
-        "lon": -5.654251
-      },
-      "frac": 0.9646818348455628,
-      "offLineMeters": 111.6
     },
     {
       "id": "wp-osm-food-node5805357354",
@@ -2730,7 +3135,7 @@
     {
       "id": "wp-osm-food-node5901631392",
       "kind": "food",
-      "name": "Per tutti",
+      "name": "Drink Planet",
       "at": {
         "lat": 43.540643,
         "lon": -5.655702
@@ -2783,15 +3188,15 @@
       "offLineMeters": 10.1
     },
     {
-      "id": "wp-osm-transport-node1029794564",
-      "kind": "transport",
-      "name": "Cura Sama",
+      "id": "wp-osm-food-node3423544328",
+      "kind": "food",
+      "name": "Sidrería Puente Romano",
       "at": {
-        "lat": 43.540311,
-        "lon": -5.657209
+        "lat": 43.540343,
+        "lon": -5.657046
       },
-      "frac": 0.9747193486665088,
-      "offLineMeters": 99.4
+      "frac": 0.9743522187991625,
+      "offLineMeters": 91.3
     },
     {
       "id": "wp-osm-food-node3423544304",
@@ -2816,6 +3221,28 @@
       "offLineMeters": 237.1
     },
     {
+      "id": "wp-osm-food-node3423544326",
+      "kind": "food",
+      "name": "Sidrería Román",
+      "at": {
+        "lat": 43.540468,
+        "lon": -5.657665
+      },
+      "frac": 0.9757041945414603,
+      "offLineMeters": 96.9
+    },
+    {
+      "id": "wp-osm-medical-node3423544310",
+      "kind": "medical",
+      "name": "Farmacia Toraño",
+      "at": {
+        "lat": 43.53946,
+        "lon": -5.659532
+      },
+      "frac": 0.9757041945414603,
+      "offLineMeters": 278.1
+    },
+    {
       "id": "wp-osm-transport-node1239288290",
       "kind": "transport",
       "name": "La Plazuela",
@@ -2838,17 +3265,6 @@
       "offLineMeters": 7.8
     },
     {
-      "id": "wp-osm-food-node4709038830",
-      "kind": "food",
-      "name": "Biba",
-      "at": {
-        "lat": 43.540581,
-        "lon": -5.658383
-      },
-      "frac": 0.9774715230508926,
-      "offLineMeters": 125.8
-    },
-    {
       "id": "wp-osm-food-node9931403101",
       "kind": "food",
       "name": "Vacvno",
@@ -2869,6 +3285,17 @@
       },
       "frac": 0.9784257400216919,
       "offLineMeters": 11.1
+    },
+    {
+      "id": "wp-osm-food-node3423544308",
+      "kind": "food",
+      "name": "Restaurante Magnifico",
+      "at": {
+        "lat": 43.540923,
+        "lon": -5.658507
+      },
+      "frac": 0.9784270594090562,
+      "offLineMeters": 98.7
     },
     {
       "id": "wp-osm-food-node5879655308",
@@ -2904,6 +3331,17 @@
       "offLineMeters": 253.1
     },
     {
+      "id": "wp-osm-supply-node14113751178",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 43.540987,
+        "lon": -5.659587
+      },
+      "frac": 0.9810369918496591,
+      "offLineMeters": 138.5
+    },
+    {
       "id": "wp-osm-food-node4610708889",
       "kind": "food",
       "name": "La posada del mar",
@@ -2915,15 +3353,15 @@
       "offLineMeters": 39.7
     },
     {
-      "id": "wp-osm-food-node7623507985",
+      "id": "wp-osm-food-node3475327964",
       "kind": "food",
       "name": "Cafés Caso",
       "at": {
-        "lat": 43.540746,
-        "lon": -5.660611
+        "lat": 43.540774,
+        "lon": -5.660656
       },
-      "frac": 0.9829165153141292,
-      "offLineMeters": 204.8
+      "frac": 0.9830762463979364,
+      "offLineMeters": 204
     },
     {
       "id": "wp-osm-food-node10591635605",
@@ -2970,17 +3408,6 @@
       "offLineMeters": 43.3
     },
     {
-      "id": "wp-osm-supply-node13175157901",
-      "kind": "supply",
-      "name": "Unnamed",
-      "at": {
-        "lat": 43.541312,
-        "lon": -5.662741
-      },
-      "frac": 0.9876006932106557,
-      "offLineMeters": 261.7
-    },
-    {
       "id": "wp-osm-medical-node1077898047",
       "kind": "medical",
       "name": "Farmacia Carrocera",
@@ -2990,6 +3417,17 @@
       },
       "frac": 0.9877540254336514,
       "offLineMeters": 134.3
+    },
+    {
+      "id": "wp-osm-medical-node7617718286",
+      "kind": "medical",
+      "name": "Miren Amaia Garitano Elgueta",
+      "at": {
+        "lat": 43.541239,
+        "lon": -5.663308
+      },
+      "frac": 0.9885837028501726,
+      "offLineMeters": 297.6
     },
     {
       "id": "wp-osm-water_source-node2975082785",
@@ -3111,17 +3549,6 @@
       },
       "frac": 0.9991540741093186,
       "offLineMeters": 67.9
-    },
-    {
-      "id": "wp-osm-food-node1167242276",
-      "kind": "food",
-      "name": "Sidreria El Centenario",
-      "at": {
-        "lat": 43.545178,
-        "lon": -5.662885
-      },
-      "frac": 0.999770372499032,
-      "offLineMeters": 9.8
     }
   ],
   "stage": {

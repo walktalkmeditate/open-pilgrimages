@@ -904,18 +904,121 @@
   "theirActiveSeconds": 19800,
   "moments": [
     {
-      "id": "stage-start",
+      "id": "wp-osm-town-node68651691",
       "frac": 0,
       "kind": "waypoint",
-      "label": "Gernika-Lumo",
+      "label": "Guernica",
       "icon": "house.lodge",
       "at": {
         "lat": 43.314948,
         "lon": -2.678603
       },
       "pin": {
-        "lat": 43.3144,
-        "lon": -2.6779
+        "lat": 43.3143976,
+        "lon": -2.6778593
+      },
+      "names": {
+        "ar": "غيرنايكا-لومو",
+        "ast": "Guernica y Luno",
+        "ca": "Guernica",
+        "cs": "Guernica",
+        "cy": "Gernika",
+        "da": "Guernica",
+        "de": "Gernika",
+        "eo": "Gerniko",
+        "es": "Guernica y Luno",
+        "eu": "Gernika",
+        "fi": "Guernica",
+        "fr": "Guernica",
+        "ga": "Gernika",
+        "he": "גרניקה",
+        "it": "Guernica",
+        "ja": "ゲルニカ",
+        "ko": "게르니카-루모",
+        "lv": "Gernika",
+        "ms": "Guernica",
+        "nl": "Guernica",
+        "nn": "Guernica",
+        "no": "Gernika",
+        "pl": "Guernica",
+        "pt": "Guernica e Luno",
+        "ro": "Guernica",
+        "ru": "Герника",
+        "sr": "Герника",
+        "sv": "Guernica",
+        "uk": "Герніка-Лумо",
+        "zh": "格爾尼卡"
+      }
+    },
+    {
+      "id": "wp-osm-town-node3481646622",
+      "frac": 0.3971358815012963,
+      "kind": "waypoint",
+      "label": "Landotz",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.293549,
+        "lon": -2.737129
+      },
+      "pin": {
+        "lat": 43.2935446,
+        "lon": -2.7370673
+      }
+    },
+    {
+      "id": "wp-osm-town-node3448163979",
+      "frac": 0.4830633920952356,
+      "kind": "waypoint",
+      "label": "Eskerika",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.284973,
+        "lon": -2.741751
+      },
+      "pin": {
+        "lat": 43.2865293,
+        "lon": -2.7412527
+      },
+      "names": {
+        "eu": "Eskerika"
+      }
+    },
+    {
+      "id": "wp-osm-town-node3481661890",
+      "frac": 0.7890812524625537,
+      "kind": "waypoint",
+      "label": "Goikolea",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.266068629528334,
+        "lon": -2.790004785147822
+      },
+      "pin": {
+        "lat": 43.2662211,
+        "lon": -2.7900409
+      },
+      "names": {
+        "eu": "Goikolea"
+      }
+    },
+    {
+      "id": "wp-osm-town-node264464335",
+      "frac": 0.8289540697290885,
+      "kind": "waypoint",
+      "label": "Larrabetzu",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.26158708688424,
+        "lon": -2.796101459589831
+      },
+      "pin": {
+        "lat": 43.2612471,
+        "lon": -2.7959022
+      },
+      "names": {
+        "es": "Larrabezúa",
+        "eu": "Larrabetzu",
+        "fr": "Larrabetzu"
       }
     },
     {
@@ -945,17 +1048,6 @@
       },
       "frac": 0,
       "offLineMeters": 197.3
-    },
-    {
-      "id": "wp-osm-water_source-node1813851686",
-      "kind": "water",
-      "name": "Unnamed",
-      "at": {
-        "lat": 43.314414,
-        "lon": -2.677752
-      },
-      "frac": 0,
-      "offLineMeters": 90.9
     },
     {
       "id": "wp-osm-water_source-node2278920931",
@@ -1323,7 +1415,7 @@
     {
       "id": "wp-osm-accommodation-node7589779710",
       "kind": "bed",
-      "name": "Pozueta baserria",
+      "name": "Albergue Caserío Pozueta",
       "at": {
         "lat": 43.302929,
         "lon": -2.725808
@@ -1341,17 +1433,6 @@
       },
       "frac": 0.35391181123390986,
       "offLineMeters": 11.4
-    },
-    {
-      "id": "wp-osm-accommodation-node9690567217",
-      "kind": "bed",
-      "name": "Albergue Gerekiz",
-      "at": {
-        "lat": 43.299617,
-        "lon": -2.739172
-      },
-      "frac": 0.3574500560782357,
-      "offLineMeters": 28.2
     },
     {
       "id": "wp-osm-water_source-node9792759117",
@@ -1385,17 +1466,6 @@
       },
       "frac": 0.7681665369668017,
       "offLineMeters": 0.3
-    },
-    {
-      "id": "wp-osm-transport-node5763688195",
-      "kind": "transport",
-      "name": "Goikola",
-      "at": {
-        "lat": 43.265896,
-        "lon": -2.790072
-      },
-      "frac": 0.7895198875295294,
-      "offLineMeters": 18
     },
     {
       "id": "wp-osm-transport-node5763688194",
@@ -1442,15 +1512,15 @@
       "offLineMeters": 85.8
     },
     {
-      "id": "wp-osm-accommodation-node4949285366",
-      "kind": "bed",
-      "name": "Larrabetzuko erromesen aterpetxea",
+      "id": "wp-osm-transport-node5955612312",
+      "kind": "transport",
+      "name": "Larrabetzu",
       "at": {
-        "lat": 43.261434,
-        "lon": -2.796313
+        "lat": 43.26165,
+        "lon": -2.796275
       },
-      "frac": 0.8324033704521954,
-      "offLineMeters": 9.2
+      "frac": 0.8313892660963562,
+      "offLineMeters": 1.3
     },
     {
       "id": "wp-osm-food-node3664061664",
