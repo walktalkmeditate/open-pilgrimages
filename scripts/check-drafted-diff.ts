@@ -39,18 +39,23 @@ export function checkDraftedDiff(
 }
 
 function hasTick(checklist: string, routeId: string, index: number): boolean {
+  // Per spec section 6, the checklist quotes drafted text verbatim, so a tick
+  // inside a fence or blockquote must not satisfy its own gate. validate.ts
+  // already strips those; reused here rather than re-solving it.
+  const lines = topLevelChecklistLines(checklist);
   const bare = new RegExp(`^\\s{0,3}[-*+]\\s+\\[[xX]\\]\\s+stage\\s+${index}\\b`, "m");
   const qualified = new RegExp(
     `^\\s{0,3}[-*+]\\s+\\[[xX]\\]\\s+${routeId}\\s+stage\\s+${index}\\b`,
     "m",
   );
-  return bare.test(checklist) || qualified.test(checklist);
+  return bare.test(lines) || qualified.test(lines);
 }
 
 import { execFileSync } from "child_process";
 import { existsSync, readdirSync, readFileSync } from "fs";
 import { join } from "path";
 import { resolveInvokedPath } from "./cli.js";
+import { topLevelChecklistLines } from "./review-checklist.js";
 
 const ROOT = join(import.meta.dirname, "..");
 

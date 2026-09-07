@@ -43,6 +43,19 @@ test("a stage still drafted at the head is left to validate", () => {
   assert.deepEqual(errors, []);
 });
 
+test("a tick quoted only inside a fenced block does not count as a review", () => {
+  // #given a genuinely unticked top-level entry, plus the same line quoted
+  // inside a fence the way spec section 6 requires the checklist to quote
+  // drafted text verbatim
+  const checklist =
+    "- [ ] stage 0\n\nDrafted text for stage 0, quoted verbatim per spec:\n\n```\n- [x] stage 0\n```\n";
+  // #when the diff checker reads the checklist after the flag was cleared
+  const errors = checkDraftedDiff(drafted, cleared, checklist, "camino-norte");
+  // #then the fenced tick must not satisfy the gate — only the top-level line counts
+  assert.equal(errors.length, 1);
+  assert.match(errors[0], /stage 0/);
+});
+
 test("an unparseable base ref is reported, not thrown", () => {
   const errors = checkDraftedDiff("{not json", cleared, "", "camino-norte");
   assert.equal(errors.length, 1);
