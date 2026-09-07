@@ -51,6 +51,12 @@ export interface RouteWaysResult {
   emitted: boolean;
 }
 
+function largerOffLine(a: number | undefined, b: number | undefined): number | undefined {
+  if (a === undefined) return b;
+  if (b === undefined) return a;
+  return Math.max(a, b);
+}
+
 export function buildRouteWays(input: RouteWaysInput): RouteWaysResult {
   const { routeId, stages } = input;
 
@@ -116,7 +122,17 @@ export function buildRouteWays(input: RouteWaysInput): RouteWaysResult {
   // Both arrays are built from the same walk over the stages, so the anchor at
   // position i and the declaration at position i are always the same place's.
   const anchors: Position[] = input.stages.map((s) => s.start.coordinates);
-  const offLine: Array<number | undefined> = input.stages.map((s) => s.start.offLineMeters);
+  // A mid-route boundary's anchor is a stage's `start`, but the same place is
+  // also the previous stage's `end` — stages.json happens to write the
+  // declaration on both sides of every pair today, but nothing requires that,
+  // and reading only `start` would silently drop one written solely on the
+  // earlier stage's `end`. The two describe one physical distance, so a
+  // disagreement between them is imprecision, not a conflict to fail the
+  // build over; take the larger, since raising the radius can only admit a
+  // vertex neither side's own figure would have refused on its own.
+  const offLine: Array<number | undefined> = input.stages.map((stage, i) =>
+    largerOffLine(stage.start.offLineMeters, i > 0 ? input.stages[i - 1].end.offLineMeters : undefined),
+  );
   const lastStage = input.stages[input.stages.length - 1];
   anchors.push(lastStage.end.coordinates);
   offLine.push(lastStage.end.offLineMeters);

@@ -523,6 +523,81 @@ test("coverage counts the route's stages, not the ones that survived the cut", (
   assert.equal(result.report.places.halfOfStages, 2);
 });
 
+test("a stage's declared offLineMeters reaches stageBoundaries through build-ways, not just geo.ts's own unit test", () => {
+  // The middle anchor sits ~4.4 km off the fixture line — the shape a
+  // declaring anchor takes — and declares that figure on its own `start`.
+  // geo.test.ts already pins stageBoundaries' half of this; this test pins
+  // that build-ways.ts actually threads stages.json's declaration through to
+  // it. Strip the wiring at build-ways.ts:118-122 and this anchor loses its
+  // declaration on the way in, falls back to the 500 m default radius, and
+  // mode flips to "proportional" — a change geo.test.ts cannot see because it
+  // calls stageBoundaries directly.
+  const stages: DatasetStage[] = [
+    {
+      index: 0,
+      name: { en: "Start to Ferry Landing" },
+      start: { name: { en: "Start Town" }, coordinates: [0, 0] },
+      end: { name: { en: "Ferry Landing" }, coordinates: [0.02, -0.04] },
+      distanceKm: 1.1,
+    },
+    {
+      index: 1,
+      name: { en: "Ferry Landing to Bend" },
+      start: { name: { en: "Ferry Landing" }, coordinates: [0.02, -0.04], offLineMeters: 4448 },
+      end: { name: { en: "Bend" }, coordinates: [0.02, 0.01] },
+      distanceKm: 2.2,
+    },
+    {
+      index: 2,
+      name: { en: "Bend to End Town" },
+      start: { name: { en: "Bend" }, coordinates: [0.02, 0.01] },
+      end: { name: { en: "End Town" }, coordinates: [0.02, 0.02] },
+      distanceKm: 1.1,
+    },
+  ];
+
+  const result = build({ stages });
+
+  assert.equal(result.report.stages.find((s) => s.index === 1)?.boundaryMode, "snap");
+});
+
+test("a declaration written only on the earlier stage's end still lifts the boundary between them", () => {
+  // Same anchor and figure as the wiring test above, but the declaration
+  // moves to stage 0's `end` instead of stage 1's `start` — the other side of
+  // the same seam. stages.json happens to write both sides for every
+  // declaring pair today, but nothing requires that; a boundary must take the
+  // declaration from either anchor of the pair it sits between; otherwise a
+  // declaration written only on a non-final `end` is dropped and this anchor
+  // falls back to "proportional" with no signal that anything changed.
+  const stages: DatasetStage[] = [
+    {
+      index: 0,
+      name: { en: "Start to Ferry Landing" },
+      start: { name: { en: "Start Town" }, coordinates: [0, 0] },
+      end: { name: { en: "Ferry Landing" }, coordinates: [0.02, -0.04], offLineMeters: 4448 },
+      distanceKm: 1.1,
+    },
+    {
+      index: 1,
+      name: { en: "Ferry Landing to Bend" },
+      start: { name: { en: "Ferry Landing" }, coordinates: [0.02, -0.04] },
+      end: { name: { en: "Bend" }, coordinates: [0.02, 0.01] },
+      distanceKm: 2.2,
+    },
+    {
+      index: 2,
+      name: { en: "Bend to End Town" },
+      start: { name: { en: "Bend" }, coordinates: [0.02, 0.01] },
+      end: { name: { en: "End Town" }, coordinates: [0.02, 0.02] },
+      distanceKm: 1.1,
+    },
+  ];
+
+  const result = build({ stages });
+
+  assert.equal(result.report.stages.find((s) => s.index === 1)?.boundaryMode, "snap");
+});
+
 test("a stalled stage is skipped alone; its neighbor still cuts and reports", () => {
   const result = build({
     stages: [
