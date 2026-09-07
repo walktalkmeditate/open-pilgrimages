@@ -19,12 +19,16 @@ The Route Points column counts `route.geojson` only. `route.main.geojson`, where
 | [Camino Portugués da Costa (Coastal)](routes/camino-portugues/variants/coastal/) | 110 km | Linear | Christian | 5,546 | 1,043 | 23 years (2003-2025) |
 | [Camino Inglés](routes/camino-ingles/) | 112 km | Linear | Christian | 4,823 | 482 | 23 years (2003-2025) |
 
+The Camino Portugués da Costa entry above covers the Portuguese section (Porto → Caminha ferry → A Guarda); the Spanish continuation through Oia/Baiona/Vigo/Redondela is planned for a future release. The Camino Inglés also ships an A Coruña start variant stub, and the Camino Portugués ships Espiritual and Lisboa variant stubs — each with metadata only, full geometry/stages planned for future releases.
+
+### Other Routes
+
+Routes that belong to no pilgrimage grouping yet.
+
 | Route | Distance | Topology | Tradition | Route Points | Waypoints | Stats |
 |-------|----------|----------|-----------|-------------|-----------|-------|
 | [Shikoku 88](routes/shikoku-88/) | 1,200 km | Circular | Buddhist | 49,097 | 2,980 | 21 years (2005-2025) |
 | [Kumano Kodo](routes/kumano-kodo/) | 39-170 km | Network | Shinto/Buddhist | 6,847 | 157 | 22 years (2003-2024) |
-
-The Camino Portugués da Costa entry above covers the Portuguese section (Porto → Caminha ferry → A Guarda); the Spanish continuation through Oia/Baiona/Vigo/Redondela is planned for a future release. The Camino Inglés also ships an A Coruña start variant stub, and the Camino Portugués ships Espiritual and Lisboa variant stubs — each with metadata only, full geometry/stages planned for future releases.
 
 ### Three Layers of Data
 
