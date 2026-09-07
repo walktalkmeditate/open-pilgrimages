@@ -492,8 +492,29 @@ export function validatePilgrimages(root: string, dirs: string[], errors: Valida
 
 interface ChainStage {
   index: number;
-  start: { name: { en: string }; coordinates: [number, number] };
-  end: { name: { en: string }; coordinates: [number, number] };
+  start?: { name?: { en?: string }; coordinates?: number[] };
+  end?: { name?: { en?: string }; coordinates?: number[] };
+}
+
+/** Where a section begins or ends: the one place and point the chain compares. */
+interface ChainEnd {
+  name: string;
+  coordinates: Position;
+}
+
+/**
+ * A stage that already failed its schema still reaches the chain, because
+ * main() collects errors rather than exiting and the cast above hides the
+ * half-written stage from tsc. Both the distance and the message it would
+ * print need the anchor whole, so an anchor missing either half is reported
+ * rather than dereferenced.
+ */
+function chainEnd(stage: ChainStage | undefined, side: "start" | "end"): ChainEnd | undefined {
+  const anchor = stage?.[side];
+  const coordinates = anchor?.coordinates;
+  if (typeof anchor?.name?.en !== "string") return undefined;
+  if (!Array.isArray(coordinates) || coordinates.length < 2) return undefined;
+  return { name: anchor.name.en, coordinates: coordinates as Position };
 }
 
 /**
@@ -569,7 +590,21 @@ export function validateSectionChain(root: string, dirs: string[], errors: Valid
         return { section, first: undefined, last: undefined };
       }
       const sorted = [...stages].sort((a, b) => a.index - b.index);
-      return { section, first: sorted[0], last: sorted[sorted.length - 1] };
+      const first = chainEnd(sorted[0], "start");
+      const last = chainEnd(sorted[sorted.length - 1], "end");
+      if (!first || !last) {
+        const side = first ? "end" : "start";
+        const stage = first ? sorted[sorted.length - 1] : sorted[0];
+        errors.push({
+          file: relative(root, stagesPath),
+          message:
+            `section "${section.routeId}" stage ${stage.index} has no usable ${side} anchor ` +
+            `(a name.en and coordinates), so the chain cannot be checked through it`,
+          severity: "error",
+        });
+        return { section, first: undefined, last: undefined };
+      }
+      return { section, first, last };
     });
 
     for (let i = 0; i < ends.length - 1; i++) {
@@ -580,13 +615,13 @@ export function validateSectionChain(root: string, dirs: string[], errors: Valid
       // between them as a gap that nobody's data claims.
       if (!from.last || !to.first) continue;
 
-      const gap = haversineMeters(from.last.end.coordinates, to.first.start.coordinates);
+      const gap = haversineMeters(from.last.coordinates, to.first.coordinates);
       if (gap > SNAP_METERS) {
         errors.push({
           file: relative(root, from.section.dir),
           message:
-            `section "${from.section.routeId}" ends at "${from.last.end.name.en}" but ` +
-            `"${to.section.routeId}" begins at "${to.first.start.name.en}", ${Math.round(gap)} m away`,
+            `section "${from.section.routeId}" ends at "${from.last.name}" but ` +
+            `"${to.section.routeId}" begins at "${to.first.name}", ${Math.round(gap)} m away`,
           severity: "error",
         });
       }
@@ -596,13 +631,13 @@ export function validateSectionChain(root: string, dirs: string[], errors: Valid
     const closes = ends[ends.length - 1]?.last;
     const opens = ends[0]?.first;
     if (closes && opens && ends.every((e) => e.section.circular)) {
-      const closing = haversineMeters(closes.end.coordinates, opens.start.coordinates);
+      const closing = haversineMeters(closes.coordinates, opens.coordinates);
       if (closing > SNAP_METERS) {
         errors.push({
           file: relative(root, ends[0].section.dir),
           message:
-            `the circuit does not close: "${closes.end.name.en}" is ` +
-            `${Math.round(closing)} m from "${opens.start.name.en}"`,
+            `the circuit does not close: "${closes.name}" is ` +
+            `${Math.round(closing)} m from "${opens.name}"`,
           severity: "error",
         });
       }

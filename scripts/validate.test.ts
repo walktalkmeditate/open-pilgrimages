@@ -1252,3 +1252,57 @@ test("a stages.json that is not JSON does not kill the drafted-text gate", () =>
     rmSync(root, { recursive: true, force: true });
   }
 });
+
+test("a stage with no end anchor is a named error, not a TypeError", () => {
+  const root = mkdtempSync(join(tmpdir(), "validate-chain-test-"));
+  try {
+    // #given a stages.json that already failed its schema — main() collects
+    // errors rather than exiting, so the half-written stage still arrives here
+    const a = sectionWithStages(root, "awa", legs(1), [
+      { index: 0, name: "d1", start: { name: { en: "T1" }, coordinates: [0, 0] }, end: { name: { en: "T23" }, coordinates: [0.1, 0] }, distanceKm: 11 },
+    ]);
+    const iyo = sectionWithStages(root, "iyo", legs(2), [
+      { index: 0, name: "d1", start: { name: { en: "T40" }, coordinates: [0.2, 0] }, distanceKm: 11 },
+    ]);
+    const c = sectionWithStages(root, "sanuki", legs(3), [
+      { index: 0, name: "d1", start: { name: { en: "T66" }, coordinates: [0.5, 0] }, end: { name: { en: "T88" }, coordinates: [0.6, 0] }, distanceKm: 11 },
+    ]);
+
+    // #when the chain is checked
+    const errors: ValidationError[] = [];
+    validateSectionChain(root, [a, iyo, c], errors);
+
+    // #then the anchorless stage is named, and no gap is fabricated across it
+    assert.equal(errors.length, 1);
+    assert.match(errors[0].file, /iyo[/\\]stages\.json/);
+    assert.match(errors[0].message, /iyo/);
+    assert.match(errors[0].message, /stage 0/);
+    assert.doesNotMatch(errors[0].message, /m away/);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("an anchor with coordinates but no name is a named error too", () => {
+  const root = mkdtempSync(join(tmpdir(), "validate-chain-test-"));
+  try {
+    // #given the message the chain would print interpolates both place names,
+    // so an anchor with no name.en has nothing to report a gap with
+    const a = sectionWithStages(root, "awa", legs(1), [
+      { index: 0, name: "d1", start: { name: { en: "T1" }, coordinates: [0, 0] }, end: { coordinates: [0.1, 0] }, distanceKm: 11 },
+    ]);
+    const b = sectionWithStages(root, "tosa", legs(2), [
+      { index: 0, name: "d1", start: { name: { en: "T24" }, coordinates: [0.5, 0] }, end: { name: { en: "T39" }, coordinates: [0.6, 0] }, distanceKm: 11 },
+    ]);
+
+    const errors: ValidationError[] = [];
+    validateSectionChain(root, [a, b], errors);
+
+    assert.equal(errors.length, 1);
+    assert.match(errors[0].file, /awa[/\\]stages\.json/);
+    assert.match(errors[0].message, /stage 0/);
+    assert.doesNotMatch(errors[0].message, /undefined/);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
