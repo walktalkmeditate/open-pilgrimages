@@ -757,6 +757,53 @@ test("a malformed pilgrimage block does not silence the gap check for the rest",
   }
 });
 
+test("a section whose stages array is empty is a named error, not a crash", () => {
+  const root = mkdtempSync(join(tmpdir(), "validate-chain-test-"));
+  try {
+    // #given a newly cut section committed with no stages yet, between two
+    // sections that do chain
+    const a = sectionWithStages(root, "awa", legs(1), [
+      { index: 0, name: "d1", start: { name: { en: "T1" }, coordinates: [0, 0] }, end: { name: { en: "T23" }, coordinates: [0.1, 0] }, distanceKm: 11 },
+    ]);
+    const empty = sectionWithStages(root, "iyo", legs(2), []);
+    const c = sectionWithStages(root, "sanuki", legs(3), [
+      { index: 0, name: "d1", start: { name: { en: "T66" }, coordinates: [0.5, 0] }, end: { name: { en: "T88" }, coordinates: [0.6, 0] }, distanceKm: 11 },
+    ]);
+
+    // #when the chain is checked
+    const errors: ValidationError[] = [];
+    validateSectionChain(root, [a, empty, c], errors);
+
+    // #then the section with nothing to chain is named, and no gap is
+    // fabricated between the two sections it sits between
+    assert.equal(errors.length, 1);
+    assert.match(errors[0].file, /iyo[/\\]stages\.json/);
+    assert.match(errors[0].message, /iyo/);
+    assert.doesNotMatch(errors[0].message, /m away/);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("a stages.json with no stages array at all is the same named error", () => {
+  const root = mkdtempSync(join(tmpdir(), "validate-chain-test-"));
+  try {
+    // #given a stages.json that already failed its schema — main() collects
+    // errors rather than exiting, so it still reaches the chain check
+    const dir = sectionWithStages(root, "iyo", legs(1), []);
+    writeJson(join(dir, "stages.json"), { schemaVersion: "1.0.0", routeId: "iyo" });
+
+    const errors: ValidationError[] = [];
+    validateSectionChain(root, [dir], errors);
+
+    assert.equal(errors.length, 1);
+    assert.match(errors[0].file, /iyo[/\\]stages\.json/);
+    assert.match(errors[0].message, /iyo/);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
 test("a drafted stage cannot reach main", () => {
   const root = mkdtempSync(join(tmpdir(), "validate-drafted-test-"));
   try {

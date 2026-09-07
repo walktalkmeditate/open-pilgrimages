@@ -491,33 +491,55 @@ export function validateSectionChain(root: string, dirs: string[], errors: Valid
   for (const [, { routeIds }] of groupSections(declared.map(({ routeId, block }) => ({ routeId, block })))) {
     const ordered = routeIds.map((routeId) => declared.find((d) => d.routeId === routeId)!);
     const ends = ordered.map((section) => {
-      const stages = (loadJson(join(section.dir, "stages.json")) as { stages: ChainStage[] }).stages;
+      const stagesPath = join(section.dir, "stages.json");
+      const stages = (loadJson(stagesPath) as { stages?: ChainStage[] }).stages;
+      // main() collects errors rather than exiting, so a stages.json that
+      // already failed its schema still arrives here. Reading sorted[0] off
+      // it threw a bare TypeError naming no file, from the tool whose job is
+      // naming files.
+      if (!Array.isArray(stages) || stages.length === 0) {
+        errors.push({
+          file: relative(root, stagesPath),
+          message: `section "${section.routeId}" has no stages, so the chain cannot be checked through it`,
+          severity: "error",
+        });
+        return { section, first: undefined, last: undefined };
+      }
       const sorted = [...stages].sort((a, b) => a.index - b.index);
       return { section, first: sorted[0], last: sorted[sorted.length - 1] };
     });
 
     for (let i = 0; i < ends.length - 1; i++) {
-      const gap = haversineMeters(ends[i].last.end.coordinates, ends[i + 1].first.start.coordinates);
+      const from = ends[i];
+      const to = ends[i + 1];
+      // A section with no endpoints is not a seam. Measuring across it would
+      // compare two sections that are not adjacent and report the distance
+      // between them as a gap that nobody's data claims.
+      if (!from.last || !to.first) continue;
+
+      const gap = haversineMeters(from.last.end.coordinates, to.first.start.coordinates);
       if (gap > SNAP_METERS) {
         errors.push({
-          file: relative(root, ends[i].section.dir),
+          file: relative(root, from.section.dir),
           message:
-            `section "${ends[i].section.routeId}" ends at "${ends[i].last.end.name.en}" but ` +
-            `"${ends[i + 1].section.routeId}" begins at "${ends[i + 1].first.start.name.en}", ${Math.round(gap)} m away`,
+            `section "${from.section.routeId}" ends at "${from.last.end.name.en}" but ` +
+            `"${to.section.routeId}" begins at "${to.first.start.name.en}", ${Math.round(gap)} m away`,
           severity: "error",
         });
       }
     }
 
     // A circuit the route claims but never walks is the gap this catches.
-    if (ends.length > 0 && ends.every((e) => e.section.circular)) {
-      const closing = haversineMeters(ends[ends.length - 1].last.end.coordinates, ends[0].first.start.coordinates);
+    const closes = ends[ends.length - 1]?.last;
+    const opens = ends[0]?.first;
+    if (closes && opens && ends.every((e) => e.section.circular)) {
+      const closing = haversineMeters(closes.end.coordinates, opens.start.coordinates);
       if (closing > SNAP_METERS) {
         errors.push({
           file: relative(root, ends[0].section.dir),
           message:
-            `the circuit does not close: "${ends[ends.length - 1].last.end.name.en}" is ` +
-            `${Math.round(closing)} m from "${ends[0].first.start.name.en}"`,
+            `the circuit does not close: "${closes.end.name.en}" is ` +
+            `${Math.round(closing)} m from "${opens.start.name.en}"`,
           severity: "error",
         });
       }
