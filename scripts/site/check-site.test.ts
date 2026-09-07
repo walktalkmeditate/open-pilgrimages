@@ -2384,6 +2384,123 @@ test("the committed docs/ already has a page for every pilgrimage (positive cont
   );
 });
 
+// The `.route-group` wrapper in docs/routes.html and the "Part of the …"
+// backlink on each section page are both hand-edited, and eight more section
+// pages are on their way. An agent that forgets either one gets a green
+// check-site and a site where a section shows under the wrong heading, or
+// offers no way back up to its pilgrimage.
+
+/** A catalog with one card, wrapped in whatever grouping the test is about. */
+function catalogWith(body: string): string {
+  return `<html><body><div class="route-grid">\n${body}\n</div></body></html>`;
+}
+
+const AWA_CARD = '<div class="route-card" data-days="1"><h3><a href="/awa">Awa</a></h3></div>';
+
+test("the committed section pages already link back to their pilgrimage (positive control)", () => {
+  // #given the five Camino sections each carry a "Part of the Camino de
+  // Santiago" line, and each sits under the Camino group in the catalog
+  const problems = checkSite(ROOT);
+
+  // #then neither the backlink nor the grouping is reported for any of them
+  assert.deepEqual(
+    problems.filter(
+      (p) => p.message.includes("link back to its pilgrimage") || p.message.includes("route-group"),
+    ),
+    [],
+  );
+});
+
+test("a section page with no link back to its pilgrimage is a problem", () => {
+  // #given a section whose detail page never names its pilgrimage
+  const root = createFixtureRoot([{ id: "awa", pilgrimage: "shikoku-88" }], {
+    pilgrimages: [{ id: "shikoku-88", sections: ["awa"] }],
+  });
+  writeFileSync(join(root, "docs", "awa.html"), "<html><body><code>awa</code></body></html>");
+
+  try {
+    // #when / #then the missing way back up is reported against the page
+    const problems = checkSite(root, { routesHtml: catalogWith(AWA_CARD) });
+    assert.ok(
+      problems.some(
+        (p) => p.file === "docs/awa.html" && /link back to its pilgrimage/.test(p.message),
+      ),
+    );
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("a section card outside every route-group is a problem", () => {
+  // #given a section card sitting loose in the grid, under no heading
+  const root = createFixtureRoot([{ id: "awa", pilgrimage: "shikoku-88" }], {
+    pilgrimages: [{ id: "shikoku-88", sections: ["awa"] }],
+  });
+
+  try {
+    const problems = checkSite(root, { routesHtml: catalogWith(AWA_CARD) });
+    assert.ok(
+      problems.some(
+        (p) =>
+          p.file === "docs/routes.html" &&
+          /awa/.test(p.message) &&
+          /route-group/.test(p.message),
+      ),
+    );
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("a section card under another pilgrimage's heading is a problem", () => {
+  // #given awa's card filed under the Camino de Santiago group
+  const root = createFixtureRoot([{ id: "awa", pilgrimage: "shikoku-88" }], {
+    pilgrimages: [{ id: "shikoku-88", sections: ["awa"] }],
+  });
+
+  try {
+    const problems = checkSite(root, {
+      routesHtml: catalogWith(
+        `<div class="route-group">\n<h3><a href="/camino-de-santiago">Camino de Santiago</a></h3>\n${AWA_CARD}\n</div>`,
+      ),
+    });
+
+    // #then the group it is in and the one index.json names are both reported
+    assert.ok(
+      problems.some(
+        (p) =>
+          p.file === "docs/routes.html" &&
+          /camino-de-santiago/.test(p.message) &&
+          /shikoku-88/.test(p.message),
+      ),
+    );
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("a section card under its own pilgrimage's heading is not a problem", () => {
+  // #given the shape the catalog is supposed to have
+  const root = createFixtureRoot([{ id: "awa", pilgrimage: "shikoku-88" }], {
+    pilgrimages: [{ id: "shikoku-88", sections: ["awa"] }],
+  });
+
+  try {
+    const problems = checkSite(root, {
+      routesHtml: catalogWith(
+        `<div class="route-group">\n<h3><a href="/shikoku-88">Shikoku 88</a></h3>\n${AWA_CARD}\n</div>`,
+      ),
+    });
+
+    assert.deepEqual(
+      problems.filter((p) => p.message.includes("route-group")),
+      [],
+    );
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
 test("a pilgrimages field that is not an array fails loudly, not silently", () => {
   // #given an index.json whose pilgrimages[] is not a list at all
   const root = createFixtureRoot([{ id: "awa" }], { pilgrimages: "kumano-kodo" });

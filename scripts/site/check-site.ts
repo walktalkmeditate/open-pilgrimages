@@ -287,23 +287,73 @@ const ROUTE_FILTER_ATTRS: Array<[string, (overview: RouteFilterOverview) => stri
   ["data-best-months", (o) => (o.bestMonths === undefined ? undefined : o.bestMonths.join(","))],
 ];
 
+const CARD_OPEN = '<div class="route-card"';
+const GROUP_OPEN = '<div class="route-group"';
+
 /**
  * Finds the opening <div class="route-card" ...> tag for a given route id by
  * walking backward from its "/{id}" link, rather than a single regex over
  * the whole grid — cards are visually identical apart from their data-*
  * attributes, so nothing else reliably ties a tag back to one specific route.
  */
-function findRouteCardOpenTag(html: string, id: string): string | null {
+function findRouteCardIndex(html: string, id: string): number | null {
   const hrefIndex = html.indexOf(`href="/${id}"`);
   if (hrefIndex === -1) return null;
 
-  const cardOpenIndex = html.lastIndexOf('<div class="route-card"', hrefIndex);
-  if (cardOpenIndex === -1) return null;
+  const cardOpenIndex = html.lastIndexOf(CARD_OPEN, hrefIndex);
+  return cardOpenIndex === -1 ? null : cardOpenIndex;
+}
+
+function findRouteCardOpenTag(html: string, id: string): string | null {
+  const cardOpenIndex = findRouteCardIndex(html, id);
+  if (cardOpenIndex === null) return null;
 
   const tagEndIndex = html.indexOf(">", cardOpenIndex);
   if (tagEndIndex === -1) return null;
 
   return html.slice(cardOpenIndex, tagEndIndex + 1);
+}
+
+/**
+ * Where the `<div class="route-group">` opening at `start` closes. Nothing in
+ * the markup marks a group's own closing tag, so this counts div nesting
+ * forward from the opening one — the same "walk out from a known anchor"
+ * approach findRouteCardOpenTag takes, rather than a parser this repo has no
+ * reason to grow.
+ */
+function routeGroupEnd(html: string, start: number): number {
+  const divTags = /<div\b|<\/div>/g;
+  divTags.lastIndex = start;
+  let depth = 0;
+
+  for (let match = divTags.exec(html); match !== null; match = divTags.exec(html)) {
+    depth += match[0] === "</div>" ? -1 : 1;
+    if (depth === 0) return match.index;
+  }
+
+  return html.length;
+}
+
+/**
+ * The pilgrimage whose heading a card sits under, or null if it sits under
+ * none. The id is read from the group's heading link — the region before its
+ * first card, so a group whose heading is missing reads as ungrouped rather
+ * than borrowing the first card's own href.
+ */
+function pilgrimageGroupOf(html: string, cardIndex: number): string | null {
+  for (let start = html.indexOf(GROUP_OPEN); start !== -1; ) {
+    const end = routeGroupEnd(html, start);
+    if (cardIndex > start && cardIndex < end) {
+      const group = html.slice(start, end);
+      const firstCard = group.indexOf(CARD_OPEN);
+      const heading = group.slice(0, firstCard === -1 ? group.length : firstCard);
+      const link = heading.match(/href="\/([^"]+)"/);
+      return link ? link[1] : null;
+    }
+    start = html.indexOf(GROUP_OPEN, Math.max(end, start + 1));
+  }
+
+  return null;
 }
 
 function readDataAttr(openTag: string, attr: string): string | undefined {
@@ -855,6 +905,46 @@ export function checkSite(root: string, overrides: PageOverrides = {}): Problem[
   }
 
   /**
+   * A section's page and its card in the catalog both say which pilgrimage
+   * it belongs to, and both are hand-edited — the "Part of the …" line on
+   * the page, the `.route-group` wrapper in docs/routes.html. Neither was
+   * checked against index.json, so a section could ship under the wrong
+   * heading, or with no way back up to its pilgrimage at all, and every
+   * guard here would still be green.
+   */
+  function checkPilgrimageBacklink(id: string, pilgrimageId: string, detailHtml: string): void {
+    if (!detailHtml.includes(`href="/${pilgrimageId}"`)) {
+      add(
+        `docs/${id}.html`,
+        `section "${id}" has no link back to its pilgrimage — add a link to /${pilgrimageId}, ` +
+          `the way the Camino sections carry "Part of the Camino de Santiago"`,
+      );
+    }
+  }
+
+  function checkPilgrimageGrouping(id: string, pilgrimageId: string): void {
+    const cardIndex = findRouteCardIndex(routesHtml, id);
+    // No card at all is already reported by the catalog-link check above;
+    // saying it twice in different words helps nobody.
+    if (cardIndex === null) return;
+
+    const groupId = pilgrimageGroupOf(routesHtml, cardIndex);
+    if (groupId === null) {
+      add(
+        "docs/routes.html",
+        `section "${id}" card sits in no route-group — wrap it in pilgrimage "${pilgrimageId}"'s ` +
+          `<div class="route-group">, or the catalog shows it as belonging to nothing`,
+      );
+    } else if (groupId !== pilgrimageId) {
+      add(
+        "docs/routes.html",
+        `section "${id}" card sits in pilgrimage "${groupId}"'s route-group, but index.json says ` +
+          `it belongs to "${pilgrimageId}"`,
+      );
+    }
+  }
+
+  /**
    * schema/pilgrimage.schema.json allows difficulty "expert" as well as
    * easy/moderate/hard, but the filter's <select> only offered three of the
    * four — a schema-valid "expert" route would render its card with
@@ -1049,9 +1139,18 @@ export function checkSite(root: string, overrides: PageOverrides = {}): Problem[
     }
   }
 
+  const pilgrimageByRouteId = new Map(
+    indexRoutes.map((route) => [route.id, route.pilgrimage] as const),
+  );
+
   for (const id of ids) {
     if (!routesHtml.includes(`href="/${id}"`)) {
       add("docs/routes.html", `route "${id}" has no link to /${id} in the catalog`);
+    }
+
+    const pilgrimageId = pilgrimageByRouteId.get(id);
+    if (pilgrimageId !== undefined) {
+      checkPilgrimageGrouping(id, pilgrimageId);
     }
 
     if (!readmeMd.includes(`](routes/${id}/)`)) {
@@ -1083,6 +1182,9 @@ export function checkSite(root: string, overrides: PageOverrides = {}): Problem[
       checkInlinedAsset("sparklines", id, detailPages);
       checkInteriorJourney(id, detailHtml);
       checkRouteGpxLink(id, detailHtml);
+      if (pilgrimageId !== undefined) {
+        checkPilgrimageBacklink(id, pilgrimageId, detailHtml);
+      }
 
       // The coastal variant ships full geometry, a profile, and a sparkline of
       // its own, but has no detail page — its assets are inlined into the
