@@ -18,6 +18,7 @@ import {
   withinGate,
   RDP_TOLERANCE_METERS,
   MAX_ROUTE_POINTS,
+  SNAP_METERS,
 } from "./geo.js";
 import type { Position } from "./types.js";
 
@@ -106,6 +107,35 @@ test("stageBoundaries falls back to the declared-distance position for an anchor
   // vertex 10 (1112.2 m) — the last one at or before it.
   assert.equal(bounds[1].index, 10);
   assert.deepEqual([bounds[0].mode, bounds[2].mode, bounds[3].mode], ["snap", "snap", "snap"]);
+});
+
+test("an anchor that declares how far off the line it sits snaps instead of interpolating", () => {
+  const line = fixtureLine();
+  const cum = cumulativeMeters(line);
+  // One anchor, 4.4 km south of vertex 20, measured both ways. Undeclared it
+  // is indistinguishable from a mis-pinned coordinate, so it interpolates to
+  // vertex 10 — a position derived from the very declared distances the gate
+  // is there to check. Declared, it is a place the trail passes near, and its
+  // nearest vertex is where the walker's day actually turns.
+  const anchors: Position[] = [[0, 0], [0.02, -0.04], [0.02, 0.01], [0.02, 0.02]];
+  const declaredKm = [1.1, 2.2, 0.9];
+
+  const guessed = stageBoundaries(line, cum, anchors, declaredKm);
+  assert.equal(guessed[1].mode, "proportional");
+  assert.equal(guessed[1].index, 10);
+
+  const declared = stageBoundaries(line, cum, anchors, declaredKm, SNAP_METERS, [
+    undefined,
+    4448,
+    undefined,
+    undefined,
+  ]);
+  assert.equal(declared[1].mode, "snap");
+  assert.equal(declared[1].index, 20);
+  // The radius lifts for the declaring anchor alone — its neighbours are
+  // unaffected, and offMeters still reports the real distance from the line.
+  assert.ok(declared[1].offMeters > SNAP_METERS);
+  assert.deepEqual(declared.map((b) => b.index), [0, 20, 30, 40]);
 });
 
 test("simplify drops a vertex inside the tolerance and keeps one outside it", () => {

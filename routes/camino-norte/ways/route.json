@@ -1,0 +1,394 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "camino-norte",
+  "name": "Camino del Norte (Northern Way)",
+  "country": "ES",
+  "region": "Europe",
+  "distanceKm": 787.6,
+  "stageCount": 34,
+  "tradition": "christian",
+  "summary": "The coastal Camino de Santiago along the Bay of Biscay from Irún on the French border, through the Basque Country, Cantabria, Asturias, and into Galicia where it joins the Camino Francés at Arzúa for the final approach to Santiago de Compostela. Approximately 788 km in 34 native stages plus a 39 km shared run on the Francés to Santiago (~820 km total Irún → Santiago per Cicerone). Among the oldest Caminos — walked when inland Iberia was under Moorish control and the Atlantic coast remained the safer Christian corridor. The longest non-Francés Camino and the only major Camino that stays within ",
+  "stages": [
+    {
+      "index": 0,
+      "name": "Irún to San Sebastián",
+      "distanceKm": 24.7,
+      "hours": {
+        "min": 6,
+        "max": 8
+      },
+      "gainMeters": 720,
+      "difficulty": "moderate"
+    },
+    {
+      "index": 1,
+      "name": "San Sebastián to Zarautz",
+      "distanceKm": 22.1,
+      "hours": {
+        "min": 5,
+        "max": 7
+      },
+      "gainMeters": 620,
+      "difficulty": "moderate"
+    },
+    {
+      "index": 2,
+      "name": "Zarautz to Deba",
+      "distanceKm": 21,
+      "hours": {
+        "min": 5,
+        "max": 6
+      },
+      "gainMeters": 540,
+      "difficulty": "moderate"
+    },
+    {
+      "index": 3,
+      "name": "Deba to Markina-Xemein",
+      "distanceKm": 24,
+      "hours": {
+        "min": 6,
+        "max": 8
+      },
+      "gainMeters": 820,
+      "difficulty": "hard"
+    },
+    {
+      "index": 4,
+      "name": "Markina-Xemein to Gernika",
+      "distanceKm": 25.4,
+      "hours": {
+        "min": 6,
+        "max": 8
+      },
+      "gainMeters": 620,
+      "difficulty": "hard"
+    },
+    {
+      "index": 5,
+      "name": "Gernika to Lezama",
+      "distanceKm": 19.8,
+      "hours": {
+        "min": 5,
+        "max": 6
+      },
+      "gainMeters": 580,
+      "difficulty": "moderate"
+    },
+    {
+      "index": 6,
+      "name": "Lezama to Bilbao",
+      "distanceKm": 11,
+      "hours": {
+        "min": 2,
+        "max": 3
+      },
+      "gainMeters": 280,
+      "difficulty": "easy"
+    },
+    {
+      "index": 7,
+      "name": "Bilbao to Portugalete",
+      "distanceKm": 19.2,
+      "hours": {
+        "min": 4,
+        "max": 6
+      },
+      "gainMeters": 430,
+      "difficulty": "moderate"
+    },
+    {
+      "index": 8,
+      "name": "Portugalete to Castro Urdiales",
+      "distanceKm": 32.1,
+      "hours": {
+        "min": 7,
+        "max": 9
+      },
+      "gainMeters": 640,
+      "difficulty": "hard"
+    },
+    {
+      "index": 9,
+      "name": "Castro Urdiales to Laredo",
+      "distanceKm": 30.5,
+      "hours": {
+        "min": 7,
+        "max": 9
+      },
+      "gainMeters": 610,
+      "difficulty": "hard"
+    },
+    {
+      "index": 10,
+      "name": "Laredo to Güemes",
+      "distanceKm": 28.7,
+      "hours": {
+        "min": 7,
+        "max": 8
+      },
+      "gainMeters": 540,
+      "difficulty": "hard"
+    },
+    {
+      "index": 11,
+      "name": "Güemes to Santander",
+      "distanceKm": 18.6,
+      "hours": {
+        "min": 4,
+        "max": 5
+      },
+      "gainMeters": 210,
+      "difficulty": "easy"
+    },
+    {
+      "index": 12,
+      "name": "Santander to Santillana del Mar",
+      "distanceKm": 36.3,
+      "hours": {
+        "min": 8,
+        "max": 10
+      },
+      "gainMeters": 540,
+      "difficulty": "hard"
+    },
+    {
+      "index": 13,
+      "name": "Santillana del Mar to Comillas",
+      "distanceKm": 22.2,
+      "hours": {
+        "min": 5,
+        "max": 7
+      },
+      "gainMeters": 380,
+      "difficulty": "moderate"
+    },
+    {
+      "index": 14,
+      "name": "Comillas to Colombres",
+      "distanceKm": 28,
+      "hours": {
+        "min": 7,
+        "max": 9
+      },
+      "gainMeters": 530,
+      "difficulty": "hard"
+    },
+    {
+      "index": 15,
+      "name": "Colombres to Llanes",
+      "distanceKm": 22.9,
+      "hours": {
+        "min": 5,
+        "max": 7
+      },
+      "gainMeters": 380,
+      "difficulty": "moderate"
+    },
+    {
+      "index": 16,
+      "name": "Llanes to Ribadesella",
+      "distanceKm": 30,
+      "hours": {
+        "min": 7,
+        "max": 9
+      },
+      "gainMeters": 490,
+      "difficulty": "hard"
+    },
+    {
+      "index": 17,
+      "name": "Ribadesella to Colunga",
+      "distanceKm": 20.1,
+      "hours": {
+        "min": 5,
+        "max": 6
+      },
+      "gainMeters": 350,
+      "difficulty": "moderate"
+    },
+    {
+      "index": 18,
+      "name": "Colunga to Villaviciosa",
+      "distanceKm": 17.5,
+      "hours": {
+        "min": 4,
+        "max": 5
+      },
+      "gainMeters": 330,
+      "difficulty": "easy"
+    },
+    {
+      "index": 19,
+      "name": "Villaviciosa to Gijón",
+      "distanceKm": 29.8,
+      "hours": {
+        "min": 7,
+        "max": 9
+      },
+      "gainMeters": 560,
+      "difficulty": "hard"
+    },
+    {
+      "index": 20,
+      "name": "Gijón to Avilés",
+      "distanceKm": 25.4,
+      "hours": {
+        "min": 6,
+        "max": 7
+      },
+      "gainMeters": 320,
+      "difficulty": "moderate"
+    },
+    {
+      "index": 21,
+      "name": "Avilés to Muros de Nalón",
+      "distanceKm": 23.2,
+      "hours": {
+        "min": 6,
+        "max": 7
+      },
+      "gainMeters": 500,
+      "difficulty": "moderate"
+    },
+    {
+      "index": 22,
+      "name": "Muros de Nalón to Soto de Luiña",
+      "distanceKm": 15.3,
+      "hours": {
+        "min": 4,
+        "max": 5
+      },
+      "gainMeters": 320,
+      "difficulty": "easy"
+    },
+    {
+      "index": 23,
+      "name": "Soto de Luiña to Cadavedo",
+      "distanceKm": 18.5,
+      "hours": {
+        "min": 5,
+        "max": 6
+      },
+      "gainMeters": 460,
+      "difficulty": "moderate"
+    },
+    {
+      "index": 24,
+      "name": "Cadavedo to Luarca",
+      "distanceKm": 15.3,
+      "hours": {
+        "min": 4,
+        "max": 5
+      },
+      "gainMeters": 360,
+      "difficulty": "easy"
+    },
+    {
+      "index": 25,
+      "name": "Luarca to La Caridad",
+      "distanceKm": 30.5,
+      "hours": {
+        "min": 7,
+        "max": 9
+      },
+      "gainMeters": 570,
+      "difficulty": "hard"
+    },
+    {
+      "index": 26,
+      "name": "La Caridad to Ribadeo",
+      "distanceKm": 21.3,
+      "hours": {
+        "min": 5,
+        "max": 6
+      },
+      "gainMeters": 380,
+      "difficulty": "moderate"
+    },
+    {
+      "index": 27,
+      "name": "Ribadeo to Gondán",
+      "distanceKm": 20.9,
+      "hours": {
+        "min": 5,
+        "max": 6
+      },
+      "gainMeters": 490,
+      "difficulty": "moderate"
+    },
+    {
+      "index": 28,
+      "name": "Gondán to Mondoñedo",
+      "distanceKm": 15.6,
+      "hours": {
+        "min": 4,
+        "max": 5
+      },
+      "gainMeters": 340,
+      "difficulty": "moderate"
+    },
+    {
+      "index": 29,
+      "name": "Mondoñedo to Abadín",
+      "distanceKm": 16.6,
+      "hours": {
+        "min": 4,
+        "max": 6
+      },
+      "gainMeters": 580,
+      "difficulty": "moderate"
+    },
+    {
+      "index": 30,
+      "name": "Abadín to Vilalba",
+      "distanceKm": 20.8,
+      "hours": {
+        "min": 5,
+        "max": 6
+      },
+      "gainMeters": 280,
+      "difficulty": "moderate"
+    },
+    {
+      "index": 31,
+      "name": "Vilalba to Baamonde",
+      "distanceKm": 18.5,
+      "hours": {
+        "min": 4,
+        "max": 5
+      },
+      "gainMeters": 240,
+      "difficulty": "easy"
+    },
+    {
+      "index": 32,
+      "name": "Baamonde to Sobrado dos Monxes",
+      "distanceKm": 39.8,
+      "hours": {
+        "min": 9,
+        "max": 12
+      },
+      "gainMeters": 760,
+      "difficulty": "hard"
+    },
+    {
+      "index": 33,
+      "name": "Sobrado dos Monxes to Arzúa (joins Camino Francés)",
+      "distanceKm": 22,
+      "hours": {
+        "min": 5,
+        "max": 7
+      },
+      "gainMeters": 350,
+      "difficulty": "moderate"
+    }
+  ],
+  "names": {
+    "es": "Camino del Norte",
+    "eu": "Kostaldeko Donejakue bidea",
+    "fr": "Chemin du Nord",
+    "gl": "Camiño do Norte",
+    "ja": "北の道"
+  }
+}

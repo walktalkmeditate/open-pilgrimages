@@ -113,13 +113,20 @@ export function buildRouteWays(input: RouteWaysInput): RouteWaysResult {
   const line = walkedLine(input.routeGeoJson);
   const cumulative = cumulativeMeters(line);
 
+  // Both arrays are built from the same walk over the stages, so the anchor at
+  // position i and the declaration at position i are always the same place's.
   const anchors: Position[] = input.stages.map((s) => s.start.coordinates);
-  anchors.push(input.stages[input.stages.length - 1].end.coordinates);
+  const offLine: Array<number | undefined> = input.stages.map((s) => s.start.offLineMeters);
+  const lastStage = input.stages[input.stages.length - 1];
+  anchors.push(lastStage.end.coordinates);
+  offLine.push(lastStage.end.offLineMeters);
   const boundaries = stageBoundaries(
     line,
     cumulative,
     anchors,
     input.stages.map((s) => s.distanceKm),
+    SNAP_METERS,
+    offLine,
   );
 
   // A boundary that does not advance means an empty slice: the anchors

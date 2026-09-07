@@ -123,7 +123,22 @@ export interface Boundary {
 
 /**
  * One boundary per stage edge: `anchors` is the stages' start coordinates plus
- * the last stage's end, so it is one longer than `declaredKm`.
+ * the last stage's end, so it is one longer than `declaredKm`. `offLineMeters`
+ * runs parallel to `anchors`, not to `declaredKm`.
+ *
+ * An entry in `offLineMeters` is a stage's declared, measured distance from
+ * that anchor to the line, and it lifts the snap radius for that anchor alone.
+ * The radius exists because an anchor far from the line is ambiguous: a place
+ * the trail merely passes near looks exactly like a mis-pinned coordinate, and
+ * snapping the second one would hand the neighbouring stages each other's
+ * kilometres. A declaration removes the ambiguity — the place has been
+ * measured and is where it says it is — so its nearest vertex is the honest
+ * boundary, and the proportional guess, which only interpolates the declared
+ * distances it is meant to be checking, is not.
+ *
+ * Whether a declaration still matches the line is validate's question, not
+ * this one's; it errors on a stale figure. Re-checking it here would be the
+ * second copy of a test that has already drifted apart once in this file.
  */
 export function stageBoundaries(
   line: Position[],
@@ -131,6 +146,7 @@ export function stageBoundaries(
   anchors: Position[],
   declaredKm: number[],
   snapMeters: number = SNAP_METERS,
+  offLineMeters: ReadonlyArray<number | undefined> = [],
 ): Boundary[] {
   const totalLineMeters = cumulative[cumulative.length - 1];
   const totalDeclaredMeters = declaredKm.reduce((sum, km) => sum + km, 0) * 1000;
@@ -150,7 +166,8 @@ export function stageBoundaries(
     // Against the whole line the number keeps its one meaning: how far this
     // anchor is from the route.
     const offMeters = searchFrom === 0 ? found.meters : nearestVertex(line, anchors[i]).meters;
-    if (found.meters <= snapMeters || totalDeclaredMeters === 0) {
+    const radius = offLineMeters[i] === undefined ? snapMeters : Infinity;
+    if (found.meters <= radius || totalDeclaredMeters === 0) {
       boundaries.push({ index: found.index, offMeters, mode: "snap" });
     } else {
       const along = (declaredSoFar / totalDeclaredMeters) * totalLineMeters;

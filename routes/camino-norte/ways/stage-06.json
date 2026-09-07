@@ -1,0 +1,2203 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "pilgrimage:camino-norte:6",
+  "title": "Lezama to Bilbao",
+  "departedAt": "2026-04-10T00:00:00Z",
+  "route": [
+    {
+      "lat": 43.273885,
+      "lon": -2.832684,
+      "t": 0
+    },
+    {
+      "lat": 43.273869,
+      "lon": -2.833034,
+      "t": 22.5
+    },
+    {
+      "lat": 43.274524,
+      "lon": -2.835139,
+      "t": 169.3
+    },
+    {
+      "lat": 43.274804,
+      "lon": -2.835324,
+      "t": 196.6
+    },
+    {
+      "lat": 43.274681,
+      "lon": -2.835451,
+      "t": 210.2
+    },
+    {
+      "lat": 43.274702,
+      "lon": -2.835696,
+      "t": 226
+    },
+    {
+      "lat": 43.275376,
+      "lon": -2.838069,
+      "t": 389.3
+    },
+    {
+      "lat": 43.275688,
+      "lon": -2.839636,
+      "t": 493.5
+    },
+    {
+      "lat": 43.275952,
+      "lon": -2.841549,
+      "t": 618.3
+    },
+    {
+      "lat": 43.275975,
+      "lon": -2.843027,
+      "t": 713.1
+    },
+    {
+      "lat": 43.276168,
+      "lon": -2.843818,
+      "t": 766.6
+    },
+    {
+      "lat": 43.276468,
+      "lon": -2.844142,
+      "t": 800.2
+    },
+    {
+      "lat": 43.276385,
+      "lon": -2.844481,
+      "t": 823.2
+    },
+    {
+      "lat": 43.276831,
+      "lon": -2.845922,
+      "t": 923.6
+    },
+    {
+      "lat": 43.276726,
+      "lon": -2.845992,
+      "t": 933.8
+    },
+    {
+      "lat": 43.278352,
+      "lon": -2.849423,
+      "t": 1196.3
+    },
+    {
+      "lat": 43.278269,
+      "lon": -2.849796,
+      "t": 1221.3
+    },
+    {
+      "lat": 43.27836,
+      "lon": -2.850094,
+      "t": 1242
+    },
+    {
+      "lat": 43.278749,
+      "lon": -2.850389,
+      "t": 1281.2
+    },
+    {
+      "lat": 43.281213,
+      "lon": -2.856672,
+      "t": 1738.7
+    },
+    {
+      "lat": 43.282233,
+      "lon": -2.858975,
+      "t": 1911.6
+    },
+    {
+      "lat": 43.282321,
+      "lon": -2.858898,
+      "t": 1920.8
+    },
+    {
+      "lat": 43.283711,
+      "lon": -2.862149,
+      "t": 2162.5
+    },
+    {
+      "lat": 43.284629,
+      "lon": -2.864751,
+      "t": 2347.8
+    },
+    {
+      "lat": 43.284823,
+      "lon": -2.866083,
+      "t": 2434.9
+    },
+    {
+      "lat": 43.284737,
+      "lon": -2.866164,
+      "t": 2444.1
+    },
+    {
+      "lat": 43.283869,
+      "lon": -2.865445,
+      "t": 2533.4
+    },
+    {
+      "lat": 43.283479,
+      "lon": -2.865657,
+      "t": 2570.3
+    },
+    {
+      "lat": 43.283215,
+      "lon": -2.865427,
+      "t": 2597.9
+    },
+    {
+      "lat": 43.28283,
+      "lon": -2.865531,
+      "t": 2632.4
+    },
+    {
+      "lat": 43.28284,
+      "lon": -2.865825,
+      "t": 2651.3
+    },
+    {
+      "lat": 43.282735,
+      "lon": -2.865942,
+      "t": 2663.2
+    },
+    {
+      "lat": 43.282438,
+      "lon": -2.86576,
+      "t": 2691.8
+    },
+    {
+      "lat": 43.282112,
+      "lon": -2.866011,
+      "t": 2724.7
+    },
+    {
+      "lat": 43.280701,
+      "lon": -2.866308,
+      "t": 2850.5
+    },
+    {
+      "lat": 43.279748,
+      "lon": -2.867061,
+      "t": 2947.3
+    },
+    {
+      "lat": 43.279751,
+      "lon": -2.867206,
+      "t": 2956.6
+    },
+    {
+      "lat": 43.279079,
+      "lon": -2.867603,
+      "t": 3021
+    },
+    {
+      "lat": 43.278689,
+      "lon": -2.868138,
+      "t": 3069.5
+    },
+    {
+      "lat": 43.278626,
+      "lon": -2.868055,
+      "t": 3077.2
+    },
+    {
+      "lat": 43.278459,
+      "lon": -2.868229,
+      "t": 3095.7
+    },
+    {
+      "lat": 43.278135,
+      "lon": -2.868813,
+      "t": 3142.8
+    },
+    {
+      "lat": 43.277723,
+      "lon": -2.86897,
+      "t": 3180.4
+    },
+    {
+      "lat": 43.276551,
+      "lon": -2.86847,
+      "t": 3288.5
+    },
+    {
+      "lat": 43.276073,
+      "lon": -2.866781,
+      "t": 3404.7
+    },
+    {
+      "lat": 43.275875,
+      "lon": -2.866685,
+      "t": 3423.2
+    },
+    {
+      "lat": 43.275303,
+      "lon": -2.867241,
+      "t": 3484.9
+    },
+    {
+      "lat": 43.275788,
+      "lon": -2.868676,
+      "t": 3586.3
+    },
+    {
+      "lat": 43.275787,
+      "lon": -2.870846,
+      "t": 3725.5
+    },
+    {
+      "lat": 43.275683,
+      "lon": -2.871284,
+      "t": 3755
+    },
+    {
+      "lat": 43.274796,
+      "lon": -2.870425,
+      "t": 3850.6
+    },
+    {
+      "lat": 43.27361,
+      "lon": -2.870359,
+      "t": 3955.1
+    },
+    {
+      "lat": 43.272806,
+      "lon": -2.870033,
+      "t": 4029
+    },
+    {
+      "lat": 43.272477,
+      "lon": -2.870348,
+      "t": 4064.3
+    },
+    {
+      "lat": 43.272532,
+      "lon": -2.871026,
+      "t": 4108
+    },
+    {
+      "lat": 43.272136,
+      "lon": -2.872405,
+      "t": 4203.1
+    },
+    {
+      "lat": 43.271711,
+      "lon": -2.872026,
+      "t": 4247.7
+    },
+    {
+      "lat": 43.27138,
+      "lon": -2.871926,
+      "t": 4277.5
+    },
+    {
+      "lat": 43.270546,
+      "lon": -2.872183,
+      "t": 4352.8
+    },
+    {
+      "lat": 43.270328,
+      "lon": -2.873333,
+      "t": 4429
+    },
+    {
+      "lat": 43.270003,
+      "lon": -2.8769,
+      "t": 4659.5
+    },
+    {
+      "lat": 43.269491,
+      "lon": -2.877912,
+      "t": 4738.6
+    },
+    {
+      "lat": 43.269079,
+      "lon": -2.8802,
+      "t": 4889.7
+    },
+    {
+      "lat": 43.269313,
+      "lon": -2.882169,
+      "t": 5017.6
+    },
+    {
+      "lat": 43.269311,
+      "lon": -2.883386,
+      "t": 5095.7
+    },
+    {
+      "lat": 43.269906,
+      "lon": -2.886816,
+      "t": 5321.8
+    },
+    {
+      "lat": 43.269817,
+      "lon": -2.887465,
+      "t": 5364.1
+    },
+    {
+      "lat": 43.26939,
+      "lon": -2.886816,
+      "t": 5420.2
+    },
+    {
+      "lat": 43.269473,
+      "lon": -2.887337,
+      "t": 5454.4
+    },
+    {
+      "lat": 43.269087,
+      "lon": -2.888899,
+      "t": 5560.2
+    },
+    {
+      "lat": 43.268945,
+      "lon": -2.889024,
+      "t": 5575.1
+    },
+    {
+      "lat": 43.268942,
+      "lon": -2.890465,
+      "t": 5667.5
+    },
+    {
+      "lat": 43.268671,
+      "lon": -2.891781,
+      "t": 5755.2
+    },
+    {
+      "lat": 43.268548,
+      "lon": -2.893506,
+      "t": 5866.3
+    },
+    {
+      "lat": 43.268403,
+      "lon": -2.894089,
+      "t": 5905.8
+    },
+    {
+      "lat": 43.268426,
+      "lon": -2.894542,
+      "t": 5934.9
+    },
+    {
+      "lat": 43.268785,
+      "lon": -2.895217,
+      "t": 5988.5
+    },
+    {
+      "lat": 43.269037,
+      "lon": -2.896393,
+      "t": 6067.1
+    },
+    {
+      "lat": 43.268996,
+      "lon": -2.896743,
+      "t": 6089.9
+    },
+    {
+      "lat": 43.268592,
+      "lon": -2.89743,
+      "t": 6146.5
+    },
+    {
+      "lat": 43.268675,
+      "lon": -2.89883,
+      "t": 6236.6
+    },
+    {
+      "lat": 43.268789,
+      "lon": -2.89913,
+      "t": 6258.3
+    },
+    {
+      "lat": 43.268485,
+      "lon": -2.89931,
+      "t": 6287.4
+    },
+    {
+      "lat": 43.268163,
+      "lon": -2.899988,
+      "t": 6339.3
+    },
+    {
+      "lat": 43.267396,
+      "lon": -2.902599,
+      "t": 6519.9
+    },
+    {
+      "lat": 43.267247,
+      "lon": -2.903413,
+      "t": 6573.7
+    },
+    {
+      "lat": 43.267409,
+      "lon": -2.904313,
+      "t": 6633.2
+    },
+    {
+      "lat": 43.267247,
+      "lon": -2.905359,
+      "t": 6701.7
+    },
+    {
+      "lat": 43.266946,
+      "lon": -2.905884,
+      "t": 6744.6
+    },
+    {
+      "lat": 43.26635,
+      "lon": -2.906417,
+      "t": 6807.2
+    },
+    {
+      "lat": 43.266111,
+      "lon": -2.907115,
+      "t": 6856.7
+    },
+    {
+      "lat": 43.265802,
+      "lon": -2.907528,
+      "t": 6894.7
+    },
+    {
+      "lat": 43.265495,
+      "lon": -2.907663,
+      "t": 6923.1
+    },
+    {
+      "lat": 43.265096,
+      "lon": -2.907348,
+      "t": 6963.6
+    },
+    {
+      "lat": 43.264627,
+      "lon": -2.907376,
+      "t": 7004.9
+    },
+    {
+      "lat": 43.264477,
+      "lon": -2.907582,
+      "t": 7023.6
+    },
+    {
+      "lat": 43.264613,
+      "lon": -2.907867,
+      "t": 7045.5
+    },
+    {
+      "lat": 43.264714,
+      "lon": -2.90773,
+      "t": 7058
+    },
+    {
+      "lat": 43.264626,
+      "lon": -2.907437,
+      "t": 7078.3
+    },
+    {
+      "lat": 43.264529,
+      "lon": -2.907452,
+      "t": 7086.9
+    },
+    {
+      "lat": 43.264473,
+      "lon": -2.90779,
+      "t": 7109.1
+    },
+    {
+      "lat": 43.264716,
+      "lon": -2.907972,
+      "t": 7133.5
+    },
+    {
+      "lat": 43.264188,
+      "lon": -2.908612,
+      "t": 7195.5
+    },
+    {
+      "lat": 43.263865,
+      "lon": -2.910112,
+      "t": 7295.8
+    },
+    {
+      "lat": 43.263694,
+      "lon": -2.910361,
+      "t": 7317.8
+    },
+    {
+      "lat": 43.263253,
+      "lon": -2.910488,
+      "t": 7357.5
+    },
+    {
+      "lat": 43.262924,
+      "lon": -2.911042,
+      "t": 7403.3
+    },
+    {
+      "lat": 43.26261,
+      "lon": -2.910922,
+      "t": 7432
+    },
+    {
+      "lat": 43.261776,
+      "lon": -2.909716,
+      "t": 7538.7
+    },
+    {
+      "lat": 43.261064,
+      "lon": -2.911362,
+      "t": 7661.5
+    },
+    {
+      "lat": 43.260855,
+      "lon": -2.911574,
+      "t": 7684.4
+    },
+    {
+      "lat": 43.259679,
+      "lon": -2.912302,
+      "t": 7798
+    },
+    {
+      "lat": 43.259072,
+      "lon": -2.912349,
+      "t": 7851.5
+    },
+    {
+      "lat": 43.259117,
+      "lon": -2.912524,
+      "t": 7863.4
+    },
+    {
+      "lat": 43.259012,
+      "lon": -2.912359,
+      "t": 7877.5
+    },
+    {
+      "lat": 43.258885,
+      "lon": -2.912772,
+      "t": 7906.2
+    },
+    {
+      "lat": 43.25901,
+      "lon": -2.913059,
+      "t": 7927.7
+    },
+    {
+      "lat": 43.259104,
+      "lon": -2.914127,
+      "t": 7996.7
+    },
+    {
+      "lat": 43.258938,
+      "lon": -2.914317,
+      "t": 8015.7
+    },
+    {
+      "lat": 43.259013,
+      "lon": -2.91472,
+      "t": 8042.4
+    },
+    {
+      "lat": 43.258889,
+      "lon": -2.914792,
+      "t": 8054.2
+    },
+    {
+      "lat": 43.25996,
+      "lon": -2.91834,
+      "t": 8300.5
+    },
+    {
+      "lat": 43.25957,
+      "lon": -2.918753,
+      "t": 8343.9
+    },
+    {
+      "lat": 43.25933,
+      "lon": -2.918292,
+      "t": 8380.3
+    },
+    {
+      "lat": 43.259261,
+      "lon": -2.918366,
+      "t": 8388
+    },
+    {
+      "lat": 43.258992,
+      "lon": -2.917985,
+      "t": 8422
+    },
+    {
+      "lat": 43.258779,
+      "lon": -2.917997,
+      "t": 8440.8
+    },
+    {
+      "lat": 43.258945,
+      "lon": -2.918194,
+      "t": 8460.1
+    },
+    {
+      "lat": 43.259018,
+      "lon": -2.918725,
+      "t": 8494.8
+    },
+    {
+      "lat": 43.258749,
+      "lon": -2.918466,
+      "t": 8523.7
+    },
+    {
+      "lat": 43.25878,
+      "lon": -2.918843,
+      "t": 8548
+    },
+    {
+      "lat": 43.258523,
+      "lon": -2.919289,
+      "t": 8584.5
+    },
+    {
+      "lat": 43.258692,
+      "lon": -2.920683,
+      "t": 8675.1
+    },
+    {
+      "lat": 43.258528,
+      "lon": -2.920841,
+      "t": 8692.8
+    },
+    {
+      "lat": 43.258461,
+      "lon": -2.920528,
+      "t": 8713.7
+    },
+    {
+      "lat": 43.258467,
+      "lon": -2.920901,
+      "t": 8737.6
+    },
+    {
+      "lat": 43.258162,
+      "lon": -2.921132,
+      "t": 8768.3
+    },
+    {
+      "lat": 43.258385,
+      "lon": -2.921994,
+      "t": 8827
+    },
+    {
+      "lat": 43.256797,
+      "lon": -2.923582,
+      "t": 9000
+    }
+  ],
+  "totalDistanceMeters": 11363.4,
+  "theirActiveSeconds": 9000,
+  "moments": [
+    {
+      "id": "stage-start",
+      "frac": 0,
+      "kind": "waypoint",
+      "label": "Lezama",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.273885,
+        "lon": -2.832684
+      },
+      "pin": {
+        "lat": 43.276,
+        "lon": -2.832
+      }
+    },
+    {
+      "id": "stage-end",
+      "frac": 1,
+      "kind": "waypoint",
+      "label": "Bilbao",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.256797,
+        "lon": -2.923582
+      },
+      "pin": {
+        "lat": 43.257,
+        "lon": -2.924
+      },
+      "names": {
+        "eu": "Bilbo"
+      }
+    }
+  ],
+  "marks": [
+    {
+      "id": "wp-osm-supply-node3664061662",
+      "kind": "supply",
+      "name": "Josune",
+      "at": {
+        "lat": 43.274541,
+        "lon": -2.832583
+      },
+      "frac": 0,
+      "offLineMeters": 73.4
+    },
+    {
+      "id": "wp-osm-water_source-node3707704958",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 43.274071,
+        "lon": -2.833309
+      },
+      "frac": 0.005075978343684459,
+      "offLineMeters": 11.9
+    },
+    {
+      "id": "wp-osm-supply-node3664061663",
+      "kind": "supply",
+      "name": "Denda",
+      "at": {
+        "lat": 43.273703,
+        "lon": -2.833701
+      },
+      "frac": 0.006226081635577601,
+      "offLineMeters": 38.2
+    },
+    {
+      "id": "wp-osm-water_source-node5460279675",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 43.273885,
+        "lon": -2.834345
+      },
+      "frac": 0.011146424356797418,
+      "offLineMeters": 40.1
+    },
+    {
+      "id": "wp-osm-water_source-node5616246807",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 43.27318,
+        "lon": -2.834801
+      },
+      "frac": 0.011423755137362665,
+      "offLineMeters": 126.7
+    },
+    {
+      "id": "wp-osm-transport-node12779959276",
+      "kind": "transport",
+      "name": "Lezama",
+      "at": {
+        "lat": 43.273451,
+        "lon": -2.835775
+      },
+      "frac": 0.018807793484285202,
+      "offLineMeters": 130
+    },
+    {
+      "id": "wp-osm-transport-node5955612330",
+      "kind": "transport",
+      "name": "Uzabal (Athletic)",
+      "at": {
+        "lat": 43.275919,
+        "lon": -2.841724
+      },
+      "frac": 0.0699448375188002,
+      "offLineMeters": 4
+    },
+    {
+      "id": "wp-osm-transport-node5955612329",
+      "kind": "transport",
+      "name": "Uzabal (Athletic)",
+      "at": {
+        "lat": 43.27583,
+        "lon": -2.842746
+      },
+      "frac": 0.07720570677290611,
+      "offLineMeters": 15.6
+    },
+    {
+      "id": "wp-osm-water_source-node11895921917",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 43.276637,
+        "lon": -2.84494
+      },
+      "frac": 0.09544078262929238,
+      "offLineMeters": 11.3
+    },
+    {
+      "id": "wp-osm-transport-node5955612332",
+      "kind": "transport",
+      "name": "Kurutzea / La Cruz",
+      "at": {
+        "lat": 43.276557,
+        "lon": -2.845564
+      },
+      "frac": 0.09921826039288573,
+      "offLineMeters": 16.7
+    },
+    {
+      "id": "wp-osm-transport-node5661950836",
+      "kind": "transport",
+      "name": "Kurtzea",
+      "at": {
+        "lat": 43.276592,
+        "lon": -2.846345
+      },
+      "frac": 0.10515318937185572,
+      "offLineMeters": 28.1
+    },
+    {
+      "id": "wp-osm-transport-node8383452802",
+      "kind": "transport",
+      "name": "Torrelarragoiti",
+      "at": {
+        "lat": 43.276202,
+        "lon": -2.851713
+      },
+      "frac": 0.1380051021231926,
+      "offLineMeters": 273.5
+    },
+    {
+      "id": "wp-osm-transport-node4950332392",
+      "kind": "transport",
+      "name": "Larragoiti",
+      "at": {
+        "lat": 43.280955,
+        "lon": -2.856014
+      },
+      "frac": 0.18787104970186302,
+      "offLineMeters": 0
+    },
+    {
+      "id": "wp-osm-accommodation-node2992577281",
+      "kind": "bed",
+      "name": "Agroturismo Iabiti-Aurrekoa",
+      "at": {
+        "lat": 43.282815,
+        "lon": -2.857339
+      },
+      "frac": 0.20539698758330407,
+      "offLineMeters": 124.1
+    },
+    {
+      "id": "wp-osm-water_source-node4891319161",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 43.280861,
+        "lon": -2.861308
+      },
+      "frac": 0.2209864787303509,
+      "offLineMeters": 238.8
+    },
+    {
+      "id": "wp-osm-supply-node9690559883",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 43.281257,
+        "lon": -2.861867
+      },
+      "frac": 0.22638179228293223,
+      "offLineMeters": 223.8
+    },
+    {
+      "id": "wp-osm-food-node10901380055",
+      "kind": "food",
+      "name": "Crazy Guitar",
+      "at": {
+        "lat": 43.281756,
+        "lon": -2.861679
+      },
+      "frac": 0.22769918550016435,
+      "offLineMeters": 168.1
+    },
+    {
+      "id": "wp-osm-water_source-node4948495094",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 43.28271,
+        "lon": -2.861233
+      },
+      "frac": 0.22969092446577646,
+      "offLineMeters": 58.4
+    },
+    {
+      "id": "wp-osm-food-node10901325845",
+      "kind": "food",
+      "name": "Bidegorri",
+      "at": {
+        "lat": 43.282011,
+        "lon": -2.862234
+      },
+      "frac": 0.23237298162424136,
+      "offLineMeters": 166.6
+    },
+    {
+      "id": "wp-osm-supply-node10901547552",
+      "kind": "supply",
+      "name": "Trady's",
+      "at": {
+        "lat": 43.282572,
+        "lon": -2.862972
+      },
+      "frac": 0.23968117031720745,
+      "offLineMeters": 143
+    },
+    {
+      "id": "wp-osm-food-node4952544018",
+      "kind": "food",
+      "name": "Senia",
+      "at": {
+        "lat": 43.284303,
+        "lon": -2.863579
+      },
+      "frac": 0.2519685729341829,
+      "offLineMeters": 8.7
+    },
+    {
+      "id": "wp-osm-accommodation-node4952544623",
+      "kind": "bed",
+      "name": "Artea Errota",
+      "at": {
+        "lat": 43.285894,
+        "lon": -2.863787
+      },
+      "frac": 0.2600891521205348,
+      "offLineMeters": 160.6
+    },
+    {
+      "id": "wp-osm-water_source-node3729821086",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 43.28448,
+        "lon": -2.864737
+      },
+      "frac": 0.2601454474578941,
+      "offLineMeters": 14.4
+    },
+    {
+      "id": "wp-osm-water_source-node6378887353",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 43.285193,
+        "lon": -2.864748
+      },
+      "frac": 0.2619377757756919,
+      "offLineMeters": 61.6
+    },
+    {
+      "id": "wp-osm-water_source-node6378887347",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 43.285674,
+        "lon": -2.865013
+      },
+      "frac": 0.2647059267622838,
+      "offLineMeters": 109.7
+    },
+    {
+      "id": "wp-osm-water_source-node4948495096",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 43.284832,
+        "lon": -2.866514
+      },
+      "frac": 0.2715685122152673,
+      "offLineMeters": 30.3
+    },
+    {
+      "id": "wp-osm-water_source-node9889528472",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 43.284669,
+        "lon": -2.867365
+      },
+      "frac": 0.2715685122152673,
+      "offLineMeters": 97.5
+    },
+    {
+      "id": "wp-osm-water_source-node13515485432",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 43.281948,
+        "lon": -2.863345
+      },
+      "frac": 0.29248963984282367,
+      "offLineMeters": 202.3
+    },
+    {
+      "id": "wp-osm-water_source-node4948495095",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 43.282424,
+        "lon": -2.866357
+      },
+      "frac": 0.3012927808946949,
+      "offLineMeters": 41.4
+    },
+    {
+      "id": "wp-osm-water_source-node7616887474",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 43.268652,
+        "lon": -2.89122
+      },
+      "frac": 0.6356649973638955,
+      "offLineMeters": 14.4
+    },
+    {
+      "id": "wp-osm-water_source-node7616844980",
+      "kind": "water",
+      "name": "Fuente de Santa Marina (1980)",
+      "at": {
+        "lat": 43.266535,
+        "lon": -2.891877
+      },
+      "frac": 0.6421826355589365,
+      "offLineMeters": 235.7
+    },
+    {
+      "id": "wp-osm-water_source-node3665000662",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 43.26893,
+        "lon": -2.897798
+      },
+      "frac": 0.6858293242487685,
+      "offLineMeters": 35.1
+    },
+    {
+      "id": "wp-osm-water_source-node8243370330",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 43.269289,
+        "lon": -2.898403
+      },
+      "frac": 0.6904095669011077,
+      "offLineMeters": 70.9
+    },
+    {
+      "id": "wp-osm-food-node6151219858",
+      "kind": "food",
+      "name": "El Leon Jatetxea",
+      "at": {
+        "lat": 43.268806,
+        "lon": -2.898819
+      },
+      "frac": 0.6934759592304981,
+      "offLineMeters": 13.3
+    },
+    {
+      "id": "wp-osm-transport-node5950988051",
+      "kind": "transport",
+      "name": "Mikoleta",
+      "at": {
+        "lat": 43.266187,
+        "lon": -2.899043
+      },
+      "frac": 0.7053607064864752,
+      "offLineMeters": 232.4
+    },
+    {
+      "id": "wp-osm-transport-node5950988057",
+      "kind": "transport",
+      "name": "Orueta",
+      "at": {
+        "lat": 43.264995,
+        "lon": -2.903451
+      },
+      "frac": 0.7304130196963274,
+      "offLineMeters": 250.4
+    },
+    {
+      "id": "wp-osm-transport-node8370911044",
+      "kind": "transport",
+      "name": "Egirleta / Santo Domingo",
+      "at": {
+        "lat": 43.269006,
+        "lon": -2.905314
+      },
+      "frac": 0.7407478291884714,
+      "offLineMeters": 190.6
+    },
+    {
+      "id": "wp-osm-transport-node4183706020",
+      "kind": "transport",
+      "name": "Kate Zaharra (Avril auzoa)",
+      "at": {
+        "lat": 43.265026,
+        "lon": -2.908251
+      },
+      "frac": 0.7926113870188329,
+      "offLineMeters": 41.2
+    },
+    {
+      "id": "wp-osm-water_source-node3664996858",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 43.26395,
+        "lon": -2.908932
+      },
+      "frac": 0.8023520111553667,
+      "offLineMeters": 18
+    },
+    {
+      "id": "wp-osm-medical-node5393642595",
+      "kind": "medical",
+      "name": "Katarine Rueda Perrot",
+      "at": {
+        "lat": 43.265137,
+        "lon": -2.912442
+      },
+      "frac": 0.8130877398842641,
+      "offLineMeters": 232.7
+    },
+    {
+      "id": "wp-osm-transport-node607115491",
+      "kind": "transport",
+      "name": "Zurbaranbarri",
+      "at": {
+        "lat": 43.264611,
+        "lon": -2.91202
+      },
+      "frac": 0.8130877398842641,
+      "offLineMeters": 168.7
+    },
+    {
+      "id": "wp-osm-water_source-node6127960081",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 43.264761,
+        "lon": -2.913042
+      },
+      "frac": 0.8130877398842641,
+      "offLineMeters": 247.4
+    },
+    {
+      "id": "wp-osm-transport-node9944495498",
+      "kind": "transport",
+      "name": "Atxetabidea 47",
+      "at": {
+        "lat": 43.263557,
+        "lon": -2.910466
+      },
+      "frac": 0.8145569586934671,
+      "offLineMeters": 5.2
+    },
+    {
+      "id": "wp-osm-water_source-node9156124687",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 43.263039,
+        "lon": -2.910152
+      },
+      "frac": 0.8174969357232039,
+      "offLineMeters": 36.2
+    },
+    {
+      "id": "wp-osm-transport-node5294711015",
+      "kind": "transport",
+      "name": "Zurbaranbarri",
+      "at": {
+        "lat": 43.263727,
+        "lon": -2.913724
+      },
+      "frac": 0.8225909191429709,
+      "offLineMeters": 234.8
+    },
+    {
+      "id": "wp-osm-transport-node7563592954",
+      "kind": "transport",
+      "name": "Vía Vieja de Lezama / Iturriondo",
+      "at": {
+        "lat": 43.264673,
+        "lon": -2.913658
+      },
+      "frac": 0.8225909191429709,
+      "offLineMeters": 287.6
+    },
+    {
+      "id": "wp-osm-water_source-node6163342217",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 43.262948,
+        "lon": -2.912405
+      },
+      "frac": 0.8225909191429709,
+      "offLineMeters": 110.4
+    },
+    {
+      "id": "wp-osm-transport-node5728593780",
+      "kind": "transport",
+      "name": "Sarrikue",
+      "at": {
+        "lat": 43.262837,
+        "lon": -2.911099
+      },
+      "frac": 0.8232976387536307,
+      "offLineMeters": 7.1
+    },
+    {
+      "id": "wp-osm-transport-node607115484",
+      "kind": "transport",
+      "name": "Andramaria",
+      "at": {
+        "lat": 43.26225,
+        "lon": -2.913132
+      },
+      "frac": 0.8249521578716879,
+      "offLineMeters": 183.1
+    },
+    {
+      "id": "wp-osm-water_source-node9156133671",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 43.262215,
+        "lon": -2.911052
+      },
+      "frac": 0.8277696243986064,
+      "offLineMeters": 39.1
+    },
+    {
+      "id": "wp-osm-water_source-node9156130089",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 43.262283,
+        "lon": -2.909705
+      },
+      "frac": 0.8342722216519263,
+      "offLineMeters": 41.5
+    },
+    {
+      "id": "wp-osm-water_source-node9156113510",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 43.262785,
+        "lon": -2.908783
+      },
+      "frac": 0.8356512419453348,
+      "offLineMeters": 133.4
+    },
+    {
+      "id": "wp-osm-water_source-node11282392835",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 43.261076,
+        "lon": -2.907741
+      },
+      "frac": 0.8376316704541827,
+      "offLineMeters": 177.8
+    },
+    {
+      "id": "wp-osm-medical-node5393642225",
+      "kind": "medical",
+      "name": "Amaia Gaztañaga Ibarrondo",
+      "at": {
+        "lat": 43.26167,
+        "lon": -2.910311
+      },
+      "frac": 0.8418117082485324,
+      "offLineMeters": 14.4
+    },
+    {
+      "id": "wp-osm-transport-node5950988062",
+      "kind": "transport",
+      "name": "Zabalbide 122",
+      "at": {
+        "lat": 43.261211,
+        "lon": -2.910839
+      },
+      "frac": 0.8473366232268694,
+      "offLineMeters": 7.6
+    },
+    {
+      "id": "wp-osm-water_source-node6163358342",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 43.261875,
+        "lon": -2.911526
+      },
+      "frac": 0.8482313012910468,
+      "offLineMeters": 84.3
+    },
+    {
+      "id": "wp-osm-transport-node607115474",
+      "kind": "transport",
+      "name": "Arabella",
+      "at": {
+        "lat": 43.261303,
+        "lon": -2.911516
+      },
+      "frac": 0.8510256386981554,
+      "offLineMeters": 29.2
+    },
+    {
+      "id": "wp-osm-medical-node11545408288",
+      "kind": "medical",
+      "name": "Bilbo-Begoñako Egoitza Txikia",
+      "at": {
+        "lat": 43.261864,
+        "lon": -2.914075
+      },
+      "frac": 0.8538168606614494,
+      "offLineMeters": 231.6
+    },
+    {
+      "id": "wp-osm-water_source-node9156131828",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 43.261722,
+        "lon": -2.913205
+      },
+      "frac": 0.8538168606614494,
+      "offLineMeters": 163.5
+    },
+    {
+      "id": "wp-osm-transport-node5937466923",
+      "kind": "transport",
+      "name": "San Isidro",
+      "at": {
+        "lat": 43.260714,
+        "lon": -2.912617
+      },
+      "frac": 0.8581299487300127,
+      "offLineMeters": 70.6
+    },
+    {
+      "id": "wp-osm-medical-node5393645072",
+      "kind": "medical",
+      "name": "María Mercedes Sancho Ortiz",
+      "at": {
+        "lat": 43.259886,
+        "lon": -2.912983
+      },
+      "frac": 0.8664397339348483,
+      "offLineMeters": 59.7
+    },
+    {
+      "id": "wp-osm-accommodation-node5552087740",
+      "kind": "bed",
+      "name": "All Iron",
+      "at": {
+        "lat": 43.259549,
+        "lon": -2.912549
+      },
+      "frac": 0.8678106987835207,
+      "offLineMeters": 19.1
+    },
+    {
+      "id": "wp-osm-transport-node465218283",
+      "kind": "transport",
+      "name": "Jesús Galíndez 3 / Colegio Alemán",
+      "at": {
+        "lat": 43.258991,
+        "lon": -2.909109
+      },
+      "frac": 0.8718803477064763,
+      "offLineMeters": 262.5
+    },
+    {
+      "id": "wp-osm-transport-node3797039630",
+      "kind": "transport",
+      "name": "Zabalbide 61",
+      "at": {
+        "lat": 43.258042,
+        "lon": -2.910988
+      },
+      "frac": 0.8752729071929332,
+      "offLineMeters": 154.8
+    },
+    {
+      "id": "wp-osm-transport-node465218280",
+      "kind": "transport",
+      "name": "Txomin Garat 4",
+      "at": {
+        "lat": 43.257214,
+        "lon": -2.909867
+      },
+      "frac": 0.8752729071929332,
+      "offLineMeters": 284.1
+    },
+    {
+      "id": "wp-osm-transport-node465218281",
+      "kind": "transport",
+      "name": "Jesus Galíndez / Txomin Garat",
+      "at": {
+        "lat": 43.25783,
+        "lon": -2.909747
+      },
+      "frac": 0.8752729071929332,
+      "offLineMeters": 249.1
+    },
+    {
+      "id": "wp-osm-water_source-node6137148366",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 43.257081,
+        "lon": -2.911492
+      },
+      "frac": 0.8769317495002761,
+      "offLineMeters": 225.2
+    },
+    {
+      "id": "wp-osm-water_source-node6137147132",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 43.257717,
+        "lon": -2.912071
+      },
+      "frac": 0.8783133561486316,
+      "offLineMeters": 141.8
+    },
+    {
+      "id": "wp-osm-food-node2813146266",
+      "kind": "food",
+      "name": "El Sauce",
+      "at": {
+        "lat": 43.256318,
+        "lon": -2.912872
+      },
+      "frac": 0.8784676810819457,
+      "offLineMeters": 285.6
+    },
+    {
+      "id": "wp-osm-food-node4634345828",
+      "kind": "food",
+      "name": "Petaca Minuta",
+      "at": {
+        "lat": 43.256568,
+        "lon": -2.913509
+      },
+      "frac": 0.8784676810819457,
+      "offLineMeters": 264.4
+    },
+    {
+      "id": "wp-osm-transport-node1892943176",
+      "kind": "transport",
+      "name": "Makua",
+      "at": {
+        "lat": 43.256873,
+        "lon": -2.912079
+      },
+      "frac": 0.8784676810819457,
+      "offLineMeters": 230.6
+    },
+    {
+      "id": "wp-osm-transport-node4141716066",
+      "kind": "transport",
+      "name": "Masustegi 21",
+      "at": {
+        "lat": 43.257492,
+        "lon": -2.913429
+      },
+      "frac": 0.8784676810819457,
+      "offLineMeters": 163.8
+    },
+    {
+      "id": "wp-osm-transport-node4141496662",
+      "kind": "transport",
+      "name": "Begoñako Basilika",
+      "at": {
+        "lat": 43.258977,
+        "lon": -2.9138
+      },
+      "frac": 0.8860529320729675,
+      "offLineMeters": 10.9
+    },
+    {
+      "id": "wp-osm-food-node4232905841",
+      "kind": "food",
+      "name": "Cafeteria Josune",
+      "at": {
+        "lat": 43.259454,
+        "lon": -2.914362
+      },
+      "frac": 0.8885170316020172,
+      "offLineMeters": 43.3
+    },
+    {
+      "id": "wp-osm-transport-node3797029133",
+      "kind": "transport",
+      "name": "Zumalacárregui 121",
+      "at": {
+        "lat": 43.260381,
+        "lon": -2.914114
+      },
+      "frac": 0.8885170316020172,
+      "offLineMeters": 142
+    },
+    {
+      "id": "wp-osm-food-node2813146277",
+      "kind": "food",
+      "name": "Liquid",
+      "at": {
+        "lat": 43.256987,
+        "lon": -2.913873
+      },
+      "frac": 0.8906317077954502,
+      "offLineMeters": 219.9
+    },
+    {
+      "id": "wp-osm-transport-node5733907507",
+      "kind": "transport",
+      "name": "Prim 60",
+      "at": {
+        "lat": 43.257218,
+        "lon": -2.914481
+      },
+      "frac": 0.8949132969242116,
+      "offLineMeters": 187.5
+    },
+    {
+      "id": "wp-osm-water_source-node3573290623",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 43.256397,
+        "lon": -2.915023
+      },
+      "frac": 0.8949132969242116,
+      "offLineMeters": 277.7
+    },
+    {
+      "id": "wp-osm-medical-node4634467854",
+      "kind": "medical",
+      "name": "Farmacia Orive González",
+      "at": {
+        "lat": 43.256579,
+        "lon": -2.91623
+      },
+      "frac": 0.8957224341738306,
+      "offLineMeters": 281.9
+    },
+    {
+      "id": "wp-osm-transport-node3797029132",
+      "kind": "transport",
+      "name": "Zumalacárregui 38",
+      "at": {
+        "lat": 43.260689,
+        "lon": -2.914819
+      },
+      "frac": 0.9018329470223213,
+      "offLineMeters": 184
+    },
+    {
+      "id": "wp-osm-medical-node11601398208",
+      "kind": "medical",
+      "name": "Bilboko Tratamendu Asertibo Komunitarioa",
+      "at": {
+        "lat": 43.258789,
+        "lon": -2.916109
+      },
+      "frac": 0.9032091584676633,
+      "offLineMeters": 51.1
+    },
+    {
+      "id": "wp-osm-transport-node3797011957",
+      "kind": "transport",
+      "name": "Zumalacárregui 105",
+      "at": {
+        "lat": 43.261649,
+        "lon": -2.915363
+      },
+      "frac": 0.9090159439183367,
+      "offLineMeters": 265.8
+    },
+    {
+      "id": "wp-osm-transport-node728573109",
+      "kind": "transport",
+      "name": "Párroco Ugaz / Rotonda",
+      "at": {
+        "lat": 43.2614,
+        "lon": -2.916045
+      },
+      "frac": 0.9125675956939057,
+      "offLineMeters": 219.1
+    },
+    {
+      "id": "wp-osm-transport-node4174519194",
+      "kind": "transport",
+      "name": "Amadeo Deprit 8",
+      "at": {
+        "lat": 43.260286,
+        "lon": -2.91671
+      },
+      "frac": 0.9127710915041582,
+      "offLineMeters": 84
+    },
+    {
+      "id": "wp-osm-medical-node5393642597",
+      "kind": "medical",
+      "name": "Nagore Munguira Cortajarena",
+      "at": {
+        "lat": 43.260728,
+        "lon": -2.916917
+      },
+      "frac": 0.9157935770534161,
+      "offLineMeters": 123
+    },
+    {
+      "id": "wp-osm-supply-node6889156487",
+      "kind": "supply",
+      "name": "Hermanos Ruiz",
+      "at": {
+        "lat": 43.26012,
+        "lon": -2.917355
+      },
+      "frac": 0.9163967399570079,
+      "offLineMeters": 46.9
+    },
+    {
+      "id": "wp-osm-water_source-node11064019288",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 43.261913,
+        "lon": -2.916636
+      },
+      "frac": 0.9183798975743327,
+      "offLineMeters": 253.4
+    },
+    {
+      "id": "wp-osm-water_source-node747494228",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 43.260551,
+        "lon": -2.919141
+      },
+      "frac": 0.9222831227942274,
+      "offLineMeters": 92.3
+    },
+    {
+      "id": "wp-osm-water_source-node8058624157",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 43.261612,
+        "lon": -2.918197
+      },
+      "frac": 0.9222831227942274,
+      "offLineMeters": 184
+    },
+    {
+      "id": "wp-osm-accommodation-node4847061832",
+      "kind": "bed",
+      "name": "Albergue de Peregrinos Santa Cruz de Begoña",
+      "at": {
+        "lat": 43.259356,
+        "lon": -2.91901
+      },
+      "frac": 0.927102448996921,
+      "offLineMeters": 31.6
+    },
+    {
+      "id": "wp-osm-water_source-node6435505541",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 43.260119,
+        "lon": -2.920436
+      },
+      "frac": 0.927102448996921,
+      "offLineMeters": 149.3
+    },
+    {
+      "id": "wp-osm-supply-node3529044748",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 43.257575,
+        "lon": -2.917453
+      },
+      "frac": 0.9378651011492933,
+      "offLineMeters": 141
+    },
+    {
+      "id": "wp-osm-transport-node2621080094",
+      "kind": "transport",
+      "name": "Amadeo Deprit / Dolaretxe",
+      "at": {
+        "lat": 43.257855,
+        "lon": -2.916816
+      },
+      "frac": 0.9378651011492933,
+      "offLineMeters": 140.4
+    },
+    {
+      "id": "wp-osm-transport-node5728625572",
+      "kind": "transport",
+      "name": "Iturribide 53",
+      "at": {
+        "lat": 43.257023,
+        "lon": -2.917187
+      },
+      "frac": 0.9378651011492933,
+      "offLineMeters": 205.9
+    },
+    {
+      "id": "wp-osm-accommodation-node4698968091",
+      "kind": "bed",
+      "name": "AirBnB Fika",
+      "at": {
+        "lat": 43.256696,
+        "lon": -2.917962
+      },
+      "frac": 0.9538344452665316,
+      "offLineMeters": 229.9
+    },
+    {
+      "id": "wp-osm-supply-node2759498070",
+      "kind": "supply",
+      "name": "Marisol",
+      "at": {
+        "lat": 43.2572,
+        "lon": -2.919403
+      },
+      "frac": 0.9538344452665316,
+      "offLineMeters": 147.5
+    },
+    {
+      "id": "wp-osm-transport-node5728625571",
+      "kind": "transport",
+      "name": "Fika 2",
+      "at": {
+        "lat": 43.257647,
+        "lon": -2.918717
+      },
+      "frac": 0.9538344452665316,
+      "offLineMeters": 107.9
+    },
+    {
+      "id": "wp-osm-transport-node5734166619",
+      "kind": "transport",
+      "name": "Fika 8",
+      "at": {
+        "lat": 43.256977,
+        "lon": -2.91866
+      },
+      "frac": 0.9538344452665316,
+      "offLineMeters": 179.3
+    },
+    {
+      "id": "wp-osm-water_source-node498483078",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 43.257976,
+        "lon": -2.919291
+      },
+      "frac": 0.9538344452665316,
+      "offLineMeters": 60.8
+    },
+    {
+      "id": "wp-osm-transport-node5294695229",
+      "kind": "transport",
+      "name": "Zazpikaleak / Casco Viejo",
+      "at": {
+        "lat": 43.259641,
+        "lon": -2.920709
+      },
+      "frac": 0.9639052611964347,
+      "offLineMeters": 105.5
+    },
+    {
+      "id": "wp-osm-water_source-node2924745097",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 43.260877,
+        "lon": -2.922305
+      },
+      "frac": 0.9639052611964347,
+      "offLineMeters": 276.2
+    },
+    {
+      "id": "wp-osm-water_source-node4968016531",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 43.259151,
+        "lon": -2.920984
+      },
+      "frac": 0.9639052611964347,
+      "offLineMeters": 56.6
+    },
+    {
+      "id": "wp-osm-supply-node488587400",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 43.258409,
+        "lon": -2.920701
+      },
+      "frac": 0.9694133480764814,
+      "offLineMeters": 6.1
+    },
+    {
+      "id": "wp-osm-transport-node1377479818",
+      "kind": "transport",
+      "name": "Fika 22",
+      "at": {
+        "lat": 43.256149,
+        "lon": -2.919437
+      },
+      "frac": 0.9742577540714931,
+      "offLineMeters": 262.6
+    },
+    {
+      "id": "wp-osm-water_source-node2759498114",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 43.256795,
+        "lon": -2.919826
+      },
+      "frac": 0.9742577540714931,
+      "offLineMeters": 185.2
+    },
+    {
+      "id": "wp-osm-water_source-node3768267226",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 43.257007,
+        "lon": -2.920879
+      },
+      "frac": 0.9742577540714931,
+      "offLineMeters": 130.1
+    },
+    {
+      "id": "wp-osm-supply-node12480408397",
+      "kind": "supply",
+      "name": "7 Dia Merkatua",
+      "at": {
+        "lat": 43.258111,
+        "lon": -2.921192
+      },
+      "frac": 0.9744899525969948,
+      "offLineMeters": 7
+    },
+    {
+      "id": "wp-osm-food-node3103245484",
+      "kind": "food",
+      "name": "100 Montaditos",
+      "at": {
+        "lat": 43.257752,
+        "lon": -2.921672
+      },
+      "frac": 0.9765380605258775,
+      "offLineMeters": 57.6
+    },
+    {
+      "id": "wp-osm-food-node3528886698",
+      "kind": "food",
+      "name": "La Baldosita",
+      "at": {
+        "lat": 43.258609,
+        "lon": -2.921464
+      },
+      "frac": 0.9779510009833129,
+      "offLineMeters": 37.9
+    },
+    {
+      "id": "wp-osm-medical-node2852257126",
+      "kind": "medical",
+      "name": "Armesto",
+      "at": {
+        "lat": 43.25823,
+        "lon": -2.921834
+      },
+      "frac": 0.9791939367208761,
+      "offLineMeters": 11.9
+    },
+    {
+      "id": "wp-osm-accommodation-node2326434776",
+      "kind": "bed",
+      "name": "Sercotel Arenal Bilbao",
+      "at": {
+        "lat": 43.259631,
+        "lon": -2.923292
+      },
+      "frac": 0.9807767503550571,
+      "offLineMeters": 173.9
+    },
+    {
+      "id": "wp-osm-food-node2810676061",
+      "kind": "food",
+      "name": "Victor Montes",
+      "at": {
+        "lat": 43.258903,
+        "lon": -2.922325
+      },
+      "frac": 0.9807767503550571,
+      "offLineMeters": 63.5
+    },
+    {
+      "id": "wp-osm-food-node3103245161",
+      "kind": "food",
+      "name": "Melchor",
+      "at": {
+        "lat": 43.259753,
+        "lon": -2.922042
+      },
+      "frac": 0.9807767503550571,
+      "offLineMeters": 152.1
+    },
+    {
+      "id": "wp-osm-food-node3213350177",
+      "kind": "food",
+      "name": "La Olla",
+      "at": {
+        "lat": 43.259211,
+        "lon": -2.923037
+      },
+      "frac": 0.9807767503550571,
+      "offLineMeters": 124.8
+    },
+    {
+      "id": "wp-osm-transport-node1736332271",
+      "kind": "transport",
+      "name": "Viuda de Epalza 1 / San Nicolás",
+      "at": {
+        "lat": 43.2605,
+        "lon": -2.922722
+      },
+      "frac": 0.9807767503550571,
+      "offLineMeters": 242.5
+    },
+    {
+      "id": "wp-osm-transport-node799356654",
+      "kind": "transport",
+      "name": "Puente del Arenal",
+      "at": {
+        "lat": 43.259876,
+        "lon": -2.924184
+      },
+      "frac": 0.9807767503550571,
+      "offLineMeters": 242.7
+    },
+    {
+      "id": "wp-osm-water_source-node2813102510",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 43.260761,
+        "lon": -2.923575
+      },
+      "frac": 0.9807767503550571,
+      "offLineMeters": 293.6
+    },
+    {
+      "id": "wp-osm-food-node2812432422",
+      "kind": "food",
+      "name": "Aitaren",
+      "at": {
+        "lat": 43.259336,
+        "lon": -2.923987
+      },
+      "frac": 0.9816164637191827,
+      "offLineMeters": 192.7
+    },
+    {
+      "id": "wp-osm-food-node4701570965",
+      "kind": "food",
+      "name": "Arantza",
+      "at": {
+        "lat": 43.258585,
+        "lon": -2.923333
+      },
+      "frac": 0.984817627208142,
+      "offLineMeters": 100.8
+    },
+    {
+      "id": "wp-osm-food-node4701746330",
+      "kind": "food",
+      "name": "Degustacion Aitke",
+      "at": {
+        "lat": 43.257909,
+        "lon": -2.923086
+      },
+      "frac": 0.989121747189419,
+      "offLineMeters": 40.4
+    },
+    {
+      "id": "wp-osm-food-node2813304628",
+      "kind": "food",
+      "name": "Bertiz",
+      "at": {
+        "lat": 43.258176,
+        "lon": -2.923613
+      },
+      "frac": 0.9892270807888237,
+      "offLineMeters": 92.3
+    },
+    {
+      "id": "wp-osm-accommodation-node4703389827",
+      "kind": "bed",
+      "name": "Hotel Arriaga",
+      "at": {
+        "lat": 43.259068,
+        "lon": -2.925311
+      },
+      "frac": 0.9892926819917945,
+      "offLineMeters": 261.8
+    },
+    {
+      "id": "wp-osm-supply-node2813269273",
+      "kind": "supply",
+      "name": "La Ermita",
+      "at": {
+        "lat": 43.25837,
+        "lon": -2.924288
+      },
+      "frac": 0.9905212638702628,
+      "offLineMeters": 149.2
+    },
+    {
+      "id": "wp-osm-water_source-node3731129325",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 43.257517,
+        "lon": -2.922762
+      },
+      "frac": 0.9908653264404252,
+      "offLineMeters": 6.6
+    },
+    {
+      "id": "wp-osm-supply-node13094075379",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 43.257099,
+        "lon": -2.92251
+      },
+      "frac": 0.9931165963052053,
+      "offLineMeters": 50.4
+    },
+    {
+      "id": "wp-osm-accommodation-node2440599360",
+      "kind": "bed",
+      "name": "Casual Hostal Gurea",
+      "at": {
+        "lat": 43.257922,
+        "lon": -2.924364
+      },
+      "frac": 0.9943820425849247,
+      "offLineMeters": 124.8
+    },
+    {
+      "id": "wp-osm-supply-node4701113369",
+      "kind": "supply",
+      "name": "Carrefour Express",
+      "at": {
+        "lat": 43.258265,
+        "lon": -2.925288
+      },
+      "frac": 0.9955479245088154,
+      "offLineMeters": 207.8
+    },
+    {
+      "id": "wp-osm-medical-node4255922689",
+      "kind": "medical",
+      "name": "Ldas. Sofía Mendizabal Ferrer y Katia Minteguia García",
+      "at": {
+        "lat": 43.256967,
+        "lon": -2.923334
+      },
+      "frac": 0.9976141134155263,
+      "offLineMeters": 5.1
+    },
+    {
+      "id": "wp-osm-water_source-node2810783816",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 43.257341,
+        "lon": -2.924147
+      },
+      "frac": 0.9980661156923287,
+      "offLineMeters": 72.6
+    },
+    {
+      "id": "wp-osm-food-node1247189817",
+      "kind": "food",
+      "name": "Irrintzi",
+      "at": {
+        "lat": 43.258235,
+        "lon": -2.92608
+      },
+      "frac": 0.9991062322958729,
+      "offLineMeters": 257.6
+    }
+  ],
+  "stage": {
+    "routeId": "camino-norte",
+    "index": 6,
+    "count": 34,
+    "name": "Lezama to Bilbao",
+    "theme": "Bilbao",
+    "narrative": "A short walking day, and then Bilbao. You enter the city from above — from Mount Avril where the Guggenheim suddenly appears in the valley below, a metallic shape that looks nothing like anything else in your Camino so far. The descent is by stairs. You arrive in the Casco Viejo, the old Gothic quarter, and the rest of the day is yours. Most pilgrims take a rest day. The Guggenheim, Puente Colgante, the Cathedral, the Basílica de Begoña on the hill, tapas in Plaza Nueva — Bilbao deserves more than one night.",
+    "closing": "You walked from an oak tree to a Frank Gehry museum in two days. What does the Camino do with that kind of contrast?",
+    "warnings": [],
+    "distanceKm": 11,
+    "gainMeters": 280,
+    "hours": {
+      "min": 2,
+      "max": 3
+    },
+    "difficulty": "easy",
+    "start": {
+      "name": "Lezama",
+      "at": {
+        "lat": 43.276,
+        "lon": -2.832
+      }
+    },
+    "end": {
+      "name": "Bilbao",
+      "at": {
+        "lat": 43.257,
+        "lon": -2.924
+      }
+    }
+  }
+}

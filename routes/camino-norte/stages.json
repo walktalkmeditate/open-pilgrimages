@@ -404,7 +404,7 @@
         "note": "OpenStreetMap place node/288260848 (place=hamlet) sits 1 m from this coordinate — the anchor already is the node, not a stale placement. The OSM main relation bypasses Güemes to the south-west, so the walked line runs 577 m from the village; that is the trail's route, not a drift to correct."
       },
       "end": { "name": { "en": "Santander" }, "coordinates": [-3.805, 43.463, 15] },
-      "distanceKm": 15.3,
+      "distanceKm": 18.6,
       "elevationGainMeters": 210,
       "elevationLossMeters": 250,
       "highPointMeters": 120,
@@ -413,7 +413,7 @@
       "difficulty": "easy",
       "terrainTypes": ["coastal", "forest", "paved", "urban"],
       "terrainNotes": {
-        "en": "Drops from Güemes through Galizano and Loredo to the beach at Somo, then takes a short passenger ferry across Santander bay to the Santander waterfront (the ferry runs every 30 minutes in daytime). The walk from the Santander ferry dock to the cathedral is ~1 km."
+        "en": "Drops from Güemes through Galizano and Loredo to the beach at Somo, then takes a short passenger ferry across Santander bay to the Santander waterfront (the ferry runs every 30 minutes in daytime). The walk from the Santander ferry dock to the cathedral is ~1 km. The 18.6 km measures the whole stage, ferry included; about 1.8 km of that is the crossing, so roughly 16.8 km is on foot. There is no pedestrian bridge — walking around the bay instead is about 35 km of industrial road."
       },
       "accommodationDensity": "high",
       "waterSources": 4,

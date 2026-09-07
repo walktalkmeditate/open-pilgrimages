@@ -1,0 +1,932 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "pilgrimage:camino-norte:33",
+  "title": "Sobrado dos Monxes to Arzúa (joins Camino Francés)",
+  "departedAt": "2026-04-10T00:00:00Z",
+  "route": [
+    {
+      "lat": 43.040366,
+      "lon": -8.023328,
+      "t": 0
+    },
+    {
+      "lat": 43.040032,
+      "lon": -8.025094,
+      "t": 150
+    },
+    {
+      "lat": 43.040301,
+      "lon": -8.026586,
+      "t": 276.3
+    },
+    {
+      "lat": 43.039821,
+      "lon": -8.02787,
+      "t": 394.9
+    },
+    {
+      "lat": 43.039119,
+      "lon": -8.028719,
+      "t": 500.3
+    },
+    {
+      "lat": 43.038155,
+      "lon": -8.029362,
+      "t": 621
+    },
+    {
+      "lat": 43.03711,
+      "lon": -8.028849,
+      "t": 745.9
+    },
+    {
+      "lat": 43.03664,
+      "lon": -8.028769,
+      "t": 799.1
+    },
+    {
+      "lat": 43.03639,
+      "lon": -8.028359,
+      "t": 843
+    },
+    {
+      "lat": 43.03604,
+      "lon": -8.029131,
+      "t": 917.7
+    },
+    {
+      "lat": 43.034472,
+      "lon": -8.03113,
+      "t": 1158.8
+    },
+    {
+      "lat": 43.034212,
+      "lon": -8.031115,
+      "t": 1188.1
+    },
+    {
+      "lat": 43.03371,
+      "lon": -8.031606,
+      "t": 1257.5
+    },
+    {
+      "lat": 43.032677,
+      "lon": -8.03296,
+      "t": 1418.5
+    },
+    {
+      "lat": 43.030041,
+      "lon": -8.037989,
+      "t": 1927.4
+    },
+    {
+      "lat": 43.02845,
+      "lon": -8.04002,
+      "t": 2172.2
+    },
+    {
+      "lat": 43.027884,
+      "lon": -8.041075,
+      "t": 2279.8
+    },
+    {
+      "lat": 43.026172,
+      "lon": -8.043167,
+      "t": 2538
+    },
+    {
+      "lat": 43.025478,
+      "lon": -8.044302,
+      "t": 2659.7
+    },
+    {
+      "lat": 43.024445,
+      "lon": -8.046619,
+      "t": 2882.9
+    },
+    {
+      "lat": 43.024323,
+      "lon": -8.04812,
+      "t": 3007.1
+    },
+    {
+      "lat": 43.023999,
+      "lon": -8.049,
+      "t": 3088.1
+    },
+    {
+      "lat": 43.02244,
+      "lon": -8.050969,
+      "t": 3326.8
+    },
+    {
+      "lat": 43.021204,
+      "lon": -8.053279,
+      "t": 3562.3
+    },
+    {
+      "lat": 43.020509,
+      "lon": -8.054242,
+      "t": 3673.6
+    },
+    {
+      "lat": 43.020173,
+      "lon": -8.055821,
+      "t": 3808.8
+    },
+    {
+      "lat": 43.017778,
+      "lon": -8.058839,
+      "t": 4175.2
+    },
+    {
+      "lat": 43.017796,
+      "lon": -8.059216,
+      "t": 4206.2
+    },
+    {
+      "lat": 43.017299,
+      "lon": -8.0611,
+      "t": 4371
+    },
+    {
+      "lat": 43.018036,
+      "lon": -8.062555,
+      "t": 4516.6
+    },
+    {
+      "lat": 43.018192,
+      "lon": -8.063536,
+      "t": 4599.1
+    },
+    {
+      "lat": 43.018487,
+      "lon": -8.064254,
+      "t": 4666.9
+    },
+    {
+      "lat": 43.018087,
+      "lon": -8.064692,
+      "t": 4724.5
+    },
+    {
+      "lat": 43.018011,
+      "lon": -8.065324,
+      "t": 4777.2
+    },
+    {
+      "lat": 43.018337,
+      "lon": -8.066397,
+      "t": 4872.8
+    },
+    {
+      "lat": 43.018357,
+      "lon": -8.068185,
+      "t": 5019.9
+    },
+    {
+      "lat": 43.01788,
+      "lon": -8.071197,
+      "t": 5273.3
+    },
+    {
+      "lat": 43.016695,
+      "lon": -8.072248,
+      "t": 5432.2
+    },
+    {
+      "lat": 43.01658,
+      "lon": -8.072578,
+      "t": 5462.3
+    },
+    {
+      "lat": 43.016155,
+      "lon": -8.075223,
+      "t": 5685
+    },
+    {
+      "lat": 43.016322,
+      "lon": -8.076169,
+      "t": 5765.1
+    },
+    {
+      "lat": 43.016244,
+      "lon": -8.07707,
+      "t": 5839.7
+    },
+    {
+      "lat": 43.016612,
+      "lon": -8.077281,
+      "t": 5884.6
+    },
+    {
+      "lat": 43.016879,
+      "lon": -8.077689,
+      "t": 5929.6
+    },
+    {
+      "lat": 43.016874,
+      "lon": -8.07875,
+      "t": 6016.9
+    },
+    {
+      "lat": 43.01676,
+      "lon": -8.079237,
+      "t": 6059
+    },
+    {
+      "lat": 43.016207,
+      "lon": -8.079409,
+      "t": 6122.8
+    },
+    {
+      "lat": 43.015969,
+      "lon": -8.079629,
+      "t": 6155.1
+    },
+    {
+      "lat": 43.015955,
+      "lon": -8.079883,
+      "t": 6176
+    },
+    {
+      "lat": 43.015964,
+      "lon": -8.080226,
+      "t": 6204.3
+    },
+    {
+      "lat": 43.016217,
+      "lon": -8.080771,
+      "t": 6257.4
+    },
+    {
+      "lat": 43.01647,
+      "lon": -8.081963,
+      "t": 6359.5
+    },
+    {
+      "lat": 43.01626,
+      "lon": -8.085688,
+      "t": 6666.8
+    },
+    {
+      "lat": 43.016568,
+      "lon": -8.086798,
+      "t": 6764.4
+    },
+    {
+      "lat": 43.016912,
+      "lon": -8.090512,
+      "t": 7072.3
+    },
+    {
+      "lat": 43.013995,
+      "lon": -8.09109,
+      "t": 7403.9
+    },
+    {
+      "lat": 43.015576,
+      "lon": -8.104523,
+      "t": 8523.1
+    },
+    {
+      "lat": 43.015533,
+      "lon": -8.106261,
+      "t": 8666.1
+    },
+    {
+      "lat": 43.016031,
+      "lon": -8.107393,
+      "t": 8774.8
+    },
+    {
+      "lat": 43.016117,
+      "lon": -8.107887,
+      "t": 8816.5
+    },
+    {
+      "lat": 43.016713,
+      "lon": -8.11793,
+      "t": 9645.3
+    },
+    {
+      "lat": 43.016563,
+      "lon": -8.118268,
+      "t": 9677.8
+    },
+    {
+      "lat": 43.015635,
+      "lon": -8.119044,
+      "t": 9800.2
+    },
+    {
+      "lat": 43.014221,
+      "lon": -8.121878,
+      "t": 10082.4
+    },
+    {
+      "lat": 43.012932,
+      "lon": -8.123804,
+      "t": 10297.2
+    },
+    {
+      "lat": 43.011897,
+      "lon": -8.124636,
+      "t": 10432.2
+    },
+    {
+      "lat": 43.008401,
+      "lon": -8.126079,
+      "t": 10843
+    },
+    {
+      "lat": 43.004396,
+      "lon": -8.129906,
+      "t": 11392.7
+    },
+    {
+      "lat": 43.002341,
+      "lon": -8.132438,
+      "t": 11703.9
+    },
+    {
+      "lat": 43.001957,
+      "lon": -8.133408,
+      "t": 11794.6
+    },
+    {
+      "lat": 42.999399,
+      "lon": -8.134902,
+      "t": 12107.5
+    },
+    {
+      "lat": 42.998854,
+      "lon": -8.136026,
+      "t": 12218.5
+    },
+    {
+      "lat": 42.994768,
+      "lon": -8.136805,
+      "t": 12682.6
+    },
+    {
+      "lat": 42.994055,
+      "lon": -8.137048,
+      "t": 12765.3
+    },
+    {
+      "lat": 42.993495,
+      "lon": -8.137448,
+      "t": 12836.3
+    },
+    {
+      "lat": 42.993224,
+      "lon": -8.137887,
+      "t": 12883.6
+    },
+    {
+      "lat": 42.991097,
+      "lon": -8.144055,
+      "t": 13444.7
+    },
+    {
+      "lat": 42.988293,
+      "lon": -8.146786,
+      "t": 13832
+    },
+    {
+      "lat": 42.987184,
+      "lon": -8.147562,
+      "t": 13972.2
+    },
+    {
+      "lat": 42.986609,
+      "lon": -8.148349,
+      "t": 14063.7
+    },
+    {
+      "lat": 42.986412,
+      "lon": -8.152072,
+      "t": 14370.9
+    },
+    {
+      "lat": 42.986069,
+      "lon": -8.152811,
+      "t": 14442.9
+    },
+    {
+      "lat": 42.98516,
+      "lon": -8.153883,
+      "t": 14577.9
+    },
+    {
+      "lat": 42.984963,
+      "lon": -8.155176,
+      "t": 14686.6
+    },
+    {
+      "lat": 42.984809,
+      "lon": -8.155505,
+      "t": 14718.8
+    },
+    {
+      "lat": 42.983611,
+      "lon": -8.156894,
+      "t": 14895.5
+    },
+    {
+      "lat": 42.982447,
+      "lon": -8.15729,
+      "t": 15030.4
+    },
+    {
+      "lat": 42.981537,
+      "lon": -8.157417,
+      "t": 15133.3
+    },
+    {
+      "lat": 42.980427,
+      "lon": -8.158095,
+      "t": 15270.1
+    },
+    {
+      "lat": 42.978922,
+      "lon": -8.159787,
+      "t": 15489.3
+    },
+    {
+      "lat": 42.977663,
+      "lon": -8.158796,
+      "t": 15652.8
+    },
+    {
+      "lat": 42.975969,
+      "lon": -8.158564,
+      "t": 15844.3
+    },
+    {
+      "lat": 42.975017,
+      "lon": -8.157489,
+      "t": 15983.2
+    },
+    {
+      "lat": 42.974809,
+      "lon": -8.157523,
+      "t": 16006.8
+    },
+    {
+      "lat": 42.974041,
+      "lon": -8.158204,
+      "t": 16109.8
+    },
+    {
+      "lat": 42.972815,
+      "lon": -8.158057,
+      "t": 16248.2
+    },
+    {
+      "lat": 42.972224,
+      "lon": -8.158287,
+      "t": 16317.3
+    },
+    {
+      "lat": 42.971685,
+      "lon": -8.157753,
+      "t": 16392.2
+    },
+    {
+      "lat": 42.9668,
+      "lon": -8.155934,
+      "t": 16961.8
+    },
+    {
+      "lat": 42.964273,
+      "lon": -8.153993,
+      "t": 17287.9
+    },
+    {
+      "lat": 42.963625,
+      "lon": -8.152535,
+      "t": 17428.3
+    },
+    {
+      "lat": 42.962183,
+      "lon": -8.150649,
+      "t": 17652.9
+    },
+    {
+      "lat": 42.961873,
+      "lon": -8.150548,
+      "t": 17688.7
+    },
+    {
+      "lat": 42.960513,
+      "lon": -8.150809,
+      "t": 17843.2
+    },
+    {
+      "lat": 42.960073,
+      "lon": -8.150234,
+      "t": 17911.7
+    },
+    {
+      "lat": 42.959977,
+      "lon": -8.149746,
+      "t": 17953.3
+    },
+    {
+      "lat": 42.95961,
+      "lon": -8.150132,
+      "t": 18005.4
+    },
+    {
+      "lat": 42.958234,
+      "lon": -8.149036,
+      "t": 18184.6
+    },
+    {
+      "lat": 42.957941,
+      "lon": -8.148938,
+      "t": 18218.5
+    },
+    {
+      "lat": 42.955513,
+      "lon": -8.150209,
+      "t": 18511
+    },
+    {
+      "lat": 42.952866,
+      "lon": -8.150542,
+      "t": 18810.1
+    },
+    {
+      "lat": 42.951023,
+      "lon": -8.151326,
+      "t": 19027.2
+    },
+    {
+      "lat": 42.94632,
+      "lon": -8.152513,
+      "t": 19565.2
+    },
+    {
+      "lat": 42.938165,
+      "lon": -8.1531,
+      "t": 20483.9
+    },
+    {
+      "lat": 42.9377,
+      "lon": -8.153326,
+      "t": 20539.4
+    },
+    {
+      "lat": 42.937481,
+      "lon": -8.153767,
+      "t": 20583.3
+    },
+    {
+      "lat": 42.936882,
+      "lon": -8.153225,
+      "t": 20664.2
+    },
+    {
+      "lat": 42.936277,
+      "lon": -8.153172,
+      "t": 20732.4
+    },
+    {
+      "lat": 42.93589,
+      "lon": -8.153609,
+      "t": 20788.8
+    },
+    {
+      "lat": 42.933339,
+      "lon": -8.154719,
+      "t": 21090
+    },
+    {
+      "lat": 42.931971,
+      "lon": -8.155965,
+      "t": 21275
+    },
+    {
+      "lat": 42.931091,
+      "lon": -8.157823,
+      "t": 21457.3
+    },
+    {
+      "lat": 42.930223,
+      "lon": -8.159087,
+      "t": 21600
+    }
+  ],
+  "totalDistanceMeters": 21350.2,
+  "theirActiveSeconds": 21600,
+  "moments": [
+    {
+      "id": "stage-start",
+      "frac": 0,
+      "kind": "waypoint",
+      "label": "Sobrado dos Monxes",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 43.040366,
+        "lon": -8.023328
+      },
+      "pin": {
+        "lat": 43.042,
+        "lon": -8.023
+      }
+    },
+    {
+      "id": "stage-end",
+      "frac": 1,
+      "kind": "waypoint",
+      "label": "Arzúa",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 42.930223,
+        "lon": -8.159087
+      },
+      "pin": {
+        "lat": 42.93,
+        "lon": -8.16
+      }
+    }
+  ],
+  "marks": [
+    {
+      "id": "wp-osm-accommodation-node3024472778",
+      "kind": "bed",
+      "name": "Albergue Lecer",
+      "at": {
+        "lat": 43.041819,
+        "lon": -8.021902
+      },
+      "frac": 0,
+      "offLineMeters": 198.8
+    },
+    {
+      "id": "wp-osm-medical-node3024472808",
+      "kind": "medical",
+      "name": "Unnamed",
+      "at": {
+        "lat": 43.040545,
+        "lon": -8.02313
+      },
+      "frac": 0,
+      "offLineMeters": 25.6
+    },
+    {
+      "id": "wp-osm-food-node719361859",
+      "kind": "food",
+      "name": "Café Real",
+      "at": {
+        "lat": 43.037998,
+        "lon": -8.029396
+      },
+      "frac": 0.02947254633819315,
+      "offLineMeters": 8.5
+    },
+    {
+      "id": "wp-osm-transport-node3816394423",
+      "kind": "transport",
+      "name": "Unnamed",
+      "at": {
+        "lat": 43.016055,
+        "lon": -8.116146
+      },
+      "frac": 0.4394953047520625,
+      "offLineMeters": 61.2
+    },
+    {
+      "id": "wp-osm-accommodation-node3782603309",
+      "kind": "bed",
+      "name": "Albergue Boimorto",
+      "at": {
+        "lat": 43.012279,
+        "lon": -8.126288
+      },
+      "frac": 0.4829737042233778,
+      "offLineMeters": 140.9
+    },
+    {
+      "id": "wp-osm-water_source-node6531636208",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 43.00778,
+        "lon": -8.126554
+      },
+      "frac": 0.5056784503131455,
+      "offLineMeters": 7.9
+    },
+    {
+      "id": "wp-osm-food-node3782614569",
+      "kind": "food",
+      "name": "Vilanova",
+      "at": {
+        "lat": 43.007054,
+        "lon": -8.126258
+      },
+      "frac": 0.5081336139023735,
+      "offLineMeters": 73.9
+    },
+    {
+      "id": "wp-osm-food-node6030292085",
+      "kind": "food",
+      "name": "Café Bar Bobby",
+      "at": {
+        "lat": 43.003125,
+        "lon": -8.13162
+      },
+      "frac": 0.5367270810494393,
+      "offLineMeters": 8.9
+    },
+    {
+      "id": "wp-osm-medical-node3785766033",
+      "kind": "medical",
+      "name": "Farmacia Boimorto",
+      "at": {
+        "lat": 42.999342,
+        "lon": -8.134738
+      },
+      "frac": 0.5605338274152786,
+      "offLineMeters": 14.8
+    },
+    {
+      "id": "wp-osm-supply-node1463884773",
+      "kind": "supply",
+      "name": "Supermercado Toñito",
+      "at": {
+        "lat": 42.999162,
+        "lon": -8.135566
+      },
+      "frac": 0.5633247534467264,
+      "offLineMeters": 7.8
+    },
+    {
+      "id": "wp-osm-transport-node3158673673",
+      "kind": "transport",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.991704,
+        "lon": -8.142233
+      },
+      "frac": 0.6148120388077736,
+      "offLineMeters": 2.1
+    },
+    {
+      "id": "wp-osm-water_source-node3158673671",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.98517,
+        "lon": -8.1545
+      },
+      "frac": 0.6771978840070543,
+      "offLineMeters": 11.3
+    },
+    {
+      "id": "wp-osm-transport-node3158673550",
+      "kind": "transport",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.978824,
+        "lon": -8.159927
+      },
+      "frac": 0.7172755071250082,
+      "offLineMeters": 15.3
+    },
+    {
+      "id": "wp-osm-water_source-node3782614570",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 42.954562,
+        "lon": -8.147456
+      },
+      "frac": 0.8609622796596164,
+      "offLineMeters": 232.8
+    },
+    {
+      "id": "wp-osm-transport-node3823570446",
+      "kind": "transport",
+      "name": "Casaldoeiro",
+      "at": {
+        "lat": 42.952426,
+        "lon": -8.150697
+      },
+      "frac": 0.8731976664561231,
+      "offLineMeters": 2.5
+    },
+    {
+      "id": "wp-osm-water_source-node3823570384",
+      "kind": "water",
+      "name": "Fonte da Quenlla",
+      "at": {
+        "lat": 42.935537,
+        "lon": -8.152749
+      },
+      "frac": 0.9632006783191135,
+      "offLineMeters": 78.6
+    },
+    {
+      "id": "wp-osm-accommodation-node3072130928",
+      "kind": "bed",
+      "name": "O Albergue de Selmo",
+      "at": {
+        "lat": 42.929776,
+        "lon": -8.15405
+      },
+      "frac": 0.9850318417167581,
+      "offLineMeters": 289.6
+    },
+    {
+      "id": "wp-osm-accommodation-node817796821",
+      "kind": "bed",
+      "name": "Pensión Vilariño Moscoso",
+      "at": {
+        "lat": 42.932739,
+        "lon": -8.159837
+      },
+      "frac": 0.9933917659697907,
+      "offLineMeters": 245.9
+    },
+    {
+      "id": "wp-osm-food-node2750752761",
+      "kind": "food",
+      "name": "Pulpería Encontro",
+      "at": {
+        "lat": 42.928644,
+        "lon": -8.156286
+      },
+      "frac": 0.9978352331202344,
+      "offLineMeters": 284
+    },
+    {
+      "id": "wp-osm-food-node12090369869",
+      "kind": "food",
+      "name": "Pulpería Parrillada Europa",
+      "at": {
+        "lat": 42.928126,
+        "lon": -8.159851
+      },
+      "frac": 1,
+      "offLineMeters": 241.3
+    },
+    {
+      "id": "wp-osm-food-node2750752753",
+      "kind": "food",
+      "name": "Manolo",
+      "at": {
+        "lat": 42.927552,
+        "lon": -8.159271
+      },
+      "frac": 1,
+      "offLineMeters": 297.4
+    },
+    {
+      "id": "wp-osm-food-node7257444086",
+      "kind": "food",
+      "name": "Casa Chelo",
+      "at": {
+        "lat": 42.928629,
+        "lon": -8.161817
+      },
+      "frac": 1,
+      "offLineMeters": 284.3
+    }
+  ],
+  "stage": {
+    "routeId": "camino-norte",
+    "index": 33,
+    "count": 34,
+    "name": "Sobrado dos Monxes to Arzúa (joins Camino Francés)",
+    "theme": "The junction",
+    "narrative": "At Arzúa the Camino del Norte ends. The yellow arrows merge with the arrows of the Camino Francés and from here the two routes are one. The density of walkers triples in a single afternoon. Pilgrims who have come from Ferrol on the Inglés, from Oviedo on the Primitivo, from Irún on the Norte, from St. Jean Pied de Port on the Francés — all arrive in Arzúa within days of each other. The cafés are crowded. The albergues fill by 14:00. It can feel overwhelming after thirty quiet days on the Norte. But this is the old shape of the Camino: many rivers into one. From Arzúa it is two days to Santiago on the shared path (19.3 km to O Pedrouzo, then 19.4 km to Santiago), documented in routes/camino-frances/stages.json stages 31-32. The Norte proper ends here, at the junction.",
+    "closing": "Your solitary Camino has just merged with thousands of others. What does belonging feel like after so much solitude?",
+    "warnings": [],
+    "distanceKm": 22,
+    "gainMeters": 350,
+    "hours": {
+      "min": 5,
+      "max": 7
+    },
+    "difficulty": "moderate",
+    "start": {
+      "name": "Sobrado dos Monxes",
+      "at": {
+        "lat": 43.042,
+        "lon": -8.023
+      }
+    },
+    "end": {
+      "name": "Arzúa",
+      "at": {
+        "lat": 42.93,
+        "lon": -8.16
+      }
+    }
+  }
+}

@@ -9,8 +9,8 @@ export interface LocalizedString {
 export interface DatasetStage {
   index: number;
   name: LocalizedString;
-  start: { name: LocalizedString; coordinates: Position };
-  end: { name: LocalizedString; coordinates: Position };
+  start: { name: LocalizedString; coordinates: Position; offLineMeters?: number };
+  end: { name: LocalizedString; coordinates: Position; offLineMeters?: number };
   distanceKm: number;
   elevationGainMeters?: number;
   elevationLossMeters?: number;

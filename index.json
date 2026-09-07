@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
   "release": "v1.7.0",
-  "generatedAt": "2026-09-06T20:09:39.479Z",
+  "generatedAt": "2026-09-07T22:44:07.799Z",
   "pilgrimages": [
     {
       "id": "camino-de-santiago",
@@ -83,11 +83,17 @@
       },
       "region": "Europe",
       "country": "ES",
-      "distanceKm": 784,
+      "distanceKm": 788,
       "topology": "linear",
       "tradition": "christian",
       "path": "routes/camino-norte",
-      "pilgrimage": "camino-de-santiago"
+      "pilgrimage": "camino-de-santiago",
+      "ways": {
+        "stageCount": 34,
+        "bytes": 1320132,
+        "placesPerStage": 0,
+        "sparse": true
+      }
     },
     {
       "id": "camino-portugues",
