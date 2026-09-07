@@ -146,6 +146,7 @@ export interface ScannedSection {
 
 export function scanSections(routesDir: string, root: string): ScannedSection[] {
   const sections: ScannedSection[] = [];
+  const failures: string[] = [];
 
   for (const entry of readdirSync(routesDir)) {
     const routeDir = join(routesDir, entry);
@@ -166,7 +167,20 @@ export function scanSections(routesDir: string, root: string): ScannedSection[] 
       path: relative(root, routeDir),
     };
 
-    const pilgrimage = readPilgrimage(meta);
+    // Per route directory, the isolation build-ways gives each of its own:
+    // readPilgrimage names the field it refused but not the file it came
+    // from, and thrown bare from here a single typo killed the run with a
+    // stack trace pointing at pilgrimage.ts. Collecting instead of throwing
+    // means twelve directories report twelve problems, not the first one.
+    let pilgrimage: PilgrimageBlock | undefined;
+    try {
+      pilgrimage = readPilgrimage(meta);
+    } catch (error) {
+      failures.push(
+        `${relative(root, metaPath)}: ${error instanceof Error ? error.message : String(error)}`,
+      );
+      continue;
+    }
     if (pilgrimage) routeEntry.pilgrimage = pilgrimage.id;
 
     const variants = scanVariants(routeDir, root);
@@ -186,6 +200,10 @@ export function scanSections(routesDir: string, root: string): ScannedSection[] 
         typeof meta.overview?.distanceKm === "number" ? meta.overview.distanceKm : undefined,
     });
   }
+
+  // An index missing a section is worse than no index: consumers read it from
+  // @main and would see the route quietly disappear from the catalog.
+  if (failures.length > 0) throw new Error(failures.join("\n"));
 
   return sections.sort((a, b) => byIdThenPath(a.entry, b.entry));
 }
@@ -309,13 +327,22 @@ function main() {
   const routesDir = join(ROOT, "routes");
   const indexPath = join(ROOT, "index.json");
 
-  const index = buildIndex(
-    routesDir,
-    readPrevious(indexPath),
-    () => new Date().toISOString(),
-    ROOT,
-    releaseTag(join(ROOT, "package.json")),
-  );
+  let index: RouteIndex;
+  try {
+    index = buildIndex(
+      routesDir,
+      readPrevious(indexPath),
+      () => new Date().toISOString(),
+      ROOT,
+      releaseTag(join(ROOT, "package.json")),
+    );
+  } catch (error) {
+    console.error("\nBuild failed:");
+    for (const line of (error instanceof Error ? error.message : String(error)).split("\n")) {
+      console.error(`  ✗ ${line}`);
+    }
+    process.exit(1);
+  }
 
   writeFileSync(indexPath, JSON.stringify(index, null, 2) + "\n");
   console.log(`Generated index.json with ${index.routes.length} route(s)`);

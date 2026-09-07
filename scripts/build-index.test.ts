@@ -12,7 +12,15 @@ import {
 } from "fs";
 import { tmpdir } from "os";
 import { execFileSync } from "child_process";
-import { buildIndex, scanRoutes, readPrevious, releaseTag, waysEntry, type RouteIndex } from "./build-index.js";
+import {
+  buildIndex,
+  scanRoutes,
+  scanSections,
+  readPrevious,
+  releaseTag,
+  waysEntry,
+  type RouteIndex,
+} from "./build-index.js";
 import { createValidator, validateFile, type ValidationError } from "./validate.js";
 
 const ROOT = join(import.meta.dirname, "..");
@@ -637,5 +645,68 @@ test("index.schema.json refuses a third kind and a pilgrimage with no sections",
     assert.ok(sectionErrors.length > 0, "a pilgrimage with no sections groups nothing");
   } finally {
     rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("a malformed pilgrimage block names its own file, not the reader that threw", () => {
+  // #given one route directory of several carries a kind readPilgrimage refuses
+  const { root, routesDir } = createTempRoutesDir([
+    { dirName: "awa", id: "awa", metadata: { pilgrimage: { ...SHIKOKU, order: 1 } } },
+    { dirName: "tosa", id: "tosa", metadata: { pilgrimage: { ...SHIKOKU, kind: "loop", order: 2 } } },
+  ]);
+  try {
+    // #when / #then the failure names the file to open and the field to fix
+    assert.throws(() => scanSections(routesDir, root), (error: Error) => {
+      assert.match(error.message, /routes[/\\]tosa[/\\]metadata\.json/);
+      assert.match(error.message, /pilgrimage\.kind/);
+      return true;
+    });
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("one malformed pilgrimage block does not hide the next", () => {
+  // #given two bad blocks, failing on different fields
+  const { root, routesDir } = createTempRoutesDir([
+    { dirName: "awa", id: "awa", metadata: { pilgrimage: { ...SHIKOKU, kind: "loop", order: 1 } } },
+    { dirName: "tosa", id: "tosa", metadata: { pilgrimage: { ...SHIKOKU, order: 0 } } },
+  ]);
+  try {
+    // #when / #then both are reported by one run
+    assert.throws(() => scanSections(routesDir, root), (error: Error) => {
+      assert.match(error.message, /awa/);
+      assert.match(error.message, /tosa/);
+      assert.match(error.message, /pilgrimage\.order/);
+      return true;
+    });
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("build-index exits with a named failure, writing no index.json", () => {
+  const { dir, scriptPath, indexPath } = createTempScriptRepo([
+    { dirName: "tosa", id: "tosa", metadata: { pilgrimage: { ...SHIKOKU, kind: "loop", order: 1 } } },
+  ]);
+
+  try {
+    // #when the generator runs against a malformed block
+    assert.throws(
+      () => execFileSync(process.execPath, ["--import", "tsx", scriptPath], { cwd: dir, stdio: "pipe" }),
+      (error: Error & { status?: number; stderr?: Buffer }) => {
+        // #then it exits non-zero, names the file, and prints no stack trace
+        assert.equal(error.status, 1);
+        const stderr = error.stderr?.toString() ?? "";
+        assert.match(stderr, /Build failed:/);
+        assert.match(stderr, /routes[/\\]tosa[/\\]metadata\.json/);
+        assert.doesNotMatch(stderr, /at .*pilgrimage\.ts/);
+        return true;
+      },
+    );
+
+    assert.equal(existsSync(indexPath), false, "a failed run must not leave a partial index.json");
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
   }
 });
