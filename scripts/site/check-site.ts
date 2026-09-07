@@ -1117,6 +1117,22 @@ export function checkSite(root: string, overrides: PageOverrides = {}): Problem[
     if (pilgrimage.sections.length === 0) {
       add("index.json", `pilgrimage "${pilgrimage.id}" has no sections`);
     }
+
+    // build-index derives sections from the same walk that emits routes[],
+    // so this can't happen from that path today. It becomes reachable once a
+    // route is nested under a variants[] parent while still declaring a
+    // pilgrimage block — buildPilgrimagePages would then drop the section
+    // from the generated page in silence, so this has to be caught here.
+    for (const sectionId of pilgrimage.sections) {
+      if (!routeIdSet.has(sectionId)) {
+        add(
+          "index.json",
+          `pilgrimage "${pilgrimage.id}" lists section "${sectionId}", which is not a route in ` +
+            `routes[] — add a pilgrimage block to that section's own metadata.json, or remove ` +
+            `"${sectionId}" from pilgrimage "${pilgrimage.id}"'s sections list`,
+        );
+      }
+    }
   }
   for (const route of indexRoutes) {
     if (route.pilgrimage && !pilgrimageIds.has(route.pilgrimage)) {

@@ -2299,6 +2299,21 @@ test("a pilgrimage with no sections is a problem", () => {
   }
 });
 
+test("a pilgrimage section naming a route that does not exist is a problem", () => {
+  // #given a pilgrimage's sections[] lists an id absent from routes[]
+  const root = createFixtureRoot([], {
+    pilgrimages: [{ id: "shikoku-88", sections: ["awa"] }],
+  });
+
+  try {
+    // #when / #then checkSite reports the pilgrimage and the unresolved section id together
+    const problems = checkSite(root);
+    assert.ok(problems.some((p) => /shikoku-88/.test(p.message) && /awa/.test(p.message)));
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
 test("a pilgrimage page is not an orphaned detail page", () => {
   // #given a pilgrimage with a section, and both the section's and the pilgrimage's
   // pages already exist under docs/

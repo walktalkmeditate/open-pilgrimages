@@ -97,6 +97,33 @@ test("a page is written for each pilgrimage, listing its sections in order", () 
   }
 });
 
+test("a section with no measured distance renders no distance at all", () => {
+  const root = mkdtempSync(join(tmpdir(), "build-assets-test-"));
+  try {
+    mkdirSync(join(root, "docs"), { recursive: true });
+    writeFileSync(
+      join(root, "index.json"),
+      JSON.stringify({
+        pilgrimages: [
+          { id: "kumano-kodo", name: { en: "Kumano Kodō" }, kind: "alternatives", sections: ["kumano-kodo-nakahechi"] },
+        ],
+        routes: [
+          { id: "kumano-kodo-nakahechi", name: { en: "Nakahechi" }, pilgrimage: "kumano-kodo" },
+        ],
+      }),
+    );
+
+    const written = buildPilgrimagePages(root);
+    const html = readFileSync(written[0], "utf8");
+
+    // Not measured yet reads as "no number", not as a measured zero.
+    assert.equal(html.includes("0 km"), false);
+    assert.match(html, /<li><a href="\/kumano-kodo-nakahechi">Nakahechi<\/a><\/li>/);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
 test("no pilgrimages means no pages", () => {
   const root = mkdtempSync(join(tmpdir(), "build-assets-test-"));
   try {

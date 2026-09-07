@@ -181,10 +181,14 @@ export function buildPilgrimagePages(root: string): string[] {
     const sections = pilgrimage.sections
       .map((id) => index.routes.find((r) => r.id === id))
       .filter((r): r is NonNullable<typeof r> => r !== undefined);
+    // A section that hasn't been measured yet and a section measured at
+    // exactly 0 km are different facts; falling back to 0 would report the
+    // former as the latter, turning "not measured" into a false measurement.
     const items = sections
-      .map(
-        (s) =>
-          `      <li><a href="/${s.id}">${escapeHtml(s.name.en)}</a> — ${s.distanceKm ?? 0} km</li>`,
+      .map((s) =>
+        s.distanceKm === undefined
+          ? `      <li><a href="/${s.id}">${escapeHtml(s.name.en)}</a></li>`
+          : `      <li><a href="/${s.id}">${escapeHtml(s.name.en)}</a> — ${s.distanceKm} km</li>`,
       )
       .join("\n");
 
