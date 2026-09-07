@@ -381,6 +381,15 @@ nav .nav-github svg {
   gap: var(--space-lg);
 }
 
+/* route-filter.js hides a group whose cards are all filtered out by setting
+   group.hidden. The rule above is author-origin and the [hidden] rule that
+   would act on it is the browser's own, so the grid won every time and the
+   heading floated over the space its cards used to fill. The cards need no
+   such rule: nothing here gives .route-card a display of its own. */
+.route-group[hidden] {
+  display: none;
+}
+
 .route-card {
   border: 1px solid var(--fog);
   border-radius: 4px;
