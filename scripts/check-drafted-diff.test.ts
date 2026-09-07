@@ -146,3 +146,28 @@ test("an unparseable base ref is reported, not thrown", () => {
   assert.equal(errors.length, 1);
   assert.match(errors[0], /could not be read/);
 });
+
+test("a git failure that is not a missing path exits non-zero, not as nothing to strip", () => {
+  const { dir, scriptPath } = createTempScriptRepo();
+  try {
+    // #given a base ref git cannot resolve at all — a bad ref, standing in for
+    // any other infrastructure failure (a failed fetch, a corrupt repo) that
+    // is not "this path is new"
+    // #when / #then the gate must not read that as nothing to strip and print
+    // its clean message; it must exit non-zero and surface the git error
+    assert.throws(
+      () =>
+        execFileSync(process.execPath, ["--import", "tsx", scriptPath, "not-a-real-ref"], {
+          cwd: dir,
+          stdio: "pipe",
+        }),
+      (error: Error & { status?: number; stderr?: Buffer }) => {
+        assert.notEqual(error.status, 0);
+        assert.match(error.stderr?.toString() ?? "", /invalid object name/);
+        return true;
+      },
+    );
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
