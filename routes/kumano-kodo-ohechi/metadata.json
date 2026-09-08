@@ -4,7 +4,7 @@
   "lastUpdated": "2026-09-08T00:00:00Z",
 
   "name": { "en": "Ōhechi (Southern Coastal Route)", "ja": "大辺路" },
-  "description": { "en": "Roughly 90 km coastal route from Tanabe to Nachi via Kushimoto, rounding Cape Shionomisaki at the southern tip of the Kii Peninsula — the longest of the Kumano Kodō's routes, following the coast rather than the mountain passes of the Nakahechi and Kohechi. This release ships it as a metadata stub only: OpenStreetMap holds no route relation for the Ōhechi at all, so there is no walked line to package yet. See the osm block below for what the corridor sweep found." },
+  "description": { "en": "Roughly 90 km coastal route from Tanabe to Nachi via Kushimoto, rounding Cape Shionomisaki at the southern tip of the Kii Peninsula — the shoreline route, rather than the mountain passes of the Nakahechi and Kohechi. This release ships it as a metadata stub only: OpenStreetMap holds no route relation for the Ōhechi at all, so there is no walked line to package yet. See the osm block below for what the corridor sweep found." },
 
   "overview": {
     "distanceKm": 90,
