@@ -51,7 +51,7 @@
     "seasonalAvailability": {
       "openMonths": [3, 4, 5, 6, 7, 8, 9, 10, 11],
       "notes": {
-        "en": "The three passes above 1,000 m can hold snow between December and March. Hatenashi-toge, the southernmost, is the lowest of the three."
+        "en": "openMonths above runs March to November — a shorter season than the Nakahechi, which is open all twelve months. This dataset holds no snow depths and no closure dates for the three passes above 1,000 m, and it declares the two southern passes at the same 1,070 m, so it ranks neither above the other."
       }
     },
     "currency": "JPY",

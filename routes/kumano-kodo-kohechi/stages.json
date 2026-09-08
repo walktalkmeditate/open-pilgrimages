@@ -24,7 +24,7 @@
       "estimatedHours": { "min": 6, "max": 8 },
       "difficulty": "hard",
       "terrainTypes": ["mountain", "forest", "dirt", "paved"],
-      "terrainNotes": { "en": "A ridge day. The trail climbs out of Koyasan and then holds high ground, never dropping below 650 m, with long stretches of forestry road between the sections of path." },
+      "terrainNotes": { "en": "A ridge day. The trail climbs out of Koyasan and then holds high ground, its low point 650 m, with paved stretches between the sections of path." },
       "drafted": true,
       "interior": {
         "theme": { "en": "Onto the ridge" },
