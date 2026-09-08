@@ -42,6 +42,10 @@
           },
           "additionalProperties": true
         },
+        "hoursNote": {
+          "$ref": "#/$defs/LocalizedString",
+          "description": "How each stage's estimatedHours was arrived at: the rule, the factor and where it was fitted, any choice the rule did not determine, and the published times the result was checked against. A reader has to be able to tell a derived figure from an asserted one."
+        },
         "topology": {
           "type": "string",
           "enum": ["linear", "circular", "network"]
@@ -330,7 +334,11 @@
       "properties": {
         "relations": { "type": "array", "items": { "type": "integer" }, "minItems": 1 },
         "superroute": { "type": "integer" },
-        "query": { "type": "string" }
+        "query": { "type": "string" },
+        "note": {
+          "type": "string",
+          "description": "Why this relation list is what it is, where the choice is not obvious — a relation from a neighbouring section pinned so the line reaches its own end, a superroute preferred over its members, a spur left out."
+        }
       },
       "description": "Relations are required for any section with a ways/ package; a name query alone pulls in spurs and variants."
     }
