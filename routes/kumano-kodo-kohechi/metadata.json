@@ -86,7 +86,7 @@
         "license": "public-domain",
         "dataTypes": ["elevation"],
         "accessDate": "2026-09-08",
-        "notes": "NASA SRTM 1 arc-second void-filled, sampled at every vertex of route.main.geojson. Public domain, so it does not change the combined dataset's licence. Method and cross-checks are in overview.elevationRange.elevationNote."
+        "notes": "NASA SRTM 1 arc-second void-filled, sampled at every vertex of route.main.geojson. Recorded as public-domain rather than the corpus's public-data, which marks an official body's freely published figures and says nothing about copyright: this source carries none at all, which is the whole reason it can be mixed into an ODbL dataset without changing the licence. Method and cross-checks are in overview.elevationRange.elevationNote."
       },
       {
         "name": "Tanabe City Kumano Tourism Bureau",
