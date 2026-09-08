@@ -8,12 +8,19 @@
 
   "overview": {
     "distanceKm": 170,
+    "distanceNote": {
+      "en": "170 km is the scoping figure this pilgrimage's own design spec sets for the Iseji (docs/superpowers/specs/2026-09-05-pilgrimages-and-sections-design.md, section 5.2, which also expects about nine stages), and the same figure the March 2026 variant stub this section was promoted from already carried. It is not measured against a walked line, because none exists: OpenStreetMap relation 19693803 holds 2.06 km of a roughly 170 km route, and the corridor sweep found nowhere near enough to assemble the rest — see the osm block. The 9-14 day range beside it came from that same stub with no source of its own. Expect both to be corrected once the section is cut."
+    },
     "estimatedDays": { "min": 9, "max": 14, "typical": 11 },
     "topology": "linear",
     "direction": "southwest",
     "startPoint": { "name": { "en": "Ise Grand Shrine (Ise Jingū)", "ja": "伊勢神宮" }, "coordinates": [136.726, 34.455, 30] },
     "endPoint": { "name": { "en": "Kumano Hayatama Taisha", "ja": "熊野速玉大社" }, "coordinates": [135.984, 33.732, 10] },
-    "elevationRange": { "minMeters": 0, "maxMeters": 647, "totalAscentMeters": 5000, "totalDescentMeters": 5020 },
+    "elevationRange": {
+      "minMeters": 0,
+      "maxMeters": 647,
+      "elevationNote": "Sea level to 647 m was carried over unchanged from the March 2026 routes/kumano-kodo/variants/iseji stub, whose one provenance entry claimed OpenStreetMap geometry this repository has never held. Nothing here has measured it: there is no walked line to sample and no elevation model has been run over this corridor. It is kept as a declared figure, and it is the 647 m the Kohechi's page compares its own high point against. The stub's totalAscentMeters (5,000) and totalDescentMeters (5,020) were removed rather than annotated: cumulative ascent and descent are quantities you derive from a line, this section has none, and two round unsourced numbers read as measurements of a profile nobody took. They come back when the line does."
+    },
     "difficulty": "moderate",
     "terrainTypes": ["coastal", "forest", "cobblestone", "mountain", "paved"],
     "bestMonths": [3, 4, 5, 10, 11],
@@ -24,6 +31,13 @@
 
   "provenance": {
     "sources": [
+      {
+        "name": "This repository's own planning",
+        "license": "reference",
+        "dataTypes": ["overview"],
+        "accessDate": "2026-09-08",
+        "notes": "distanceKm, estimatedDays and elevationRange are declared figures, not measurements: their origins are recorded in overview.distanceNote and overview.elevationRange.elevationNote. The OpenStreetMap entry below covers the relation lookup and nothing else."
+      },
       {
         "name": "OpenStreetMap",
         "url": "https://www.openstreetmap.org/relation/19693803",
