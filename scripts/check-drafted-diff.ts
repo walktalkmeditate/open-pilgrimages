@@ -88,21 +88,47 @@ const ROOT = join(import.meta.dirname, "..");
 
 /**
  * A missing path and a bad ref both exit `git show` with status 128, so exit
- * code cannot tell them apart — only the message can. Everything but the
- * missing-path case (a bad ref, a failed `git fetch`, a corrupt repo) must
- * exit non-zero with the git error: this gate exists to close a fail-open
- * path, so failing open on an infrastructure error would be the same mistake
- * again, just moved one level down.
+ * code alone cannot tell them apart. Prose can (git's wording differs by
+ * case), but it varies by git version and by whether the path happens to
+ * exist on disk — a new section's path always does, and would silently stop
+ * matching a wording check pinned to only one of the two phrasings. Checking
+ * the ref and the path as separate structural questions never has that
+ * failure mode: `rev-parse --verify --quiet` reports only whether <ref>
+ * itself resolves, untouched by what path is asked for, and `cat-file -e`
+ * reports only whether <ref>:<path> exists, once the ref is known good.
  */
-function showAtRef(ref: string, path: string): string {
+function refExists(ref: string): boolean {
+  try {
+    execFileSync("git", ["rev-parse", "--verify", "--quiet", ref], { stdio: "ignore" });
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+function pathExistsAtRef(ref: string, path: string): boolean {
+  try {
+    execFileSync("git", ["cat-file", "-e", `${ref}:${path}`], { stdio: "ignore" });
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+/**
+ * Everything but the missing-path case (a bad ref, a failed `git fetch`, a
+ * corrupt repo) must exit non-zero with the git error: this gate exists to
+ * close a fail-open path, so failing open on an infrastructure error would
+ * be the same mistake again, just moved one level down.
+ */
+export function showAtRef(ref: string, path: string): string {
   try {
     return execFileSync("git", ["show", `${ref}:${path}`], {
       encoding: "utf8",
       stdio: ["ignore", "pipe", "pipe"],
     });
   } catch (error) {
-    const stderr = (error as { stderr?: string }).stderr ?? "";
-    if (stderr.includes("does not exist in")) {
+    if (refExists(ref) && !pathExistsAtRef(ref, path)) {
       // A path absent at the base ref is a new section, which has nothing to strip.
       return '{"stages":[]}';
     }

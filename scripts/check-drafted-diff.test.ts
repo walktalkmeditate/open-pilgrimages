@@ -3,7 +3,7 @@ import assert from "node:assert/strict";
 import { join } from "path";
 import { mkdtempSync, mkdirSync, writeFileSync, rmSync, cpSync } from "fs";
 import { execFileSync } from "child_process";
-import { checkDraftedDiff } from "./check-drafted-diff.js";
+import { checkDraftedDiff, showAtRef } from "./check-drafted-diff.js";
 
 const ROOT = join(import.meta.dirname, "..");
 
@@ -59,6 +59,37 @@ function createTempScriptRepo(): { dir: string; scriptPath: string; variantDir: 
   }
 
   return { dir, scriptPath: join(scriptsDir, "check-drafted-diff.ts"), variantDir };
+}
+
+/**
+ * showAtRef's own contract, not main()'s wiring — no review-checklist
+ * machinery needed, just a commit to diff against.
+ */
+function createTempGitRepo(): string {
+  const dir = mkdtempSync(join(ROOT, ".check-drafted-diff-test-"));
+  execFileSync("git", ["init", "-q"], { cwd: dir });
+  execFileSync("git", ["config", "user.email", "test@example.com"], { cwd: dir });
+  execFileSync("git", ["config", "user.name", "Test"], { cwd: dir });
+  writeFileSync(join(dir, ".gitkeep"), "");
+  execFileSync("git", ["add", "-A"], { cwd: dir });
+  execFileSync("git", ["commit", "-q", "-m", "base"], { cwd: dir });
+  return dir;
+}
+
+/**
+ * showAtRef shells out to git without an explicit cwd, matching how main()
+ * calls it (git addresses paths from wherever the process runs). Testing it
+ * directly means moving the process there for the call, same as a subprocess
+ * launched with `cwd: dir` would see, restored immediately after.
+ */
+function runShowAtRefIn<T>(dir: string, fn: () => T): T {
+  const original = process.cwd();
+  process.chdir(dir);
+  try {
+    return fn();
+  } finally {
+    process.chdir(original);
+  }
 }
 
 const drafted = JSON.stringify({ stages: [{ index: 0, drafted: true }, { index: 1 }] });
@@ -237,6 +268,93 @@ test("a git failure that is not a missing path exits non-zero, not as nothing to
         return true;
       },
     );
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test("showAtRef treats a path absent at the ref and absent on disk as a new section", () => {
+  const dir = createTempGitRepo();
+  try {
+    const baseRef = execFileSync("git", ["rev-parse", "HEAD"], { cwd: dir, encoding: "utf8" }).trim();
+
+    // #given routes/new-section/stages.json was never created — git reports
+    // this with "does not exist in", the wording the old code matched
+    // #when / #then it reads as a brand new section with nothing to strip
+    const result = runShowAtRefIn(dir, () => showAtRef(baseRef, "routes/new-section/stages.json"));
+    assert.equal(result, '{"stages":[]}');
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test("showAtRef treats a path absent at the ref but present on disk as a new section", () => {
+  const dir = createTempGitRepo();
+  try {
+    const baseRef = execFileSync("git", ["rev-parse", "HEAD"], { cwd: dir, encoding: "utf8" }).trim();
+
+    // #given a section this PR adds: the file sits on disk but was never
+    // committed at the base ref — git reports this with "exists on disk,
+    // but not in", the wording the old code did not match, which is the bug
+    mkdirSync(join(dir, "routes", "new-section"), { recursive: true });
+    writeFileSync(
+      join(dir, "routes", "new-section", "stages.json"),
+      JSON.stringify({ stages: [{ index: 0, drafted: true }] }),
+    );
+
+    // #when / #then it still reads as a brand new section, not an
+    // infrastructure failure
+    const result = runShowAtRefIn(dir, () => showAtRef(baseRef, "routes/new-section/stages.json"));
+    assert.equal(result, '{"stages":[]}');
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test("showAtRef still throws for a ref git cannot resolve at all", () => {
+  const dir = createTempGitRepo();
+  try {
+    mkdirSync(join(dir, "routes", "new-section"), { recursive: true });
+    writeFileSync(
+      join(dir, "routes", "new-section", "stages.json"),
+      JSON.stringify({ stages: [{ index: 0, drafted: true }] }),
+    );
+
+    // #given a ref that resolves to nothing at all, standing in for a bad
+    // ref, a failed fetch, or a corrupt repo — the path being on disk must
+    // not be enough to wave this through
+    // #when / #then showAtRef still throws instead of returning the
+    // empty-stages sentinel
+    assert.throws(() =>
+      runShowAtRefIn(dir, () => showAtRef("not-a-real-ref", "routes/new-section/stages.json")),
+    );
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test("a brand new section's stages.json, absent at the base ref but present on disk, passes the gate", () => {
+  const { dir, scriptPath } = createTempScriptRepo();
+  try {
+    const baseRef = execFileSync("git", ["rev-parse", "HEAD"], { cwd: dir, encoding: "utf8" }).trim();
+
+    // #given this PR adds a whole new section — its stages.json exists only
+    // in the working tree, never in the base ref's history, reproducing the
+    // exact shape of the kumano-kodo CI failure
+    const newSectionDir = join(dir, "routes", "kumano-kodo-kohechi");
+    mkdirSync(newSectionDir, { recursive: true });
+    writeFileSync(join(newSectionDir, "metadata.json"), JSON.stringify({ id: "kumano-kodo-kohechi" }));
+    writeFileSync(
+      join(newSectionDir, "stages.json"),
+      JSON.stringify({ stages: [{ index: 0, drafted: true }] }),
+    );
+
+    // #when / #then a new section has no flag to strip, so the gate passes
+    const stdout = execFileSync(process.execPath, ["--import", "tsx", scriptPath, baseRef], {
+      cwd: dir,
+      encoding: "utf8",
+    });
+    assert.match(stdout, /Every cleared drafted flag has a recorded review/);
   } finally {
     rmSync(dir, { recursive: true, force: true });
   }
