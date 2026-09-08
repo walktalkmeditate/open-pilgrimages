@@ -15,6 +15,9 @@
       "en": "Measured on the walked line rather than taken from a guidebook, because this repository holds no guidebook figure for these four days. 63 km is the rounded sum of the four stages, as every linear route here declares. The walked line itself measures 64.3 km from the Kohechi's own trailhead at Koyasan to Kumano Hongu Taisha; the stages begin 0.3 km along it, at the Koyasan anchor, and each stage's figure is the length of its packaged slice, which the build simplifies to a tolerance before measuring. The variant stub this section was promoted from declared 70 km and the Tanabe City Kumano Tourism Bureau describes the route as more than 65 km; neither was measured on this line."
     },
     "estimatedDays": { "min": 3, "max": 5, "typical": 4 },
+    "hoursNote": {
+      "en": "Every stage's estimatedHours is Naismith's rule — distanceKm/5 + elevationGainMeters/600 — times the roughness factor this repository fitted empirically for the Nakahechi (k_min 1.2277–1.3761, k_max 1.7401–1.8973), borrowed rather than this section's own because no Kohechi times exist here to fit one against, and fitted there on 3.6–15.9 km days that cross no pass above 1,000 m. Across that whole range every min rounds to the same hour, but three of the four max values do not, so the window was evaluated at its lower bound — a choice, not something the window determined. The bands were checked afterwards against the six-to-nine-hour days the Tanabe City Kumano Tourism Bureau publishes for this route and against per-day times from Japan Web Magazine and AllTrails, all of which fall inside them; none of those figures set a value here."
+    },
     "topology": "linear",
     "direction": "south",
     "startPoint": {
