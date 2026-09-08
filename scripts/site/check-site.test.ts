@@ -144,9 +144,16 @@ test("checkSite accepts a detail page that identifies its own route via <code>",
   // already renders route IDs today, plus a route.gpx link and a roads
   // corridor reference so the unrelated gpx-discoverability and
   // roads-page-reference guards don't also fire here. The linked route.gpx
-  // must actually exist on disk too, or the CDN link guard reports it.
+  // must actually exist on disk too, or the CDN link guard reports it. The
+  // route.geojson is what makes those two guards run at all: both are now
+  // scoped to routes that have geometry, so without it this fixture would
+  // pass by exemption and prove nothing about the link or the <img>.
   const root = createFixtureRoot([{ id: "camino-frances" }]);
   mkdirSync(join(root, "routes", "camino-frances"), { recursive: true });
+  writeFileSync(
+    join(root, "routes", "camino-frances", "route.geojson"),
+    JSON.stringify({ type: "FeatureCollection", features: [] }),
+  );
   writeFileSync(join(root, "routes", "camino-frances", "route.gpx"), "<gpx></gpx>");
   writeFileSync(
     join(root, "docs", "camino-frances.html"),
@@ -1865,8 +1872,16 @@ test("checkSite reports a detail page with no link to its own route.gpx (fixture
 });
 
 test("checkSite accepts a detail page that links its own route.gpx (fixture)", () => {
-  // #given a detail page linking its own routes/camino-frances/route.gpx
+  // #given a detail page linking its own routes/camino-frances/route.gpx, for a
+  // route that has geometry — the gpx-link guard only runs for those, so
+  // without route.geojson this fixture would pass with the <a> deleted
   const root = createFixtureRoot([{ id: "camino-frances" }]);
+  mkdirSync(join(root, "routes", "camino-frances"), { recursive: true });
+  writeFileSync(
+    join(root, "routes", "camino-frances", "route.geojson"),
+    JSON.stringify({ type: "FeatureCollection", features: [] }),
+  );
+  writeFileSync(join(root, "routes", "camino-frances", "route.gpx"), "<gpx></gpx>");
   writeFileSync(
     join(root, "docs", "camino-frances.html"),
     '<html><body><code>camino-frances</code>' +
