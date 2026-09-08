@@ -708,6 +708,117 @@ test("checkSite accepts terrainNotes whose self-referential distance claim match
   }
 });
 
+// The three sentences below are the real, verbatim terrainNotes of the three
+// committed stages that state their own length in prose. Each is reproduced
+// exactly (not paraphrased) because the whole question this check turns on is
+// how these particular sentences are worded: the first rigid version of the
+// pattern required the number to follow a verb, so all three slipped past it
+// — including camino-norte stage 12, the sentence the check was written for.
+// Each fixture deliberately disagrees with distanceKm so the check has to fire.
+const PRIMITIVO_STAGE_9_NOTES =
+  "Longest day of the Camino Primitivo at 30.5 km. Some pilgrims split it by overnighting in " +
+  "Castroverde (about halfway). Mostly downhill but with sustained walking through forest, " +
+  "ending with the dramatic entry into walled Roman Lugo.";
+
+const PRIMITIVO_STAGE_4_NOTES =
+  "Long stage with rolling mountain terrain. The path passes through Borres and Campiello — " +
+  "the latter being where the Hospitales variant diverges from the main path the next day. " +
+  "Multiple climbs and descents make this feel longer than its 28 km.";
+
+const NORTE_STAGE_12_NOTES =
+  "Drops from Güemes through Galizano and Loredo to the beach at Somo, then takes a short " +
+  "passenger ferry across Santander bay to the Santander waterfront (the ferry runs every 30 " +
+  "minutes in daytime). The walk from the Santander ferry dock to the cathedral is ~1 km. The " +
+  "18.6 km measures the whole stage, ferry included; about 1.8 km of that is the crossing, so " +
+  "roughly 16.8 km is on foot. There is no pedestrian bridge — walking around the bay instead " +
+  "is about 35 km of industrial road.";
+
+function stageNotesFixture(distanceKm: number, terrainNotes: string): string {
+  const root = createFixtureRoot([{ id: "camino-frances" }]);
+  const routeDir = join(root, "routes", "camino-frances");
+  mkdirSync(routeDir, { recursive: true });
+  writeFileSync(
+    join(routeDir, "stages.json"),
+    JSON.stringify({ stages: [{ index: 0, distanceKm, terrainNotes: { en: terrainNotes } }] }),
+  );
+  return root;
+}
+
+function terrainNotesProblems(root: string): string[] {
+  return checkSite(root)
+    .filter((p) => p.message.includes("terrainNotes"))
+    .map((p) => p.message);
+}
+
+test("a stage whose notes name their own length after a superlative ('Longest day … at 30.5 km') is checked", () => {
+  // #given camino-primitivo stage 9's real notes, against a distanceKm that no longer agrees
+  const root = stageNotesFixture(24, PRIMITIVO_STAGE_9_NOTES);
+
+  try {
+    // #when checkSite reads the stage's own claim
+    const messages = terrainNotesProblems(root);
+
+    // #then the 30.5 km the prose asserts is reported against the stage's 24 km
+    assert.ok(messages.some((m) => m.includes("30.5") && m.includes("24")));
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("a stage whose notes name their own length possessively ('longer than its 28 km') is checked", () => {
+  // #given camino-primitivo stage 4's real notes, against a distanceKm that no longer agrees
+  const root = stageNotesFixture(24, PRIMITIVO_STAGE_4_NOTES);
+
+  try {
+    // #when checkSite reads the stage's own claim
+    const messages = terrainNotesProblems(root);
+
+    // #then the 28 km "its" refers to is reported against the stage's 24 km
+    assert.ok(messages.some((m) => m.includes("28") && m.includes("24")));
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("a stage whose notes name their own length figure-first ('The 18.6 km measures the whole stage') is checked", () => {
+  // #given camino-norte stage 12's real notes — the sentence this check was created for —
+  // against a distanceKm that no longer agrees
+  const root = stageNotesFixture(20.4, NORTE_STAGE_12_NOTES);
+
+  try {
+    // #when checkSite reads the stage's own claim
+    const messages = terrainNotesProblems(root);
+
+    // #then the 18.6 km the prose says measures the whole stage is reported against 20.4
+    assert.ok(messages.some((m) => m.includes("18.6") && m.includes("20.4")));
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("the 'roughly 16.8 km is on foot' clause beside it is not read as the stage's own length", () => {
+  // #given the same camino-norte stage 12 notes: "16.8 km" is the walking portion with the
+  // ferry crossing subtracted, deliberately different from distanceKm, and it sits in the very
+  // sentence whose other clause does state the stage's length
+  const root = stageNotesFixture(20.4, NORTE_STAGE_12_NOTES);
+
+  try {
+    const messages = terrainNotesProblems(root);
+
+    // #when the check is live on this string (the neighbouring 18.6 km claim is reported)
+    assert.ok(messages.some((m) => m.includes("18.6")));
+
+    // #then none of the note's other km figures — the on-foot portion, the ferry crossing,
+    // the walk to the cathedral, the drive around the bay — are reported as its length
+    assert.deepEqual(
+      messages.filter((m) => /\b(?:16\.8|1\.8|35|1) km\b/.test(m)),
+      [],
+    );
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
 test("the committed routes/*/stages.json terrainNotes already agree with their own distanceKm (positive control)", () => {
   // #given every route's terrainNotes as currently committed
   // #when / #then checkSite reports no terrainNotes mismatch anywhere

@@ -229,22 +229,60 @@ const WAYPOINT_TYPE_ROW_PATTERN = /<tr><th scope="row">([^<]+)<\/th><td>([\d,]+)
 
 /**
  * terrainNotes prose mentions kilometres constantly without describing the
- * stage's own length: a mid-stage split point ("~10 km"), an alternate
- * route's distance, or — the real example this pattern was tuned against,
- * camino-norte stage 12's note — "walking around the bay instead is about 35
- * km of industrial road", a detour distance that has nothing to do with that
- * stage's own 18.6 km. A loose "any number immediately followed by km"
- * pattern would flag most of this dataset's unchanged, correct prose (it did,
- * against every route, before this pattern was narrowed). Elevations and
- * altitudes ("~425 m", "at 700m") are already excluded by requiring the unit
- * to be "km", not "m" — but that alone still leaves every km-denominated
- * aside above as a false positive. Requiring the number to follow "day" or
- * "stage" plus a verb that claims the whole of it ("is", "covers", "spans",
- * "measures", "totals") only matches prose that is actually claiming to
- * describe that stage's own total distance.
+ * stage's own length: a mid-stage split point ("split this stage at Pasaia
+ * (~10 km)"), an alternative nobody walks ("walking around the bay instead is
+ * about 35 km of industrial road"), a sub-segment ("17 km stretch without any
+ * villages", "660 m elevation gain in the final 12 km"), a neighbouring
+ * route's length ("the Valcarlos Route … longer at 28 km"), a distance still
+ * to run ("102 km to Santiago"), or a gap between two landmarks ("The longest
+ * gap: 80.7 km from Temple 37 to Temple 38"). A "km figure near the word
+ * stage" pattern flags all of those. So the rule is not proximity — it is
+ * that the figure has to be asserted *as* the stage's own length.
+ *
+ * Across every terrainNotes string in routes/<id>/stages.json, exactly five
+ * stages assert that, in four grammatical shapes, and those four shapes are
+ * what the patterns below encode. In every one, the figure is predicated of a
+ * noun that denotes this stage — "day", "stage", or the pronoun "its". In
+ * every false positive above, it is predicated of something else: a place, a
+ * segment, a variant, a gap, a road, a destination. That is the distinction,
+ * and it is a lexical one the corpus makes consistently.
+ *
+ * The hard case is camino-norte stage 12, whose single sentence contains both
+ * a true claim and a false one: "The 18.6 km measures the whole stage, ferry
+ * included; about 1.8 km of that is the crossing, so roughly 16.8 km is on
+ * foot." 16.8 is deliberately not distanceKm — it is the walking portion. No
+ * sentence- or clause-window can separate the two, but the predicate can:
+ * FIGURE_IS_THE_STAGE requires the complement to be the stage itself ("the
+ * whole stage"), which "the crossing" and "on foot" are not.
  */
-const TERRAIN_NOTES_DISTANCE_PATTERN =
-  /\b(?:day|stage)\s+(?:is|covers|totals|measures|spans)\s+(?:about\s+|roughly\s+|approximately\s+|around\s+)?(\d+(?:\.\d+)?)\s*km\b/i;
+const TERRAIN_NOTES_DISTANCE_PATTERNS = [
+  // "The day is 15.3 km" — the stage-noun is the subject of a measuring verb.
+  // The verb has to sit immediately after the noun, so "split this stage at
+  // Pasaia (~10 km)" cannot reach it.
+  /\b(?:day|stage)\s+(?:is|covers|totals|measures|spans)\s+(?:about\s+|roughly\s+|approximately\s+|around\s+|~\s*)?(\d+(?:\.\d+)?)\s*km\b/gi,
+
+  // "Longest day of the Camino Primitivo at 30.5 km", "The longest single
+  // stage of the Norte — 39.8 km": the figure is an appositive to a
+  // stage-noun that *heads* its clause. Three guards keep this off the
+  // asides. The noun must follow a sentence boundary behind nothing but a
+  // determiner and modifiers — a demonstrative inside that run means an
+  // earlier verb took the stage as its object ("pilgrims split this stage"),
+  // not that the clause is about the stage. The span to the connector cannot
+  // cross a sentence end or enter a parenthetical. And the figure must follow
+  // the connector immediately, which is why "at Pasaia (~10 km)" and "at
+  // Islares" fall out: those "at"s govern a place, not a distance. A comma is
+  // deliberately not an accepted connector — "(La Salvé, 5 km)" shows why.
+  /(?:^|[.;]\s+)(?:the|a|an|another|this)?\s*(?:(?!(?:this|that|these|those|it)\b)[^\s.;()]+\s+){0,4}?(?:day|stage)\b[^.;()]{0,45}?(?:\bat\b|[—–:])\s*(?:about\s+|roughly\s+|approximately\s+|around\s+|~\s*)?(\d+(?:\.\d+)?)\s*km\b/gi,
+
+  // "make this feel longer than its 28 km" — a possessive whose only possible
+  // antecedent inside a stage's own terrainNotes is that stage.
+  /\b(?:its|(?:this|the)\s+(?:day|stage)['’]s)\s+(?:about\s+|roughly\s+|approximately\s+|around\s+|~\s*)?(\d+(?:\.\d+)?)\s*km\b/gi,
+
+  // "The 18.6 km measures the whole stage" — figure first, stage-noun as the
+  // complement. Requiring that complement is what keeps the sibling clauses
+  // "1.8 km of that is the crossing" and "16.8 km is on foot" silent.
+  /\bthe\s+(\d+(?:\.\d+)?)\s*km\s+(?:is|covers|measures|spans|totals)\s+the\s+(?:whole\s+|entire\s+|full\s+)?(?:day|stage)\b/gi,
+] as const;
 
 const GLYPHS_JS_KEY_PATTERN = /^\s*"([^"]+)":/gm;
 
@@ -1072,18 +1110,24 @@ export function checkSite(root: string, overrides: PageOverrides = {}): Problem[
       const notes = localizedText(stage.terrainNotes);
       if (!notes) return;
 
-      const match = notes.match(TERRAIN_NOTES_DISTANCE_PATTERN);
-      if (!match) return; // no self-referential "day is/covers/… N km" claim in the prose
-
-      const named = Number(match[1]);
       const actual = typeof stage.distanceKm === "number" ? stage.distanceKm : undefined;
-      if (actual === undefined || named === actual) return;
+      if (actual === undefined) return;
 
-      add(
-        file,
-        `stage ${index + 1}'s terrainNotes names ${named} km as the day's distance, but this ` +
-          `stage's distanceKm is ${actual} km — reword the note or fix distanceKm`,
-      );
+      // A note can state its length more than once, and in more than one of
+      // the four shapes; every distinct figure it asserts has to agree.
+      const claimed = new Set<number>();
+      for (const pattern of TERRAIN_NOTES_DISTANCE_PATTERNS) {
+        for (const match of notes.matchAll(pattern)) claimed.add(Number(match[1]));
+      }
+
+      for (const named of claimed) {
+        if (named === actual) continue;
+        add(
+          file,
+          `stage ${index + 1}'s terrainNotes names ${named} km as the day's distance, but this ` +
+            `stage's distanceKm is ${actual} km — reword the note or fix distanceKm`,
+        );
+      }
     });
   }
 
