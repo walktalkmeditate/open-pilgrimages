@@ -53,6 +53,16 @@ jobs:
           # workflow_dispatch, where github.event.pull_request is absent and
           # this expression renders as the empty string, the checkout is
           # unchanged (and the drafted-text step does not run at all).
+          #
+          # The pin costs something, deliberately: every step below now
+          # proves the PR head is self-consistent rather than that the merge
+          # result is. Two content PRs whose index.json merges cleanly but
+          # wrongly would surface on main's push run instead of on either
+          # PR. That is the price of a gate that reads the working tree —
+          # check-drafted-diff and the review checklist both do — because
+          # against a merged tree a concurrent PR's ticked line would
+          # satisfy this PR's cleared flag. Requiring branches to be up to
+          # date before merging closes the gap from the other side.
           ref: ${{ github.event.pull_request.head.sha }}
       - uses: actions/setup-node@v5
         with:

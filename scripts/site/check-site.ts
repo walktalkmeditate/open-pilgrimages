@@ -272,7 +272,7 @@ const TERRAIN_NOTES_DISTANCE_PATTERNS = [
   // the connector immediately, which is why "at Pasaia (~10 km)" and "at
   // Islares" fall out: those "at"s govern a place, not a distance. A comma is
   // deliberately not an accepted connector — "(La Salvé, 5 km)" shows why.
-  /(?:^|[.;]\s+)(?:the|a|an|another|this)?\s*(?:(?!(?:this|that|these|those|it)\b)[^\s.;()]+\s+){0,4}?(?:day|stage)\b[^.;()]{0,45}?(?:\bat\b|[—–:])\s*(?:about\s+|roughly\s+|approximately\s+|around\s+|~\s*)?(\d+(?:\.\d+)?)\s*km\b/gi,
+  /(?:^|[.;]\s+)(?:the|a|an|another|this)?\s*(?:(?!(?:this|that|these|those|it)\b)[^\s.;()]+\s+){0,4}?(?:day|stage)\b[^.;(),]{0,45}?(?:\bat\b|[—–:])\s*(?:about\s+|roughly\s+|approximately\s+|around\s+|~\s*)?(\d+(?:\.\d+)?)\s*km\b/gi,
 
   // "make this feel longer than its 28 km" — a possessive whose only possible
   // antecedent inside a stage's own terrainNotes is that stage.
