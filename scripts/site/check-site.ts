@@ -204,7 +204,7 @@ const VARIANT_ROW_PATTERN =
 
 // README.md's route tables render each route as `[Name](routes/{id}/) | {km}
 // km | ...`. A network route like Kumano Kodo instead renders a range
-// ("39-170 km" across its variants) — capturing only the leading number
+// ("36-170 km" across its variants) — capturing only the leading number
 // before an optional "-{max}" gets the one figure that has to agree with
 // index.json's own distanceKm (the low end / canonical route's length), the
 // same way FIGURE_FIELDS' "distance" already treats index.json as the
