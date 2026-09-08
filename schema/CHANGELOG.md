@@ -13,6 +13,10 @@
 
 ### Added, non-breaking
 - `index.schema.json`: an optional per-route `ways` object — `stageCount`, `bytes`, `placesPerStage`, `sparse`. Present only for a route whose every stage cleared the length gate; absent means apps hide the route.
+- `stages.schema.json`: an optional `places[].offLineMeters`, declared when a stage's start or end place is a village or landmark the trail passes near but does not reach. A measurement that still agrees with this figure downgrades `validateWalkedLine`'s complaint from an error to a warning.
+- `waypoints.schema.json`: an optional `source` (`"osm"` or `"curated"`) marking where a waypoint came from, and an optional `osmId` recording which OSM element it was sourced from. `osmId` now matches `^(node|way|relation)/[0-9]+$` — it originally admitted only `node/`, which would have refused a shrine or precinct OSM maps as a way.
+- `index.schema.json`: an optional top-level `pilgrimages[]` array — `id`, `name`, `kind`, `sections`, and optionally `distanceKm`/`stageCount` — derived from the sections that declare membership, plus an optional per-route `pilgrimage` string pointing back at its pilgrimage's `id`.
+- `pilgrimage.schema.json`: an optional `pilgrimage` block (`id`, `name`, `kind`, `order`, and optionally `circular`) naming the pilgrimage a section belongs to, and an optional `osm` block (`relations`, `superroute`, `query`) recording the OSM relations behind a section's `ways/` package.
 
 ## 1.0.0 (2026-03-26)
 

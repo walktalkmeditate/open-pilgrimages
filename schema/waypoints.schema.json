@@ -210,7 +210,7 @@
             },
             "osmId": {
               "type": "string",
-              "pattern": "^node/[0-9]+$"
+              "pattern": "^(node|way|relation)/[0-9]+$"
             }
           },
           "additionalProperties": true

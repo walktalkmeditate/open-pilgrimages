@@ -195,18 +195,18 @@ async function main() {
     const classification = classifyNode(node);
     if (!classification) continue;
 
-    // Ahead of the dedup so a nameless place never crowds out the named one
-    // standing 50 m from it.
-    if (!keepsNode(classification.type, node.tags)) {
-      skippedUnnamed++;
-      continue;
-    }
-
     const coord: Coord = [node.lon, node.lat];
     const dist = minDistanceToLineKm(coord, routeCoords);
 
     if (dist > BUFFER_KM) {
       skippedDistance++;
+      continue;
+    }
+
+    // Ahead of the dedup so a nameless place never crowds out the named one
+    // standing 50 m from it.
+    if (!keepsNode(classification.type, node.tags)) {
+      skippedUnnamed++;
       continue;
     }
 
@@ -254,8 +254,6 @@ async function main() {
     added[classification.type] = (added[classification.type] ?? 0) + 1;
   }
 
-  newWaypoints.sort((a: any, b: any) =>
-    (a.properties.kmFromStart ?? 0) - (b.properties.kmFromStart ?? 0));
   const allWaypoints = [...curated, ...newWaypoints];
   allWaypoints.sort((a: any, b: any) =>
     (a.properties.kmFromStart ?? 0) - (b.properties.kmFromStart ?? 0));
