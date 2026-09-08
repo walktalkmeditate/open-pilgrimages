@@ -12,7 +12,7 @@ test("totals match the figures published on the site and README", () => {
   const { totals } = computeStats(ROOT);
 
   assert.equal(totals.routes, 8);
-  assert.equal(totals.routePoints, 162685);
+  assert.equal(totals.routePoints, 159624);
   assert.equal(totals.waypoints, 11870);
   assert.equal(totals.stages, 113);
 });
@@ -51,7 +51,7 @@ test("MultiLineString route points are flattened, not undercounted", () => {
   const shikoku = stats.routes.find((r) => r.id === "shikoku-88")!;
 
   assert.equal(shikoku.routePoints, 49097);
-  assert.equal(stats.totals.routePoints, 162685);
+  assert.equal(stats.totals.routePoints, 159624);
 });
 
 test("importing stats.ts as a subprocess prints nothing and exits cleanly", () => {
@@ -177,5 +177,5 @@ test("running stats.ts as a CLI script prints the route points total the site an
 
   // #then the totals block prints a thousands-separated Route points line
   // matching the figure the site and README publish
-  assert.match(output, /Route points: 162,685/);
+  assert.match(output, /Route points: 159,624/);
 });

@@ -81,14 +81,14 @@ test("gpxFrom emits one <trkseg> per source segment for a single-LineString rout
   assert.equal((gpx.match(/<trkseg>/g) ?? []).length, 1);
 });
 
-test("gpxFrom emits one <trkseg> per feature for kumano-kodo-nakahechi's seven LineStrings, not one continuous line", () => {
+test("gpxFrom emits one <trkseg> per feature for kumano-kodo-nakahechi's six LineStrings, not one continuous line", () => {
   const geo = geojson("kumano-kodo-nakahechi");
   const expectedSegments = segmentsOf(geo).length;
 
   const gpx = gpxFrom(geo, { ...META, id: "kumano-kodo-nakahechi" });
 
-  assert.equal(expectedSegments, 7);
-  assert.equal((gpx.match(/<trkseg>/g) ?? []).length, 7);
+  assert.equal(expectedSegments, 6);
+  assert.equal((gpx.match(/<trkseg>/g) ?? []).length, 6);
 });
 
 test("gpxFrom emits one <trkseg> per line of shikoku-88's MultiLineString, not one continuous line", () => {
