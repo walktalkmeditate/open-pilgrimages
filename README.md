@@ -28,7 +28,7 @@ Routes that belong to no pilgrimage grouping yet.
 | Route | Distance | Topology | Tradition | Route Points | Waypoints | Stats |
 |-------|----------|----------|-----------|-------------|-----------|-------|
 | [Shikoku 88](routes/shikoku-88/) | 1,200 km | Circular | Buddhist | 49,097 | 2,980 | 21 years (2005-2025) |
-| [Kumano Kodo](routes/kumano-kodo-nakahechi/) | 39-170 km | Network | Shinto/Buddhist | 6,847 | 157 | 22 years (2003-2024) |
+| [Kumano Kodo](routes/kumano-kodo-nakahechi/) | 36-170 km | Network | Shinto/Buddhist | 6,847 | 157 | 22 years (2003-2024) |
 
 ### Three Layers of Data
 

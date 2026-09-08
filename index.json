@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
   "release": "v1.7.1",
-  "generatedAt": "2026-09-08T17:15:16.128Z",
+  "generatedAt": "2026-09-08T17:44:35.143Z",
   "pilgrimages": [
     {
       "id": "camino-de-santiago",
@@ -172,7 +172,7 @@
       },
       "region": "Asia",
       "country": "JP",
-      "distanceKm": 39,
+      "distanceKm": 36,
       "topology": "network",
       "tradition": "mixed",
       "path": "routes/kumano-kodo-nakahechi",
@@ -195,7 +195,13 @@
           "distanceKm": 70,
           "path": "routes/kumano-kodo-nakahechi/variants/kohechi"
         }
-      ]
+      ],
+      "ways": {
+        "stageCount": 4,
+        "bytes": 65897,
+        "placesPerStage": 2.5,
+        "sparse": false
+      }
     },
     {
       "id": "shikoku-88",

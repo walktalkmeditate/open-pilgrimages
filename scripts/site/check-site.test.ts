@@ -533,9 +533,9 @@ test("a README km cell that disagrees with the index is reported", () => {
 });
 
 test("a README km cell range (network routes like Kumano Kodo) is checked against its leading figure", () => {
-  // #given index.json says kumano-kodo-nakahechi is 39 km; the README cell
+  // #given index.json says kumano-kodo-nakahechi is 36 km; the README cell
   // renders a range across its variants, whose leading figure must still agree
-  const readmeMd = "[Kumano Kodo](routes/kumano-kodo-nakahechi/) | 39-170 km";
+  const readmeMd = "[Kumano Kodo](routes/kumano-kodo-nakahechi/) | 36-170 km";
 
   // #when / #then checkSite accepts the range because its leading figure matches
   const problems = checkSite(ROOT, { readmeMd });

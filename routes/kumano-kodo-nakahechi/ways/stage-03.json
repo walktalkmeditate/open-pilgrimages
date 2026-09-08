@@ -1,0 +1,717 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "pilgrimage:kumano-kodo-nakahechi:3",
+  "title": "Hosshinmon-oji to Kumano Hongu Taisha",
+  "departedAt": "2026-08-20T00:00:00Z",
+  "route": [
+    {
+      "lat": 33.861638,
+      "lon": 135.720908,
+      "t": 0
+    },
+    {
+      "lat": 33.861602,
+      "lon": 135.721834,
+      "t": 113.5
+    },
+    {
+      "lat": 33.861832,
+      "lon": 135.722773,
+      "t": 233.4
+    },
+    {
+      "lat": 33.861592,
+      "lon": 135.723248,
+      "t": 301.5
+    },
+    {
+      "lat": 33.86125,
+      "lon": 135.723473,
+      "t": 359
+    },
+    {
+      "lat": 33.861071,
+      "lon": 135.723785,
+      "t": 405.4
+    },
+    {
+      "lat": 33.861226,
+      "lon": 135.724079,
+      "t": 448.1
+    },
+    {
+      "lat": 33.861152,
+      "lon": 135.724478,
+      "t": 498.1
+    },
+    {
+      "lat": 33.861243,
+      "lon": 135.724719,
+      "t": 530.6
+    },
+    {
+      "lat": 33.86164,
+      "lon": 135.725399,
+      "t": 632.4
+    },
+    {
+      "lat": 33.862032,
+      "lon": 135.725712,
+      "t": 701.7
+    },
+    {
+      "lat": 33.862185,
+      "lon": 135.726846,
+      "t": 842.4
+    },
+    {
+      "lat": 33.862132,
+      "lon": 135.72738,
+      "t": 908.3
+    },
+    {
+      "lat": 33.861885,
+      "lon": 135.727927,
+      "t": 984.5
+    },
+    {
+      "lat": 33.861496,
+      "lon": 135.728335,
+      "t": 1060.6
+    },
+    {
+      "lat": 33.861032,
+      "lon": 135.729547,
+      "t": 1224.1
+    },
+    {
+      "lat": 33.861042,
+      "lon": 135.730285,
+      "t": 1314.5
+    },
+    {
+      "lat": 33.860846,
+      "lon": 135.730796,
+      "t": 1383.4
+    },
+    {
+      "lat": 33.860989,
+      "lon": 135.73202,
+      "t": 1534.8
+    },
+    {
+      "lat": 33.860636,
+      "lon": 135.732689,
+      "t": 1631.8
+    },
+    {
+      "lat": 33.86059,
+      "lon": 135.733176,
+      "t": 1691.9
+    },
+    {
+      "lat": 33.860238,
+      "lon": 135.733901,
+      "t": 1794.7
+    },
+    {
+      "lat": 33.85984,
+      "lon": 135.735277,
+      "t": 1973.2
+    },
+    {
+      "lat": 33.859648,
+      "lon": 135.735548,
+      "t": 2016.8
+    },
+    {
+      "lat": 33.85911,
+      "lon": 135.735865,
+      "t": 2105.1
+    },
+    {
+      "lat": 33.858569,
+      "lon": 135.736749,
+      "t": 2239.6
+    },
+    {
+      "lat": 33.85823,
+      "lon": 135.736949,
+      "t": 2295.3
+    },
+    {
+      "lat": 33.85809,
+      "lon": 135.737608,
+      "t": 2378.6
+    },
+    {
+      "lat": 33.858432,
+      "lon": 135.739477,
+      "t": 2613
+    },
+    {
+      "lat": 33.858324,
+      "lon": 135.739793,
+      "t": 2654.8
+    },
+    {
+      "lat": 33.858237,
+      "lon": 135.741259,
+      "t": 2834.8
+    },
+    {
+      "lat": 33.858812,
+      "lon": 135.74369,
+      "t": 3144.4
+    },
+    {
+      "lat": 33.858675,
+      "lon": 135.74587,
+      "t": 3412.1
+    },
+    {
+      "lat": 33.858729,
+      "lon": 135.746488,
+      "t": 3488.2
+    },
+    {
+      "lat": 33.858357,
+      "lon": 135.748186,
+      "t": 3703.3
+    },
+    {
+      "lat": 33.858408,
+      "lon": 135.748713,
+      "t": 3768.3
+    },
+    {
+      "lat": 33.858518,
+      "lon": 135.749043,
+      "t": 3811.8
+    },
+    {
+      "lat": 33.858898,
+      "lon": 135.749321,
+      "t": 3877.4
+    },
+    {
+      "lat": 33.859198,
+      "lon": 135.749895,
+      "t": 3960.5
+    },
+    {
+      "lat": 33.859413,
+      "lon": 135.750544,
+      "t": 4046.1
+    },
+    {
+      "lat": 33.859541,
+      "lon": 135.7517,
+      "t": 4188.9
+    },
+    {
+      "lat": 33.860035,
+      "lon": 135.752977,
+      "t": 4361.4
+    },
+    {
+      "lat": 33.859999,
+      "lon": 135.753934,
+      "t": 4478.7
+    },
+    {
+      "lat": 33.859783,
+      "lon": 135.754416,
+      "t": 4545.8
+    },
+    {
+      "lat": 33.860291,
+      "lon": 135.75615,
+      "t": 4771
+    },
+    {
+      "lat": 33.860204,
+      "lon": 135.757142,
+      "t": 4893.2
+    },
+    {
+      "lat": 33.859775,
+      "lon": 135.757647,
+      "t": 4981.6
+    },
+    {
+      "lat": 33.85983,
+      "lon": 135.757962,
+      "t": 5021.1
+    },
+    {
+      "lat": 33.85947,
+      "lon": 135.758782,
+      "t": 5134.7
+    },
+    {
+      "lat": 33.859209,
+      "lon": 135.759002,
+      "t": 5181.6
+    },
+    {
+      "lat": 33.858688,
+      "lon": 135.75916,
+      "t": 5260.9
+    },
+    {
+      "lat": 33.85868,
+      "lon": 135.759428,
+      "t": 5293.7
+    },
+    {
+      "lat": 33.859041,
+      "lon": 135.760529,
+      "t": 5438.7
+    },
+    {
+      "lat": 33.858967,
+      "lon": 135.760915,
+      "t": 5487.2
+    },
+    {
+      "lat": 33.858736,
+      "lon": 135.761225,
+      "t": 5538.2
+    },
+    {
+      "lat": 33.85797,
+      "lon": 135.761483,
+      "t": 5655.5
+    },
+    {
+      "lat": 33.855951,
+      "lon": 135.763462,
+      "t": 6039.5
+    },
+    {
+      "lat": 33.855536,
+      "lon": 135.763613,
+      "t": 6103.4
+    },
+    {
+      "lat": 33.855337,
+      "lon": 135.763867,
+      "t": 6146.2
+    },
+    {
+      "lat": 33.853927,
+      "lon": 135.764374,
+      "t": 6363.2
+    },
+    {
+      "lat": 33.853661,
+      "lon": 135.765129,
+      "t": 6463.6
+    },
+    {
+      "lat": 33.85324,
+      "lon": 135.765239,
+      "t": 6527.2
+    },
+    {
+      "lat": 33.853195,
+      "lon": 135.765892,
+      "t": 6607.4
+    },
+    {
+      "lat": 33.853033,
+      "lon": 135.766089,
+      "t": 6641.4
+    },
+    {
+      "lat": 33.852424,
+      "lon": 135.766248,
+      "t": 6733.3
+    },
+    {
+      "lat": 33.852072,
+      "lon": 135.767023,
+      "t": 6841.5
+    },
+    {
+      "lat": 33.851648,
+      "lon": 135.767125,
+      "t": 6905.2
+    },
+    {
+      "lat": 33.851338,
+      "lon": 135.767484,
+      "t": 6968.7
+    },
+    {
+      "lat": 33.850946,
+      "lon": 135.767502,
+      "t": 7026.5
+    },
+    {
+      "lat": 33.850726,
+      "lon": 135.767759,
+      "t": 7071.7
+    },
+    {
+      "lat": 33.850111,
+      "lon": 135.767583,
+      "t": 7165
+    },
+    {
+      "lat": 33.849491,
+      "lon": 135.768204,
+      "t": 7283.9
+    },
+    {
+      "lat": 33.848082,
+      "lon": 135.76813,
+      "t": 7491.9
+    },
+    {
+      "lat": 33.847793,
+      "lon": 135.768658,
+      "t": 7569.3
+    },
+    {
+      "lat": 33.847348,
+      "lon": 135.768744,
+      "t": 7635.8
+    },
+    {
+      "lat": 33.846604,
+      "lon": 135.76971,
+      "t": 7797.2
+    },
+    {
+      "lat": 33.846085,
+      "lon": 135.769926,
+      "t": 7878.2
+    },
+    {
+      "lat": 33.845478,
+      "lon": 135.77063,
+      "t": 8002.5
+    },
+    {
+      "lat": 33.845255,
+      "lon": 135.771139,
+      "t": 8073
+    },
+    {
+      "lat": 33.844981,
+      "lon": 135.771217,
+      "t": 8114.5
+    },
+    {
+      "lat": 33.843768,
+      "lon": 135.772233,
+      "t": 8332.4
+    },
+    {
+      "lat": 33.842161,
+      "lon": 135.772801,
+      "t": 8579.4
+    },
+    {
+      "lat": 33.841221,
+      "lon": 135.773328,
+      "t": 8732.3
+    },
+    {
+      "lat": 33.840608,
+      "lon": 135.77317,
+      "t": 8824.8
+    },
+    {
+      "lat": 33.839987,
+      "lon": 135.773369,
+      "t": 8919.6
+    },
+    {
+      "lat": 33.839892,
+      "lon": 135.773572,
+      "t": 8948.1
+    },
+    {
+      "lat": 33.840015,
+      "lon": 135.773969,
+      "t": 9000
+    }
+  ],
+  "totalDistanceMeters": 6785.7,
+  "theirActiveSeconds": 9000,
+  "moments": [
+    {
+      "id": "stage-start",
+      "frac": 0.0009730819083556074,
+      "kind": "waypoint",
+      "label": "Hosshinmon-oji",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 33.8616352228858,
+        "lon": 135.7209794335485
+      },
+      "pin": {
+        "lat": 33.862,
+        "lon": 135.721
+      },
+      "names": {
+        "ja": "発心門王子"
+      }
+    },
+    {
+      "id": "wp-mizunomi-oji",
+      "frac": 0.25663814878393326,
+      "kind": "waypoint",
+      "label": "Mizunomi-oji",
+      "icon": "building.columns",
+      "at": {
+        "lat": 33.858205702756095,
+        "lon": 135.7370633705981
+      },
+      "pin": {
+        "lat": 33.858,
+        "lon": 135.737
+      },
+      "text": "Ruins. Known for its water source.",
+      "names": {
+        "ja": "水呑王子跡"
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-fushiogami-oji",
+      "frac": 0.542114174290347,
+      "kind": "waypoint",
+      "label": "Fushiogami-oji",
+      "icon": "seal",
+      "at": {
+        "lat": 33.860214065878694,
+        "lon": 135.75702722584296
+      },
+      "pin": {
+        "lat": 33.86,
+        "lon": 135.757
+      },
+      "text": "Prostrate Worship Shrine. First view of Kumano Hongu Taisha. Pilgrims traditionally fell to their knees here.",
+      "names": {
+        "ja": "伏拝王子"
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-oyunohara",
+      "frac": 0.9187974753149596,
+      "kind": "waypoint",
+      "label": "Oyunohara",
+      "icon": "building.columns",
+      "at": {
+        "lat": 33.844119897921736,
+        "lon": 135.7719382528537
+      },
+      "pin": {
+        "lat": 33.843,
+        "lon": 135.77
+      },
+      "text": "Original site of Kumano Hongu Taisha. The massive torii gate (33.9m tall, 42m wide) is the largest in the world.",
+      "names": {
+        "ja": "大斎原"
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "stage-end",
+      "frac": 1,
+      "kind": "waypoint",
+      "label": "Kumano Hongu Taisha",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 33.840015,
+        "lon": 135.773969
+      },
+      "pin": {
+        "lat": 33.84,
+        "lon": 135.774
+      },
+      "names": {
+        "ja": "熊野本宮大社"
+      }
+    },
+    {
+      "id": "wp-hongu-taisha",
+      "frac": 1,
+      "kind": "waypoint",
+      "label": "Kumano Hongu Taisha",
+      "icon": "seal",
+      "at": {
+        "lat": 33.840015,
+        "lon": 135.773969
+      },
+      "pin": {
+        "lat": 33.84,
+        "lon": 135.774
+      },
+      "text": "The primary Grand Shrine of Kumano. Symbol: Yatagarasu (three-legged crow).",
+      "names": {
+        "ja": "熊野本宮大社"
+      },
+      "sitMinutes": 5
+    }
+  ],
+  "marks": [
+    {
+      "id": "wp-osm-supply-node2430676324",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 33.861387,
+        "lon": 135.723492
+      },
+      "frac": 0.03803960017092233,
+      "offLineMeters": 8.8
+    },
+    {
+      "id": "wp-osm-transport-node5429741830",
+      "kind": "transport",
+      "name": "発心門口;Hosshinmonguchi",
+      "at": {
+        "lat": 33.861095,
+        "lon": 135.729589
+      },
+      "frac": 0.1365943682872851,
+      "offLineMeters": 6.9
+    },
+    {
+      "id": "wp-osm-supply-node2430696184",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 33.858613,
+        "lon": 135.737563
+      },
+      "frac": 0.2615650430180867,
+      "offLineMeters": 55.3
+    },
+    {
+      "id": "wp-osm-transport-node4856331621",
+      "kind": "transport",
+      "name": "Fushiogami-guchi",
+      "at": {
+        "lat": 33.859332,
+        "lon": 135.74548
+      },
+      "frac": 0.3730158156812242,
+      "offLineMeters": 70.1
+    },
+    {
+      "id": "wp-osm-supply-node10936209205",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 33.855139,
+        "lon": 135.763997
+      },
+      "frac": 0.6865286129689694,
+      "offLineMeters": 5.2
+    },
+    {
+      "id": "wp-osm-supply-node7472478786",
+      "kind": "supply",
+      "name": "Yamazaki",
+      "at": {
+        "lat": 33.837753,
+        "lon": 135.774533
+      },
+      "frac": 0.9942328564097773,
+      "offLineMeters": 253.9
+    },
+    {
+      "id": "wp-osm-food-node6710271450",
+      "kind": "food",
+      "name": "Unnamed",
+      "at": {
+        "lat": 33.838992,
+        "lon": 135.774154
+      },
+      "frac": 0.9964980489681392,
+      "offLineMeters": 112.6
+    },
+    {
+      "id": "wp-osm-accommodation-node11807104108",
+      "kind": "bed",
+      "name": "Kumano Backpackers",
+      "at": {
+        "lat": 33.839641,
+        "lon": 135.775251
+      },
+      "frac": 1,
+      "offLineMeters": 125.5
+    },
+    {
+      "id": "wp-osm-supply-node5106578579",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 33.838681,
+        "lon": 135.775482
+      },
+      "frac": 1,
+      "offLineMeters": 203.8
+    },
+    {
+      "id": "wp-osm-supply-node6710271421",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 33.838211,
+        "lon": 135.775585
+      },
+      "frac": 1,
+      "offLineMeters": 250
+    },
+    {
+      "id": "wp-osm-transport-node5115806145",
+      "kind": "transport",
+      "name": "Hongu Taisha-mae",
+      "at": {
+        "lat": 33.838959,
+        "lon": 135.775004
+      },
+      "frac": 1,
+      "offLineMeters": 151.4
+    }
+  ],
+  "stage": {
+    "routeId": "kumano-kodo-nakahechi",
+    "index": 3,
+    "count": 4,
+    "name": "Hosshinmon-oji to Kumano Hongu Taisha",
+    "theme": "Arrival",
+    "narrative": "At Fushiogami-oji, you see Kumano Hongu Taisha for the first time. 'Fushiogami' means 'prostrate worship' — pilgrims traditionally fell to their knees here. The final walk is gentle, descending through tea plantations and small villages to the shrine. Kumano Hongu Taisha is not monumental. It is modest, wooden, nestled in mountains. For centuries this was a place of shinbutsu-shūgō — the fusion of Shinto and Buddhism — where the Kumano deities were understood as both kami and Buddhist manifestations. The Yatagarasu — the three-legged crow — watches from the banners. Nearby stands Oyunohara — the original site of the shrine before floods destroyed it in 1889 — marked now by the largest torii gate in Japan, rising from a river sandbar like a door to a world that no longer exists. You have arrived at what emperors traveled weeks to reach.",
+    "closing": "What did the mountains give you that you could not have found in a building?",
+    "warnings": [],
+    "distanceKm": 7.5,
+    "gainMeters": 190,
+    "hours": {
+      "min": 2,
+      "max": 3
+    },
+    "difficulty": "easy",
+    "start": {
+      "name": "Hosshinmon-oji",
+      "at": {
+        "lat": 33.862,
+        "lon": 135.721
+      }
+    },
+    "end": {
+      "name": "Kumano Hongu Taisha",
+      "at": {
+        "lat": 33.84,
+        "lon": 135.774
+      }
+    }
+  }
+}

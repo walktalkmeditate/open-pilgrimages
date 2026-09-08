@@ -7,8 +7,12 @@
       "index": 0,
       "name": { "en": "Takijiri-oji to Takahara", "ja": "滝尻王子〜高原" },
       "start": { "name": { "en": "Takijiri-oji", "ja": "滝尻王子" }, "coordinates": [135.504, 33.776, 100] },
-      "end": { "name": { "en": "Takahara", "ja": "高原" }, "coordinates": [135.519, 33.793, 330] },
-      "distanceKm": 4,
+      "end": {
+        "name": { "en": "Takahara", "ja": "高原" },
+        "coordinates": [135.5293252, 33.7942677, 330],
+        "note": "OpenStreetMap node/3207110207 (historic=wayside_shrine, name=\"Takahara Kumano-Jinja\", name:ja=\"高原熊野神社\", addr:block_number=\"高原\"), 22 m from the walked line. The anchor previously sat at [135.519, 33.793], 518 m off the line and a kilometre west of the village. Takahara has no OSM settlement node: the only place node for it, node/8744240645 (place=quarter, name:en=\"Nakahechicho-Takahara\"), is an ōaza centroid 503 m off the line — 15 m nearer than the old coordinate, and still past the 500 m the build can snap across. The shrine stands in the village on the trail itself, so the anchor moves there and the day ends where the walker arrives."
+      },
+      "distanceKm": 3.6,
       "elevationGainMeters": 430,
       "elevationLossMeters": 200,
       "highPointMeters": 450,
@@ -34,9 +38,13 @@
     {
       "index": 1,
       "name": { "en": "Takahara to Chikatsuyu-oji", "ja": "高原〜近露王子" },
-      "start": { "name": { "en": "Takahara", "ja": "高原" }, "coordinates": [135.519, 33.793, 330] },
+      "start": {
+        "name": { "en": "Takahara", "ja": "高原" },
+        "coordinates": [135.5293252, 33.7942677, 330],
+        "note": "OpenStreetMap node/3207110207 (historic=wayside_shrine, name=\"Takahara Kumano-Jinja\", name:ja=\"高原熊野神社\", addr:block_number=\"高原\"), 22 m from the walked line. The anchor previously sat at [135.519, 33.793], 518 m off the line and a kilometre west of the village. Takahara has no OSM settlement node: the only place node for it, node/8744240645 (place=quarter, name:en=\"Nakahechicho-Takahara\"), is an ōaza centroid 503 m off the line — 15 m nearer than the old coordinate, and still past the 500 m the build can snap across. The shrine stands in the village on the trail itself, so the anchor moves there and the day ends where the walker arrives."
+      },
       "end": { "name": { "en": "Chikatsuyu-oji", "ja": "近露王子" }, "coordinates": [135.606, 33.814, 300] },
-      "distanceKm": 13,
+      "distanceKm": 9,
       "elevationGainMeters": 830,
       "elevationLossMeters": 650,
       "highPointMeters": 870,
@@ -65,7 +73,7 @@
       "name": { "en": "Chikatsuyu-oji to Hosshinmon-oji", "ja": "近露王子〜発心門王子" },
       "start": { "name": { "en": "Chikatsuyu-oji", "ja": "近露王子" }, "coordinates": [135.606, 33.814, 300] },
       "end": { "name": { "en": "Hosshinmon-oji", "ja": "発心門王子" }, "coordinates": [135.721, 33.862, 290] },
-      "distanceKm": 14,
+      "distanceKm": 15.9,
       "elevationGainMeters": 780,
       "elevationLossMeters": 790,
       "highPointMeters": 800,

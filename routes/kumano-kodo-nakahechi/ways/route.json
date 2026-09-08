@@ -1,0 +1,60 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "kumano-kodo-nakahechi",
+  "name": "Kumano Kodo",
+  "country": "JP",
+  "region": "Asia",
+  "distanceKm": 36,
+  "stageCount": 4,
+  "tradition": "mixed",
+  "summary": "A network of ancient pilgrimage routes through the mountains of the Kii Peninsula, leading to the three Grand Shrines of Kumano (Kumano Sanzan). UNESCO World Heritage Site since 2004. The Kumano Kodo and the Camino de Santiago are the only two pilgrimage routes in the world with a formal sister-route relationship — both UNESCO-inscribed and linked through the Dual Pilgrim program established in 2015.",
+  "stages": [
+    {
+      "index": 0,
+      "name": "Takijiri-oji to Takahara",
+      "distanceKm": 3.6,
+      "hours": {
+        "min": 2,
+        "max": 3
+      },
+      "gainMeters": 430,
+      "difficulty": "moderate"
+    },
+    {
+      "index": 1,
+      "name": "Takahara to Chikatsuyu-oji",
+      "distanceKm": 9,
+      "hours": {
+        "min": 6,
+        "max": 8
+      },
+      "gainMeters": 830,
+      "difficulty": "hard"
+    },
+    {
+      "index": 2,
+      "name": "Chikatsuyu-oji to Hosshinmon-oji",
+      "distanceKm": 15.9,
+      "hours": {
+        "min": 6,
+        "max": 8
+      },
+      "gainMeters": 780,
+      "difficulty": "hard"
+    },
+    {
+      "index": 3,
+      "name": "Hosshinmon-oji to Kumano Hongu Taisha",
+      "distanceKm": 7.5,
+      "hours": {
+        "min": 2,
+        "max": 3
+      },
+      "gainMeters": 190,
+      "difficulty": "easy"
+    }
+  ],
+  "names": {
+    "ja": "熊野古道"
+  }
+}

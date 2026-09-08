@@ -1,0 +1,345 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "pilgrimage:kumano-kodo-nakahechi:0",
+  "title": "Takijiri-oji to Takahara",
+  "departedAt": "2026-08-20T00:00:00Z",
+  "route": [
+    {
+      "lat": 33.775981,
+      "lon": 135.50398,
+      "t": 0
+    },
+    {
+      "lat": 33.775758,
+      "lon": 135.503992,
+      "t": 62.8
+    },
+    {
+      "lat": 33.776114,
+      "lon": 135.504523,
+      "t": 222.4
+    },
+    {
+      "lat": 33.776503,
+      "lon": 135.504258,
+      "t": 348.3
+    },
+    {
+      "lat": 33.776479,
+      "lon": 135.504535,
+      "t": 413.4
+    },
+    {
+      "lat": 33.776868,
+      "lon": 135.504958,
+      "t": 561
+    },
+    {
+      "lat": 33.776755,
+      "lon": 135.50499,
+      "t": 593.7
+    },
+    {
+      "lat": 33.776862,
+      "lon": 135.50521,
+      "t": 653.3
+    },
+    {
+      "lat": 33.776928,
+      "lon": 135.506335,
+      "t": 917.2
+    },
+    {
+      "lat": 33.777498,
+      "lon": 135.506972,
+      "t": 1136.1
+    },
+    {
+      "lat": 33.777678,
+      "lon": 135.507361,
+      "t": 1240.3
+    },
+    {
+      "lat": 33.777523,
+      "lon": 135.508196,
+      "t": 1440.4
+    },
+    {
+      "lat": 33.777563,
+      "lon": 135.508756,
+      "t": 1571.9
+    },
+    {
+      "lat": 33.777894,
+      "lon": 135.509805,
+      "t": 1834.4
+    },
+    {
+      "lat": 33.778092,
+      "lon": 135.510055,
+      "t": 1915.2
+    },
+    {
+      "lat": 33.77832,
+      "lon": 135.511153,
+      "t": 2180
+    },
+    {
+      "lat": 33.778546,
+      "lon": 135.511668,
+      "t": 2316.2
+    },
+    {
+      "lat": 33.778774,
+      "lon": 135.511891,
+      "t": 2398.9
+    },
+    {
+      "lat": 33.7788,
+      "lon": 135.5123,
+      "t": 2494.9
+    },
+    {
+      "lat": 33.781278,
+      "lon": 135.512509,
+      "t": 3194.1
+    },
+    {
+      "lat": 33.78182,
+      "lon": 135.513178,
+      "t": 3412.6
+    },
+    {
+      "lat": 33.782235,
+      "lon": 135.514025,
+      "t": 3642.6
+    },
+    {
+      "lat": 33.7828,
+      "lon": 135.514297,
+      "t": 3813.9
+    },
+    {
+      "lat": 33.783224,
+      "lon": 135.516365,
+      "t": 4312.2
+    },
+    {
+      "lat": 33.784114,
+      "lon": 135.517891,
+      "t": 4748.3
+    },
+    {
+      "lat": 33.78495,
+      "lon": 135.51883,
+      "t": 5070.2
+    },
+    {
+      "lat": 33.786105,
+      "lon": 135.519882,
+      "t": 5477.9
+    },
+    {
+      "lat": 33.786016,
+      "lon": 135.519968,
+      "t": 5510.1
+    },
+    {
+      "lat": 33.786335,
+      "lon": 135.520099,
+      "t": 5604.9
+    },
+    {
+      "lat": 33.786408,
+      "lon": 135.519993,
+      "t": 5637.1
+    },
+    {
+      "lat": 33.786542,
+      "lon": 135.520209,
+      "t": 5700.2
+    },
+    {
+      "lat": 33.787214,
+      "lon": 135.520603,
+      "t": 5910.6
+    },
+    {
+      "lat": 33.788121,
+      "lon": 135.521389,
+      "t": 6225.2
+    },
+    {
+      "lat": 33.788464,
+      "lon": 135.521845,
+      "t": 6369.1
+    },
+    {
+      "lat": 33.789784,
+      "lon": 135.523052,
+      "t": 6835.7
+    },
+    {
+      "lat": 33.789899,
+      "lon": 135.52346,
+      "t": 6936.5
+    },
+    {
+      "lat": 33.790508,
+      "lon": 135.523931,
+      "t": 7140.2
+    },
+    {
+      "lat": 33.791225,
+      "lon": 135.524202,
+      "t": 7351.8
+    },
+    {
+      "lat": 33.791566,
+      "lon": 135.524894,
+      "t": 7540
+    },
+    {
+      "lat": 33.792057,
+      "lon": 135.525389,
+      "t": 7720.2
+    },
+    {
+      "lat": 33.792758,
+      "lon": 135.525578,
+      "t": 7922.4
+    },
+    {
+      "lat": 33.793684,
+      "lon": 135.526314,
+      "t": 8234.8
+    },
+    {
+      "lat": 33.793878,
+      "lon": 135.526726,
+      "t": 8345.6
+    },
+    {
+      "lat": 33.793894,
+      "lon": 135.527165,
+      "t": 8448.3
+    },
+    {
+      "lat": 33.794446,
+      "lon": 135.529428,
+      "t": 9000
+    }
+  ],
+  "totalDistanceMeters": 3555.6,
+  "theirActiveSeconds": 9000,
+  "moments": [
+    {
+      "id": "stage-start",
+      "frac": 0,
+      "kind": "waypoint",
+      "label": "Takijiri-oji",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 33.775981,
+        "lon": 135.50398
+      },
+      "pin": {
+        "lat": 33.776,
+        "lon": 135.504
+      },
+      "names": {
+        "ja": "滝尻王子"
+      }
+    },
+    {
+      "id": "wp-takijiri-oji",
+      "frac": 0,
+      "kind": "waypoint",
+      "label": "Takijiri-oji",
+      "icon": "seal",
+      "at": {
+        "lat": 33.775981,
+        "lon": 135.50398
+      },
+      "pin": {
+        "lat": 33.776,
+        "lon": 135.504
+      },
+      "text": "One of the Five Great Oji. Gate to the sacred mountains.",
+      "names": {
+        "ja": "滝尻王子"
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-nezu-oji",
+      "frac": 0.09337776493178551,
+      "kind": "waypoint",
+      "label": "Nezu-oji (remains)",
+      "icon": "building.columns",
+      "at": {
+        "lat": 33.77690880097721,
+        "lon": 135.50600774392973
+      },
+      "pin": {
+        "lat": 33.777,
+        "lon": 135.506
+      },
+      "text": "Ruins of an Oji shrine.",
+      "names": {
+        "ja": "不寝王子跡"
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "stage-end",
+      "frac": 0.9958660237654613,
+      "kind": "waypoint",
+      "label": "Takahara",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 33.79440877109267,
+        "lon": 135.52927537496868
+      },
+      "pin": {
+        "lat": 33.7942677,
+        "lon": 135.5293252
+      },
+      "names": {
+        "ja": "高原"
+      }
+    }
+  ],
+  "marks": [],
+  "stage": {
+    "routeId": "kumano-kodo-nakahechi",
+    "index": 0,
+    "count": 4,
+    "name": "Takijiri-oji to Takahara",
+    "theme": "Entry",
+    "narrative": "Takijiri-oji stands at the confluence of two rivers, where pilgrims traditionally waded into the water to purify themselves before entering the divine realm. The climb from the river to Takahara is immediate and steep — the mountain makes no concessions to your arrival. By the time you reach the ridge, you understand: you have left the ordinary world behind.",
+    "closing": "What did you leave behind at the gate?",
+    "warnings": [],
+    "distanceKm": 3.6,
+    "gainMeters": 430,
+    "hours": {
+      "min": 2,
+      "max": 3
+    },
+    "difficulty": "moderate",
+    "start": {
+      "name": "Takijiri-oji",
+      "at": {
+        "lat": 33.776,
+        "lon": 135.504
+      }
+    },
+    "end": {
+      "name": "Takahara",
+      "at": {
+        "lat": 33.7942677,
+        "lon": 135.5293252
+      }
+    }
+  }
+}
