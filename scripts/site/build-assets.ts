@@ -90,11 +90,13 @@ function glyphSvg(d: string): string {
   );
 }
 
-// Every hand-authored page under docs/ spells these accented Latin-1
-// characters as named entities rather than raw UTF-8; matching that keeps
-// the generated pages source-consistent with the rest of the site. Anything
-// without an entry here — the ō in Kumano Kodō, Japanese script — has no
-// named entity and stays UTF-8, which is what those hand-authored pages do.
+// The Latin-1 characters the hand-authored pages under docs/ spell as named
+// entities; matching that keeps the generated pages source-consistent with
+// the rest of the site. The table stops there deliberately. HTML5 names
+// thousands more — the ō in Kumano Kodō is &omacr;, and those pages do use
+// it — but every page declares utf-8, so an entity and the raw character
+// render identically and a longer table would buy nothing but more to keep
+// in step.
 const NAMED_ENTITIES: Record<string, string> = {
   "á": "&aacute;", "é": "&eacute;", "í": "&iacute;", "ó": "&oacute;", "ú": "&uacute;",
   "ñ": "&ntilde;", "ü": "&uuml;", "ç": "&ccedil;", "Á": "&Aacute;", "É": "&Eacute;",
