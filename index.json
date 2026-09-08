@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
   "release": "v1.7.1",
-  "generatedAt": "2026-09-08T17:44:35.143Z",
+  "generatedAt": "2026-09-08T18:11:18.065Z",
   "pilgrimages": [
     {
       "id": "camino-de-santiago",
@@ -198,7 +198,7 @@
       ],
       "ways": {
         "stageCount": 4,
-        "bytes": 65897,
+        "bytes": 65871,
         "placesPerStage": 2.5,
         "sparse": false
       }
