@@ -5,6 +5,12 @@
   "lastUpdated": "2026-09-08T00:00:00Z",
 
   "name": { "en": "Iseji (Eastern/Coastal Route)", "ja": "伊勢路" },
+  "pilgrimage": {
+    "id": "kumano-kodo",
+    "name": { "en": "Kumano Kodō", "ja": "熊野古道" },
+    "kind": "alternatives",
+    "order": 3
+  },
   "description": { "en": "170 km coastal route from Ise Grand Shrine to Kumano Hayatama Taisha. A series of 20+ mountain passes connecting fishing villages along the eastern coast of the Kii Peninsula. Typically 9-14 days." },
 
   "overview": {

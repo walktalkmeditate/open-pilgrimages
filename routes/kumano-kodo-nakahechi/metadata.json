@@ -7,6 +7,12 @@
     "en": "Kumano Kodo",
     "ja": "熊野古道"
   },
+  "pilgrimage": {
+    "id": "kumano-kodo",
+    "name": { "en": "Kumano Kodō", "ja": "熊野古道" },
+    "kind": "alternatives",
+    "order": 1
+  },
   "description": {
     "en": "A network of ancient pilgrimage routes through the mountains of the Kii Peninsula, leading to the three Grand Shrines of Kumano (Kumano Sanzan). UNESCO World Heritage Site since 2004. The Kumano Kodo and the Camino de Santiago are the only two pilgrimage routes in the world with a formal sister-route relationship — both UNESCO-inscribed and linked through the Dual Pilgrim program established in 2015.",
     "ja": "紀伊半島の山々を通る古代の巡礼路ネットワーク。熊野三山に至る。2004年よりユネスコ世界遺産。"

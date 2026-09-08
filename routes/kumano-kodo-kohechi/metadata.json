@@ -4,6 +4,12 @@
   "lastUpdated": "2026-09-08T00:00:00Z",
 
   "name": { "en": "Kohechi (Mountain Route)", "ja": "小辺路" },
+  "pilgrimage": {
+    "id": "kumano-kodo",
+    "name": { "en": "Kumano Kodō", "ja": "熊野古道" },
+    "kind": "alternatives",
+    "order": 2
+  },
   "description": {
     "en": "The mountain route between the two sacred centres of the Kii Peninsula: 63 km from Koyasan to Kumano Hongu Taisha, crossing three passes above 1,000 m. Four days, with the nights at the river-valley settlements of Omata, Miura-guchi and Totsukawa Onsen. The high point is Obako-dake at 1,344 m, and the route carries about 3,500 m of ascent against 4,280 m of descent.",
     "ja": "高野山から熊野本宮大社に至る山岳路。1,000mを超える三つの峠を越える。"
