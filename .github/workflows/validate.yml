@@ -37,6 +37,23 @@ jobs:
           # branch, not just this branch's own history — actions/checkout's
           # default shallow (depth-1) clone has neither.
           fetch-depth: 0
+          # HEAD must be the PR's own head commit, not the default ref.
+          #
+          # On a pull_request event actions/checkout defaults to github.sha,
+          # which is the ephemeral test-merge commit GitHub builds by merging
+          # the PR head into the base branch's current tip. That commit has
+          # the base tip as a direct parent, so `git merge-base HEAD <base
+          # tip>` collapses to the base tip itself — the exact ref the buggy
+          # version passed, and the fork point is never found. Pinning the
+          # checkout to the head SHA is what makes the merge-base below
+          # anything other than a no-op. Do not "simplify" this away.
+          #
+          # An empty ref means "not provided" to actions/checkout, which then
+          # falls back to github.context.ref/sha — so on a push to main or a
+          # workflow_dispatch, where github.event.pull_request is absent and
+          # this expression renders as the empty string, the checkout is
+          # unchanged (and the drafted-text step does not run at all).
+          ref: ${{ github.event.pull_request.head.sha }}
       - uses: actions/setup-node@v5
         with:
           node-version: 22
@@ -67,6 +84,13 @@ jobs:
         # PRs are in flight. The merge base is the tree this PR's changes
         # actually diverged from, so it's the only ref a same-PR diff can be
         # measured against without picking up someone else's commits.
+        #
+        # This only holds because the checkout above pins HEAD to the PR head.
+        # Against the default checkout HEAD is the test-merge commit, whose
+        # parent is the base tip, and the merge base degenerates back to that
+        # tip. The explicit fetch is still needed either way: checkout fetches
+        # the head SHA with no destination refspec, so there is no
+        # refs/remotes/origin/<base> to name — FETCH_HEAD is the base tip.
         run: |
           git fetch --no-tags origin "$BASE_REF"
           MERGE_BASE="$(git merge-base HEAD FETCH_HEAD)"
