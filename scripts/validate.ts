@@ -379,27 +379,6 @@ interface AnchoredStage {
 }
 
 /**
- * A stage may legitimately end at a village or a temple the trail only passes
- * near; the walk ends where you turn off. Declaring the distance keeps that
- * case distinct from the two the build cannot tell it from — an anchor that
- * moved, and a line that went stale — because a declaration that stops
- * matching the line is itself the error.
- *
- * The comparison against this tolerance runs on both sides of SNAP_METERS,
- * not only beyond it: a rebuild can move the line closer to a declared anchor
- * just as easily as farther away, and a declaration the new position no
- * longer bears out is stale either way. Do not reintroduce the snap-radius
- * check ahead of this one as an optimisation — that is what let a wrong
- * declaration pass silently before.
- *
- * OFF_LINE_TOLERANCE_METERS itself lives in geo.ts and is imported, not
- * redeclared: stageBoundaries bounds its own snap radius by the same figure,
- * and a validate that calls a declaration fresh while a build snaps past it
- * by more than this would be two copies of one rule reading different
- * numbers.
- */
-
-/**
  * A walked line and the stage anchors it was cut for can drift apart without
  * either file becoming invalid on its own, and CI's drift check cannot see it:
  * that check reruns the build and diffs the output, and the build happily
@@ -410,11 +389,22 @@ interface AnchoredStage {
  * the wrong place.
  *
  * So: every anchor must be within the distance the build is willing to snap
- * across, unless it declares how far off it sits via offLineMeters — in which
- * case a measurement that still agrees with the declaration is a warning, not
- * an error, and only a declaration the line no longer bears out fails the
- * build. Only routes that have a walked line are checked; a route still
- * cutting from route.geojson has nothing to be stale against.
+ * across, unless it declares how far off it sits via offLineMeters. A stage
+ * may legitimately end at a village or a temple the trail only passes near —
+ * the walk ends where you turn off — and declaring the distance keeps that
+ * case distinct from the two the build cannot tell it from, an anchor that
+ * moved and a line that went stale, because a declaration that stops matching
+ * the line is itself the error. So a measurement that still agrees with the
+ * declaration is a warning, not an error, and only a declaration the line no
+ * longer bears out fails the build. Only routes that have a walked line are
+ * checked; a route still cutting from route.geojson has nothing to be stale
+ * against.
+ *
+ * OFF_LINE_TOLERANCE_METERS itself lives in geo.ts and is imported, not
+ * redeclared: stageBoundaries bounds its own snap radius by the same figure,
+ * and a validate that calls a declaration fresh while a build snaps past it
+ * by more than this would be two copies of one rule reading different
+ * numbers.
  */
 export function validateWalkedLine(routeDir: string, errors: ValidationError[]): void {
   const linePath = join(routeDir, "route.main.geojson");
@@ -792,17 +782,38 @@ export function validateSectionChain(root: string, dirs: string[], errors: Valid
     // The claim is the pilgrimage's own, checked for agreement across its
     // sections in validatePilgrimages; a section's `overview.topology`
     // describes that section and says nothing about the circuit.
-    const closes = ends[ends.length - 1]?.last;
-    const opens = ends[0]?.first;
-    if (closes && opens && pilgrimage.circular) {
-      const closing = haversineMeters(closes.coordinates, opens.coordinates);
-      if (closing > SNAP_METERS) {
+    const first = ends[0];
+    const final = ends[ends.length - 1];
+    const closes = final?.last;
+    const opens = first?.first;
+    if (pilgrimage.circular && first && final) {
+      if (closes && opens) {
+        const closing = haversineMeters(closes.coordinates, opens.coordinates);
+        if (closing > SNAP_METERS) {
+          errors.push({
+            file: relative(root, first.section.dir),
+            message:
+              `the circuit does not close: "${closes.name}" is ` +
+              `${Math.round(closing)} m from "${opens.name}"`,
+            severity: "error",
+          });
+        }
+      } else {
+        // A section deferred to a later release is legitimate, so this warns
+        // rather than failing. What is not legitimate is silence: the seam
+        // checks above name every seam they skip, and a circuit skipped
+        // without a word ships a circular claim nothing ever verified.
+        const unchecked = [...new Set(
+          [opens ? undefined : first, closes ? undefined : final]
+            .filter((end) => end !== undefined)
+            .map((end) => `"${end.section.routeId}"`),
+        )];
         errors.push({
-          file: relative(root, ends[0].section.dir),
+          file: relative(root, first.section.dir),
           message:
-            `the circuit does not close: "${closes.name}" is ` +
-            `${Math.round(closing)} m from "${opens.name}"`,
-          severity: "error",
+            `"${pilgrimage.id}" is circular, but ${unchecked.join(" and ")} ships no stage ` +
+            `anchors, so the circuit was not checked`,
+          severity: "warning",
         });
       }
     }

@@ -883,6 +883,64 @@ test("a circular pilgrimage must close back to its first start", () => {
   }
 });
 
+/** Every warning the circuit check emits when it could not run at all. */
+function circuitWarnings(errors: ValidationError[]): ValidationError[] {
+  return errors.filter((e) => /circuit was not checked/.test(e.message));
+}
+
+test("a circular pilgrimage whose closing section is deferred says the circuit went unchecked", () => {
+  const root = mkdtempSync(join(tmpdir(), "validate-chain-test-"));
+  try {
+    // #given Shikoku's shipping shape: circular declared on every section,
+    // with the dōjō that would close the circuit shipping metadata-only
+    const awa = sectionWithStages(root, "awa", closedLegs(1), [
+      { index: 0, name: "d1", start: { name: { en: "T1" }, coordinates: [0, 0] }, end: { name: { en: "T23" }, coordinates: [0.1, 0] }, distanceKm: 11 },
+    ]);
+    const sanuki = join(root, "routes", "sanuki");
+    mkdirSync(sanuki, { recursive: true });
+    writeJson(join(sanuki, "metadata.json"), { id: "sanuki", pilgrimage: closedLegs(2) });
+    writeJson(join(root, "index.json"), { routes: [{ id: "awa" }, { id: "sanuki" }] });
+
+    // #when the chain is checked
+    const errors: ValidationError[] = [];
+    validateSectionChain(root, [awa, sanuki], errors);
+
+    // #then the unchecked circuit is named rather than passed over in
+    // silence, which would publish a circular claim nothing verified
+    const circuit = circuitWarnings(errors);
+    assert.equal(circuit.length, 1);
+    assert.equal(circuit[0].severity, "warning");
+    assert.match(circuit[0].message, /"sanuki"/);
+    // A deferred section is legitimate; only the silence was not.
+    assert.ok(errors.every((e) => e.severity === "warning"));
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("a circular pilgrimage whose opening section is deferred names that section", () => {
+  const root = mkdtempSync(join(tmpdir(), "validate-chain-test-"));
+  try {
+    const awa = join(root, "routes", "awa");
+    mkdirSync(awa, { recursive: true });
+    writeJson(join(awa, "metadata.json"), { id: "awa", pilgrimage: closedLegs(1) });
+    const sanuki = sectionWithStages(root, "sanuki", closedLegs(2), [
+      { index: 0, name: "d1", start: { name: { en: "T23" }, coordinates: [0.1, 0] }, end: { name: { en: "T88" }, coordinates: [0.2, 0] }, distanceKm: 11 },
+    ]);
+    writeJson(join(root, "index.json"), { routes: [{ id: "awa" }, { id: "sanuki" }] });
+
+    const errors: ValidationError[] = [];
+    validateSectionChain(root, [awa, sanuki], errors);
+
+    // #then the section the circuit would have opened from is the one named
+    const circuit = circuitWarnings(errors);
+    assert.equal(circuit.length, 1);
+    assert.match(circuit[0].message, /"awa"/);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
 test("alternatives sections are exempt from chaining", () => {
   const root = mkdtempSync(join(tmpdir(), "validate-chain-test-"));
   try {
