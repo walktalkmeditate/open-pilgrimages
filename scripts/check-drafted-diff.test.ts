@@ -13,7 +13,7 @@ const ROOT = join(import.meta.dirname, "..");
  * docs/review/*.md file on disk, which the pure checkDraftedDiff export
  * cannot exercise on its own.
  */
-function createTempScriptRepo(): { dir: string; scriptPath: string } {
+function createTempScriptRepo(): { dir: string; scriptPath: string; variantDir: string } {
   const dir = mkdtempSync(join(ROOT, ".check-drafted-diff-test-"));
   execFileSync("git", ["init", "-q"], { cwd: dir });
   execFileSync("git", ["config", "user.email", "test@example.com"], { cwd: dir });
@@ -26,17 +26,39 @@ function createTempScriptRepo(): { dir: string; scriptPath: string } {
     join(routeDir, "stages.json"),
     JSON.stringify({ stages: [{ index: 0, drafted: true }] }),
   );
+
+  // A section under variants/, whose stages validate polices exactly as it
+  // does a top-level route's. It carries an id of its own, so its checklist
+  // is docs/review/coastal.md rather than the parent route's file.
+  const variantDir = join(dir, "routes", "camino-portugues", "variants", "coastal");
+  mkdirSync(variantDir, { recursive: true });
+  writeFileSync(
+    join(dir, "routes", "camino-portugues", "metadata.json"),
+    JSON.stringify({ id: "camino-portugues" }),
+  );
+  writeFileSync(join(variantDir, "metadata.json"), JSON.stringify({ id: "coastal" }));
+  writeFileSync(
+    join(variantDir, "stages.json"),
+    JSON.stringify({ stages: [{ index: 0, drafted: true }] }),
+  );
+
   writeFileSync(join(dir, "package.json"), JSON.stringify({ type: "module", version: "1.7.0" }));
   execFileSync("git", ["add", "-A"], { cwd: dir });
   execFileSync("git", ["commit", "-q", "-m", "base"], { cwd: dir });
 
   const scriptsDir = join(dir, "scripts");
   mkdirSync(scriptsDir);
-  for (const name of ["check-drafted-diff.ts", "cli.ts", "review-checklist.ts", "pilgrimage.ts"]) {
+  for (const name of [
+    "check-drafted-diff.ts",
+    "cli.ts",
+    "review-checklist.ts",
+    "pilgrimage.ts",
+    "routes.ts",
+  ]) {
     cpSync(join(ROOT, "scripts", name), join(scriptsDir, name));
   }
 
-  return { dir, scriptPath: join(scriptsDir, "check-drafted-diff.ts") };
+  return { dir, scriptPath: join(scriptsDir, "check-drafted-diff.ts"), variantDir };
 }
 
 const drafted = JSON.stringify({ stages: [{ index: 0, drafted: true }, { index: 1 }] });
@@ -136,6 +158,54 @@ test("a bare tick in an unrelated route's checklist does not clear this route's 
         stdio: "pipe",
       }),
     );
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test("a variant section's cleared drafted flag is caught like any other section's", () => {
+  const { dir, scriptPath, variantDir } = createTempScriptRepo();
+  try {
+    const baseRef = execFileSync("git", ["rev-parse", "HEAD"], { cwd: dir, encoding: "utf8" }).trim();
+
+    // #given the only flag cleared at head belongs to a section under
+    // variants/ — the sections validate walks into and a top-level-only
+    // discovery never opens — with no checklist recording the review
+    writeFileSync(join(variantDir, "stages.json"), JSON.stringify({ stages: [{ index: 0 }] }));
+
+    // #when / #then the gate names it, and names its own id's checklist
+    assert.throws(
+      () =>
+        execFileSync(process.execPath, ["--import", "tsx", scriptPath, baseRef], {
+          cwd: dir,
+          stdio: "pipe",
+        }),
+      (error: Error & { stderr?: Buffer }) => {
+        const stderr = error.stderr?.toString() ?? "";
+        assert.match(stderr, /coastal: stage 0/);
+        assert.match(stderr, /docs\/review\/coastal\.md/);
+        return true;
+      },
+    );
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test("a variant section's review is recorded under its own id, not its parent route's", () => {
+  const { dir, scriptPath, variantDir } = createTempScriptRepo();
+  try {
+    const baseRef = execFileSync("git", ["rev-parse", "HEAD"], { cwd: dir, encoding: "utf8" }).trim();
+
+    writeFileSync(join(variantDir, "stages.json"), JSON.stringify({ stages: [{ index: 0 }] }));
+    mkdirSync(join(dir, "docs", "review"), { recursive: true });
+    writeFileSync(join(dir, "docs", "review", "coastal.md"), "- [x] stage 0\n");
+
+    const stdout = execFileSync(process.execPath, ["--import", "tsx", scriptPath, baseRef], {
+      cwd: dir,
+      encoding: "utf8",
+    });
+    assert.match(stdout, /Every cleared drafted flag has a recorded review/);
   } finally {
     rmSync(dir, { recursive: true, force: true });
   }

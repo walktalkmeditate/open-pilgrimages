@@ -78,10 +78,11 @@ export function checkDraftedDiff(
 }
 
 import { execFileSync } from "child_process";
-import { existsSync, readdirSync, readFileSync } from "fs";
-import { join } from "path";
+import { existsSync, readFileSync } from "fs";
+import { basename, join, relative, sep } from "path";
 import { resolveInvokedPath } from "./cli.js";
 import { readPilgrimage } from "./pilgrimage.js";
+import { findRouteDirectories } from "./routes.js";
 
 const ROOT = join(import.meta.dirname, "..");
 
@@ -121,21 +122,22 @@ function main(): void {
   }
 
   const problems: string[] = [];
-  for (const entry of readdirSync(join(ROOT, "routes")).sort()) {
-    const rel = `routes/${entry}/stages.json`;
-    if (!existsSync(join(ROOT, rel))) continue;
+  // The same walk validate uses, so a section one of them polices is never a
+  // section the other cannot see — sections under variants/ included.
+  for (const dir of findRouteDirectories(ROOT).sort()) {
+    const stagesPath = join(dir, "stages.json");
+    if (!existsSync(stagesPath)) continue;
+    // git addresses paths from the repo root, with forward slashes.
+    const rel = relative(ROOT, stagesPath).split(sep).join("/");
 
-    const metaPath = join(ROOT, "routes", entry, "metadata.json");
     let meta: { id?: string } = {};
-    if (existsSync(metaPath)) {
-      try {
-        meta = JSON.parse(readFileSync(metaPath, "utf8"));
-      } catch {
-        // Malformed metadata is validate.ts's problem to name; this gate
-        // still has a route id — the directory name — to check stages against.
-      }
+    try {
+      meta = JSON.parse(readFileSync(join(dir, "metadata.json"), "utf8"));
+    } catch {
+      // Malformed metadata is validate.ts's problem to name; this gate
+      // still has a route id — the directory name — to check stages against.
     }
-    const routeId = meta.id ?? entry;
+    const routeId = meta.id ?? basename(dir);
     let pilgrimageId: string | undefined;
     try {
       pilgrimageId = readPilgrimage(meta)?.id;
@@ -164,7 +166,7 @@ function main(): void {
     problems.push(
       ...checkDraftedDiff(
         before,
-        readFileSync(join(ROOT, rel), "utf8"),
+        readFileSync(stagesPath, "utf8"),
         routeId,
         sectionChecklist,
         pilgrimageId,

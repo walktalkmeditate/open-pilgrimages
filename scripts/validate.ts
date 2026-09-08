@@ -7,6 +7,7 @@ import { RESERVED_PAGE_NAMES } from "./pages.js";
 import { nearestVertex, walkedLine, haversineMeters, SNAP_METERS, OFF_LINE_TOLERANCE_METERS } from "./ways/geo.js";
 import type { Position } from "./ways/types.js";
 import { readPilgrimage, groupSections, type PilgrimageBlock } from "./pilgrimage.js";
+import { findRouteDirectories } from "./routes.js";
 import {
   ANY_BOX,
   TICKED_BOX,
@@ -48,28 +49,6 @@ function readJsonOrReport(
     });
     return undefined;
   }
-}
-
-function findRouteDirectories(): string[] {
-  const routesDir = join(ROOT, "routes");
-  const dirs: string[] = [];
-
-  function walk(dir: string) {
-    for (const entry of readdirSync(dir)) {
-      const full = join(dir, entry);
-      if (!statSync(full).isDirectory()) continue;
-      if (existsSync(join(full, "metadata.json"))) {
-        dirs.push(full);
-      }
-      const variantsDir = join(full, "variants");
-      if (existsSync(variantsDir) && statSync(variantsDir).isDirectory()) {
-        walk(variantsDir);
-      }
-    }
-  }
-
-  walk(routesDir);
-  return dirs;
 }
 
 export interface ValidationError {
@@ -996,7 +975,7 @@ function main() {
     validateFile(ajv, "index.schema.json", indexPath, errors);
   }
 
-  const routeDirs = findRouteDirectories();
+  const routeDirs = findRouteDirectories(ROOT);
   console.log(`Found ${routeDirs.length} route(s)\n`);
 
   for (const dir of routeDirs) {
