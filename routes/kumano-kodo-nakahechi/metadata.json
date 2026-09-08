@@ -185,6 +185,7 @@
   },
 
   "osm": {
-    "query": "[out:json][timeout:120];relation[\"name\"~\"熊野古道\"][\"type\"=\"route\"];out geom;"
+    "relations": [17094646, 17095001, 17097762, 17097854, 17130940, 17130941],
+    "note": "The six relations together reach Nachi, not only Hongu Taisha — 83.8 km of member-way geometry against the ~35.9 km this section's four stages span. A later PR extending this section past Hongu Taisha can pin the same relations; the geometry is already here."
   }
 }
