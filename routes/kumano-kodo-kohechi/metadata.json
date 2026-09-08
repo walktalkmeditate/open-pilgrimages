@@ -1,0 +1,107 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "kumano-kodo-kohechi",
+  "lastUpdated": "2026-09-08T00:00:00Z",
+
+  "name": { "en": "Kohechi (Mountain Route)", "ja": "小辺路" },
+  "description": {
+    "en": "The mountain route between the two sacred centres of the Kii Peninsula: 63 km from Koyasan to Kumano Hongu Taisha, crossing three passes above 1,000 m. Four days, with the nights at the river-valley settlements of Omata, Miura-guchi and Totsukawa Onsen. The high point is Obako-dake at 1,344 m, and the route carries about 3,500 m of ascent against 4,280 m of descent.",
+    "ja": "高野山から熊野本宮大社に至る山岳路。1,000mを超える三つの峠を越える。"
+  },
+
+  "overview": {
+    "distanceKm": 63,
+    "distanceNote": {
+      "en": "Measured on the walked line rather than taken from a guidebook, because this repository holds no guidebook figure for these four days. 63 km is the rounded sum of the four stages, as every linear route here declares. The walked line itself measures 64.3 km from the Kohechi's own trailhead at Koyasan to Kumano Hongu Taisha; the stages begin 0.3 km along it, at the Koyasan anchor, and each stage's figure is the length of its packaged slice, which the build simplifies to a tolerance before measuring. The variant stub this section was promoted from declared 70 km and the Tanabe City Kumano Tourism Bureau describes the route as more than 65 km; neither was measured on this line."
+    },
+    "estimatedDays": { "min": 3, "max": 5, "typical": 4 },
+    "topology": "linear",
+    "direction": "south",
+    "startPoint": {
+      "name": { "en": "Koyasan", "ja": "高野山" },
+      "coordinates": [135.582004, 34.212105, 830]
+    },
+    "endPoint": {
+      "name": { "en": "Kumano Hongu Taisha", "ja": "熊野本宮大社" },
+      "coordinates": [135.7736668, 33.8403988, 80]
+    },
+    "elevationRange": {
+      "minMeters": 70,
+      "maxMeters": 1344,
+      "totalAscentMeters": 3500,
+      "totalDescentMeters": 4280,
+      "elevationNote": "Ascent, descent and every per-stage high and low point are sampled from the SRTM 30 m digital elevation model at each of the walked line's 2,986 vertices, with a 20 m hysteresis threshold so the model's own noise is not counted as climbing, then rounded to the nearest 10 m. Two independent checks: the model reads 1,329 m where the line crosses Obako-dake, against the 1,344 m OpenStreetMap node/2454838213 carries for that summit (the maximum declared here), and 1,070 m at the Hatenashi-toge crossing. The totals also sit close to the 3,320 m of ascent and more than 4,000 m of descent published for this route, which is what the 20 m threshold was chosen against."
+    },
+    "difficulty": "expert",
+    "terrainTypes": ["mountain", "forest", "dirt", "paved"],
+    "bestMonths": [4, 5, 10, 11],
+    "countries": ["JP"],
+    "bbox": [135.585, 33.839, 135.774, 34.213]
+  },
+
+  "tradition": {
+    "type": "mixed",
+    "primaryFaith": "Shinto",
+    "otherFaiths": ["buddhist", "shugendo"],
+    "unescoStatus": "World Heritage Site: Sacred Sites and Pilgrimage Routes in the Kii Mountain Range",
+    "unescoYear": 2004
+  },
+
+  "logistics": {
+    "seasonalAvailability": {
+      "openMonths": [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      "notes": {
+        "en": "The three passes above 1,000 m can hold snow between December and March. Hatenashi-toge, the southernmost, is the lowest of the three."
+      }
+    },
+    "currency": "JPY",
+    "languages": ["ja"],
+    "emergencyNumber": "119"
+  },
+
+  "provenance": {
+    "sources": [
+      {
+        "name": "OpenStreetMap",
+        "url": "https://www.openstreetmap.org/relation/17131166",
+        "license": "ODbL-1.0",
+        "dataTypes": ["geometry", "stages"],
+        "accessDate": "2026-09-08",
+        "notes": "Relations 17131166 (Kohechi) and 17094646 (Nakahechi) — the osm block below says why both. Every stage anchor is an OpenStreetMap node or way, recorded in that anchor's own note in stages.json."
+      },
+      {
+        "name": "Derived from the walked line",
+        "url": "https://github.com/walktalkmeditate/open-pilgrimages",
+        "license": "ODbL-1.0",
+        "dataTypes": ["stages", "distances"],
+        "accessDate": "2026-09-08",
+        "notes": "This repository holds no guidebook figure for these four days, so each stage's distanceKm is the length of route.main.geojson between that stage's own two anchors, rounded to one decimal. The day divisions are the four traditional overnight stops the Tanabe City Kumano Tourism Bureau names for this route, each pinned to the OpenStreetMap node nearest the walked line that carries the place."
+      },
+      {
+        "name": "SRTM 30 m elevation, via OpenTopoData",
+        "url": "https://www.opentopodata.org/datasets/srtm/",
+        "license": "public-domain",
+        "dataTypes": ["elevation"],
+        "accessDate": "2026-09-08",
+        "notes": "NASA SRTM 1 arc-second void-filled, sampled at every vertex of route.main.geojson. Public domain, so it does not change the combined dataset's licence. Method and cross-checks are in overview.elevationRange.elevationNote."
+      },
+      {
+        "name": "Tanabe City Kumano Tourism Bureau",
+        "url": "https://www.tb-kumano.jp/en/kumano-kodo/kohechi/",
+        "license": "reference",
+        "dataTypes": ["stages", "logistics"],
+        "accessDate": "2026-09-08",
+        "notes": "Names the four overnight stops (Koyasan, Omata, Miura-guchi, Totsukawa Onsen), the four-day walk, the more-than-65-km length, the passes above 1,000 m, and that the days run six to nine hours."
+      }
+    ],
+    "contributors": [
+      { "name": "walk · talk · meditate", "role": "initial_author", "url": "https://github.com/walktalkmeditate" }
+    ],
+    "license": "ODbL-1.0"
+  },
+
+  "osm": {
+    "relations": [17131166, 17094646],
+    "note": "17131166 is the Kohechi. 17094646 is a Nakahechi relation, pinned deliberately rather than by mistake: relation 17131166 ends at 135.76387,33.85534, 1.9 km short of Kumano Hongu Taisha, because the final approach is tagged into the Nakahechi where the two routes converge on the shrine. The join is a shared node — exact coordinate identity, 0 m — so the two relations form one connected graph, and the shortest path between this section's own anchors borrows the Nakahechi's geometry for that last stretch and nothing more. Pinned alone, 17131166 yields a 62.19 km line stopping short of the shrine this section is named for arriving at; the pair yields 64.33 km, Koyasan to Hongu Taisha, one connected path. Spec section 4.3's 'the relation list is the section's trail and nothing else' yields here to the fact that a Kohechi pilgrim does arrive at the shrine."
+  }
+}

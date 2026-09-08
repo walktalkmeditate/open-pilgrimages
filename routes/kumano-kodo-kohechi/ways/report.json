@@ -1,0 +1,88 @@
+{
+  "schemaVersion": "1.0.0",
+  "routeId": "kumano-kodo-kohechi",
+  "generatedAt": "2026-09-08T00:00:00Z",
+  "walkedLine": {
+    "source": "route.main.geojson",
+    "points": 2986,
+    "lengthKm": 64.327
+  },
+  "stages": [
+    {
+      "index": 0,
+      "name": "Koyasan to Omata",
+      "sliceKm": 16.69,
+      "distanceKm": 16.7,
+      "ratio": 0.9994,
+      "passedGate": true,
+      "boundaryMode": "snap",
+      "routePoints": 201,
+      "moments": 2,
+      "momentsBeyondEnds": 0,
+      "momentsWithText": 0,
+      "marks": 0,
+      "marksTrimmed": 0,
+      "dropped": []
+    },
+    {
+      "index": 1,
+      "name": "Omata to Miura-guchi",
+      "sliceKm": 13.145,
+      "distanceKm": 13.1,
+      "ratio": 1.0034,
+      "passedGate": true,
+      "boundaryMode": "snap",
+      "routePoints": 184,
+      "moments": 2,
+      "momentsBeyondEnds": 0,
+      "momentsWithText": 0,
+      "marks": 0,
+      "marksTrimmed": 0,
+      "dropped": []
+    },
+    {
+      "index": 2,
+      "name": "Miura-guchi to Totsukawa Onsen",
+      "sliceKm": 18.769,
+      "distanceKm": 18.8,
+      "ratio": 0.9983,
+      "passedGate": true,
+      "boundaryMode": "snap",
+      "routePoints": 264,
+      "moments": 2,
+      "momentsBeyondEnds": 0,
+      "momentsWithText": 0,
+      "marks": 0,
+      "marksTrimmed": 0,
+      "dropped": []
+    },
+    {
+      "index": 3,
+      "name": "Totsukawa Onsen to Kumano Hongu Taisha",
+      "sliceKm": 14.559,
+      "distanceKm": 14.6,
+      "ratio": 0.9972,
+      "passedGate": true,
+      "boundaryMode": "snap",
+      "routePoints": 168,
+      "moments": 2,
+      "momentsBeyondEnds": 0,
+      "momentsWithText": 0,
+      "marks": 0,
+      "marksTrimmed": 0,
+      "dropped": []
+    }
+  ],
+  "gate": {
+    "passed": true,
+    "failing": []
+  },
+  "dropped": [],
+  "places": {
+    "sparse": true,
+    "stagesWithMomentBeyondEnds": 0,
+    "halfOfStages": 2,
+    "placesPerStage": 0,
+    "note": "only 0 of 4 stages carry a place beyond their own start and end; the app's card will say \"few places marked yet\""
+  }
+}

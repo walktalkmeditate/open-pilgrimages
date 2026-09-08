@@ -14,7 +14,7 @@
 
   "overview": {
     "distanceKm": 36,
-    "distanceNote": { "en": "Distance is for the Nakahechi (main route, 36 km from Takijiri-oji to Kumano Hongu Taisha), measured on the walked line rather than taken from a guidebook. Kohechi variant: 70 km. Iseji variant: 170 km." },
+    "distanceNote": { "en": "Distance is for the Nakahechi (main route, 36 km from Takijiri-oji to Kumano Hongu Taisha), measured on the walked line rather than taken from a guidebook. Iseji variant: 170 km. The Kohechi is no longer a variant of this section: it is kumano-kodo-kohechi, measured at 63 km on its own walked line." },
     "estimatedDays": { "min": 3, "max": 6, "typical": 4 },
     "topology": "network",
     "startPoint": {

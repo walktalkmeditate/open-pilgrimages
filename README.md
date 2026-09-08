@@ -2,7 +2,7 @@
 
 A canonical, open-source dataset of pilgrimage routes worldwide.
 
-159,624 GPS points. 11,870 waypoints. 109 stages. 7 routes across 3 traditions. All structured as JSON and GeoJSON.
+162,685 GPS points. 11,870 waypoints. 113 stages. 8 routes across 3 traditions. All structured as JSON and GeoJSON.
 
 ## What's In the Box
 
@@ -29,6 +29,7 @@ Routes that belong to no pilgrimage grouping yet.
 |-------|----------|----------|-----------|-------------|-----------|-------|
 | [Shikoku 88](routes/shikoku-88/) | 1,200 km | Circular | Buddhist | 49,097 | 2,980 | 21 years (2005-2025) |
 | [Kumano Kodo](routes/kumano-kodo-nakahechi/) | 36-170 km | Network | Shinto/Buddhist | 6,847 | 157 | 22 years (2003-2024) |
+| [Kohechi](routes/kumano-kodo-kohechi/) | 63 km | Linear | Shinto/Buddhist | 3,061 | 0 | — |
 
 ### Three Layers of Data
 
@@ -40,16 +41,16 @@ Routes that belong to no pilgrimage grouping yet.
 
 ### Waypoint Coverage
 
-| Type | Frances | Norte | Primitivo | Portugués | Coastal | Inglés | Shikoku | Kumano |
-|------|---------|-------|-----------|-----------|---------|--------|---------|--------|
-| Water sources | 788 | 662 | 96 | 177 | 52 | 85 | 13 | 1 |
-| Medical (pharmacy/hospital) | 172 | 206 | 63 | 112 | 50 | 44 | 214 | 1 |
-| Accommodation | 532 | 250 | 75 | 180 | 92 | 39 | 124 | 31 |
-| Food (restaurant/cafe) | 713 | 764 | 265 | 600 | 425 | 152 | 456 | 13 |
-| Transport (bus/train) | 511 | 657 | 180 | 431 | 302 | 136 | 1,395 | 39 |
-| Supply (convenience/toilet) | 189 | 235 | 53 | 134 | 122 | 26 | 690 | 52 |
-| Sacred sites | 9 | 68 | — | — | — | — | 88 | 18 |
-| Towns | 36 | 51 | — | — | — | — | — | 2 |
+| Type | Frances | Norte | Primitivo | Portugués | Coastal | Inglés | Shikoku | Nakahechi | Kohechi |
+|------|---------|-------|-----------|-----------|---------|--------|---------|-----------|---------|
+| Water sources | 788 | 662 | 96 | 177 | 52 | 85 | 13 | 1 | — |
+| Medical (pharmacy/hospital) | 172 | 206 | 63 | 112 | 50 | 44 | 214 | 1 | — |
+| Accommodation | 532 | 250 | 75 | 180 | 92 | 39 | 124 | 31 | — |
+| Food (restaurant/cafe) | 713 | 764 | 265 | 600 | 425 | 152 | 456 | 13 | — |
+| Transport (bus/train) | 511 | 657 | 180 | 431 | 302 | 136 | 1,395 | 39 | — |
+| Supply (convenience/toilet) | 189 | 235 | 53 | 134 | 122 | 26 | 690 | 52 | — |
+| Sacred sites | 9 | 68 | — | — | — | — | 88 | 18 | — |
+| Towns | 36 | 51 | — | — | — | — | — | 2 | — |
 
 ### Statistics (`stats.json`)
 

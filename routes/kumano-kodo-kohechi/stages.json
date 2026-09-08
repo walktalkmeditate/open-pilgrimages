@@ -1,0 +1,123 @@
+{
+  "schemaVersion": "1.0.0",
+  "routeId": "kumano-kodo-kohechi",
+  "stageCount": 4,
+  "stages": [
+    {
+      "index": 0,
+      "name": { "en": "Koyasan to Omata", "ja": "高野山〜大股" },
+      "start": {
+        "name": { "en": "Koyasan", "ja": "高野山" },
+        "coordinates": [135.582004, 34.212105, 830],
+        "note": "OpenStreetMap node/8735601530 (place=quarter, name=高野山, name:en=\"Koyasan\", official_name=大字高野山, wikidata=Q535065), 415 m from the walked line, which begins at the Kohechi relation's own northern terminus on the eastern edge of the town. One alternative was measured and not taken: node/2506691335 (place=town, name=高野町, name:en=\"Kōya\"), 369 m off — 46 m nearer, but it names the municipality rather than Koyasan itself. Both are inside the 500 m the build snaps across, so neither needs an offLineMeters declaration. The third ordinate is the SRTM 30 m elevation at this coordinate, 825 m, rounded to 830."
+      },
+      "end": {
+        "name": { "en": "Omata", "ja": "大股" },
+        "coordinates": [135.6311521, 34.1050563, 700],
+        "note": "OpenStreetMap node/4432308131 (place=neighbourhood, name=大股, name:en=\"Omata\"), 31 m from the walked line at 17.20 km. The third ordinate is the SRTM 30 m elevation at this coordinate, 700 m."
+      },
+      "distanceKm": 16.7,
+      "elevationGainMeters": 710,
+      "elevationLossMeters": 840,
+      "highPointMeters": 1170,
+      "lowPointMeters": 650,
+      "estimatedHours": { "min": 6, "max": 8 },
+      "difficulty": "hard",
+      "terrainTypes": ["mountain", "forest", "dirt", "paved"],
+      "terrainNotes": { "en": "A ridge day. The trail climbs out of Koyasan and then holds high ground, never dropping below 650 m, with long stretches of forestry road between the sections of path." },
+      "drafted": true,
+      "interior": {
+        "theme": { "en": "Onto the ridge" },
+        "narrative": { "en": "The day leaves Koyasan's temple lodgings, climbs to the ridge and stays on it: 16.7 km that never drop below 650 m. It passes the hamlet of Otaki, crosses below the summit of Mizugamine — 1,161 m, with the trail itself at about 1,030 m — and comes down through Kitaimanishi to Omata on the river. Ascent and descent are close to equal, 710 m against 840 m, so the day's weight is in its length rather than in any one climb." },
+        "reflection": { "en": "The climbing here is spread across the whole day rather than gathered into one pass — what does that ask of you?" }
+      }
+    },
+    {
+      "index": 1,
+      "name": { "en": "Omata to Miura-guchi", "ja": "大股〜三浦口" },
+      "start": {
+        "name": { "en": "Omata", "ja": "大股" },
+        "coordinates": [135.6311521, 34.1050563, 700],
+        "note": "OpenStreetMap node/4432308131 (place=neighbourhood, name=大股, name:en=\"Omata\"), 31 m from the walked line at 17.20 km. The third ordinate is the SRTM 30 m elevation at this coordinate, 700 m."
+      },
+      "end": {
+        "name": { "en": "Miura-guchi", "ja": "三浦口" },
+        "coordinates": [135.695589, 34.033871, 340],
+        "note": "OpenStreetMap node/1426712525 (place=quarter, name=五百瀬, name:en=\"Imoze\"), 148 m from the walked line at 30.54 km. OpenStreetMap carries no node named 三浦口, the name this overnight stop goes by; Imoze is the quarter at the valley crossing between the Obako-toge descent and the Miura-toge climb, and it is the settlement of that level here. Two nearer nodes were measured and not taken: node/7475989892 (place=neighbourhood, name=三田谷, name:en=\"Bitadani\"), 34 m off at 30.18 km, a neighbourhood inside Imoze at the mouth of the Bitadani stream, and node/1426712521 (place=quarter, name=三浦, name:en=\"Miura\"), 31 m off at 31.65 km, on the far side of the river where the climb to Miura-toge begins. All three sit well inside the 500 m the build snaps across, so the choice changes where the day is cut, not whether it can be. The third ordinate is the SRTM 30 m elevation at this coordinate, 339 m, rounded to 340."
+      },
+      "distanceKm": 13.1,
+      "elevationGainMeters": 760,
+      "elevationLossMeters": 1140,
+      "highPointMeters": 1344,
+      "lowPointMeters": 330,
+      "estimatedHours": { "min": 5, "max": 7 },
+      "difficulty": "hard",
+      "terrainTypes": ["mountain", "forest", "dirt"],
+      "terrainNotes": { "en": "The shortest of the four days and the highest. Forest path throughout, over the summit of Obako-dake, then a sustained 1,140 m descent to the river." },
+      "drafted": true,
+      "interior": {
+        "theme": { "en": "The high point" },
+        "narrative": { "en": "The shortest day on the route is also the highest. From Omata the trail climbs past the site of the Kaya-goya hut to Obako-dake at 1,344 m, the highest ground the Kohechi crosses, then descends past the remains of the Mizugamoto tea house to the river settlements of Bitadani and Imoze. It loses 1,140 m against the 760 m it gains." },
+        "reflection": { "en": "The highest ground on the route comes on its shortest day — is that a gift or a warning?" }
+      }
+    },
+    {
+      "index": 2,
+      "name": { "en": "Miura-guchi to Totsukawa Onsen", "ja": "三浦口〜十津川温泉" },
+      "start": {
+        "name": { "en": "Miura-guchi", "ja": "三浦口" },
+        "coordinates": [135.695589, 34.033871, 340],
+        "note": "OpenStreetMap node/1426712525 (place=quarter, name=五百瀬, name:en=\"Imoze\"), 148 m from the walked line at 30.54 km. OpenStreetMap carries no node named 三浦口, the name this overnight stop goes by; Imoze is the quarter at the valley crossing between the Obako-toge descent and the Miura-toge climb, and it is the settlement of that level here. Two nearer nodes were measured and not taken: node/7475989892 (place=neighbourhood, name=三田谷, name:en=\"Bitadani\"), 34 m off at 30.18 km, a neighbourhood inside Imoze at the mouth of the Bitadani stream, and node/1426712521 (place=quarter, name=三浦, name:en=\"Miura\"), 31 m off at 31.65 km, on the far side of the river where the climb to Miura-toge begins. All three sit well inside the 500 m the build snaps across, so the choice changes where the day is cut, not whether it can be. The third ordinate is the SRTM 30 m elevation at this coordinate, 339 m, rounded to 340."
+      },
+      "end": {
+        "name": { "en": "Totsukawa Onsen", "ja": "十津川温泉" },
+        "coordinates": [135.7582237, 33.9368855, 170],
+        "note": "OpenStreetMap node/5702160126 (tourism=attraction, name=小辺路 果無集落登山口 — the Kohechi's Hatenashi settlement trailhead), 3 m from the walked line at 49.60 km. The onsen village itself is 1,042 m east across the Totsukawa and the walked line does not enter it: node/2970208333 (amenity=public_bath, bath:type=onsen, name=十津川温泉 庵の湯) and node/1707260812 (amenity=bus_station, name=十津川バスセンター) each measure 1,042 m from the line, twice the 500 m the build can snap across. Anchoring on the village would have required an offLineMeters declaration and would have counted a kilometre of road nobody walks as trail; anchoring where the Kohechi reaches the valley keeps the measured day equal to the walked one, and the walker's kilometre to the lodging is the same detour on both evenings. The third ordinate is the SRTM 30 m elevation at this coordinate, 172 m, rounded to 170."
+      },
+      "distanceKm": 18.8,
+      "elevationGainMeters": 950,
+      "elevationLossMeters": 1150,
+      "highPointMeters": 1070,
+      "lowPointMeters": 150,
+      "estimatedHours": { "min": 7, "max": 9 },
+      "difficulty": "hard",
+      "terrainTypes": ["mountain", "forest", "dirt", "paved"],
+      "terrainNotes": { "en": "The longest of the four days. Forest path over Miura-toge, then about 8 km of river road from Nishinaka down the Totsukawa valley to the Hatenashi trailhead." },
+      "drafted": true,
+      "interior": {
+        "theme": { "en": "Pass and river" },
+        "narrative": { "en": "The longest day: 18.8 km from Imoze over Miura-toge and then down the Totsukawa. The climb gains about 700 m from the valley floor to the pass at about 1,070 m, where there is a rest place and a public toilet; the descent runs through Nishinaka, past Kawai-jinja, and then some 8 km along the river road through Tamagaito, Nagai and Shigesato. It ends at the Hatenashi settlement trailhead, where the climb to the last pass begins, with Totsukawa Onsen a kilometre east across the river." },
+        "reflection": { "en": "Half of this day is mountain path and half is river road — does the walking change when the surface does?" }
+      }
+    },
+    {
+      "index": 3,
+      "name": { "en": "Totsukawa Onsen to Kumano Hongu Taisha", "ja": "十津川温泉〜熊野本宮大社" },
+      "start": {
+        "name": { "en": "Totsukawa Onsen", "ja": "十津川温泉" },
+        "coordinates": [135.7582237, 33.9368855, 170],
+        "note": "OpenStreetMap node/5702160126 (tourism=attraction, name=小辺路 果無集落登山口 — the Kohechi's Hatenashi settlement trailhead), 3 m from the walked line at 49.60 km. The onsen village itself is 1,042 m east across the Totsukawa and the walked line does not enter it: node/2970208333 (amenity=public_bath, bath:type=onsen, name=十津川温泉 庵の湯) and node/1707260812 (amenity=bus_station, name=十津川バスセンター) each measure 1,042 m from the line, twice the 500 m the build can snap across. Anchoring on the village would have required an offLineMeters declaration and would have counted a kilometre of road nobody walks as trail; anchoring where the Kohechi reaches the valley keeps the measured day equal to the walked one, and the walker's kilometre to the lodging is the same detour on both evenings. The third ordinate is the SRTM 30 m elevation at this coordinate, 172 m, rounded to 170."
+      },
+      "end": {
+        "name": { "en": "Kumano Hongu Taisha", "ja": "熊野本宮大社" },
+        "coordinates": [135.7736668, 33.8403988, 80],
+        "note": "OpenStreetMap way/797748245 (amenity=place_of_worship, religion=shinto, name=熊野本宮大社, name:en=\"Kumano Hongū Taisha\", wikidata=Q705035, ref:whc=1142-07bis), whose centre is 51 m from the walked line's last vertex. The Nakahechi's own final anchor for the same shrine sits at 135.774,33.840, 3 m from that vertex; this section pins the shrine's OpenStreetMap way instead, and both are inside the 500 m the build snaps across. The third ordinate is 80 m, the figure the Nakahechi already declares for this shrine, kept so the dataset does not give one place two heights; the SRTM 30 m model reads 96 m at the way's centre and 90 m at the line's last vertex."
+      },
+      "distanceKm": 14.6,
+      "elevationGainMeters": 1080,
+      "elevationLossMeters": 1150,
+      "highPointMeters": 1070,
+      "lowPointMeters": 70,
+      "estimatedHours": { "min": 6, "max": 8 },
+      "difficulty": "hard",
+      "terrainTypes": ["mountain", "forest", "dirt", "paved"],
+      "terrainNotes": { "en": "The largest single climb on the route — 1,080 m from the river to Hatenashi-toge — then a long descent and a final stretch shared with the Nakahechi." },
+      "drafted": true,
+      "interior": {
+        "theme": { "en": "The last pass" },
+        "narrative": { "en": "The biggest climb of the four days: 1,080 m of ascent in 14.6 km, from the Totsukawa up to Hatenashi-toge at about 1,070 m. The way up goes through the hamlet of Hatenashi, past two World Heritage stone markers and a stone Buddha, then the Yamaguchi tea-house remains and a Kannon temple, before the long drop to Yagio. The last 2.2 km are shared with the Nakahechi, past Haraido-oji, into Kumano Hongu Taisha." },
+        "reflection": { "en": "Three days ended at a village and this one ends at the shrine — what changes in the arriving?" }
+      }
+    }
+  ]
+}

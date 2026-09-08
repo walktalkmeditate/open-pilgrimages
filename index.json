@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
   "release": "v1.7.1",
-  "generatedAt": "2026-09-08T18:11:18.065Z",
+  "generatedAt": "2026-09-08T18:43:25.679Z",
   "pilgrimages": [
     {
       "id": "camino-de-santiago",
@@ -165,6 +165,25 @@
       "pilgrimage": "camino-de-santiago"
     },
     {
+      "id": "kumano-kodo-kohechi",
+      "name": {
+        "en": "Kohechi (Mountain Route)",
+        "ja": "小辺路"
+      },
+      "region": "Asia",
+      "country": "JP",
+      "distanceKm": 63,
+      "topology": "linear",
+      "tradition": "mixed",
+      "path": "routes/kumano-kodo-kohechi",
+      "ways": {
+        "stageCount": 4,
+        "bytes": 75373,
+        "placesPerStage": 0,
+        "sparse": true
+      }
+    },
+    {
       "id": "kumano-kodo-nakahechi",
       "name": {
         "en": "Kumano Kodo",
@@ -185,15 +204,6 @@
           },
           "distanceKm": 170,
           "path": "routes/kumano-kodo-nakahechi/variants/iseji"
-        },
-        {
-          "id": "kohechi",
-          "name": {
-            "en": "Kohechi (Mountain Route)",
-            "ja": "小辺路"
-          },
-          "distanceKm": 70,
-          "path": "routes/kumano-kodo-nakahechi/variants/kohechi"
         }
       ],
       "ways": {

@@ -1,0 +1,60 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "kumano-kodo-kohechi",
+  "name": "Kohechi (Mountain Route)",
+  "country": "JP",
+  "region": "Asia",
+  "distanceKm": 63.2,
+  "stageCount": 4,
+  "tradition": "mixed",
+  "summary": "The mountain route between the two sacred centres of the Kii Peninsula: 63 km from Koyasan to Kumano Hongu Taisha, crossing three passes above 1,000 m. Four days, with the nights at the river-valley settlements of Omata, Miura-guchi and Totsukawa Onsen. The high point is Obako-dake at 1,344 m, and the route carries about 3,500 m of ascent against 4,280 m of descent.",
+  "stages": [
+    {
+      "index": 0,
+      "name": "Koyasan to Omata",
+      "distanceKm": 16.7,
+      "hours": {
+        "min": 6,
+        "max": 8
+      },
+      "gainMeters": 710,
+      "difficulty": "hard"
+    },
+    {
+      "index": 1,
+      "name": "Omata to Miura-guchi",
+      "distanceKm": 13.1,
+      "hours": {
+        "min": 5,
+        "max": 7
+      },
+      "gainMeters": 760,
+      "difficulty": "hard"
+    },
+    {
+      "index": 2,
+      "name": "Miura-guchi to Totsukawa Onsen",
+      "distanceKm": 18.8,
+      "hours": {
+        "min": 7,
+        "max": 9
+      },
+      "gainMeters": 950,
+      "difficulty": "hard"
+    },
+    {
+      "index": 3,
+      "name": "Totsukawa Onsen to Kumano Hongu Taisha",
+      "distanceKm": 14.6,
+      "hours": {
+        "min": 6,
+        "max": 8
+      },
+      "gainMeters": 1080,
+      "difficulty": "hard"
+    }
+  ],
+  "names": {
+    "ja": "小辺路"
+  }
+}

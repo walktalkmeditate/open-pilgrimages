@@ -10,12 +10,13 @@ const ASSETS = join(ROOT, "docs", "assets");
 
 const IDS = [
   "camino-frances", "camino-ingles", "camino-norte", "camino-portugues",
-  "camino-primitivo", "kumano-kodo-nakahechi", "shikoku-88", "camino-portugues-coastal",
+  "camino-primitivo", "kumano-kodo-kohechi", "kumano-kodo-nakahechi", "shikoku-88",
+  "camino-portugues-coastal",
 ];
 
 test("buildAssets writes a glyph for every route and the coastal variant", () => {
   const counts = buildAssets(ROOT);
-  assert.equal(counts.glyphs, 8);
+  assert.equal(counts.glyphs, 9);
 
   const glyphs = readFileSync(join(ASSETS, "glyphs.js"), "utf-8");
   for (const id of IDS) {
@@ -31,7 +32,7 @@ test("glyphs.js assigns to window.OP_GLYPHS and parses as a script", () => {
   assert.match(source, /^window\.OP_GLYPHS = \{/);
   assert.equal(source.includes("NaN"), false);
 
-  // Executing it must define exactly the eight expected keys.
+  // Executing it must define exactly the nine expected keys.
   const fakeWindow: Record<string, unknown> = {};
   new Function("window", source)(fakeWindow);
 
