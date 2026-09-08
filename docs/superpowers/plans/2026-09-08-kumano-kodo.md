@@ -601,18 +601,36 @@ Each section's `metadata.json` gains a byte-identical block except for `order`:
 
 - [ ] **Step 2: Write the review checklist**
 
-`docs/review/kumano-kodo.md` is the pilgrimage-level checklist, so **every line must be section-qualified** — four sections each have a stage 0, and an unqualified tick would clear all four. The gate errors on an unqualified line in this file, which is the protection working.
+`docs/review/kumano-kodo.md` is the pilgrimage-level checklist, so **every tick line must be section-qualified** — four sections each have a stage 0, and an unqualified tick would clear all four. The gate errors on an unqualified line in this file, which is the protection working.
 
-One line per drafted stage, unticked:
+It is **not** a bare list of boxes. Spec §6 requires the checklist to carry, per stage, everything a reviewer needs to judge the text without opening another file: the endpoints with their OSM nodes, the measured distance against the previously declared one, **the drafted text verbatim**, and each curated place with its OSM id.
+
+Quote the drafted text inside a fenced block. The gate counts only top-level checklist lines and ignores anything inside a fence or a blockquote, precisely so the quoted prose cannot satisfy its own gate — so the fence is load-bearing, not decoration.
 
 ```markdown
 # Kumano Kodō — drafted text review
 
+Four Kohechi stages carry drafted text. Each entry below holds what the text
+was written from, so it can be judged against its evidence rather than read
+on its own.
+
+## kumano-kodo-kohechi stage 0 — Kōyasan to Ōmata
+
+- **Start** Kōyasan — `node/<id>` (`place=town`), 815 m
+- **End** Ōmata — `node/<id>` (`place=hamlet`), 655 m
+- **Distance** measured 15.8 km; previously declared: none, this section is new
+- **Places** Kōyasan Danjō Garan `way/<id>` (`sacred_site`), Ōmata-tōge `node/<id>` (`viewpoint`)
+
+​```
+theme: …
+narrative: …
+reflection: …
+​```
+
 - [ ] kumano-kodo-kohechi stage 0
-- [ ] kumano-kodo-kohechi stage 1
-- [ ] kumano-kodo-kohechi stage 2
-- [ ] kumano-kodo-kohechi stage 3
 ```
+
+Repeat for stages 1–3. Every OSM id must be one you actually resolved, not a placeholder.
 
 - [ ] **Step 3: Confirm the gate holds the drafted text**
 
@@ -630,19 +648,27 @@ npm run build-assets && npm run check-site 2>&1 | tail -3
 
 `docs/kumano-kodo.html` is now generated. It will carry the `alternatives` copy — "Each section below is its own way to the same destination" — and list four sections. Confirm the page exists, that `check-site` accepts it, and that the hand-authored page really did move to `docs/kumano-kodo-nakahechi.html` in Task 3 rather than being overwritten.
 
-- [ ] **Step 5: Review the drafted text, then tick**
+- [ ] **Step 5: Stop. The review is not yours to do.**
 
-Read each drafted stage's `interior` against its geometry and waypoints. Anything you cannot support from the data comes out. Then remove `"drafted": true` from the reviewed stages **and** tick their checklist lines in the same commit — the CI check added in PR B requires the review to arrive with the clearing.
+**Whoever drafted the text does not clear it.** Spec §6 puts the review "on the content PR ... before merge", and a reviewer who is also the author records a review that did not happen — the same failure the fence rule exists to prevent one paragraph earlier.
+
+Commit the drafted text and the checklist with the flags **on** and the boxes **unticked**. `npm run validate` will fail, naming each drafted stage. That is the correct state for this task to end in, not a defect to fix.
+
+The plan owner's decision: a **fresh reviewing agent**, with no part in drafting, performs the review as its own task. It reads each stage's text against the evidence the checklist carries — the endpoints, the measured distance, the places and their OSM ids — and against the section's `waypoints.geojson` and OSM tags directly. Anything it cannot support from that data comes out of the text. Only then does it remove `"drafted": true` and tick the matching lines, in one commit, because the CI check added in PR B requires the review to arrive with the clearing.
+
+So: end this task red. Say plainly in your report that `validate` fails with N drafted stages and that this is by design.
 
 - [ ] **Step 6: Verify and commit**
 
 ```bash
 npx tsc --noEmit && npm test 2>&1 | grep -E "^ℹ (tests|pass|fail)"
-npm run validate 2>&1 | tail -2
+npm run validate 2>&1 | tail -6
 npm run check-drafted-diff -- origin/main
 ```
 
-Expected: `Validation passed`, and the drafted-diff check clean.
+Expected: `tsc` clean and the suite green, but **`validate` failing** with one error per drafted Kohechi stage. `check-drafted-diff` passes, because nothing has been cleared yet — it polices flags that came *off*, and none have.
+
+Do not chase the `validate` failure. Task 8b clears it.
 
 ```bash
 git add -A
@@ -652,6 +678,66 @@ feat(kumano): four ways to the same shrines, under one name
 The Kumano Kodo becomes a pilgrimage of four alternatives. The Kohechi's
 stage text was drafted and reviewed against its own geometry before the
 flag came off; the checklist records which stages that covered.
+
+Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>
+EOF
+)"
+```
+
+---
+
+### Task 8b: The review, by someone who did not write it
+
+**This task must be given to an agent that had no part in Task 6 or Task 8.** That separation is the whole of its value; an author reviewing their own prose is the failure spec §6 spends a paragraph closing.
+
+**Files:**
+- Modify: `routes/kumano-kodo-kohechi/stages.json` (clear flags), `docs/review/kumano-kodo.md` (tick)
+
+- [ ] **Step 1: Read the evidence before the prose**
+
+For each of the four Kohechi stages, open `docs/review/kumano-kodo.md`'s entry and check its claims against the data, not against plausibility:
+
+- Do the endpoint OSM ids resolve, and are they the places named?
+- Does the measured distance match `routes/kumano-kodo-kohechi/ways/report.json`'s `sliceKm` for that stage?
+- Does every place listed exist in `routes/kumano-kodo-kohechi/waypoints.geojson` with the id given?
+
+A checklist entry that misstates its own evidence is a finding before you read a word of the text.
+
+- [ ] **Step 2: Judge each drafted field against what the section actually contains**
+
+Spec §6 permits only what is grounded in "its temples, shrines, passes, towns, distance, and climb", drawn from the section's own `metadata.json`, `waypoints.geojson`, or OSM tags. **No legends, no dates, no claims not present in that data.**
+
+Strike anything you cannot trace to a source in front of you. A shorter, duller line that is true beats an evocative one that is not — this text tells a walker what a day holds, and a sentence invented to sound right is worse than no sentence.
+
+Be specific in your report about what you struck and why. "Reviewed, looks fine" is not a review.
+
+- [ ] **Step 3: Clear and tick, in one commit**
+
+Remove `"drafted": true` from the stages whose text now stands, and tick their section-qualified lines in `docs/review/kumano-kodo.md`. Both in the same commit — PR B's CI check requires the review to arrive with the clearing, and will fail the PR if a flag comes off without its line.
+
+If a stage's text needed rewriting rather than trimming, rewrite it, leave the flag **on**, and say so. A stage may stay drafted into another round; that is the gate working, not a failure.
+
+- [ ] **Step 4: Verify**
+
+```bash
+npx tsc --noEmit
+npm test 2>&1 | grep -E "^ℹ (tests|pass|fail)"
+npm run validate 2>&1 | tail -3
+npm run check-drafted-diff -- origin/main
+```
+
+Expected: `Validation passed`, and `Every cleared drafted flag has a recorded review.` If the drafted-diff check fails, a flag came off without its tick — fix the tick, not the check.
+
+- [ ] **Step 5: Commit**
+
+```bash
+git add routes/kumano-kodo-kohechi/stages.json docs/review/kumano-kodo.md
+git commit -m "$(cat <<'EOF'
+review(kohechi): the drafted stage text, read against its own evidence
+
+Each day's text checked against the section's waypoints, its measured
+distance and the OSM tags behind them; anything that could not be traced
+to those came out. The checklist records which stages that covered.
 
 Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>
 EOF
