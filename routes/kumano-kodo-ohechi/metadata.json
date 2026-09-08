@@ -1,6 +1,7 @@
 {
   "schemaVersion": "1.0.0",
   "id": "kumano-kodo-ohechi",
+  "metadataOnly": "Ships with no walked line, stages or waypoints: OpenStreetMap holds no route relation for the Ōhechi at all, only five loose ways totalling 0.58 km inside Tanabe. See the osm block.",
   "lastUpdated": "2026-09-08T00:00:00Z",
 
   "name": { "en": "Ōhechi (Southern Coastal Route)", "ja": "大辺路" },

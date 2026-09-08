@@ -1,6 +1,7 @@
 {
   "schemaVersion": "1.0.0",
   "id": "kumano-kodo-iseji",
+  "metadataOnly": "Ships with no walked line, stages or waypoints: the confirmed relation 19693803 holds 2.06 km of a roughly 170 km route in two components 22.3 km apart, and the corridor sweep found nowhere near enough to join them. See the osm block.",
   "lastUpdated": "2026-09-08T00:00:00Z",
 
   "name": { "en": "Iseji (Eastern/Coastal Route)", "ja": "伊勢路" },

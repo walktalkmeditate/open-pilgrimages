@@ -318,6 +318,7 @@ interface MetadataOverviewLike {
 
 interface MetadataLike {
   overview?: MetadataOverviewLike;
+  metadataOnly?: unknown;
 }
 
 function isMetadataLike(value: unknown): value is MetadataLike {
@@ -362,6 +363,38 @@ function readRouteFilterOverview(routeDir: string): RouteFilterOverview | null {
   }
 
   return overview;
+}
+
+/**
+ * Spec §4.3 lets a section ship with no walked line at all, and every check
+ * over a file derived from geometry has to let it — build-assets.ts skips
+ * writing those files for exactly this shape, so demanding them would fail
+ * forever. What those checks must not do is read that intent off the absence
+ * of routes/{id}/route.geojson alone: a section that should have geometry and
+ * never got it — a new one cut without npm run fetch-osm — is byte-identical
+ * on disk to one that never can have any, and would silently take the same
+ * exemption. Nothing else catches that either; validate's validateFile
+ * returns without a word on a file that isn't there.
+ *
+ * So the exemption is granted against something the section says about
+ * itself. metadataOnly is single-purpose: a section that ships a line never
+ * carries it, which is the reason osm.note — the nearest existing field —
+ * could not do this job, since the Kohechi and the Nakahechi both carry one
+ * alongside a full route.geojson.
+ */
+function declaresMetadataOnly(routeDir: string): boolean {
+  const metaPath = join(routeDir, "metadata.json");
+  if (!existsSync(metaPath)) return false;
+
+  let parsed: unknown;
+  try {
+    parsed = JSON.parse(readFileSync(metaPath, "utf-8"));
+  } catch {
+    return false; // an unparsable metadata.json is npm run validate's job
+  }
+
+  if (!isMetadataLike(parsed)) return false;
+  return typeof parsed.metadataOnly === "string" && parsed.metadataOnly.trim().length > 0;
 }
 
 const ROUTE_FILTER_ATTRS: Array<[string, (overview: RouteFilterOverview) => string | undefined]> = [
@@ -705,17 +738,20 @@ export function checkSite(root: string, overrides: PageOverrides = {}): Problem[
    * against whatever is on disk right now, no build step required, so it
    * catches a hand-edited file locally too.
    */
-  function checkRouteGpx(id: string): void {
+  function checkRouteGpx(id: string, metadataOnly: boolean): void {
     const gpxPath = join(root, "routes", id, "route.gpx");
     const geojsonPath = join(root, "routes", id, "route.geojson");
     const file = `routes/${id}/route.gpx`;
 
-    // Spec §4.3: a section that ships metadata-only has no route.geojson to
-    // derive a GPX track from — build-assets.ts already skips writing one
-    // for exactly this reason (see its own "missing inputs are skipped"
-    // comment). Neither file will ever exist for such a section, so there
-    // is nothing here to compare.
-    if (!existsSync(gpxPath) && !existsSync(geojsonPath)) return;
+    // Spec §4.3: a section that declares itself metadata-only has no
+    // route.geojson to derive a GPX track from — build-assets.ts already
+    // skips writing one for exactly this reason (see its own "missing inputs
+    // are skipped" comment). Neither file will ever exist for such a
+    // section, so there is nothing here to compare. A section missing both
+    // that declares nothing is the accident case, and falls through to the
+    // missing-route.gpx report below — see declaresMetadataOnly for why the
+    // declaration and not the absence.
+    if (metadataOnly && !existsSync(gpxPath) && !existsSync(geojsonPath)) return;
 
     if (!existsSync(gpxPath)) {
       add(file, `route "${id}" has no route.gpx — run npm run build-assets`);
@@ -754,18 +790,19 @@ export function checkSite(root: string, overrides: PageOverrides = {}): Problem[
    * skipped — otherwise a moved or renamed route/variant directory would
    * quietly turn the whole staleness check off.
    */
-  function checkRoadsAsset(assetId: string, geojsonPath: string): void {
+  function checkRoadsAsset(assetId: string, geojsonPath: string, metadataOnly = false): void {
     const svgPath = join(docs, "assets", "roads", `${assetId}.svg`);
     const file = `docs/assets/roads/${assetId}.svg`;
 
-    // Spec §4.3: a section that ships metadata-only has neither a
+    // Spec §4.3: a section that declares itself metadata-only has neither a
     // route.geojson to build a roads corridor from, nor an SVG built from
     // one — build-assets.ts already skips writing it for exactly that
-    // reason. That's a different shape from an SVG that exists with no
-    // route.geojson behind it (a moved or renamed route directory) — the
-    // doc comment above explains why that orphan case is still reported,
-    // by the existing checks below.
-    if (!existsSync(svgPath) && !existsSync(geojsonPath)) return;
+    // reason. Two other shapes look similar and are both still reported: an
+    // SVG that exists with no route.geojson behind it (a moved or renamed
+    // route directory — see the doc comment above), and a section missing
+    // both while declaring nothing, which is a section whose geometry was
+    // never fetched rather than one that can never have any.
+    if (metadataOnly && !existsSync(svgPath) && !existsSync(geojsonPath)) return;
 
     if (!existsSync(svgPath)) {
       add(
@@ -1358,8 +1395,11 @@ export function checkSite(root: string, overrides: PageOverrides = {}): Problem[
     // (see its own "missing inputs are skipped" comment); the checks below
     // that can only be satisfied by files derived from geometry have to
     // agree, or a section with nothing to derive them from would fail here
-    // forever.
-    const hasGeometry = existsSync(join(root, "routes", id, "route.geojson"));
+    // forever. The absence alone cannot say which shape this is, so the
+    // section has to declare it — see declaresMetadataOnly.
+    const routeDir = join(root, "routes", id);
+    const hasGeometry = existsSync(join(routeDir, "route.geojson"));
+    const isMetadataOnly = !hasGeometry && declaresMetadataOnly(routeDir);
 
     if (!routesHtml.includes(`href="/${id}"`)) {
       add("docs/routes.html", `route "${id}" has no link to /${id} in the catalog`);
@@ -1405,7 +1445,7 @@ export function checkSite(root: string, overrides: PageOverrides = {}): Problem[
         checkPilgrimageBacklink(id, pilgrimageId, detailHtml);
       }
 
-      if (hasGeometry) {
+      if (!isMetadataOnly) {
         checkRouteGpxLink(id, detailHtml);
 
         // The coastal variant ships full geometry, a profile, and a sparkline of
@@ -1427,15 +1467,15 @@ export function checkSite(root: string, overrides: PageOverrides = {}): Problem[
       }
     }
 
-    if (hasGeometry && !glyphsJs.includes(`"${id}"`)) {
+    if (!isMetadataOnly && !glyphsJs.includes(`"${id}"`)) {
       add(
         "docs/assets/glyphs.js",
         `route "${id}" has no generated glyph — run npm run build-assets`,
       );
     }
 
-    checkRouteGpx(id);
-    checkRoadsAsset(id, join(root, "routes", id, "route.geojson"));
+    checkRouteGpx(id, isMetadataOnly);
+    checkRoadsAsset(id, join(routeDir, "route.geojson"), isMetadataOnly);
     checkRouteFilterAttrs(id);
     checkTerrainNotesDistance(id);
 

@@ -20,6 +20,11 @@
       "pattern": "^[a-z0-9-]+$",
       "description": "For variants, references the parent route"
     },
+    "metadataOnly": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Present only on a section that deliberately ships with no walked line, stages or waypoints, and says in one sentence why. A section that should have geometry and never got it is indistinguishable on disk from one that never can, so check-site exempts a section from the checks over geometry-derived files — route.gpx, the glyph, the roads corridor and the detail page's references to them — only where this declaration is present."
+    },
     "lastUpdated": {
       "type": "string",
       "format": "date-time"

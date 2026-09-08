@@ -181,19 +181,28 @@ test("checkSite accepts a detail page that identifies its own route via <code>",
 // build-assets.ts already skips writing a glyph, GPX track, or roads
 // corridor for exactly this shape (see its own "missing inputs are
 // skipped" comment); check-site must agree, or a section that can never
-// honestly produce those files would fail forever.
-test("checkSite does not require route.gpx, a glyph, or a roads corridor SVG for a metadata-only section with no route.geojson (fixture)", () => {
+// honestly produce those files would fail forever. The three tests below
+// are the whole boundary: the declared section is exempt, the undeclared
+// one is not, and a section with real geometry is not.
+const OHECHI_METADATA_ONLY = JSON.stringify({
+  metadataOnly: "OpenStreetMap holds no route relation for the Ōhechi at all.",
+});
+
+test("checkSite does not require route.gpx, a glyph, or a roads corridor SVG for a section that declares itself metadata-only (fixture)", () => {
+  // #given a section with no route.geojson that says so in its own metadata.json
   const root = createFixtureRoot([{ id: "kumano-kodo-ohechi" }]);
   mkdirSync(join(root, "routes", "kumano-kodo-ohechi"), { recursive: true });
+  writeFileSync(join(root, "routes", "kumano-kodo-ohechi", "metadata.json"), OHECHI_METADATA_ONLY);
   writeFileSync(
     join(root, "docs", "kumano-kodo-ohechi.html"),
     "<html><body><code>kumano-kodo-ohechi</code></body></html>",
   );
 
   try {
+    // #when checkSite runs over it
     const problems = checkSite(root);
     // Scoped to this route's own files/messages: checkSite always runs the
-    // unconditional coastal-variant roads check too (see line ~1484), which
+    // unconditional checkRoadsAsset call for the coastal variant too, which
     // has nothing to do with this route and would otherwise be mistaken for
     // a leak of the exemption below.
     const own = problems.filter(
@@ -201,6 +210,7 @@ test("checkSite does not require route.gpx, a glyph, or a roads corridor SVG for
     );
     const messages = own.map((p) => p.message);
 
+    // #then none of the five geometry-derived files are demanded of it
     assert.ok(!messages.some((m) => m.includes("has no route.gpx")));
     assert.ok(!messages.some((m) => m.includes("has no link to its route.gpx")));
     assert.ok(!messages.some((m) => m.includes("has no generated glyph")));
@@ -211,7 +221,39 @@ test("checkSite does not require route.gpx, a glyph, or a roads corridor SVG for
   }
 });
 
-// The exemption above is scoped to routes with no route.geojson — not to
+// The exemption is granted against the declaration, never against the
+// absence of route.geojson on its own. A new section cut without running
+// npm run fetch-osm has exactly the same files on disk as the Ōhechi, and
+// used to inherit its exemption in silence — no glyph, no GPX, no roads
+// corridor, and not one problem reported.
+test("checkSite still demands the geometry-derived files of a section with no route.geojson that declares nothing (fixture)", () => {
+  // #given the same fixture as above with the metadataOnly declaration removed
+  const root = createFixtureRoot([{ id: "kumano-kodo-ohechi" }]);
+  mkdirSync(join(root, "routes", "kumano-kodo-ohechi"), { recursive: true });
+  writeFileSync(join(root, "routes", "kumano-kodo-ohechi", "metadata.json"), JSON.stringify({}));
+  writeFileSync(
+    join(root, "docs", "kumano-kodo-ohechi.html"),
+    "<html><body><code>kumano-kodo-ohechi</code></body></html>",
+  );
+
+  try {
+    // #when checkSite runs over it
+    const messages = checkSite(root)
+      .filter((p) => p.file.includes("kumano-kodo-ohechi") || p.message.includes("kumano-kodo-ohechi"))
+      .map((p) => p.message);
+
+    // #then every one of the five is reported again
+    assert.ok(messages.some((m) => m.includes("has no route.gpx")));
+    assert.ok(messages.some((m) => m.includes("has no link to its route.gpx")));
+    assert.ok(messages.some((m) => m.includes("has no generated glyph")));
+    assert.ok(messages.some((m) => m.includes("has no roads corridor SVG")));
+    assert.ok(messages.some((m) => m.includes("has no reference to its roads corridor SVG")));
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+// The exemption is also scoped to routes with no route.geojson — not to
 // every route, or a real section's rebuild-pending assets would go
 // unpoliced too.
 test("checkSite still requires route.gpx for a route that has its own route.geojson (fixture)", () => {
@@ -225,6 +267,33 @@ test("checkSite still requires route.gpx for a route that has its own route.geoj
   try {
     const problems = checkSite(root);
     assert.ok(problems.some((p) => p.message.includes("has no route.gpx")));
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+// The glyph gate is the one geometry-scoped check with no negative test:
+// changing `!isMetadataOnly &&` to `false &&` on it would break nothing.
+test("checkSite reports a route with its own route.geojson and no glyphs.js entry (fixture)", () => {
+  // #given a route with real geometry, and a glyphs.js that never names it
+  const root = createFixtureRoot([{ id: "camino-frances" }]);
+  mkdirSync(join(root, "routes", "camino-frances"), { recursive: true });
+  writeFileSync(
+    join(root, "routes", "camino-frances", "route.geojson"),
+    JSON.stringify({ type: "FeatureCollection", features: [] }),
+  );
+  mkdirSync(join(root, "docs", "assets"), { recursive: true });
+  writeFileSync(join(root, "docs", "assets", "glyphs.js"), "window.OP_GLYPHS = {\n};\n");
+
+  try {
+    // #when / #then the missing glyph is reported against glyphs.js
+    const problems = checkSite(root);
+    assert.ok(
+      problems.some(
+        (p) =>
+          p.file === "docs/assets/glyphs.js" && p.message.includes("has no generated glyph"),
+      ),
+    );
   } finally {
     rmSync(root, { recursive: true, force: true });
   }
