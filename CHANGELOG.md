@@ -23,6 +23,84 @@ Consumers read the catalog from `https://cdn.jsdelivr.net/gh/walktalkmeditate/op
 - A route's `ways/report.json` counts every stage the route declares. A stage the cut skipped was left out of the coverage figures too, so the Camino del Norte's report read "only 0 of 33 stages" for a route of 34.
 - `build-main-line` requires `osm.relations`. A name query pulled in every spur sharing the trail's name.
 
+## [1.7.1] — 2026-09-07
+
+The Camino del Norte gets the same treatment the Francés got in 1.7.0: a
+`ways/` package cut from a line the route actually walks, and curated places
+instead of none.
+
+### Added
+
+- **`routes/camino-norte/ways/`** — 34 stages, all clearing the length gate.
+  Cut from `route.main.geojson`, the walked line derived from the route's
+  four pinned OSM relations and joined at shared coordinates by
+  `npm run build-main-line camino-norte`. `route.geojson` could not serve as
+  the source: it is those same four relations concatenated raw, variants and
+  detours included — 1,367 km of geometry for a 798 km route. Every stage
+  boundary now snaps to a real point on the walked line; no boundary is
+  placed by interpolating declared distances.
+- **The POI fetcher asks for sacred sites, cultural sites, viewpoints and
+  settlements**, not only water, beds, shops and transport. It could not
+  return a `sacred_site`, `cultural_site`, `viewpoint` or `town` before this
+  release, which is why every route's curated places were empty. Camino del
+  Norte is the first route re-fetched under the wider query; the other six
+  keep their existing waypoints and gain places in their own releases.
+- **A stage anchor may declare `offLineMeters`** — a village or landmark the
+  trail passes near but does not reach — checked against the walked line on
+  every rebuild rather than assumed once and forgotten. Güemes and Cadavedo
+  declare it (see below).
+- **A CI check refuses a pull request that clears a stage's `drafted: true`
+  flag without a matching entry in that route's review checklist**, closing
+  the last way stage text could reach `main` unreviewed, ahead of the first
+  PR that will draft any.
+
+### Changed
+
+- **Camino del Norte is no longer `sparse`.** 154 named places — sacred
+  sites, viewpoints, ruins, villages and towns — now clear the ways
+  builder's 300 m corridor, 4.1 per stage, and 29 of its 34 stages carry one
+  beyond their own start and end towns, against a bar of 17. The route's
+  card stops saying "few places marked yet".
+- **Waypoints are enriched within 300 m of the route, not 500 m** — matching
+  the radius the ways builder already used to decide what a stage keeps. The
+  looser radius had let 913 waypoints get written to `waypoints.geojson` and
+  then silently discarded by every stage that touched them.
+- **Stage 11, Güemes → Santander: declared distance 15.3 km → 18.6 km.** The
+  walked line measures the stage as the OSM relation actually carries it,
+  including the Somo–Santander passenger ferry — the route's real crossing
+  of the Bay of Santander — and the measured line wins past the length
+  gate's tolerance. The old figure counted only the walk to the ferry slip.
+  `terrainNotes` now says so: about 1.8 km of the 18.6 is the crossing, so
+  roughly 16.8 km is on foot; walking around the bay instead is about 35 km
+  of industrial road. No other stage's `distanceKm` changed.
+- **`overview.distanceKm` 784 → 788**, following the corrected stage sum.
+- **No Camino del Norte anchor moved.** Güemes and Cadavedo, the route's two
+  anchors sitting beyond the walked line's snap radius, were checked against
+  their OSM place nodes and found already correct: Güemes already sits 1 m
+  from `node/288260848`, and moving Cadavedo onto `node/108478808` would put
+  it 1,354 m off the line — 107 m worse than where it already stands. Both
+  anchors now carry a `note` naming their node and both distances, and a
+  declared `offLineMeters` the build checks on every run.
+
+### Fixed
+
+- **Stages 23 and 24 (Soto de Luiña → Cadavedo → Luarca) cut at the right
+  vertex.** The stage boundary builder placed an anchor beyond its 500 m
+  snap radius by interpolating between declared distances instead of
+  snapping to a declared off-line anchor, landing both boundaries 3.7 km
+  early — long enough that stage 23's geometry stopped short of the town it
+  is named for. Their declared distances (18.5 km, 15.3 km) are unchanged;
+  only where the walked line is sliced moved.
+
+An earlier report on this branch, and the commit message for `63f4bc7`,
+claimed the feedback loop between a proportionally-placed stage's declared
+distance and its measured slice diverges. It does not: run to a fixed point,
+it converges to 14.9 km in four rounds. The conclusion stands regardless —
+converging there would have shipped a fabricated distance matching neither
+the guidebook's 18.5 km nor any real distance between the two towns, on a
+stage whose geometry still stopped 3.7 km short of Cadavedo. That commit
+message cannot be corrected after the fact; this entry does not repeat it.
+
 ## [1.7.0] — 2026-09-05
 
 The "a stage is a Way" release. Turns each route's stages into ready-to-walk

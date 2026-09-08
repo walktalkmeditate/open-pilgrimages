@@ -13,7 +13,7 @@ The Route Points column counts `route.geojson` only. `route.main.geojson`, where
 | Route | Distance | Topology | Tradition | Route Points | Waypoints | Stats |
 |-------|----------|----------|-----------|-------------|-----------|-------|
 | [Camino Frances](routes/camino-frances/) | 764 km | Linear | Christian | 33,192 | 2,957 | 41 years (1985-2025) |
-| [Camino del Norte](routes/camino-norte/) | 784 km | Linear | Christian | 38,640 | 2,928 | 23 years (2003-2025) |
+| [Camino del Norte](routes/camino-norte/) | 788 km | Linear | Christian | 38,640 | 2,928 | 23 years (2003-2025) |
 | [Camino Primitivo](routes/camino-primitivo/) | 263 km | Linear | Christian | 13,303 | 732 | 23 years (2003-2025) |
 | [Camino Portugués (Central)](routes/camino-portugues/) | 243 km | Linear | Christian | 13,722 | 1,634 | 23 years (2003-2025) |
 | [Camino Portugués da Costa (Coastal)](routes/camino-portugues/variants/coastal/) | 110 km | Linear | Christian | 5,546 | 1,043 | 23 years (2003-2025) |
@@ -60,7 +60,7 @@ Each route includes historical statistics sourced from official pilgrimage organ
 - **Camino Portugués da Costa (Coastal):** 23-year series. 89,511 pilgrims in 2025 (16.9%) — the fastest-growing major Camino, jumping from 2,600 in 2016 to nearly 90,000 in 2025. Strongest female majority of any major Camino (61.3%).
 - **Camino Inglés:** 23-year series. 30,204 pilgrims in 2025 (5.7%) — the shortest major Camino at ~112 km from Ferrol. Historic maritime arrival route for English, Irish, Scandinavian, and Flemish pilgrims.
 - **Camino Primitivo:** 23-year series. 27,871 pilgrims in 2025 (5.2%) — the oldest Camino, walked by Alfonso II of Asturias in 814 CE. Most physically demanding with Puerto del Palo at 1,146 m.
-- **Camino del Norte:** 23-year series. 21,521 pilgrims in 2025 (4.1%) — the longest non-Frances Camino at ~784 km, along the Bay of Biscay from Irún through the Basque Country, Cantabria, Asturias, and Galicia.
+- **Camino del Norte:** 23-year series. 21,521 pilgrims in 2025 (4.1%) — the longest non-Frances Camino at ~788 km, along the Bay of Biscay from Irún through the Basque Country, Cantabria, Asturias, and Galicia.
 - **Shikoku 88:** 21-year walking completion series (2005-2025) from the Omotenashi Network. Foreign pilgrim share grew from 0.6% to 33%.
 - **Kumano Kodo:** 22-year foreign visitor series (2003-2024) from Tanabe City. Dual Pilgrim program data (14,238 registered from 78 countries).
 
