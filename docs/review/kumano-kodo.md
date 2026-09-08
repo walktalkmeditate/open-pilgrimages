@@ -12,19 +12,22 @@ have a stage 0, and an unqualified line would clear all four at once — the gat
 **The text was drafted in Task 6 and declared here in Task 8. Neither wrote a review.** The
 review is Task 8b's, by an agent with no part in the drafting, because an author who ticks
 his own prose records a review that did not happen. That review is recorded below: stages 0,
-1 and 2 are ticked, stage 3 keeps its flag, and each open question carries its verdict.
+1 and 2 were ticked there, and each open question carries its verdict.
 
-The same rule is why stage 3 stays drafted. Its reflection had to be **replaced**, not
-trimmed, and the reviewer wrote the replacement — so clearing it would be an author ticking
-his own line. Stage 3's narrative and stage 0's three edits do not raise that problem. One
-of stage 0's is a deletion ("the hamlet of Otaki" → "Otaki"); the other two are rewrites,
-but each restates a committed field in that field's own terms — "16.7 km that never drop
-below 650 m" → "16.7 km with its low point at 650 m" takes the wording `terrainNotes`
-already used, and "Ascent and descent are close to equal, 710 m against 840 m" → "It climbs
-710 m and descends 840 m" reads `elevationGainMeters` and `elevationLossMeters` off
-`stages.json`. Neither asserts anything the data was not already asserting, which is why the
-tick stands. Stage 3's new reflection makes a claim the drafted text did not, and it is the
-one piece of prose here awaiting a reader who did not write it.
+The same rule is why stage 3 did not clear in that round. Its reflection had to be
+**replaced**, not trimmed, and the reviewer wrote the replacement — so clearing it would
+have been an author ticking his own line. Stage 3's narrative and stage 0's three edits do
+not raise that problem. One of stage 0's is a deletion ("the hamlet of Otaki" → "Otaki"); the
+other two are rewrites, but each restates a committed field in that field's own terms —
+"16.7 km that never drop below 650 m" → "16.7 km with its low point at 650 m" takes the
+wording `terrainNotes` already used, and "Ascent and descent are close to equal, 710 m
+against 840 m" → "It climbs 710 m and descends 840 m" reads `elevationGainMeters` and
+`elevationLossMeters` off `stages.json`. Neither asserts anything the data was not already
+asserting, which is why those ticks stand.
+
+**Stage 3 was read a second time in Task 8c, by a third agent that wrote none of it**, and
+cleared. That second reading is recorded under stage 3 below, beneath the verdicts it was
+checking. All four stages are now ticked.
 
 ## What this section does not have
 
@@ -380,13 +383,126 @@ relation terminus: the first Kohechi vertex within 25 m of the Nakahechi's own
   settlement class, and nothing that stage 2's narrative contradicts, because a walker does
   sleep at Totsukawa Onsen even though the measured line stops a kilometre short of it.
 
-**This stage keeps `"drafted": true`.** The reflection above was written by the reviewer, and
-the reviewer cannot tick his own prose — that is the failure this checklist exists to catch,
-and it does not stop applying because the author happens to be the reviewer. Everything else
-on the stage has been checked and stands; what the next round is being asked for is one
-reading of one new sentence, by someone who did not write it.
+### Second reading — the flag comes off here
 
-- [ ] kumano-kodo-kohechi stage 3
+Everything above this line was written by the agent that also rewrote the reflection, which
+is why the stage stayed drafted through that round. What follows is a third agent's, with no
+part in either the drafting or the rewrite. It re-fetched all ten OSM ids in this entry
+through the Overpass API, re-measured every metre on the committed `route.main.geojson`
+(2,986 vertices, 64.327 km) with `nearestVertex` and `cumulativeMeters` from
+`scripts/ways/geo.ts`, and re-sampled the stage's profile from the SRTM 30 m model
+`provenance.sources` declares. Every tag and every figure recorded above reproduces.
+
+**`theme` — "The last pass" — stands.** `metadata.json` declares "three passes above
+1,000 m", this stage's own `terrainNotes` names Hatenashi-tōge as its climb, and this is the
+fourth of four stages, so its pass is the last of them. Stage 2's already-cleared narrative
+reaches for the same words about the same pass — "where the climb to the last pass begins".
+
+**`narrative` — stands, every clause traced to committed data or to a re-fetched tag.**
+
+- "The biggest climb of the four days: 1,080 m of ascent in 14.6 km" — `stages.json`'s own
+  `elevationGainMeters` and `distanceKm`; 1,080 against 950, 760 and 710.
+- "from the Totsukawa up to Hatenashi-toge at about 1,070 m" — `highPointMeters: 1070`,
+  and independently: the SRTM model reads 170 m at the start anchor (49.600 km) and peaks at
+  **1,067 m at 53.670 km**, which is the figure `metadata.json`'s `elevationNote` already
+  reports for the Hatenashi-tōge crossing, rounded the way that note says it rounds.
+- The pass has no node of its own, as the entry above says. Re-checked by bbox rather than by
+  id: no `natural=saddle`, no `mountain_pass` and no `natural=peak` anywhere in
+  33.90–33.95 / 135.72–135.80. The only features carrying 果無 are `node/5702160126`,
+  `node/5702262721` and `node/5525046492` (奥果無, `place=neighbourhood`) — so 果無峠 reaches
+  the text through the trailhead node's name, and nothing stronger is being claimed.
+- "goes through Hatenashi" — `place=neighbourhood`, `name=Hatenashi`, `name:ja=果無`, 18.4 m
+  off at 50.362 km. The struck "hamlet" was rightly struck.
+- "two World Heritage stone markers" — both nodes are named 世界遺産熊野参詣道小辺路の石碑;
+  世界遺産 is World Heritage and 石碑 a stone monument, so the phrase is the name's own two
+  words, and it does not lean on the tags the two nodes differ in.
+- "a stone Buddha" (`node/9961089145`, `name=石仏`), "the Yamaguchi tea-house remains"
+  (`name="Yamaguchi Teahouse Remains"`) and "a Kannon temple" (`amenity=place_of_worship`,
+  `religion=buddhist`, `name="Kannon Temple"`) each claim exactly what their node's name
+  carries and nothing beyond it.
+- "The way up goes through … before the long drop to Yagio" — the sentence puts the teahouse
+  and the temple **on the ascent**, which no committed file can settle. Sampled: the teahouse
+  at 51.960 km sits at 656 m and the temple at 52.982 km at 815 m, both below the 1,067 m
+  high point at 53.670 km, so both are on the climb. The drop that follows runs 1,067 m to
+  about 148 m by Yagio (57.989 km) in 4.3 km. "Long" is an understatement, not a stretch.
+- "The last 2.2 km are shared with the Nakahechi, past Haraido-oji" — re-measured from the
+  Nakahechi's own line rather than from the relation terminus: the first Kohechi vertex
+  within 25 m of it is at 62.129 km, leaving **2.198 km**, and the figure is stable from a
+  10 m threshold to 60 m. Haraido-ōji (`historic=wayside_shrine`) is at 64.005 km, inside
+  that tail.
+- "into Kumano Hongu Taisha" — `way/797748245`, re-fetched whole: `amenity=place_of_worship`,
+  `religion=shinto`, `name=熊野本宮大社`, `name:en="Kumano Hongū Taisha"`, `wikidata=Q705035`,
+  `ref:whc=1142-07bis`.
+
+*Correcting the paragraph above:* "in the order the sentence puts them" is more than the
+measurement shows. Marker A is at 50.344 km and Hatenashi at 50.362 km, so the marker comes
+18 m first; and the stone Buddha at 50.412 km sits **between** the two markers, the second
+being at 50.613 km. Immaterial to the text on the same ground stage 2's Tamagaito inversion
+was immaterial — all four features fall inside one 269 m stretch of the same settlement, and
+Hatenashi's node is itself 18.4 m off the line — but the claim as written was too strong. The
+sentence's larger sequence (the Hatenashi cluster, then the teahouse, the temple, Yagio, and
+Haraido-ōji) is exactly what the line does.
+
+*Noted, not struck:* "from the Totsukawa" is the construction stage 2's "down the Totsukawa"
+was left standing on, and it was re-checked here rather than inherited. No `waterway=river`
+near this stage carries 十津川 — OSM names the river 熊野川. Totsukawa is grounded as a place,
+and, more to the point, `stages.json`'s own anchor note for this stage already writes "1,042 m
+east across the Totsukawa", so the usage is committed in the section's own data rather than
+imported into it. The same warning applies: a future edit should not tighten it into a river
+name.
+
+**`reflection` — stands.** Both halves were checked against the files rather than against the
+paragraph that claims them.
+
+- "The other three days ended at a place to sleep" — stage 0 ends at Omata, stage 1 at
+  Miura-guchi, stage 2 at Totsukawa Onsen, by their own `end.name` fields; and
+  `metadata.json`'s `description.en` reads "the nights at the river-valley settlements of
+  Omata, Miura-guchi and Totsukawa Onsen". Three days, the same three names, each declared to
+  be where a night is spent. The sentence claims the function that description states and no
+  settlement class, which is the level the struck "village" failed at.
+- "this one ends where the route was going" — stage 3's `end` and `overview.endPoint` are the
+  same name at the same coordinates, `[135.7736668, 33.8403988, 80]`, and `description.en`
+  says the route runs "from Koyasan to Kumano Hongu Taisha". The contrast the sentence draws
+  also holds: none of the other three ends is that endpoint.
+
+**The tension with the narrative — real, mild, and resolved by the section's own data.** Two
+readings of it were tested. The first: the reflection credits the previous three days with
+ending at a place to sleep, while this stage's narrative opens the day at "the Totsukawa" — a
+valley floor at 170 m — and the day-3 anchor is a `tourism=attraction` trailhead 1,042 m from
+any bed, which stage 2's narrative says outright. That is a difference of altitude between
+the walker's day and the measured line, not a contradiction, and `stages.json`'s own anchor
+note is where it is settled: it declares the trailhead a measurement choice and calls the
+lodging "the walker's kilometre … the same detour on both evenings". The stage's `name` is
+"Totsukawa Onsen to Kumano Hongu Taisha", so the dataset's own name for the day's start is
+the place metadata declares the night at.
+
+The second, sharper reading: the narrative's last sentence says the final 2.2 km belong to
+the Nakahechi, so whether "the route was going" anywhere is exactly what a careful reader
+might question. `metadata.json`'s `osm.note` answers it in as many words — "spec section 4.3's
+'the relation list is the section's trail and nothing else' yields here to the fact that a
+Kohechi pilgrim does arrive at the shrine" — and `overview.endPoint` is that shrine. The
+narrative and the reflection therefore agree, and the page is honest about the borrowing in
+the sentence immediately before. Neither reading leaves an ungrounded claim standing.
+
+**A grounded specific was traded for something vaguer — an over-cure, not a fault.** True on
+the facts: `way/797748245` was re-fetched and does carry `amenity=place_of_worship` +
+`religion=shinto`, so "this one ends at the shrine" was grounded, and grounded more directly
+than its replacement — an OSM tag on the stage's own end anchor against an inference from
+`overview.endPoint`. Both of the struck sentence's faults, the miscount and the class error,
+sat in its **first** clause; the second needed nothing done to it, and replacing it was more
+than the finding required.
+
+It is still not a failure. The bar is grounding and cure, and the replacement clears both. It
+also buys something the specific did not: "where the route was going" asserts destination-hood,
+which is what "what changes in the arriving?" turns on, whereas "the shrine" names a building.
+Recorded here as the observation it is: a later editor restoring "ends at the shrine" would be
+restoring something true, and would want the first clause's cure kept.
+
+**Cleared.** No field asserts anything this reading could not trace, no cure introduced a new
+fault, and nothing in this second reading rewrote a word of the text — which is what lets the
+tick be recorded at all.
+
+- [x] kumano-kodo-kohechi stage 3
 
 ---
 
