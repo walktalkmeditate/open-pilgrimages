@@ -6606,7 +6606,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Kumano Kodo - Nakahechi",
         "type": "main",
         "segment": "kumano-kodo-nakahechi",
@@ -10694,7 +10694,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Kumanokodō - Nakahechi - Ōkumotorigoe",
         "type": "main",
         "segment": "kumanokod-nakahechi-kumotorigoe",
@@ -11918,7 +11918,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Kumano Kodo - Nakahechi - Yunomine Onsen",
         "type": "main",
         "segment": "kumano-kodo-nakahechi-yunomine-onsen",
@@ -13502,7 +13502,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Kumano Kodo - Nakahechi - Kokumotorigoe",
         "type": "main",
         "segment": "kumano-kodo-nakahechi-kokumotorigoe",
@@ -14262,7 +14262,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Kumano Kodo - Nakahechi - Dainichigoshi",
         "type": "main",
         "segment": "kumano-kodo-nakahechi-dainichigoshi",
@@ -15234,7 +15234,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Kumano Kodo - Nakahechi - Akagi-goe",
         "type": "main",
         "segment": "kumano-kodo-nakahechi-akagi-goe",
@@ -27494,7 +27494,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Kumano Kodo - Kohechi",
         "type": "main",
         "segment": "kumano-kodo-kohechi",

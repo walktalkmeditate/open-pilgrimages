@@ -114,7 +114,7 @@ const ROADS_PATH_D_PATTERN = /<path\b[^>]*\bd="([^"]*)"/;
  * an empty or all-outside-corridor Overpass response renders as well-formed
  * XML with a correct geometry hash and a literal `d=""`, zero "M" subpath
  * commands under any definition. The smallest of the eight committed
- * corridors (kumano-kodo) has 144.
+ * corridors (kumano-kodo-nakahechi) has 144.
  */
 const ROADS_MIN_SUBPATHS = 1;
 

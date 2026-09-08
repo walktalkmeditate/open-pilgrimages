@@ -572,7 +572,7 @@ test("hashRouteGeometry changes when a single coordinate is perturbed", () => {
 });
 
 test("hashRouteGeometry is stable on real route data across repeated reads", () => {
-  const geo = JSON.parse(readFileSync(join(ROOT, "routes", "kumano-kodo", "route.geojson"), "utf-8"));
+  const geo = JSON.parse(readFileSync(join(ROOT, "routes", "kumano-kodo-nakahechi", "route.geojson"), "utf-8"));
   assert.equal(hashRouteGeometry(geo), hashRouteGeometry(geo));
 });
 

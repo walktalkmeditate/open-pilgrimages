@@ -24,7 +24,7 @@ test("per-route figures match npm run stats", () => {
   assert.equal(byId.get("camino-frances")!.waypoints, 2957);
   assert.equal(byId.get("camino-frances")!.stages, 33);
   assert.equal(byId.get("shikoku-88")!.routePoints, 49097);
-  assert.equal(byId.get("kumano-kodo")!.waypoints, 157);
+  assert.equal(byId.get("kumano-kodo-nakahechi")!.waypoints, 157);
   assert.equal(byId.get("camino-ingles")!.distanceKm, 112);
 });
 

@@ -13,7 +13,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Takijiri-oji",
         "nameLocalized": {
           "ja": "滝尻王子"
@@ -46,7 +46,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Oyunohara",
         "nameLocalized": {
           "ja": "大斎原"
@@ -77,7 +77,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Yunomine Onsen",
         "nameLocalized": {
           "ja": "湯の峰温泉"
@@ -108,7 +108,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Yunomine-oji",
         "nameLocalized": {
           "ja": "湯峯王子"
@@ -137,7 +137,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Kumano Nachi Taisha",
         "nameLocalized": {
           "ja": "熊野那智大社"
@@ -170,7 +170,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Nachi Falls",
         "nameLocalized": {
           "ja": "那智滝"
@@ -200,7 +200,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Kumano Hayatama Taisha",
         "nameLocalized": {
           "ja": "熊野速玉大社"
@@ -233,7 +233,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Nezu-oji (remains)",
         "nameLocalized": {
           "ja": "不寝王子跡"
@@ -263,7 +263,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Todo",
         "nameLocalized": {
           "ja": "戸土"
@@ -289,7 +289,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Takahara",
         "nameLocalized": {
           "ja": "高原"
@@ -317,7 +317,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Unnamed",
         "type": "supply",
         "subtype": "toilet",
@@ -340,7 +340,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Daimon-oji",
         "nameLocalized": {
           "ja": "大門王子"
@@ -369,7 +369,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Jujyo-oji",
         "nameLocalized": {
           "ja": "十丈王子"
@@ -397,7 +397,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Unnamed",
         "type": "supply",
         "subtype": "toilet",
@@ -420,7 +420,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Oosakamoto-oji",
         "nameLocalized": {
           "ja": "大阪本王子"
@@ -448,7 +448,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Unnamed",
         "type": "supply",
         "subtype": "toilet",
@@ -470,7 +470,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Kodo-no-Yado Kakidaira",
         "nameLocalized": {
           "ja": "古道の宿柿平"
@@ -495,7 +495,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Cherry Garden",
         "nameLocalized": {
           "ja": "近露桜の園"
@@ -520,7 +520,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "SORA Chikatsuyu",
         "nameLocalized": {
           "ja": "近露そら"
@@ -546,7 +546,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Chikatsuyu-oji",
         "nameLocalized": {
           "ja": "近露王子"
@@ -578,7 +578,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Chikatsuyu",
         "nameLocalized": {
           "ja": "近露"
@@ -606,7 +606,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Cabelo Coffee",
         "nameLocalized": {
           "ja": "かベロ"
@@ -631,7 +631,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Unnamed",
         "type": "supply",
         "subtype": "toilet",
@@ -653,7 +653,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Chikatsuyu-oji",
         "nameLocalized": {
           "ja": "近露王子"
@@ -678,7 +678,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Kodo Aruki-no-Sato Chikatsuyu",
         "nameLocalized": {
           "ja": "古道歩きの里ちかつゆ"
@@ -703,7 +703,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Nakahechi Museum",
         "nameLocalized": {
           "ja": "中辺美術館前"
@@ -728,7 +728,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Minshuku Momiji no sato",
         "nameLocalized": {
           "ja": "民宿もみじの里"
@@ -753,7 +753,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Miyanoue",
         "nameLocalized": {
           "ja": "宮の上"
@@ -778,7 +778,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Irorian Minshuku",
         "type": "accommodation",
         "subtype": "guesthouse",
@@ -800,7 +800,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Hitotoki",
         "type": "accommodation",
         "subtype": "guesthouse",
@@ -822,7 +822,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Nonaka-no-ipposugi",
         "type": "transport",
         "subtype": "bus_stop",
@@ -844,7 +844,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Unnamed",
         "type": "food",
         "subtype": "cafe",
@@ -866,7 +866,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "とがの木茶室",
         "type": "food",
         "subtype": "cafe",
@@ -889,7 +889,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Tsugizakura-oji",
         "nameLocalized": {
           "ja": "継桜王子"
@@ -920,7 +920,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Unnamed",
         "type": "supply",
         "subtype": "toilet",
@@ -942,7 +942,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Guesthouse MUI",
         "type": "accommodation",
         "subtype": "hostel",
@@ -964,7 +964,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Kobiro-oji-guchi 小広王子口",
         "type": "transport",
         "subtype": "bus_stop",
@@ -986,7 +986,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Unnamed",
         "type": "supply",
         "subtype": "toilet",
@@ -1009,7 +1009,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Kobiro-oji",
         "nameLocalized": {
           "ja": "小広王子"
@@ -1037,7 +1037,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Kobiro-toge 小広峠",
         "type": "transport",
         "subtype": "bus_stop",
@@ -1059,7 +1059,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Mikoshi-toge Pass rest area",
         "type": "supply",
         "subtype": "toilet",
@@ -1081,7 +1081,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Unnamed",
         "type": "supply",
         "subtype": "toilet",
@@ -1104,7 +1104,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Inohana-oji",
         "nameLocalized": {
           "ja": "猪鼻王子"
@@ -1133,7 +1133,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Hosshinmon-oji",
         "nameLocalized": {
           "ja": "発心門王子"
@@ -1165,7 +1165,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Unnamed",
         "type": "supply",
         "subtype": "toilet",
@@ -1187,7 +1187,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Takijiri",
         "nameLocalized": {
           "ja": "滝尻"
@@ -1212,7 +1212,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Unnamed",
         "type": "supply",
         "subtype": "toilet",
@@ -1234,7 +1234,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Fushiogami-guchi",
         "nameLocalized": {
           "es": "Fushiogami-guchi",
@@ -1260,7 +1260,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "発心門口;Hosshinmonguchi",
         "nameLocalized": {
           "es": "Hosshinmonguchi",
@@ -1286,7 +1286,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Unnamed",
         "type": "supply",
         "subtype": "toilet",
@@ -1308,7 +1308,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Unnamed",
         "type": "supply",
         "subtype": "vending_machine",
@@ -1330,7 +1330,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Nachi station",
         "type": "transport",
         "subtype": "bus_stop",
@@ -1352,7 +1352,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "LAWSON",
         "nameLocalized": {
           "ja": "ローソン",
@@ -1379,7 +1379,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Amanomya",
         "type": "transport",
         "subtype": "bus_stop",
@@ -1401,7 +1401,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "FamilyMart",
         "nameLocalized": {
           "ja": "ファミリーマート 那智勝浦店"
@@ -1427,7 +1427,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Bistro Bonheur",
         "type": "food",
         "subtype": "restaurant",
@@ -1449,7 +1449,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Koguchi Bus stop",
         "type": "transport",
         "subtype": "bus_stop",
@@ -1471,7 +1471,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Unnamed",
         "type": "food",
         "subtype": "cafe",
@@ -1494,7 +1494,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Cafe Pilina",
         "type": "food",
         "subtype": "cafe",
@@ -1516,7 +1516,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Iseki",
         "type": "transport",
         "subtype": "bus_stop",
@@ -1538,7 +1538,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Kawaseki",
         "type": "transport",
         "subtype": "bus_stop",
@@ -1560,7 +1560,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Unnamed",
         "type": "supply",
         "subtype": "toilet",
@@ -1582,7 +1582,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Unnamed",
         "type": "supply",
         "subtype": "toilet",
@@ -1604,7 +1604,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Nachi Neboke-do",
         "type": "food",
         "subtype": "restaurant",
@@ -1627,7 +1627,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Nachisan",
         "type": "transport",
         "subtype": "bus_stop",
@@ -1649,7 +1649,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Kumano Kodo",
         "type": "transport",
         "subtype": "bus_stop",
@@ -1671,7 +1671,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Unnamed",
         "type": "supply",
         "subtype": "toilet",
@@ -1693,7 +1693,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Daimonzaka",
         "type": "transport",
         "subtype": "bus_stop",
@@ -1715,7 +1715,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Unnamed",
         "type": "food",
         "subtype": "cafe",
@@ -1737,7 +1737,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Unnamed",
         "type": "supply",
         "subtype": "toilet",
@@ -1759,7 +1759,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Unnamed",
         "type": "supply",
         "subtype": "toilet",
@@ -1781,7 +1781,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Unnamed",
         "type": "supply",
         "subtype": "toilet",
@@ -1803,7 +1803,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Unnamed",
         "type": "supply",
         "subtype": "toilet",
@@ -1825,7 +1825,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Unnamed",
         "type": "supply",
         "subtype": "toilet",
@@ -1847,7 +1847,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Unnamed",
         "type": "supply",
         "subtype": "toilet",
@@ -1869,7 +1869,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Unnamed",
         "type": "supply",
         "subtype": "vending_machine",
@@ -1891,7 +1891,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Unnamed",
         "type": "supply",
         "subtype": "toilet",
@@ -1913,7 +1913,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Aimi",
         "type": "food",
         "subtype": "cafe",
@@ -1936,7 +1936,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Mizunomi-oji",
         "nameLocalized": {
           "ja": "水呑王子跡"
@@ -1967,7 +1967,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Watarase Onsen",
         "nameLocalized": {
           "es": "Wataze Onsen"
@@ -1992,7 +1992,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Shimoyunomine",
         "nameLocalized": {
           "es": "Shimoyunomine"
@@ -2017,7 +2017,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "正八",
         "type": "supply",
         "subtype": "convenience_store",
@@ -2039,7 +2039,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Unnamed",
         "type": "supply",
         "subtype": "vending_machine",
@@ -2061,7 +2061,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Unnamed",
         "type": "supply",
         "subtype": "toilet",
@@ -2083,7 +2083,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Kawayu Onsen",
         "type": "transport",
         "subtype": "bus_stop",
@@ -2105,7 +2105,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Minshuku Sumiya",
         "type": "accommodation",
         "subtype": "guesthouse",
@@ -2127,7 +2127,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Fujiyamae",
         "type": "transport",
         "subtype": "bus_stop",
@@ -2149,7 +2149,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "民宿 立石",
         "type": "accommodation",
         "subtype": "guesthouse",
@@ -2171,7 +2171,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Tabinoyado Shiba",
         "type": "accommodation",
         "subtype": "guesthouse",
@@ -2193,7 +2193,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Ashita-no-Mori",
         "type": "accommodation",
         "subtype": "hotel",
@@ -2215,7 +2215,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Unnamed",
         "type": "supply",
         "subtype": "toilet",
@@ -2237,7 +2237,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Unnamed",
         "type": "water_source",
         "subtype": "fountain",
@@ -2259,7 +2259,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Unnamed",
         "type": "supply",
         "subtype": "toilet",
@@ -2281,7 +2281,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Unnamed",
         "type": "supply",
         "subtype": "toilet",
@@ -2303,7 +2303,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Unnamed",
         "type": "supply",
         "subtype": "vending_machine",
@@ -2325,7 +2325,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Unnamed",
         "type": "supply",
         "subtype": "vending_machine",
@@ -2347,7 +2347,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Ukegawa",
         "type": "transport",
         "subtype": "bus_stop",
@@ -2369,7 +2369,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Shimojibashi",
         "type": "transport",
         "subtype": "bus_stop",
@@ -2391,7 +2391,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "請川公衆トイレ",
         "type": "supply",
         "subtype": "toilet",
@@ -2413,7 +2413,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Unnamed",
         "type": "supply",
         "subtype": "vending_machine",
@@ -2435,7 +2435,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Bond Bento",
         "type": "food",
         "subtype": "restaurant",
@@ -2458,7 +2458,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "j hoppers",
         "type": "accommodation",
         "subtype": "hotel",
@@ -2480,7 +2480,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Kumanohongu",
         "nameLocalized": {
           "es": "Kumano Hongu"
@@ -2505,7 +2505,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Unnamed",
         "type": "supply",
         "subtype": "vending_machine",
@@ -2527,7 +2527,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Lemon guest house",
         "type": "accommodation",
         "subtype": "guesthouse",
@@ -2549,7 +2549,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Unnamed",
         "type": "supply",
         "subtype": "convenience_store",
@@ -2571,7 +2571,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Lemon guest house",
         "type": "accommodation",
         "subtype": "guesthouse",
@@ -2593,7 +2593,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Unnamed",
         "type": "supply",
         "subtype": "toilet",
@@ -2615,7 +2615,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Hongu Taisha-mae",
         "nameLocalized": {
           "es": "Hongu Taisha-mae"
@@ -2640,7 +2640,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Unnamed",
         "type": "transport",
         "subtype": "bus_stop",
@@ -2662,7 +2662,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Unnamed",
         "type": "supply",
         "subtype": "toilet",
@@ -2684,7 +2684,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Yamazaki",
         "type": "supply",
         "subtype": "convenience_store",
@@ -2706,7 +2706,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Kumano Backpackers",
         "type": "accommodation",
         "subtype": "hostel",
@@ -2728,7 +2728,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Koyasan Hospital",
         "type": "medical",
         "subtype": "hospital",
@@ -2750,7 +2750,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "6 Senjuinbashi E",
         "nameLocalized": {
           "es": "6 Senjuinbashi E",
@@ -2776,7 +2776,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "15 Senjuinbashi W",
         "nameLocalized": {
           "es": "15 Senjuinbashi W",
@@ -2802,7 +2802,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "9 Karukayado-mae",
         "nameLocalized": {
           "es": "9 Karukayado-mae",
@@ -2828,7 +2828,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "7 Odawaradori",
         "nameLocalized": {
           "es": "7 Odawaradori",
@@ -2854,7 +2854,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Fukuchi-in",
         "nameLocalized": {
           "fr": "Fukuchiin"
@@ -2879,7 +2879,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Café Hirugashi",
         "nameLocalized": {
           "es": "Bon On Sha",
@@ -2906,7 +2906,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Hongakuin Temple",
         "type": "accommodation",
         "subtype": "hotel",
@@ -2928,7 +2928,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Jimyo-in Shukubo",
         "nameLocalized": {
           "es": "Jimyo-in",
@@ -2954,7 +2954,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Unnamed",
         "type": "supply",
         "subtype": "toilet",
@@ -2976,7 +2976,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Muryoko-in",
         "nameLocalized": {
           "es": "Muryoko-in",
@@ -3002,7 +3002,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Ichijo-in",
         "nameLocalized": {
           "es": "Ichijo-in",
@@ -3028,7 +3028,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Fumon-in",
         "nameLocalized": {
           "es": "Fumon-in"
@@ -3053,7 +3053,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Chuoshokudo Sanbo 中央食堂 さんぼう",
         "type": "food",
         "subtype": "restaurant",
@@ -3075,7 +3075,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "5 Koyakeisatu-mae",
         "type": "transport",
         "subtype": "bus_stop",
@@ -3097,7 +3097,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Fudo-in",
         "nameLocalized": {
           "es": "Fudo-in"
@@ -3122,7 +3122,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Henjoko-in",
         "type": "accommodation",
         "subtype": "guesthouse",
@@ -3144,7 +3144,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "16 Kongobuji-mae",
         "nameLocalized": {
           "es": "16 Kongobuji-mae",
@@ -3170,7 +3170,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Daily Yamazaki",
         "nameLocalized": {
           "ja": "デイリーヤマザキ"
@@ -3195,7 +3195,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Tentoku-in",
         "type": "accommodation",
         "subtype": "hotel",
@@ -3217,7 +3217,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Jojuin",
         "type": "accommodation",
         "subtype": "hotel",
@@ -3239,7 +3239,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Shakamonin",
         "type": "accommodation",
         "subtype": "hotel",
@@ -3261,7 +3261,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Zofuku-in",
         "nameLocalized": {
           "es": "Zofuku-in"
@@ -3286,7 +3286,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Jokiin",
         "nameLocalized": {
           "es": "Jokiin"
@@ -3311,7 +3311,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Koyasan Guesthouse Kiminoya",
         "type": "accommodation",
         "subtype": "guesthouse",
@@ -3333,7 +3333,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Unnamed",
         "type": "transport",
         "subtype": "bus_stop",
@@ -3355,7 +3355,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Unnamed",
         "type": "supply",
         "subtype": "vending_machine",
@@ -3377,7 +3377,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Café Shizuku",
         "type": "food",
         "subtype": "cafe",
@@ -3400,7 +3400,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Fushiogami-oji",
         "nameLocalized": {
           "ja": "伏拝王子"
@@ -3431,7 +3431,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Mandokoro",
         "nameLocalized": {
           "ja": "農家民宿　政所"
@@ -3456,7 +3456,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Unnamed",
         "type": "supply",
         "subtype": "toilet",
@@ -3478,7 +3478,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "三浦峠公衆トイレ",
         "type": "supply",
         "subtype": "toilet",
@@ -3500,7 +3500,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Unnamed",
         "type": "supply",
         "subtype": "toilet",
@@ -3522,7 +3522,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Unnamed",
         "type": "supply",
         "subtype": "toilet",
@@ -3544,7 +3544,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Unnamed",
         "type": "supply",
         "subtype": "toilet",
@@ -3566,7 +3566,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Unnamed",
         "type": "supply",
         "subtype": "toilet",
@@ -3588,7 +3588,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "世界遺産石碑前",
         "type": "transport",
         "subtype": "bus_stop",
@@ -3610,7 +3610,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "いちざこ",
         "type": "transport",
         "subtype": "bus_stop",
@@ -3632,7 +3632,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Unnamed",
         "type": "supply",
         "subtype": "toilet",
@@ -3655,7 +3655,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Kumano Hongu Taisha",
         "nameLocalized": {
           "ja": "熊野本宮大社"
@@ -3689,7 +3689,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "八木尾 Yakio bus stop",
         "type": "transport",
         "subtype": "bus_stop",
@@ -3711,7 +3711,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Unnamed",
         "type": "supply",
         "subtype": "toilet",
@@ -3733,7 +3733,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Unnamed",
         "type": "supply",
         "subtype": "vending_machine",
@@ -3755,7 +3755,7 @@
         ]
       },
       "properties": {
-        "routeId": "kumano-kodo",
+        "routeId": "kumano-kodo-nakahechi",
         "name": "Michi-no-eki Okukumano",
         "nameLocalized": {
           "ja": "道の駅 奥熊野"

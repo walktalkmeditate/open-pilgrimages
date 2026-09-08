@@ -27,7 +27,7 @@ test("glyphFrom simplifies camino-frances by more than two orders of magnitude",
 });
 
 test("glyphFrom keeps every drawn coordinate inside the padded box", () => {
-  for (const id of ["camino-frances", "shikoku-88", "kumano-kodo"]) {
+  for (const id of ["camino-frances", "shikoku-88", "kumano-kodo-nakahechi"]) {
     const d = glyphFrom(geojson(id)).d;
     const numbers = d.match(/-?\d+\.\d+/g)!.map(Number);
 
@@ -49,7 +49,7 @@ test("glyphFrom emits one moveto per source segment", () => {
 });
 
 test("glyphFrom is deterministic", () => {
-  assert.equal(glyphFrom(geojson("kumano-kodo")).d, glyphFrom(geojson("kumano-kodo")).d);
+  assert.equal(glyphFrom(geojson("kumano-kodo-nakahechi")).d, glyphFrom(geojson("kumano-kodo-nakahechi")).d);
 });
 
 test("segmentsOf gracefully degrades on empty FeatureCollection", () => {

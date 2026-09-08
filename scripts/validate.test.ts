@@ -597,8 +597,9 @@ test("a shipped ways/ package with pinned relations raises nothing", () => {
 test("a route whose ways/ holds only a report.json is not asked to pin relations", () => {
   const { root, routeDir, waysDir } = makeFixtureRoute();
   try {
-    // The shape a refused route leaves behind — shikoku-88 and kumano-kodo
-    // both look like this today, with no osm.relations pinned either.
+    // The shape a refused route leaves behind — shikoku-88 and
+    // kumano-kodo-nakahechi both look like this today, with no osm.relations
+    // pinned either.
     writeJson(join(waysDir, "report.json"), validReport("fixture-route", 0));
 
     const errors: ValidationError[] = [];

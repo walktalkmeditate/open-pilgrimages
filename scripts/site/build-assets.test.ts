@@ -10,7 +10,7 @@ const ASSETS = join(ROOT, "docs", "assets");
 
 const IDS = [
   "camino-frances", "camino-ingles", "camino-norte", "camino-portugues",
-  "camino-primitivo", "kumano-kodo", "shikoku-88", "camino-portugues-coastal",
+  "camino-primitivo", "kumano-kodo-nakahechi", "shikoku-88", "camino-portugues-coastal",
 ];
 
 test("buildAssets writes a glyph for every route and the coastal variant", () => {
@@ -300,8 +300,9 @@ test("a page the generator did not write is refused, not overwritten", () => {
   const root = mkdtempSync(join(tmpdir(), "build-assets-test-"));
   try {
     mkdirSync(join(root, "docs"), { recursive: true });
-    // docs/kumano-kodo.html is hand-authored today and kumano-kodo becomes a
-    // pilgrimage id in a later PR — the exact collision this guards.
+    // The collision this guards is a real one: docs/kumano-kodo.html was
+    // hand-authored, and kumano-kodo is becoming a pilgrimage id — which is
+    // why that page moved to docs/kumano-kodo-nakahechi.html first.
     const handAuthored = "<!DOCTYPE html>\n<html><body>hand-authored</body></html>\n";
     writeFileSync(join(root, "docs", "kumano-kodo.html"), handAuthored);
     writeFileSync(

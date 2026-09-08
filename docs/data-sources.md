@@ -209,7 +209,7 @@ For total Kumano Kodo pilgrims (not just dual), Wakayama Prefecture and the loca
 - https://www.tb-kumano.jp/en/dual-pilgrim/ (English)
 - https://www.tb-kumano.jp/ (Japanese, more current)
 
-There is no equivalent of Solvitur Ambulando's machine-readable dataset for Kumano. Pilgrim statistics for Kumano in `routes/kumano-kodo/stats.json` should cite the Tanabe Bureau and be marked as approximate where exact figures aren't published.
+There is no equivalent of Solvitur Ambulando's machine-readable dataset for Kumano. Pilgrim statistics for Kumano in `routes/kumano-kodo-nakahechi/stats.json` should cite the Tanabe Bureau and be marked as approximate where exact figures aren't published.
 
 ---
 

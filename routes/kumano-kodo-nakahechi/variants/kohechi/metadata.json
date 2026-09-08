@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
   "id": "kohechi",
-  "parentRouteId": "kumano-kodo",
+  "parentRouteId": "kumano-kodo-nakahechi",
   "lastUpdated": "2026-03-26T00:00:00Z",
   "name": { "en": "Kohechi (Mountain Route)", "ja": "小辺路" },
   "description": { "en": "The most strenuous Kumano Kodo route. 70 km mountain crossing from Kōyasan to Kumano Hongu Taisha, traversing three passes over 1,000m. Typically 4 days." },

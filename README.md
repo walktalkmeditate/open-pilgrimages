@@ -28,7 +28,7 @@ Routes that belong to no pilgrimage grouping yet.
 | Route | Distance | Topology | Tradition | Route Points | Waypoints | Stats |
 |-------|----------|----------|-----------|-------------|-----------|-------|
 | [Shikoku 88](routes/shikoku-88/) | 1,200 km | Circular | Buddhist | 49,097 | 2,980 | 21 years (2005-2025) |
-| [Kumano Kodo](routes/kumano-kodo/) | 39-170 km | Network | Shinto/Buddhist | 6,847 | 157 | 22 years (2003-2024) |
+| [Kumano Kodo](routes/kumano-kodo-nakahechi/) | 39-170 km | Network | Shinto/Buddhist | 6,847 | 157 | 22 years (2003-2024) |
 
 ### Three Layers of Data
 
@@ -208,7 +208,7 @@ All data files conform to [JSON Schema 2020-12](schema/) definitions. See the [d
 - **Coordinates:** `[longitude, latitude]` or `[longitude, latitude, altitude]` (GeoJSON standard)
 - **Distances:** kilometers
 - **Localized strings:** `{ "en": "...", "es": "...", "ja": "..." }` — English always required
-- **Route IDs:** kebab-case (`camino-frances`, `shikoku-88`, `kumano-kodo`)
+- **Route IDs:** kebab-case (`camino-frances`, `shikoku-88`, `kumano-kodo-nakahechi`)
 - **Schema version:** SemVer in every file (`"schemaVersion": "1.0.0"`)
 - **Versioning:** Read the catalog from `@main`, then pin every file you download to the exact tag its `release` field names. `@v1` is frozen at whatever jsDelivr cached — it is no longer moved on release. MINOR adds optional fields. MAJOR = breaking.
 - **Pilgrimage / section / stage:** A pilgrimage groups the sections (route directories) that name it; see [CLAUDE.md](CLAUDE.md) for the model.

@@ -101,7 +101,7 @@ test("scans every top-level route directory", () => {
     "camino-norte",
     "camino-portugues",
     "camino-primitivo",
-    "kumano-kodo",
+    "kumano-kodo-nakahechi",
     "shikoku-88",
   ]);
 });
@@ -114,7 +114,7 @@ test("attaches variants only to routes that have them", () => {
     ["coastal", "espiritual", "lisboa"],
   );
   assert.deepEqual(
-    byId.get("kumano-kodo")!.variants!.map((v) => v.id).sort(),
+    byId.get("kumano-kodo-nakahechi")!.variants!.map((v) => v.id).sort(),
     ["iseji", "kohechi"],
   );
   assert.equal(byId.get("camino-frances")!.variants, undefined);

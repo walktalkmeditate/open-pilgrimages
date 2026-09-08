@@ -37,7 +37,7 @@ index.json                  # Route registry (auto-generated)
 - Distance: kilometers
 - Localized strings: `{ "en": "...", "es": "...", "ja": "..." }` — `en` always required
 - Schema version: SemVer in every file (`"schemaVersion": "1.0.0"`)
-- Route IDs: kebab-case (`camino-frances`, `shikoku-88`, `kumano-kodo`)
+- Route IDs: kebab-case (`camino-frances`, `shikoku-88`, `kumano-kodo-nakahechi`)
 - Pilgrimage: `pilgrimage: { id, name, kind, order }` in a section's metadata,
   plus an optional `circular`. `kind` is `legs` (walked one after another; the
   sections must chain) or `alternatives` (each section its own way to the same

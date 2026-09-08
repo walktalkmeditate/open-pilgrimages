@@ -225,7 +225,7 @@ test("checkSite reports camino-portugues missing from README when only its coast
 | [Camino Portugués da Costa (Coastal)](routes/camino-portugues/variants/coastal/) | 110 km |
 | [Camino Inglés](routes/camino-ingles/) | 112 km |
 | [Shikoku 88](routes/shikoku-88/) | 1,200 km |
-| [Kumano Kodo](routes/kumano-kodo/) | 39-170 km |
+| [Kumano Kodo](routes/kumano-kodo-nakahechi/) | 39-170 km |
 `;
 
   // #when checkSite checks route coverage against this README
@@ -533,9 +533,9 @@ test("a README km cell that disagrees with the index is reported", () => {
 });
 
 test("a README km cell range (network routes like Kumano Kodo) is checked against its leading figure", () => {
-  // #given index.json says kumano-kodo is 39 km (its canonical Nakahechi route); the README
-  // cell renders a range across its variants, whose leading figure must still agree
-  const readmeMd = "[Kumano Kodo](routes/kumano-kodo/) | 39-170 km";
+  // #given index.json says kumano-kodo-nakahechi is 39 km; the README cell
+  // renders a range across its variants, whose leading figure must still agree
+  const readmeMd = "[Kumano Kodo](routes/kumano-kodo-nakahechi/) | 39-170 km";
 
   // #when / #then checkSite accepts the range because its leading figure matches
   const problems = checkSite(ROOT, { readmeMd });

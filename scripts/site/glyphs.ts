@@ -5,7 +5,7 @@ export const GLYPH_BOX: Box = { size: 200, padding: 12 };
 /**
  * Simplification tolerance as a fraction of the fitted box span. Tuned so the
  * longest route (shikoku-88, 49k points) stays under 10 KB of path data while
- * the shortest (kumano-kodo) keeps its branching structure legible.
+ * the shortest (kumano-kodo-nakahechi) keeps its branching structure legible.
  */
 const EPSILON_FRACTION = 0.0016;
 

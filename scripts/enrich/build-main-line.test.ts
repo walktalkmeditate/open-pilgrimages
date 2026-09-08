@@ -198,16 +198,16 @@ test("main calls the guard, and calls it before writing the line", () => {
 test("a section with only an osm.query is refused", () => {
   const root = mkdtempSync(join(tmpdir(), "main-line-test-"));
   try {
-    const dir = join(root, "routes", "kumano-kodo");
+    const dir = join(root, "routes", "kumano-kodo-nakahechi");
     mkdirSync(dir, { recursive: true });
     writeFileSync(
       join(dir, "metadata.json"),
-      JSON.stringify({ id: "kumano-kodo", name: { en: "Kumano Kodō" }, osm: { query: 'relation["name"~"熊野古道"]' } }),
+      JSON.stringify({ id: "kumano-kodo-nakahechi", name: { en: "Kumano Kodō" }, osm: { query: 'relation["name"~"熊野古道"]' } }),
     );
     writeFileSync(join(dir, "stages.json"), JSON.stringify({ stages: [] }));
 
-    assert.throws(() => requireRelations(dir, "kumano-kodo"), /kumano-kodo/);
-    assert.throws(() => requireRelations(dir, "kumano-kodo"), /osm\.relations/);
+    assert.throws(() => requireRelations(dir, "kumano-kodo-nakahechi"), /kumano-kodo-nakahechi/);
+    assert.throws(() => requireRelations(dir, "kumano-kodo-nakahechi"), /osm\.relations/);
   } finally {
     rmSync(root, { recursive: true, force: true });
   }

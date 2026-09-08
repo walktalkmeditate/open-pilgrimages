@@ -27,7 +27,7 @@ relation["name"~"四国遍路"]["type"="route"](32,132,35,135);
 out geom;`,
   },
   {
-    id: "kumano-kodo",
+    id: "kumano-kodo-nakahechi",
     description: "Kumano Kodo — Nakahechi and sub-routes",
     query: `[out:json][timeout:120];
 relation["name"~"熊野古道"]["type"="route"];
