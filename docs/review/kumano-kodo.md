@@ -16,8 +16,15 @@ his own prose records a review that did not happen. That review is recorded belo
 
 The same rule is why stage 3 stays drafted. Its reflection had to be **replaced**, not
 trimmed, and the reviewer wrote the replacement — so clearing it would be an author ticking
-his own line. Stages 0 and 3 were edited by deletion only, which authors nothing; stage 3's
-new reflection is the one piece of prose here awaiting a reader who did not write it.
+his own line. Stage 3's narrative and stage 0's three edits do not raise that problem. One
+of stage 0's is a deletion ("the hamlet of Otaki" → "Otaki"); the other two are rewrites,
+but each restates a committed field in that field's own terms — "16.7 km that never drop
+below 650 m" → "16.7 km with its low point at 650 m" takes the wording `terrainNotes`
+already used, and "Ascent and descent are close to equal, 710 m against 840 m" → "It climbs
+710 m and descends 840 m" reads `elevationGainMeters` and `elevationLossMeters` off
+`stages.json`. Neither asserts anything the data was not already asserting, which is why the
+tick stands. Stage 3's new reflection makes a claim the drafted text did not, and it is the
+one piece of prose here awaiting a reader who did not write it.
 
 ## What this section does not have
 
@@ -61,6 +68,12 @@ already corrected in Task 6's fix pass and its narrative was not, which is why t
 disagreed about the 650 m floor; the review has now brought the narrative to the wording
 `terrainNotes` already used, so no stage's two fields disagree.
 
+Stage 1's `terrainNotes` and `terrainTypes` were corrected on the same footing, after the
+road section into Imoze recorded in that stage's verdict below: "Forest path throughout"
+became "Forest path over the summit of Obako-dake … ending on 478 m of asphalt prefectural
+road into Imoze", and `"paved"` joined the `terrainTypes` array it was the only one of the
+four days to omit. Neither field is `interior`, so neither touches the stage's flag.
+
 ---
 
 ## kumano-kodo-kohechi stage 0 — Kōyasan to Ōmata
@@ -77,9 +90,12 @@ disagreed about the 650 m floor; the review has now brought the narrative to the
   - Kōyasan's temple lodgings — **citation replaced in review.** The three features the
     drafter cited carry no lodging tag: `node/5092538153` 高室院 (89 m), `node/5092538163`
     金剛三昧院 (89 m) and `way/1363855538` 金剛峯寺 (367 m) are each
-    `amenity=place_of_worship` + `religion=buddhist` and nothing more. What grounds the
-    claim, measured from the line's first vertex: 8 `tourism=hotel` within 400 m, all of
-    them 院 sub-temples — 普門院 (220 m), 一乗院 (230 m), 無量光院 (288 m), 持明院
+    `amenity=place_of_worship` + `religion=buddhist`, and no other tag on any of the three is
+    a lodging tag either — 金剛峯寺 carries twenty-two tags beyond those two (`heritage=1`,
+    `heritage:operator=whc`, `ref:whc=1142-15bis`, `denomination=shingon_shu`,
+    `start_date=816`, `wikidata`, six `contact:*`, and names), not one of them lodging. What
+    grounds the claim, measured from the line's first vertex: 8 `tourism=hotel` within 400 m,
+    all of them 院 sub-temples — 普門院 (220 m), 一乗院 (230 m), 無量光院 (288 m), 持明院
     (`name:en="Jimyo-in Shukubo"`, 288 m), 天徳院 (297 m), 本覚院 (319 m), 不動院 (337 m),
     Jokiin (390 m) — of which 天徳院 and 不動院 also carry `amenity=place_of_worship`, plus
     `node/5629787721` `tourism=guest_house` "Koyasan Guesthouse Kiminoya" at 91 m
@@ -101,7 +117,7 @@ reflection: The climbing here is spread across the whole day rather than gathere
 **Verdicts.** Four of the six findings Task 6's own reviewer left land on this stage. All
 four are **sustained**; three cost the text a phrase, the fourth cost the checklist a
 citation. Every id above was re-fetched from OSM and every metre re-measured on the
-committed line.
+committed line. A fifth entry follows them, for what the tick clears that no finding reached.
 
 - **"the hamlet of Otaki" — sustained, struck.** `node/8735601521` is `place=quarter`,
   `official_name=大字大滝`; `大字` is an administrative subdivision. OSM's `place=hamlet`
@@ -123,6 +139,13 @@ committed line.
   them — the eight `tourism=hotel` 院 sub-temples are listed under Grounding above, one of
   them named "Jimyo-in Shukubo" (宿坊, a temple lodging). The sentence is unchanged; the
   citation under Grounding is.
+- **The surviving "so" clause and the reflection — checked, both stand.** No finding reached
+  either, and the tick clears both, so the warrant belongs here rather than nowhere. It is
+  arithmetic on committed fields: a single climb from the start anchor to the day's high
+  point is `highPointMeters` − 830 = 1,170 − 830 = **340 m**, and the day gains **710 m**.
+  The 370 m difference cannot be one pass; it is height regained after being given up, which
+  is what "the day's weight is in its length rather than in any one climb" and "spread across
+  the whole day rather than gathered into one pass" each assert. Both stand as drafted.
 
 *Not re-derivable:* "the trail itself at about 1,030 m" rests on the SRTM sample described
 at the top of this file, which no committed file carries. It is kept: the model is a
@@ -171,16 +194,29 @@ reflection: The highest ground on the route comes on its shortest day — is tha
   the farthest candidate, gives 14.443 km, still nowhere near 18.7. But the implication the
   question leaves — that the measurement is therefore untrustworthy, and the "shortest day"
   framing with it — does not survive checking the line against OSM itself:
-  - Sampled at eight points across the descent, every metre of this stage's line lies on
-    `highway=path`, `name=Kohechi` (`name:ja=熊野参詣道小辺路`). It is not a road shortcut.
+  - The line runs on `highway=path`, `name=Kohechi` (`name:ja=熊野参詣道小辺路`) from Ōmata
+    until **30.064 km**, and then, for the last **478 m** into Imoze, at 0.0 m offset on
+    Prefectural Road 733 川津高野線 — `highway=secondary`, `surface=asphalt`, five ways
+    (`way/126892127`, the `bridge=yes` `way/126892129`, `way/126892128`, the `tunnel=yes`
+    `way/126892131`, `way/126892139`). That is 43 of the slice's 532 vertices and 8 of the
+    184 points in the shipped `ways/stage-01.json`. It is still not a shortcut: all five are
+    members of relation `17131166`, and `way/126889269` is followed for its whole 5,908 m
+    right up to them, so the road is where the route's own line reaches the valley.
   - Every way named Kohechi in the Ōmata–Imoze corridor was fetched and measured. The chain
     `way/558483794` → `way/1244801381` → `way/1244801380` → `way/126889269` runs Ōmata to
     just short of Imoze in **14.324 km**. There is no 18.7 km of Kohechi path here to find.
-  - Of the named-Kohechi path in the corridor, the line follows 13.337 km — its whole slice
-    — and leaves 2.509 km unfollowed. That remainder is the low bypass around Obako-dake,
-    which `way/126955827` and `way/1501444299` (`name="Kohechi (summit detour)"`) replace.
-    The line crosses `node/2454838213` at **0 m**, so it takes the summit; a walker does not
-    walk both. Skipping it is correct, not a shortfall.
+  - The corridor holds seven ways named Kohechi and they total **16.115 km** — every metre
+    of Kohechi a walker could take here, both branches of the Obako-dake fork included. So
+    even a walker who took both branches could not reach 18.7 km. Of those 16.115 km the
+    line follows 13.348 km and leaves **2.767 km** unfollowed, in one contiguous chain: the
+    last 1,156 m of `way/558483794`, all 66 m of `way/1244801381`, and the first 1,545 m of
+    `way/1244801380`. That chain is the low bypass around Obako-dake; the line takes the
+    summit instead, on `way/126955827` and `way/1501444299`
+    (`name="Kohechi (summit detour)"`, **1,724 m** together), crossing `node/2454838213` at
+    **0 m**. The bypass ends inside `way/1244801380` rather than at its end — the other
+    964 m of that way is followed, where the branches have rejoined — so the remainder is a
+    measured length, not a count of whole ways. A walker does not walk both branches;
+    skipping one is correct, not a shortfall.
 
   So 13.1 km is a faithful measurement of the OSM Kohechi over the summit, and the
   divergence is between OSM and a tour operator, not inside this dataset — which
@@ -239,10 +275,11 @@ id re-fetched and every metre re-measured: the pass attestation holds (`amenity=
 三浦峠公衆トイレ and `amenity=bench` 熊野古道小辺路三浦峠休息所 — 休息所 is "rest place", which is
 what the text says, and both names carry 三浦峠, so the pass's name is in the tags even though
 no pass node is); Nishinaka, Kawai-jinja, Tamagaito, Nagai and Shigesato all fall inside the
-stage and in the order the sentence puts them; 49.600 − 41.558 = 8.04 km for the river road;
-and the onsen is where the text says, 1,042 m east of the trailhead across the river.
+stage, and in the sentence's order but for one inversion recorded below; 49.600 − 41.558 =
+8.04 km for the river road; and the onsen is where the text says, 1,042 m east of the
+trailhead across the river.
 
-Two corrections to this entry's own figures, neither reaching the text:
+Three corrections to this entry's own figures, none of them reaching the text:
 
 - `node/4483811891`, the bench, measures 11 m off at **34.686 km**, not the 34.710 km given
   for both — 24 m from the toilets, not at the same point. Immaterial to "a rest place and a
@@ -251,6 +288,13 @@ Two corrections to this entry's own figures, neither reaching the text:
   1,042 m stated for it and the bath alike. The bath is 1,042 m. Both round to the "kilometre
   east" the narrative claims. The same 1,042-for-both appears in the anchor note in
   `stages.json`, which this review left alone as out of scope.
+- Tamagaito's nearest vertex is at **42.707 km** and Kawai-jinja's at **42.783 km**, so the
+  river-road stretch reaches Tamagaito 76 m before the shrine and the sentence names them
+  the other way round. Nishinaka (41.558 km), Nagai (43.159 km) and Shigesato (44.445 km)
+  are in order. Immaterial to the text — Tamagaito's node is 101 m off the line and the
+  gap is 76 m, so no reading of "past Kawai-jinja, and then some 8 km … through Tamagaito"
+  is wrong on the ground — but it is not what the measurement shows, and the earlier claim
+  that all five ran in the sentence's order was too strong.
 
 *Noted, not struck:* "down the Totsukawa" names as a river what OSM here names 熊野川
 (`name:en="Kumanogawa River"`); no `waterway=river` in this valley carries 十津川. Totsukawa
