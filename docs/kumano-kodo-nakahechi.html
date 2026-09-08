@@ -168,22 +168,22 @@
     </details>
 
     <h2>Waypoints</h2>
-    <p>157 logistics waypoints are tagged along the route, each with <code>stageIndex</code> and <code>kmFromStart</code>, plus 18 curated sacred sites and 2 towns.</p>
+    <p>114 waypoints are tagged along the route, each with <code>kmFromStart</code>: 21 curated &mdash; 18 sacred sites, 2 towns and Yunomine Onsen &mdash; and 93 enriched from OpenStreetMap. The file held 157 until this release, when 43 of them turned out to be K&omacr;yasan and the Kohechi&#39;s river valley, fetched here while the Kohechi was still folded into this directory. They now live in <a href="/kumano-kodo-kohechi">kumano-kodo-kohechi</a>, and this section&#39;s <code>bbox</code> was narrowed to its own ground so a re-run cannot pull them back.</p>
+    <p>All but three carry a <code>stageIndex</code>. Kumano Nachi Taisha, Nachi Falls and Kumano Hayatama Taisha do not: this section&#39;s four stages end at Kumano Hongu Taisha, and those three stand 30 km and more beyond it. They wait for the section that reaches them &mdash; the <a href="/kumano-kodo-iseji">Iseji</a> or the <a href="/kumano-kodo-ohechi">&#332;hechi</a>, both of which ship without stages this release.</p>
     <table>
-      <caption>Waypoint counts by type on the Kumano Kodo.</caption>
+      <caption>Waypoint counts by type on the Nakahechi.</caption>
       <thead>
         <tr><th scope="col">Type</th><th scope="col">Count</th></tr>
       </thead>
       <tbody>
         <tr><th scope="row">Water sources</th><td>1</td></tr>
-        <tr><th scope="row">Medical (pharmacy/hospital)</th><td>1</td></tr>
-        <tr><th scope="row">Accommodation</th><td>31</td></tr>
-        <tr><th scope="row">Food (restaurant/caf&eacute;)</th><td>13</td></tr>
-        <tr><th scope="row">Transport (bus/train)</th><td>39</td></tr>
-        <tr><th scope="row">Supply (convenience/toilet)</th><td>52</td></tr>
+        <tr><th scope="row">Accommodation</th><td>16</td></tr>
+        <tr><th scope="row">Food (restaurant/caf&eacute;)</th><td>10</td></tr>
+        <tr><th scope="row">Transport (bus/train)</th><td>28</td></tr>
+        <tr><th scope="row">Supply (convenience/toilet)</th><td>39</td></tr>
         <tr><th scope="row">Sacred sites</th><td>18</td></tr>
         <tr><th scope="row">Towns</th><td>2</td></tr>
-        <tr><th scope="row">Total</th><td>157</td></tr>
+        <tr><th scope="row">Total</th><td>114</td></tr>
       </tbody>
     </table>
 
@@ -231,7 +231,7 @@
         <tr><td><code>route.geojson</code></td><td>Full-resolution route geometry &mdash; 3,786 points</td></tr>
         <tr><td><a href="https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1/routes/kumano-kodo-nakahechi/route.gpx"><code>route.gpx</code></a></td><td>GPX 1.1 track for GPS apps and devices &mdash; 3,786 points</td></tr>
         <tr><td><code>stages.json</code></td><td>4 stages, with interior journey narratives</td></tr>
-        <tr><td><code>waypoints.geojson</code></td><td>157 logistics waypoints</td></tr>
+        <tr><td><code>waypoints.geojson</code></td><td>114 waypoints &mdash; 21 curated, 93 from OpenStreetMap</td></tr>
         <tr><td><code>stats.json</code></td><td>Foreign-visitor statistics, 2003&ndash;2024</td></tr>
       </tbody>
     </table>

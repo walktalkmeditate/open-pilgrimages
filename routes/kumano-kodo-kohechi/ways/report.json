@@ -17,12 +17,27 @@
       "passedGate": true,
       "boundaryMode": "snap",
       "routePoints": 201,
-      "moments": 2,
-      "momentsBeyondEnds": 0,
+      "moments": 3,
+      "momentsBeyondEnds": 1,
       "momentsWithText": 0,
-      "marks": 0,
+      "marks": 4,
       "marksTrimmed": 0,
-      "dropped": []
+      "dropped": [
+        "wp-osm-accommodation-node3696771536 (\"Hongakuin Temple\") is 572 m from the line, beyond the 300 m limit",
+        "wp-osm-accommodation-node4198573943 (\"Jimyo-in Shukubo\") is 468 m from the line, beyond the 300 m limit",
+        "wp-osm-accommodation-node4780805021 (\"Muryoko-in\") is 521 m from the line, beyond the 300 m limit",
+        "wp-osm-accommodation-node5025094923 (\"Ichijo-in\") is 444 m from the line, beyond the 300 m limit",
+        "wp-osm-accommodation-node5092538151 (\"Fumon-in\") is 463 m from the line, beyond the 300 m limit",
+        "wp-osm-accommodation-node6852828607 (\"Fudo-in\") is 461 m from the line, beyond the 300 m limit",
+        "wp-osm-food-node2722914025 (\"Café Hirugashi\") is 398 m from the line, beyond the 300 m limit",
+        "wp-osm-food-node6412021145 (\"Chuoshokudo Sanbo 中央食堂 さんぼう\") is 378 m from the line, beyond the 300 m limit",
+        "wp-osm-sacred_site-node5092538152 (\"Fugen-in\") is 399 m from the line, beyond the 300 m limit",
+        "wp-osm-sacred_site-node5092538158 (\"Saimon-in\") is 328 m from the line, beyond the 300 m limit",
+        "wp-osm-sacred_site-node5092538174 (\"Jofuku-in\") is 471 m from the line, beyond the 300 m limit",
+        "wp-osm-transport-node1898351685 (\"6 Senjuinbashi E\") is 310 m from the line, beyond the 300 m limit",
+        "wp-osm-transport-node1898351688 (\"15 Senjuinbashi W\") is 330 m from the line, beyond the 300 m limit",
+        "wp-osm-transport-node1900629294 (\"7 Odawaradori\") is 355 m from the line, beyond the 300 m limit"
+      ]
     },
     {
       "index": 1,
@@ -33,10 +48,10 @@
       "passedGate": true,
       "boundaryMode": "snap",
       "routePoints": 184,
-      "moments": 2,
-      "momentsBeyondEnds": 0,
+      "moments": 3,
+      "momentsBeyondEnds": 1,
       "momentsWithText": 0,
-      "marks": 0,
+      "marks": 2,
       "marksTrimmed": 0,
       "dropped": []
     },
@@ -52,7 +67,7 @@
       "moments": 2,
       "momentsBeyondEnds": 0,
       "momentsWithText": 0,
-      "marks": 0,
+      "marks": 4,
       "marksTrimmed": 0,
       "dropped": []
     },
@@ -65,10 +80,10 @@
       "passedGate": true,
       "boundaryMode": "snap",
       "routePoints": 168,
-      "moments": 2,
-      "momentsBeyondEnds": 0,
+      "moments": 3,
+      "momentsBeyondEnds": 1,
       "momentsWithText": 0,
-      "marks": 0,
+      "marks": 8,
       "marksTrimmed": 0,
       "dropped": []
     }
@@ -79,10 +94,9 @@
   },
   "dropped": [],
   "places": {
-    "sparse": true,
-    "stagesWithMomentBeyondEnds": 0,
+    "sparse": false,
+    "stagesWithMomentBeyondEnds": 3,
     "halfOfStages": 2,
-    "placesPerStage": 0,
-    "note": "only 0 of 4 stages carry a place beyond their own start and end; the app's card will say \"few places marked yet\""
+    "placesPerStage": 0.8
   }
 }

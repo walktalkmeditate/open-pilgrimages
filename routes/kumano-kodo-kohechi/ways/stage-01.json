@@ -947,6 +947,21 @@
       }
     },
     {
+      "id": "wp-osm-cultural_site-node3101640888",
+      "frac": 0.08338117362863046,
+      "kind": "waypoint",
+      "label": "Kaya-Goya Ato Ruin",
+      "icon": "book.closed",
+      "at": {
+        "lat": 34.10035374232933,
+        "lon": 135.63505489467212
+      },
+      "pin": {
+        "lat": 34.1004992,
+        "lon": 135.6350169
+      }
+    },
+    {
       "id": "stage-end",
       "frac": 1,
       "kind": "waypoint",
@@ -965,7 +980,30 @@
       }
     }
   ],
-  "marks": [],
+  "marks": [
+    {
+      "id": "wp-osm-supply-node7475989893",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 34.037212,
+        "lon": 135.693294
+      },
+      "frac": 0.9739066216962443,
+      "offLineMeters": 7
+    },
+    {
+      "id": "wp-osm-accommodation-node5517964451",
+      "kind": "bed",
+      "name": "Mandokoro",
+      "at": {
+        "lat": 34.034853,
+        "lon": 135.694776
+      },
+      "frac": 0.9995050242452812,
+      "offLineMeters": 24.8
+    }
+  ],
   "stage": {
     "routeId": "kumano-kodo-kohechi",
     "index": 1,

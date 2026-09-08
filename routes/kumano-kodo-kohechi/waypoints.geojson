@@ -1,4 +1,828 @@
 {
   "type": "FeatureCollection",
-  "features": []
+  "features": [
+    {
+      "type": "Feature",
+      "id": "wp-osm-transport-node1898351685",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.5867383,
+          34.2130201
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo-kohechi",
+        "name": "6 Senjuinbashi E",
+        "nameLocalized": {
+          "es": "6 Senjuinbashi E",
+          "ja": "6 千手院橋"
+        },
+        "type": "transport",
+        "subtype": "bus_stop",
+        "stageIndex": 0,
+        "kmFromStart": 0,
+        "icon": "bus_stop",
+        "source": "osm",
+        "osmId": "node/1898351685"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-transport-node1898351688",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.585832,
+          34.2132705
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo-kohechi",
+        "name": "15 Senjuinbashi W",
+        "nameLocalized": {
+          "es": "15 Senjuinbashi W",
+          "ja": "千手院橋"
+        },
+        "type": "transport",
+        "subtype": "bus_stop",
+        "stageIndex": 0,
+        "kmFromStart": 0,
+        "icon": "bus_stop",
+        "source": "osm",
+        "osmId": "node/1898351688"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-transport-node1900629294",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.5884619,
+          34.2127338
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo-kohechi",
+        "name": "7 Odawaradori",
+        "nameLocalized": {
+          "es": "7 Odawaradori",
+          "ja": "小田原通り"
+        },
+        "type": "transport",
+        "subtype": "bus_stop",
+        "stageIndex": 0,
+        "kmFromStart": 0,
+        "icon": "bus_stop",
+        "source": "osm",
+        "osmId": "node/1900629294"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-food-node2722914025",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.5890906,
+          34.2127794
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo-kohechi",
+        "name": "Café Hirugashi",
+        "nameLocalized": {
+          "es": "Bon On Sha",
+          "ja": "ひぐらし"
+        },
+        "type": "food",
+        "subtype": "cafe",
+        "stageIndex": 0,
+        "kmFromStart": 0,
+        "icon": "cafe",
+        "source": "osm",
+        "osmId": "node/2722914025",
+        "hours": "We, Fr-Mo 11:00-18:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-accommodation-node3696771536",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.5872302,
+          34.2153366
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo-kohechi",
+        "name": "Hongakuin Temple",
+        "type": "accommodation",
+        "subtype": "hotel",
+        "stageIndex": 0,
+        "kmFromStart": 0,
+        "icon": "hotel",
+        "source": "osm",
+        "osmId": "node/3696771536"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-accommodation-node4198573943",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.5903393,
+          34.2124563
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo-kohechi",
+        "name": "Jimyo-in Shukubo",
+        "nameLocalized": {
+          "es": "Jimyo-in",
+          "ja": "持明院"
+        },
+        "type": "accommodation",
+        "subtype": "hotel",
+        "stageIndex": 0,
+        "kmFromStart": 0,
+        "icon": "hotel",
+        "source": "osm",
+        "osmId": "node/4198573943"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-accommodation-node4780805021",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.5864419,
+          34.2149759
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo-kohechi",
+        "name": "Muryoko-in",
+        "nameLocalized": {
+          "es": "Muryoko-in",
+          "fr": "Muryoko-in"
+        },
+        "type": "accommodation",
+        "subtype": "hotel",
+        "stageIndex": 0,
+        "kmFromStart": 0,
+        "icon": "hotel",
+        "source": "osm",
+        "osmId": "node/4780805021"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-accommodation-node5025094923",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.5860281,
+          34.2142932
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo-kohechi",
+        "name": "Ichijo-in",
+        "nameLocalized": {
+          "es": "Ichijo-in",
+          "fr": "Ichijo-in"
+        },
+        "type": "accommodation",
+        "subtype": "hotel",
+        "stageIndex": 0,
+        "kmFromStart": 0,
+        "icon": "hotel",
+        "source": "osm",
+        "osmId": "node/5025094923"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-accommodation-node5092538151",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.5867455,
+          34.2144129
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo-kohechi",
+        "name": "Fumon-in",
+        "nameLocalized": {
+          "es": "Fumon-in"
+        },
+        "type": "accommodation",
+        "subtype": "hotel",
+        "stageIndex": 0,
+        "kmFromStart": 0,
+        "icon": "hotel",
+        "source": "osm",
+        "osmId": "node/5092538151"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-sacred_site-node5092538152",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.5868796,
+          34.2138114
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo-kohechi",
+        "name": "Fugen-in",
+        "nameLocalized": {
+          "es": "Fugen-in"
+        },
+        "type": "sacred_site",
+        "subtype": "church",
+        "stageIndex": 0,
+        "kmFromStart": 0,
+        "icon": "church",
+        "source": "osm",
+        "osmId": "node/5092538152"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-sacred_site-node5092538174",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.5899334,
+          34.2129795
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo-kohechi",
+        "name": "Jofuku-in",
+        "nameLocalized": {
+          "es": "Jofuku-in"
+        },
+        "type": "sacred_site",
+        "subtype": "church",
+        "stageIndex": 0,
+        "kmFromStart": 0,
+        "icon": "church",
+        "source": "osm",
+        "osmId": "node/5092538174"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-food-node6412021145",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.5861553,
+          34.2136963
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo-kohechi",
+        "name": "Chuoshokudo Sanbo 中央食堂 さんぼう",
+        "type": "food",
+        "subtype": "restaurant",
+        "stageIndex": 0,
+        "kmFromStart": 0,
+        "icon": "restaurant",
+        "source": "osm",
+        "osmId": "node/6412021145"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-sacred_site-node5092538163",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.5869835,
+          34.2101236
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo-kohechi",
+        "name": "Kongosanmai-in",
+        "type": "sacred_site",
+        "subtype": "church",
+        "stageIndex": 0,
+        "kmFromStart": 0.1,
+        "icon": "church",
+        "source": "osm",
+        "osmId": "node/5092538163"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-accommodation-node5046470091",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.5840161,
+          34.2120395
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo-kohechi",
+        "name": "Tentoku-in",
+        "type": "accommodation",
+        "subtype": "hotel",
+        "stageIndex": 0,
+        "kmFromStart": 0.8,
+        "icon": "hotel",
+        "source": "osm",
+        "osmId": "node/5046470091"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-transport-node6435899686",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.5846231,
+          34.2114697
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo-kohechi",
+        "name": "Unnamed",
+        "type": "transport",
+        "subtype": "bus_stop",
+        "stageIndex": 0,
+        "kmFromStart": 0.8,
+        "icon": "bus_stop",
+        "source": "osm",
+        "osmId": "node/6435899686"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-accommodation-node5629787721",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.5869612,
+          34.2116732
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo-kohechi",
+        "name": "Koyasan Guesthouse Kiminoya",
+        "type": "accommodation",
+        "subtype": "guesthouse",
+        "stageIndex": 0,
+        "kmFromStart": 1,
+        "icon": "guesthouse",
+        "source": "osm",
+        "osmId": "node/5629787721"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node2984492821",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.5873851,
+          34.2123802
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo-kohechi",
+        "name": "Daily Yamazaki",
+        "nameLocalized": {
+          "ja": "デイリーヤマザキ"
+        },
+        "type": "supply",
+        "subtype": "convenience_store",
+        "stageIndex": 0,
+        "kmFromStart": 1.1,
+        "icon": "convenience_store",
+        "source": "osm",
+        "osmId": "node/2984492821"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-sacred_site-node5092538158",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.5885972,
+          34.2122938
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo-kohechi",
+        "name": "Saimon-in",
+        "nameLocalized": {
+          "es": "Saimon-in"
+        },
+        "type": "sacred_site",
+        "subtype": "church",
+        "stageIndex": 0,
+        "kmFromStart": 1.1,
+        "icon": "church",
+        "source": "osm",
+        "osmId": "node/5092538158"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-accommodation-node6852828607",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.5907217,
+          34.211597
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo-kohechi",
+        "name": "Fudo-in",
+        "nameLocalized": {
+          "es": "Fudo-in"
+        },
+        "type": "accommodation",
+        "subtype": "hotel",
+        "stageIndex": 0,
+        "kmFromStart": 1.1,
+        "icon": "hotel",
+        "source": "osm",
+        "osmId": "node/6852828607"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-cultural_site-node3101640888",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.6350169,
+          34.1004992
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo-kohechi",
+        "name": "Kaya-Goya Ato Ruin",
+        "type": "cultural_site",
+        "subtype": "ruins",
+        "stageIndex": 1,
+        "kmFromStart": 17.8,
+        "icon": "ruins",
+        "source": "osm",
+        "osmId": "node/3101640888"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node7475989893",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.6932937,
+          34.0372118
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo-kohechi",
+        "name": "Unnamed",
+        "type": "supply",
+        "subtype": "toilet",
+        "stageIndex": 1,
+        "kmFromStart": 29.3,
+        "icon": "toilet",
+        "source": "osm",
+        "osmId": "node/7475989893"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-accommodation-node5517964451",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.6947762,
+          34.0348528
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo-kohechi",
+        "name": "Mandokoro",
+        "nameLocalized": {
+          "ja": "農家民宿　政所"
+        },
+        "type": "accommodation",
+        "subtype": "guesthouse",
+        "stageIndex": 1,
+        "kmFromStart": 29.8,
+        "icon": "guesthouse",
+        "source": "osm",
+        "osmId": "node/5517964451"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node4483811890",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.711999,
+          34.0175567
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo-kohechi",
+        "name": "三浦峠公衆トイレ",
+        "type": "supply",
+        "subtype": "toilet",
+        "stageIndex": 2,
+        "kmFromStart": 34,
+        "icon": "toilet",
+        "source": "osm",
+        "osmId": "node/4483811890"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node4593922890",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.7287227,
+          33.9827769
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo-kohechi",
+        "name": "Unnamed",
+        "type": "supply",
+        "subtype": "toilet",
+        "stageIndex": 2,
+        "kmFromStart": 38.1,
+        "icon": "toilet",
+        "source": "osm",
+        "osmId": "node/4593922890"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node4198794189",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.7363188,
+          33.9723171
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo-kohechi",
+        "name": "Unnamed",
+        "type": "supply",
+        "subtype": "toilet",
+        "stageIndex": 2,
+        "kmFromStart": 40.8,
+        "icon": "toilet",
+        "source": "osm",
+        "osmId": "node/4198794189"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node4198823959",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.7537157,
+          33.9391343
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo-kohechi",
+        "name": "Unnamed",
+        "type": "supply",
+        "subtype": "toilet",
+        "stageIndex": 2,
+        "kmFromStart": 48,
+        "icon": "toilet",
+        "source": "osm",
+        "osmId": "node/4198823959"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-transport-node6402047385",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.7618418,
+          33.9321266
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo-kohechi",
+        "name": "いちざこ",
+        "type": "transport",
+        "subtype": "bus_stop",
+        "stageIndex": 3,
+        "kmFromStart": 49.3,
+        "icon": "bus_stop",
+        "source": "osm",
+        "osmId": "node/6402047385"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-transport-node5705929361",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.7584603,
+          33.9308065
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo-kohechi",
+        "name": "世界遺産石碑前",
+        "type": "transport",
+        "subtype": "bus_stop",
+        "stageIndex": 3,
+        "kmFromStart": 49.7,
+        "icon": "bus_stop",
+        "source": "osm",
+        "osmId": "node/5705929361"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node5702249821",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.7580674,
+          33.9302539
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo-kohechi",
+        "name": "Unnamed",
+        "type": "supply",
+        "subtype": "toilet",
+        "stageIndex": 3,
+        "kmFromStart": 49.8,
+        "icon": "toilet",
+        "source": "osm",
+        "osmId": "node/5702249821"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-sacred_site-node6405914985",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.7471729,
+          33.9143974
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo-kohechi",
+        "name": "Kannon Temple",
+        "type": "sacred_site",
+        "subtype": "church",
+        "stageIndex": 3,
+        "kmFromStart": 51.4,
+        "icon": "church",
+        "source": "osm",
+        "osmId": "node/6405914985"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-transport-node5702788724",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.7590132,
+          33.8756084
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo-kohechi",
+        "name": "八木尾 Yakio bus stop",
+        "type": "transport",
+        "subtype": "bus_stop",
+        "stageIndex": 3,
+        "kmFromStart": 58.6,
+        "icon": "bus_stop",
+        "source": "osm",
+        "osmId": "node/5702788724"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node6405915286",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.7598608,
+          33.8778243
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo-kohechi",
+        "name": "Unnamed",
+        "type": "supply",
+        "subtype": "toilet",
+        "stageIndex": 3,
+        "kmFromStart": 58.6,
+        "icon": "toilet",
+        "source": "osm",
+        "osmId": "node/6405915286"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node13100148616",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.7618256,
+          33.8653134
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo-kohechi",
+        "name": "Unnamed",
+        "type": "supply",
+        "subtype": "vending_machine",
+        "stageIndex": 3,
+        "kmFromStart": 60.1,
+        "icon": "vending_machine",
+        "source": "osm",
+        "osmId": "node/13100148616"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-transport-node11803558883",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.7618386,
+          33.8645382
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo-kohechi",
+        "name": "Michi-no-eki Okukumano",
+        "nameLocalized": {
+          "ja": "道の駅 奥熊野"
+        },
+        "type": "transport",
+        "subtype": "bus_stop",
+        "stageIndex": 3,
+        "kmFromStart": 60.6,
+        "icon": "bus_stop",
+        "source": "osm",
+        "osmId": "node/11803558883"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node10936209205",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.7639971,
+          33.8551386
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo-kohechi",
+        "name": "Unnamed",
+        "type": "supply",
+        "subtype": "toilet",
+        "stageIndex": 3,
+        "kmFromStart": 62.5,
+        "icon": "toilet",
+        "source": "osm",
+        "osmId": "node/10936209205"
+      }
+    }
+  ]
 }

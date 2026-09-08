@@ -1365,7 +1365,52 @@
       }
     }
   ],
-  "marks": [],
+  "marks": [
+    {
+      "id": "wp-osm-supply-node4483811890",
+      "kind": "supply",
+      "name": "三浦峠公衆トイレ",
+      "at": {
+        "lat": 34.017557,
+        "lon": 135.711999
+      },
+      "frac": 0.21710435598159963,
+      "offLineMeters": 32.7
+    },
+    {
+      "id": "wp-osm-supply-node4593922890",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 33.982777,
+        "lon": 135.728723
+      },
+      "frac": 0.48106730125667757,
+      "offLineMeters": 73.8
+    },
+    {
+      "id": "wp-osm-supply-node4198794189",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 33.972317,
+        "lon": 135.736319
+      },
+      "frac": 0.6408698975707692,
+      "offLineMeters": 7.1
+    },
+    {
+      "id": "wp-osm-supply-node4198823959",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 33.939134,
+        "lon": 135.753716
+      },
+      "frac": 0.9664219378039182,
+      "offLineMeters": 17.5
+    }
+  ],
   "stage": {
     "routeId": "kumano-kodo-kohechi",
     "index": 2,

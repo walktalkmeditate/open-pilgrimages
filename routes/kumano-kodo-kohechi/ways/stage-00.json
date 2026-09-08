@@ -1032,6 +1032,22 @@
       }
     },
     {
+      "id": "wp-osm-sacred_site-node5092538163",
+      "frac": 0,
+      "kind": "waypoint",
+      "label": "Kongosanmai-in",
+      "icon": "building.columns",
+      "at": {
+        "lat": 34.210304,
+        "lon": 135.58596
+      },
+      "pin": {
+        "lat": 34.2101236,
+        "lon": 135.5869835
+      },
+      "sitMinutes": 5
+    },
+    {
       "id": "stage-end",
       "frac": 0.999255300392512,
       "kind": "waypoint",
@@ -1050,7 +1066,52 @@
       }
     }
   ],
-  "marks": [],
+  "marks": [
+    {
+      "id": "wp-osm-accommodation-node5046470091",
+      "kind": "bed",
+      "name": "Tentoku-in",
+      "at": {
+        "lat": 34.21204,
+        "lon": 135.584016
+      },
+      "frac": 0,
+      "offLineMeters": 263
+    },
+    {
+      "id": "wp-osm-accommodation-node5629787721",
+      "kind": "bed",
+      "name": "Koyasan Guesthouse Kiminoya",
+      "at": {
+        "lat": 34.211673,
+        "lon": 135.586961
+      },
+      "frac": 0,
+      "offLineMeters": 177.9
+    },
+    {
+      "id": "wp-osm-supply-node2984492821",
+      "kind": "supply",
+      "name": "Daily Yamazaki",
+      "at": {
+        "lat": 34.21238,
+        "lon": 135.587385
+      },
+      "frac": 0,
+      "offLineMeters": 265.5
+    },
+    {
+      "id": "wp-osm-transport-node6435899686",
+      "kind": "transport",
+      "name": "Unnamed",
+      "at": {
+        "lat": 34.21147,
+        "lon": 135.584623
+      },
+      "frac": 0,
+      "offLineMeters": 178.6
+    }
+  ],
   "stage": {
     "routeId": "kumano-kodo-kohechi",
     "index": 0,

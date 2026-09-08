@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
   "release": "v1.7.1",
-  "generatedAt": "2026-09-08T21:35:04.837Z",
+  "generatedAt": "2026-09-08T23:38:35.640Z",
   "pilgrimages": [
     {
       "id": "camino-de-santiago",
@@ -207,9 +207,9 @@
       "pilgrimage": "kumano-kodo",
       "ways": {
         "stageCount": 4,
-        "bytes": 75347,
-        "placesPerStage": 0,
-        "sparse": true
+        "bytes": 80890,
+        "placesPerStage": 0.8,
+        "sparse": false
       }
     },
     {
@@ -227,7 +227,7 @@
       "pilgrimage": "kumano-kodo",
       "ways": {
         "stageCount": 4,
-        "bytes": 65871,
+        "bytes": 65628,
         "placesPerStage": 2.5,
         "sparse": false
       }

@@ -606,17 +606,6 @@
       "offLineMeters": 70.1
     },
     {
-      "id": "wp-osm-supply-node10936209205",
-      "kind": "supply",
-      "name": "Unnamed",
-      "at": {
-        "lat": 33.855139,
-        "lon": 135.763997
-      },
-      "frac": 0.6865286129689694,
-      "offLineMeters": 5.2
-    },
-    {
       "id": "wp-osm-supply-node7472478786",
       "kind": "supply",
       "name": "Yamazaki",

@@ -143,7 +143,23 @@
     </details>
 
     <h2>Waypoints</h2>
-    <p>None yet. <code>waypoints.geojson</code> is present but empty: the settlements, passes and wayside monuments along this route have not been curated into it, and no logistics waypoints have been enriched from OpenStreetMap. The places named in the stage table and the narratives above come from the stage anchors and from OpenStreetMap features measured against the walked line, not from this file. <a href="/contribute">Help fill it in</a>.</p>
+    <p>35 waypoints, every one enriched from OpenStreetMap and carrying its <code>osmId</code>, so a re-run of the enricher reproduces the file exactly. None are hand-curated yet. Each has a <code>stageIndex</code> and a <code>kmFromStart</code>.</p>
+    <table>
+      <caption>Waypoint counts by type on the Kohechi.</caption>
+      <thead>
+        <tr><th scope="col">Type</th><th scope="col">Count</th></tr>
+      </thead>
+      <tbody>
+        <tr><th scope="row">Accommodation</th><td>9</td></tr>
+        <tr><th scope="row">Food (restaurant/caf&eacute;)</th><td>2</td></tr>
+        <tr><th scope="row">Transport (bus/train)</th><td>8</td></tr>
+        <tr><th scope="row">Supply (convenience/toilet)</th><td>10</td></tr>
+        <tr><th scope="row">Sacred sites</th><td>5</td></tr>
+        <tr><th scope="row">Cultural sites</th><td>1</td></tr>
+        <tr><th scope="row">Total</th><td>35</td></tr>
+      </tbody>
+    </table>
+    <p>Nineteen of the 35 stand in K&omacr;yasan, inside the first kilometre of a 16.7 km day, because that is where the buildings are; the mountain in between holds a few toilets and bus stops and nothing else. The far end is thinner than it should be. The corridor searched for places is measured against <code>route.geojson</code>, which is this section&#39;s own relation and stops 1.8 km short of Kumano Hongu Taisha, so the shrine precinct itself &mdash; Haraido-oji, the bus stop at the gate, the last shop &mdash; contributes nothing here. Sixteen OpenStreetMap features lie in that gap. <a href="/contribute">Help fill it in</a>.</p>
 
     <h2>Geometry</h2>
     <p>The walked line is cut from two OpenStreetMap relations: 17131166, the Kohechi, and 17094646, a Nakahechi relation. The second is pinned deliberately. The Kohechi&#39;s own relation ends 1.9 km short of Kumano Hongu Taisha, because the final approach is tagged into the Nakahechi where the two routes converge on the shrine; the join is a shared node, so the pair forms one connected path and the last 2.2 km of this route are the ones the Nakahechi also walks.</p>
@@ -166,7 +182,7 @@
         <tr><td><code>route.main.geojson</code></td><td>The walked line the stages are cut from &mdash; 2,986 points</td></tr>
         <tr><td><a href="https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1/routes/kumano-kodo-kohechi/route.gpx"><code>route.gpx</code></a></td><td>GPX 1.1 track for GPS apps and devices &mdash; 3,061 points</td></tr>
         <tr><td><code>stages.json</code></td><td>4 stages, with interior journey narratives</td></tr>
-        <tr><td><code>waypoints.geojson</code></td><td>Empty &mdash; no waypoints curated yet</td></tr>
+        <tr><td><code>waypoints.geojson</code></td><td>35 waypoints, all from OpenStreetMap</td></tr>
       </tbody>
     </table>
     <p>Available via jsDelivr CDN:</p>

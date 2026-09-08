@@ -867,6 +867,22 @@
       }
     },
     {
+      "id": "wp-osm-sacred_site-node6405914985",
+      "frac": 0.23041486808652112,
+      "kind": "waypoint",
+      "label": "Kannon Temple",
+      "icon": "building.columns",
+      "at": {
+        "lat": 33.91439028124991,
+        "lon": 135.74718521650192
+      },
+      "pin": {
+        "lat": 33.9143974,
+        "lon": 135.7471729
+      },
+      "sitMinutes": 5
+    },
+    {
       "id": "stage-end",
       "frac": 0.9932806779419147,
       "kind": "waypoint",
@@ -885,7 +901,96 @@
       }
     }
   ],
-  "marks": [],
+  "marks": [
+    {
+      "id": "wp-osm-transport-node6402047385",
+      "kind": "transport",
+      "name": "いちざこ",
+      "at": {
+        "lat": 33.932127,
+        "lon": 135.761842
+      },
+      "frac": 0.029363937284406633,
+      "offLineMeters": 273.8
+    },
+    {
+      "id": "wp-osm-transport-node5705929361",
+      "kind": "transport",
+      "name": "世界遺産石碑前",
+      "at": {
+        "lat": 33.930807,
+        "lon": 135.75846
+      },
+      "frac": 0.05053258247084546,
+      "offLineMeters": 4.7
+    },
+    {
+      "id": "wp-osm-supply-node5702249821",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 33.930254,
+        "lon": 135.758067
+      },
+      "frac": 0.05390074175397749,
+      "offLineMeters": 47.1
+    },
+    {
+      "id": "wp-osm-supply-node6405915286",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 33.877824,
+        "lon": 135.759861
+      },
+      "frac": 0.6090989524941387,
+      "offLineMeters": 30.3
+    },
+    {
+      "id": "wp-osm-transport-node5702788724",
+      "kind": "transport",
+      "name": "八木尾 Yakio bus stop",
+      "at": {
+        "lat": 33.875608,
+        "lon": 135.759013
+      },
+      "frac": 0.6270804971028495,
+      "offLineMeters": 8.4
+    },
+    {
+      "id": "wp-osm-supply-node13100148616",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 33.865313,
+        "lon": 135.761826
+      },
+      "frac": 0.718669921562657,
+      "offLineMeters": 185.4
+    },
+    {
+      "id": "wp-osm-transport-node11803558883",
+      "kind": "transport",
+      "name": "Michi-no-eki Okukumano",
+      "at": {
+        "lat": 33.864538,
+        "lon": 135.761839
+      },
+      "frac": 0.7583005867946581,
+      "offLineMeters": 169.4
+    },
+    {
+      "id": "wp-osm-supply-node10936209205",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 33.855139,
+        "lon": 135.763997
+      },
+      "frac": 0.8539003635459451,
+      "offLineMeters": 5.2
+    }
+  ],
   "stage": {
     "routeId": "kumano-kodo-kohechi",
     "index": 3,

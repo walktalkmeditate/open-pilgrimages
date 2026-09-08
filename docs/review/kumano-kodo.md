@@ -29,14 +29,20 @@ asserting, which is why those ticks stand.
 cleared. That second reading is recorded under stage 3 below, beneath the verdicts it was
 checking. All four stages are now ticked.
 
-## What this section does not have
+## What this section did not have when it was read
 
-`routes/kumano-kodo-kohechi/waypoints.geojson` is an empty `FeatureCollection`. The section
-ships **no curated places at all** — `ways/report.json` reports `places.sparse: true` at 0
-places per stage, and the app's card will read "few places marked yet" until the curation
-task fills the file. So the per-stage **Places** line below is empty everywhere, and it says
-so rather than borrowing the Nakahechi's waypoints, which still hold the whole Kōyasan
-cluster under `stageIndex: 3` of a route they no longer belong to.
+At review time `routes/kumano-kodo-kohechi/waypoints.geojson` was an empty
+`FeatureCollection`: `ways/report.json` reported `places.sparse: true` at 0 places per stage,
+and the app's card would have read "few places marked yet". So the per-stage **Places** line
+below is empty everywhere, and it says so rather than borrowing the Nakahechi's waypoints,
+which at that point still held the whole Kōyasan cluster under `stageIndex: 3` of a route
+they no longer belong to.
+
+**Task 9 has since enriched the file.** It now holds 35 OpenStreetMap places, the report
+reads `sparse: false` at 0.8 places per stage, and the Kōyasan cluster has left the
+Nakahechi. The **Places** lines below are left as they were read, because the review is a
+record of what was in front of the reviewer and not a live view of the data; nothing in the
+text was written from a waypoint, so none of the verdicts turns on it.
 
 The OSM features under **Grounding** are therefore not waypoints. They are the features the
 drafter measured against the walked line while writing, recorded in the Task 6 report (which
