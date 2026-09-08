@@ -39,10 +39,11 @@ so rather than borrowing the Nakahechi's waypoints, which still hold the whole K
 cluster under `stageIndex: 3` of a route they no longer belong to.
 
 The OSM features under **Grounding** are therefore not waypoints. They are the features the
-drafter measured against the walked line while writing, recorded in the Task 6 report, and
-they are what each sentence has to be checked against. Distances are to the nearest vertex
-of the committed `route.main.geojson`; along-line positions are on the same line, whose full
-length is 64.327 km.
+drafter measured against the walked line while writing, recorded in the Task 6 report (which
+`.gitignore` keeps out of the repository, so the entries below are the record rather than a
+pointer to one), and they are what each sentence has to be checked against. Distances are to
+the nearest vertex of the committed `route.main.geojson`; along-line positions are on the
+same line, whose full length is 64.327 km.
 
 Nothing in this repository holds those tags, so a later reviewer has to re-fetch them: every
 id below resolves at `https://api.openstreetmap.org/api/0.6/<type>/<id>.json`, or in bulk
@@ -129,10 +130,12 @@ narrative:  The day leaves Koyasan's temple lodgings, climbs to the ridge and st
 reflection: The climbing here is spread across the whole day rather than gathered into one pass — what does that ask of you?
 ```
 
-**Verdicts.** Four of the six findings Task 6's own reviewer left land on this stage. All
-four are **sustained**; three cost the text a phrase, the fourth cost the checklist a
-citation. Every id above was re-fetched from OSM and every metre re-measured on the
-committed line. A fifth entry follows them, for what the tick clears that no finding reached.
+**Verdicts.** Four of the six findings Task 6's own reviewer left land on this stage
+(recorded in that same out-of-repository report, which is why each is stated in full below
+rather than cited to it). All four are **sustained**; three cost the text a phrase, the
+fourth cost the checklist a citation. Every id above was re-fetched from OSM and every metre
+re-measured on the committed line. A fifth entry follows them, for what the tick clears that
+no finding reached.
 
 - **"the hamlet of Otaki" — sustained, struck.** `node/8735601521` is `place=quarter`,
   `official_name=大字大滝`; `大字` is an administrative subdivision. OSM's `place=hamlet`
@@ -151,9 +154,9 @@ committed line. A fifth entry follows them, for what the tick clears that no fin
   `terrainNotes` ("A ridge day … then holds high ground") and on 710 m spread over 16.7 km.
 - **"Koyasan's temple lodgings" — claim upheld, citation replaced.** Confirmed: none of the
   three cited features carries a lodging tag. Confirmed too that the claim stands without
-  them — the eight `tourism=hotel` 院 sub-temples are listed under Grounding above, one of
-  them named "Jimyo-in Shukubo" (宿坊, a temple lodging). The sentence is unchanged; the
-  citation under Grounding is.
+  them — the eight `tourism=hotel` listed under Grounding above, seven of them 院
+  sub-temples, include one named "Jimyo-in Shukubo" (宿坊, a temple lodging). The sentence is
+  unchanged; the citation under Grounding is.
 - **The surviving "so" clause and the reflection — checked, both stand.** No finding reached
   either, and the tick clears both, so the warrant belongs here rather than nowhere. It is
   arithmetic on committed fields: a single climb from the start anchor to the day's high
@@ -171,9 +174,11 @@ committed line. A fifth entry follows them, for what the tick clears that no fin
 at the top of this file, which no committed file carries. It is kept: the model is a
 declared `provenance.sources` entry, it is the same instrument that set the third ordinate
 of all four stage-start anchors — the shrine's 80 m is the Nakahechi's figure, kept so one
-place does not get two heights — and every `highPointMeters` here, the figure is hedged, and
-it sits inside the stage's committed 650–1,170 m range. It is the one sentence on this stage
-a reviewer cannot check from the repository alone.
+place does not get two heights — and three of the four `highPointMeters` here (stage 1's
+1,344 m is `node/2454838213`'s own `ele`, not a model reading, as `metadata.json`'s
+`elevationNote` says), the figure is hedged, and it sits inside the stage's committed
+650–1,170 m range. It is the one sentence on this stage a reviewer cannot check from the
+repository alone.
 
 - [x] kumano-kodo-kohechi stage 0
 
@@ -227,12 +232,12 @@ reflection: The highest ground on the route comes on its shortest day — is tha
     members of relation `17131166`, and `way/126889269` is followed for its whole 5,908 m
     right up to them, so the road is where the route's own line reaches the valley.
   - The road does not stop at Imoze, and stage 2 inherits the rest of it. Its contiguous
-    on-line stretch runs **30.054 → 31.096 km**, 1,041 m, and the boundary at 30.543 km
+    on-line stretch runs **30.054 → 31.096 km**, 1,042 m, and the boundary at 30.543 km
     leaves **553 m** of it in stage 2, where `way/126889956` picks the Kohechi path up again
     at 31.096 km. Nothing there is corrected: stage 2's `terrainNotes` claims no surface for
     that stretch and its `terrainTypes` already carries `"paved"`. The figure is recorded so
     a later reader meets it here rather than re-deriving it as a discrepancy. Nor do 478 and
-    553 sum to 1,041: the road's first vertex, at 30.054 km, is the node it shares with the
+    553 sum to 1,042: the road's first vertex, at 30.054 km, is the node it shares with the
     path, counted to the path above — which is what makes the count 43 vertices rather than
     44, and is the same convention question the way-split bullet below carries a note about.
   - Every way named Kohechi in the Ōmata–Imoze corridor was fetched and measured. The chain
