@@ -12,7 +12,7 @@
   "overview": {
     "distanceKm": 63,
     "distanceNote": {
-      "en": "Measured on the walked line rather than taken from a guidebook, because this repository holds no guidebook figure for these four days. 63 km is the rounded sum of the four stages, as every linear route here declares. The walked line itself measures 64.3 km from the Kohechi's own trailhead at Koyasan to Kumano Hongu Taisha; the stages begin 0.3 km along it, at the Koyasan anchor, and each stage's figure is the length of its packaged slice, which the build simplifies to a tolerance before measuring. The variant stub this section was promoted from declared 70 km and the Tanabe City Kumano Tourism Bureau describes the route as more than 65 km; neither was measured on this line."
+      "en": "Measured on the walked line rather than taken from a guidebook, because this repository holds no guidebook figure for these four days. 63 km is the rounded sum of the four stages, as every linear route here declares; the generated ways/route.json carries that sum unrounded, 63.2 km, the same way camino-frances reads 763.7 against its declared 764. The walked line itself measures 64.3 km from the Kohechi's own trailhead at Koyasan to Kumano Hongu Taisha; the stages begin 0.3 km along it, at the Koyasan anchor, and each stage's figure is the length of its packaged slice, which the build simplifies to a tolerance before measuring. The variant stub this section was promoted from declared 70 km and the Tanabe City Kumano Tourism Bureau describes the route as more than 65 km; neither was measured on this line."
     },
     "estimatedDays": { "min": 3, "max": 5, "typical": 4 },
     "hoursNote": {
