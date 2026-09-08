@@ -707,7 +707,15 @@ export function checkSite(root: string, overrides: PageOverrides = {}): Problem[
    */
   function checkRouteGpx(id: string): void {
     const gpxPath = join(root, "routes", id, "route.gpx");
+    const geojsonPath = join(root, "routes", id, "route.geojson");
     const file = `routes/${id}/route.gpx`;
+
+    // Spec §4.3: a section that ships metadata-only has no route.geojson to
+    // derive a GPX track from — build-assets.ts already skips writing one
+    // for exactly this reason (see its own "missing inputs are skipped"
+    // comment). Neither file will ever exist for such a section, so there
+    // is nothing here to compare.
+    if (!existsSync(gpxPath) && !existsSync(geojsonPath)) return;
 
     if (!existsSync(gpxPath)) {
       add(file, `route "${id}" has no route.gpx — run npm run build-assets`);
@@ -749,6 +757,15 @@ export function checkSite(root: string, overrides: PageOverrides = {}): Problem[
   function checkRoadsAsset(assetId: string, geojsonPath: string): void {
     const svgPath = join(docs, "assets", "roads", `${assetId}.svg`);
     const file = `docs/assets/roads/${assetId}.svg`;
+
+    // Spec §4.3: a section that ships metadata-only has neither a
+    // route.geojson to build a roads corridor from, nor an SVG built from
+    // one — build-assets.ts already skips writing it for exactly that
+    // reason. That's a different shape from an SVG that exists with no
+    // route.geojson behind it (a moved or renamed route directory) — the
+    // doc comment above explains why that orphan case is still reported,
+    // by the existing checks below.
+    if (!existsSync(svgPath) && !existsSync(geojsonPath)) return;
 
     if (!existsSync(svgPath)) {
       add(
@@ -1334,6 +1351,16 @@ export function checkSite(root: string, overrides: PageOverrides = {}): Problem[
   );
 
   for (const id of ids) {
+    // Spec §4.3: a section whose relation is absent, or whose way graph is
+    // discontinuous, ships metadata-only with no route.geojson at all —
+    // not a route awaiting a rebuild. build-assets.ts already skips
+    // writing a glyph, GPX track, or roads corridor for exactly this shape
+    // (see its own "missing inputs are skipped" comment); the checks below
+    // that can only be satisfied by files derived from geometry have to
+    // agree, or a section with nothing to derive them from would fail here
+    // forever.
+    const hasGeometry = existsSync(join(root, "routes", id, "route.geojson"));
+
     if (!routesHtml.includes(`href="/${id}"`)) {
       add("docs/routes.html", `route "${id}" has no link to /${id} in the catalog`);
     }
@@ -1373,22 +1400,25 @@ export function checkSite(root: string, overrides: PageOverrides = {}): Problem[
       checkInlinedAsset("profiles", id, detailPages);
       checkInlinedAsset("sparklines", id, detailPages);
       checkInteriorJourney(id, detailHtml);
-      checkRouteGpxLink(id, detailHtml);
       checkWaypointTypeTables(id, detailHtml);
       if (pilgrimageId !== undefined) {
         checkPilgrimageBacklink(id, pilgrimageId, detailHtml);
       }
 
-      // The coastal variant ships full geometry, a profile, and a sparkline of
-      // its own, but has no detail page — its assets are inlined into the
-      // parent Camino Portugués page instead. It does get its own roads
-      // corridor hero further down that same page, so both ids are checked
-      // in one call — see checkRoadsPageReferences' doc comment for why.
-      checkRoadsPageReferences(
-        `docs/${id}.html`,
-        detailHtml,
-        id === "camino-portugues" ? [id, COASTAL_VARIANT_ASSET_ID] : [id],
-      );
+      if (hasGeometry) {
+        checkRouteGpxLink(id, detailHtml);
+
+        // The coastal variant ships full geometry, a profile, and a sparkline of
+        // its own, but has no detail page — its assets are inlined into the
+        // parent Camino Portugués page instead. It does get its own roads
+        // corridor hero further down that same page, so both ids are checked
+        // in one call — see checkRoadsPageReferences' doc comment for why.
+        checkRoadsPageReferences(
+          `docs/${id}.html`,
+          detailHtml,
+          id === "camino-portugues" ? [id, COASTAL_VARIANT_ASSET_ID] : [id],
+        );
+      }
 
       if (id === "camino-portugues") {
         checkInlinedAsset("routes", "camino-portugues-coastal", detailPages);
@@ -1397,7 +1427,7 @@ export function checkSite(root: string, overrides: PageOverrides = {}): Problem[
       }
     }
 
-    if (!glyphsJs.includes(`"${id}"`)) {
+    if (hasGeometry && !glyphsJs.includes(`"${id}"`)) {
       add(
         "docs/assets/glyphs.js",
         `route "${id}" has no generated glyph — run npm run build-assets`,

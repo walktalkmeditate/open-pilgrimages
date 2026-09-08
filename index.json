@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
   "release": "v1.7.1",
-  "generatedAt": "2026-09-08T18:43:25.679Z",
+  "generatedAt": "2026-09-08T19:43:58.616Z",
   "pilgrimages": [
     {
       "id": "camino-de-santiago",
@@ -165,6 +165,19 @@
       "pilgrimage": "camino-de-santiago"
     },
     {
+      "id": "kumano-kodo-iseji",
+      "name": {
+        "en": "Iseji (Eastern/Coastal Route)",
+        "ja": "伊勢路"
+      },
+      "region": "Asia",
+      "country": "JP",
+      "distanceKm": 170,
+      "topology": "linear",
+      "tradition": "mixed",
+      "path": "routes/kumano-kodo-iseji"
+    },
+    {
       "id": "kumano-kodo-kohechi",
       "name": {
         "en": "Kohechi (Mountain Route)",
@@ -195,23 +208,25 @@
       "topology": "network",
       "tradition": "mixed",
       "path": "routes/kumano-kodo-nakahechi",
-      "variants": [
-        {
-          "id": "iseji",
-          "name": {
-            "en": "Iseji (Eastern/Coastal Route)",
-            "ja": "伊勢路"
-          },
-          "distanceKm": 170,
-          "path": "routes/kumano-kodo-nakahechi/variants/iseji"
-        }
-      ],
       "ways": {
         "stageCount": 4,
         "bytes": 65871,
         "placesPerStage": 2.5,
         "sparse": false
       }
+    },
+    {
+      "id": "kumano-kodo-ohechi",
+      "name": {
+        "en": "Ōhechi (Southern Coastal Route)",
+        "ja": "大辺路"
+      },
+      "region": "Asia",
+      "country": "JP",
+      "distanceKm": 90,
+      "topology": "linear",
+      "tradition": "mixed",
+      "path": "routes/kumano-kodo-ohechi"
     },
     {
       "id": "shikoku-88",

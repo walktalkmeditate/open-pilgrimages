@@ -101,8 +101,10 @@ test("scans every top-level route directory", () => {
     "camino-norte",
     "camino-portugues",
     "camino-primitivo",
+    "kumano-kodo-iseji",
     "kumano-kodo-kohechi",
     "kumano-kodo-nakahechi",
+    "kumano-kodo-ohechi",
     "shikoku-88",
   ]);
 });
@@ -114,10 +116,9 @@ test("attaches variants only to routes that have them", () => {
     byId.get("camino-portugues")!.variants!.map((v) => v.id).sort(),
     ["coastal", "espiritual", "lisboa"],
   );
-  assert.deepEqual(
-    byId.get("kumano-kodo-nakahechi")!.variants!.map((v) => v.id).sort(),
-    ["iseji"],
-  );
+  // The Iseji was promoted from a kumano-kodo-nakahechi variant to its own
+  // section (spec §4.3) — nakahechi carries no variants of its own now.
+  assert.equal(byId.get("kumano-kodo-nakahechi")!.variants, undefined);
   assert.equal(byId.get("camino-frances")!.variants, undefined);
 });
 

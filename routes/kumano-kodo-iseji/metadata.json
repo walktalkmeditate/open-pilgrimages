@@ -1,0 +1,44 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "kumano-kodo-iseji",
+  "lastUpdated": "2026-09-08T00:00:00Z",
+
+  "name": { "en": "Iseji (Eastern/Coastal Route)", "ja": "伊勢路" },
+  "description": { "en": "170 km coastal route from Ise Grand Shrine to Kumano Hayatama Taisha. A series of 20+ mountain passes connecting fishing villages along the eastern coast of the Kii Peninsula. Typically 9-14 days." },
+
+  "overview": {
+    "distanceKm": 170,
+    "estimatedDays": { "min": 9, "max": 14, "typical": 11 },
+    "topology": "linear",
+    "direction": "southwest",
+    "startPoint": { "name": { "en": "Ise Grand Shrine (Ise Jingū)", "ja": "伊勢神宮" }, "coordinates": [136.726, 34.455, 30] },
+    "endPoint": { "name": { "en": "Kumano Hayatama Taisha", "ja": "熊野速玉大社" }, "coordinates": [135.984, 33.732, 10] },
+    "elevationRange": { "minMeters": 0, "maxMeters": 647, "totalAscentMeters": 5000, "totalDescentMeters": 5020 },
+    "difficulty": "moderate",
+    "terrainTypes": ["coastal", "forest", "cobblestone", "mountain", "paved"],
+    "bestMonths": [3, 4, 5, 10, 11],
+    "countries": ["JP"]
+  },
+
+  "tradition": { "type": "mixed", "primaryFaith": "Shinto", "otherFaiths": ["buddhist"] },
+
+  "provenance": {
+    "sources": [
+      {
+        "name": "OpenStreetMap",
+        "url": "https://www.openstreetmap.org/relation/19693803",
+        "license": "ODbL-1.0",
+        "dataTypes": ["query"],
+        "accessDate": "2026-09-08",
+        "notes": "Relation 19693803 is the confirmed Iseji — see the osm block below for why it is pinned even though no walked line ships from it this release."
+      }
+    ],
+    "contributors": [{ "name": "walk · talk · meditate", "role": "initial_author", "url": "https://github.com/walktalkmeditate" }],
+    "license": "ODbL-1.0"
+  },
+
+  "osm": {
+    "relations": [19693803],
+    "note": "Confirmed as the Iseji: wikidata=Q11379141, wikipedia=ja:伊勢路 (熊野古道), and it is Mie Prefecture's own Kumano Kodō site (https://www.kodo.pref.mie.lg.jp/). Pinned here even though this section ships without geometry, so the next attempt starts from a confirmed id rather than repeating a day of research. The relation holds only two ways — 120679201 (1.32 km) and 1128207928 (0.74 km), 2.06 km total against a roughly 170 km route — in two components 22.3 km apart (Kii-Nagashima and the Owase/Kumano-shi area). That is an upstream OpenStreetMap gap, not a wrong id: a corridor-wide sweep for the classic Iseji pass names turns up only about 10 km more of loose, unrelated ways, nowhere near enough to assemble a walked line. ways: null until OpenStreetMap fills in what is missing."
+  }
+}

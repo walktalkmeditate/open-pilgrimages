@@ -1,0 +1,58 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "kumano-kodo-ohechi",
+  "lastUpdated": "2026-09-08T00:00:00Z",
+
+  "name": { "en": "Ōhechi (Southern Coastal Route)", "ja": "大辺路" },
+  "description": { "en": "Roughly 90 km coastal route from Tanabe to Nachi via Kushimoto, rounding Cape Shionomisaki at the southern tip of the Kii Peninsula — the longest of the Kumano Kodō's routes, following the coast rather than the mountain passes of the Nakahechi and Kohechi. This release ships it as a metadata stub only: OpenStreetMap holds no route relation for the Ōhechi at all, so there is no walked line to package yet. See the osm block below for what the corridor sweep found." },
+
+  "overview": {
+    "distanceKm": 90,
+    "distanceNote": {
+      "en": "90 km and about four days are the scoping figures this pilgrimage's own design spec sets for the Ōhechi (docs/superpowers/specs/2026-09-05-pilgrimages-and-sections-design.md, section 5.2) — not measured against a walked line, because none exists yet and OSM does not yet hold enough of this trail to build one. Expect this figure to be corrected once the section is cut."
+    },
+    "estimatedDays": { "min": 3, "max": 6, "typical": 4 },
+    "topology": "linear",
+    "direction": "southeast",
+    "startPoint": {
+      "name": { "en": "Tanabe", "ja": "田辺" },
+      "coordinates": [135.3834, 33.732, 10]
+    },
+    "endPoint": {
+      "name": { "en": "Kumano Nachi Taisha", "ja": "熊野那智大社" },
+      "coordinates": [135.89, 33.668, 330]
+    },
+    "difficulty": "moderate",
+    "terrainTypes": ["coastal", "paved", "forest", "urban"],
+    "bestMonths": [3, 4, 5, 10, 11],
+    "countries": ["JP"]
+  },
+
+  "tradition": { "type": "mixed", "primaryFaith": "Shinto", "otherFaiths": ["buddhist"] },
+
+  "provenance": {
+    "sources": [
+      {
+        "name": "This repository's own planning",
+        "license": "reference",
+        "dataTypes": ["overview"],
+        "accessDate": "2026-09-08",
+        "notes": "distanceKm and estimatedDays are the scoping figures from docs/superpowers/specs/2026-09-05-pilgrimages-and-sections-design.md section 5.2, recorded in overview.distanceNote."
+      },
+      {
+        "name": "OpenStreetMap",
+        "url": "https://www.openstreetmap.org",
+        "license": "ODbL-1.0",
+        "dataTypes": ["query"],
+        "accessDate": "2026-09-08",
+        "notes": "A relation sweep of the Tanabe to Kushimoto to Nachi corridor found no Ōhechi route relation — see the osm block below. No geometry ships from this source this release."
+      }
+    ],
+    "contributors": [{ "name": "walk · talk · meditate", "role": "initial_author", "url": "https://github.com/walktalkmeditate" }],
+    "license": "ODbL-1.0"
+  },
+
+  "osm": {
+    "note": "No relation exists. A sweep of every route/hiking/foot/pilgrimage relation in the Tanabe → Kushimoto → Nachi corridor returned seven relations, and all seven are Nakahechi or Kohechi — nothing named or tagged for the Ōhechi. The trail exists in OpenStreetMap only as five loose, unrelated ways clustered inside Tanabe, 0.58 km in total: way 298987443 (name:en=\"Kumano Kodo Ohechi Route\") plus four unnamed neighbours (300025709, 300025708, 129180109, 129185848). No relation id is recorded here because none exists; inventing one, or pinning a neighbouring route's relation, would misrepresent what OSM holds. ways: null until a route relation is created upstream."
+  }
+}

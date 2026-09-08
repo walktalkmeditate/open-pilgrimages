@@ -2,7 +2,7 @@
 
 A canonical, open-source dataset of pilgrimage routes worldwide.
 
-159,624 GPS points. 11,870 waypoints. 113 stages. 8 routes across 3 traditions. All structured as JSON and GeoJSON.
+159,624 GPS points. 11,870 waypoints. 113 stages. 10 routes across 3 traditions. All structured as JSON and GeoJSON.
 
 ## What's In the Box
 
@@ -28,8 +28,10 @@ Routes that belong to no pilgrimage grouping yet.
 | Route | Distance | Topology | Tradition | Route Points | Waypoints | Stats |
 |-------|----------|----------|-----------|-------------|-----------|-------|
 | [Shikoku 88](routes/shikoku-88/) | 1,200 km | Circular | Buddhist | 49,097 | 2,980 | 21 years (2005-2025) |
-| [Kumano Kodo](routes/kumano-kodo-nakahechi/) | 36-170 km | Network | Shinto/Buddhist | 3,786 | 157 | 22 years (2003-2024) |
+| [Kumano Kodo](routes/kumano-kodo-nakahechi/) | 36 km | Network | Shinto/Buddhist | 3,786 | 157 | 22 years (2003-2024) |
 | [Kohechi](routes/kumano-kodo-kohechi/) | 63 km | Linear | Shinto/Buddhist | 3,061 | 0 | — |
+| [Iseji](routes/kumano-kodo-iseji/) | 170 km | Linear | Shinto/Buddhist | 0 | 0 | — |
+| [Ōhechi](routes/kumano-kodo-ohechi/) | 90 km | Linear | Shinto/Buddhist | 0 | 0 | — |
 
 ### Three Layers of Data
 

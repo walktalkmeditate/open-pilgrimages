@@ -11,7 +11,7 @@ const ROOT = join(import.meta.dirname, "..");
 test("totals match the figures published on the site and README", () => {
   const { totals } = computeStats(ROOT);
 
-  assert.equal(totals.routes, 8);
+  assert.equal(totals.routes, 10);
   assert.equal(totals.routePoints, 159624);
   assert.equal(totals.waypoints, 11870);
   assert.equal(totals.stages, 113);

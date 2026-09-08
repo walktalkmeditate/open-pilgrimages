@@ -168,6 +168,61 @@ test("checkSite accepts a detail page that identifies its own route via <code>",
   }
 });
 
+// Spec §4.3: a section whose relation is absent, or whose way graph is
+// discontinuous, ships metadata-only with no route.geojson at all — a
+// section with no geometry, not merely a route awaiting a rebuild.
+// build-assets.ts already skips writing a glyph, GPX track, or roads
+// corridor for exactly this shape (see its own "missing inputs are
+// skipped" comment); check-site must agree, or a section that can never
+// honestly produce those files would fail forever.
+test("checkSite does not require route.gpx, a glyph, or a roads corridor SVG for a metadata-only section with no route.geojson (fixture)", () => {
+  const root = createFixtureRoot([{ id: "kumano-kodo-ohechi" }]);
+  mkdirSync(join(root, "routes", "kumano-kodo-ohechi"), { recursive: true });
+  writeFileSync(
+    join(root, "docs", "kumano-kodo-ohechi.html"),
+    "<html><body><code>kumano-kodo-ohechi</code></body></html>",
+  );
+
+  try {
+    const problems = checkSite(root);
+    // Scoped to this route's own files/messages: checkSite always runs the
+    // unconditional coastal-variant roads check too (see line ~1484), which
+    // has nothing to do with this route and would otherwise be mistaken for
+    // a leak of the exemption below.
+    const own = problems.filter(
+      (p) => p.file.includes("kumano-kodo-ohechi") || p.message.includes("kumano-kodo-ohechi"),
+    );
+    const messages = own.map((p) => p.message);
+
+    assert.ok(!messages.some((m) => m.includes("has no route.gpx")));
+    assert.ok(!messages.some((m) => m.includes("has no link to its route.gpx")));
+    assert.ok(!messages.some((m) => m.includes("has no generated glyph")));
+    assert.ok(!messages.some((m) => m.includes("has no roads corridor SVG")));
+    assert.ok(!messages.some((m) => m.includes("has no reference to its roads corridor SVG")));
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+// The exemption above is scoped to routes with no route.geojson — not to
+// every route, or a real section's rebuild-pending assets would go
+// unpoliced too.
+test("checkSite still requires route.gpx for a route that has its own route.geojson (fixture)", () => {
+  const root = createFixtureRoot([{ id: "camino-frances" }]);
+  mkdirSync(join(root, "routes", "camino-frances"), { recursive: true });
+  writeFileSync(
+    join(root, "routes", "camino-frances", "route.geojson"),
+    JSON.stringify({ type: "FeatureCollection", features: [] }),
+  );
+
+  try {
+    const problems = checkSite(root);
+    assert.ok(problems.some((p) => p.message.includes("has no route.gpx")));
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
 test("the committed docs/index.html already uses extensionless internal links (positive control)", () => {
   // #given docs/index.html was rebuilt in Task 10 with extensionless nav/canonical/OG links
   // #when / #then checkSite reports no .html-extension problems for that file
@@ -541,8 +596,16 @@ test("a README km cell range (network routes like Kumano Kodo) is checked agains
 
   // #when / #then checkSite accepts the range because its leading figure matches
   const problems = checkSite(ROOT, { readmeMd });
+  // Scoped to the two ids this synthetic readmeMd actually carries a row
+  // for — a bare "kumano-kodo" substring match would also catch the real
+  // repo's other kumano-kodo-* sections, which this fixture's readmeMd
+  // never mentions and so are correctly reported as missing.
   assert.deepEqual(
-    problems.filter((p) => p.file === "README.md" && p.message.includes("kumano-kodo")),
+    problems.filter(
+      (p) =>
+        p.file === "README.md" &&
+        (p.message.includes('"kumano-kodo-nakahechi"') || p.message.includes('"kumano-kodo-kohechi"')),
+    ),
     [],
   );
 });
@@ -1097,8 +1160,14 @@ test("checkSite reports a variants table row with no matching entry in index.jso
 // existence/non-empty check would miss a file that is present but stale.
 
 test("checkSite reports a route with no route.gpx file (fixture)", () => {
-  // #given an index.json listing a route with no routes/{id}/route.gpx on disk
+  // #given a route with its own route.geojson (so the check applies) but no
+  // routes/{id}/route.gpx on disk
   const root = createFixtureRoot([{ id: "camino-frances" }]);
+  mkdirSync(join(root, "routes", "camino-frances"), { recursive: true });
+  writeFileSync(
+    join(root, "routes", "camino-frances", "route.geojson"),
+    JSON.stringify({ type: "FeatureCollection", features: [] }),
+  );
 
   try {
     // #when / #then checkSite reports the missing file, naming the route
@@ -1115,9 +1184,13 @@ test("checkSite reports a route with no route.gpx file (fixture)", () => {
 });
 
 test("checkSite reports an empty route.gpx file, distinct from a missing one (fixture)", () => {
-  // #given a routes/{id}/route.gpx that exists on disk but is empty
+  // #given a route with its own route.geojson, whose route.gpx exists on disk but is empty
   const root = createFixtureRoot([{ id: "camino-frances" }]);
   mkdirSync(join(root, "routes", "camino-frances"), { recursive: true });
+  writeFileSync(
+    join(root, "routes", "camino-frances", "route.geojson"),
+    JSON.stringify({ type: "FeatureCollection", features: [] }),
+  );
   writeFileSync(join(root, "routes", "camino-frances", "route.gpx"), "");
 
   try {
@@ -1768,8 +1841,14 @@ test("the committed docs/{id}.html pages already link their own route.gpx (posit
 });
 
 test("checkSite reports a detail page with no link to its own route.gpx (fixture)", () => {
-  // #given a detail page that identifies its route but never links its route.gpx
+  // #given a route with its own route.geojson (so the gpx-link check applies)
+  // whose detail page identifies its route but never links its route.gpx
   const root = createFixtureRoot([{ id: "camino-frances" }]);
+  mkdirSync(join(root, "routes", "camino-frances"), { recursive: true });
+  writeFileSync(
+    join(root, "routes", "camino-frances", "route.geojson"),
+    JSON.stringify({ type: "FeatureCollection", features: [] }),
+  );
   writeFileSync(join(root, "docs", "camino-frances.html"), "<html><body><code>camino-frances</code></body></html>");
 
   try {
@@ -2273,6 +2352,14 @@ function roadsPageReferenceFixtureRoot(id: string): string {
   const routeDir = join(root, "routes", id);
   mkdirSync(routeDir, { recursive: true });
   writeFileSync(join(routeDir, "metadata.json"), JSON.stringify({}));
+  // These fixtures test whether a detail page references its own roads
+  // corridor SVG — a route with no route.geojson at all (spec §4.3
+  // metadata-only) is exempt from needing one, so route.geojson here makes
+  // this fixture's implicit "this route has geometry" premise explicit.
+  writeFileSync(
+    join(routeDir, "route.geojson"),
+    JSON.stringify({ type: "FeatureCollection", features: [] }),
+  );
   return root;
 }
 
