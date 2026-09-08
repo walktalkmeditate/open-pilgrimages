@@ -1219,21 +1219,6 @@
   "theirActiveSeconds": 27000,
   "moments": [
     {
-      "id": "wp-osm-town-node891671759",
-      "frac": 0,
-      "kind": "waypoint",
-      "label": "Barrio de Pescadores",
-      "icon": "house.lodge",
-      "at": {
-        "lat": 43.411026,
-        "lon": -3.417395
-      },
-      "pin": {
-        "lat": 43.4122211,
-        "lon": -3.4164301
-      }
-    },
-    {
       "id": "wp-osm-town-node288260761",
       "frac": 0.00011257371440391026,
       "kind": "waypoint",
@@ -1247,38 +1232,6 @@
         "lat": 43.41063,
         "lon": -3.4173
       }
-    },
-    {
-      "id": "wp-osm-viewpoint-node14051902262",
-      "frac": 0.104510320887501,
-      "kind": "waypoint",
-      "label": "Unnamed",
-      "icon": "eye",
-      "at": {
-        "lat": 43.42471255751236,
-        "lon": -3.445528943770496
-      },
-      "pin": {
-        "lat": 43.4248304,
-        "lon": -3.4450225
-      },
-      "sitMinutes": 5
-    },
-    {
-      "id": "wp-osm-viewpoint-node1654406651",
-      "frac": 0.16934006079174663,
-      "kind": "waypoint",
-      "label": "Unnamed",
-      "icon": "eye",
-      "at": {
-        "lat": 43.43913942559751,
-        "lon": -3.4549796374027952
-      },
-      "pin": {
-        "lat": 43.4391326,
-        "lon": -3.4550225
-      },
-      "sitMinutes": 5
     },
     {
       "id": "wp-osm-town-node288260865",
@@ -1316,70 +1269,6 @@
       "sitMinutes": 5
     },
     {
-      "id": "wp-osm-viewpoint-node9807291417",
-      "frac": 0.3083018250010149,
-      "kind": "waypoint",
-      "label": "Unnamed",
-      "icon": "eye",
-      "at": {
-        "lat": 43.46522497311849,
-        "lon": -3.477687384886357
-      },
-      "pin": {
-        "lat": 43.4652248,
-        "lon": -3.4776869
-      },
-      "sitMinutes": 5
-    },
-    {
-      "id": "wp-osm-viewpoint-node14131447702",
-      "frac": 0.31387719689643473,
-      "kind": "waypoint",
-      "label": "Unnamed",
-      "icon": "eye",
-      "at": {
-        "lat": 43.46656538758499,
-        "lon": -3.4767788817479506
-      },
-      "pin": {
-        "lat": 43.4665469,
-        "lon": -3.4767271
-      },
-      "sitMinutes": 5
-    },
-    {
-      "id": "wp-osm-viewpoint-node14131464906",
-      "frac": 0.3190158752233169,
-      "kind": "waypoint",
-      "label": "Unnamed",
-      "icon": "eye",
-      "at": {
-        "lat": 43.46788531211693,
-        "lon": -3.4765571916969042
-      },
-      "pin": {
-        "lat": 43.4679323,
-        "lon": -3.477141
-      },
-      "sitMinutes": 5
-    },
-    {
-      "id": "wp-osm-viewpoint-node9807291517",
-      "frac": 0.3212732340127507,
-      "kind": "waypoint",
-      "label": "Unnamed",
-      "icon": "eye",
-      "at": {
-        "lat": 43.46838291199501,
-        "lon": -3.476836599553197
-      },
-      "pin": {
-        "lat": 43.4683922,
-        "lon": -3.4768344
-      },
-      "sitMinutes": 5
-    },
-    {
       "id": "wp-osm-viewpoint-node13039144562",
       "frac": 0.42923658752721383,
       "kind": "waypoint",
@@ -1411,21 +1300,6 @@
       }
     },
     {
-      "id": "wp-osm-town-node1260905895",
-      "frac": 0.4784958105457287,
-      "kind": "waypoint",
-      "label": "Barrio Tregandín",
-      "icon": "house.lodge",
-      "at": {
-        "lat": 43.478743897921156,
-        "lon": -3.5234207604065317
-      },
-      "pin": {
-        "lat": 43.4794719,
-        "lon": -3.5232803
-      }
-    },
-    {
       "id": "wp-osm-sacred_site-node12790499754",
       "frac": 0.49594972738740833,
       "kind": "waypoint",
@@ -1440,67 +1314,6 @@
         "lon": -3.5305787
       },
       "sitMinutes": 5
-    },
-    {
-      "id": "wp-osm-town-node1260889138",
-      "frac": 0.5038414954707736,
-      "kind": "waypoint",
-      "label": "Barrio Cabanzo",
-      "icon": "house.lodge",
-      "at": {
-        "lat": 43.47449939251572,
-        "lon": -3.52906644668087
-      },
-      "pin": {
-        "lat": 43.4753539,
-        "lon": -3.5296782
-      }
-    },
-    {
-      "id": "wp-osm-town-node288260845",
-      "frac": 0.5766070892461067,
-      "kind": "waypoint",
-      "label": "Castillo Siete Villas",
-      "icon": "house.lodge",
-      "at": {
-        "lat": 43.461263,
-        "lon": -3.543752
-      },
-      "pin": {
-        "lat": 43.4605951,
-        "lon": -3.543732
-      }
-    },
-    {
-      "id": "wp-osm-sacred_site-node4352435143",
-      "frac": 0.6952317531771668,
-      "kind": "waypoint",
-      "label": "Unnamed",
-      "icon": "building.columns",
-      "at": {
-        "lat": 43.458548,
-        "lon": -3.581056
-      },
-      "pin": {
-        "lat": 43.4575611,
-        "lon": -3.5795883
-      },
-      "sitMinutes": 5
-    },
-    {
-      "id": "wp-osm-town-node288260829",
-      "frac": 0.7718505021208731,
-      "kind": "waypoint",
-      "label": "Bareyo",
-      "icon": "house.lodge",
-      "at": {
-        "lat": 43.46818084636666,
-        "lon": -3.598189088717913
-      },
-      "pin": {
-        "lat": 43.46812,
-        "lon": -3.59844
-      }
     },
     {
       "id": "wp-osm-sacred_site-node7839854585",

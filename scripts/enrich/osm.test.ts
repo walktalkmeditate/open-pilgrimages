@@ -3,7 +3,9 @@ import assert from "node:assert/strict";
 import { existsSync, mkdtempSync, readdirSync, rmSync, writeFileSync } from "fs";
 import { tmpdir } from "os";
 import { join } from "path";
-import { CLIENT_TIMEOUT_MS, queryOverpass, buildPoiQuery, classifyNode } from "./osm.js";
+import {
+  CLIENT_TIMEOUT_MS, queryOverpass, buildPoiQuery, classifyNode, extractName, resolveName,
+} from "./osm.js";
 
 // This suite never touches the network: every test injects a fake `fetch` and
 // a temp cache directory through queryOverpass's OverpassRuntime, so nothing
@@ -168,7 +170,19 @@ test("the POI query asks for the places a walk is remembered by", () => {
   assert.match(q, /amenity"="place_of_worship/);
   assert.match(q, /historic"="monastery/);
   assert.match(q, /tourism"="viewpoint/);
-  assert.match(q, /place"~"\^\(city\|town\|village\|hamlet\)\$/);
+  assert.match(q, /place"~"\^\(city\|town\|village\)\$/);
+});
+
+test("the query does not ask for hamlets, and nothing maps them if one arrives anyway", () => {
+  // #given the settlement regex
+  const pattern = buildPoiQuery([-2, 43, -1, 44]).match(/node\["place"~"([^"]+)"\]/)?.[1];
+  // #then a hamlet is neither asked for
+  assert.doesNotMatch("hamlet", new RegExp(pattern!));
+  // #nor classified, so a stale cache holding hamlets still yields none
+  assert.equal(
+    classifyNode({ type: "node", id: 5, lat: 43, lon: -2, tags: { place: "hamlet" } }),
+    null,
+  );
 });
 
 test("the place regex is anchored, so it cannot match a value that merely contains one", () => {
@@ -176,8 +190,8 @@ test("the place regex is anchored, so it cannot match a value that merely contai
   const pattern = q.match(/node\["place"~"([^"]+)"\]/)?.[1];
   assert.ok(pattern, "the query must still ask for place nodes");
   const places = new RegExp(pattern);
-  // #then the four settlement sizes still match
-  for (const value of ["city", "town", "village", "hamlet"]) assert.match(value, places);
+  // #then the three settlement sizes still match
+  for (const value of ["city", "town", "village"]) assert.match(value, places);
   // #and a value that merely contains one does not — `city_block` is a real
   // OSM place value, and unanchored it would have come back as a settlement
   for (const value of ["city_block", "township"]) {
@@ -201,6 +215,17 @@ test("a viewpoint and a village classify to their own types", () => {
     classifyNode({ type: "node", id: 3, lat: 43, lon: -2, tags: { place: "village" } }),
     { type: "town", subtype: "village" },
   );
+});
+
+test("resolveName reports the absence of a name that extractName papers over", () => {
+  // #given a node OSM never named
+  // #then resolveName says so, while extractName still hands back the
+  // placeholder every existing service waypoint is labelled with
+  assert.equal(resolveName({}), undefined);
+  assert.equal(extractName({}), "Unnamed");
+  // #and a name in any of the four accepted keys resolves
+  assert.equal(resolveName({ "name:es": "Ermita" }), "Ermita");
+  assert.equal(extractName({ "name:es": "Ermita" }), "Ermita");
 });
 
 test("a service tag still wins over a place tag on the same node", () => {

@@ -799,167 +799,6 @@
       }
     },
     {
-      "id": "wp-osm-town-node1958698271",
-      "frac": 0.10989709094426628,
-      "kind": "waypoint",
-      "label": "Quintana",
-      "icon": "house.lodge",
-      "at": {
-        "lat": 43.54526675628252,
-        "lon": -6.410078049746592
-      },
-      "pin": {
-        "lat": 43.547135,
-        "lon": -6.409683
-      }
-    },
-    {
-      "id": "wp-osm-town-node8097734037",
-      "frac": 0.31367041911019083,
-      "kind": "waypoint",
-      "label": "Queirúas",
-      "icon": "house.lodge",
-      "at": {
-        "lat": 43.5487964166766,
-        "lon": -6.44338530482373
-      },
-      "pin": {
-        "lat": 43.5490769,
-        "lon": -6.442194
-      },
-      "names": {
-        "ast": "Queirúas"
-      }
-    },
-    {
-      "id": "wp-osm-town-node8097491156",
-      "frac": 0.3910114535356194,
-      "kind": "waypoint",
-      "label": "El Chanu",
-      "icon": "house.lodge",
-      "at": {
-        "lat": 43.544689,
-        "lon": -6.45195
-      },
-      "pin": {
-        "lat": 43.5449788,
-        "lon": -6.450026
-      }
-    },
-    {
-      "id": "wp-osm-town-node8097435358",
-      "frac": 0.4046075925291656,
-      "kind": "waypoint",
-      "label": "Caneiru",
-      "icon": "house.lodge",
-      "at": {
-        "lat": 43.543239,
-        "lon": -6.452327
-      },
-      "pin": {
-        "lat": 43.5411618,
-        "lon": -6.4522469
-      },
-      "names": {
-        "ast": "Caneiru",
-        "es": "Canero"
-      }
-    },
-    {
-      "id": "wp-osm-town-node180559021",
-      "frac": 0.7850638508140104,
-      "kind": "waypoint",
-      "label": "Barcia",
-      "icon": "house.lodge",
-      "at": {
-        "lat": 43.538894139725414,
-        "lon": -6.5078868821787195
-      },
-      "pin": {
-        "lat": 43.5388035,
-        "lon": -6.5080908
-      }
-    },
-    {
-      "id": "wp-osm-town-node8100633814",
-      "frac": 0.888054920321935,
-      "kind": "waypoint",
-      "label": "Barceḷḷina",
-      "icon": "house.lodge",
-      "at": {
-        "lat": 43.54151713687851,
-        "lon": -6.5217722463129055
-      },
-      "pin": {
-        "lat": 43.5414792,
-        "lon": -6.5218019
-      }
-    },
-    {
-      "id": "wp-osm-sacred_site-node5644260457",
-      "frac": 0.9516309295719177,
-      "kind": "waypoint",
-      "label": "Unnamed",
-      "icon": "building.columns",
-      "at": {
-        "lat": 43.546469,
-        "lon": -6.52993
-      },
-      "pin": {
-        "lat": 43.5485121,
-        "lon": -6.5322652
-      },
-      "sitMinutes": 5
-    },
-    {
-      "id": "wp-osm-viewpoint-node9848726517",
-      "frac": 0.9524958915310198,
-      "kind": "waypoint",
-      "label": "Unnamed",
-      "icon": "eye",
-      "at": {
-        "lat": 43.54637459163269,
-        "lon": -6.530036765181137
-      },
-      "pin": {
-        "lat": 43.5463941,
-        "lon": -6.5300696
-      },
-      "sitMinutes": 5
-    },
-    {
-      "id": "wp-osm-viewpoint-node3569489402",
-      "frac": 0.981646888311859,
-      "kind": "waypoint",
-      "label": "Unnamed",
-      "icon": "eye",
-      "at": {
-        "lat": 43.544339,
-        "lon": -6.534526
-      },
-      "pin": {
-        "lat": 43.545358,
-        "lon": -6.5364545
-      },
-      "sitMinutes": 5
-    },
-    {
-      "id": "wp-osm-sacred_site-node3029781859",
-      "frac": 0.9864869521439529,
-      "kind": "waypoint",
-      "label": "Unnamed",
-      "icon": "building.columns",
-      "at": {
-        "lat": 43.54377519245529,
-        "lon": -6.534581410557398
-      },
-      "pin": {
-        "lat": 43.5437358,
-        "lon": -6.5344817
-      },
-      "sitMinutes": 5
-    },
-    {
       "id": "wp-osm-town-node101422863",
       "frac": 0.9885583040214792,
       "kind": "waypoint",
@@ -1101,6 +940,17 @@
       "offLineMeters": 11.4
     },
     {
+      "id": "wp-osm-transport-node12335334052",
+      "kind": "transport",
+      "name": "Barcellina (La Castellana)",
+      "at": {
+        "lat": 43.541673,
+        "lon": -6.521933
+      },
+      "frac": 0.8893182649057806,
+      "offLineMeters": 8.7
+    },
+    {
       "id": "wp-osm-transport-node12348427432",
       "kind": "transport",
       "name": "Villar (El Truébano)",
@@ -1143,6 +993,17 @@
       },
       "frac": 0.9436119530692045,
       "offLineMeters": 14.7
+    },
+    {
+      "id": "wp-osm-transport-node12335334048",
+      "kind": "transport",
+      "name": "Cementerio",
+      "at": {
+        "lat": 43.548224,
+        "lon": -6.532143
+      },
+      "frac": 0.9516309295719177,
+      "offLineMeters": 264.3
     },
     {
       "id": "wp-osm-food-node9150162904",
@@ -1198,6 +1059,28 @@
       },
       "frac": 0.981646888311859,
       "offLineMeters": 87.3
+    },
+    {
+      "id": "wp-osm-transport-node12335334053",
+      "kind": "transport",
+      "name": "Luarca (Estación de Autobuses)",
+      "at": {
+        "lat": 43.543548,
+        "lon": -6.534003
+      },
+      "frac": 0.9864784996201788,
+      "offLineMeters": 53
+    },
+    {
+      "id": "wp-osm-accommodation-node3566893812",
+      "kind": "bed",
+      "name": "Hostal Oria",
+      "at": {
+        "lat": 43.543703,
+        "lon": -6.534627
+      },
+      "frac": 0.9870486667024052,
+      "offLineMeters": 0.6
     },
     {
       "id": "wp-osm-accommodation-node3566946417",

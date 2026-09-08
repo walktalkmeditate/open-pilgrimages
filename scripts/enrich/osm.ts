@@ -95,6 +95,12 @@ export async function queryOverpass(
   return data;
 }
 
+/**
+ * `place=hamlet` is deliberately absent from the settlement regex. Asking for
+ * it on the Camino del Norte returned 519 of them — a named cluster of houses
+ * every few hundred metres — against 51 cities, towns and villages, and the
+ * spec asks for the stage towns, not every roadside name on the map.
+ */
 export function buildPoiQuery(bbox: [number, number, number, number]): string {
   const [west, south, east, north] = bbox;
   const bb = `(${south},${west},${north},${east})`;
@@ -121,7 +127,7 @@ export function buildPoiQuery(bbox: [number, number, number, number]): string {
   node["historic"="wayside_shrine"]${bb};
   node["historic"="ruins"]${bb};
   node["tourism"="viewpoint"]${bb};
-  node["place"~"^(city|town|village|hamlet)$"]${bb};
+  node["place"~"^(city|town|village)$"]${bb};
 );
 out body;`;
 }
@@ -178,7 +184,6 @@ export const OSM_TAG_MAP: Record<string, { type: string; subtype: string }> = {
   "place=city": { type: "town", subtype: "city" },
   "place=town": { type: "town", subtype: "town" },
   "place=village": { type: "town", subtype: "village" },
-  "place=hamlet": { type: "town", subtype: "hamlet" },
 };
 
 export function classifyNode(node: OsmNode): { type: string; subtype: string } | null {
@@ -190,8 +195,17 @@ export function classifyNode(node: OsmNode): { type: string; subtype: string } |
   return null;
 }
 
+/**
+ * Undefined when OSM gave the node no name at all, so a caller can tell that
+ * apart from the "Unnamed" placeholder extractName hands back — the two look
+ * identical downstream, and only one of them is a name a walker can read.
+ */
+export function resolveName(tags: Record<string, string>): string | undefined {
+  return tags["name:en"] || tags["name"] || tags["name:ja"] || tags["name:es"] || undefined;
+}
+
 export function extractName(tags: Record<string, string>): string {
-  return tags["name:en"] || tags["name"] || tags["name:ja"] || tags["name:es"] || "Unnamed";
+  return resolveName(tags) ?? "Unnamed";
 }
 
 export function extractNameLocalized(tags: Record<string, string>): Record<string, string> | undefined {

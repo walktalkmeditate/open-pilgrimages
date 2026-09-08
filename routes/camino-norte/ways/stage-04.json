@@ -1594,24 +1594,6 @@
       }
     },
     {
-      "id": "wp-osm-town-node3459095030",
-      "frac": 0.39363588203439387,
-      "kind": "waypoint",
-      "label": "Uriona",
-      "icon": "house.lodge",
-      "at": {
-        "lat": 43.25469296830922,
-        "lon": -2.581357195957868
-      },
-      "pin": {
-        "lat": 43.2546368,
-        "lon": -2.5814158
-      },
-      "names": {
-        "eu": "Uriona"
-      }
-    },
-    {
       "id": "wp-osm-sacred_site-node3774929718",
       "frac": 0.9759484870364472,
       "kind": "waypoint",

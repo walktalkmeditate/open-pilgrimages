@@ -1287,22 +1287,6 @@
       }
     },
     {
-      "id": "wp-osm-viewpoint-node12738681101",
-      "frac": 0.07063534442866923,
-      "kind": "waypoint",
-      "label": "Unnamed",
-      "icon": "eye",
-      "at": {
-        "lat": 43.31540430508438,
-        "lon": -1.9981143229909015
-      },
-      "pin": {
-        "lat": 43.3157403,
-        "lon": -1.9980148
-      },
-      "sitMinutes": 5
-    },
-    {
       "id": "wp-osm-sacred_site-node1929705171",
       "frac": 0.1497991346781722,
       "kind": "waypoint",
@@ -1315,41 +1299,6 @@
       "pin": {
         "lat": 43.3148645,
         "lon": -2.0136676
-      },
-      "sitMinutes": 5
-    },
-    {
-      "id": "wp-osm-viewpoint-node6203300724",
-      "frac": 0.17651275475033315,
-      "kind": "waypoint",
-      "label": "Unnamed",
-      "icon": "eye",
-      "at": {
-        "lat": 43.31921373351955,
-        "lon": -2.017467811371932
-      },
-      "pin": {
-        "lat": 43.3192824,
-        "lon": -2.0174169
-      },
-      "sitMinutes": 5
-    },
-    {
-      "id": "wp-osm-viewpoint-node5036624722",
-      "frac": 0.7029093349235699,
-      "kind": "waypoint",
-      "label": "Unnamed",
-      "icon": "eye",
-      "at": {
-        "lat": 43.27779877607796,
-        "lon": -2.1253121750177306
-      },
-      "pin": {
-        "lat": 43.2778009,
-        "lon": -2.1253334
-      },
-      "names": {
-        "fr": "route donostia"
       },
       "sitMinutes": 5
     },
@@ -1371,22 +1320,6 @@
         "es": "Orio",
         "eu": "Orio"
       }
-    },
-    {
-      "id": "wp-osm-viewpoint-node14128640101",
-      "frac": 0.8937492432349349,
-      "kind": "waypoint",
-      "label": "Unnamed",
-      "icon": "eye",
-      "at": {
-        "lat": 43.287949,
-        "lon": -2.150841
-      },
-      "pin": {
-        "lat": 43.2880034,
-        "lon": -2.1508609
-      },
-      "sitMinutes": 5
     },
     {
       "id": "wp-osm-town-node27552551",

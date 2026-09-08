@@ -1594,57 +1594,6 @@
       }
     },
     {
-      "id": "wp-osm-town-node55634925",
-      "frac": 0.07892567809758268,
-      "kind": "waypoint",
-      "label": "Po",
-      "icon": "house.lodge",
-      "at": {
-        "lat": 43.424281,
-        "lon": -4.783081
-      },
-      "pin": {
-        "lat": 43.4243207,
-        "lon": -4.7831587
-      },
-      "names": {
-        "ast": "Po",
-        "es": "Poo"
-      }
-    },
-    {
-      "id": "wp-osm-viewpoint-node7791669391",
-      "frac": 0.12463212955191903,
-      "kind": "waypoint",
-      "label": "Unnamed",
-      "icon": "eye",
-      "at": {
-        "lat": 43.42957734186907,
-        "lon": -4.788927336764643
-      },
-      "pin": {
-        "lat": 43.4310655,
-        "lon": -4.7875213
-      },
-      "sitMinutes": 5
-    },
-    {
-      "id": "wp-osm-viewpoint-node7791669394",
-      "frac": 0.13079221213691916,
-      "kind": "waypoint",
-      "label": "Unnamed",
-      "icon": "eye",
-      "at": {
-        "lat": 43.430045,
-        "lon": -4.791131
-      },
-      "pin": {
-        "lat": 43.4318113,
-        "lon": -4.7915319
-      },
-      "sitMinutes": 5
-    },
-    {
       "id": "wp-osm-sacred_site-node1568278424",
       "frac": 0.1833119020793119,
       "kind": "waypoint",
@@ -1693,41 +1642,6 @@
       "sitMinutes": 5
     },
     {
-      "id": "wp-osm-town-node35971734",
-      "frac": 0.2585671098971585,
-      "kind": "waypoint",
-      "label": "Barru",
-      "icon": "house.lodge",
-      "at": {
-        "lat": 43.4338038612395,
-        "lon": -4.829807845182754
-      },
-      "pin": {
-        "lat": 43.4333525,
-        "lon": -4.8294839
-      },
-      "names": {
-        "ast": "Barru",
-        "es": "Barro"
-      }
-    },
-    {
-      "id": "wp-osm-viewpoint-node7862124985",
-      "frac": 0.2710924321323763,
-      "kind": "waypoint",
-      "label": "Unnamed",
-      "icon": "eye",
-      "at": {
-        "lat": 43.433505554077335,
-        "lon": -4.834181247950068
-      },
-      "pin": {
-        "lat": 43.4336072,
-        "lon": -4.8342606
-      },
-      "sitMinutes": 5
-    },
-    {
       "id": "wp-osm-sacred_site-node3676328243",
       "frac": 0.28107849530606677,
       "kind": "waypoint",
@@ -1742,25 +1656,6 @@
         "lon": -4.8374135
       },
       "sitMinutes": 5
-    },
-    {
-      "id": "wp-osm-town-node35970854",
-      "frac": 0.3011130071159174,
-      "kind": "waypoint",
-      "label": "Niembru",
-      "icon": "house.lodge",
-      "at": {
-        "lat": 43.435256419476296,
-        "lon": -4.843689677085954
-      },
-      "pin": {
-        "lat": 43.4375131,
-        "lon": -4.8433499
-      },
-      "names": {
-        "ast": "Niembru",
-        "es": "Niembro"
-      }
     },
     {
       "id": "wp-osm-viewpoint-node541924874",
@@ -1779,22 +1674,6 @@
       "sitMinutes": 5
     },
     {
-      "id": "wp-osm-viewpoint-node9823626920",
-      "frac": 0.40031256551786,
-      "kind": "waypoint",
-      "label": "Unnamed",
-      "icon": "eye",
-      "at": {
-        "lat": 43.441253075372295,
-        "lon": -4.873212189087818
-      },
-      "pin": {
-        "lat": 43.4412889,
-        "lon": -4.8731943
-      },
-      "sitMinutes": 5
-    },
-    {
       "id": "wp-osm-viewpoint-node5648003830",
       "frac": 0.40408690489171983,
       "kind": "waypoint",
@@ -1809,130 +1688,6 @@
         "lon": -4.8746153
       },
       "sitMinutes": 5
-    },
-    {
-      "id": "wp-osm-town-node410953319",
-      "frac": 0.4514379771341491,
-      "kind": "waypoint",
-      "label": "Naves",
-      "icon": "house.lodge",
-      "at": {
-        "lat": 43.440122,
-        "lon": -4.890565
-      },
-      "pin": {
-        "lat": 43.4407773,
-        "lon": -4.8913053
-      }
-    },
-    {
-      "id": "wp-osm-town-node55315855",
-      "frac": 0.4827926420593245,
-      "kind": "waypoint",
-      "label": "Villaḥormes",
-      "icon": "house.lodge",
-      "at": {
-        "lat": 43.438936,
-        "lon": -4.901186
-      },
-      "pin": {
-        "lat": 43.4411967,
-        "lon": -4.9019871
-      },
-      "names": {
-        "ast": "Villaḥormes",
-        "es": "Villahormes"
-      }
-    },
-    {
-      "id": "wp-osm-town-node976722683",
-      "frac": 0.5478849383927071,
-      "kind": "waypoint",
-      "label": "Güergu",
-      "icon": "house.lodge",
-      "at": {
-        "lat": 43.43542010773218,
-        "lon": -4.924025447039302
-      },
-      "pin": {
-        "lat": 43.4353564,
-        "lon": -4.9240397
-      }
-    },
-    {
-      "id": "wp-osm-town-node54944441",
-      "frac": 0.5926177698399608,
-      "kind": "waypoint",
-      "label": "Nueva",
-      "icon": "house.lodge",
-      "at": {
-        "lat": 43.43756867163343,
-        "lon": -4.939513730413996
-      },
-      "pin": {
-        "lat": 43.4375907,
-        "lon": -4.9394996
-      }
-    },
-    {
-      "id": "wp-osm-town-node751742494",
-      "frac": 0.6482810898495563,
-      "kind": "waypoint",
-      "label": "Piñeres",
-      "icon": "house.lodge",
-      "at": {
-        "lat": 43.44059769600802,
-        "lon": -4.954236658981365
-      },
-      "pin": {
-        "lat": 43.442193,
-        "lon": -4.9547273
-      }
-    },
-    {
-      "id": "wp-osm-town-node282834900",
-      "frac": 0.7347225545538234,
-      "kind": "waypoint",
-      "label": "Belmonte",
-      "icon": "house.lodge",
-      "at": {
-        "lat": 43.441389,
-        "lon": -4.982658
-      },
-      "pin": {
-        "lat": 43.4395237,
-        "lon": -4.9819591
-      }
-    },
-    {
-      "id": "wp-osm-town-node3258192968",
-      "frac": 0.7891040457505714,
-      "kind": "waypoint",
-      "label": "Cuerres",
-      "icon": "house.lodge",
-      "at": {
-        "lat": 43.446351,
-        "lon": -4.990592
-      },
-      "pin": {
-        "lat": 43.4449865,
-        "lon": -4.9904965
-      }
-    },
-    {
-      "id": "wp-osm-town-node282780794",
-      "frac": 0.8288167612238495,
-      "kind": "waypoint",
-      "label": "Toriellu",
-      "icon": "house.lodge",
-      "at": {
-        "lat": 43.44851322875074,
-        "lon": -5.00460765436636
-      },
-      "pin": {
-        "lat": 43.4466681,
-        "lon": -5.0049513
-      }
     },
     {
       "id": "wp-osm-viewpoint-node14093171813",
@@ -2114,6 +1869,17 @@
       },
       "frac": 0.06724335048118708,
       "offLineMeters": 110.3
+    },
+    {
+      "id": "wp-osm-food-node504154546",
+      "kind": "food",
+      "name": "Xagarda",
+      "at": {
+        "lat": 43.424166,
+        "lon": -4.783002
+      },
+      "frac": 0.07806286597179929,
+      "offLineMeters": 7.1
     },
     {
       "id": "wp-osm-food-node11143982426",
@@ -2356,6 +2122,17 @@
       },
       "frac": 0.29639242910600583,
       "offLineMeters": 200.5
+    },
+    {
+      "id": "wp-osm-water_source-node12160948624",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 43.437139,
+        "lon": -4.843092
+      },
+      "frac": 0.30028510389000856,
+      "offLineMeters": 213.3
     },
     {
       "id": "wp-osm-transport-node3676328265",

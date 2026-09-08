@@ -1783,21 +1783,6 @@
       "sitMinutes": 5
     },
     {
-      "id": "wp-osm-town-node2817986107",
-      "frac": 0.054660060994138504,
-      "kind": "waypoint",
-      "label": "San Antón",
-      "icon": "house.lodge",
-      "at": {
-        "lat": 43.311479,
-        "lon": -3.035355
-      },
-      "pin": {
-        "lat": 43.3092381,
-        "lon": -3.0357465
-      }
-    },
-    {
       "id": "wp-osm-viewpoint-node4528759564",
       "frac": 0.08742052340988923,
       "kind": "waypoint",
@@ -1814,25 +1799,6 @@
       "sitMinutes": 5
     },
     {
-      "id": "wp-osm-town-node1235817063",
-      "frac": 0.12296815405089298,
-      "kind": "waypoint",
-      "label": "Nocedal",
-      "icon": "house.lodge",
-      "at": {
-        "lat": 43.31732320103005,
-        "lon": -3.061342707191636
-      },
-      "pin": {
-        "lat": 43.3182235,
-        "lon": -3.0617055
-      },
-      "names": {
-        "es": "Nocedal",
-        "eu": "Nocedal"
-      }
-    },
-    {
       "id": "wp-osm-viewpoint-node8072682617",
       "frac": 0.379922777317961,
       "kind": "waypoint",
@@ -1845,38 +1811,6 @@
       "pin": {
         "lat": 43.3495347,
         "lon": -3.1229484
-      },
-      "sitMinutes": 5
-    },
-    {
-      "id": "wp-osm-sacred_site-node7707848485",
-      "frac": 0.44678592232299885,
-      "kind": "waypoint",
-      "label": "Unnamed",
-      "icon": "building.columns",
-      "at": {
-        "lat": 43.347591,
-        "lon": -3.144463
-      },
-      "pin": {
-        "lat": 43.3451832,
-        "lon": -3.1438743
-      },
-      "sitMinutes": 5
-    },
-    {
-      "id": "wp-osm-viewpoint-node12542082522",
-      "frac": 0.45740242297463646,
-      "kind": "waypoint",
-      "label": "Unnamed",
-      "icon": "eye",
-      "at": {
-        "lat": 43.349831,
-        "lon": -3.147423
-      },
-      "pin": {
-        "lat": 43.3500429,
-        "lon": -3.1469229
       },
       "sitMinutes": 5
     },
@@ -1911,82 +1845,6 @@
       }
     },
     {
-      "id": "wp-osm-viewpoint-node9804608117",
-      "frac": 0.5106958930718039,
-      "kind": "waypoint",
-      "label": "Unnamed",
-      "icon": "eye",
-      "at": {
-        "lat": 43.35261605513014,
-        "lon": -3.1654306432544046
-      },
-      "pin": {
-        "lat": 43.3526561,
-        "lon": -3.1653919
-      },
-      "sitMinutes": 5
-    },
-    {
-      "id": "wp-osm-town-node288260109",
-      "frac": 0.5379121912116901,
-      "kind": "waypoint",
-      "label": "Ontón",
-      "icon": "house.lodge",
-      "at": {
-        "lat": 43.35020934491345,
-        "lon": -3.1724708296433413
-      },
-      "pin": {
-        "lat": 43.35021,
-        "lon": -3.17254
-      }
-    },
-    {
-      "id": "wp-osm-town-node288260183",
-      "frac": 0.5761901337715,
-      "kind": "waypoint",
-      "label": "Baltezana",
-      "icon": "house.lodge",
-      "at": {
-        "lat": 43.34087926742703,
-        "lon": -3.1710283410786784
-      },
-      "pin": {
-        "lat": 43.34094,
-        "lon": -3.17077
-      }
-    },
-    {
-      "id": "wp-osm-town-node288259919",
-      "frac": 0.7296518492096769,
-      "kind": "waypoint",
-      "label": "Otañes",
-      "icon": "house.lodge",
-      "at": {
-        "lat": 43.33209327133069,
-        "lon": -3.1925108933505197
-      },
-      "pin": {
-        "lat": 43.33082,
-        "lon": -3.19413
-      }
-    },
-    {
-      "id": "wp-osm-town-node288260220",
-      "frac": 0.8015244934448852,
-      "kind": "waypoint",
-      "label": "Santullán",
-      "icon": "house.lodge",
-      "at": {
-        "lat": 43.347002775782144,
-        "lon": -3.2110872341367647
-      },
-      "pin": {
-        "lat": 43.3472893,
-        "lon": -3.2106634
-      }
-    },
-    {
       "id": "wp-osm-town-node288260129",
       "frac": 0.8651435824338769,
       "kind": "waypoint",
@@ -1999,21 +1857,6 @@
       "pin": {
         "lat": 43.3578453,
         "lon": -3.2297328
-      }
-    },
-    {
-      "id": "wp-osm-town-node4527203951",
-      "frac": 0.882541015518729,
-      "kind": "waypoint",
-      "label": "Ornás",
-      "icon": "house.lodge",
-      "at": {
-        "lat": 43.357756,
-        "lon": -3.222378
-      },
-      "pin": {
-        "lat": 43.3584522,
-        "lon": -3.2218733
       }
     },
     {
@@ -2820,6 +2663,17 @@
       "offLineMeters": 66.1
     },
     {
+      "id": "wp-osm-transport-node4151533592",
+      "kind": "transport",
+      "name": "Ontón",
+      "at": {
+        "lat": 43.350291,
+        "lon": -3.173042
+      },
+      "frac": 0.5376664996965539,
+      "offLineMeters": 46.3
+    },
+    {
       "id": "wp-osm-transport-node11614929146",
       "kind": "transport",
       "name": "Unnamed",
@@ -2873,6 +2727,17 @@
       },
       "frac": 0.7987545483507362,
       "offLineMeters": 13.8
+    },
+    {
+      "id": "wp-osm-accommodation-node8789442776",
+      "kind": "bed",
+      "name": "Albergue Público de Peregrinos de Santullán",
+      "at": {
+        "lat": 43.347137,
+        "lon": -3.210671
+      },
+      "frac": 0.8011750124916155,
+      "offLineMeters": 34.8
     },
     {
       "id": "wp-osm-water_source-node9930303798",

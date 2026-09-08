@@ -1510,86 +1510,6 @@
       "sitMinutes": 5
     },
     {
-      "id": "wp-osm-viewpoint-node2081426171",
-      "frac": 0.20447810716529594,
-      "kind": "waypoint",
-      "label": "Unnamed",
-      "icon": "eye",
-      "at": {
-        "lat": 43.366668644707765,
-        "lon": -1.8212127917299992
-      },
-      "pin": {
-        "lat": 43.3666778,
-        "lon": -1.8208875
-      },
-      "sitMinutes": 5
-    },
-    {
-      "id": "wp-osm-viewpoint-node7796889486",
-      "frac": 0.24556754274435744,
-      "kind": "waypoint",
-      "label": "Unnamed",
-      "icon": "eye",
-      "at": {
-        "lat": 43.36055719020271,
-        "lon": -1.8278224614560106
-      },
-      "pin": {
-        "lat": 43.3614363,
-        "lon": -1.8300428
-      },
-      "sitMinutes": 5
-    },
-    {
-      "id": "wp-osm-viewpoint-node9783410518",
-      "frac": 0.27481686161548946,
-      "kind": "waypoint",
-      "label": "Unnamed",
-      "icon": "eye",
-      "at": {
-        "lat": 43.356313817560604,
-        "lon": -1.834290808105905
-      },
-      "pin": {
-        "lat": 43.3562281,
-        "lon": -1.8342754
-      },
-      "sitMinutes": 5
-    },
-    {
-      "id": "wp-osm-viewpoint-node9783410519",
-      "frac": 0.2991359832182074,
-      "kind": "waypoint",
-      "label": "Unnamed",
-      "icon": "eye",
-      "at": {
-        "lat": 43.35258603547793,
-        "lon": -1.837516786513749
-      },
-      "pin": {
-        "lat": 43.3525837,
-        "lon": -1.8375037
-      },
-      "sitMinutes": 5
-    },
-    {
-      "id": "wp-osm-viewpoint-node286620060",
-      "frac": 0.3074893133952509,
-      "kind": "waypoint",
-      "label": "Unnamed",
-      "icon": "eye",
-      "at": {
-        "lat": 43.351572,
-        "lon": -1.839648
-      },
-      "pin": {
-        "lat": 43.3531086,
-        "lon": -1.841577
-      },
-      "sitMinutes": 5
-    },
-    {
       "id": "wp-osm-viewpoint-node4333090254",
       "frac": 0.49713375796380616,
       "kind": "waypoint",
@@ -1627,22 +1547,6 @@
       "sitMinutes": 5
     },
     {
-      "id": "wp-osm-viewpoint-node9783568217",
-      "frac": 0.6598553328937329,
-      "kind": "waypoint",
-      "label": "Unnamed",
-      "icon": "eye",
-      "at": {
-        "lat": 43.32825570925021,
-        "lon": -1.9214666453222888
-      },
-      "pin": {
-        "lat": 43.3282344,
-        "lon": -1.9215457
-      },
-      "sitMinutes": 5
-    },
-    {
       "id": "wp-osm-town-node27552570",
       "frac": 0.6723642713925126,
       "kind": "waypoint",
@@ -1662,22 +1566,6 @@
       }
     },
     {
-      "id": "wp-osm-viewpoint-node10197195133",
-      "frac": 0.6881153609610646,
-      "kind": "waypoint",
-      "label": "Unnamed",
-      "icon": "eye",
-      "at": {
-        "lat": 43.32787,
-        "lon": -1.923189
-      },
-      "pin": {
-        "lat": 43.3278064,
-        "lon": -1.9243294
-      },
-      "sitMinutes": 5
-    },
-    {
       "id": "wp-osm-cultural_site-node1392871852",
       "frac": 0.744041422626756,
       "kind": "waypoint",
@@ -1693,22 +1581,6 @@
       }
     },
     {
-      "id": "wp-osm-viewpoint-node3971791923",
-      "frac": 0.7542266584154773,
-      "kind": "waypoint",
-      "label": "Unnamed",
-      "icon": "eye",
-      "at": {
-        "lat": 43.333419,
-        "lon": -1.934142
-      },
-      "pin": {
-        "lat": 43.3335662,
-        "lon": -1.9337941
-      },
-      "sitMinutes": 5
-    },
-    {
       "id": "wp-osm-sacred_site-node7706564385",
       "frac": 0.8287660895777431,
       "kind": "waypoint",
@@ -1721,86 +1593,6 @@
       "pin": {
         "lat": 43.3282445,
         "lon": -1.9489756
-      },
-      "sitMinutes": 5
-    },
-    {
-      "id": "wp-osm-viewpoint-node3406103378",
-      "frac": 0.8592650469720549,
-      "kind": "waypoint",
-      "label": "Unnamed",
-      "icon": "eye",
-      "at": {
-        "lat": 43.329111,
-        "lon": -1.957668
-      },
-      "pin": {
-        "lat": 43.330316,
-        "lon": -1.9584203
-      },
-      "sitMinutes": 5
-    },
-    {
-      "id": "wp-osm-viewpoint-node3406103742",
-      "frac": 0.8936716225190144,
-      "kind": "waypoint",
-      "label": "Unnamed",
-      "icon": "eye",
-      "at": {
-        "lat": 43.33108433941657,
-        "lon": -1.967002842290353
-      },
-      "pin": {
-        "lat": 43.3331689,
-        "lon": -1.9667047
-      },
-      "sitMinutes": 5
-    },
-    {
-      "id": "wp-osm-viewpoint-node3406103343",
-      "frac": 0.9092472262301444,
-      "kind": "waypoint",
-      "label": "Unnamed",
-      "icon": "eye",
-      "at": {
-        "lat": 43.32981743947607,
-        "lon": -1.9698495392399928
-      },
-      "pin": {
-        "lat": 43.3298079,
-        "lon": -1.9698579
-      },
-      "sitMinutes": 5
-    },
-    {
-      "id": "wp-osm-viewpoint-node13249737854",
-      "frac": 0.9187224442329335,
-      "kind": "waypoint",
-      "label": "Unnamed",
-      "icon": "eye",
-      "at": {
-        "lat": 43.328192,
-        "lon": -1.96834
-      },
-      "pin": {
-        "lat": 43.327939,
-        "lon": -1.9657399
-      },
-      "sitMinutes": 5
-    },
-    {
-      "id": "wp-osm-viewpoint-node6822763788",
-      "frac": 0.965218469584985,
-      "kind": "waypoint",
-      "label": "Unnamed",
-      "icon": "eye",
-      "at": {
-        "lat": 43.324982,
-        "lon": -1.980195
-      },
-      "pin": {
-        "lat": 43.3259284,
-        "lon": -1.980801
       },
       "sitMinutes": 5
     },

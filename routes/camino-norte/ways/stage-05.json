@@ -951,57 +951,6 @@
       }
     },
     {
-      "id": "wp-osm-town-node3481646622",
-      "frac": 0.3971358815012963,
-      "kind": "waypoint",
-      "label": "Landotz",
-      "icon": "house.lodge",
-      "at": {
-        "lat": 43.293549,
-        "lon": -2.737129
-      },
-      "pin": {
-        "lat": 43.2935446,
-        "lon": -2.7370673
-      }
-    },
-    {
-      "id": "wp-osm-town-node3448163979",
-      "frac": 0.4830633920952356,
-      "kind": "waypoint",
-      "label": "Eskerika",
-      "icon": "house.lodge",
-      "at": {
-        "lat": 43.284973,
-        "lon": -2.741751
-      },
-      "pin": {
-        "lat": 43.2865293,
-        "lon": -2.7412527
-      },
-      "names": {
-        "eu": "Eskerika"
-      }
-    },
-    {
-      "id": "wp-osm-town-node3481661890",
-      "frac": 0.7890812524625537,
-      "kind": "waypoint",
-      "label": "Goikolea",
-      "icon": "house.lodge",
-      "at": {
-        "lat": 43.266068629528334,
-        "lon": -2.790004785147822
-      },
-      "pin": {
-        "lat": 43.2662211,
-        "lon": -2.7900409
-      },
-      "names": {
-        "eu": "Goikolea"
-      }
-    },
-    {
       "id": "wp-osm-town-node264464335",
       "frac": 0.8289540697290885,
       "kind": "waypoint",
@@ -1466,6 +1415,17 @@
       },
       "frac": 0.7681665369668017,
       "offLineMeters": 0.3
+    },
+    {
+      "id": "wp-osm-transport-node5763688195",
+      "kind": "transport",
+      "name": "Goikola",
+      "at": {
+        "lat": 43.265896,
+        "lon": -2.790072
+      },
+      "frac": 0.7895198875295294,
+      "offLineMeters": 18
     },
     {
       "id": "wp-osm-transport-node5763688194",

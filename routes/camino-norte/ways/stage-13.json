@@ -1260,21 +1260,6 @@
       "sitMinutes": 5
     },
     {
-      "id": "wp-osm-town-node288260785",
-      "frac": 0.1249167558721352,
-      "kind": "waypoint",
-      "label": "Arroyo",
-      "icon": "house.lodge",
-      "at": {
-        "lat": 43.40342394387641,
-        "lon": -4.126283373349974
-      },
-      "pin": {
-        "lat": 43.403652,
-        "lon": -4.1261664
-      }
-    },
-    {
       "id": "wp-osm-sacred_site-node2308417514",
       "frac": 0.17630657663702268,
       "kind": "waypoint",
@@ -1291,21 +1276,6 @@
       "sitMinutes": 5
     },
     {
-      "id": "wp-osm-town-node288260382",
-      "frac": 0.17856274772499642,
-      "kind": "waypoint",
-      "label": "Oreña",
-      "icon": "house.lodge",
-      "at": {
-        "lat": 43.396040873766324,
-        "lon": -4.135012373038153
-      },
-      "pin": {
-        "lat": 43.3958,
-        "lon": -4.13515
-      }
-    },
-    {
       "id": "wp-osm-sacred_site-node2308420713",
       "frac": 0.2742106442223995,
       "kind": "waypoint",
@@ -1320,36 +1290,6 @@
         "lon": -4.1565495
       },
       "sitMinutes": 5
-    },
-    {
-      "id": "wp-osm-town-node10553226191",
-      "frac": 0.275720822359295,
-      "kind": "waypoint",
-      "label": "Caborredondo",
-      "icon": "house.lodge",
-      "at": {
-        "lat": 43.3991890556103,
-        "lon": -4.15687678365308
-      },
-      "pin": {
-        "lat": 43.3987254,
-        "lon": -4.1571648
-      }
-    },
-    {
-      "id": "wp-osm-town-node288260515",
-      "frac": 0.4102998840614697,
-      "kind": "waypoint",
-      "label": "Cigüenza",
-      "icon": "house.lodge",
-      "at": {
-        "lat": 43.387865051103795,
-        "lon": -4.181505002373032
-      },
-      "pin": {
-        "lat": 43.38771,
-        "lon": -4.18114
-      }
     },
     {
       "id": "wp-osm-sacred_site-node1323954007",
@@ -1400,21 +1340,6 @@
       "sitMinutes": 5
     },
     {
-      "id": "wp-osm-town-node288260501",
-      "frac": 0.5487073887318781,
-      "kind": "waypoint",
-      "label": "Cóbreces",
-      "icon": "house.lodge",
-      "at": {
-        "lat": 43.38515263092835,
-        "lon": -4.21079478648985
-      },
-      "pin": {
-        "lat": 43.3848811,
-        "lon": -4.2111661
-      }
-    },
-    {
       "id": "wp-osm-sacred_site-node2308435810",
       "frac": 0.5630970459808678,
       "kind": "waypoint",
@@ -1427,22 +1352,6 @@
       "pin": {
         "lat": 43.38959,
         "lon": -4.2118047
-      },
-      "sitMinutes": 5
-    },
-    {
-      "id": "wp-osm-sacred_site-node2308435808",
-      "frac": 0.5695258108607517,
-      "kind": "waypoint",
-      "label": "Unnamed",
-      "icon": "building.columns",
-      "at": {
-        "lat": 43.387623,
-        "lon": -4.21442
-      },
-      "pin": {
-        "lat": 43.38713,
-        "lon": -4.2145189
       },
       "sitMinutes": 5
     },
@@ -1463,21 +1372,6 @@
       "sitMinutes": 5
     },
     {
-      "id": "wp-osm-town-node288260461",
-      "frac": 0.682648434118437,
-      "kind": "waypoint",
-      "label": "Trasierra",
-      "icon": "house.lodge",
-      "at": {
-        "lat": 43.392878808570536,
-        "lon": -4.23077902155855
-      },
-      "pin": {
-        "lat": 43.3924129,
-        "lon": -4.2298958
-      }
-    },
-    {
       "id": "wp-osm-sacred_site-node2318459780",
       "frac": 0.6877317939902827,
       "kind": "waypoint",
@@ -1492,21 +1386,6 @@
         "lon": -4.23057
       },
       "sitMinutes": 5
-    },
-    {
-      "id": "wp-osm-town-node288260511",
-      "frac": 0.7497188595516129,
-      "kind": "waypoint",
-      "label": "Sierra",
-      "icon": "house.lodge",
-      "at": {
-        "lat": 43.38873512639361,
-        "lon": -4.242980676731236
-      },
-      "pin": {
-        "lat": 43.38848,
-        "lon": -4.24187
-      }
     },
     {
       "id": "wp-osm-sacred_site-node2318399080",
@@ -1556,36 +1435,6 @@
       "sitMinutes": 5
     },
     {
-      "id": "wp-osm-town-node288260313",
-      "frac": 0.86166037668873,
-      "kind": "waypoint",
-      "label": "Pando",
-      "icon": "house.lodge",
-      "at": {
-        "lat": 43.378760935201086,
-        "lon": -4.261367728801437
-      },
-      "pin": {
-        "lat": 43.37875,
-        "lon": -4.26144
-      }
-    },
-    {
-      "id": "wp-osm-town-node288260487",
-      "frac": 0.9061380891594373,
-      "kind": "waypoint",
-      "label": "Concha",
-      "icon": "house.lodge",
-      "at": {
-        "lat": 43.38566578486057,
-        "lon": -4.266369703851013
-      },
-      "pin": {
-        "lat": 43.38542,
-        "lon": -4.26634
-      }
-    },
-    {
       "id": "wp-osm-sacred_site-node2318459783",
       "frac": 0.908587720691148,
       "kind": "waypoint",
@@ -1598,53 +1447,6 @@
       "pin": {
         "lat": 43.3860769,
         "lon": -4.2662818
-      },
-      "sitMinutes": 5
-    },
-    {
-      "id": "wp-osm-town-node288260512",
-      "frac": 0.9145828647990819,
-      "kind": "waypoint",
-      "label": "Casasola",
-      "icon": "house.lodge",
-      "at": {
-        "lat": 43.385992,
-        "lon": -4.268268
-      },
-      "pin": {
-        "lat": 43.38842,
-        "lon": -4.26943
-      }
-    },
-    {
-      "id": "wp-osm-viewpoint-node5846248486",
-      "frac": 0.9640901219436383,
-      "kind": "waypoint",
-      "label": "Unnamed",
-      "icon": "eye",
-      "at": {
-        "lat": 43.387472,
-        "lon": -4.279652
-      },
-      "pin": {
-        "lat": 43.3878073,
-        "lon": -4.2796206
-      },
-      "sitMinutes": 5
-    },
-    {
-      "id": "wp-osm-viewpoint-node2756042146",
-      "frac": 0.9806435109093268,
-      "kind": "waypoint",
-      "label": "Unnamed",
-      "icon": "eye",
-      "at": {
-        "lat": 43.38715498218412,
-        "lon": -4.283881896654288
-      },
-      "pin": {
-        "lat": 43.3865219,
-        "lon": -4.2838901
       },
       "sitMinutes": 5
     },
@@ -2012,6 +1814,17 @@
       "offLineMeters": 13.5
     },
     {
+      "id": "wp-osm-water_source-node8914585792",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 43.384874,
+        "lon": -4.211576
+      },
+      "frac": 0.5497332546826241,
+      "offLineMeters": 66.5
+    },
+    {
       "id": "wp-osm-food-node3797438032",
       "kind": "food",
       "name": "Brasas y Tapas",
@@ -2100,6 +1913,17 @@
       "offLineMeters": 0.6
     },
     {
+      "id": "wp-osm-transport-node3674106245",
+      "kind": "transport",
+      "name": "Unnamed",
+      "at": {
+        "lat": 43.388485,
+        "lon": -4.242211
+      },
+      "frac": 0.7499386770667706,
+      "offLineMeters": 67.8
+    },
+    {
       "id": "wp-osm-accommodation-node3674103049",
       "kind": "bed",
       "name": "Albergue juvenil Gargantía",
@@ -2120,6 +1944,17 @@
       },
       "frac": 0.8577530358883884,
       "offLineMeters": 37.5
+    },
+    {
+      "id": "wp-osm-water_source-node1878513116",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 43.378731,
+        "lon": -4.261452
+      },
+      "frac": 0.861578059798879,
+      "offLineMeters": 7.3
     },
     {
       "id": "wp-osm-transport-node5653316628",

@@ -2,12 +2,14 @@ import { readFileSync, writeFileSync, existsSync } from "fs";
 import { join } from "path";
 import {
   queryOverpass, buildPoiQuery, classifyNode, extractName,
-  extractNameLocalized, type OsmNode,
+  extractNameLocalized, resolveName, type OsmNode,
 } from "./osm.js";
 import {
   haversineKm, minDistanceToLineKm, projectOntoLine,
   pointToSegmentDistanceKm, type Coord,
 } from "./geo-utils.js";
+import { MOMENT_TYPES } from "../ways/moments.js";
+import { resolveInvokedPath } from "../cli.js";
 
 const ROOT = join(import.meta.dirname, "../..");
 /**
@@ -16,6 +18,19 @@ const ROOT = join(import.meta.dirname, "../..");
  */
 const BUFFER_KM = 0.3;
 const DEDUP_KM = 0.05;
+
+/**
+ * A service is useful without a name: an unnamed drinking fountain is still
+ * water, an unnamed bus stop is still a way out. A place is not — the name is
+ * the whole of what a stage card shows, so an unnamed viewpoint arrives on the
+ * phone as a pin labelled "Unnamed" that tells a walker nothing. The place
+ * types are exactly the ones build-ways turns into moments, so MOMENT_TYPES is
+ * asked rather than a second list that could drift away from it.
+ */
+export function keepsNode(type: string, tags: Record<string, string>): boolean {
+  if (!MOMENT_TYPES.includes(type)) return true;
+  return resolveName(tags) !== undefined;
+}
 
 function loadJson(path: string) {
   return JSON.parse(readFileSync(path, "utf-8"));
@@ -173,11 +188,19 @@ async function main() {
   const added: Record<string, number> = {};
   let skippedDistance = 0;
   let skippedDedup = 0;
+  let skippedUnnamed = 0;
   const newWaypoints: object[] = [];
 
   for (const node of nodes) {
     const classification = classifyNode(node);
     if (!classification) continue;
+
+    // Ahead of the dedup so a nameless place never crowds out the named one
+    // standing 50 m from it.
+    if (!keepsNode(classification.type, node.tags)) {
+      skippedUnnamed++;
+      continue;
+    }
 
     const coord: Coord = [node.lon, node.lat];
     const dist = minDistanceToLineKm(coord, routeCoords);
@@ -247,10 +270,13 @@ async function main() {
   }
   console.log(`  Skipped (>${BUFFER_KM * 1000}m from route): ${skippedDistance}`);
   console.log(`  Skipped (duplicate <${DEDUP_KM * 1000}m): ${skippedDedup}`);
+  console.log(`  Skipped (place with no name): ${skippedUnnamed}`);
   console.log(`  Total waypoints: ${allWaypoints.length}`);
 }
 
-main().catch((err) => {
-  console.error(err instanceof Error ? err.message : err);
-  process.exit(1);
-});
+if (import.meta.filename === resolveInvokedPath(process.argv[1])) {
+  await main().catch((err) => {
+    console.error(err instanceof Error ? err.message : err);
+    process.exit(1);
+  });
+}

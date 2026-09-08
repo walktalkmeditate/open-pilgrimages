@@ -899,56 +899,18 @@
   "theirActiveSeconds": 19800,
   "moments": [
     {
-      "id": "wp-osm-town-node90907536",
-      "frac": 0.0037554311072828233,
+      "id": "stage-start",
+      "frac": 0,
       "kind": "waypoint",
       "label": "Soto de Luiña",
       "icon": "house.lodge",
       "at": {
-        "lat": 43.561908,
-        "lon": -6.230838
+        "lat": 43.561273,
+        "lon": -6.230614
       },
       "pin": {
-        "lat": 43.5620451,
-        "lon": -6.2312339
-      },
-      "names": {
-        "ast": "Soutu Lluiña",
-        "es": "Soto de Luiña"
-      }
-    },
-    {
-      "id": "wp-osm-town-node2974655234",
-      "frac": 0.04748428928872613,
-      "kind": "waypoint",
-      "label": "Llanurrozu",
-      "icon": "house.lodge",
-      "at": {
-        "lat": 43.564936,
-        "lon": -6.237761
-      },
-      "pin": {
-        "lat": 43.567251,
-        "lon": -6.237742
-      },
-      "names": {
-        "ast": "Llanurrozu",
-        "es": "Llanorrozo"
-      }
-    },
-    {
-      "id": "wp-osm-town-node2974400727",
-      "frac": 0.32237051343055523,
-      "kind": "waypoint",
-      "label": "Resiellas",
-      "icon": "house.lodge",
-      "at": {
-        "lat": 43.54345234588263,
-        "lon": -6.289221955809595
-      },
-      "pin": {
-        "lat": 43.5432133,
-        "lon": -6.2923887
+        "lat": 43.561,
+        "lon": -6.231
       }
     },
     {
@@ -968,6 +930,17 @@
     }
   ],
   "marks": [
+    {
+      "id": "wp-osm-medical-node9014075164",
+      "kind": "medical",
+      "name": "Farmacia Carmen Navarro",
+      "at": {
+        "lat": 43.562191,
+        "lon": -6.231571
+      },
+      "frac": 0.0037554311072828233,
+      "offLineMeters": 66.9
+    },
     {
       "id": "wp-osm-food-node7803924953",
       "kind": "food",

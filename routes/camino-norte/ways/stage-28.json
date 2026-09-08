@@ -639,51 +639,6 @@
       }
     },
     {
-      "id": "wp-osm-town-node1808729744",
-      "frac": 0.11727843280767851,
-      "kind": "waypoint",
-      "label": "O Seixo da Veiga",
-      "icon": "house.lodge",
-      "at": {
-        "lat": 43.48538159312655,
-        "lon": -7.255046375362664
-      },
-      "pin": {
-        "lat": 43.4852295,
-        "lon": -7.255261
-      }
-    },
-    {
-      "id": "wp-osm-town-node1808729735",
-      "frac": 0.13317476819968652,
-      "kind": "waypoint",
-      "label": "O Couto",
-      "icon": "house.lodge",
-      "at": {
-        "lat": 43.485765033986546,
-        "lon": -7.25794227416205
-      },
-      "pin": {
-        "lat": 43.4854722,
-        "lon": -7.2579882
-      }
-    },
-    {
-      "id": "wp-osm-town-node1808729692",
-      "frac": 0.1434826111588729,
-      "kind": "waypoint",
-      "label": "A Calzada",
-      "icon": "house.lodge",
-      "at": {
-        "lat": 43.486095,
-        "lon": -7.259363
-      },
-      "pin": {
-        "lat": 43.4850659,
-        "lon": -7.2597337
-      }
-    },
-    {
       "id": "wp-osm-sacred_site-node13524477420",
       "frac": 0.1752567269084966,
       "kind": "waypoint",
@@ -698,111 +653,6 @@
         "lon": -7.2648297
       },
       "sitMinutes": 5
-    },
-    {
-      "id": "wp-osm-town-node11012285320",
-      "frac": 0.3300797743447825,
-      "kind": "waypoint",
-      "label": "O Campo do Rei",
-      "icon": "house.lodge",
-      "at": {
-        "lat": 43.480065,
-        "lon": -7.290368
-      },
-      "pin": {
-        "lat": 43.4812099,
-        "lon": -7.2926157
-      }
-    },
-    {
-      "id": "wp-osm-town-node1632853076",
-      "frac": 0.345613049896707,
-      "kind": "waypoint",
-      "label": "O Corniño",
-      "icon": "house.lodge",
-      "at": {
-        "lat": 43.47901485418316,
-        "lon": -7.292553863746631
-      },
-      "pin": {
-        "lat": 43.4779851,
-        "lon": -7.2918718
-      }
-    },
-    {
-      "id": "wp-osm-town-node1635822325",
-      "frac": 0.3627588593083928,
-      "kind": "waypoint",
-      "label": "O Pedrón",
-      "icon": "house.lodge",
-      "at": {
-        "lat": 43.47762109910626,
-        "lon": -7.295085848105369
-      },
-      "pin": {
-        "lat": 43.4785528,
-        "lon": -7.2972317
-      }
-    },
-    {
-      "id": "wp-osm-town-node1632853074",
-      "frac": 0.36765390502003314,
-      "kind": "waypoint",
-      "label": "A Telleira",
-      "icon": "house.lodge",
-      "at": {
-        "lat": 43.4770445046331,
-        "lon": -7.295561285653412
-      },
-      "pin": {
-        "lat": 43.4759844,
-        "lon": -7.2931197
-      }
-    },
-    {
-      "id": "wp-osm-town-node11012167671",
-      "frac": 0.3862045887926106,
-      "kind": "waypoint",
-      "label": "Carballás",
-      "icon": "house.lodge",
-      "at": {
-        "lat": 43.47464,
-        "lon": -7.295986
-      },
-      "pin": {
-        "lat": 43.4736421,
-        "lon": -7.2935241
-      }
-    },
-    {
-      "id": "wp-osm-town-node11012295491",
-      "frac": 0.40571692907206475,
-      "kind": "waypoint",
-      "label": "A Ferrería",
-      "icon": "house.lodge",
-      "at": {
-        "lat": 43.47409510853936,
-        "lon": -7.299549493035937
-      },
-      "pin": {
-        "lat": 43.4749687,
-        "lon": -7.3014467
-      }
-    },
-    {
-      "id": "wp-osm-town-node13604118297",
-      "frac": 0.41780604939260035,
-      "kind": "waypoint",
-      "label": "O Castro",
-      "icon": "house.lodge",
-      "at": {
-        "lat": 43.472693,
-        "lon": -7.299883
-      },
-      "pin": {
-        "lat": 43.4719034,
-        "lon": -7.3024821
-      }
     },
     {
       "id": "wp-osm-town-node1289567680",
@@ -823,81 +673,6 @@
       }
     },
     {
-      "id": "wp-osm-town-node11012301220",
-      "frac": 0.46670508790188475,
-      "kind": "waypoint",
-      "label": "A Fervedoira",
-      "icon": "house.lodge",
-      "at": {
-        "lat": 43.46787589846408,
-        "lon": -7.303779919593053
-      },
-      "pin": {
-        "lat": 43.4691977,
-        "lon": -7.3041794
-      }
-    },
-    {
-      "id": "wp-osm-town-node11012301221",
-      "frac": 0.47897663320031386,
-      "kind": "waypoint",
-      "label": "Recemil",
-      "icon": "house.lodge",
-      "at": {
-        "lat": 43.467515,
-        "lon": -7.306047
-      },
-      "pin": {
-        "lat": 43.4696806,
-        "lon": -7.3071877
-      }
-    },
-    {
-      "id": "wp-osm-town-node1632923621",
-      "frac": 0.5865902428123111,
-      "kind": "waypoint",
-      "label": "Arroxo",
-      "icon": "house.lodge",
-      "at": {
-        "lat": 43.456168954496256,
-        "lon": -7.318362124435536
-      },
-      "pin": {
-        "lat": 43.4561514,
-        "lon": -7.3182607
-      }
-    },
-    {
-      "id": "wp-osm-town-node13790113041",
-      "frac": 0.6156398532021862,
-      "kind": "waypoint",
-      "label": "Fondo de Vila",
-      "icon": "house.lodge",
-      "at": {
-        "lat": 43.45316094170755,
-        "lon": -7.321494954152057
-      },
-      "pin": {
-        "lat": 43.4518999,
-        "lon": -7.3196817
-      }
-    },
-    {
-      "id": "wp-osm-town-node1831458443",
-      "frac": 0.6590699987971089,
-      "kind": "waypoint",
-      "label": "Grove",
-      "icon": "house.lodge",
-      "at": {
-        "lat": 43.45060877234621,
-        "lon": -7.3284915587120105
-      },
-      "pin": {
-        "lat": 43.4504327,
-        "lon": -7.3284756
-      }
-    },
-    {
       "id": "wp-osm-sacred_site-node1430829187",
       "frac": 0.7350837871877337,
       "kind": "waypoint",
@@ -912,66 +687,6 @@
         "lon": -7.3440849
       },
       "sitMinutes": 5
-    },
-    {
-      "id": "wp-osm-town-node1419483302",
-      "frac": 0.7434222235240301,
-      "kind": "waypoint",
-      "label": "Pedrido",
-      "icon": "house.lodge",
-      "at": {
-        "lat": 43.447125,
-        "lon": -7.341799
-      },
-      "pin": {
-        "lat": 43.4485388,
-        "lon": -7.3443368
-      }
-    },
-    {
-      "id": "wp-osm-town-node1642945479",
-      "frac": 0.7488342939948698,
-      "kind": "waypoint",
-      "label": "San Pedro",
-      "icon": "house.lodge",
-      "at": {
-        "lat": 43.44672937603476,
-        "lon": -7.341126605499222
-      },
-      "pin": {
-        "lat": 43.4469582,
-        "lon": -7.3408904
-      }
-    },
-    {
-      "id": "wp-osm-town-node1639956547",
-      "frac": 0.8054694982341182,
-      "kind": "waypoint",
-      "label": "O Reguengo",
-      "icon": "house.lodge",
-      "at": {
-        "lat": 43.44277487567973,
-        "lon": -7.346192046097195
-      },
-      "pin": {
-        "lat": 43.4429744,
-        "lon": -7.3459821
-      }
-    },
-    {
-      "id": "wp-osm-town-node1639956548",
-      "frac": 0.8495941048024632,
-      "kind": "waypoint",
-      "label": "San Paio",
-      "icon": "house.lodge",
-      "at": {
-        "lat": 43.44003976271091,
-        "lon": -7.349870410105581
-      },
-      "pin": {
-        "lat": 43.4400058,
-        "lon": -7.3497347
-      }
     },
     {
       "id": "wp-osm-sacred_site-node1411346059",
@@ -1137,6 +852,17 @@
       "offLineMeters": 3.7
     },
     {
+      "id": "wp-osm-transport-node13591628222",
+      "kind": "transport",
+      "name": "Grove",
+      "at": {
+        "lat": 43.45073,
+        "lon": -7.328538
+      },
+      "frac": 0.6592566184457335,
+      "offLineMeters": 13.7
+    },
+    {
       "id": "wp-osm-food-node7299167055",
       "kind": "food",
       "name": "A Voltiña",
@@ -1146,6 +872,17 @@
       },
       "frac": 0.6696741823592965,
       "offLineMeters": 99.6
+    },
+    {
+      "id": "wp-osm-water_source-node3812002444",
+      "kind": "water",
+      "name": "Fonte de San Pedro",
+      "at": {
+        "lat": 43.446693,
+        "lon": -7.340905
+      },
+      "frac": 0.7499328649629323,
+      "offLineMeters": 7.5
     },
     {
       "id": "wp-osm-supply-node3812270074",

@@ -1063,25 +1063,6 @@
       "sitMinutes": 5
     },
     {
-      "id": "wp-osm-town-node3618314500",
-      "frac": 0.3925490913455974,
-      "kind": "waypoint",
-      "label": "Agate Deuna",
-      "icon": "house.lodge",
-      "at": {
-        "lat": 43.25753808413893,
-        "lon": -2.9805517376477257
-      },
-      "pin": {
-        "lat": 43.2577053,
-        "lon": -2.9805024
-      },
-      "names": {
-        "es": "Santa Águeda",
-        "eu": "Agate Deuna"
-      }
-    },
-    {
       "id": "wp-osm-town-node301424404",
       "frac": 0.6766484892838448,
       "kind": "waypoint",
@@ -1100,22 +1081,6 @@
         "eu": "Barakaldo",
         "uk": "Баракальдо"
       }
-    },
-    {
-      "id": "wp-osm-sacred_site-node4556202791",
-      "frac": 0.7916730825542082,
-      "kind": "waypoint",
-      "label": "Unnamed",
-      "icon": "building.columns",
-      "at": {
-        "lat": 43.30277552160291,
-        "lon": -2.9937643929532536
-      },
-      "pin": {
-        "lat": 43.3019001,
-        "lon": -2.9937741
-      },
-      "sitMinutes": 5
     },
     {
       "id": "wp-osm-town-node301423963",
@@ -1181,38 +1146,6 @@
         "lat": 43.3155316,
         "lon": -3.0108099
       }
-    },
-    {
-      "id": "wp-osm-viewpoint-node5760408121",
-      "frac": 0.9876546408531743,
-      "kind": "waypoint",
-      "label": "Unnamed",
-      "icon": "eye",
-      "at": {
-        "lat": 43.320038,
-        "lon": -3.016838
-      },
-      "pin": {
-        "lat": 43.3203097,
-        "lon": -3.01679
-      },
-      "sitMinutes": 5
-    },
-    {
-      "id": "wp-osm-viewpoint-node9804607917",
-      "frac": 0.9876546408531743,
-      "kind": "waypoint",
-      "label": "Unnamed",
-      "icon": "eye",
-      "at": {
-        "lat": 43.320038,
-        "lon": -3.016838
-      },
-      "pin": {
-        "lat": 43.3215626,
-        "lon": -3.0167681
-      },
-      "sitMinutes": 5
     },
     {
       "id": "stage-end",
@@ -3278,6 +3211,17 @@
       "offLineMeters": 85.9
     },
     {
+      "id": "wp-osm-water_source-node3665197563",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 43.257664,
+        "lon": -2.980658
+      },
+      "frac": 0.39357146618727723,
+      "offLineMeters": 6.7
+    },
+    {
       "id": "wp-osm-water_source-node3665197594",
       "kind": "water",
       "name": "Unnamed",
@@ -3804,17 +3748,6 @@
       },
       "frac": 0.635968322018712,
       "offLineMeters": 97.4
-    },
-    {
-      "id": "wp-osm-supply-node5357545025",
-      "kind": "supply",
-      "name": "Unnamed",
-      "at": {
-        "lat": 43.287856,
-        "lon": -2.996457
-      },
-      "frac": 0.6368705714187075,
-      "offLineMeters": 248.3
     },
     {
       "id": "wp-osm-supply-node5357545024",

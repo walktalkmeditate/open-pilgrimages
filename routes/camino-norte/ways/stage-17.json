@@ -1060,38 +1060,6 @@
       "sitMinutes": 5
     },
     {
-      "id": "wp-osm-viewpoint-node1992830253",
-      "frac": 0.02756130713519147,
-      "kind": "waypoint",
-      "label": "Unnamed",
-      "icon": "eye",
-      "at": {
-        "lat": 43.463833,
-        "lon": -5.066298
-      },
-      "pin": {
-        "lat": 43.4629975,
-        "lon": -5.0682048
-      },
-      "sitMinutes": 5
-    },
-    {
-      "id": "wp-osm-viewpoint-node1992830147",
-      "frac": 0.04799975643614692,
-      "kind": "waypoint",
-      "label": "Unnamed",
-      "icon": "eye",
-      "at": {
-        "lat": 43.46524821525419,
-        "lon": -5.069728303338355
-      },
-      "pin": {
-        "lat": 43.4636905,
-        "lon": -5.0699321
-      },
-      "sitMinutes": 5
-    },
-    {
       "id": "wp-osm-viewpoint-node1992828242",
       "frac": 0.04844793174226974,
       "kind": "waypoint",
@@ -1106,74 +1074,6 @@
         "lon": -5.0701898
       },
       "sitMinutes": 5
-    },
-    {
-      "id": "wp-osm-viewpoint-node1992829845",
-      "frac": 0.055877188391614645,
-      "kind": "waypoint",
-      "label": "Unnamed",
-      "icon": "eye",
-      "at": {
-        "lat": 43.465496968639634,
-        "lon": -5.071649994842233
-      },
-      "pin": {
-        "lat": 43.4642434,
-        "lon": -5.0721906
-      },
-      "sitMinutes": 5
-    },
-    {
-      "id": "wp-osm-town-node2397662864",
-      "frac": 0.1814713083904738,
-      "kind": "waypoint",
-      "label": "San Pedru",
-      "icon": "house.lodge",
-      "at": {
-        "lat": 43.467472678815795,
-        "lon": -5.100925652176009
-      },
-      "pin": {
-        "lat": 43.4674617,
-        "lon": -5.1009225
-      },
-      "names": {
-        "ast": "San Pedru",
-        "es": "San Pedro"
-      }
-    },
-    {
-      "id": "wp-osm-town-node3258192963",
-      "frac": 0.21954121300851237,
-      "kind": "waypoint",
-      "label": "Abéu",
-      "icon": "house.lodge",
-      "at": {
-        "lat": 43.468303895365345,
-        "lon": -5.109444154332953
-      },
-      "pin": {
-        "lat": 43.4698112,
-        "lon": -5.1119304
-      },
-      "names": {
-        "es": "Abeo"
-      }
-    },
-    {
-      "id": "wp-osm-town-node2397662862",
-      "frac": 0.23146549014691437,
-      "kind": "waypoint",
-      "label": "San Esteban de Leces",
-      "icon": "house.lodge",
-      "at": {
-        "lat": 43.466679,
-        "lon": -5.111342
-      },
-      "pin": {
-        "lat": 43.4643062,
-        "lon": -5.1107586
-      }
     },
     {
       "id": "wp-osm-sacred_site-node3676874567",
@@ -1192,21 +1092,6 @@
       "sitMinutes": 5
     },
     {
-      "id": "wp-osm-town-node3258192977",
-      "frac": 0.34059649382355967,
-      "kind": "waypoint",
-      "label": "Vega",
-      "icon": "house.lodge",
-      "at": {
-        "lat": 43.477521717432396,
-        "lon": -5.130861335404219
-      },
-      "pin": {
-        "lat": 43.4772973,
-        "lon": -5.1310224
-      }
-    },
-    {
       "id": "wp-osm-sacred_site-node6482195831",
       "frac": 0.4605037208669475,
       "kind": "waypoint",
@@ -1221,118 +1106,6 @@
         "lon": -5.1515204
       },
       "sitMinutes": 5
-    },
-    {
-      "id": "wp-osm-town-node2397662861",
-      "frac": 0.4613336684201543,
-      "kind": "waypoint",
-      "label": "Berbes",
-      "icon": "house.lodge",
-      "at": {
-        "lat": 43.473779042366765,
-        "lon": -5.152508308083667
-      },
-      "pin": {
-        "lat": 43.4735392,
-        "lon": -5.1523143
-      }
-    },
-    {
-      "id": "wp-osm-viewpoint-node9826241017",
-      "frac": 0.5683748269292789,
-      "kind": "waypoint",
-      "label": "Unnamed",
-      "icon": "eye",
-      "at": {
-        "lat": 43.473992218731574,
-        "lon": -5.175081791042448
-      },
-      "pin": {
-        "lat": 43.474017,
-        "lon": -5.1750612
-      },
-      "sitMinutes": 5
-    },
-    {
-      "id": "wp-osm-viewpoint-node5643649668",
-      "frac": 0.5841334142206622,
-      "kind": "waypoint",
-      "label": "Unnamed",
-      "icon": "eye",
-      "at": {
-        "lat": 43.47417920385396,
-        "lon": -5.178858147515219
-      },
-      "pin": {
-        "lat": 43.4745131,
-        "lon": -5.178533
-      },
-      "sitMinutes": 5
-    },
-    {
-      "id": "wp-osm-viewpoint-node9826241117",
-      "frac": 0.6937764293844104,
-      "kind": "waypoint",
-      "label": "Unnamed",
-      "icon": "eye",
-      "at": {
-        "lat": 43.47468942118404,
-        "lon": -5.204072123471172
-      },
-      "pin": {
-        "lat": 43.4746805,
-        "lon": -5.2040396
-      },
-      "sitMinutes": 5
-    },
-    {
-      "id": "wp-osm-town-node2343692663",
-      "frac": 0.7245735897593689,
-      "kind": "waypoint",
-      "label": "La Espasa",
-      "icon": "house.lodge",
-      "at": {
-        "lat": 43.474011720908024,
-        "lon": -5.211154337201359
-      },
-      "pin": {
-        "lat": 43.4727067,
-        "lon": -5.2112362
-      }
-    },
-    {
-      "id": "wp-osm-town-node2290592687",
-      "frac": 0.853409960856209,
-      "kind": "waypoint",
-      "label": "Güeñu / Bueño",
-      "icon": "house.lodge",
-      "at": {
-        "lat": 43.47961618100559,
-        "lon": -5.236775071106419
-      },
-      "pin": {
-        "lat": 43.4797166,
-        "lon": -5.2367855
-      },
-      "names": {
-        "ast": "Güeñu",
-        "es": "Bueño"
-      }
-    },
-    {
-      "id": "wp-osm-town-node2290587883",
-      "frac": 0.9020590901181814,
-      "kind": "waypoint",
-      "label": "Covián",
-      "icon": "house.lodge",
-      "at": {
-        "lat": 43.48132918793703,
-        "lon": -5.247451036305742
-      },
-      "pin": {
-        "lat": 43.4809629,
-        "lon": -5.2474723
-      }
     },
     {
       "id": "stage-end",
@@ -1594,6 +1367,28 @@
       "offLineMeters": 253
     },
     {
+      "id": "wp-osm-water_source-node6492200220",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 43.467552,
+        "lon": -5.10134
+      },
+      "frac": 0.18325144563195062,
+      "offLineMeters": 5.4
+    },
+    {
+      "id": "wp-osm-water_source-node6499590835",
+      "kind": "water",
+      "name": "Fuente della Cuestona",
+      "at": {
+        "lat": 43.464612,
+        "lon": -5.11065
+      },
+      "frac": 0.23146549014691437,
+      "offLineMeters": 236.5
+    },
+    {
       "id": "wp-osm-water_source-node3650453907",
       "kind": "water",
       "name": "Unnamed",
@@ -1603,6 +1398,17 @@
       },
       "frac": 0.33720886195836536,
       "offLineMeters": 84.7
+    },
+    {
+      "id": "wp-osm-water_source-node3676874589",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 43.477588,
+        "lon": -5.131065
+      },
+      "frac": 0.3414924065527324,
+      "offLineMeters": 1.1
     },
     {
       "id": "wp-osm-food-node5857533616",
@@ -1812,6 +1618,17 @@
       },
       "frac": 0.8493477119843768,
       "offLineMeters": 225.7
+    },
+    {
+      "id": "wp-osm-accommodation-node2460628697",
+      "kind": "bed",
+      "name": "La Labriega",
+      "at": {
+        "lat": 43.479695,
+        "lon": -5.237017
+      },
+      "frac": 0.8543453918725424,
+      "offLineMeters": 10.2
     },
     {
       "id": "wp-osm-accommodation-node2380353619",

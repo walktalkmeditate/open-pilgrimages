@@ -2,7 +2,7 @@
 
 A canonical, open-source dataset of pilgrimage routes worldwide.
 
-159,624 GPS points. 12,426 waypoints. 109 stages. 7 routes across 3 traditions. All structured as JSON and GeoJSON.
+159,624 GPS points. 11,870 waypoints. 109 stages. 7 routes across 3 traditions. All structured as JSON and GeoJSON.
 
 ## What's In the Box
 
@@ -13,7 +13,7 @@ The Route Points column counts `route.geojson` only. `route.main.geojson`, where
 | Route | Distance | Topology | Tradition | Route Points | Waypoints | Stats |
 |-------|----------|----------|-----------|-------------|-----------|-------|
 | [Camino Frances](routes/camino-frances/) | 764 km | Linear | Christian | 33,192 | 2,957 | 41 years (1985-2025) |
-| [Camino del Norte](routes/camino-norte/) | 784 km | Linear | Christian | 38,640 | 3,634 | 23 years (2003-2025) |
+| [Camino del Norte](routes/camino-norte/) | 784 km | Linear | Christian | 38,640 | 2,928 | 23 years (2003-2025) |
 | [Camino Primitivo](routes/camino-primitivo/) | 263 km | Linear | Christian | 13,303 | 732 | 23 years (2003-2025) |
 | [Camino Portugués (Central)](routes/camino-portugues/) | 243 km | Linear | Christian | 13,722 | 1,634 | 23 years (2003-2025) |
 | [Camino Portugués da Costa (Coastal)](routes/camino-portugues/variants/coastal/) | 110 km | Linear | Christian | 5,546 | 1,043 | 23 years (2003-2025) |
@@ -34,7 +34,7 @@ Routes that belong to no pilgrimage grouping yet.
 
 **Layer 1 — Geometry:** Full-resolution GPS trails from OpenStreetMap. Not simplified stage endpoints — actual trail paths with 4k-49k coordinate points per route.
 
-**Layer 2 — Logistics:** 12,500+ waypoints including water sources, pharmacies, hospitals, accommodation, restaurants, convenience stores, bus stops, and train stations. Each tagged with `stageIndex` and `kmFromStart` for route-aware queries.
+**Layer 2 — Logistics:** 11,800+ waypoints including water sources, pharmacies, hospitals, accommodation, restaurants, convenience stores, bus stops, and train stations. Each tagged with `stageIndex` and `kmFromStart` for route-aware queries.
 
 **Layer 3 — Cultural & Spiritual:** Credential systems (Compostela, nokyocho, Dual Pilgrim), sacred site protocols, cultural practices, associated literature, and interior journey narratives per stage.
 
