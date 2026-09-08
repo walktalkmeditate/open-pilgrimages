@@ -210,6 +210,7 @@
             },
             "osmId": {
               "type": "string",
+              "description": "The OSM element this waypoint came from. The enricher emits only node/ today because it filters Overpass results to nodes; way/ is admitted because a shrine or temple precinct is routinely mapped as one, and relation/ because a large precinct is sometimes a multipolygon. Widening the pattern costs nothing; discovering it too narrow partway through an enrichment run does.",
               "pattern": "^(node|way|relation)/[0-9]+$"
             }
           },
