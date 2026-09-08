@@ -1,7 +1,7 @@
 # Kumano Kodō — drafted text review
 
-Four Kohechi stages carry drafted text. Each entry below holds what the text was written
-from, so it can be judged against its evidence rather than read on its own.
+Four Kohechi stages carried drafted text; none carries it now. Each entry below holds what
+the text was written from, so it can be judged against its evidence rather than on its own.
 
 This is the checklist spec §6 requires of the Kumano Kodō content PR. `npm run validate`
 reads it alongside `routes/*/stages.json`, and `npm run check-drafted-diff` reads it again
@@ -49,16 +49,23 @@ id below resolves at `https://api.openstreetmap.org/api/0.6/<type>/<id>.json`, o
 through the Overpass API at `https://overpass-api.de/api/interpreter`. Both are public and
 read-only. The metre figures are then reproducible from the committed line alone, with
 `nearestVertex` and `cumulativeMeters` from `scripts/ways/geo.ts` — which is how every
-figure in this file was re-checked in the review below.
+metre figure in this file was re-checked in the review below.
 
-Two figures are **not** reproducible that way. The stage minimum of 648 m and the line's
-1,033 m at Mizugamine come from the SRTM 30 m sample that `metadata.json`'s
-`provenance.sources` declares (NASA SRTM 1 arc-second via OpenTopoData), taken at every
-vertex of `route.main.geojson`; that sample lives in gitignored `.cache/`, and both
-`route.geojson` and `route.main.geojson` are 2-D, so no committed file carries it. The
-per-stage figures those samples were rounded into — `elevationGainMeters`,
-`elevationLossMeters`, `highPointMeters`, `lowPointMeters` — **are** committed in
-`stages.json`, and every claim in the text that rests on a height rests on one of those.
+Eleven figures are **not** reproducible that way, and a reader wanting to check them has to
+re-sample the model. Two are here: the stage minimum of 648 m and the line's 1,033 m at
+Mizugamine. Four are in stage 2's Grounding: 1,067 m at Miura-tōge, 356 m where the line
+starts that day at Imoze, and the 711 m and 727 m climbs read off those. Five are in stage
+3's second reading: 170 m at the start anchor, the 1,070 m maximum at 53.684 km, 679 m at
+the Yamaguchi teahouse, 843 m at the Kannon temple, and about 148 m at Yagio. All eleven
+come from the SRTM 30 m sample that `metadata.json`'s `provenance.sources` declares (NASA
+SRTM 1 arc-second via OpenTopoData), taken at every vertex of `route.main.geojson`; that
+sample lives in gitignored `.cache/`, and both `route.geojson` and `route.main.geojson` are
+2-D, so no committed file carries it. The per-stage figures those samples were rounded into
+— `elevationGainMeters`, `elevationLossMeters`, `highPointMeters`, `lowPointMeters` —
+**are** committed in `stages.json`, and every claim in the text that rests on a height rests
+on one of those but two: Mizugamine's 1,161 m, which is `node/12310561011`'s own `ele` tag,
+and "the trail itself at about 1,030 m", which rests on the sample alone and is flagged as
+such under stage 0.
 
 ## Before changing any text
 
@@ -73,9 +80,13 @@ disagreed about the 650 m floor; the review has now brought the narrative to the
 
 Stage 1's `terrainNotes` and `terrainTypes` were corrected on the same footing, after the
 road section into Imoze recorded in that stage's verdict below: "Forest path throughout"
-became "Forest path over the summit of Obako-dake … ending on 478 m of asphalt prefectural
+became "Forest path over the summit of Obako-dake … ending on 478 m of paved prefectural
 road into Imoze", and `"paved"` joined the `terrainTypes` array it was the only one of the
-four days to omit. Neither field is `interior`, so neither touches the stage's flag.
+four days to omit. That note said "asphalt" until this pass; one of the five road ways
+carries `surface=paved` instead, so the word came down to what all five support. Neither
+field is `interior`, so neither touches the stage's flag, and no page under `docs/` quotes
+`terrainNotes` at all — re-checked this pass, on the four notes verbatim — so that edit
+changed no HTML.
 
 ---
 
@@ -98,7 +109,8 @@ four days to omit. Neither field is `interior`, so neither touches the stage's f
     `heritage:operator=whc`, `ref:whc=1142-15bis`, `denomination=shingon_shu`,
     `start_date=816`, `wikidata`, six `contact:*`, and names), not one of them lodging. What
     grounds the claim, measured from the line's first vertex: 8 `tourism=hotel` within 400 m,
-    all of them 院 sub-temples — 普門院 (220 m), 一乗院 (230 m), 無量光院 (288 m), 持明院
+    seven of them named 院 sub-temples and the eighth carrying only a romanised name —
+    普門院 (220 m), 一乗院 (230 m), 無量光院 (288 m), 持明院
     (`name:en="Jimyo-in Shukubo"`, 288 m), 天徳院 (297 m), 本覚院 (319 m), 不動院 (337 m),
     Jokiin (390 m) — of which 天徳院 and 不動院 also carry `amenity=place_of_worship`, plus
     `node/5629787721` `tourism=guest_house` "Koyasan Guesthouse Kiminoya" at 91 m
@@ -149,13 +161,19 @@ committed line. A fifth entry follows them, for what the tick clears that no fin
   The 370 m difference cannot be one pass; it is height regained after being given up, which
   is what "the day's weight is in its length rather than in any one climb" and "spread across
   the whole day rather than gathered into one pass" each assert. Both stand as drafted.
+- **The narrative's sequence — checked, in order.** Otaki 5.662 km → Mizugamine 8.878 →
+  Kitaimanishi 15.819 → Ōmata 17.204: strictly increasing on the committed line, which is
+  the order the sentence puts them in. Written down because stages 2 and 3 each turned out
+  to hold an inversion, and an ordering claim nobody measured reads exactly like one
+  somebody did.
 
 *Not re-derivable:* "the trail itself at about 1,030 m" rests on the SRTM sample described
 at the top of this file, which no committed file carries. It is kept: the model is a
 declared `provenance.sources` entry, it is the same instrument that set the third ordinate
-of all four anchors and every `highPointMeters` here, the figure is hedged, and it sits
-inside the stage's committed 650–1,170 m range. It is the one sentence on this stage a
-reviewer cannot check from the repository alone.
+of all four stage-start anchors — the shrine's 80 m is the Nakahechi's figure, kept so one
+place does not get two heights — and every `highPointMeters` here, the figure is hedged, and
+it sits inside the stage's committed 650–1,170 m range. It is the one sentence on this stage
+a reviewer cannot check from the repository alone.
 
 - [x] kumano-kodo-kohechi stage 0
 
@@ -199,27 +217,47 @@ reflection: The highest ground on the route comes on its shortest day — is tha
   framing with it — does not survive checking the line against OSM itself:
   - The line runs on `highway=path`, `name=Kohechi` (`name:ja=熊野参詣道小辺路`) from Ōmata
     until **30.064 km**, and then, for the last **478 m** into Imoze, at 0.0 m offset on
-    Prefectural Road 733 川津高野線 — `highway=secondary`, `surface=asphalt`, five ways
+    Prefectural Road 733 川津高野線 — `highway=secondary`, five ways
     (`way/126892127`, the `bridge=yes` `way/126892129`, `way/126892128`, the `tunnel=yes`
-    `way/126892131`, `way/126892139`). That is 43 of the slice's 532 vertices and 8 of the
-    184 points in the shipped `ways/stage-01.json`. It is still not a shortcut: all five are
+    `way/126892131`, `way/126892139`). Four carry `surface=asphalt`. The tunnel carries
+    `surface=paved`, so up to its **51 m** is paved-but-unspecified, which is why the stage's
+    `terrainNotes` now says "paved prefectural road" and this entry no longer attributes one
+    surface value to all five. That is 43 of the slice's 532 vertices and 8 of the 184
+    points in the shipped `ways/stage-01.json`. It is still not a shortcut: all five are
     members of relation `17131166`, and `way/126889269` is followed for its whole 5,908 m
     right up to them, so the road is where the route's own line reaches the valley.
+  - The road does not stop at Imoze, and stage 2 inherits the rest of it. Its contiguous
+    on-line stretch runs **30.054 → 31.096 km**, 1,041 m, and the boundary at 30.543 km
+    leaves **553 m** of it in stage 2, where `way/126889956` picks the Kohechi path up again
+    at 31.096 km. Nothing there is corrected: stage 2's `terrainNotes` claims no surface for
+    that stretch and its `terrainTypes` already carries `"paved"`. The figure is recorded so
+    a later reader meets it here rather than re-deriving it as a discrepancy. Nor do 478 and
+    553 sum to 1,041: the road's first vertex, at 30.054 km, is the node it shares with the
+    path, counted to the path above — which is what makes the count 43 vertices rather than
+    44, and is the same convention question the way-split bullet below carries a note about.
   - Every way named Kohechi in the Ōmata–Imoze corridor was fetched and measured. The chain
     `way/558483794` → `way/1244801381` → `way/1244801380` → `way/126889269` runs Ōmata to
     just short of Imoze in **14.324 km**. There is no 18.7 km of Kohechi path here to find.
-  - The corridor holds seven ways named Kohechi and they total **16.115 km** — every metre
-    of Kohechi a walker could take here, both branches of the Obako-dake fork included. So
-    even a walker who took both branches could not reach 18.7 km. Of those 16.115 km the
-    line follows 13.348 km and leaves **2.767 km** unfollowed, in one contiguous chain: the
-    last 1,156 m of `way/558483794`, all 66 m of `way/1244801381`, and the first 1,545 m of
+  - Between Ōmata and the point past Imoze where the path resumes, an Overpass sweep for
+    `name~Kohechi` returns seven ways, and they total **16.115 km** — every metre that sweep
+    finds, both branches of the Obako-dake fork included, two of the seven carrying the name
+    as `Kohechi (summit detour)`. So even a walker who took both branches could not reach
+    18.7 km. Of those 16.115 km the line follows 13.331 km and leaves **2.784 km**
+    unfollowed, in one chain of three ways joined at shared endpoints: the last 1,156 m of
+    `way/558483794`, all 66 m of `way/1244801381`, and the first 1,562 m of
     `way/1244801380`. That chain is the low bypass around Obako-dake; the line takes the
     summit instead, on `way/126955827` and `way/1501444299`
     (`name="Kohechi (summit detour)"`, **1,724 m** together), crossing `node/2454838213` at
     **0 m**. The bypass ends inside `way/1244801380` rather than at its end — the other
-    964 m of that way is followed, where the branches have rejoined — so the remainder is a
-    measured length, not a count of whole ways. A walker does not walk both branches;
-    skipping one is correct, not a shortfall.
+    946 m of that way is followed, where the branches have rejoined — so the remainder is a
+    measured length, not a count of whole ways. These sub-figures carry a method note where
+    the neighbouring entries do not, because they are the ones a re-measurer will otherwise
+    miss: a segment counts as followed only where **both** its endpoints are vertices of
+    `route.main.geojson`, which puts the segment spanning the rejoin vertex on the unfollowed
+    side and makes 1,562 + 946 sum to the way's own 2,508 m. Counting that segment the other
+    way moves about 17 m across the split and leaves the two parts summing to 2,509 m against
+    a 2,508 m way, which is the arithmetic an earlier 1,545 / 964 here did not close. A
+    walker does not walk both branches; skipping one is correct, not a shortfall.
 
   So 13.1 km is a faithful measurement of the OSM Kohechi over the summit, and the
   divergence is between OSM and a tour operator, not inside this dataset — which
@@ -229,6 +267,11 @@ reflection: The highest ground on the route comes on its shortest day — is tha
   outside claim §6 exists to keep out. The margin is 1.5 km to the next day (13.1 against
   14.6), and OSM's generalisation applies to all four days alike, so the ordering the
   sentence rests on is stable. **Both the narrative and the reflection stand as drafted.**
+
+- **The narrative's sequence — checked, in order.** Ōmata 17.204 km → Kaya-goya 18.357 →
+  Obako-dake 22.059 → Mizugamoto 26.466 → Bitadani 30.178 → Imoze 30.543: strictly
+  increasing on the committed line, which is the order the sentence puts them in. Recorded
+  for the reason given under stage 0.
 
 - [x] kumano-kodo-kohechi stage 1
 
@@ -398,19 +441,24 @@ through the Overpass API, re-measured every metre on the committed `route.main.g
 fourth of four stages, so its pass is the last of them. Stage 2's already-cleared narrative
 reaches for the same words about the same pass — "where the climb to the last pass begins".
 
-**`narrative` — stands, every clause traced to committed data or to a re-fetched tag.**
+**`narrative` — stands, every clause traced to committed data, to a re-fetched tag, or to
+the elevation model `provenance.sources` declares.**
 
 - "The biggest climb of the four days: 1,080 m of ascent in 14.6 km" — `stages.json`'s own
   `elevationGainMeters` and `distanceKm`; 1,080 against 950, 760 and 710.
 - "from the Totsukawa up to Hatenashi-toge at about 1,070 m" — `highPointMeters: 1070`,
-  and independently: the SRTM model reads 170 m at the start anchor (49.600 km) and peaks at
-  **1,067 m at 53.670 km**, which is the figure `metadata.json`'s `elevationNote` already
-  reports for the Hatenashi-tōge crossing, rounded the way that note says it rounds.
+  and independently: the SRTM model reads 170 m at the start anchor (49.600 km) and reaches
+  its maximum over the stage of **1,070 m at 53.684 km**. That is `highPointMeters` to the
+  metre, and the figure `metadata.json`'s `elevationNote` already reports for the
+  Hatenashi-tōge crossing, with no rounding standing between them. (The 1,067 m at 53.670 km
+  recorded here before is a real reading 14 m short of the crest, not the stage maximum.)
 - The pass has no node of its own, as the entry above says. Re-checked by bbox rather than by
   id: no `natural=saddle`, no `mountain_pass` and no `natural=peak` anywhere in
-  33.90–33.95 / 135.72–135.80. The only features carrying 果無 are `node/5702160126`,
-  `node/5702262721` and `node/5525046492` (奥果無, `place=neighbourhood`) — so 果無峠 reaches
-  the text through the trailhead node's name, and nothing stronger is being claimed.
+  33.90–33.95 / 135.72–135.80. Four features in that box carry 果無 in a name key —
+  `node/5702160126`, `node/5702262721`, `node/5525046492` (奥果無, `place=neighbourhood`) and
+  `node/5162307640`, the Hatenashi node in the entry below, which carries it as `name:ja`.
+  None of the four is the pass, so 果無峠 reaches the text through the trailhead node's name,
+  and nothing stronger is being claimed.
 - "goes through Hatenashi" — `place=neighbourhood`, `name=Hatenashi`, `name:ja=果無`, 18.4 m
   off at 50.362 km. The struck "hamlet" was rightly struck.
 - "two World Heritage stone markers" — both nodes are named 世界遺産熊野参詣道小辺路の石碑;
@@ -422,14 +470,17 @@ reaches for the same words about the same pass — "where the climb to the last 
   carries and nothing beyond it.
 - "The way up goes through … before the long drop to Yagio" — the sentence puts the teahouse
   and the temple **on the ascent**, which no committed file can settle. Sampled: the teahouse
-  at 51.960 km sits at 656 m and the temple at 52.982 km at 815 m, both below the 1,067 m
-  high point at 53.670 km, so both are on the climb. The drop that follows runs 1,067 m to
-  about 148 m by Yagio (57.989 km) in 4.3 km. "Long" is an understatement, not a stretch.
+  at 51.960 km sits at 679 m and the temple at 52.982 km at 843 m, both far below the
+  1,070 m high point at 53.684 km, so both are on the climb. (656 m and 815 m, recorded here
+  before, are the model's readings 94 m and 76 m earlier along the line, at 51.866 km and
+  52.906 km.) The drop that follows runs 1,070 m to about 148 m by Yagio (57.989 km) in
+  4.3 km. "Long" is an understatement, not a stretch.
 - "The last 2.2 km are shared with the Nakahechi, past Haraido-oji" — re-measured from the
   Nakahechi's own line rather than from the relation terminus: the first Kohechi vertex
-  within 25 m of it is at 62.129 km, leaving **2.198 km**, and the figure is stable from a
-  10 m threshold to 60 m. Haraido-ōji (`historic=wayside_shrine`) is at 64.005 km, inside
-  that tail.
+  within 25 m of it is at 62.129 km, leaving **2.198 km**. The text's 2.2 km is stable from a
+  10 m threshold to 60 m; the vertex itself is not, moving 20 m earlier at 30 m and making
+  the tail 2.218 km. Haraido-ōji (`historic=wayside_shrine`) is at 64.005 km, inside that
+  tail.
 - "into Kumano Hongu Taisha" — `way/797748245`, re-fetched whole: `amenity=place_of_worship`,
   `religion=shinto`, `name=熊野本宮大社`, `name:en="Kumano Hongū Taisha"`, `wikidata=Q705035`,
   `ref:whc=1142-07bis`.
@@ -517,11 +568,13 @@ a review — rather than nothing.
 
 What a ticked line asserts here is only what the gate reads off it: **no drafted text on this
 stage is awaiting review.** For the Nakahechi that is verifiable in one command —
-`grep drafted routes/kumano-kodo-nakahechi/stages.json` returns nothing, and returned nothing
-at the base ref too. Its four stages' `interior` text shipped on `main` before this branch
-existed and is untouched by it. `check-drafted-diff`, the gate that actually polices whether
-a review happened, compares two refs, sees no flag coming off here, and so never reads these
-four lines at all.
+`grep drafted routes/kumano-kodo-nakahechi/stages.json` returns nothing. That path does not
+exist at the base ref to be grepped: this branch renamed the section out of
+`routes/kumano-kodo/`, whose `stages.json` on `main` carries no drafted flag either and whose
+four `interior` blocks are identical to these, field for field. So the text shipped before
+this branch existed and is untouched by it. `check-drafted-diff`, the gate that actually
+polices whether a review happened, compares two refs, reads an absent base path as a new
+section with nothing to strip, and so never reads these four lines at all.
 
 The Iseji and the Ōhechi have no lines because they have no `stages.json` — both ship
 metadata-only under spec §4.3, with `ways: null`.

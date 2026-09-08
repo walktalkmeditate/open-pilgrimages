@@ -52,7 +52,7 @@
       "estimatedHours": { "min": 5, "max": 7 },
       "difficulty": "hard",
       "terrainTypes": ["mountain", "forest", "dirt", "paved"],
-      "terrainNotes": { "en": "The shortest of the four days and the highest. Forest path over the summit of Obako-dake, then a sustained 1,140 m descent to the river, ending on 478 m of asphalt prefectural road into Imoze." },
+      "terrainNotes": { "en": "The shortest of the four days and the highest. Forest path over the summit of Obako-dake, then a sustained 1,140 m descent to the river, ending on 478 m of paved prefectural road into Imoze." },
       "interior": {
         "theme": { "en": "The high point" },
         "narrative": { "en": "The shortest day on the route is also the highest. From Omata the trail climbs past the site of the Kaya-goya hut to Obako-dake at 1,344 m, the highest ground the Kohechi crosses, then descends past the remains of the Mizugamoto tea house to the river settlements of Bitadani and Imoze. It loses 1,140 m against the 760 m it gains." },
