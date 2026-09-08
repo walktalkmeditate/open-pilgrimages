@@ -39,7 +39,7 @@
     "terrainTypes": ["mountain", "forest", "dirt", "paved"],
     "bestMonths": [4, 5, 10, 11],
     "countries": ["JP"],
-    "bbox": [135.585, 33.839, 135.774, 34.213]
+    "bbox": [135.58, 33.83, 135.78, 34.22]
   },
 
   "tradition": {
