@@ -514,6 +514,226 @@ test("checkSite reports a comparison table row that doesn't match any known rout
   );
 });
 
+// README Distance cell vs. index.json's distanceKm, a detail page's per-type
+// waypoint table vs. its own stated Total, and terrainNotes prose vs. a
+// stage's own distanceKm: three published figures a prior PR's reviewers
+// each caught by hand, in a file the previous audit pass hadn't opened.
+
+test("a README km cell that disagrees with the index is reported", () => {
+  // #given a route the index says is 788 km (camino-norte, real data) and this README cell says 784
+  const readmeMd = "[Camino del Norte](routes/camino-norte/) | 784 km";
+
+  // #when the site is checked
+  const problems = checkSite(ROOT, { readmeMd });
+
+  // #then the mismatch is named, with both figures
+  assert.ok(
+    problems.some((p) => p.file === "README.md" && /784/.test(p.message) && /788/.test(p.message)),
+  );
+});
+
+test("a README km cell range (network routes like Kumano Kodo) is checked against its leading figure", () => {
+  // #given index.json says kumano-kodo is 39 km (its canonical Nakahechi route); the README
+  // cell renders a range across its variants, whose leading figure must still agree
+  const readmeMd = "[Kumano Kodo](routes/kumano-kodo/) | 39-170 km";
+
+  // #when / #then checkSite accepts the range because its leading figure matches
+  const problems = checkSite(ROOT, { readmeMd });
+  assert.deepEqual(
+    problems.filter((p) => p.file === "README.md" && p.message.includes("kumano-kodo")),
+    [],
+  );
+});
+
+test("a per-type waypoint table that does not sum to its own total is reported", () => {
+  // #given a detail page whose rows total 100 under a stated total of 154 —
+  // this is how 35 viewpoints went missing on the real camino-norte page before
+  const root = createFixtureRoot([{ id: "camino-frances" }]);
+  writeFileSync(
+    join(root, "docs", "camino-frances.html"),
+    "<html><body><code>camino-frances</code>" +
+      "<table>" +
+      '<caption>Waypoint counts by type on the Camino Franc&eacute;s.</caption>' +
+      '<thead><tr><th scope="col">Type</th><th scope="col">Count</th></tr></thead>' +
+      "<tbody>" +
+      '<tr><th scope="row">Water sources</th><td>60</td></tr>' +
+      '<tr><th scope="row">Accommodation</th><td>40</td></tr>' +
+      '<tr><th scope="row">Total</th><td>154</td></tr>' +
+      "</tbody></table></body></html>",
+  );
+
+  try {
+    // #when checkSite sums the table's rows and compares against its own Total row
+    const problems = checkSite(root);
+
+    // #then the gap is named
+    assert.ok(
+      problems.some(
+        (p) => p.file === "docs/camino-frances.html" && /100/.test(p.message) && /154/.test(p.message),
+      ),
+    );
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("checkSite accepts a per-type waypoint table whose rows sum to its own total (fixture)", () => {
+  // #given a detail page whose rows sum exactly to the stated Total
+  const root = createFixtureRoot([{ id: "camino-frances" }]);
+  writeFileSync(
+    join(root, "docs", "camino-frances.html"),
+    "<html><body><code>camino-frances</code>" +
+      "<table>" +
+      '<caption>Waypoint counts by type on the Camino Franc&eacute;s.</caption>' +
+      '<thead><tr><th scope="col">Type</th><th scope="col">Count</th></tr></thead>' +
+      "<tbody>" +
+      '<tr><th scope="row">Water sources</th><td>60</td></tr>' +
+      '<tr><th scope="row">Accommodation</th><td>40</td></tr>' +
+      '<tr><th scope="row">Total</th><td>100</td></tr>' +
+      "</tbody></table></body></html>",
+  );
+
+  try {
+    // #when / #then checkSite reports no waypoint-table mismatch for this page
+    const problems = checkSite(root);
+    assert.deepEqual(
+      problems.filter((p) => p.message.includes("rows sum to")),
+      [],
+    );
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("terrainNotes naming a distance that contradicts the stage is reported", () => {
+  // #given a stage of 18.6 km whose notes say the day is 15.3 km
+  const root = createFixtureRoot([{ id: "camino-frances" }]);
+  const routeDir = join(root, "routes", "camino-frances");
+  mkdirSync(routeDir, { recursive: true });
+  writeFileSync(
+    join(routeDir, "stages.json"),
+    JSON.stringify({
+      stages: [
+        {
+          index: 0,
+          distanceKm: 18.6,
+          terrainNotes: { en: "A quiet farming valley. The day is 15.3 km, mostly flat." },
+        },
+      ],
+    }),
+  );
+
+  try {
+    // #when checkSite compares the stage's own claim against its distanceKm
+    const problems = checkSite(root);
+
+    // #then the mismatch is named
+    assert.ok(
+      problems.some(
+        (p) =>
+          p.file === "routes/camino-frances/stages.json" &&
+          /terrainNotes/.test(p.message) &&
+          /15\.3/.test(p.message),
+      ),
+    );
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("checkSite ignores a terrainNotes km figure that isn't a self-referential distance claim (fixture — the false-positive this pattern was narrowed to avoid)", () => {
+  // #given prose that mentions several km figures — a split point, an
+  // elevation, an alternate-route aside — none of them a "day is/covers… N
+  // km" claim, reproducing the real camino-norte stage 12 text this pattern
+  // was tuned against
+  const root = createFixtureRoot([{ id: "camino-frances" }]);
+  const routeDir = join(root, "routes", "camino-frances");
+  mkdirSync(routeDir, { recursive: true });
+  writeFileSync(
+    join(routeDir, "stages.json"),
+    JSON.stringify({
+      stages: [
+        {
+          index: 0,
+          distanceKm: 18.6,
+          terrainNotes: {
+            en:
+              "Climbs to ~425 m before dropping to the coast. Most pilgrims split this stage at " +
+              "the halfway point (~10 km). Walking around the bay instead is about 35 km of road.",
+          },
+        },
+      ],
+    }),
+  );
+
+  try {
+    // #when / #then none of those asides are read as the stage's own distance
+    const problems = checkSite(root);
+    assert.deepEqual(
+      problems.filter((p) => p.message.includes("terrainNotes")),
+      [],
+    );
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("checkSite accepts terrainNotes whose self-referential distance claim matches the stage's own distanceKm (fixture)", () => {
+  // #given a stage whose notes explicitly state its own, correct distance
+  const root = createFixtureRoot([{ id: "camino-frances" }]);
+  const routeDir = join(root, "routes", "camino-frances");
+  mkdirSync(routeDir, { recursive: true });
+  writeFileSync(
+    join(routeDir, "stages.json"),
+    JSON.stringify({
+      stages: [
+        {
+          index: 0,
+          distanceKm: 18.6,
+          terrainNotes: { en: "A quiet farming valley. The day is 18.6 km, mostly flat." },
+        },
+      ],
+    }),
+  );
+
+  try {
+    // #when / #then checkSite reports no terrainNotes mismatch for this stage
+    const problems = checkSite(root);
+    assert.deepEqual(
+      problems.filter((p) => p.message.includes("terrainNotes")),
+      [],
+    );
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("the committed routes/*/stages.json terrainNotes already agree with their own distanceKm (positive control)", () => {
+  // #given every route's terrainNotes as currently committed
+  // #when / #then checkSite reports no terrainNotes mismatch anywhere
+  const problems = checkSite(ROOT);
+  assert.deepEqual(
+    problems.filter((p) => p.message.includes("terrainNotes")),
+    [],
+  );
+});
+
+test("the committed docs/{id}.html per-type waypoint tables already sum to their own Total (positive control)", () => {
+  const problems = checkSite(ROOT);
+  assert.deepEqual(
+    problems.filter((p) => p.message.includes("rows sum to")),
+    [],
+  );
+});
+
+test("the committed README's Distance cells already agree with index.json's distanceKm for every route (positive control)", () => {
+  const problems = checkSite(ROOT);
+  assert.deepEqual(
+    problems.filter((p) => p.file === "README.md" && p.message.includes("distanceKm")),
+    [],
+  );
+});
+
 test("a malformed index.json fails fast with a message naming the file, not a downstream crash", () => {
   // #given an index.json whose route entries have no "id" field
   const root = mkdtempSync(join(tmpdir(), "check-site-test-"));

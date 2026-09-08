@@ -59,6 +59,8 @@ interface StageLike {
     narrative?: unknown;
     reflection?: unknown;
   };
+  distanceKm?: unknown;
+  terrainNotes?: unknown;
 }
 
 function isStageLike(value: unknown): value is StageLike {
@@ -199,6 +201,50 @@ const FIGURE_FIELDS: Array<[string, "distanceKm" | "estimatedDaysTypical" | "sta
 // per variant, so that pair stands in for identity instead.
 const VARIANT_ROW_PATTERN =
   /<tr>\s*<td>[^<]*<\/td>\s*<td><a href="\/([^"]+)">[^<]*<\/a><\/td>\s*<td>([\d,]+)\s*km<\/td>/g;
+
+// README.md's route tables render each route as `[Name](routes/{id}/) | {km}
+// km | ...`. A network route like Kumano Kodo instead renders a range
+// ("39-170 km" across its variants) — capturing only the leading number
+// before an optional "-{max}" gets the one figure that has to agree with
+// index.json's own distanceKm (the low end / canonical route's length), the
+// same way FIGURE_FIELDS' "distance" already treats index.json as the
+// source of truth for docs/routes.html's comparison table.
+function readmeDistanceKmPattern(id: string): RegExp {
+  return new RegExp(`\\]\\(routes\\/${id}\\/\\)\\s*\\|\\s*([\\d,]+(?:\\.\\d+)?)(?:-[\\d,]+(?:\\.\\d+)?)?\\s*km`);
+}
+
+// Every detail page hand-lists a "Waypoint counts by type" table (one per
+// route; camino-portugues.html carries a second one for the coastal variant)
+// ending in its own "Total" row. Nothing sums the rows against that row, so a
+// waypoint type introduced in waypoints.geojson without a matching table row
+// — a viewpoint, a cultural site, a credential stamp — still counts toward
+// the Total the page's own paragraph quotes, while silently falling out of
+// the breakdown beneath it. That's the exact shape of the real bug this
+// guard exists for: camino-norte's table rows summed to 2,893 against a
+// Total of 2,928 — 35 short, all of it "viewpoint" and "cultural_site"
+// waypoints with no row of their own.
+const WAYPOINT_TYPE_TABLE_PATTERN =
+  /<caption>(Waypoint counts by type[^<]*)<\/caption>[\s\S]*?<tbody>([\s\S]*?)<\/tbody>/g;
+const WAYPOINT_TYPE_ROW_PATTERN = /<tr><th scope="row">([^<]+)<\/th><td>([\d,]+)[^<]*<\/td><\/tr>/g;
+
+/**
+ * terrainNotes prose mentions kilometres constantly without describing the
+ * stage's own length: a mid-stage split point ("~10 km"), an alternate
+ * route's distance, or — the real example this pattern was tuned against,
+ * camino-norte stage 12's note — "walking around the bay instead is about 35
+ * km of industrial road", a detour distance that has nothing to do with that
+ * stage's own 18.6 km. A loose "any number immediately followed by km"
+ * pattern would flag most of this dataset's unchanged, correct prose (it did,
+ * against every route, before this pattern was narrowed). Elevations and
+ * altitudes ("~425 m", "at 700m") are already excluded by requiring the unit
+ * to be "km", not "m" — but that alone still leaves every km-denominated
+ * aside above as a false positive. Requiring the number to follow "day" or
+ * "stage" plus a verb that claims the whole of it ("is", "covers", "spans",
+ * "measures", "totals") only matches prose that is actually claiming to
+ * describe that stage's own total distance.
+ */
+const TERRAIN_NOTES_DISTANCE_PATTERN =
+  /\b(?:day|stage)\s+(?:is|covers|totals|measures|spans)\s+(?:about\s+|roughly\s+|approximately\s+|around\s+)?(\d+(?:\.\d+)?)\s*km\b/i;
 
 const GLYPHS_JS_KEY_PATTERN = /^\s*"([^"]+)":/gm;
 
@@ -437,14 +483,21 @@ function isIndexVariantShape(value: unknown): value is IndexVariantShape {
 interface IndexRouteShape {
   id: string;
   pilgrimage?: string;
+  distanceKm?: number;
   variants?: IndexVariantShape[];
 }
 
 function isIndexRouteShape(value: unknown): value is IndexRouteShape {
   if (typeof value !== "object" || value === null) return false;
-  const route = value as { id?: unknown; pilgrimage?: unknown; variants?: unknown };
+  const route = value as {
+    id?: unknown;
+    pilgrimage?: unknown;
+    distanceKm?: unknown;
+    variants?: unknown;
+  };
   if (typeof route.id !== "string") return false;
   if (route.pilgrimage !== undefined && typeof route.pilgrimage !== "string") return false;
+  if (route.distanceKm !== undefined && typeof route.distanceKm !== "number") return false;
   if (route.variants === undefined) return true;
   return Array.isArray(route.variants) && route.variants.every(isIndexVariantShape);
 }
@@ -452,6 +505,7 @@ function isIndexRouteShape(value: unknown): value is IndexRouteShape {
 interface IndexRoute {
   id: string;
   pilgrimage?: string;
+  distanceKm?: number;
   variants: IndexVariantShape[];
 }
 
@@ -485,6 +539,7 @@ function readIndexRoutes(indexPath: string): IndexRoute[] {
   return routes.map((route) => ({
     id: route.id,
     pilgrimage: route.pilgrimage,
+    distanceKm: route.distanceKm,
     variants: route.variants ?? [],
   }));
 }
@@ -945,6 +1000,94 @@ export function checkSite(root: string, overrides: PageOverrides = {}): Problem[
   }
 
   /**
+   * See readmeDistanceKmPattern's doc comment for why only the leading
+   * figure of a range is checked. `distanceKm` comes from index.json rather
+   * than statsById/computeStats — the two agree by construction
+   * (build-index.ts copies metadata.json's overview.distanceKm verbatim —
+   * see scanSections there), but index.json is the artifact this repo
+   * publishes and the one a reader compares the README against, so it's the
+   * more direct source of truth for this guard to name.
+   */
+  function checkReadmeDistanceKm(id: string, distanceKm: number | undefined): void {
+    if (distanceKm === undefined) return; // schema requires it on every real route; nothing to check without one
+
+    const match = readmeMd.match(readmeDistanceKmPattern(id));
+    if (!match) return; // no route-table row for this id — the link-coverage check above already reports that
+
+    const rendered = Number(match[1].replace(/,/g, ""));
+    if (rendered !== distanceKm) {
+      add(
+        "README.md",
+        `README's route table lists "${id}" at ${match[1]} km, but index.json's distanceKm is ` +
+          `${distanceKm} km — update the README's Distance cell`,
+      );
+    }
+  }
+
+  function checkWaypointTypeTables(id: string, detailHtml: string): void {
+    const file = `docs/${id}.html`;
+
+    for (const tableMatch of detailHtml.matchAll(WAYPOINT_TYPE_TABLE_PATTERN)) {
+      const [, caption, tbody] = tableMatch;
+      let sum = 0;
+      let total: number | null = null;
+
+      for (const rowMatch of tbody.matchAll(WAYPOINT_TYPE_ROW_PATTERN)) {
+        const [, label, rawCount] = rowMatch;
+        const count = Number(rawCount.replace(/,/g, ""));
+        if (label === "Total") {
+          total = count;
+        } else {
+          sum += count;
+        }
+      }
+
+      if (total !== null && sum !== total) {
+        add(
+          file,
+          `"${caption}" rows sum to ${sum}, but its own Total row reads ${total} — add the missing ` +
+            `waypoint type row(s), or correct the Total`,
+        );
+      }
+    }
+  }
+
+  function checkTerrainNotesDistance(id: string): void {
+    const stagesPath = join(root, "routes", id, "stages.json");
+    if (!existsSync(stagesPath)) return;
+
+    let parsed: unknown;
+    try {
+      parsed = JSON.parse(readFileSync(stagesPath, "utf-8"));
+    } catch {
+      return; // malformed stages.json is npm run validate's job to report
+    }
+
+    if (!isStagesFileLike(parsed) || !Array.isArray(parsed.stages)) return;
+    const file = `routes/${id}/stages.json`;
+
+    parsed.stages.forEach((stage: unknown, index: number) => {
+      if (!isStageLike(stage)) return;
+
+      const notes = localizedText(stage.terrainNotes);
+      if (!notes) return;
+
+      const match = notes.match(TERRAIN_NOTES_DISTANCE_PATTERN);
+      if (!match) return; // no self-referential "day is/covers/… N km" claim in the prose
+
+      const named = Number(match[1]);
+      const actual = typeof stage.distanceKm === "number" ? stage.distanceKm : undefined;
+      if (actual === undefined || named === actual) return;
+
+      add(
+        file,
+        `stage ${index + 1}'s terrainNotes names ${named} km as the day's distance, but this ` +
+          `stage's distanceKm is ${actual} km — reword the note or fix distanceKm`,
+      );
+    });
+  }
+
+  /**
    * schema/pilgrimage.schema.json allows difficulty "expert" as well as
    * easy/moderate/hard, but the filter's <select> only offered three of the
    * four — a schema-valid "expert" route would render its card with
@@ -1142,6 +1285,9 @@ export function checkSite(root: string, overrides: PageOverrides = {}): Problem[
   const pilgrimageByRouteId = new Map(
     indexRoutes.map((route) => [route.id, route.pilgrimage] as const),
   );
+  const distanceKmByRouteId = new Map(
+    indexRoutes.map((route) => [route.id, route.distanceKm] as const),
+  );
 
   for (const id of ids) {
     if (!routesHtml.includes(`href="/${id}"`)) {
@@ -1155,6 +1301,8 @@ export function checkSite(root: string, overrides: PageOverrides = {}): Problem[
 
     if (!readmeMd.includes(`](routes/${id}/)`)) {
       add("README.md", `route "${id}" has no link to routes/${id}/ in the README route table`);
+    } else {
+      checkReadmeDistanceKm(id, distanceKmByRouteId.get(id));
     }
 
     const detailPagePath = join(docs, `${id}.html`);
@@ -1182,6 +1330,7 @@ export function checkSite(root: string, overrides: PageOverrides = {}): Problem[
       checkInlinedAsset("sparklines", id, detailPages);
       checkInteriorJourney(id, detailHtml);
       checkRouteGpxLink(id, detailHtml);
+      checkWaypointTypeTables(id, detailHtml);
       if (pilgrimageId !== undefined) {
         checkPilgrimageBacklink(id, pilgrimageId, detailHtml);
       }
@@ -1214,6 +1363,7 @@ export function checkSite(root: string, overrides: PageOverrides = {}): Problem[
     checkRouteGpx(id);
     checkRoadsAsset(id, join(root, "routes", id, "route.geojson"));
     checkRouteFilterAttrs(id);
+    checkTerrainNotesDistance(id);
 
     if (RESERVED_PAGE_NAMES.has(id)) {
       add("index.json", `route id "${id}" collides with a reserved page name`);

@@ -32,6 +32,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
+        with:
+          # The drafted-text step below needs a real merge base with the base
+          # branch, not just this branch's own history — actions/checkout's
+          # default shallow (depth-1) clone has neither.
+          fetch-depth: 0
       - uses: actions/setup-node@v5
         with:
           node-version: 22
@@ -55,9 +60,17 @@ jobs:
         if: github.event_name == 'pull_request'
         env:
           BASE_REF: ${{ github.base_ref }}
+        # Diffing against the base branch's current tip (the old FETCH_HEAD
+        # arg) blames this PR for any drafted:true flag that landed on the
+        # base branch after this branch forked — a concurrent content PR
+        # merging first is exactly this repo's situation once two content
+        # PRs are in flight. The merge base is the tree this PR's changes
+        # actually diverged from, so it's the only ref a same-PR diff can be
+        # measured against without picking up someone else's commits.
         run: |
-          git fetch --no-tags --depth=1 origin "$BASE_REF"
-          npm run check-drafted-diff -- FETCH_HEAD
+          git fetch --no-tags origin "$BASE_REF"
+          MERGE_BASE="$(git merge-base HEAD FETCH_HEAD)"
+          npm run check-drafted-diff -- "$MERGE_BASE"
       - run: npm run build-assets
       - name: Check generated assets are up to date
         # git diff --exit-code alone misses brand-new files (e.g. the first
