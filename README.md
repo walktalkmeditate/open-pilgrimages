@@ -42,14 +42,14 @@ Routes that belong to no pilgrimage grouping yet.
 
 | Type | Frances | Norte | Primitivo | Portugués | Coastal | Inglés | Shikoku | Kumano |
 |------|---------|-------|-----------|-----------|---------|--------|---------|--------|
-| Water sources | 788 | 863 | 96 | 177 | 52 | 85 | 13 | 1 |
-| Medical (pharmacy/hospital) | 172 | 279 | 63 | 112 | 50 | 44 | 214 | 1 |
-| Accommodation | 532 | 301 | 75 | 180 | 92 | 39 | 124 | 31 |
-| Food (restaurant/cafe) | 713 | 997 | 265 | 600 | 425 | 152 | 456 | 13 |
-| Transport (bus/train) | 511 | 900 | 180 | 431 | 302 | 136 | 1,395 | 39 |
-| Supply (convenience/toilet) | 189 | 294 | 53 | 134 | 122 | 26 | 690 | 52 |
-| Sacred sites | 9 | — | — | — | — | — | 88 | 18 |
-| Towns | 36 | — | — | — | — | — | — | 2 |
+| Water sources | 788 | 662 | 96 | 177 | 52 | 85 | 13 | 1 |
+| Medical (pharmacy/hospital) | 172 | 206 | 63 | 112 | 50 | 44 | 214 | 1 |
+| Accommodation | 532 | 250 | 75 | 180 | 92 | 39 | 124 | 31 |
+| Food (restaurant/cafe) | 713 | 764 | 265 | 600 | 425 | 152 | 456 | 13 |
+| Transport (bus/train) | 511 | 657 | 180 | 431 | 302 | 136 | 1,395 | 39 |
+| Supply (convenience/toilet) | 189 | 235 | 53 | 134 | 122 | 26 | 690 | 52 |
+| Sacred sites | 9 | 68 | — | — | — | — | 88 | 18 |
+| Towns | 36 | 51 | — | — | — | — | — | 2 |
 
 ### Statistics (`stats.json`)
 
@@ -237,7 +237,7 @@ This dataset is structured for programmatic consumption. If you're an AI agent o
 ### OSM-sourced vs curated waypoints
 
 - **Curated** waypoints (no `source` field) are hand-verified sacred sites, towns, and landmarks. Higher quality, fewer quantity.
-- **OSM** waypoints (`"source": "osm"`) are automatically enriched from OpenStreetMap within 500m of the route. Higher quantity, OSM quality. Each has an `osmId` for provenance.
+- **OSM** waypoints (`"source": "osm"`) are automatically enriched from OpenStreetMap within 300m of the route. Higher quantity, OSM quality. Each has an `osmId` for provenance.
 
 ## Data Sources & Attribution
 
