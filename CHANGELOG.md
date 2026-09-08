@@ -25,7 +25,8 @@ generated page per pilgrimage — the first release to carry any of it.
   four pinned OSM relations and joined at shared coordinates by
   `npm run build-main-line camino-norte`. `route.geojson` could not serve as
   the source: it is those same four relations concatenated raw, variants and
-  detours included — 1,367 km of geometry for a 798 km route. Every stage
+  detours included — 1,367 km of geometry, where the walked line cut from
+  them measures 799.9 km against the 788 km the route declares. Every stage
   boundary now snaps to a real point on the walked line; no boundary is
   placed by interpolating declared distances.
 - **The POI fetcher asks for sacred sites, cultural sites, viewpoints and
@@ -47,11 +48,13 @@ generated page per pilgrimage — the first release to carry any of it.
 
 - **A section that ships metadata-only warns instead of holding the release.** A section whose way graph cannot yet be closed may ship with `ways: null` and wait for a later release; the chain check was refusing exactly that, so one unbuildable section would have made its whole pilgrimage unshippable. A section `index.json` says shipped a package — or does not list at all — is still an error.
 - **The drafted-text gate asks for the review, not only for the absence of an unticked one.** Where a section has a review checklist, every one of its stages needs a recognised line there, and a stage listed nowhere is named; a section that ships drafted text with no checklist anywhere is told which file to create and what to put in it. Deleting the flag and the checklist entry in one pass used to clear a stage more quietly than leaving the flag on.
-- **Camino del Norte is no longer `sparse`.** 154 named places — sacred
+- **Camino del Norte is no longer `sparse`.** 152 named places — sacred
   sites, viewpoints, ruins, villages and towns — now clear the ways
-  builder's 300 m corridor, 4.1 per stage, and 29 of its 34 stages carry one
-  beyond their own start and end towns, against a bar of 17. The route's
-  card stops saying "few places marked yet".
+  builder's 300 m corridor; a chapel and a church sit just past it and are
+  dropped. Measured the other way — what a stage passes beyond its own start
+  and end towns — the route averages 4.1 places a stage, and 29 of its 34
+  stages carry at least one, against a bar of 17. The route's card stops
+  saying "few places marked yet".
 - **Waypoints are enriched within 300 m of the route, not 500 m** — matching
   the radius the ways builder already used to decide what a stage keeps. The
   looser radius had let 913 waypoints get written to `waypoints.geojson` and
@@ -366,6 +369,7 @@ Each route ships with `metadata.json` (overview, tradition, cultural, logistics)
 
 ---
 
+[1.7.1]: https://github.com/walktalkmeditate/open-pilgrimages/compare/v1.7.0...v1.7.1
 [1.7.0]: https://github.com/walktalkmeditate/open-pilgrimages/compare/v1.6.0...v1.7.0
 [1.6.0]: https://github.com/walktalkmeditate/open-pilgrimages/compare/v1.5.0...v1.6.0
 [1.5.0]: https://github.com/walktalkmeditate/open-pilgrimages/compare/v1.4.0...v1.5.0
