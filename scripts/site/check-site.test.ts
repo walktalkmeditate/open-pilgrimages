@@ -4149,10 +4149,17 @@ const COASTAL_FILES_ROW =
   "<p>Files at <code>routes/camino-portugues/variants/coastal/</code>: " +
   "<code>waypoints.geojson</code> (1,043 waypoints), <code>stats.json</code> (2003&ndash;2025).</p>";
 
+// Every message checkWaypointClaims and the two paragraph readings under it
+// emit. The floor and the breakdown are in this list rather than in one of
+// their own, because a filter that quietly excludes a new message is the same
+// silence the floor exists to refuse — a fixture would go on asserting "nothing
+// is reported" while something was.
 const waypointClaimProblems = (root: string): string[] =>
   checkSite(root)
     .filter((p) =>
-      /waypoints with no |not a figure this guard can read|opens a waypoint claim/.test(p.message),
+      /waypoints with no |not a figure this guard can read|opens a waypoint claim|opens a paragraph with|breaks its waypoint count down/.test(
+        p.message,
+      ),
     )
     .map((p) => `${p.file}: ${p.message}`);
 
@@ -4223,13 +4230,17 @@ test("checkSite does not fire on the committed prose that mentions waypoints wit
   // enriched from OpenStreetMap and carrying its osmId", over a file where a
   // waypoint carries no osmId, and the coastal variant's Files row naming a
   // count that belongs to a different file entirely. A keyword check on
-  // "waypoints" or on <code>osmId</code> fires on both
-  const root = waypointFixture(
-    "<p>35 waypoints, every one enriched from OpenStreetMap and carrying its <code>osmId</code>, " +
-      "so a re-run of the enricher reproduces the file exactly.</p>" +
-      COASTAL_FILES_ROW,
-    [withBoth, { stageIndex: 1, kmFromStart: 0.5 }],
-  );
+  // "waypoints" or on <code>osmId</code> fires on both.
+  //
+  // The Kohechi's whole committed paragraph, and a file of the size its opening
+  // figure names. Written with the "Each has …" sentence stripped and two
+  // waypoints behind it, this fixture published a 35 that nothing read — the
+  // exact hole checkWaypointCountParagraphs' floor now reports, demonstrated by
+  // accident in a test asserting that nothing was wrong
+  const root = waypointFixture(KOHECHI_UNIVERSAL_CLAIM + COASTAL_FILES_ROW, [
+    ...Array.from({ length: 34 }, () => ({ ...withBoth })),
+    { stageIndex: 1, kmFromStart: 0.5 },
+  ]);
 
   try {
     // #when / #then nothing is reported
@@ -4381,9 +4392,170 @@ test("checkSite does not measure an 'each with' claim about something other than
 test("the committed detail pages already make no waypoint claim their own data does not support (positive control)", () => {
   // #given the committed tree, where seven pages claim "each with stageIndex
   // and kmFromStart" and none of those routes has a waypoint missing either,
-  // and the Nakahechi's "all but six" and "all but three" are exact
+  // the Nakahechi's "all but six" and "all but three" are exact, all eight
+  // opening figures are read, and the three "of which" breakdowns are exact
   // #when / #then nothing is reported
   assert.deepEqual(waypointClaimProblems(ROOT), []);
+});
+
+// The floor under the opening count. Until checkWaypointCountParagraphs
+// existed, that reading ran only from inside the two claim loops, so an edit
+// that reworded the claim beside a figure took the figure's own check down with
+// it — in silence, exit 0. See its doc comment for why a paragraph-opening
+// anchor is enough to stand alone.
+
+test("checkSite reports a published waypoint count no claim on the page brings under check (fixture — a wrong figure whose neighbouring claim was reworded)", () => {
+  // #given the two-step mutation: a figure that is not the file's, in a
+  // sentence whose "each with" has been reworded to "all carrying". The figure
+  // alone is reported; reword the claim and, without this floor, the same wrong
+  // figure passes clean
+  const root = waypointFixture(
+    "<p>2,000 logistics waypoints are tagged along the route, all carrying " +
+      "<code>stageIndex</code> and <code>kmFromStart</code>.</p>",
+    [withBoth, withBoth],
+  );
+
+  try {
+    // #when checkSite walks the page's paragraphs
+    const problems = waypointClaimProblems(root);
+
+    // #then the paragraph is reported as unread, and the true count named
+    assert.equal(problems.length, 1);
+    assert.match(problems[0], /^docs\/r\.html: opens a paragraph with "2,000 logistics waypoints"/);
+    assert.match(problems[0], /no waypoint claim in it brings under check/);
+    assert.match(problems[0], /routes\/r\/waypoints\.geojson holds 2/);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("the floor does not ask a page that publishes no waypoint count to publish one", () => {
+  // #given a page whose only "each with" claim is about stages, over a route
+  // that ships a waypoints.geojson. Nothing opens a paragraph with a count, so
+  // there is no published figure to go unread — a floor demanding one would
+  // false-positive on the first page shape it met
+  const root = waypointFixture(
+    "<p>Ten stages are described here, each with <code>terrainNotes</code>.</p>" +
+      COASTAL_FILES_ROW,
+    [withBoth, withBoth],
+  );
+
+  try {
+    // #when / #then nothing is reported
+    assert.deepEqual(waypointClaimProblems(root), []);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+// The breakdown clause: "…, of which 9 are curated sacred sites and 36 are
+// towns". 047a1ae reworded three of these from "plus" and left their figures
+// unchecked — the same drift class as the total they sit beside, one clause to
+// the right.
+
+function writeWaypointsSchema(root: string, enumValues: string[]): void {
+  mkdirSync(join(root, "schema"), { recursive: true });
+  writeFileSync(
+    join(root, "schema", "waypoints.schema.json"),
+    JSON.stringify({
+      $defs: {
+        WaypointFeature: { properties: { properties: { properties: { type: { enum: enumValues } } } } },
+      },
+    }),
+  );
+}
+
+const WAYPOINT_TYPES = ["town", "sacred_site", "water_source", "accommodation", "cultural_site"];
+
+const FRANCES_BREAKDOWN_CLAIM =
+  "<p>4 logistics waypoints are tagged along the route, each with <code>stageIndex</code> " +
+  "and <code>kmFromStart</code>, of which 9 are curated sacred sites and 36 are towns.</p>";
+
+const sacred = { stageIndex: 1, kmFromStart: 0.5, type: "sacred_site" };
+const town = { stageIndex: 1, kmFromStart: 0.5, type: "town" };
+
+test("checkSite reports the extras figures a waypoint claim's 'of which' clause names (fixture — docs/camino-frances.html's sentence over a file holding neither figure)", () => {
+  // #given the committed sentence verbatim, its total corrected to the fixture
+  // file's, over four waypoints of which one is a sacred site and one a town.
+  // Before this check, 9 and 36 could say anything at all
+  const root = waypointFixture(FRANCES_BREAKDOWN_CLAIM, [sacred, town, withBoth, withBoth]);
+  writeWaypointsSchema(root, WAYPOINT_TYPES);
+
+  try {
+    // #when checkSite reads each extras figure against the per-type count
+    const problems = waypointClaimProblems(root);
+
+    // #then both are reported, each naming its type and the true count
+    assert.equal(problems.length, 2);
+    assert.match(problems[0], /breaks its waypoint count down as "9 are curated sacred sites"/);
+    assert.match(problems[0], /holds 1 of type sacred_site — correct the figure to 1/);
+    assert.match(problems[1], /breaks its waypoint count down as "36 are towns"/);
+    assert.match(problems[1], /holds 1 of type town — correct the figure to 1/);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("an 'of which' clause whose figures match the per-type counts is accepted", () => {
+  // #given the same sentence with both figures corrected, and the two shapes of
+  // trailing prose the other two committed clauses carry — a modifier before
+  // the noun and an aside after it
+  const root = waypointFixture(
+    "<p>4 logistics waypoints are tagged along the route, each with <code>stageIndex</code> " +
+      "and <code>kmFromStart</code>, of which 2 are curated sacred sites and 2 are towns " +
+      "enriched from OpenStreetMap.</p>",
+    [sacred, sacred, town, town],
+  );
+  writeWaypointsSchema(root, WAYPOINT_TYPES);
+
+  try {
+    // #when / #then nothing is reported
+    assert.deepEqual(waypointClaimProblems(root), []);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("checkSite reports an extras noun that resolves to no waypoint type, rather than passing over it", () => {
+  // #given a clause naming something schema/waypoints.schema.json does not
+  // declare. A noun this cannot resolve is a figure that goes unchecked, which
+  // is the state a drift hides in — the same reading the unreadable "all but N"
+  // figure gets
+  const root = waypointFixture(
+    "<p>2 logistics waypoints are tagged along the route, each with <code>stageIndex</code>, " +
+      "of which 1 are curated shrines.</p>",
+    [sacred, town],
+  );
+  writeWaypointsSchema(root, WAYPOINT_TYPES);
+
+  try {
+    // #when / #then it is reported, and the message says what it looked in
+    const problems = waypointClaimProblems(root);
+    assert.equal(problems.length, 1);
+    assert.match(problems[0], /breaks its waypoint count down as "1 are curated shrines"/);
+    assert.match(problems[0], /names no waypoint type in schema\/waypoints\.schema\.json/);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("checkSite does not read a 'N are …' phrase outside an 'of which' clause as a type breakdown", () => {
+  // #given docs/kumano-kodo-nakahechi.html:171's own sentence, whose "The other
+  // 14 are in no file at all" is the false positive a paragraph-wide reading
+  // produces and the reason the clause anchor is "of which"
+  const root = waypointFixture(
+    "<p>2 waypoints are tagged along the route, all but one with " +
+      "<code>kmFromStart</code>. The other 14 are in no file at all.</p>",
+    [{ stageIndex: 1, kmFromStart: 0.5, type: "town" }, { stageIndex: 1, type: "town" }],
+  );
+  writeWaypointsSchema(root, WAYPOINT_TYPES);
+
+  try {
+    // #when / #then nothing is reported
+    assert.deepEqual(waypointClaimProblems(root), []);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
 });
 
 // The drafted claim, and the reading this check deliberately does not take.

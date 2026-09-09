@@ -721,6 +721,27 @@ const LEADING_WAYPOINT_COUNT_PATTERN = /^\s*([\d,]+)\s+(?:[a-z]+\s+)?waypoints\b
 
 const PARAGRAPH_OPEN_PATTERN = /<p(?:\s[^>]*)?>/g;
 
+/**
+ * Two more readings of the paragraph that figure opens, both anchored on the
+ * opening itself rather than on a claim beside it. See
+ * checkWaypointCountParagraphs for what each one catches.
+ *
+ * The clause anchor is "of which" and deliberately not the paragraph, because
+ * a paragraph-wide "N are …" reading has a false positive in the committed
+ * tree: docs/kumano-kodo-nakahechi.html:171 says "The other 14 are in no file
+ * at all", which names no waypoint type and is no breakdown. Three of the eight
+ * claim paragraphs carry an "of which" clause and between them five figures,
+ * every one exact today — camino-frances' 9 and 36, camino-norte's 68 and 51,
+ * shikoku-88's 88 — and no other paragraph in docs/*.html reaches this at all.
+ *
+ * The figure pattern requires the count and the copula to be adjacent, which is
+ * what keeps the sentence's own opening out of the reading: "2,957 logistics
+ * waypoints are tagged along the route" puts two words between them.
+ */
+const WAYPOINT_BREAKDOWN_CLAUSE_PATTERN = /\bof which\b([\s\S]*)$/i;
+
+const WAYPOINT_BREAKDOWN_FIGURE_PATTERN = /([\d,]+)\s+(?:are|were)\b/g;
+
 // Enough to read the two figures the committed prose spells out ("all but
 // six", "all but three") and the neighbouring ones a rewording would reach
 // for. A word outside this table is not silently ignored — see
@@ -1249,6 +1270,70 @@ function countWithoutProperty(
   return properties.filter((one) => one[name] === undefined || one[name] === null).length;
 }
 
+function countOfType(properties: Array<Record<string, unknown>>, type: string): number {
+  return properties.filter((one) => one.type === type).length;
+}
+
+interface WaypointsSchemaLike {
+  $defs?: {
+    WaypointFeature?: {
+      properties?: { properties?: { properties?: { type?: { enum?: unknown } } } };
+    };
+  };
+}
+
+/**
+ * The vocabulary a breakdown clause's nouns are resolved against, read from
+ * schema/waypoints.schema.json the way readDifficultyEnum reads the difficulty
+ * filter's from schema/pilgrimage.schema.json — and for the same reason, that
+ * the schema is the source of truth and the prose is what gets checked against
+ * it, never the other way round.
+ *
+ * The file's own type values were the alternative and are worse in exactly one
+ * place, which is the place that matters: a type no waypoint carries does not
+ * appear in them, so a page claiming "5 are towns" of a route with no towns
+ * would be reported as naming a word this guard cannot read, rather than as
+ * saying 5 where the file holds 0. shikoku-88 has no town waypoints today.
+ *
+ * Degrades to null — every breakdown clause goes unread — when the schema is
+ * missing or reshaped, the same way readDifficultyEnum does, and for the same
+ * reason: that shape of problem is npm run validate's to report, and the
+ * fixture roots in check-site.test.ts have no schema/ directory. The floor in
+ * checkWaypointCountParagraphs reads no schema and is unaffected.
+ *
+ * Filtered to `[a-z_]+`. Every committed value is an id in that shape, and the
+ * values are spliced into a RegExp below, so a value carrying regex syntax is
+ * dropped rather than compiled.
+ */
+function readWaypointTypeEnum(root: string): string[] | null {
+  const schemaPath = join(root, "schema", "waypoints.schema.json");
+  if (!existsSync(schemaPath)) return null;
+
+  let parsed: unknown;
+  try {
+    parsed = JSON.parse(readFileSync(schemaPath, "utf-8"));
+  } catch {
+    return null;
+  }
+
+  const enumValues = (parsed as WaypointsSchemaLike | null)?.$defs?.WaypointFeature?.properties
+    ?.properties?.properties?.type?.enum;
+  if (!Array.isArray(enumValues)) return null;
+
+  return enumValues.filter((value): value is string => typeof value === "string" && /^[a-z_]+$/.test(value));
+}
+
+/**
+ * The prose spelling of a waypoint type, as a page writes it: underscores read
+ * as spaces, and an optional plural. "sacred_site" is published as "sacred
+ * sites" and "town" as "towns" — the only two any page names today — and every
+ * other value the schema declares reads the same way, "water_source" as "water
+ * sources" and "credential_stamp" as "credential stamps".
+ */
+function waypointTypeNounPattern(type: string): RegExp {
+  return new RegExp(`\\b${type.replace(/_/g, " ")}s?\\b`, "i");
+}
+
 interface StageDraftedCounts {
   total: number;
   drafted: number;
@@ -1656,6 +1741,7 @@ export function checkSite(root: string, overrides: PageOverrides = {}): Problem[
   const readmeMd =
     overrides.readmeMd ?? (existsSync(readmePath) ? readFileSync(readmePath, "utf-8") : "");
   const glyphsJs = readDocsFile("assets", "glyphs.js");
+  const waypointTypes = readWaypointTypeEnum(root);
 
   function checkInlinedAsset(kind: AssetKind, assetId: string, pages: Array<[string, string]>): void {
     const svgPath = join(docs, "assets", kind, `${assetId}.svg`);
@@ -2650,6 +2736,140 @@ export function checkSite(root: string, overrides: PageOverrides = {}): Problem[
 
       checkOpeningCount(claim.index);
     }
+
+    checkWaypointCountParagraphs(file, source, detailHtml, properties, readParagraphs);
+  }
+
+  /**
+   * The floor under checkOpeningCount, and the breakdown clause that sits one
+   * comma to the right of the figure it reads.
+   *
+   * checkOpeningCount runs only from inside checkWaypointClaims' two claim
+   * loops, so until this existed the whole reading could be switched off by an
+   * edit that looks like ordinary prose. Set docs/camino-frances.html's opening
+   * figure to 2,000 and it is reported; then reword the neighbouring "each with
+   * <code>…</code>" to "all carrying <code>…</code>" and the same wrong figure
+   * passes clean, because nothing reaches that paragraph any more. checkCdnLinks
+   * and checkContributeNeedTags both already refuse exactly this — a detail page
+   * with no CDN links and a contribute page with no need tags are reported
+   * rather than passed over — and checkKeyFacts' own comment calls a gate that
+   * switches itself off the one failure a gate must not have.
+   *
+   * So a paragraph opening with this route's waypoint count that no claim
+   * brought under check is itself reported. Measured over the committed pages,
+   * exactly eight paragraphs in all of docs/*.html open that way — one on each
+   * of the eight routes shipping a waypoints.geojson — and all eight are read
+   * today. Eight, not the seven pages carrying an "each with" claim: b11701e
+   * reworded docs/kumano-kodo-nakahechi.html's into the counted form, and its
+   * paragraph is reached through that instead.
+   *
+   * Nothing outside those eight meets the anchor, which is what lets it stand
+   * alone as a floor. The figures LEADING_WAYPOINT_COUNT_PATTERN's comment names
+   * as belonging to other files — docs/camino-portugues.html:396's "(1,043
+   * waypoints)" for the coastal variant, and the Files & CDN rows — sit
+   * mid-paragraph behind "Files at <code>…</code>:", where an opening anchor
+   * cannot reach them.
+   *
+   * The breakdown is the other half of the same sentence: "…, of which 9 are
+   * curated sacred sites and 36 are towns", the tail 047a1ae reworded from
+   * "plus" because the extras are members of the total rather than additions to
+   * it. That rewording left the extras' own figures unchecked —
+   * docs/camino-frances.html could read "of which 99 are curated sacred sites
+   * and 366 are towns" and check-site would pass — so they are read against the
+   * same file the total is, per type. See WAYPOINT_BREAKDOWN_CLAUSE_PATTERN for
+   * why the clause and not the paragraph is the anchor.
+   *
+   * The breakdown is read whether or not the floor fired, because its figures
+   * are claims in their own right and the paragraph's own opening is what ties
+   * them to this route's file. A noun the vocabulary resolves to no type, or to
+   * more than one, is reported rather than passed over: an unreadable claim is
+   * the state in which a drift goes unseen, which is the reading
+   * COUNTED_WAYPOINT_PROPERTY_PATTERN's unreadable-figure branch already takes.
+   *
+   * docs/kumano-kodo-nakahechi.html:171 writes its own breakdown in a shape this
+   * does not read ("21 curated — 18 sacred sites, 2 towns and Yunomine Onsen —
+   * and 94 enriched from OpenStreetMap"), and that is a known limit rather than
+   * an oversight: the day it is reworded into "of which", it is checked.
+   */
+  function checkWaypointCountParagraphs(
+    file: string,
+    source: string,
+    detailHtml: string,
+    properties: Array<Record<string, unknown>>,
+    readParagraphs: ReadonlySet<number>,
+  ): void {
+    for (const open of detailHtml.matchAll(PARAGRAPH_OPEN_PATTERN)) {
+      const start = open.index + open[0].length;
+      const close = detailHtml.indexOf("</p>", start);
+      const body = close === -1 ? detailHtml.slice(start) : detailHtml.slice(start, close);
+
+      const opening = body.match(LEADING_WAYPOINT_COUNT_PATTERN);
+      if (!opening) continue;
+
+      if (!readParagraphs.has(start)) {
+        add(
+          file,
+          `opens a paragraph with "${claimText(opening[0])}" that no waypoint claim in it brings ` +
+            `under check, so the figure goes unread and could say anything — ${source} holds ` +
+            `${properties.length.toLocaleString("en-US")}; restore a claim this guard reads ` +
+            `("…, each with <code>…</code>", "all but N with <code>…</code>"), or drop the figure`,
+        );
+      }
+
+      checkWaypointBreakdown(file, source, claimText(body), properties);
+    }
+  }
+
+  function checkWaypointBreakdown(
+    file: string,
+    source: string,
+    paragraph: string,
+    properties: Array<Record<string, unknown>>,
+  ): void {
+    if (waypointTypes === null) return; // no readable schema — see readWaypointTypeEnum
+
+    const clause = paragraph.match(WAYPOINT_BREAKDOWN_CLAUSE_PATTERN);
+    if (!clause) return;
+
+    const figures = [...clause[1].matchAll(WAYPOINT_BREAKDOWN_FIGURE_PATTERN)];
+
+    figures.forEach((figure, index) => {
+      const from = figure.index + figure[0].length;
+      const to = index + 1 < figures.length ? figures[index + 1].index : clause[1].length;
+      // The slice runs to the next figure, so it carries whatever joined the
+      // two — "curated sacred sites and". Trimming it changes no reading (the
+      // noun patterns are word-anchored) and is what lets the message quote
+      // the page back in the page's own words.
+      const noun = clause[1]
+        .slice(from, to)
+        .trim()
+        .replace(/\s*\band$/i, "")
+        .replace(/[.,;:]+$/, "")
+        .trim();
+
+      const named = waypointTypes.filter((type) => waypointTypeNounPattern(type).test(noun));
+      if (named.length !== 1) {
+        add(
+          file,
+          `breaks its waypoint count down as "${figure[1]} are ${noun}", which names ` +
+            `${named.length === 0 ? "no waypoint type" : `${named.length} waypoint types (${named.join(", ")})`} ` +
+            `in schema/waypoints.schema.json — so the figure goes unchecked; name one type, the way ` +
+            `"9 are curated sacred sites" names sacred_site`,
+        );
+        return;
+      }
+
+      const held = countOfType(properties, named[0]);
+      const claimed = figureFromCell(figure[1]);
+      if (claimed === held) return;
+
+      add(
+        file,
+        `breaks its waypoint count down as "${figure[1]} are ${noun}", but ${source} holds ` +
+          `${held.toLocaleString("en-US")} of type ${named[0]} — correct the figure to ` +
+          `${held.toLocaleString("en-US")}, or retag the waypoints`,
+      );
+    });
   }
 
   /**
