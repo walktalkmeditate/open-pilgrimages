@@ -33,10 +33,9 @@
         "note": "Temple 10, 28.26 km along this section's walked line, 49 m off it — 28.26 km from the previous day's end at 0.00 km, inside the 25-30 km band and, of the temples in it, the one nearest 27.5 km."
       },
       "distanceKm": 28.3,
-      "drafted": true,
       "interior": {
         "theme": { "en": "Ten temples in twenty-eight kilometres" },
-        "narrative": { "en": "Ten of Awa's twenty-three temples stand on this one day. Ryōzen-ji opens it, Gokuraku-ji comes 1.3 km on, and Konsen-ji, Dainichi-ji, Jizō-ji, Anraku-ji, Jūraku-ji, Kumadani-ji and Hōrin-ji follow before Kirihata-ji closes it at 28.3 km. The widest gap between any two of them is 5.3 km. What else the day passes is ordinary and near at hand — the ruins of the former Bandō POW camp inside the first kilometre, the town of Itano at 4.8 km. Ten arrivals in the first 28.3 km of a 154.5 km section: whatever this day asks of you, it is not patience between temples." },
+        "narrative": { "en": "Ten of Awa's twenty-three temples stand on this one day. Ryōzen-ji opens it, Gokuraku-ji comes 1.3 km on, and Konsen-ji, Dainichi-ji, Jizō-ji, Anraku-ji, Jūraku-ji, Kumadani-ji and Hōrin-ji follow before Kirihata-ji closes it at 28.3 km. The widest gap between any two of them is 5.3 km. What else the day passes is near at hand — the ruins of the former Bandō POW camp inside the first kilometre, the town of Itano at 4.8 km. Ten arrivals in the first 28.3 km of a 154.5 km section: whatever this day asks of you, it is not patience between temples." },
         "reflection": { "en": "Ten arrivals in one day, the widest gap between any two of them 5.3 km — how do you meet the tenth as freshly as the first?" }
       }
     },
@@ -67,7 +66,6 @@
         "note": "OpenStreetMap node/11544133369 (accommodation), 52.54 km along this section's walked line, 43 m off it. No temple falls 25-30 km past the previous day's end at 28.26 km, so the day ends at the named accommodation or town waypoint on the line nearest 27.5 km, 24.28 km on."
       },
       "distanceKm": 24.3,
-      "drafted": true,
       "interior": {
         "theme": { "en": "From ten temples to two" },
         "narrative": { "en": "Yesterday held ten temples; today holds two. Fujii-dera comes 9.7 km on from Kirihata-ji and Shōzan-ji 11.6 km after that — the two widest gaps between temples Awa has offered so far, and both are wider than any gap in yesterday's ten. Between them the data records three more sacred places, Chōdo-an, ishidou-gongen and Ryūsui-an, inside 2.9 km. No temple falls where a day of this length would end, so this one does not end at a gate: it stops 3.1 km past Shōzan-ji at Sudachi-an, a guesthouse." },
@@ -101,7 +99,6 @@
         "note": "Temple 17, 79.45 km along this section's walked line, 46 m off it — 26.90 km from the previous day's end at 52.54 km, inside the 25-30 km band and, of the temples in it, the one nearest 27.5 km."
       },
       "distanceKm": 26.9,
-      "drafted": true,
       "interior": {
         "theme": { "en": "Five temples in the last eight kilometres" },
         "narrative": { "en": "The day walks 18.8 km before it reaches a temple. Shōzan-ji is 21.8 km behind by then, the second-widest step between two temples in this section, and the day's first is Dainichi-ji at 71.3 km — the second temple of that name in Awa, after Temple 4 on the opening day. Then the spacing collapses: Jōraku-ji, Awa Kokubun-ji, Kannon-ji and Ido-ji all fall inside the 8.1 km after it, and Jōraku-ji to Awa Kokubun-ji is 1.1 km, the shortest step between two temples anywhere in Awa. Hie Shrine, Hachiman Shrine and Jigen-ji stand in that same run. One day carries both shapes the section has." },
@@ -140,7 +137,6 @@
           "en": "52.9 km, the longest of Awa's five days. OpenStreetMap records no named accommodation or town on the walked line between Ido-ji and this day's end, so the rule had nowhere nearer to stop. Carry water and food for the whole distance, or break the day at a place off the line."
         }
       ],
-      "drafted": true,
       "interior": {
         "theme": { "en": "Fifty-three kilometres between beds" },
         "narrative": { "en": "Awa's longest day, 52.9 km, and it is long because of an absence rather than a distance: between Ido-ji and this day's end the data holds no accommodation and no town anywhere on the walked line, so the cut had nowhere nearer to stop. The stretch itself is the busiest in the section — eighty-nine of Awa's two hundred and three recorded places stand on it, more than on any other day, twenty-two of them places to eat. Five temples come with it: Onzan-ji 18.1 km in, then Tatsue-ji, Kakurin-ji, Tairyū-ji and Byōdō-ji. Past Byōdō-ji the first bed the record holds is 0.6 km on, at the GuestHouse & Cafe Green House, and the day ends there." },
@@ -174,7 +170,6 @@
         "note": "Section boundary. Coordinates and name are taken verbatim from this section's metadata.json overview, so the neighbouring section's stage anchor is the same point. 154.48 km along this section's walked line, 6 m off it. A boundary day ends at the boundary temple itself whatever its length, and the lodging fallback does not apply here; this one runs 22.09 km."
       },
       "distanceKm": 22.1,
-      "drafted": true,
       "interior": {
         "theme": { "en": "One temple, at the end of it" },
         "narrative": { "en": "One temple stands on this day and it is the last thing on it. Byōdō-ji to Yakuō-ji is 22.7 km, the widest step between two temples in Awa, and the day walks all but 0.6 km of it. The first 11.2 km carry no recorded place at all — the longest stretch in the section with nothing marked on it. Then three stations come one after another, Yuki, Tainohama and Kiki, and inside the last 1.5 km the day gathers what the rest of it withheld: Hiwasa Hachiman Shrine, the town of Minami, a clinic, a restaurant and two places to stay. Yakuō-ji closes Awa at 154.5 km, and Tosa begins from the same point." },
