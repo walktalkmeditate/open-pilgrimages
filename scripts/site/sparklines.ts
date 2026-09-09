@@ -19,11 +19,11 @@ interface StatsLike {
 // "not an array" is not worth chasing.
 export function trendOf(statsJson: unknown): TrendPoint[] {
   const annualPilgrims = (statsJson as StatsLike)?.annualPilgrims;
-  // shikoku-88 records pilgrim counts as Omotenashi Network walking-completion
+  // Shikoku 88 records pilgrim counts as Omotenashi Network walking-completion
   // certificates rather than Compostela-style counts, so its series lives
   // under annualPilgrims.walkingCompletions.trend instead of the top-level
-  // annualPilgrims.trend the Camino routes use. Fall back to it so shikoku-88
-  // gets a sparkline like every other route.
+  // annualPilgrims.trend the Camino routes use. Fall back to it so a route
+  // keeping its counts that way gets a sparkline like every other route.
   const trend = Array.isArray(annualPilgrims?.trend)
     ? annualPilgrims.trend
     : annualPilgrims?.walkingCompletions?.trend;

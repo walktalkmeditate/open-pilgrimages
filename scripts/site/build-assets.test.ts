@@ -8,15 +8,18 @@ import { buildAssets, buildPilgrimagePages } from "./build-assets.js";
 const ROOT = join(import.meta.dirname, "..", "..");
 const ASSETS = join(ROOT, "docs", "assets");
 
+// Every route that has a route.geojson, plus the coastal variant. The four
+// Shikoku dōjō sections are absent until their walked lines are built; so are
+// the Iseji and the Ōhechi, which ship metadata-only.
 const IDS = [
   "camino-frances", "camino-ingles", "camino-norte", "camino-portugues",
-  "camino-primitivo", "kumano-kodo-kohechi", "kumano-kodo-nakahechi", "shikoku-88",
+  "camino-primitivo", "kumano-kodo-kohechi", "kumano-kodo-nakahechi",
   "camino-portugues-coastal",
 ];
 
 test("buildAssets writes a glyph for every route and the coastal variant", () => {
   const counts = buildAssets(ROOT);
-  assert.equal(counts.glyphs, 9);
+  assert.equal(counts.glyphs, 8);
 
   const glyphs = readFileSync(join(ASSETS, "glyphs.js"), "utf-8");
   for (const id of IDS) {
@@ -32,7 +35,7 @@ test("glyphs.js assigns to window.OP_GLYPHS and parses as a script", () => {
   assert.match(source, /^window\.OP_GLYPHS = \{/);
   assert.equal(source.includes("NaN"), false);
 
-  // Executing it must define exactly the nine expected keys.
+  // Executing it must define exactly the expected keys and no others.
   const fakeWindow: Record<string, unknown> = {};
   new Function("window", source)(fakeWindow);
 

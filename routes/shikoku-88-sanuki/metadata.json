@@ -1,0 +1,352 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "shikoku-88-sanuki",
+  "lastUpdated": "2026-09-09T00:00:00Z",
+  "name": {
+    "en": "Sanuki (Temples 65-88, and the return to Temple 1)"
+  },
+  "pilgrimage": {
+    "id": "shikoku-88",
+    "name": {
+      "en": "Shikoku 88 Temple Pilgrimage",
+      "ja": "四国八十八箇所"
+    },
+    "kind": "legs",
+    "order": 4,
+    "circular": true
+  },
+  "description": {
+    "en": "The last of the four dōjō, and the one that closes the circuit: Temple 65 Sankaku-ji to Temple 88 Ōkubo-ji, then on to Temple 1 Ryōzen-ji where the pilgrimage began — 202.2 km along 24 temple-to-temple henro trail relations. The temples stand closest together here — Temple 68 to Temple 69 is 0.11 km and Temple 72 to Temple 73 is 0.46 km. The last relation is the 39.8 km return from Ōkubo-ji to Ryōzen-ji, and it is the only leg in this section longer than 30 km. Sanuki carries the fourth of the four stages of spiritual progression the pilgrimage maps onto Shikoku's four provinces: nirvana."
+  },
+  "overview": {
+    "distanceKm": 202.2,
+    "distanceNote": {
+      "en": "202.2 km is this section's own walked line — the shortest connected path through its 24 pinned henro trail relations, measured with the repository's own way graph. Its member ways sum to 203.4 km; the difference is the spurs a walked line leaves out. The four dōjō together measure 1,140.9 km, against the pilgrimage's traditional ~1,200 km figure. Modern walked totals range from about 1,140 km (most efficient) to about 1,400 km (with all variant paths)."
+    },
+    "estimatedDays": {
+      "min": 6,
+      "max": 11,
+      "typical": 8,
+      "note": "Derived from this section's 202.2 km at the pace the whole pilgrimage's own declared figures imply — 1,200 km in 30 to 60 days, typically 45, so 20 to 40 km a day and typically 26.7. min and max are rounded up, typical to the nearest day. The four sections come to 31 to 59 days, typically 44."
+    },
+    "topology": "linear",
+    "direction": "clockwise",
+    "startPoint": {
+      "name": {
+        "en": "Sankaku-ji (Temple 65)",
+        "ja": "三角寺"
+      },
+      "coordinates": [
+        133.587,
+        33.968
+      ]
+    },
+    "endPoint": {
+      "name": {
+        "en": "Ryōzen-ji (Temple 1)",
+        "ja": "霊山寺"
+      },
+      "coordinates": [
+        134.503,
+        34.16,
+        15
+      ]
+    },
+    "elevationRange": {
+      "maxMeters": 911,
+      "maxMetersNote": "Temple 66 Unpen-ji, at 911 m, stands in this section and is the highest temple on the whole circuit. Pilgrims anywhere on the circuit may cross higher mountain passes between temples (especially in the Iya/Mt. Tsurugi region of Tokushima), but no temple is above 950 m. No ascent or descent total is declared: the ten-stage figures this section replaces were summed over stages that no longer exist, and per-section totals wait on the walked line."
+    },
+    "difficulty": "hard",
+    "terrainTypes": [
+      "paved",
+      "mountain",
+      "forest",
+      "coastal",
+      "urban"
+    ],
+    "bestMonths": [
+      3,
+      4,
+      5,
+      10,
+      11
+    ],
+    "peakMonths": [
+      4,
+      10
+    ],
+    "countries": [
+      "JP"
+    ],
+    "bbox": [
+      133.58,
+      33.96,
+      134.51,
+      34.36
+    ]
+  },
+  "tradition": {
+    "type": "buddhist",
+    "primaryFaith": "Shingon Buddhism",
+    "otherFaiths": [
+      "secular"
+    ],
+    "saint": {
+      "en": "Kūkai (Kōbō Daishi)",
+      "ja": "空海（弘法大師）"
+    },
+    "origin": {
+      "en": "The pilgrimage traces the path of the monk Kūkai (774-835), founder of Shingon Buddhism in Japan. Kūkai practiced asceticism across Shikoku before founding the monastic center at Mount Kōya. The 88-temple circuit was formalized during the Edo period (1603-1868). The phrase 'Dōgyō Ninin' (walking with two) inscribed on the pilgrim's hat signifies that Kōbō Daishi walks with every pilgrim."
+    },
+    "credentialSystem": {
+      "name": {
+        "en": "Nōkyōchō (Stamp Book)",
+        "ja": "納経帳"
+      },
+      "description": {
+        "en": "A calligraphy book purchased at Temple 1 (2,000-3,500 JPY). At each temple, monks write the temple name, principal deity, and temple number in calligraphy and apply three red stamps. Cost: 500 JPY per temple (44,000 JPY total). Stamp hours: 7:00-17:00. One book is carried across all four dōjō."
+      },
+      "completionCertificate": {
+        "en": "Kechi-gan-shō (Completion Certificate)",
+        "ja": "結願証"
+      },
+      "obtainableAt": [
+        {
+          "name": {
+            "en": "Temple 1 (Ryōzen-ji) Gift Shop",
+            "ja": "霊山寺売店"
+          },
+          "coordinates": [
+            134.503,
+            34.16
+          ]
+        }
+      ]
+    }
+  },
+  "cultural": {
+    "practices": [
+      {
+        "name": {
+          "en": "Dōgyō Ninin",
+          "ja": "同行二人"
+        },
+        "description": {
+          "en": "'Walking with Two' — the belief that Kōbō Daishi walks alongside every pilgrim. Inscribed on the sedge hat. The pilgrim is never alone."
+        }
+      },
+      {
+        "name": {
+          "en": "Henro Attire"
+        },
+        "description": {
+          "en": "Traditional pilgrim outfit: white jacket (hakui, 白衣) symbolizing purity and readiness for death, sedge hat (sugegasa), walking staff (kongōzue) representing Kōbō Daishi himself, stole (wagesa), prayer beads (juzu), and name slips (osamefuda) deposited at each temple."
+        }
+      },
+      {
+        "name": {
+          "en": "Temple Visit Protocol"
+        },
+        "description": {
+          "en": "At each temple: bow at the gate, purify at the water basin, ring the bell, offer incense and candle at the Main Hall, chant the Heart Sutra (Hannya Shingyō), repeat at the Daishi Hall, receive the stamp. The full sequence takes 20-30 minutes per temple."
+        }
+      },
+      {
+        "name": {
+          "en": "Osettai",
+          "ja": "お接待"
+        },
+        "description": {
+          "en": "Charitable gifts from locals to pilgrims — food, drinks, money, or lodging. A deeply rooted tradition in Shikoku. It is customary to accept osettai graciously and give a name slip (osamefuda) in return."
+        }
+      },
+      {
+        "name": {
+          "en": "Kongōzue Protocol"
+        },
+        "description": {
+          "en": "The walking staff is considered an embodiment of Kōbō Daishi. It must be washed and placed in the room before the pilgrim washes. It must never be placed on the ground where it could be stepped over. In historical times, if a pilgrim died, the staff was used as their grave marker."
+        }
+      }
+    ],
+    "etiquette": [
+      {
+        "en": "Remove shoes before entering temple buildings."
+      },
+      {
+        "en": "Do not ring the bell when leaving a temple — only upon arrival."
+      },
+      {
+        "en": "The walking staff must never be used to point or gesture."
+      },
+      {
+        "en": "Accept osettai graciously, even if you do not need it. Refusing is considered disrespectful to Kōbō Daishi."
+      }
+    ],
+    "associatedLiterature": [
+      {
+        "title": "Japanese Pilgrimage",
+        "author": "Oliver Statler",
+        "isbn": "978-0824816575",
+        "type": "nonfiction",
+        "relevance": {
+          "en": "The definitive English-language book on the Shikoku pilgrimage. Statler walked the route multiple times and documented its history, culture, and personal meaning."
+        }
+      },
+      {
+        "title": "Kukai: Major Works",
+        "author": "Yoshito S. Hakeda",
+        "isbn": "978-0231059336",
+        "type": "nonfiction",
+        "relevance": {
+          "en": "Translations of Kūkai's major philosophical and religious writings. Essential for understanding the spiritual foundation of the pilgrimage."
+        }
+      }
+    ],
+    "events": [
+      {
+        "name": {
+          "en": "Kōbō Daishi's Birthday",
+          "ja": "弘法大師御誕生日"
+        },
+        "date": {
+          "month": 6,
+          "day": 15
+        },
+        "recurrence": "annual",
+        "description": {
+          "en": "Celebrated at Temple 75 (Zentsū-ji), Kūkai's birthplace, which stands in this section. Special ceremonies and increased pilgrim activity."
+        }
+      }
+    ],
+    "historicalSignificance": {
+      "en": "The Shikoku pilgrimage is one of the few circular pilgrimages in the world and the most important Buddhist pilgrimage in Japan. It embodies the Shingon Buddhist concept of spiritual progression through four stages: awakening, discipline, enlightenment, and nirvana — mapped onto the four provinces of Shikoku."
+    }
+  },
+  "logistics": {
+    "seasonalAvailability": {
+      "openMonths": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "notes": {
+        "en": "Open year-round but rainy season (June-July) and typhoon season (August-September) are challenging. Winter walking is possible but some mountain temples may be difficult to access. Peak seasons are spring (cherry blossoms) and autumn (fall foliage)."
+      }
+    },
+    "accommodationTypes": [
+      "temple_lodging",
+      "ryokan",
+      "minshuku",
+      "hotel",
+      "hostel"
+    ],
+    "accommodationNotes": {
+      "en": "Shukubo (temple lodging): 6,000-8,500 JPY with meals. Minshuku: 5,500-7,500 JPY with meals. Business hotels: 3,000-8,000 JPY without meals. Cash is essential — credit cards rarely accepted at traditional lodging. Advance reservations recommended."
+    },
+    "currency": "JPY",
+    "languages": [
+      "ja"
+    ],
+    "cellularCoverage": "good",
+    "cellularNotes": {
+      "en": "Good coverage in towns and along main roads. Weak or no signal on mountain trails."
+    },
+    "waterAvailability": "adequate",
+    "waterNotes": {
+      "en": "Vending machines are ubiquitous in Japan, even in rural areas."
+    },
+    "emergencyNumber": "119",
+    "transportLinks": [
+      {
+        "type": "airport",
+        "name": {
+          "en": "Tokushima Awaodori Airport"
+        },
+        "code": "TKS",
+        "notes": {
+          "en": "Nearest airport to Temple 1, where this section's closing return ends. Bus to Naruto/Bando area."
+        }
+      },
+      {
+        "type": "train",
+        "name": {
+          "en": "JR Shikoku rail network"
+        },
+        "notes": {
+          "en": "Trains circle most of Shikoku. Useful for reaching temples or skipping difficult sections. JR passes available."
+        }
+      }
+    ]
+  },
+  "provenance": {
+    "sources": [
+      {
+        "name": "OpenStreetMap",
+        "url": "https://www.openstreetmap.org",
+        "license": "ODbL-1.0",
+        "dataTypes": [
+          "geometry"
+        ],
+        "accessDate": "2026-09-09"
+      },
+      {
+        "name": "Shikoku 88 Temple Pilgrimage Official Site",
+        "url": "https://88shikokuhenro.jp/en/",
+        "license": "public-data",
+        "dataTypes": [
+          "temples",
+          "credential"
+        ],
+        "accessDate": "2026-03-26"
+      }
+    ],
+    "contributors": [
+      {
+        "name": "walk · talk · meditate",
+        "role": "initial_author",
+        "url": "https://github.com/walktalkmeditate"
+      }
+    ],
+    "license": "ODbL-1.0"
+  },
+  "osm": {
+    "relations": [
+      13744788,
+      13744787,
+      13748783,
+      13748782,
+      13748781,
+      13748780,
+      13752023,
+      13752022,
+      13752020,
+      13752021,
+      13752019,
+      13753045,
+      13753044,
+      13754536,
+      13754535,
+      13754534,
+      13763099,
+      13763098,
+      13763097,
+      13763347,
+      13763346,
+      13763345,
+      13763344,
+      13766029
+    ],
+    "query": "[out:json][timeout:300];relation[\"name\"~\"四国遍路\"][\"type\"=\"route\"](32,132,35,135);out geom;",
+    "note": "24 relations, 65番札所~66番札所 through 87番札所~88番札所 plus 13766029, 四国遍路 88番札所大窪寺~1番札所霊山寺 — the 39.84 km closing return to Temple 1 that makes the pilgrimage circular. In walking order. The Overpass query above is pilgrimage-wide and returns all 89 四国遍路 relations; each section pins the slice of that result it walks. A boundary relation belongs to the section that walks it, so Sanuki begins at Temple 65, where shikoku-88-iyo's last relation ends."
+  }
+}

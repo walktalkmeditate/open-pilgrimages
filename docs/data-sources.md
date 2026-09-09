@@ -229,7 +229,7 @@ There is no central agency that publishes annual pilgrim statistics for Shikoku 
 - https://www.henro88map.com/ (English-language Henro guide)
 - https://shikoku88.net/en/
 
-Statistics for Shikoku 88 in `routes/shikoku-88/stats.json` should be sourced from these tourism bureaus and marked as estimates where appropriate.
+Statistics for Shikoku 88 belong in each dōjō section's own `routes/shikoku-88-{awa,tosa,iyo,sanuki}/stats.json`, sourced from these tourism bureaus and marked as estimates where appropriate. What the bureaus publish is measured over the whole circuit, not per province, so a section that carries those figures has to say so in its `dataNote`. The 21-year Omotenashi Network walking-completion series that `routes/shikoku-88/stats.json` held was deleted with that route directory when the pilgrimage became four sections; it is recoverable from git history.
 
 ---
 

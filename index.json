@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
   "release": "v1.8.0",
-  "generatedAt": "2026-09-09T00:26:53.362Z",
+  "generatedAt": "2026-09-09T15:00:04.327Z",
   "pilgrimages": [
     {
       "id": "camino-de-santiago",
@@ -31,6 +31,21 @@
         "kumano-kodo-iseji",
         "kumano-kodo-ohechi"
       ]
+    },
+    {
+      "id": "shikoku-88",
+      "name": {
+        "en": "Shikoku 88 Temple Pilgrimage",
+        "ja": "四国八十八箇所"
+      },
+      "kind": "legs",
+      "sections": [
+        "shikoku-88-awa",
+        "shikoku-88-tosa",
+        "shikoku-88-iyo",
+        "shikoku-88-sanuki"
+      ],
+      "distanceKm": 1140.9
     }
   ],
   "routes": [
@@ -247,17 +262,56 @@
       "pilgrimage": "kumano-kodo"
     },
     {
-      "id": "shikoku-88",
+      "id": "shikoku-88-awa",
       "name": {
-        "en": "Shikoku 88 Temple Pilgrimage",
-        "ja": "四国八十八ヶ所巡礼"
+        "en": "Awa (Temples 1-23)"
       },
       "region": "Asia",
       "country": "JP",
-      "distanceKm": 1200,
-      "topology": "circular",
+      "distanceKm": 154.5,
+      "topology": "linear",
       "tradition": "buddhist",
-      "path": "routes/shikoku-88"
+      "path": "routes/shikoku-88-awa",
+      "pilgrimage": "shikoku-88"
+    },
+    {
+      "id": "shikoku-88-iyo",
+      "name": {
+        "en": "Iyo (Temples 39-65)"
+      },
+      "region": "Asia",
+      "country": "JP",
+      "distanceKm": 365.7,
+      "topology": "linear",
+      "tradition": "buddhist",
+      "path": "routes/shikoku-88-iyo",
+      "pilgrimage": "shikoku-88"
+    },
+    {
+      "id": "shikoku-88-sanuki",
+      "name": {
+        "en": "Sanuki (Temples 65-88, and the return to Temple 1)"
+      },
+      "region": "Asia",
+      "country": "JP",
+      "distanceKm": 202.2,
+      "topology": "linear",
+      "tradition": "buddhist",
+      "path": "routes/shikoku-88-sanuki",
+      "pilgrimage": "shikoku-88"
+    },
+    {
+      "id": "shikoku-88-tosa",
+      "name": {
+        "en": "Tosa (Temples 23-39)"
+      },
+      "region": "Asia",
+      "country": "JP",
+      "distanceKm": 418.5,
+      "topology": "linear",
+      "tradition": "buddhist",
+      "path": "routes/shikoku-88-tosa",
+      "pilgrimage": "shikoku-88"
     }
   ]
 }

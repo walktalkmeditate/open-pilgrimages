@@ -76,11 +76,27 @@ test("sparklineSvg returns an empty string for fewer than two points", () => {
   assert.equal(sparklineSvg([{ year: 2000, count: 1 }], 120, 30), "");
 });
 
-test("trendOf falls back to walkingCompletions.trend for shikoku-88's real stats.json", () => {
-  const trend = trendOf(statsJson("shikoku-88"));
+// The shape routes/shikoku-88/stats.json carried before that route became the
+// four dōjō sections: no top-level annualPilgrims.trend, only the Omotenashi
+// Network's walking-completion series beneath it. No committed stats.json has
+// the shape today, so the fallback is pinned on the shape rather than on a file.
+test("trendOf falls back to walkingCompletions.trend when there is no top-level trend", () => {
+  const trend = trendOf({
+    annualPilgrims: {
+      latest: { year: 2025, count: 150000 },
+      walkingCompletions: {
+        trend: [
+          { year: 2005, count: 1740, foreign: 10 },
+          { year: 2006, count: 1990, foreign: 34 },
+        ],
+      },
+    },
+  });
 
-  assert.equal(trend.length, 21);
-  assert.deepEqual(trend[0], { year: 2005, count: 1740 });
+  assert.deepEqual(trend, [
+    { year: 2005, count: 1740 },
+    { year: 2006, count: 1990 },
+  ]);
 });
 
 test("trendOf still reads camino-frances's real stats.json with the fallback in place", () => {

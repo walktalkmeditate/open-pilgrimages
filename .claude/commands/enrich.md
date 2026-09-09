@@ -7,7 +7,7 @@ You are enriching pilgrimage route data for the Open Pilgrimages dataset.
 
 ## Arguments
 
-The first argument is a route ID (e.g., `camino-frances`, `shikoku-88`, `kumano-kodo-nakahechi`).
+The first argument is a route ID (e.g., `camino-frances`, `shikoku-88-awa`, `kumano-kodo-nakahechi`).
 Optional flags: `--skip-geometry`, `--skip-waypoints`, `--skip-stats`, `--only-geometry`, `--only-waypoints`, `--only-stats`.
 
 Parse the arguments from `$ARGUMENTS`.

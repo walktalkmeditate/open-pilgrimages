@@ -11,10 +11,10 @@ const ROOT = join(import.meta.dirname, "..");
 test("totals match the figures published on the site and README", () => {
   const { totals } = computeStats(ROOT);
 
-  assert.equal(totals.routes, 10);
-  assert.equal(totals.routePoints, 159624);
-  assert.equal(totals.waypoints, 11863);
-  assert.equal(totals.stages, 113);
+  assert.equal(totals.routes, 13);
+  assert.equal(totals.routePoints, 110527);
+  assert.equal(totals.waypoints, 8883);
+  assert.equal(totals.stages, 103);
 });
 
 test("per-route figures match npm run stats", () => {
@@ -23,7 +23,7 @@ test("per-route figures match npm run stats", () => {
   assert.equal(byId.get("camino-frances")!.routePoints, 33192);
   assert.equal(byId.get("camino-frances")!.waypoints, 2957);
   assert.equal(byId.get("camino-frances")!.stages, 33);
-  assert.equal(byId.get("shikoku-88")!.routePoints, 49097);
+  assert.equal(byId.get("shikoku-88-awa")!.distanceKm, 154.5);
   assert.equal(byId.get("kumano-kodo-nakahechi")!.waypoints, 115);
   assert.equal(byId.get("kumano-kodo-kohechi")!.waypoints, 35);
   assert.equal(byId.get("camino-ingles")!.distanceKm, 112);
@@ -45,14 +45,44 @@ test("importing the module does not print or exit", () => {
 // Regression guard: scripts/stats.ts used to count route points via
 // feature.geometry.coordinates.length, which is correct for LineString but
 // undercounts MultiLineString (it counts line segments, not points).
-// shikoku-88 is the dataset's only MultiLineString route — 77 segments,
-// 49,097 points — so it's the one case that would silently regress.
+// shikoku-88 was the corpus's only MultiLineString route and carried this
+// guard until it was split into the four dōjō sections; no route carries the
+// shape today, so the guard is pinned on a fixture rather than deleted with
+// the route that happened to exercise it.
 test("MultiLineString route points are flattened, not undercounted", () => {
-  const stats = computeStats(ROOT);
-  const shikoku = stats.routes.find((r) => r.id === "shikoku-88")!;
+  // #given a route whose geometry is three lines of 2, 3 and 4 points
+  const { root, routeDir } = createRouteFixture();
+  writeFileSync(join(routeDir, "metadata.json"), JSON.stringify(minimalMetadata("fixture-route")));
+  writeFileSync(
+    join(routeDir, "route.geojson"),
+    JSON.stringify({
+      type: "FeatureCollection",
+      features: [
+        {
+          type: "Feature",
+          properties: { routeId: "fixture-route" },
+          geometry: {
+            type: "MultiLineString",
+            coordinates: [
+              [[0, 0], [0, 1]],
+              [[1, 0], [1, 1], [1, 2]],
+              [[2, 0], [2, 1], [2, 2], [2, 3]],
+            ],
+          },
+        },
+      ],
+    }),
+  );
 
-  assert.equal(shikoku.routePoints, 49097);
-  assert.equal(stats.totals.routePoints, 159624);
+  try {
+    // #when computeStats counts its route points
+    const route = computeStats(root).routes.find((r) => r.id === "fixture-route")!;
+
+    // #then it counts the 9 points, not the 3 lines
+    assert.equal(route.routePoints, 9);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
 });
 
 test("importing stats.ts as a subprocess prints nothing and exits cleanly", () => {
@@ -178,5 +208,5 @@ test("running stats.ts as a CLI script prints the route points total the site an
 
   // #then the totals block prints a thousands-separated Route points line
   // matching the figure the site and README publish
-  assert.match(output, /Route points: 159,624/);
+  assert.match(output, /Route points: 110,527/);
 });

@@ -325,7 +325,7 @@ export async function fetchRoute(id: string, dir: string, runtime: FetchRoadsRun
 
 /**
  * Optional route-id args (e.g. `npm run fetch-roads -- camino-frances
- * shikoku-88`) narrow the run to just those routes — useful for retrying a
+ * camino-norte`) narrow the run to just those routes — useful for retrying a
  * route that timed out without re-fetching seven others that already
  * succeeded, which is both slower and less considerate of a shared free API
  * than it needs to be.

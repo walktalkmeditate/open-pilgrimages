@@ -105,7 +105,10 @@ test("scans every top-level route directory", () => {
     "kumano-kodo-kohechi",
     "kumano-kodo-nakahechi",
     "kumano-kodo-ohechi",
-    "shikoku-88",
+    "shikoku-88-awa",
+    "shikoku-88-iyo",
+    "shikoku-88-sanuki",
+    "shikoku-88-tosa",
   ]);
 });
 

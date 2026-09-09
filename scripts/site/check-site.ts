@@ -251,8 +251,10 @@ function readmeDistanceKmPattern(id: string): RegExp {
  * "Kumano Kodō", macron and all, and a heading that merely contains the name
  * is a different heading. A row whose route names no pilgrimage has to sit
  * under a heading that is *not* any pilgrimage's name; `### Other Routes`,
- * where shikoku-88 sits today, is what that looks like, and so is every other
- * heading a README might grow.
+ * which is where shikoku-88 sat until it became a pilgrimage of its own, is
+ * what that looks like, and so is every other heading a README might grow.
+ * Every route in the committed tree names a pilgrimage today, so that branch
+ * currently guards a shape the README does not have.
  *
  * Anchored on a whole table row rather than on the link alone. The link half
  * is readmeDistanceKmPattern's pattern unchanged, and it is what correctly
@@ -312,8 +314,8 @@ const WAYPOINT_TYPE_ROW_PATTERN = /<tr><th scope="row">([^<]+)<\/th><td>([\d,]+)
  * missed the bug the guard was written for.
  *
  * Keyed on metadata.json, not on the per-stage high and low points in
- * stages.json. The two agree everywhere except shikoku-88, whose metadata
- * declares a minimum of 0 m against stages that bottom out at 5 m, and it is
+ * stages.json. The two disagreed on the old shikoku-88 route, whose metadata
+ * declared a minimum of 0 m against stages that bottomed out at 5 m, and it is
  * metadata the cells were written from — the page is a rendering of the
  * declared overview, so the declared overview is what it has to agree with.
  * It is also the only source a section without a walked line has:
@@ -328,18 +330,18 @@ const WAYPOINT_TYPE_ROW_PATTERN = /<tr><th scope="row">([^<]+)<\/th><td>([\d,]+)
  * wherever the data exists would false-positive on the first page it read.
  *
  * Two independently anchored patterns rather than one rule over the cell's
- * numbers, because shikoku-88's cell is more than a range: "0&ndash;911 m
- * (highest temple: Unpen-ji, Temple 66); total ascent 16,780 m, descent
- * 14,470 m per the 10-stage breakdown &mdash; true cumulative totals over the
- * full circuit are commonly cited as ~18,000 m each". Anything that scans
- * every figure in there flags the temple number (66), the stage count (10)
- * and the ~18,000 m aside, none of which are claims about this route's own
- * profile. The range pattern takes the cell's first "a&ndash;b m" and the
- * totals pattern the one "total ascent … descent …" clause; every one of the
- * nine elevation cells carries both shapes exactly once (`grep -c "Elevation
- * range" docs/*.html` sums to nine, and every one of those lines contains a
- * "total ascent"), so between them they read all nine and nothing else in any
- * of them.
+ * numbers, because an elevation cell can hold more than a range. The old
+ * shikoku-88 page's read "0&ndash;911 m (highest temple: Unpen-ji, Temple 66);
+ * total ascent 16,780 m, descent 14,470 m per the 10-stage breakdown &mdash;
+ * true cumulative totals over the full circuit are commonly cited as ~18,000 m
+ * each". Anything that scans every figure in there flags the temple number
+ * (66), the stage count (10) and the ~18,000 m aside, none of which are claims
+ * about that route's own profile. The range pattern takes the cell's first
+ * "a&ndash;b m" and the totals pattern the one "total ascent … descent …"
+ * clause; every one of the eight elevation cells carries both shapes exactly
+ * once (`grep -c "Elevation range" docs/*.html` sums to eight, and every one
+ * of those lines contains a "total ascent"), so between them they read all
+ * eight and nothing else in any of them.
  *
  * The en dash is matched as either the entity or the literal character.
  * docs/*.html is not uniformly entity-encoded — literal em dashes appear in
@@ -729,10 +731,11 @@ const PARAGRAPH_OPEN_PATTERN = /<p(?:\s[^>]*)?>/g;
  * The clause anchor is "of which" and deliberately not the paragraph, because
  * a paragraph-wide "N are …" reading has a false positive in the committed
  * tree: docs/kumano-kodo-nakahechi.html:171 says "The other 14 are in no file
- * at all", which names no waypoint type and is no breakdown. Three of the eight
- * claim paragraphs carry an "of which" clause and between them five figures,
- * every one exact today — camino-frances' 9 and 36, camino-norte's 68 and 51,
- * shikoku-88's 88 — and no other paragraph in docs/*.html reaches this at all.
+ * at all", which names no waypoint type and is no breakdown. Three claim
+ * paragraphs carry an "of which" clause and between them four figures, every
+ * one exact today — camino-frances' 9 and 36, camino-norte's 68 and 51, and
+ * nakahechi's own clause carries none — and no other paragraph in docs/*.html
+ * reaches this at all.
  *
  * The figure pattern requires the count and the copula to be adjacent, which is
  * what keeps the sentence's own opening out of the reading: "2,957 logistics
@@ -1293,7 +1296,9 @@ interface WaypointsSchemaLike {
  * place, which is the place that matters: a type no waypoint carries does not
  * appear in them, so a page claiming "5 are towns" of a route with no towns
  * would be reported as naming a word this guard cannot read, rather than as
- * saying 5 where the file holds 0. shikoku-88 has no town waypoints today.
+ * saying 5 where the file holds 0. Five of the eight committed waypoint files
+ * hold no town at all — the Primitivo, the Inglés, both Portugués files and
+ * the Kohechi — and the four Shikoku sections have no waypoints yet.
  *
  * Degrades to null — every breakdown clause goes unread — when the schema is
  * missing or reshaped, the same way readDifficultyEnum does, and for the same
@@ -2190,7 +2195,7 @@ export function checkSite(root: string, overrides: PageOverrides = {}): Problem[
             "README.md",
             `route "${id}" is filed under "### ${heading}", which is pilgrimage "${claimedBy}"'s ` +
               `own name, but index.json gives "${id}" no pilgrimage — move the row under a heading ` +
-              `that names no pilgrimage, the way "### Other Routes" carries shikoku-88`,
+              `that names no pilgrimage, such as "### Other Routes"`,
           );
         }
         continue;

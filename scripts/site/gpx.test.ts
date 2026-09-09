@@ -91,13 +91,29 @@ test("gpxFrom emits one <trkseg> per feature for kumano-kodo-nakahechi's six Lin
   assert.equal((gpx.match(/<trkseg>/g) ?? []).length, 6);
 });
 
-test("gpxFrom emits one <trkseg> per line of shikoku-88's MultiLineString, not one continuous line", () => {
-  const geo = geojson("shikoku-88");
+// shikoku-88's route.geojson held the corpus's only MultiLineString and this
+// assertion was made against it until the route became four dōjō sections. The
+// shape is built here so the multi-line branch keeps its guard.
+test("gpxFrom emits one <trkseg> per line of a MultiLineString, not one continuous line", () => {
+  const geo = {
+    type: "FeatureCollection",
+    features: [
+      {
+        geometry: {
+          type: "MultiLineString",
+          coordinates: [
+            [[134.503, 34.16], [134.49, 34.11]],
+            [[134.31, 33.98], [134.35, 33.9], [134.44, 33.8]],
+          ],
+        },
+      },
+    ],
+  };
   const expectedSegments = segmentsOf(geo).length;
 
-  const gpx = gpxFrom(geo, { ...META, id: "shikoku-88" });
+  const gpx = gpxFrom(geo, { ...META, id: "multi-line-fixture" });
 
-  assert.ok(expectedSegments > 1, "shikoku-88 is a MultiLineString");
+  assert.equal(expectedSegments, 2);
   assert.equal((gpx.match(/<trkseg>/g) ?? []).length, expectedSegments);
 });
 

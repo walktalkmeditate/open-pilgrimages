@@ -10,12 +10,34 @@ function geojson(routeId: string): unknown {
   return JSON.parse(readFileSync(join(ROOT, "routes", routeId, "route.geojson"), "utf-8"));
 }
 
+/**
+ * shikoku-88's route.geojson was the corpus's only MultiLineString and carried
+ * every multi-segment assertion below until it was split into the four dōjō
+ * sections. No committed route has the shape today, so these build one rather
+ * than lose the coverage while the sections wait for their walked lines.
+ */
+const MULTI_LINE = {
+  type: "FeatureCollection",
+  features: [
+    {
+      geometry: {
+        type: "MultiLineString",
+        coordinates: [
+          [[134.503, 34.160], [134.49, 34.11], [134.47, 34.05]],
+          [[134.31, 33.98], [134.35, 33.90]],
+          [[134.44, 33.80], [134.52, 33.74], [134.528, 33.732]],
+        ],
+      },
+    },
+  ],
+};
+
 test("segmentsOf flattens LineString and MultiLineString alike", () => {
   const linear = segmentsOf(geojson("camino-frances"));
-  const multi = segmentsOf(geojson("shikoku-88"));
+  const multi = segmentsOf(MULTI_LINE);
 
   assert.equal(linear.length, 1);
-  assert.ok(multi.length > 1, "shikoku-88 is a MultiLineString");
+  assert.equal(multi.length, 3);
   assert.equal(linear[0].every((p) => p.length === 2), true);
 });
 
@@ -27,24 +49,31 @@ test("glyphFrom simplifies camino-frances by more than two orders of magnitude",
 });
 
 test("glyphFrom keeps every drawn coordinate inside the padded box", () => {
-  for (const id of ["camino-frances", "shikoku-88", "kumano-kodo-nakahechi"]) {
-    const d = glyphFrom(geojson(id)).d;
+  const sources: Array<[string, unknown]> = [
+    ["camino-frances", geojson("camino-frances")],
+    ["camino-norte", geojson("camino-norte")],
+    ["kumano-kodo-nakahechi", geojson("kumano-kodo-nakahechi")],
+    ["a MultiLineString", MULTI_LINE],
+  ];
+
+  for (const [label, source] of sources) {
+    const d = glyphFrom(source).d;
     const numbers = d.match(/-?\d+\.\d+/g)!.map(Number);
 
     for (const n of numbers) {
       assert.ok(
         n >= GLYPH_BOX.padding - 0.05 && n <= GLYPH_BOX.size - GLYPH_BOX.padding + 0.05,
-        `${id}: coordinate ${n} escapes the padded box`,
+        `${label}: coordinate ${n} escapes the padded box`,
       );
     }
   }
 });
 
 test("glyphFrom emits one moveto per source segment", () => {
-  const shikoku = geojson("shikoku-88");
-  const expected = segmentsOf(shikoku).filter((s) => s.length >= 2).length;
-  const moves = glyphFrom(shikoku).d.match(/M/g)!.length;
+  const expected = segmentsOf(MULTI_LINE).filter((s) => s.length >= 2).length;
+  const moves = glyphFrom(MULTI_LINE).d.match(/M/g)!.length;
 
+  assert.equal(expected, 3);
   assert.equal(moves, expected);
 });
 

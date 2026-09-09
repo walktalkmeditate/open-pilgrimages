@@ -35,9 +35,14 @@ export const ROUTES: RouteConfig[] = [
 relation(id:2163569,2163558,2163560,2163561,2163565,2163559);
 out geom;`,
   },
+  // The only id here that names a pilgrimage rather than a route. One
+  // pilgrimage-wide name sweep returns all 89 四国遍路 relations, and each of
+  // the four dōjō sections pins the slice of that result it walks — so four
+  // entries would fetch the same 6 MB payload from a shared free API four
+  // times over, and cache it four times, to no end.
   {
     id: "shikoku-88",
-    description: "Shikoku 88 Temple Pilgrimage — 88 segment relations",
+    description: "Shikoku 88 Temple Pilgrimage — one sweep for all four dōjō sections",
     query: `[out:json][timeout:300];
 relation["name"~"四国遍路"]["type"="route"](32,132,35,135);
 out geom;`,
