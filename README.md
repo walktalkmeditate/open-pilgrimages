@@ -2,7 +2,7 @@
 
 A canonical, open-source dataset of pilgrimage routes worldwide.
 
-159,624 GPS points. 11,863 waypoints. 113 stages. 10 routes across 3 traditions. All structured as JSON and GeoJSON.
+158,948 GPS points. 10,800 waypoints. 143 stages. 13 routes across 3 traditions. All structured as JSON and GeoJSON.
 
 ## What's In the Box
 
@@ -38,26 +38,59 @@ The Nakahechi was `kumano-kodo` until 1.8.0; that id no longer exists. The Iseji
 to draw a line — so their distances are planning estimates rather than measurements,
 and neither has a `ways/` package.
 
+### Shikoku 88 Temple Pilgrimage
+
+Four dōjō — the four old provinces the circuit crosses. Unlike the Kumano Kodō's four
+routes these are legs of one walk, so they do have a total: 1,140.9 km of walked line,
+against the pilgrimage's traditional ~1,200 km figure. Sanuki ends on the exact
+coordinate Awa begins from, which is what makes this the corpus's first circular
+pilgrimage.
+
+| Route | Distance | Topology | Tradition | Route Points | Waypoints | Stats |
+|-------|----------|----------|-----------|-------------|-----------|-------|
+| [Awa (Temples 1-23)](routes/shikoku-88-awa/) | 154.5 km | Linear | Buddhist | 7,660 | 203 | — |
+| [Tosa (Temples 23-39)](routes/shikoku-88-tosa/) | 418.5 km | Linear | Buddhist | 16,190 | 372 | — |
+| [Iyo (Temples 39-65)](routes/shikoku-88-iyo/) | 365.7 km | Linear | Buddhist | 14,893 | 953 | — |
+| [Sanuki (Temples 65-88, and the return to Temple 1)](routes/shikoku-88-sanuki/) | 202.2 km | Linear | Buddhist | 9,678 | 389 | — |
+
+The Stats column is empty on purpose: what the bureaus publish is measured over the
+whole circuit, not per province, so the 21-year completion series lives in the
+`pilgrimage.stats` block of all four sections' `metadata.json` rather than in a
+per-section `stats.json`. See [docs/data-sources.md](docs/data-sources.md).
+
+`shikoku-88` was a single route until these four sections replaced it; that id now
+names the pilgrimage they belong to. Its 10 stages became 40 day stages cut mechanically
+from the walked lines, and its waypoint count fell from 2,980 to 1,917 — which is a
+correction rather than a loss. The old `route.geojson` was one MultiLineString of 77
+separate lines, and flattening it drew chords straight across the island: 1,351 of
+those 2,980 waypoints, 45% of them, sit more than 300 m from any of the four walked
+lines the sections publish now.
+
 ### Three Layers of Data
 
-**Layer 1 — Geometry:** Full-resolution GPS trails from OpenStreetMap. Not simplified stage endpoints — actual trail paths with 4k-49k coordinate points per route.
+**Layer 1 — Geometry:** Full-resolution GPS trails from OpenStreetMap. Not simplified stage endpoints — actual trail paths with 3k-39k coordinate points per route.
 
-**Layer 2 — Logistics:** 11,800+ waypoints including water sources, pharmacies, hospitals, accommodation, restaurants, convenience stores, bus stops, and train stations. Each tagged with `stageIndex` and `kmFromStart` for route-aware queries.
+**Layer 2 — Logistics:** 10,800 waypoints including water sources, pharmacies, hospitals, accommodation, restaurants, convenience stores, bus stops, and train stations. All but three carry a `stageIndex` and all but six a `kmFromStart`, for route-aware queries. All six exceptions are Kumano Kodō (Nakahechi) waypoints that its walked line does not reach.
 
 **Layer 3 — Cultural & Spiritual:** Credential systems (Compostela, nokyocho, Dual Pilgrim), sacred site protocols, cultural practices, associated literature, and interior journey narratives per stage.
 
 ### Waypoint Coverage
 
-| Type | Frances | Norte | Primitivo | Portugués | Coastal | Inglés | Shikoku | Nakahechi | Kohechi |
-|------|---------|-------|-----------|-----------|---------|--------|---------|-----------|---------|
-| Water sources | 788 | 662 | 96 | 177 | 52 | 85 | 13 | 1 | — |
-| Medical (pharmacy/hospital) | 172 | 206 | 63 | 112 | 50 | 44 | 214 | — | — |
-| Accommodation | 532 | 250 | 75 | 180 | 92 | 39 | 124 | 16 | 9 |
-| Food (restaurant/cafe) | 713 | 764 | 265 | 600 | 425 | 152 | 456 | 10 | 2 |
-| Transport (bus/train) | 511 | 657 | 180 | 431 | 302 | 136 | 1,395 | 28 | 8 |
-| Supply (convenience/toilet) | 189 | 235 | 53 | 134 | 122 | 26 | 690 | 40 | 10 |
-| Sacred sites | 9 | 68 | — | — | — | — | 88 | 18 | 5 |
-| Towns | 36 | 51 | — | — | — | — | — | 2 | — |
+| Type | Frances | Norte | Primitivo | Portugués | Coastal | Inglés | Awa | Tosa | Iyo | Sanuki | Nakahechi | Kohechi |
+|------|---------|-------|-----------|-----------|---------|--------|-----|------|-----|--------|-----------|---------|
+| Water sources | 788 | 662 | 96 | 177 | 52 | 85 | 1 | 1 | 4 | 1 | 1 | — |
+| Medical (pharmacy/hospital) | 172 | 206 | 63 | 112 | 50 | 44 | 14 | 18 | 45 | 18 | — | — |
+| Accommodation | 532 | 250 | 75 | 180 | 92 | 39 | 9 | 33 | 41 | 9 | 16 | 9 |
+| Food (restaurant/cafe) | 713 | 764 | 265 | 600 | 425 | 152 | 29 | 27 | 92 | 85 | 10 | 2 |
+| Transport (bus/train) | 511 | 657 | 180 | 431 | 302 | 136 | 25 | 162 | 494 | 111 | 28 | 8 |
+| Supply (convenience/toilet) | 189 | 235 | 53 | 134 | 122 | 26 | 70 | 75 | 117 | 103 | 40 | 10 |
+| Sacred sites | 9 | 68 | — | — | — | — | 51 | 42 | 151 | 54 | 18 | 5 |
+| Towns | 36 | 51 | — | — | — | — | 2 | 8 | 7 | 6 | 2 | — |
+
+The four Shikoku columns are the four dōjō, which are sections of one circuit rather
+than alternatives to each other; the 88 temples are split 23 / 16 / 26 / 23 between
+them and are counted here under Sacred sites, alongside the shrines and wayside halls
+OpenStreetMap records on the way.
 
 ### Statistics (`stats.json`)
 
@@ -69,7 +102,7 @@ Each route includes historical statistics sourced from official pilgrimage organ
 - **Camino Inglés:** 23-year series. 30,204 pilgrims in 2025 (5.7%) — the shortest major Camino at ~112 km from Ferrol. Historic maritime arrival route for English, Irish, Scandinavian, and Flemish pilgrims.
 - **Camino Primitivo:** 23-year series. 27,871 pilgrims in 2025 (5.2%) — the oldest Camino, walked by Alfonso II of Asturias in 814 CE. Most physically demanding with Puerto del Palo at 1,146 m.
 - **Camino del Norte:** 23-year series. 21,521 pilgrims in 2025 (4.1%) — the longest non-Frances Camino at ~788 km, along the Bay of Biscay from Irún through the Basque Country, Cantabria, Asturias, and Galicia.
-- **Shikoku 88:** 21-year walking completion series (2005-2025) from the Omotenashi Network. Foreign pilgrim share grew from 0.6% to 33%.
+- **Shikoku 88:** 21-year walking completion series (2005-2025) from the Omotenashi Network. Foreign pilgrim share grew from 0.6% to 33%. Whole-circuit data, so it lives in the `pilgrimage.stats` block of all four dōjō's `metadata.json` rather than in a `stats.json` of any one of them.
 - **Kumano Kodo:** 22-year foreign visitor series (2003-2024) from Tanabe City. Dual Pilgrim program data (14,238 registered from 78 countries).
 
 ## Quick Start
