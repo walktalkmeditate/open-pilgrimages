@@ -15,6 +15,7 @@ interface FixtureVariant {
 
 interface FixtureRoute {
   id: string;
+  distanceKm?: number;
   variants?: FixtureVariant[];
   pilgrimage?: string;
 }
@@ -750,10 +751,16 @@ test("checkSite accepts a per-type waypoint table whose rows sum to its own tota
 // commit orphans without anything noticing. Both live errors were left behind
 // by 1bffcda, which corrected metadata.json and not the pages it feeds.
 
+// Every message checkKeyFactsElevation emits names the Key Facts cell it is
+// about. Filtering on /elevation/i instead also catches "inlined elevation
+// profile does not match …", which belongs to a different guard entirely.
+const isKeyFactsProblem = (problem: { message: string }): boolean =>
+  problem.message.includes("Key Facts");
+
 test("checkSite reports a Key Facts elevation range that disagrees with metadata", () => {
   // #given a detail page whose Key Facts cell still reads the figures the
   // metadata used to carry
-  const root = createFixtureRoot([{ id: "r" }]);
+  const root = createFixtureRoot([{ id: "r", distanceKm: 243 }]);
   mkdirSync(join(root, "routes", "r"), { recursive: true });
   writeFileSync(
     join(root, "routes", "r", "metadata.json"),
@@ -763,13 +770,14 @@ test("checkSite reports a Key Facts elevation range that disagrees with metadata
     join(root, "docs", "r.html"),
     "<html><body><code>r</code>" +
       "<table><caption>Overview of R</caption><tbody>" +
+      '<tr><th scope="row">Distance</th><td>243 km</td></tr>' +
       '<tr><th scope="row">Elevation range</th><td>10&ndash;420 m</td></tr>' +
       "</tbody></table></body></html>",
   );
 
   try {
     // #when checkSite compares the cell against overview.elevationRange
-    const problems = checkSite(root).filter((p) => /elevation/i.test(p.message));
+    const problems = checkSite(root).filter(isKeyFactsProblem);
 
     // #then one problem names the page and all four figures — both rendered, both declared
     assert.equal(problems.length, 1);
@@ -785,7 +793,7 @@ test("checkSite reports a Key Facts elevation range that disagrees with metadata
 
 test("a Key Facts elevation range that matches metadata is accepted", () => {
   // #given the same page and metadata, with the cell corrected
-  const root = createFixtureRoot([{ id: "r" }]);
+  const root = createFixtureRoot([{ id: "r", distanceKm: 243 }]);
   mkdirSync(join(root, "routes", "r"), { recursive: true });
   writeFileSync(
     join(root, "routes", "r", "metadata.json"),
@@ -795,16 +803,14 @@ test("a Key Facts elevation range that matches metadata is accepted", () => {
     join(root, "docs", "r.html"),
     "<html><body><code>r</code>" +
       "<table><caption>Overview of R</caption><tbody>" +
+      '<tr><th scope="row">Distance</th><td>243 km</td></tr>' +
       '<tr><th scope="row">Elevation range</th><td>5&ndash;410 m</td></tr>' +
       "</tbody></table></body></html>",
   );
 
   try {
     // #when / #then nothing is reported
-    assert.deepEqual(
-      checkSite(root).filter((p) => /elevation/i.test(p.message)),
-      [],
-    );
+    assert.deepEqual(checkSite(root).filter(isKeyFactsProblem), []);
   } finally {
     rmSync(root, { recursive: true, force: true });
   }
@@ -815,7 +821,7 @@ test("a section with elevation data but no Elevation range row is not reported",
   // deliberately does not publish, because nothing has measured it. Demanding
   // the row wherever the data exists is the one guaranteed false positive
   // this check can produce
-  const root = createFixtureRoot([{ id: "r" }]);
+  const root = createFixtureRoot([{ id: "r", distanceKm: 170 }]);
   mkdirSync(join(root, "routes", "r"), { recursive: true });
   writeFileSync(
     join(root, "routes", "r", "metadata.json"),
@@ -825,16 +831,268 @@ test("a section with elevation data but no Elevation range row is not reported",
     join(root, "docs", "r.html"),
     "<html><body><code>r</code>" +
       "<table><caption>Overview of R. Not measured on a walked line.</caption><tbody>" +
-      '<tr><th scope="row">Distance</th><td>~170 km</td></tr>' +
+      '<tr><th scope="row">Distance</th><td>~170 km (not measured)</td></tr>' +
       "</tbody></table></body></html>",
   );
 
   try {
     // #when / #then the absent row is not a problem
-    assert.deepEqual(
-      checkSite(root).filter((p) => /elevation/i.test(p.message)),
-      [],
-    );
+    assert.deepEqual(checkSite(root).filter(isKeyFactsProblem), []);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+// Table-to-section pairing, and the two markup shapes that used to drop a
+// table out of the scan without a word. Position was the first attempt at the
+// pairing: the route's own metadata against the first table, then each
+// variants/{name} directory in readdirSync order. These are the shapes that
+// broke it.
+
+test("a drifted variant cell is reported even when a range-less variant sorts ahead of it", () => {
+  // #given the demonstrated failure of positional pairing: the variant whose
+  // table the page carries sorts *after* a variant that declares no elevation
+  // range at all, so the position that used to pair with it now lands on the
+  // range-less one and the skip that keeps the guard quiet there swallowed a
+  // real drift
+  const root = createFixtureRoot([
+    {
+      id: "r",
+      distanceKm: 243,
+      variants: [
+        { id: "alpha", distanceKm: 73 },
+        { id: "zeta", distanceKm: 110 },
+      ],
+    },
+  ]);
+  mkdirSync(join(root, "routes", "r", "variants", "alpha"), { recursive: true });
+  mkdirSync(join(root, "routes", "r", "variants", "zeta"), { recursive: true });
+  writeFileSync(
+    join(root, "routes", "r", "metadata.json"),
+    JSON.stringify({ overview: { elevationRange: { minMeters: 5, maxMeters: 410 } } }),
+  );
+  writeFileSync(
+    join(root, "routes", "r", "variants", "alpha", "metadata.json"),
+    JSON.stringify({ overview: { distanceKm: 73 } }),
+  );
+  writeFileSync(
+    join(root, "routes", "r", "variants", "zeta", "metadata.json"),
+    JSON.stringify({ overview: { elevationRange: { minMeters: 0, maxMeters: 95 } } }),
+  );
+  writeFileSync(
+    join(root, "docs", "r.html"),
+    "<html><body><code>r</code>" +
+      "<table><caption>Overview of R</caption><tbody>" +
+      '<tr><th scope="row">Distance</th><td>243 km</td></tr>' +
+      '<tr><th scope="row">Elevation range</th><td>5&ndash;410 m</td></tr>' +
+      "</tbody></table>" +
+      "<table><caption>Overview of R, Zeta</caption><tbody>" +
+      '<tr><th scope="row">Distance</th><td>110 km</td></tr>' +
+      '<tr><th scope="row">Elevation range</th><td>0&ndash;100 m</td></tr>' +
+      "</tbody></table></body></html>",
+  );
+
+  try {
+    // #when checkSite pairs each table with a section
+    const problems = checkSite(root).filter(isKeyFactsProblem);
+
+    // #then the drift is reported against the zeta variant, not lost
+    assert.equal(problems.length, 1);
+    assert.match(problems[0].message, /routes\/r\/variants\/zeta\/metadata\.json/);
+    assert.match(problems[0].message, /0–100 m/);
+    assert.match(problems[0].message, /0–95 m/);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("two variant tables listed out of directory order are each attributed to their own section", () => {
+  // #given two variants whose tables appear on the page in the reverse of the
+  // order readdirSync yields their directories, each cell drifted from its own
+  // metadata by a distinct amount
+  const root = createFixtureRoot([
+    {
+      id: "r",
+      distanceKm: 243,
+      variants: [
+        { id: "aaa", distanceKm: 50 },
+        { id: "bbb", distanceKm: 60 },
+      ],
+    },
+  ]);
+  mkdirSync(join(root, "routes", "r", "variants", "aaa"), { recursive: true });
+  mkdirSync(join(root, "routes", "r", "variants", "bbb"), { recursive: true });
+  writeFileSync(
+    join(root, "routes", "r", "metadata.json"),
+    JSON.stringify({ overview: { distanceKm: 243 } }),
+  );
+  writeFileSync(
+    join(root, "routes", "r", "variants", "aaa", "metadata.json"),
+    JSON.stringify({ overview: { elevationRange: { minMeters: 1, maxMeters: 100 } } }),
+  );
+  writeFileSync(
+    join(root, "routes", "r", "variants", "bbb", "metadata.json"),
+    JSON.stringify({ overview: { elevationRange: { minMeters: 2, maxMeters: 200 } } }),
+  );
+  writeFileSync(
+    join(root, "docs", "r.html"),
+    "<html><body><code>r</code>" +
+      "<table><caption>Overview of R, Bbb</caption><tbody>" +
+      '<tr><th scope="row">Distance</th><td>60 km</td></tr>' +
+      '<tr><th scope="row">Elevation range</th><td>2&ndash;222 m</td></tr>' +
+      "</tbody></table>" +
+      "<table><caption>Overview of R, Aaa</caption><tbody>" +
+      '<tr><th scope="row">Distance</th><td>50 km</td></tr>' +
+      '<tr><th scope="row">Elevation range</th><td>1&ndash;111 m</td></tr>' +
+      "</tbody></table></body></html>",
+  );
+
+  try {
+    // #when checkSite pairs each table with a section
+    const problems = checkSite(root).filter(isKeyFactsProblem);
+
+    // #then each drift names the metadata.json of the variant its table
+    // describes — not the one sitting at that table's position
+    assert.equal(problems.length, 2);
+    const bbb = problems.find((p) => p.message.includes("Bbb"));
+    const aaa = problems.find((p) => p.message.includes("Aaa"));
+    assert.ok(bbb, "expected a problem for the Bbb variant's table");
+    assert.ok(aaa, "expected a problem for the Aaa variant's table");
+    assert.match(bbb.message, /routes\/r\/variants\/bbb\/metadata\.json declares 2–200 m/);
+    assert.match(aaa.message, /routes\/r\/variants\/aaa\/metadata\.json declares 1–100 m/);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("a table whose Distance matches no section is reported, not skipped", () => {
+  // #given an Overview table whose leading Distance figure is not the
+  // distanceKm of the route or any of its variants — the state in which
+  // positional pairing quietly checked the cell against the wrong section, or
+  // ran off the end of the list and checked it against nothing
+  const root = createFixtureRoot([{ id: "r", distanceKm: 243 }]);
+  mkdirSync(join(root, "routes", "r"), { recursive: true });
+  writeFileSync(
+    join(root, "routes", "r", "metadata.json"),
+    JSON.stringify({ overview: { elevationRange: { minMeters: 5, maxMeters: 410 } } }),
+  );
+  writeFileSync(
+    join(root, "docs", "r.html"),
+    "<html><body><code>r</code>" +
+      "<table><caption>Overview of R</caption><tbody>" +
+      '<tr><th scope="row">Distance</th><td>999 km</td></tr>' +
+      '<tr><th scope="row">Elevation range</th><td>5&ndash;410 m</td></tr>' +
+      "</tbody></table></body></html>",
+  );
+
+  try {
+    // #when checkSite tries to pair the table
+    const problems = checkSite(root).filter(isKeyFactsProblem);
+
+    // #then the unpairable table is reported, naming the figure and the
+    // sections it could have been
+    assert.equal(problems.length, 1);
+    assert.equal(problems[0].file, "docs/r.html");
+    assert.match(problems[0].message, /999 km/);
+    assert.match(problems[0].message, /routes\/r\/metadata\.json \(243 km\)/);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("a table whose Distance is ambiguous between two sections is reported", () => {
+  // #given a variant that shares its parent route's distanceKm, so the key
+  // cannot tell their two tables apart
+  const root = createFixtureRoot([
+    { id: "r", distanceKm: 110, variants: [{ id: "twin", distanceKm: 110 }] },
+  ]);
+  mkdirSync(join(root, "routes", "r", "variants", "twin"), { recursive: true });
+  writeFileSync(
+    join(root, "routes", "r", "metadata.json"),
+    JSON.stringify({ overview: { elevationRange: { minMeters: 5, maxMeters: 410 } } }),
+  );
+  writeFileSync(
+    join(root, "routes", "r", "variants", "twin", "metadata.json"),
+    JSON.stringify({ overview: { elevationRange: { minMeters: 0, maxMeters: 95 } } }),
+  );
+  writeFileSync(
+    join(root, "docs", "r.html"),
+    "<html><body><code>r</code>" +
+      "<table><caption>Overview of R</caption><tbody>" +
+      '<tr><th scope="row">Distance</th><td>110 km</td></tr>' +
+      '<tr><th scope="row">Elevation range</th><td>5&ndash;410 m</td></tr>' +
+      "</tbody></table></body></html>",
+  );
+
+  try {
+    // #when checkSite tries to pair the table
+    const problems = checkSite(root).filter(isKeyFactsProblem);
+
+    // #then the ambiguity is reported, naming both candidate sections, rather
+    // than one of them being picked
+    assert.equal(problems.length, 1);
+    assert.match(problems[0].message, /routes\/r\/metadata\.json/);
+    assert.match(problems[0].message, /routes\/r\/variants\/twin\/metadata\.json/);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("an Overview table carrying a <thead> is still checked", () => {
+  // #given a table that has grown a header row, the shape the neighbouring
+  // "Metadata-only variants" table on docs/camino-portugues.html already has.
+  // Requiring <tbody> to follow <caption> dropped it out of the scan entirely
+  const root = createFixtureRoot([{ id: "r", distanceKm: 243 }]);
+  mkdirSync(join(root, "routes", "r"), { recursive: true });
+  writeFileSync(
+    join(root, "routes", "r", "metadata.json"),
+    JSON.stringify({ overview: { elevationRange: { minMeters: 5, maxMeters: 410 } } }),
+  );
+  writeFileSync(
+    join(root, "docs", "r.html"),
+    "<html><body><code>r</code>" +
+      "<table><caption>Overview of R</caption>" +
+      '<thead><tr><th scope="col">Field</th><th scope="col">Value</th></tr></thead>' +
+      "<tbody>" +
+      '<tr><th scope="row">Distance</th><td>243 km</td></tr>' +
+      '<tr><th scope="row">Elevation range</th><td>10&ndash;420 m</td></tr>' +
+      "</tbody></table></body></html>",
+  );
+
+  try {
+    // #when / #then the drift is still reported
+    const problems = checkSite(root).filter(isKeyFactsProblem);
+    assert.equal(problems.length, 1);
+    assert.match(problems[0].message, /10–420 m/);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("a cell written with a literal en dash is checked, not silently passed over", () => {
+  // #given docs/*.html is not uniformly entity-encoded — literal em dashes
+  // appear throughout, and docs/camino-primitivo.html carries a bare é — so a
+  // hand-written range can arrive with U+2013 instead of &ndash;
+  const root = createFixtureRoot([{ id: "r", distanceKm: 243 }]);
+  mkdirSync(join(root, "routes", "r"), { recursive: true });
+  writeFileSync(
+    join(root, "routes", "r", "metadata.json"),
+    JSON.stringify({ overview: { elevationRange: { minMeters: 5, maxMeters: 410 } } }),
+  );
+  writeFileSync(
+    join(root, "docs", "r.html"),
+    "<html><body><code>r</code>" +
+      "<table><caption>Overview of R</caption><tbody>" +
+      '<tr><th scope="row">Distance</th><td>243 km</td></tr>' +
+      '<tr><th scope="row">Elevation range</th><td>10–420 m</td></tr>' +
+      "</tbody></table></body></html>",
+  );
+
+  try {
+    // #when / #then the drift is reported just as it is for &ndash;
+    const problems = checkSite(root).filter(isKeyFactsProblem);
+    assert.equal(problems.length, 1);
+    assert.match(problems[0].message, /10–420 m/);
   } finally {
     rmSync(root, { recursive: true, force: true });
   }
@@ -1072,8 +1330,8 @@ test("the committed docs/{id}.html per-type waypoint tables already sum to their
   );
 });
 
-test("no route page's Key Facts elevation disagrees with its metadata (positive control)", () => {
-  const problems = checkSite(ROOT).filter((p) => /elevation/i.test(p.message));
+test("every committed Overview table pairs with a section and agrees with it (positive control)", () => {
+  const problems = checkSite(ROOT).filter(isKeyFactsProblem);
   assert.deepEqual(problems, []);
 });
 

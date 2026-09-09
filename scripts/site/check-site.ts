@@ -228,16 +228,18 @@ const WAYPOINT_TYPE_TABLE_PATTERN =
 const WAYPOINT_TYPE_ROW_PATTERN = /<tr><th scope="row">([^<]+)<\/th><td>([\d,]+)[^<]*<\/td><\/tr>/g;
 
 /**
- * The Key Facts table at the top of every route detail page publishes the
- * route's elevation range, and nothing compared it to the data it was written
- * from. Both live errors this guard was written against arrived the same way:
- * 1bffcda ("data: correct elevation ranges that contradicted their own
- * stages") corrected routes/{id}/metadata.json and left the pages saying what
- * they had said before it. The Kumano Kodo instance had the identical cause
- * and survived 92 commits, across a rename that carried it into a new
- * filename. A published figure orphaned by a data correction is the shape of
- * drift this exists for, and a reader is the only thing that has ever caught
- * one.
+ * Nine of the eleven Overview tables on the route detail pages publish an
+ * elevation range, and nothing compared any of them to the data they were
+ * written from. Both live errors this guard was written against arrived the
+ * same way: 1bffcda ("data: correct elevation ranges that contradicted their
+ * own stages") corrected routes/{id}/metadata.json and left the pages saying
+ * what they had said before it. The Kumano Kodo instance had the identical
+ * cause: 00a6be9 raised that route's declared minimum from 50 m to 80 m and
+ * the page went on printing 50 until b11701e — 181 commits later, 71 of them
+ * touching docs/ (`git rev-list --count 00a6be9..b11701e -- docs/`), across a
+ * rename that carried the stale cell into a new filename. A published figure
+ * orphaned by a data correction is the shape of drift this exists for, and a
+ * reader is the only thing that has ever caught one.
  *
  * Read per route id from the per-route loop, never over docs/*.html. The two
  * generated pages — the pilgrimage pages carrying build-assets' GENERATED
@@ -262,8 +264,10 @@ const WAYPOINT_TYPE_ROW_PATTERN = /<tr><th scope="row">([^<]+)<\/th><td>([\d,]+)
  * The row is optional and has to stay optional. That same iseji declares an
  * elevationRange (0–647 m, under a note saying it is declared rather than
  * measured) while docs/kumano-kodo-iseji.html deliberately publishes no
- * Elevation range row at all. A guard that demanded the row wherever the data
- * exists would false-positive on the first page it read.
+ * Elevation range row at all — and docs/kumano-kodo-ohechi.html publishes
+ * none either, its section declaring no range to publish. Those are the two
+ * Overview tables that carry no elevation cell. A guard that demanded the row
+ * wherever the data exists would false-positive on the first page it read.
  *
  * Two independently anchored patterns rather than one rule over the cell's
  * numbers, because shikoku-88's cell is more than a range: "0&ndash;911 m
@@ -273,21 +277,57 @@ const WAYPOINT_TYPE_ROW_PATTERN = /<tr><th scope="row">([^<]+)<\/th><td>([\d,]+)
  * every figure in there flags the temple number (66), the stage count (10)
  * and the ~18,000 m aside, none of which are claims about this route's own
  * profile. The range pattern takes the cell's first "a&ndash;b m" and the
- * totals pattern the one "total ascent … descent …" clause; between them they
- * read every one of the eleven cells and nothing else in any of them.
+ * totals pattern the one "total ascent … descent …" clause; every one of the
+ * nine elevation cells carries both shapes exactly once (`grep -c "Elevation
+ * range" docs/*.html` sums to nine, and every one of those lines contains a
+ * "total ascent"), so between them they read all nine and nothing else in any
+ * of them.
+ *
+ * The en dash is matched as either the entity or the literal character.
+ * docs/*.html is not uniformly entity-encoded — literal em dashes appear in
+ * their hundreds and docs/camino-primitivo.html carries a bare é — so a
+ * hand-written "5–410 m" is a shape this has to expect rather than pass over.
+ *
+ * <thead> between the caption and the tbody is tolerated. No Overview table
+ * has one today, but the "Metadata-only variants" table beside the coastal
+ * one on docs/camino-portugues.html does, and a header row is an ordinary
+ * thing for a table to grow. Requiring <tbody> to follow <caption> meant such
+ * a table dropped out of the scan without a word.
  *
  * Rendered figures carry thousands separators ("1,505"), so the commas come
- * out before anything is compared.
+ * out before anything is compared — and go back on for the declared side of
+ * every message, so both halves of a comparison read alike.
  */
 const KEY_FACTS_TABLE_PATTERN =
-  /<caption>(Overview of [^<]*)<\/caption>\s*<tbody>([\s\S]*?)<\/tbody>/g;
+  /<caption>(Overview of [^<]*)<\/caption>\s*(?:<thead>[\s\S]*?<\/thead>\s*)?<tbody>([\s\S]*?)<\/tbody>/g;
 const KEY_FACTS_ELEVATION_ROW_PATTERN =
   /<tr><th scope="row">Elevation range<\/th><td>([^<]*)<\/td><\/tr>/;
-const KEY_FACTS_ELEVATION_RANGE_PATTERN = /(\d[\d,]*)\s*&ndash;\s*(\d[\d,]*)\s*m/;
+const KEY_FACTS_ELEVATION_RANGE_PATTERN = /(\d[\d,]*)\s*(?:&ndash;|–)\s*(\d[\d,]*)\s*m/;
 const KEY_FACTS_ELEVATION_TOTALS_PATTERN =
   /total ascent\s+([\d,]+)\s*m,?\s*descent\s+([\d,]+)\s*m/;
 
-function metersFromCell(rendered: string): number {
+/**
+ * The Distance row that sits in the same <tbody>, and the one figure in it
+ * that is this section's own length — see checkKeyFactsElevation for why that
+ * figure is what pairs a table with a section.
+ *
+ * Only the leading figure, because a Distance cell carries real editorial
+ * prose after it: docs/camino-frances.html:63 reads "764 km (sum of the 33
+ * stages below; commonly cited published figures range 780&ndash;800 km
+ * depending on edition)" and docs/kumano-kodo-nakahechi.html:63 goes on to
+ * name two sibling sections' distances. readmeDistanceKmPattern already takes
+ * exactly this reading of the README's own route tables, for the same reason.
+ *
+ * The cell body is matched across markup rather than with [^<]*, because that
+ * nakahechi row links to both siblings' pages from inside its own <td>. The
+ * optional "~" is iseji's and ohechi's, whose declared distances are estimates
+ * ("~170 km (not measured &mdash; no walked line exists yet)").
+ */
+const KEY_FACTS_DISTANCE_ROW_PATTERN =
+  /<tr><th scope="row">Distance<\/th><td>([\s\S]*?)<\/td><\/tr>/;
+const KEY_FACTS_LEADING_DISTANCE_PATTERN = /^\s*~?\s*([\d,]+(?:\.\d+)?)\s*km\b/;
+
+function figureFromCell(rendered: string): number {
   return Number(rendered.replace(/,/g, ""));
 }
 
@@ -810,6 +850,7 @@ export function checkSite(root: string, overrides: PageOverrides = {}): Problem[
   // A pilgrimage has no directory but does have a page, and both live in the
   // same flat namespace under open.pilgrimag.es.
   const pageIds = new Set([...routeIdSet, ...pilgrimageIds]);
+  const indexRouteById = new Map(indexRoutes.map((route) => [route.id, route]));
   const stats = computeStats(root);
   const statsById = new Map(stats.routes.map((route) => [route.id, route]));
 
@@ -1252,60 +1293,153 @@ export function checkSite(root: string, overrides: PageOverrides = {}): Problem[
     }
   }
 
+  /**
+   * Which section an Overview table describes is read off the leading figure
+   * of its own Distance row, not off its position on the page.
+   *
+   * Position was the first attempt, and it fails silently — which is worse
+   * than not checking at all. It paired routes/{id}/metadata.json against the
+   * first table and each routes/{id}/variants/{name} directory, in readdirSync
+   * order, against the ones after it. That is correct on today's pages only by
+   * luck: routes/camino-portugues/variants/ holds coastal, espiritual and
+   * lisboa, only coastal declares an elevationRange, and the pairing survives
+   * because "c" sorts before "e" and "l". Rename coastal to anything sorting
+   * after them and its table pairs against a range-less variant, where the
+   * skip that correctly keeps this guard quiet on variants with no range to
+   * compare turns a genuinely drifted cell into no output whatsoever. A gate
+   * that switches itself off is the one failure a gate must not have.
+   *
+   * Distance is the key because it is exact and unique per section within a
+   * route — 243 km for the Camino Portugués against 110, 73 and 620 for its
+   * three variants; 112 against 75 for the Inglés — and because it is a figure
+   * every section is required to carry: schema/pilgrimage.schema.json lists
+   * distanceKm in overview.required, index.json republishes it for the route
+   * and for each variant, and isIndexVariantShape already refuses a variant
+   * that arrives without one. This is the same substitution VARIANT_ROW_PATTERN
+   * makes for docs/routes.html's variants table, whose rows likewise carry no
+   * id and are identified by their parent route plus their distance.
+   *
+   * The asset id was the alternative, and it is a real identifier: eight of
+   * the ten route detail pages carry an <img class="route-hero-roads"
+   * src="assets/roads/{id}.svg">, nine such heroes in all, and
+   * docs/camino-portugues.html:331 puts the coastal variant's six lines above
+   * that variant's table — the string COASTAL_VARIANT_ASSET_ID already names.
+   * It was rejected on three counts. The two pages without one are iseji's and
+   * ohechi's, whose sections ship no walked line and so have no corridor to
+   * render, and those are the sections whose figures are declared rather than
+   * measured — the ones a drift gate can least afford to lose. It sits outside
+   * the table, so pairing on it means "nearest preceding hero", which is the
+   * positional rule again under a different anchor, failing the same silent
+   * way as soon as anything is inserted between the two. And it is an asset
+   * id, not a section id: the "{route}-{variant}" spelling a variant's
+   * corridor uses has exactly one instance to be inferred from.
+   *
+   * The section list comes from index.json's routes[].variants, the same list
+   * the variants-table check further down reads, rather than a readdirSync of
+   * the variants directory — index.json is this guard's declared source of
+   * truth for which variants exist, and it already carries the distanceKm this
+   * pairing needs.
+   *
+   * A table that matches no section, or more than one, is reported. An
+   * unidentified table is precisely the state in which a real drift goes
+   * unseen, so it has to be loud; only a table paired to a section that
+   * declares no range is passed over in silence. One consequence worth naming:
+   * a Key Facts Distance cell that drifts from index.json now surfaces here as
+   * a pairing failure. Nothing had read those cells before — checkReadmeDistanceKm
+   * covers the README's route tables and COMPARE_ROW_PATTERN docs/routes.html's
+   * comparison table, and neither one opens a detail page.
+   */
   function checkKeyFactsElevation(id: string, detailHtml: string): void {
     const file = `docs/${id}.html`;
     const routeDir = join(root, "routes", id);
-    const variantsDir = join(routeDir, "variants");
+    const route = indexRouteById.get(id);
+    if (!route) return;
 
-    /**
-     * A page's Overview tables run in the order its sections do: the route's
-     * own first, then one per variant. So they pair positionally against
-     * routes/{id}/metadata.json followed by each routes/{id}/variants/{variant}
-     * directory. Nothing in the markup identifies which section a table
-     * belongs to — the caption is prose that does not match the section's name
-     * (VARIANT_ROW_PATTERN documents the same problem in docs/routes.html's
-     * variants table) and no id appears anywhere on the table.
-     *
-     * Every variant directory takes a slot whether or not it declares a range,
-     * so a route that declares none cannot slide a variant's figures into the
-     * route's own table. A table past the last slot is left unchecked rather
-     * than guessed at.
-     */
-    const sections: Array<{ file: string; declared: DeclaredElevationRange | null }> = [
-      { file: `routes/${id}/metadata.json`, declared: readDeclaredElevationRange(routeDir) },
+    const sections: Array<{
+      file: string;
+      distanceKm?: number;
+      declared: DeclaredElevationRange | null;
+    }> = [
+      {
+        file: `routes/${id}/metadata.json`,
+        distanceKm: route.distanceKm,
+        declared: readDeclaredElevationRange(routeDir),
+      },
+      ...route.variants.map((variant) => ({
+        file: `routes/${id}/variants/${variant.id}/metadata.json`,
+        distanceKm: variant.distanceKm,
+        declared: readDeclaredElevationRange(join(routeDir, "variants", variant.id)),
+      })),
     ];
 
-    if (existsSync(variantsDir)) {
-      for (const entry of readdirSync(variantsDir, { withFileTypes: true })) {
-        if (!entry.isDirectory()) continue;
-        sections.push({
-          file: `routes/${id}/variants/${entry.name}/metadata.json`,
-          declared: readDeclaredElevationRange(join(variantsDir, entry.name)),
-        });
-      }
-    }
+    const sectionList = sections
+      .map((section) => {
+        const key =
+          section.distanceKm === undefined
+            ? "no distanceKm in index.json"
+            : `${section.distanceKm} km`;
+        return `${section.file} (${key})`;
+      })
+      .join(", ");
 
-    [...detailHtml.matchAll(KEY_FACTS_TABLE_PATTERN)].forEach(([, caption, tbody], index) => {
-      const declared = sections[index]?.declared;
-      if (!declared) return;
+    for (const [, caption, tbody] of detailHtml.matchAll(KEY_FACTS_TABLE_PATTERN)) {
+      const distanceRow = tbody.match(KEY_FACTS_DISTANCE_ROW_PATTERN);
+      const leadingDistance = distanceRow?.[1].match(KEY_FACTS_LEADING_DISTANCE_PATTERN);
+
+      if (!leadingDistance) {
+        add(
+          file,
+          `"${caption}" has no Distance row opening with an "N km" figure, so nothing says which ` +
+            `section of "${id}" it describes and its Key Facts elevation cell goes unchecked — ` +
+            `open the Distance cell with that section's own distanceKm (${sectionList})`,
+        );
+        continue;
+      }
+
+      const matches = sections.filter(
+        (section) => section.distanceKm === figureFromCell(leadingDistance[1]),
+      );
+
+      if (matches.length === 0) {
+        add(
+          file,
+          `"${caption}" opens with a Distance of ${leadingDistance[1]} km, which is the distanceKm ` +
+            `of no section of "${id}" in index.json (${sectionList}) — so nothing says which ` +
+            `section this table describes and its Key Facts elevation cell goes unchecked`,
+        );
+        continue;
+      }
+
+      if (matches.length > 1) {
+        add(
+          file,
+          `"${caption}" opens with a Distance of ${leadingDistance[1]} km, which is the distanceKm ` +
+            `of ${matches.length} sections of "${id}" in index.json ` +
+            `(${matches.map((section) => section.file).join(", ")}) — so nothing tells their ` +
+            `tables apart and this one's Key Facts elevation cell goes unchecked`,
+        );
+        continue;
+      }
+
+      const { file: source, declared } = matches[0];
+      if (!declared) continue; // this section declares no range to compare against
 
       const row = tbody.match(KEY_FACTS_ELEVATION_ROW_PATTERN);
-      if (!row) return; // the row is optional in both directions
+      if (!row) continue; // the row is optional in both directions
       const cell = row[1];
-      const source = sections[index].file;
 
       const range = cell.match(KEY_FACTS_ELEVATION_RANGE_PATTERN);
       const { minMeters, maxMeters, totalAscentMeters, totalDescentMeters } = declared;
 
       if (range && minMeters !== undefined && maxMeters !== undefined) {
         const drifted =
-          metersFromCell(range[1]) !== minMeters || metersFromCell(range[2]) !== maxMeters;
+          figureFromCell(range[1]) !== minMeters || figureFromCell(range[2]) !== maxMeters;
         if (drifted) {
           add(
             file,
             `"${caption}" gives an elevation range of ${range[1]}–${range[2]} m, but ${source} ` +
-              `declares ${minMeters}–${maxMeters} m — update the Key Facts cell, or correct ` +
-              `overview.elevationRange`,
+              `declares ${minMeters.toLocaleString("en-US")}–${maxMeters.toLocaleString("en-US")} m ` +
+              `— update the Key Facts cell, or correct overview.elevationRange`,
           );
         }
       }
@@ -1313,18 +1447,19 @@ export function checkSite(root: string, overrides: PageOverrides = {}): Problem[
       const totals = cell.match(KEY_FACTS_ELEVATION_TOTALS_PATTERN);
       if (totals && totalAscentMeters !== undefined && totalDescentMeters !== undefined) {
         const drifted =
-          metersFromCell(totals[1]) !== totalAscentMeters ||
-          metersFromCell(totals[2]) !== totalDescentMeters;
+          figureFromCell(totals[1]) !== totalAscentMeters ||
+          figureFromCell(totals[2]) !== totalDescentMeters;
         if (drifted) {
           add(
             file,
             `"${caption}" gives a total ascent of ${totals[1]} m and descent of ${totals[2]} m, ` +
-              `but ${source} declares ${totalAscentMeters} m and ${totalDescentMeters} m — update ` +
-              `the Key Facts cell, or correct overview.elevationRange`,
+              `but ${source} declares ${totalAscentMeters.toLocaleString("en-US")} m and ` +
+              `${totalDescentMeters.toLocaleString("en-US")} m — update the Key Facts cell, or ` +
+              `correct overview.elevationRange`,
           );
         }
       }
-    });
+    }
   }
 
   function checkTerrainNotesDistance(id: string): void {
