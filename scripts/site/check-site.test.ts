@@ -819,6 +819,95 @@ test("a Key Facts elevation range that matches metadata is accepted", () => {
   }
 });
 
+// The other half of the elevation cell. Nine pages publish a "total ascent …
+// descent …" clause, and this is the exact shape 1bffcda produced — the commit
+// whose orphaned pages this whole guard exists for corrected metadata.json's
+// totals along with its min and max.
+
+test("checkSite reports Key Facts elevation totals that disagree with metadata", () => {
+  // #given docs/camino-frances.html's cell verbatim, against metadata whose
+  // totals have since been corrected — the range agrees, so only the totals
+  // clause is wrong and nothing but this branch can say so
+  const root = createFixtureRoot([{ id: "r", distanceKm: 243 }]);
+  mkdirSync(join(root, "routes", "r"), { recursive: true });
+  writeFileSync(
+    join(root, "routes", "r", "metadata.json"),
+    JSON.stringify({
+      overview: {
+        elevationRange: {
+          minMeters: 172,
+          maxMeters: 1505,
+          totalAscentMeters: 12000,
+          totalDescentMeters: 11500,
+        },
+      },
+    }),
+  );
+  writeFileSync(
+    join(root, "docs", "r.html"),
+    "<html><body><code>r</code>" +
+      "<table><caption>Overview of R</caption><tbody>" +
+      '<tr><th scope="row">Distance</th><td>243 km</td></tr>' +
+      '<tr><th scope="row">Elevation range</th>' +
+      "<td>172&ndash;1,505 m (total ascent 11,024 m, descent 10,680 m)</td></tr>" +
+      "</tbody></table></body></html>",
+  );
+
+  try {
+    // #when checkSite compares the totals clause against overview.elevationRange
+    const problems = checkSite(root).filter(isKeyFactsProblem);
+
+    // #then one problem names all four figures, and the range is not reported
+    assert.equal(problems.length, 1);
+    assert.equal(problems[0].file, "docs/r.html");
+    assert.match(problems[0].message, /total ascent of 11,024 m and descent of 10,680 m/);
+    assert.match(problems[0].message, /declares 12,000 m and 11,500 m/);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("shikoku-88's elevation cell is read for its own ascent and descent, not the temple number or the cited aside", () => {
+  // #given that cell verbatim — the reason the range and the totals are two
+  // independently anchored patterns rather than one rule over the cell's
+  // numbers. Anything scanning every figure in it reads the temple number (66),
+  // the stage count (10) and the ~18,000 m aside, none of which are claims
+  // about this route's profile
+  const root = createFixtureRoot([{ id: "r", distanceKm: 1200 }]);
+  mkdirSync(join(root, "routes", "r"), { recursive: true });
+  writeFileSync(
+    join(root, "routes", "r", "metadata.json"),
+    JSON.stringify({
+      overview: {
+        elevationRange: {
+          minMeters: 0,
+          maxMeters: 911,
+          totalAscentMeters: 16780,
+          totalDescentMeters: 14470,
+        },
+      },
+    }),
+  );
+  writeFileSync(
+    join(root, "docs", "r.html"),
+    "<html><body><code>r</code>" +
+      "<table><caption>Overview of R</caption><tbody>" +
+      '<tr><th scope="row">Distance</th><td>1,200 km</td></tr>' +
+      '<tr><th scope="row">Elevation range</th><td>0&ndash;911 m (highest temple: Unpen-ji, ' +
+      "Temple 66); total ascent 16,780 m, descent 14,470 m per the 10-stage breakdown &mdash; " +
+      "true cumulative totals over the full circuit are commonly cited as ~18,000 m each" +
+      "</td></tr>" +
+      "</tbody></table></body></html>",
+  );
+
+  try {
+    // #when / #then nothing is reported: the cell agrees with its metadata
+    assert.deepEqual(checkSite(root).filter(isKeyFactsProblem), []);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
 test("a section with elevation data but no Elevation range row is not reported", () => {
   // #given kumano-kodo-iseji's real shape: a declared elevationRange the page
   // deliberately does not publish, because nothing has measured it. Demanding
@@ -963,6 +1052,56 @@ test("two variant tables listed out of directory order are each attributed to th
     assert.ok(aaa, "expected a problem for the Aaa variant's table");
     assert.match(bbb.message, /routes\/r\/variants\/bbb\/metadata\.json declares 2–200 m/);
     assert.match(aaa.message, /routes\/r\/variants\/aaa\/metadata\.json declares 1–100 m/);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("a table with no Distance row opening on an N km figure is reported, and every cell in it goes unchecked", () => {
+  // #given two tables the pairing key cannot read: one whose Distance cell
+  // hedges ahead of the figure ("Approximately 764 km") and one carrying no
+  // Distance row at all. Both also carry an elevation cell that has drifted, so
+  // this pins the consequence as well as the report — a table nothing can pair
+  // is a table whose every figure goes unread, which is why the pairing failure
+  // has to be loud rather than a silent skip
+  const root = createFixtureRoot([{ id: "r", distanceKm: 243 }]);
+  mkdirSync(join(root, "routes", "r"), { recursive: true });
+  writeFileSync(
+    join(root, "routes", "r", "metadata.json"),
+    JSON.stringify({ overview: { elevationRange: { minMeters: 5, maxMeters: 410 } } }),
+  );
+  writeFileSync(
+    join(root, "docs", "r.html"),
+    "<html><body><code>r</code>" +
+      "<table><caption>Overview of R</caption><tbody>" +
+      '<tr><th scope="row">Distance</th><td>Approximately 764 km</td></tr>' +
+      '<tr><th scope="row">Elevation range</th><td>10&ndash;420 m</td></tr>' +
+      "</tbody></table>" +
+      "<table><caption>Overview of R, V</caption><tbody>" +
+      '<tr><th scope="row">Elevation range</th><td>10&ndash;420 m</td></tr>' +
+      "</tbody></table></body></html>",
+  );
+
+  try {
+    // #when checkSite tries to pair each table
+    const problems = checkSite(root).filter(isKeyFactsProblem);
+
+    // #then each table is reported once, for the pairing and not the drift, and
+    // the message names the distance that would have paired it
+    assert.equal(problems.length, 2);
+    assert.equal(problems[0].file, "docs/r.html");
+    assert.match(
+      problems[0].message,
+      /^"Overview of R" has no Distance row opening with an "N km" figure/,
+    );
+    assert.match(problems[0].message, /every Key Facts cell in this table goes unchecked/);
+    assert.match(problems[0].message, /routes\/r\/metadata\.json \(243 km\)/);
+    assert.match(
+      problems[1].message,
+      /^"Overview of R, V" has no Distance row opening with an "N km" figure/,
+    );
+    // #and the drifted 10–420 m cell in each is never reached
+    assert.ok(!problems.some((p) => p.message.includes("elevation range of")));
   } finally {
     rmSync(root, { recursive: true, force: true });
   }
@@ -5122,14 +5261,17 @@ test("checkSite does not report a need tag for a section that ships a ways packa
 });
 
 test("checkSite reports a data-needs ref that resolves to nothing in index.json", () => {
-  // #given the three ways a hand-edited ref goes wrong: a section id that is
-  // not a route, a variant of a route that has none of that name, and a bare
-  // id carrying no kind at all. Every one of them would otherwise switch the
-  // completeness check off in silence
+  // #given the four ways a hand-edited ref goes wrong: a section id that is not
+  // a route, a variant of a route that has none of that name, a typo in the
+  // *route* half of a variant ref, and a bare id carrying no kind at all. Every
+  // one of them would otherwise switch the completeness check off in silence,
+  // and the two halves of a variant ref fail in different words because they
+  // ask the reader to fix different things
   const root = needTagsRoot(
     [{ id: "camino-portugues", variants: [{ id: "coastal", distanceKm: 110 }] }],
     '<span class="need-tag" data-needs="section:kumano-kodo-ohechii">A</span>' +
       '<span class="need-tag" data-needs="variant:camino-portugues/espirtual">B</span>' +
+      '<span class="need-tag" data-needs="variant:camino-portugue/coastal">D</span>' +
       '<span class="need-tag" data-needs="camino-portugues">C</span>',
   );
 
@@ -5137,9 +5279,9 @@ test("checkSite reports a data-needs ref that resolves to nothing in index.json"
     // #when checkSite resolves each ref
     const problems = needTagProblems(root);
 
-    // #then all three are reported, each naming what it looked for and what
+    // #then all four are reported, each naming what it looked for and what
     // index.json holds instead
-    assert.equal(problems.length, 3);
+    assert.equal(problems.length, 4);
     assert.match(
       problems[0],
       /^need tag "A" names section "kumano-kodo-ohechii", which is not a route in index\.json/,
@@ -5150,6 +5292,10 @@ test("checkSite reports a data-needs ref that resolves to nothing in index.json"
     );
     assert.match(
       problems[2],
+      /^need tag "D" names variant "camino-portugue\/coastal", but "camino-portugue" is not a route in index\.json — correct the data-needs ref, or restore the route$/,
+    );
+    assert.match(
+      problems[3],
       /^need tag "C" carries data-needs ref "camino-portugues", which is neither section:<route-id> nor variant:<route-id>\/<variant-id>$/,
     );
   } finally {
