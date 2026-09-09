@@ -18,6 +18,23 @@ file is a review.** All forty of those lines are open, and clearing one is a lat
 work, by an agent that had no part in the drafting: an author who ticks his own prose records
 a review that did not happen.
 
+> **Corrected in Task 7c.** "All forty of those lines are open" was true when the four drafters
+> wrote it, and the two readers who came before this one correctly left it standing: Task 7a
+> cleared Awa's five and Sanuki's six, Task 7b cleared Tosa's fifteen, and each was working in
+> this file while the others were, so neither could make the sentence right without asserting
+> something about sections it had not read. **Task 7c cleared Iyo's fourteen, the last of the
+> four, so none of the forty is open any more.** Every stage below now carries a ticked line and
+> a review written by an agent that had no part in its drafting, and this file holds no `- [ ]`
+> line at all. The original sentence is recorded rather than erased, because three review tasks
+> ran under it and because `shikoku-88-awa`'s blockquote below quotes it verbatim, in the course
+> of recording that it had already gone stale for five stages and could not yet be fixed.
+>
+> The rest of the paragraph is not superseded and does not expire: the four **Task 6x**
+> attributions still say who wrote each section's prose, and the rule that an author who ticks
+> his own prose records a review that did not happen still governs any text added here later. A
+> future drafter appending a section adds open lines again, and the sentence above becomes true
+> of them.
+
 ## What the drafter did not have
 
 Two absences shaped every sentence below, and a reader checking the text should know they
@@ -1807,6 +1824,51 @@ is the final **19.161** ✓.
 
 ## shikoku-88-iyo — Iyo (Temples 39-65)
 
+> **Reviewed in Task 7c**, by the third reader, who had no part in drafting any of the forty and
+> no part in reviewing the other three sections. **All fourteen stages cleared; nothing struck.**
+> Every figure in this section was re-measured independently against the committed
+> `route.main.geojson` with `walkedLine`, `cumulativeMeters`, `projectOnLine` and
+> `stageBoundaries` from `scripts/ways/geo.ts` **before any of the prose was read**, and every
+> stage's drop list was checked against `ways/report.json`. The line reproduces at 13,983 points
+> and 365.677 km; all fifteen boundary vertices and their `snap` modes, all fourteen spans, all
+> 26 temple positions and the whole 26-step list, all 953 waypoint projections, the per-stage
+> counts 52/35/134/121/71/26/16/84/117/75/88/32/84/18, the whole type histogram, the
+> `momentsBeyondEnds` row 4/0/19/50/16/2/3/15/5/6/13/7/6/0 and every one of the thirteen day-end
+> filing rows — Δ signs, the Kanjizai-ji floating-point residual and BEKKU's −66.65 m included —
+> reproduce exactly as written. Every id cited resolves to a feature carrying the name given.
+> **No narrative names a dropped waypoint**, checked against all four drops on stages 4, 7 and 8.
+> The drafter's report of no off-line outlier is confirmed rather than assumed: measured against
+> `route.main.geojson`, the farthest waypoint in the section is `node/1423738628` at **322.5 m**,
+> so nothing here behaves like Tosa's Ashizuri cluster despite the corridor split (`route.geojson`
+> **636.621 km** across 14,893 points, **1.741×** the walked line).
+>
+> **Two errors were found in this section's evidence, both in the checklist and neither in the
+> prose**, and both are recorded under their own stages rather than rewritten: stage 8's
+> **Places** line calls 117 "the second-most of the fourteen" when it is the **third**, and stage
+> 12's grounding bullet sources "32.8 km" to the spans when 32.746 rounds to 32.7 and 32.8 is the
+> declared `distanceKm`. Neither claim reaches a narrative, so no sentence changes. Six further
+> readings are recorded, not struck; each is named in its own entry.
+>
+> **Distance convention.** Iyo measures a distance *into* a day from **the day's declared
+> boundary vertex**, not from its start anchor's own projection — Sanuki's convention, not Awa's
+> or Tosa's. It is consistent across all fourteen and every grounding bullet says so in as many
+> words. **Unlike Tosa, three printed digits do change under the other convention**, so the
+> pilgrimage-wide question Awa's stage 2 raised is not free here: stage 6's "6.4 km in" is 6.446
+> from the vertex and 6.456 from Karibaen (→ 6.5); stage 11's "10.8 km into this day" is 10.784
+> from the vertex and 10.851 from ゲストハウス BEKKU (→ 10.9); stage 10's "17.0 km to where the
+> day stops" is 16.962 to the vertex and 16.895 to BEKKU (→ 16.9). All three are the widest-Δ
+> anchors in the section, which is why Iyo feels the choice where Tosa did not. Whichever way the
+> pilgrimage settles it, **these three entries change together and no others do.**
+>
+> **"Holds" versus "reaches".** Iyo does **not** adopt Tosa's verb switch. It says "the record
+> marks" or "the record holds" uniformly for what is there, and on each of the three stages with
+> a drop it states the drop outright — the filed count, then the drop by kind and metres: "One of
+> the seventy-one, a bus stop 301 m off the line, does not reach the day" (stage 4), "one, a
+> hospital 325 m off the line, does not reach it" (stage 7), "two of them … do not reach the day"
+> (stage 8). Every printed count is the filed count and every drop is subtracted in the same
+> sentence, so no count in the fourteen silently includes a place the package does not carry.
+> Awa, Tosa and Sanuki are other readers' work and are untouched.
+
 Temple 39 Enkō-ji to Temple 65 Sankaku-ji, **365.677 km** of walked line (`ways/report.json`
 `walkedLine`, 13,983 points), cut into fourteen days. Twenty-six waypoints here carry a
 `templeNumber`, 40 through 65: Temple 39 is this section's start anchor, taken verbatim from
@@ -2095,14 +2157,40 @@ narrative:  Temple 39 to Temple 40 is 27.2 km, and this day is the whole of that
 reflection: One viewpoint in nine hundred and fifty-three places, and the 5.2 km before it hold nothing at all — what were you looking at on the way there?
 ```
 
-**Open.** Not reviewed. "the only viewpoint among Iyo's nine hundred and fifty-three recorded
-places" is a claim about OpenStreetMap's coverage of viewpoints, in a sentence a walker will
-read as a claim about what there is to look at — the same objection Tosa's stage 10 water
-source drew. The reflection leans on it harder than the narrative does. A reviewer should
-decide whether "recorded" carries the weight, or whether a superlative over a type with one
-member should not be drawn at all.
+**Reviewed in Task 7c. Stands unchanged.**
 
-- [ ] shikoku-88-iyo stage 0
+Re-measured: span between vertex 0 and vertex 1094 is **27.15597 km**, `snap`; `temple-40`
+**27.15597 / 45.1 m**; Sukumo **6.818 / 173.3 m**, Ainan **26.801 / 179.4 m**, difference
+**19.983 km** with no other `type: town` projecting into it — the section's seven towns sit at
+6.818, 26.801, 92.342, 112.350, 124.926, 182.023 and 262.804 ✓. The viewpoint
+`node/10858037378` 茶偓跡 projects at **13.102 / 11.3 m** and is the only `type: viewpoint`
+feature among all 953 ✓. **Zero** features of any type, on any stage, project strictly between
+7.930 and 13.102, so the 5.173 km gap is real and is this day's longest against a next-longest
+of 3.161 ✓. 52 features carry `stageIndex: 0`, 23 of them `bus_stop` ✓, and none is in the
+report's drop list ✓.
+
+- **The viewpoint superlative stands, and "recorded" does carry the weight.** The drafter asked
+  for a ruling. The sentence is "the only viewpoint among Iyo's nine hundred and **fifty-three
+  recorded places**" — the count of the record is inside the claim, not beside it, and the
+  reflection repeats it ("One viewpoint in nine hundred and fifty-three places"). A superlative
+  over a type with one member is exactly the kind of count Awa's entries are built from, and §6
+  grounds text in what the section's files hold. Refusing it would mean the section may report
+  its 473 bus stops and not its one viewpoint, which is not a rule this checklist states
+  anywhere.
+- Noted, not struck: the reflection's "the 5.2 km before it **hold** nothing at all" drops the
+  "marked" the narrative carries one sentence earlier. Measurement backs it — nothing of any type
+  projects there — and the clause it closes, "what were you looking at on the way there?",
+  presumes there *was* something to look at, which defeats the reading that the ground is empty.
+  The reflection is the antidote to the misreading rather than its source.
+- Noted, not struck: "At 13.1 km, **in the middle of that**" means within the Sukumo–Ainan
+  stretch, not at its midpoint (which is 16.81). The same construction recurs on stage 3; see
+  there.
+- **"A gate at each end and none between" is consistent with "fifty-two places are filed on
+  it".** Neither gate is among the 52: Temple 39's own waypoint belongs to `shikoku-88-tosa` and
+  `temple-40` carries `stageIndex: 1`. Zero features with `stageIndex: 0` carry a
+  `templeNumber` ✓, so the two counts do not overlap and neither is inflated.
+
+- [x] shikoku-88-iyo stage 0
 
 ---
 
@@ -2148,14 +2236,35 @@ narrative:  Kanjizai-ji to Ryūkō-ji is 49.7 km, the second-widest step between
 reflection: The longest unmarked stretch in the section falls in the middle of this day. Who decided what was worth marking?
 ```
 
-**Open.** Not reviewed. Two things. The reflection asks about the map rather than the walk,
-which is the most openly data-facing question in the fourteen — it is here because this day's
-whole shape is a coverage fact and pretending otherwise would have been worse. And "which is
-true of only one other day here" is a cross-stage comparison of a kind Awa's stage 1 note and
-Tosa's stage 4 note both raised: a walker reading this one stage package cannot check it. That
-question is still open for the pilgrimage.
+**Reviewed in Task 7c. Stands unchanged, and its one superlative was checked the hard way.**
 
-- [ ] shikoku-88-iyo stage 1
+Re-measured: span vertex 1094 → vertex 2012 is **26.65483 km**, `snap`; Hotel Ailin
+**53.798 / 32.8 m**; 76.831 − 53.811 = **23.020 km** ✓ and 26.655 + 23.020 = 49.675, the
+Kanjizai-ji → Ryūkō-ji step, second in the list only to 70.442 ✓. 35 features carry
+`stageIndex: 1` — 24 `bus_stop`, 3 `convenience_store`, 2 `hospital`, 2 `restaurant`, 1
+`pharmacy`, 1 vending machine, the end hotel and `temple-40` — so "nearly all the rest" is 8 of
+the 11 non-bus-stop places ✓. `momentsBeyondEnds: 0`, and the only `sacred_site` on the stage is
+`temple-40` at the day's own start ✓.
+
+- **"the longest such stretch anywhere in this section" is correct, and it is the claim this
+  review was most likely to break.** Sanuki's stage 0 lost the same construction because its
+  grounding compared per-stage *maxima* and discarded a second run inside another stage. So this
+  one was not checked per stage: all 953 projections were sorted into one list and every
+  consecutive difference taken. The section's six widest gaps are **9.747** (37.548 → 47.295,
+  this day), 9.569 (stage 6), 8.810 (stage 5), 6.222 (stage 11), 5.910 (stage 11) and 5.173
+  (stage 0). Nothing of any type, on any stage, projects strictly between the two bus stops
+  `node/3152607473` 柏 and `node/3152605200` 大門 — exclusive count **0**. Re-run with the four
+  dropped waypoints excluded, the ranking is unchanged. **9.747 km is the section maximum**, and
+  the "second-longest" on stage 6 and "third-longest" on stage 5 fall out of the same list.
+- **"which is true of only one other day here" stands.** The `momentsBeyondEnds` row has exactly
+  two zeros, this stage and stage 13 ✓. The cross-stage objection is real and is Awa's stage 1
+  and Tosa's stage 4 question, not a new one; nothing here is false, and if the pilgrimage
+  settles against cross-stage comparison this entry changes with theirs and not separately.
+- **The reflection is honest about what it is asking.** "Who decided what was worth marking?" is
+  a question about the record, asked where the day's whole shape is a coverage fact. It does not
+  tell a walker the road is empty; the sentence two clauses earlier gives the day's 35 places.
+
+- [x] shikoku-88-iyo stage 1
 
 ---
 
@@ -2205,16 +2314,41 @@ narrative:  More is recorded on this day than on any other in Iyo — one hundre
 reflection: The busiest day in the section, and both its gates stand in the last three kilometres of it. Which part will you have been walking for?
 ```
 
-**Open.** Not reviewed. "Then it thins" is a reading: between 69.4 km and 76.7 km the record
-holds 17 features, against 72 in the 5 km before it, so the word is supported, but it is a
-judgement about density and not a measurement quoted. The day's 134 places include the
-`water_source` fountain at 57.957 km, three wayside shrines and seventeen `sacred_site`
-churches — none of them named, because the narrative chose the density and the two temples over
-an inventory. A reviewer may think a day this full deserves one named place that is not a
-temple, a bed or a station; Tosa's stage 2 note raises the same objection about the same
-choice.
+**Reviewed in Task 7c. Stands unchanged, with one rounding recorded.**
 
-- [ ] shikoku-88-iyo stage 2
+Re-measured: span vertex 2012 → vertex 3071 is **26.08614 km**, `snap`. 134 features carry
+`stageIndex: 2` — the section maximum against 121, 117, 88, 84, 84, 75, 71, 52, 35, 32, 26, 18,
+16 ✓ — 62 of them `bus_stop` and 18 `type: food` (15 `restaurant`, 3 `cafe`) ✓. The six lodgings
+run **66.321 → 67.807**, span **1.486 km**, out of **41** `type: accommodation` features in the
+section ✓; sliding a 1.5 km window along all 41 gives a maximum of 6 anywhere outside the stage
+8 cluster ✓, so "six … inside 1.5 km" is not beaten elsewhere by the same measure. Uwajima
+station **67.362 / 150.8 m** falls inside that span and Kita-Uwajima **69.135** falls outside ✓.
+`node/9719709612` 煙硝矢倉跡 is the section's only `type: cultural_site` feature, **66.250 /
+104 m** ✓. `temple-41` **76.831 / 3.2 m**, `temple-42` **79.897 / 69.8 m**, step **3.066 km** ✓.
+No drops on this stage ✓.
+
+- **"Then it thins" stands.** Independently counted: 17 features project between 69.4 and 76.7
+  km against **72** in the 5 km before — the checklist's own figures reproduce. It is a reading,
+  and it is a reading of a measured density rather than a characterisation with nothing behind
+  it, which is what Awa's struck "ordinary" was.
+- Noted, not struck: the reflection's "both its gates stand in **the last three kilometres** of
+  it". The step is **3.066 km**, so Ryūkō-ji stands 66 m outside a literal last-3.000 km. The
+  narrative one sentence earlier prints the true figure, 3.1, and this section's reflections
+  round throughout — stage 9's "Twenty-five kilometres" for 24.725, stage 11's "fourteen
+  kilometres" for 14.524, stage 6's "nine and a half" for 9.569. This is the only one of them
+  where the rounding shrinks a *container* rather than a distance, which is why it is recorded
+  and not left silent; it is not false under the reading the narrative has just supplied.
+- **The inventory objection is not a defect.** A day of 134 places cannot name them all, and the
+  narrative names only what it can ground as a kind — the density, the six beds, one station, the
+  section's only ruins, the two temples. The unnamed fountain at 57.957 km, the three wayside
+  shrines and the seventeen churches are counted in the 134 and nowhere misrepresented. Tosa's
+  stage 2 raises the same question and it is the same answer.
+- **"the only ruins Iyo records" is a claim about the record's own classification** and is exact:
+  one `type: cultural_site` feature in 953. Recorded because stage 0's viewpoint 茶偓跡 also
+  carries a 跡 name; the file types it `viewpoint`, and the sentence claims what the file
+  classifies, not what a name might mean.
+
+- [x] shikoku-88-iyo stage 2
 
 ---
 
@@ -2258,16 +2392,41 @@ narrative:  Meiseki-ji stands 10.9 km into this day and is the only temple on it
 reflection: Twenty-eight numbered shrines inside 1.7 km, and one temple in 32.5 — which of those two counts is the day?
 ```
 
-**Open.** Not reviewed. The twenty-eight shrines are a miniature numbered circuit and the
-narrative says only that they are numbered, of one series, and how many there are in how far —
-everything a reader wants next about what the series is, and what its numbers count, is outside
-this repository, so it is outside the sentence, on the Bandō precedent. "the record does
-something it does nowhere else in Iyo" is a claim about the whole section's
-`subtype: wayside_shrine` features and is re-derivable from the 43; a reviewer should check that
-the sentence is heard as being about the record, since the shrines themselves are certainly
-there.
+**Reviewed in Task 7c. Stands unchanged, with two readings recorded.**
 
-- [ ] shikoku-88-iyo stage 3
+Re-measured: span vertex 3071 → vertex 4292 is **32.45329 km**, `snap`, the second-longest of
+the fourteen, **292.4 m** under stage 12's 32.74572 ✓. `temple-43` **90.785 / 14.0 m**, 10.888 km
+past `temple-42`, and the only feature carrying a `templeNumber` inside the span ✓. The series
+runs `node/7398047551` **90.786** to `node/7398047582` **92.442**, span **1.656 km**, **28**
+features ✓; 43 `subtype: wayside_shrine` features in the section, 31 of them on this stage, the
+other three at 87.661, 90.241 and 100.633 ✓, and three more at 79.312 / 79.894 / 79.897 filed on
+stage 2 within 585 m of Butsumoku-ji ✓. Seiyo **92.342 / 150.8 m**, Ozu **112.350 / 98.7 m**,
+112.350 − 92.342 = **20.008 km** ✓, 161.227 − 112.350 = **48.877 km** ✓. No drops ✓.
+
+- **"the record does something it does nowhere else in Iyo" is heard as being about the record,
+  and it has to be.** The subject of the clause is "the record" and the colon that follows counts
+  features, not shrines encountered. Nothing in the sentence says these are the only such shrines
+  on the ground, and the count it draws — 28 of 43, more than half — is meaningless except as a
+  count of the file. Verified against all 43.
+- Recorded, not struck: **one of the twenty-eight is not numbered.** `node/7398047556` is named
+  坪ヶ内新四国**番外** — the "outside-the-numbering" station of such a circuit — and the other 27
+  end in a numeral. The narrative's "twenty-eight numbered wayside shrines **of a single
+  series**" is true of the series and of 27 of its members. **The grounding bullet above
+  overstates it**: it says the 28 are "features whose `ja` name begins 坪ヶ内新四国 and ends in a
+  number", and one ends in 外. The bullet is left as its drafter wrote it and corrected here, on
+  the convention this file uses for corrections. Nothing downstream moves — 27 or 28, the count
+  is still more than half of 43, and 1.656 km still rounds to 1.7.
+- Recorded, not struck: **"Seiyo comes at 92.3 km, in the middle of them" means amongst them, not
+  at their midpoint.** 25 of the 28 project before Seiyo and **3** after; the series midpoint is
+  91.614. Under the midpoint reading it is false by 728 m; under the "amongst" reading it is true,
+  and true in the way that matters — three shrines still come after the town, so the town is
+  genuinely inside the run and not at its edge. The grounding bullet says "between", which is the
+  narrower and safer word. Stage 0 uses the same construction for the same sense.
+- **The series is left unexplained, correctly.** What the numbers count, what circuit they
+  belong to and how it relates to the 88 is nowhere in this repository, so it is outside the
+  sentence — Awa's Bandō precedent exactly.
+
+- [x] shikoku-88-iyo stage 3
 
 ---
 
@@ -2313,14 +2472,34 @@ narrative:  This is the only one of Iyo's fourteen days with no temple anywhere 
 reflection: A whole day inside the gap between two gates, with neither of them on it. Does walking need a destination, or only a direction?
 ```
 
-**Open.** Not reviewed. This is the only narrative in the fourteen that tells a walker a place
-in the file will not appear on the map — Tosa's stage 7 does the same work with "reaches the
-day", and Tosa's own note asks whether a walker can be expected to read that distinction. Here
-it is stated outright, with the metres, which is the other way of answering the same question;
-a reviewer should pick one form for the pilgrimage. The reflection is the only one here that
-asks nothing about the day's own numbers.
+**Reviewed in Task 7c. Stands unchanged.**
 
-- [ ] shikoku-88-iyo stage 4
+Re-measured: span vertex 4292 → vertex 5061 is **26.47484 km**, `snap`. **No feature carrying a
+`templeNumber` projects anywhere in 112.350–138.825**, and neither endpoint is a temple ✓ — and
+the uniqueness claim was checked against all fourteen spans, not asserted: stage 1's stretch
+carries `temple-40` at its start and stage 12's carries `temple-64` at its start, and every other
+day carries at least one temple at an end or inside. **This is the only empty one** ✓. 71
+features carry `stageIndex: 4`, 41 `bus_stop` ✓; the three stations project at 118.786, 120.074
+and 122.517, span **3.731 km**, and are the only three `train_station` features on the day ✓;
+Uchiko **124.926 / 76.2 m** ✓; Rairakuku **138.835 / 10.6 m**, `guesthouse` ✓. The one drop,
+`node/3152605161` 大洲駅前, projects at 113.512 and measures **298.5 m** on the committed line
+against the report's **301 m** ✓ — and is **not named** in the narrative ✓.
+
+- **Stating the drop outright is the better of the two forms, and I would settle the pilgrimage
+  on it.** The drafter asks a reviewer to pick between this and Tosa's "reaches the day". Tosa's
+  form asks a walker to notice a verb; this one gives the count, the kind and the metres and lets
+  the walker do the subtraction. It is also the only form that stays honest when a count is
+  printed beside it — "Seventy-one places are recorded, forty-one of them bus stops" includes the
+  dropped bus stop, and the next sentence removes it. That is a ruling on form, not on truth;
+  both sections are true, and if the pilgrimage prefers Tosa's, this entry and stages 7 and 8
+  change together.
+- **Naming the drop by kind and not by name is right.** 大洲駅前 does not reach the day, so a
+  walker told its name would look for it. The metres are what the walker can act on.
+- **The reflection stands.** "Does walking need a destination, or only a direction?" asks nothing
+  about the day's numbers, which is unusual here, but it is the one day with no gate at either
+  end — the question is the day's own shape and makes no claim of any kind.
+
+- [x] shikoku-88-iyo stage 4
 
 ---
 
@@ -2362,14 +2541,34 @@ narrative:  Daihō-ji stands 22.4 km into this day and closes the 70.4 km that h
 reflection: Twenty-two kilometres to one gate, then three beds inside seven hundred metres. The day's shape is all at its ends — where does its middle go?
 ```
 
-**Open.** Not reviewed. "the record almost stops" is lifted from Tosa's stage 11 and is a
-reading of a gap, not a measurement; it is used here for the same reason and should be judged
-with that one. "The day's shape is all at its ends" is the strongest reading in the fourteen:
-26 places on 26.1 km is not sparse, and what the sentence means is that the temple and the beds
-are at the ends, not that the middle is empty. A reviewer should decide whether the reflection
-says that clearly enough.
+**Reviewed in Task 7c. Stands unchanged.**
 
-- [ ] shikoku-88-iyo stage 5
+Re-measured: span vertex 5061 → vertex 6179 is **26.10568 km**, `snap`. `temple-44`
+**161.227 / 42.6 m**; 161.227 − 138.825 = **22.402 km** from the vertex (22.392 from Rairakuku —
+both print 22.4), and 161.227 − 90.785 = **70.442 km** since `temple-43` ✓. The gap runs
+`node/10858059638` **145.769** to `node/3152605818` 宮成 **154.579** = **8.810 km** with
+**nothing of any type projecting into it** ✓, and it is **third** in the section-wide gap list
+behind 9.747 and 9.569 — checked on the single sorted list of all 953, not on per-stage maxima
+✓. 26 features carry `stageIndex: 5`, the third-fewest against 16 and 18 ✓; 6 are
+`type: accommodation` and 7 `subtype: toilet` ✓. The last three beds project at 164.256, 164.589
+and 164.921, span **0.665 km**, and 164.931 − 164.256 = **0.675 km** from the day's end vertex —
+"inside the last 700 m" under either measure ✓. Karibaen is the highest-projecting of the six ✓.
+No drops ✓.
+
+- **"the record almost stops" stands, and it is a reading of a measurement.** 8.810 km with
+  nothing of any type recorded, on a day whose other 25 places sit in the remaining 17.3 km. It
+  says "the record", so it makes no claim about the ground. Judged with Tosa's stage 11, as its
+  drafter asks.
+- **"The day's shape is all at its ends" stands, and the sentence around it does the work.** The
+  reflection is "Twenty-two kilometres to one gate, then three beds inside seven hundred metres.
+  The day's shape is all at its ends — where does its middle go?" Both halves of the first
+  sentence are exact, and they *are* the ends: the temple sits 3.7 km from the day's close and
+  the three beds inside its last 675 m. The claim is about where the day's marked things fall,
+  not about emptiness — and the closing question, "where does its middle go?", is a question and
+  not an assertion that the middle holds nothing. It does not: 145.769 and 154.579 bracket the
+  gap and features stand on either side.
+
+- [x] shikoku-88-iyo stage 5
 
 ---
 
@@ -2415,16 +2614,42 @@ narrative:  Sixteen places are recorded on this day, the fewest of the fourteen,
 reflection: Sixteen marked places in 17.4 km, and nine and a half of those kilometres hold none of them. Is a day like that short, or long?
 ```
 
-**Open.** Not reviewed. **This is one of the two entries a reviewer of the elevation
-correction should look at first.** "its waypoint is one of five in Iyo that carry a height, and
-the number on it is 560 m" sits in the same sentence as "6.4 km in" and "10.2 km on", and a
-walker may read the 560 as what those kilometres climb. Nothing in this repository says what
-the ground does between Daihō-ji and Iwaya-ji. The clause is deliberately about the waypoint
-and deliberately gives the count of five, so that the twenty-one silent temples are visible; a
-reviewer should decide whether that is enough, or whether the height should come out and leave
-the day described by spacing alone, as Awa's and Tosa's forty are.
+**Reviewed in Task 7c. Stands unchanged. The height stays, and here is why.**
 
-- [ ] shikoku-88-iyo stage 6
+Re-measured: span vertex 6179 → vertex 6931 is **17.44556 km**, `snap`, the second-shortest of
+the fourteen behind 13.050 ✓. 16 features carry `stageIndex: 6`, the section minimum, 12 of them
+`bus_stop`, the other four `node/8374601817` 国民宿舎古岩屋荘 (168.779 / 9.2 m), one
+`sacred_site`/`church`, Kumakogen and `temple-45` ✓. `temple-45` **171.377 / 7.2 m**,
+`elevation` **560**, and exactly five of the section's 26 temple waypoints carry an `elevation`
+(45, 58, 60, 64, 65) ✓. **Nothing of any type projects strictly between 171.377 and 180.946**,
+so 9.569 km is exact and is second in the section-wide list ✓. Kumakogen **182.023 / 25.7 m**;
+182.392 − 182.023 = **0.369 km** ✓.
+
+- **The 560 m stands.** It is a point `elevation` on a temple waypoint, which the shared
+  paragraph's Task 6c correction admits as an OSM tag on a temple — an enumerated kind — and it
+  is stated as a height at that temple and nothing more. Three tests, all passed. The clause is
+  attributed to the record, not the ground: "**its waypoint** is one of five in Iyo that carry a
+  height, and **the number on it** is 560 m." It is separated from the kilometres by a semicolon
+  and a change of subject, so the reader is not handed "6.4 km" and "560 m" as a ratio. And it
+  names the count of five, so the twenty-one temples with no `elevation` read as unrecorded
+  rather than lower. Nothing anywhere in the fourteen calls this day, or any day, a climb, hard,
+  gentle, level or downhill — checked across all fourteen narratives, themes and reflections.
+- **Nor should it come out.** The drafter's own honest test — delete both heights and no other
+  sentence needs rewriting — is an argument from minimalism, not from truth, and this review
+  strikes what is false, not what is optional. A grounded, admissible, true clause is not an
+  ungrounded one, and deleting it would be authorship. A later editor who prefers the section
+  described by spacing alone has a free hand; a reader does not.
+- **Recorded: this is one of the three entries the distance convention moves.** "Iwaya-ji comes
+  6.4 km in" is **6.446 km** from the day's boundary vertex, which is what the grounding declares
+  and what the shipped slice starts from, and **6.456 km** from Karibaen's own projection, which
+  would print **6.5**. Karibaen sits 9.81 m short of its vertex, and the rounding falls on that
+  10 m. Both figures are true of what they measure; the section chooses the vertex, consistently.
+- Noted: the narrative prints the day at **17.4 km** (the vertex span, 17.4456) while
+  `stages.json` declares `distanceKm: 17.5` (anchor to anchor, 17.4713). A walker reading this
+  package sees both. See the section blockquote; this is the convention's sharpest practical
+  consequence and it is not a falsehood in either direction.
+
+- [x] shikoku-88-iyo stage 6
 
 ---
 
@@ -2467,14 +2692,32 @@ narrative:  The day walks 14.7 km before it reaches a temple, and then six come 
 reflection: Six gates in one day, the closest pair 0.9 km apart. Does arriving get easier with repetition, or thinner?
 ```
 
-**Open.** Not reviewed. "and this is the only run of five in the section of which that is
-true" describes the step list rather than the walk, and is the most arithmetic-facing sentence
-in the fourteen; it is here because `metadata.json`'s own `description` singles the run out, so
-the section already tells a reader it matters. The reflection's "or thinner" is a reading of
-six arrivals in one day and nothing in any file supports or contradicts it; Awa's stage 0
-closing clause raises the same question about the same shape.
+**Reviewed in Task 7c. Stands unchanged.**
 
-- [ ] shikoku-88-iyo stage 7
+Re-measured: span vertex 6931 → vertex 8295 is **27.89268 km**, `snap`. `temple-46`
+**197.070 / 2.0 m** less the day's vertex 182.376 = **14.694 km** ✓ (14.678 from Ichiriki; both
+print 14.7). Six temples on the day — 197.070, 197.952, 202.396, 205.700, 207.450, 210.263 —
+span **13.193 km** ✓, and `stageIndex: 7` carries six `templeNumber` features ✓. The five steps
+are **0.882, 4.444, 3.304, 1.750, 2.813**, all under 5 ✓, and 0.882 is the smallest in the whole
+26-step list against a next-smallest of 1.438 ✓. 84 features carry `stageIndex: 7`, 49
+`bus_stop` ✓. The one drop, `node/1423738628` 杏林会東明病院, projects at 199.201 and measures
+**322.5 m** on the committed line against the report's **325 m** — the farthest waypoint from the
+walked line anywhere in this section — and is **not named** ✓.
+
+- **"the only run of five in the section of which that is true" is correct, and it was
+  recomputed, not read off a summary.** Taking the 26-step list and scanning for consecutive
+  values under 5 km gives runs of **1, 5, 1, 4, 3** — the five is Temples 46 → 51, the four is
+  Temples 54 → 58 (3.599, 3.098, 2.973, 2.377) and the three is Temples 61 → 64. No sixth
+  consecutive sub-5 km step exists anywhere. `metadata.json`'s `description` declares the same
+  run in the same words, so the section's own front matter already tells a reader it matters.
+- **The arithmetic-facing objection is answered by the day itself.** Six arrivals in 13.193 km is
+  the day, not a gloss on it; the sentence is the shortest true way to say why this stretch is
+  unlike the other thirteen.
+- **The reflection's "or thinner" stands.** It is offered as a question with its opposite beside
+  it — "easier with repetition, or thinner?" — so it asserts neither. Awa's stage 0 closing
+  clause was cleared on the same reasoning.
+
+- [x] shikoku-88-iyo stage 7
 
 ---
 
@@ -2527,16 +2770,46 @@ narrative:  Twelve of Iyo's forty-one places to stay stand inside 800 m of each 
 reflection: Twelve places to stay inside eight hundred metres, all of them in the day's first 1.7 km. What does it do to a morning to pass every bed you could have slept in?
 ```
 
-**Open.** Not reviewed. Three things. "the day runs to a railway" is Tosa's "strung along a
-railway" in a shorter form and is a reading of five station waypoints. "nowhere else in the
-section are beds recorded so close together" is a computed superlative over the 41 carried
-accommodation waypoints, not a claim about where beds actually are — the same qualification
-Tosa's stage 12 entry makes about its own tightest run. And the whole entry describes the Dōgo
-Onsen quarter without naming it, on the reasoning under "What Iyo refused": a reviewer who
-thinks the refusal is too strict should note that the alternative source is a hotel's own name,
-which is how Tosa admitted "Cape Ashizuri" as a bus stop's name and refused it as a place.
+**Reviewed in Task 7c. Stands unchanged. One error found in this entry's evidence, none in its
+prose.**
 
-- [ ] shikoku-88-iyo stage 8
+Re-measured: span vertex 8295 → vertex 9270 is **23.99684 km**, `snap`. The twelve lodgings run
+`node/2438070589` **211.107** to `node/4758834167` **211.907**, span **0.799 km**, out of **41**
+`type: accommodation` features ✓; 211.107 − 210.269 = **0.838 km** from the vertex ✓, and
+211.907 − 210.269 = **1.638 km**, so the reflection's "all of them in the day's first 1.7 km"
+holds ✓. `temple-52` **221.405 / 17.0 m** (11.142 past `temple-51`) and `temple-53`
+**224.043 / 45.4 m**, step **2.638 km** ✓. The five stations project at 224.182, 226.791,
+229.360, 231.311 and 232.559, span **8.377 km**, and are the only five `train_station` features
+on the day ✓. 117 features carry `stageIndex: 8`. The two drops project at 211.185 (**308.3 m**
+measured, 309 by the report) and 226.686 (**297.9 m** measured, 303 by the report), and neither
+is named ✓.
+
+- **Found in the evidence, not the prose: this entry's Places line calls 117 "the second-most of
+  the fourteen". It is the third-most.** The counts descend 134 (stage 2), 121 (stage 3), **117**
+  (stage 8), 88, 84, 84, 75, 71, 52, 35, 32, 26, 18, 16. The line is left as its drafter wrote it
+  and corrected here, on this file's convention. **Nothing in the narrative rests on it** — the
+  text says only "A hundred and seventeen places are filed on 24.0 km" and draws no rank — so no
+  sentence changes. Recorded because a later reader would otherwise take it as checked.
+- **"nowhere else in the section are beds recorded so close together" is correct.** Sliding an
+  800 m window along all 41 accommodation projections gives **12** here and a maximum of **5**
+  anywhere else (starting 66.321 km, stage 2). Widened to 3.4 km — Tosa's tightest-cluster
+  figure — this reaches 13 and no other window reaches 7. The sentence says "**recorded**", which
+  is the same qualification Tosa's stage 12 makes, and it is the honest one: it is a claim about
+  41 waypoints, not about where beds are.
+- **The Dōgo refusal is right, and describing without naming is honest rather than coy.** The
+  quarter has no `town` waypoint. The name exists in this section only inside five hotel names,
+  in `temple-51`'s refused `description`, and on `node/3152610454` 道後姫塚 — a bus stop that is
+  **dropped at 309 m and does not reach the day at all**, so the one construction Tosa used for
+  Cape Ashizuri, naming a place through a waypoint that carries the name, is unavailable here on
+  its own terms. What replaces the name is a complete measured statement — twelve of forty-one
+  beds inside 800 m — with no gesture at something withheld, no "a famous quarter", no hint a
+  reader is meant to fill in. Coyness needs an unfilled gesture and there is none.
+- **"the day runs to a railway" stands.** Five `train_station` waypoints inside 8.377 km, the
+  most of any day in the section; it is Tosa's "strung along a railway" in a shorter form and is
+  a reading of the same kind of evidence.
+- Noted: "each about 305 m off the line" covers the report's 309 and 303, within 4 m and 2 m.
+
+- [x] shikoku-88-iyo stage 8
 
 ---
 
@@ -2578,14 +2851,36 @@ narrative:  Enmyō-ji is 34.9 km behind before a temple appears again — the fo
 reflection: Twenty-five kilometres, and then two gates inside four. Does the waiting belong to the arriving, or is it its own thing?
 ```
 
-**Open.** Not reviewed. The theme and the narrative both say "gates"; the vocabulary note
-above lists the nine entries that do, and Tosa's stage 0 note asks a reviewer to settle the
-substitution once. The narrative also names "Enmyō-ji" and "Enmei-ji" in successive clauses;
-they are `temple-53` 圓明寺 and `temple-54` 延命寺, two different temples whose romanisations
-differ by two letters, and a reviewer should decide whether the sentence is legible or whether
-one of them should be given its number.
+**Reviewed in Task 7c. Stands unchanged.**
 
-- [ ] shikoku-88-iyo stage 9
+Re-measured: span vertex 9270 → vertex 10169 is **28.31760 km**, `snap`. 258.991 − 224.043 =
+**34.947 km**, and the step list ranks 70.442, 49.675, 45.796, **34.947**, 27.745, so
+"fourth-widest" is exact ✓. `temple-54` **258.991 / 25.9 m**; 258.991 − 234.266 = **24.725 km**
+from the vertex ✓ (24.709 from the hostel; both print 24.7). `temple-55` **262.590 / 1.6 m**,
+3.599 km after ✓, and 262.583 − 258.991 = **3.592 km** from the day's end vertex ✓. 75 features
+carry `stageIndex: 9`, 40 `bus_stop` and 4 `train_station` — Asanami 240.512, Kikuma 245.344,
+Iyo-Kameoka 249.415, Ōnishi 255.340, all inside 300 m and none dropped ✓. `temple-55` is **not**
+among the 75; it carries `stageIndex: 10` and the endpoint is read from `stages.json` ✓.
+
+- **"both of the day's gates fall inside its last 3.6 km" stands.** `temple-55` projects 6.40 m
+  past the day's own boundary vertex — it is one of the six misfilings — so under the strictest
+  reading it stands at the vertex rather than inside it. But `stages.json` declares this day's
+  end to be Nankōbō, so the day ends where Nankōbō is, and a day-end is inside its own day. The
+  6 m is the filing artefact the section preamble tables and nothing the sentence depends on.
+- **"Enmyō-ji" and "Enmei-ji" in one sentence is legible, and giving one a number would be
+  worse.** They are `temple-53` 圓明寺 and `temple-54` 延命寺 and the sentence separates them by
+  34.9 km and by tense — one is "34.9 km behind", the other "stands at 259.0 km". A reader who
+  confuses them still reads a true sentence. Numbering one and not the other would make the pair
+  look like a correction of the reader rather than a fact about the route, and no other entry in
+  the fourteen numbers a temple inside a narrative.
+- **"Gates" is inherited and not re-opened.** The vocabulary note lists nine entries; Tosa's
+  stage 0 asks the pilgrimage to settle it and this reader does not settle it for another
+  reader's section. If the answer is no, these nine change with Tosa's eleven.
+- Noted: the reflection's "Twenty-five kilometres, and then two gates inside four" rounds 24.725
+  up and 3.599 down to a spoken register the reflections use throughout. Neither rounding turns a
+  container smaller than the truth: 3.599 is genuinely inside four.
+
+- [x] shikoku-88-iyo stage 9
 
 ---
 
@@ -2627,14 +2922,54 @@ narrative:  Nankōbō opens this day and four more temples follow inside 14.7 km
 reflection: Five gates in the first fifteen kilometres and none in the last seventeen. Which half of the day will you remember having walked?
 ```
 
-**Open.** Not reviewed. "Then nothing" means no temple, and the seventeen kilometres it
-describes carry 36 recorded places against 52 in the 14.7 km before them; the sentence relies
-on the reader carrying "temples" forward from the clause before it. A reviewer should decide whether that is clear
-enough, or whether the word has to be repeated. This day also uses the second romanised
-"Taisan-ji" — `temple-56` 泰山寺, where stage 8 used `temple-52` 太山寺 — and neither entry
-tells the reader they are different temples with the same spelling.
+**Reviewed in Task 7c. Stands unchanged. This is the entry I came closest to striking, and the
+reason I did not is recorded in full.**
 
-- [ ] shikoku-88-iyo stage 10
+Re-measured: span vertex 10169 → vertex 11158 is **31.65137 km**, `snap`; ゲストハウス BEKKU
+projects **66.65 m short** of its own vertex, the widest Δ in the section and four times the next
+✓. `temple-59` **277.2735 / 54.8 m**; 277.2735 − 262.590 = **14.683 km** ✓; steps **3.098,
+2.973, 2.377, 6.236** ✓. Imabari **262.804 / 290.7 m** — inside the build's 300 m and not
+dropped ✓ — 0.221 km past the vertex, and the last of the seven `type: town` features, with
+nothing of that type in the remaining 102.9 km ✓. 88 features carry `stageIndex: 10`, 41
+`bus_stop`, 5 with a `templeNumber` ✓. Independently counted, **52** of the 88 project before
+Iyo Kokubun-ji and **36** from it onward, which reproduces the drafter's own figures ✓. No drops
+✓.
+
+- **"Yokomine-ji, the next temple, is 27.7 km further still" — recorded, not struck.** The base
+  of "further" is ambiguous and the two readings differ by 17 km. From Iyo Kokubun-ji it is
+  **27.745 km** and true, the figure the step list and the grounding bullet both declare. From
+  "where the day stops", the position named immediately before it, it is **10.784 km** and the
+  sentence is false. A reader who adds 17.0 and 27.7 gets 44.7 km for a leg that measures 27.7.
+  I did not strike it, on the rule this file's second reader named: **strike what is false under
+  every reading, record what is false only under one of them.** The four clauses struck before
+  this — "the second-longest such stretch", "nearly twice the next day's count", "most of what
+  the day holds arrives in its last six hundred metres", "ordinary" — had no true reading at all.
+  This one has a true reading, it is the reading the grounding declares, and the clause is a
+  grounded measurement rather than an ungrounded characterisation. Deleting it would remove a
+  true fact the section preamble itself lists; replacing "further still" with "on from Iyo
+  Kokubun-ji" would fix the ambiguity and is a rewrite, which is authorship and not review. **If
+  one sentence in the fourteen is later re-opened, it should be this one**, and the fix is four
+  words.
+- **"Then nothing" means no temple, and the clause it leads carries the word.** "Then nothing:
+  past Iyo Kokubun-ji the line runs 17.0 km to where the day stops, and **Yokomine-ji, the next
+  temple**, is …" — the colon makes the following clause the definition of "nothing", and that
+  clause is about temples. The theme ("none after") and the reflection ("none in the last
+  seventeen") both repeat the sense. The stretch is not empty and the narrative never says it is:
+  36 of the day's 88 places stand in it.
+- **Recorded: this is the second of the three entries the distance convention moves.** "the line
+  runs **17.0 km** to where the day stops" is 16.962 to the boundary vertex, which is where the
+  shipped slice ends, and 16.895 to BEKKU's own projection, which would print **16.9**. BEKKU's
+  −66.65 m is what puts the rounding on the boundary.
+- **Two temples romanise as "Taisan-ji", and neither entry should say so.** `temple-52` 太山寺
+  here on stage 8 and `temple-56` 泰山寺 on this day. Telling a walker on stage 10 that a temple
+  on stage 8 shares its spelling would be a sentence about another day's package, which is
+  precisely the cross-stage form the pilgrimage has not settled. Both narratives give the
+  kilometre, which distinguishes them without a note.
+- Noted: "Eighty-eight places on **31.6 km**" is `stages.json`'s declared `distanceKm`; the
+  boundary span is 31.651 and would print 31.7. Both are grounded, and the section prints
+  sometimes one and sometimes the other — see stage 12.
+
+- [x] shikoku-88-iyo stage 10
 
 ---
 
@@ -2685,16 +3020,44 @@ narrative:  Yokomine-ji stands 10.8 km into this day, 27.7 km on from Iyo Kokubu
 reflection: One gate with fourteen kilometres of almost nothing around it, then four inside six. Does a temple mean more when it is the only thing there?
 ```
 
-**Open.** Not reviewed. **This is the second of the two entries a reviewer of the elevation
-correction should look at.** "carries a height of 750 m" is the largest of the eighteen numbers
-the correction makes available anywhere outside Sanuki, it sits in a sentence with "10.8 km
-into this day" and "27.7 km on", and Yokomine-ji is the temple a reader is most likely to
-already know as a mountain temple — `temple-60`'s own refused `tags` say `mountain`. If any
-sentence in the fourteen is going to be read as a climb, it is this one. It is written to say
-only what the tag says; a reviewer should decide whether saying only that is possible here.
-"Then the spacing closes" is Awa's stage 2 wording and is a reading of the step list.
+**Reviewed in Task 7c. Stands unchanged. The second height stays, and its superlative is
+correctly bounded.**
 
-- [ ] shikoku-88-iyo stage 11
+Re-measured: span vertex 11158 → vertex 12229 is **25.64622 km**, `snap`. `temple-60`
+**305.019 / 28.0 m**, `elevation` **750**; 305.019 − 294.235 = **10.784 km** from the vertex,
+and 305.019 − 277.2735 = **27.745 km** since `temple-59` ✓. Between `node/3152605250` 妙口
+**296.848** and `node/13055529205` **311.372** — span **14.524 km** — **exactly four** features
+project, and they are `node/11404766169` (303.071), `node/412335502` (304.916) and
+`node/1741429935` (305.461), all three unnamed `supply`/`toilet`, plus `temple-60` at 305.019 ✓.
+`temple-61` 313.671, `temple-62` 315.168, `temple-63` 316.605, `temple-64` 319.881; steps
+**8.652, 1.497, 1.438, 3.276** and 319.881 − 313.671 = **6.210 km** ✓. Iyo-Komatsu 315.318,
+Iyo-Himi 316.595 and Guesthouse Himi 316.551 all fall inside that 6.210 km and are the day's only
+two stations and only lodging ✓. 32 features carry `stageIndex: 11`, five with a `templeNumber`
+✓. No drops ✓.
+
+- **The 750 m stands, on stage 6's reasoning, and its rank is the section's to claim.** "the
+  highest of **the five heights any temple in Iyo records**" is bounded twice over: it ranks five
+  recorded values, not 26 temples, and it is qualified to Iyo. Both matter. It does not say
+  Yokomine-ji is Iyo's highest temple — twenty-one temples record nothing and the sentence leaves
+  them unranked — and it does not reach across the 88, where Sanuki's `temple-66` carries 911.
+  That is the standing decision Temple 66 settled, applied here without being asked, the way
+  Tosa's stage 10 said "in this section".
+- **On the risk that this one reads as a climb: it is the highest risk in the fourteen and the
+  sentence answers it.** Yokomine-ji is the temple a reader is likeliest to arrive already
+  knowing as a mountain temple, and `temple-60`'s own `tags` say `mountain` — refused, correctly.
+  What the narrative says is "**its waypoint carries** a height of 750 m", a fact about the
+  record with the record named as its subject. Nothing in this repository says what the ground
+  does between Iyo Kokubun-ji and here, and nothing in the fourteen claims to. The alternative to
+  the clause is silence about a measured number, which is not more honest, only quieter.
+- **Recorded: this is the third of the three entries the distance convention moves.**
+  "Yokomine-ji stands **10.8 km** into this day" is 10.784 from the boundary vertex and 10.851
+  from ゲストハウス BEKKU, which would print **10.9**. BEKKU's −66.65 m again.
+- **"Then the spacing closes" stands** — Awa's stage 2 wording, a reading of four steps
+  (8.652 → 1.497 → 1.438 → 3.276) that the same sentence prints in full.
+- Noted: "Thirty-two places on **25.7 km**" is the declared `distanceKm`; the boundary span is
+  25.646 and would print 25.6.
+
+- [x] shikoku-88-iyo stage 11
 
 ---
 
@@ -2738,18 +3101,53 @@ narrative:  Iyo's longest day, 32.8 km, and between Maegami-ji and the hotel it 
 reflection: The longest day in the section, and no bed marked between its ends. How far do you trust a map to know where you can stop?
 ```
 
-**Open.** Not reviewed. Two things, and the first is the sharpest in the fourteen. **"no place
-to stay at all" is a fact about OpenStreetMap and a walker will read it as a fact about the
-road** — this is Awa's stage 3 shape without Awa's committed `warnings` entry to carry the
-qualification, because this stage has no `warnings` array. Awa's 52.9 km day says the same thing
-and ships a warning telling the walker to carry food and water; this 32.7 km day says it in the
-narrative alone. A reviewer should decide whether a `warnings` entry belongs here too, which is
-a change outside `interior` and outside this task. The reflection makes the qualification the
-question, which is deliberate and may be too clever. Second: the day's end hotel is 290 m off
-the line and 4 m past its own boundary, so a walker following the stage package walks to a
-place the record puts just outside the day.
+**Reviewed in Task 7c. Stands unchanged. The text is honest; the `warnings` question is not a
+review's to answer.**
 
-- [ ] shikoku-88-iyo stage 12
+Re-measured: span vertex 12229 → vertex 13509 is **32.74572 km**, the longest of the fourteen,
+**292.4 m** longer than stage 3 ✓, `snap`. **No `type: accommodation` feature projects strictly
+between `temple-64` at 319.88102 and the day's end vertex at 352.62674** — checked against all 41
+in the section, which run 316.551 and then 352.631 ✓. **No feature carrying a `templeNumber`
+projects strictly inside that stretch either**; `temple-64` stands at the day's own start ✓.
+365.677 − 319.881 = **45.796 km**, third in the step list behind 70.442 and 49.675 ✓, and 32.746
++ 13.050 = 45.796 exactly, so this day's figure and stage 13's tile the step ✓. 84 features carry
+`stageIndex: 12`, **59** `bus_stop` — second only to stage 2's 62 ✓ — and of the 25 that are not,
+6 `sacred_site` (all `church`), 4 `hospital` and 4 `convenience_store` make 14, so "most of what
+is left" is 14 of 25 ✓. Iyo-Doi **348.598 / 113.9 m**, the day's only station, 4.029 km before
+the end vertex ✓. No drops ✓.
+
+- **"no place to stay at all" is honest, and the sentence's own subject is what makes it so.**
+  The clause is "between Maegami-ji and the hotel it ends at **the record marks** no place to
+  stay at all". The record is the grammatical subject; the claim is about what is marked. The
+  reflection then makes the gap between record and road its explicit question — "How far do you
+  trust a map to know where you can stop?" — and calls the absence "no bed **marked** between its
+  ends". Awa's stage 3 needed its `warnings` entry because its narrative asserted the absence
+  flatly; this one carries the qualification inside the sentence and again in the reflection.
+  There is nothing here to strike.
+- **The `warnings` question is outside a review's remit and I leave it open, as its drafter
+  did.** Whether a 32.7 km day with no marked lodging should ship a `warnings` array is a change
+  outside `interior`; recording that the text does not depend on one is the most this task can
+  settle. It does not.
+- **The reflection is not too clever.** It asks the reader to hold the same distinction the
+  narrative just drew, which is the only way a data-derived absence can be stated without either
+  overclaiming or going silent.
+- **Found in the evidence, not the prose: the grounding bullet sources "32.8 km" to the spans.**
+  It reads "'Iyo's longest day, 32.8 km' — the spans listed under stage 6; 32.746 is the
+  largest", and 32.746 rounds to **32.7**. 32.8 is `stages.json`'s declared `distanceKm`, which
+  is anchor to anchor (352.63107 − 319.88102 = 32.750). The **claim** is true under either
+  measure — 32.8 is the largest declared figure and 32.746 the largest span — so the narrative
+  does not move; the bullet cites the wrong one and is corrected here rather than rewritten.
+- Noted: the same day is therefore given two lengths one clause apart — "Iyo's longest day,
+  **32.8 km**" (declared) and "this day walks **32.7** of them" (span, and the figure that makes
+  32.7 + 13.1 = 45.8 come out). Both are true of what they measure and a reader of the package
+  sees both. It is the clearest instance of the section printing sometimes the declared figure
+  and sometimes the span; see the section blockquote.
+- **The end hotel is 290 m off the line and 4.33 m past its own boundary vertex**, confirmed —
+  the farthest-off day-end anchor in the section, inside the 500 m the snap carries, and one of
+  the six misfilings. The narrative calls it "the hotel it ends at" and claims nothing about its
+  distance from the line, so nothing here is asserted that the measurement contradicts.
+
+- [x] shikoku-88-iyo stage 12
 
 ---
 
@@ -2802,14 +3200,40 @@ narrative:  13.1 km, the shortest day in Iyo, and it is short for one reason: a 
 reflection: The shortest of the fourteen, and it is short only because a section had to end. How much of a journey is decided by where someone drew its edges?
 ```
 
-**Open.** Not reviewed. Both the narrative and the reflection explain the day by the cutting
-rule, which is the deepest this section goes into its own machinery — Tosa's stages 3, 6 and 12
-do the same and its notes ask whether a walker wants to be told how the day was chosen. That
-question should be settled once. The reflection also looks past the section boundary, as Awa's
-stage 4 and Tosa's stage 14 do, and is open to the same objection: the package a walker reads
-contains this day and not the section it closes.
+**Reviewed in Task 7c. Stands unchanged.**
 
-- [ ] shikoku-88-iyo stage 13
+Re-measured: span vertex 13509 → vertex 13982 is **13.04987 km**, the shortest of the fourteen
+✓, `snap`, and vertex 13982 is the line's final vertex, so the section's stretches tile it end to
+end. 18 features carry `stageIndex: 13` — 6 `bus_stop`, 4 `convenience_store`, 3 `toilet`, 1
+`restaurant`, 1 `train_station`, the start hotel, one `sacred_site`/`church` and `temple-65` ✓ —
+the second-fewest against stage 6's 16 ✓. Iyo-Sangawa **355.474 / 135.3 m**, 2.847 km past the
+vertex ✓. `momentsBeyondEnds: 0`, and the only `sacred_site` features on the day are `temple-65`
+and its church twin `node/4839325648`, both projecting at **365.677**, the day's end ✓ — so
+nothing between the two ends is a shrine, a town or a viewpoint, and the other zero is stage 1 ✓.
+45.796 km from `temple-64`, of which this day is the last **13.050** ✓. No drops ✓.
+
+- **Explaining the day by the cutting rule stands, because on this day the rule is the reason.**
+  The stage's own committed `end.note` says it in as many words — "A boundary day ends at the
+  boundary temple itself whatever its length, and the lodging fallback does not apply here; this
+  one runs 13.05 km" — and `metadata.json`'s `provenance` records the 30 km trigger. The
+  narrative is quoting the package's own account of itself, not inventing a machinery. Tosa's
+  stages 3, 6 and 12 raise the same question; it should be settled once for the pilgrimage and
+  these entries move together.
+- **Looking past the boundary stands, and is grounded twice.** "Sanuki begins from the same
+  point" is `metadata.json`'s `osm.note` — this section "ends at Temple 65, where
+  `shikoku-88-sanuki` begins" — and both sections take the anchor verbatim from this section's
+  `overview`. It is a fact about this stage's own end, not about another section's contents. Awa's
+  stage 4 and Tosa's stage 14 raise the same objection and it is the same answer.
+- **`sparse: false` is not leaned on.** This is one of the section's two days with nothing between
+  its endpoints, and the narrative gives the day's 18 places and names the four moment types
+  precisely rather than saying nothing is there. Stage 1 does the same with its 35.
+- **`temple-65` carries `elevation` 350 and the narrative does not cite it** — correct: the day is
+  already described by the rule that set its length, and a third height would be the scattering
+  the section's own refusal list warns about.
+- Noted: the narrative prints **13.1 km** (the vertex span, 13.0499) where `stages.json` declares
+  `distanceKm: 13`. Both true of what they measure.
+
+- [x] shikoku-88-iyo stage 13
 
 ---
 
