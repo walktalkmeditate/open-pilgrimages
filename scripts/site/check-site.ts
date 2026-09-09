@@ -262,8 +262,11 @@ function readmeDistanceKmPattern(id: string): RegExp {
  * and `[…]` in front of it buy the one false positive this could otherwise
  * grow — a route link written into ordinary prose, which would be read under
  * whatever `###` happened to precede it. Over the same 338 commits the two
- * forms match the identical 2,200 lines and produce the identical 44 reports,
- * so the anchor costs nothing.
+ * forms match the identical 2,185 lines and produce the identical 44 reports,
+ * so the anchor costs nothing. 2,185 and not 2,200: all 343 commits in the
+ * range carry a README, and the five carrying no index.json hold the other 15
+ * lines. This check has no membership to read those against, so they are not
+ * evidence about it.
  */
 const README_GROUP_HEADING_PATTERN = /^###\s+(.+?)\s*$/;
 const README_GROUPED_ROUTE_ROW_PATTERN = /^\|\s*\[[^\]]*\]\(routes\/([a-z0-9-]+)\/\)/;
@@ -515,9 +518,17 @@ const KEY_FACTS_POINT_ROWS: Array<[label: string, pattern: RegExp, field: "start
  *
  * Keyed on the structure — a section heading, or the caption of a variants
  * table — and never on the word "variant". Every use of the word in docs/ today
- * is a legitimate one: `grep -oi variant docs/*.html | wc -l` counts 32
- * occurrences, `grep -in` puts them on 29 lines across seven pages, and this
- * enumeration is all 29 of them rather than a selection:
+ * is a legitimate one: `grep -oi variant docs/*.html | wc -l` counts 36
+ * occurrences, `grep -in` puts them on 31 lines across seven pages, and this
+ * enumeration is all 31 of them rather than a selection.
+ *
+ * The census is of 047a1ae, the commit that last moved it, and it was 32 on 29
+ * lines for the whole of this branch until then: that commit gave three of
+ * docs/contribute.html's asks a `data-needs` ref naming a variant, and each ref
+ * spells the word. A census written into a comment is a claim about the tree
+ * like any other, and this one was measured at 6b96c36 and invalidated three
+ * commits later — by this branch, in a commit that never touched this file.
+ * Re-run the two greps before trusting any figure below.
  *
  *   - docs/camino-primitivo.html:110,165,168,181,186 — the Hospitales
  *     variant, a higher, more exposed walking alternative to one day of the
@@ -528,7 +539,7 @@ const KEY_FACTS_POINT_ROWS: Array<[label: string, pattern: RegExp, field: "start
  *   - docs/camino-norte.html:173,177,494 — the coastal variant of the Norte,
  *     the same shape: three mentions inside stage narratives, no variants[].
  *   - docs/camino-portugues.html:7,203,325,326,395,396,398,400,403,410 — 12 of
- *     the 32, the most of any page, and the only page publishing two variants
+ *     the 36, the most of any page, and the only page publishing two variants
  *     sections. A meta description (:7); a sentence about choosing "the longer
  *     forest variant" (:203); the <h2>Variants</h2> and the paragraph under it
  *     (:325,326); a paragraph of Coastal history (:395); the coastal variant's
@@ -541,8 +552,11 @@ const KEY_FACTS_POINT_ROWS: Array<[label: string, pattern: RegExp, field: "start
  *     table's "Variant" column header. Both anchors below match on this page,
  *     and both are right to — index.json declares a-coruna, so
  *     checkVariantsSection passes it.
- *   - docs/contribute.html:58 — a "wanted" tag naming two stubs.
- *   - docs/routes.html:347,399,400,402,405,425 — 7 of the 32: the catalog's own
+ *   - docs/contribute.html:57,58,59 — 5 of the 36, on the three "wanted" tags
+ *     047a1ae gave a `data-needs` ref to. Each ref names a variant and spells
+ *     the word; :58's tag names two stubs and calls them variants in its own
+ *     prose as well, so that line alone carries three.
+ *   - docs/routes.html:347,399,400,402,405,425 — 7 of the 36: the catalog's own
  *     <h2>Variants</h2> (:399) and the paragraph, caption, column header and
  *     Variante Espiritual row under it (:400,402,405,425), plus a
  *     waypoint-table caption that mentions the Coastal variant in passing
@@ -779,9 +793,10 @@ const DRAFTED_STAGE_TEXT_CLAIM_PATTERN =
 
 /**
  * Non-greedy to the first </div>, which is the whole surface only while a
- * route-status div stays flat. The ten on docs/index.html hold an <svg>, prose,
- * and in two of them a pair of <a> links — no nested div anywhere — so this
- * reads all of each one today. Wrap that prose in anything, a status-body div
+ * route-status div stays flat. The ten on docs/index.html each hold an <svg>
+ * and prose, and two of them also hold <a> links — three on :230, to the Iseji,
+ * the Ōhechi and /contribute, and one on :249 — with no nested div anywhere, so
+ * this reads all of each one today. Wrap that prose in anything, a status-body div
  * or a flex row, and the read narrows to the text before the wrapper closes,
  * silently, with no report to say a surface went dark.
  */
