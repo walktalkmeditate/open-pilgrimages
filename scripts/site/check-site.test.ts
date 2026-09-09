@@ -4130,7 +4130,7 @@ test("the committed docs/{id}.html pages already agree with index.json about whi
 
 const FRANCES_UNIVERSAL_CLAIM =
   "<p>2,957 logistics waypoints are tagged along the route, each with <code>stageIndex</code> " +
-  "and <code>kmFromStart</code>, plus 9 curated sacred sites and 36 towns.</p>";
+  "and <code>kmFromStart</code>, of which 9 are curated sacred sites and 36 are towns.</p>";
 
 const KOHECHI_UNIVERSAL_CLAIM =
   "<p>35 waypoints, every one enriched from OpenStreetMap and carrying its <code>osmId</code>, " +
@@ -4360,6 +4360,23 @@ test("checkSite does not read a 'N waypoints' figure out of a paragraph that mak
   }
 });
 
+test("checkSite does not measure an 'each with' claim about something other than waypoints against waypoints.geojson", () => {
+  // #given a paragraph claiming a property of every *stage*, over a file whose
+  // waypoints all lack it. "each with <code>…</code>" names no noun of its
+  // own, so nothing but the paragraph around it says what "each" ranges over
+  const root = waypointFixture(
+    "<p>Ten stages are described here, each with <code>terrainNotes</code>.</p>",
+    [withBoth, withBoth],
+  );
+
+  try {
+    // #when / #then nothing is reported — not "2 of 2 waypoints with no terrainNotes"
+    assert.deepEqual(waypointClaimProblems(root), []);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
 test("the committed detail pages already make no waypoint claim their own data does not support (positive control)", () => {
   // #given the committed tree, where seven pages claim "each with stageIndex
   // and kmFromStart" and none of those routes has a waypoint missing either,
@@ -4385,14 +4402,47 @@ const KOHECHI_CARD_STATUS_TODAY =
   "relation instead";
 
 const FIXTURE_GLYPH_D = "M10,10 L20,20 L30,10";
+const OTHER_FIXTURE_GLYPH_D = "M40,40 L50,50 L60,40";
 
-function draftedIndexHtml(status: string): string {
+// The neighbouring card's claim: unqualified too, so a reading that lands on
+// the wrong card still reports something, and is caught by what it quotes
+// rather than by how many problems come back.
+const OTHER_CARD_STATUS = "All stages are drafted and awaiting review.";
+
+/**
+ * A page shaped like docs/index.html rather than a single card, because the
+ * shape is the whole difficulty. That page inlines seven of its eight card
+ * glyphs three times — a glyph-fog and a glyph-ink copy in the hero
+ * constellation above the grid, then once more in the card — so a reading that
+ * walks backward from the first occurrence of a glyph lands in the
+ * constellation and finds no card at all. A one-card page carrying one copy of
+ * its glyph cannot tell that reading apart from the forward walk over the
+ * cards, which is the one that works.
+ *
+ * The route under test is the *second* card, under a hero that inlines its
+ * glyph twice, so a reading that simply takes the first card is caught too.
+ */
+function draftedIndexHtml(status: string, otherStatus = OTHER_CARD_STATUS): string {
+  const inlined = (d: string): string => `<path pathLength="1" d="${d}"/>`;
+
   return (
-    '<html><body><div class="route-grid"><div class="route-card">' +
-    `<h3><svg class="route-glyph"><path pathLength="1" d="${FIXTURE_GLYPH_D}"/></svg> R</h3>` +
-    '<p>A route.</p>' +
+    "<html><body>" +
+    '<div class="constellation" data-constellation>' +
+    `<svg>${inlined(OTHER_FIXTURE_GLYPH_D)}${inlined(OTHER_FIXTURE_GLYPH_D)}</svg>` +
+    `<svg>${inlined(FIXTURE_GLYPH_D)}${inlined(FIXTURE_GLYPH_D)}</svg>` +
+    "</div>" +
+    '<div class="route-grid">' +
+    '<div class="route-card">' +
+    `<h3><svg class="route-glyph">${inlined(OTHER_FIXTURE_GLYPH_D)}</svg> S</h3>` +
+    "<p>Another route.</p>" +
+    `<div class="route-status route-status-needs">${otherStatus}</div>` +
+    "</div>" +
+    '<div class="route-card">' +
+    `<h3><svg class="route-glyph">${inlined(FIXTURE_GLYPH_D)}</svg> R</h3>` +
+    "<p>A route.</p>" +
     `<div class="route-status route-status-needs">${status}</div>` +
-    "</div></div></body></html>"
+    "</div>" +
+    "</div></body></html>"
   );
 }
 
@@ -4456,6 +4506,28 @@ test("a check asking only whether some stage is drafted would have stayed green 
   }
 });
 
+test("checkSite reads the status prose off the route's own card, not the copy of its glyph in the hero constellation above the grid", () => {
+  // #given the page shape docs/index.html actually has: the route's glyph
+  // inlined twice in the hero before the grid begins, its card second, and a
+  // first card carrying a different route's glyph and a different claim.
+  // Walking backward from the first occurrence of the glyph lands in the
+  // constellation, where lastIndexOf('<div class="route-card"') finds nothing
+  const root = draftedFixture([true, false, false, false]);
+
+  try {
+    // #when checkSite resolves the card for "r"
+    const problems = draftedClaimProblems(root, draftedIndexHtml(KOHECHI_CARD_STATUS_AT_BE6CEA9));
+
+    // #then it finds the card, and it finds the right one — the neighbour's
+    // claim is just as unqualified and is not what comes back
+    assert.equal(problems.length, 1);
+    assert.match(problems[0], /^docs\/index\.html: says of "r" that the stage text is drafted,/);
+    assert.doesNotMatch(problems[0], /All stages are drafted/);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
 test("checkSite does not fire on drafted-language that names which stages it means (fixture — the qualified forms, and the Kohechi's card today)", () => {
   // #given the card as it reads today, and five qualified claims a page may
   // honestly make while three of four stages stand reviewed. A keyword check
@@ -4474,6 +4546,44 @@ test("checkSite does not fire on drafted-language that names which stages it mea
   try {
     // #when / #then nothing is reported, on the page or on the card
     assert.deepEqual(draftedClaimProblems(root, draftedIndexHtml(KOHECHI_CARD_STATUS_TODAY)), []);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("checkSite does not fire on a hedged universal — each of these is true exactly when this check fires", () => {
+  // #given the predeterminer forms, "not all the stages are drafted" first,
+  // which is the most natural correction anyone would write for the sentence
+  // this check exists to catch. The hedge stands before the noun phrase, so
+  // blocking "all" as a preceding word would mean rejecting the phrase itself
+  const root = draftedFixture(
+    [true, false, false, false],
+    "<p>Not all the stages are drafted.</p>" +
+      "<p>Nearly all the stages are drafted.</p>" +
+      "<p>Almost all the stages are drafted.</p>" +
+      "<p>Not all stages are drafted.</p>" +
+      "<p>Not every stage is drafted.</p>",
+  );
+
+  try {
+    // #when / #then nothing is reported, on the page or on the card
+    assert.deepEqual(draftedClaimProblems(root, draftedIndexHtml(KOHECHI_CARD_STATUS_TODAY)), []);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("checkSite still reports the genuine universal the hedge guard stands next to", () => {
+  // #given the same words the hedges qualify, with nothing qualifying them —
+  // the claim the guard must not cost us
+  const root = draftedFixture([true, false, false, false], "<p>All the stages are drafted.</p>");
+
+  try {
+    // #when / #then it is reported, against the page's own stage counts
+    const problems = draftedClaimProblems(root, draftedIndexHtml(KOHECHI_CARD_STATUS_TODAY));
+    assert.equal(problems.length, 1);
+    assert.match(problems[0], /^docs\/r\.html: says of "r" that the stages are drafted,/);
+    assert.match(problems[0], /marks 1 of its 4 stages drafted: true/);
   } finally {
     rmSync(root, { recursive: true, force: true });
   }

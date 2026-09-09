@@ -453,14 +453,17 @@ const KEY_FACTS_POINT_ROWS: Array<[label: string, pattern: RegExp, field: "start
  * variants[] the entire time; docs/routes.html had already dropped the rows,
  * README.md had moved them into the pilgrimage table, and
  * scripts/build-index.test.ts asserts variants === undefined for it. Replayed
- * over `git rev-list --reverse HEAD` (340 commits), scoped to route ids, the
- * two patterns below fire on that page for the 18 commits 44f5543..174b4f7
- * inclusive and on no other route page at any commit in that range.
+ * over `git rev-list --reverse d8b4307` (340 commits — pinned rather than HEAD,
+ * so the figures in this comment stay reproducible as the branch grows), scoped
+ * to route ids, the two patterns below fire on that page for the 18 commits
+ * 44f5543..174b4f7 inclusive and on no other route page at any commit in that
+ * range.
  *
  * Keyed on the structure — a section heading, or the caption of a variants
  * table — and never on the word "variant". Every use of the word in docs/ today
  * is a legitimate one: `grep -oi variant docs/*.html | wc -l` counts 32
- * occurrences on 29 lines across seven pages, and they are:
+ * occurrences, `grep -in` puts them on 29 lines across seven pages, and this
+ * enumeration is all 29 of them rather than a selection:
  *
  *   - docs/camino-primitivo.html:110,165,168,181,186 — the Hospitales
  *     variant, a higher, more exposed walking alternative to one day of the
@@ -470,14 +473,26 @@ const KEY_FACTS_POINT_ROWS: Array<[label: string, pattern: RegExp, field: "start
  *     not a published variant.
  *   - docs/camino-norte.html:173,177,494 — the coastal variant of the Norte,
  *     the same shape: three mentions inside stage narratives, no variants[].
- *   - docs/camino-portugues.html:7,203,395,396 — a meta description, a
- *     sentence about choosing "the longer forest variant", a paragraph of
- *     history, and a file path (routes/camino-portugues/variants/coastal/,
- *     which alone accounts for three of the 32).
+ *   - docs/camino-portugues.html:7,203,325,326,395,396,398,400,403,410 — 12 of
+ *     the 32, the most of any page, and the only page publishing two variants
+ *     sections. A meta description (:7); a sentence about choosing "the longer
+ *     forest variant" (:203); the <h2>Variants</h2> and the paragraph under it
+ *     (:325,326); a paragraph of Coastal history (:395); the coastal variant's
+ *     directory path written three times over on one line, twice bare and once
+ *     inside a CDN URL (:396); and the <h3>Other Variants</h3> (:398) with its
+ *     caption, column header and Variante Espiritual row (:400,403,410).
+ *   - docs/camino-ingles.html:241,243,246 — the page whose absence from this
+ *     list would matter most, because it legitimately publishes variants: the
+ *     <h2>Variants</h2>, the caption "Variants of the Camino Inglés.", and that
+ *     table's "Variant" column header. Both anchors below match on this page,
+ *     and both are right to — index.json declares a-coruna, so
+ *     checkVariantsSection passes it.
  *   - docs/contribute.html:58 — a "wanted" tag naming two stubs.
- *   - docs/routes.html:347,399,400,402,405,425 — the catalog's own variants
- *     table, plus a waypoint-table caption that mentions the Coastal variant
- *     in passing.
+ *   - docs/routes.html:347,399,400,402,405,425 — 7 of the 32: the catalog's own
+ *     <h2>Variants</h2> (:399) and the paragraph, caption, column header and
+ *     Variante Espiritual row under it (:400,402,405,425), plus a
+ *     waypoint-table caption that mentions the Coastal variant in passing
+ *     (:347).
  *   - docs/kumano-kodo-nakahechi.html:63 — and this is the one that settles
  *     it. That line is the Distance cell b11701e wrote to *fix* the bug: "The
  *     Kohechi and the Iseji are sibling sections, not variants of this one".
@@ -512,9 +527,9 @@ const KEY_FACTS_POINT_ROWS: Array<[label: string, pattern: RegExp, field: "start
  * than an oversight — routes.html is out of scope, and a variants table
  * captioned that way on a route page would still be caught by its heading.
  *
- * Heading text is matched whole, not as a substring. Across all 340 commits,
- * exactly two heading texts in docs/*.html have ever contained the word —
- * <h2>Variants</h2> and <h3>Other Variants</h3>, 856 and 215 matches
+ * Heading text is matched whole, not as a substring. Across the same 340
+ * commits, exactly two heading texts in docs/*.html have ever contained the
+ * word — <h2>Variants</h2> and <h3>Other Variants</h3>, 853 and 214 matches
  * respectively over every page at every commit, and nothing else at all.
  * Requiring the whole text is what keeps b11701e's replacement heading —
  * <h2>The Other Ways</h2>, over prose that links all four sections — out of
@@ -549,8 +564,9 @@ const VARIANTS_TABLE_CAPTION_PATTERN = /<caption>[^<]*\bvariants\s+of\b[^<]*<\/c
  * carried no stageIndex and 6 no kmFromStart. The page was later renamed to
  * docs/kumano-kodo-nakahechi.html and the sentence narrowed to kmFromStart
  * alone — still with 6 missing — and it read that way until b11701e reworded
- * it into the counted form below. Replayed over `git rev-list --reverse HEAD`
- * (341 commits, 339 of them carrying at least one
+ * it into the counted form below. Replayed over `git rev-list --reverse
+ * 6b96c36` (341 commits — pinned rather than HEAD, so the figures in this
+ * comment stay reproducible as the branch grows; 339 of them carry at least one
  * routes/{id}/waypoints.geojson), the two patterns here report on the 208
  * commits 70b8af7..174b4f7 and on none of the 126 before or the 7 after: 413
  * reports, every one of them against the Kumano Kodo page, across the rename
@@ -572,6 +588,23 @@ const VARIANTS_TABLE_CAPTION_PATTERN = /<caption>[^<]*\bvariants\s+of\b[^<]*<\/c
  * claim is the state in which a drift goes unseen; the message names the true
  * count either way, so it stays actionable.
  *
+ * Neither pattern names a noun, so neither can tell on its own what "each"
+ * ranges over. checkWaypointClaims supplies that for the universal form by
+ * requiring the claim to sit in a paragraph that has already said "waypoint" —
+ * the same scoping the opening-count half gets for the same reason (see
+ * LEADING_WAYPOINT_COUNT_PATTERN). Without it, a future "…, each with
+ * <code>frontmatter</code>" about a route's stages, files or variants would be
+ * looked up on waypoints.geojson and reported as "N of N waypoints with no
+ * frontmatter". All seven committed sentences name waypoints ahead of the
+ * quantifier — the Kohechi's included, two sentences after its paragraph opens
+ * on "35 waypoints".
+ *
+ * The counted form carries no such anchor, because the sentence it exists for
+ * has no such noun: docs/kumano-kodo-nakahechi.html:172 opens its paragraph
+ * with "All but three carry a <code>stageIndex</code>" and never says the word.
+ * Its "all but N with <code>…</code>" shape is narrow enough to stand alone in
+ * a way "each with" is not.
+ *
  * Scoped to index.json's route ids in the per-route loop, never over
  * docs/*.html, the same way checkKeyFacts and checkVariantsSection are: these
  * sentences are claims about one route's own waypoints file, and a page with
@@ -579,6 +612,8 @@ const VARIANTS_TABLE_CAPTION_PATTERN = /<caption>[^<]*\bvariants\s+of\b[^<]*<\/c
  */
 const UNIVERSAL_WAYPOINT_PROPERTY_PATTERN =
   /\beach\s+(?:with|has|have|carries|carry)\s+((?:(?:an?|and)\s+)?<code>[A-Za-z][\w-]*<\/code>(?:[\s,]*(?:and\s+)?(?:an?\s+)?<code>[A-Za-z][\w-]*<\/code>)*)/gi;
+
+const WAYPOINT_NOUN_PATTERN = /\bwaypoints?\b/i;
 
 const COUNTED_WAYPOINT_PROPERTY_PATTERN =
   /\ball\s+but\s+([A-Za-z]+|[\d,]+)\s+(?:with|carry|carries|have|has)\s+(?:an?\s+)?<code>([A-Za-z][\w-]*)<\/code>/gi;
@@ -607,10 +642,12 @@ const WAYPOINT_PROPERTY_CODE_PATTERN = /<code>([A-Za-z][\w-]*)<\/code>/g;
  *
  * Compared against the file's whole feature count, which is what all eight of
  * those figures are. camino-frances' 2,957 is that route's total, and the same
- * sentence's "plus 9 curated sacred sites and 36 towns" names a part of it
- * rather than an addition to it — read the other way, as total-minus-extras,
- * three of the eight pages disagree with their own data today. The loose
- * wording is the page's; the figure it publishes is the file's.
+ * sentence's "of which 9 are curated sacred sites and 36 are towns" names
+ * members of it rather than an addition to it — its own "Waypoint counts by
+ * type" table carries Sacred sites 9 and Towns 36 as rows inside a Total of
+ * 2,957. Three of the eight pages carry such a tail, and all three said "plus"
+ * until this commit reworded them: read literally that was 2,957 + 45, and
+ * read as total-minus-extras all three disagreed with their own table.
  */
 const LEADING_WAYPOINT_COUNT_PATTERN = /^\s*([\d,]+)\s+(?:[a-z]+\s+)?waypoints\b/i;
 
@@ -635,14 +672,15 @@ const SPELLED_NUMBERS: Record<string, number> = {
  * Do not replace this with the reading it looks like — "the page says drafted,
  * so some stage must be drafted". That reading was tried and rejected. The
  * plan measured it at 0 reports across 202 commits; measured again here it is
- * 0 across all 341 in `git rev-list --reverse HEAD`, 326 of which carry both a
- * docs/index.html and a routes/{id}/stages.json. And it misses the drift this
- * check was written for. At be6cea9 the Kohechi's card on docs/index.html
- * still read "the stage text is drafted and awaiting review" after three of
- * its four stages had been reviewed and their flags cleared — one stage
- * genuinely was still drafted, so the existence reading stayed green on the
- * one page that was wrong. The universal reading reports that commit and no
- * other: 1 report across 341, and cecfff2 removed the sentence.
+ * 0 across all 341 in `git rev-list --reverse 6b96c36` (pinned rather than
+ * HEAD, so the figures stay reproducible as the branch grows), 326 of which
+ * carry both a docs/index.html and a routes/{id}/stages.json. And it misses
+ * the drift this check was written for. At be6cea9 the Kohechi's card on
+ * docs/index.html still read "the stage text is drafted and awaiting review"
+ * after three of its four stages had been reviewed and their flags cleared —
+ * one stage genuinely was still drafted, so the existence reading stayed green
+ * on the one page that was wrong. The universal reading reports that commit
+ * and no other: 1 report across 341, and cecfff2 removed the sentence.
  *
  * The words are scoped to the surfaces checkDraftedStageTextClaim reads and to
  * nowhere else. CHANGELOG.md, CLAUDE.md, docs/review/ and docs/superpowers/
@@ -655,12 +693,27 @@ const SPELLED_NUMBERS: Record<string, number> = {
  * "the"/"all"/"every" followed immediately by the stage noun. "the remaining
  * stages are drafted" and "the first two stages are drafted" do not match,
  * which is right — they are claims about a subset this has no way to
- * identify. The lookbehind covers the two words that can stand directly before
- * "the stages" and still leave the claim a partial one: "of", which every
- * partitive "N of the …" ends in, and "half". Without it, "three of the stages
- * are drafted" reads as the bare claim. Prose is whitespace-collapsed before
- * the pattern runs, so the guard is exact rather than a bet about line
- * wrapping.
+ * identify. The first lookbehind covers two of the words that can stand
+ * directly before "the stages" and still leave the claim a partial one: "of",
+ * which every partitive "N of the …" ends in, and "half". Without it, "three of
+ * the stages are drafted" reads as the bare claim.
+ *
+ * The second lookbehind covers the predeterminer, which is the one that cannot
+ * simply be added to the first. "not all the stages are drafted" is the most
+ * natural correction anyone would write for the sentence this check exists to
+ * catch, and it is true exactly when the check fires; so are "nearly all the
+ * stages are drafted", "not all stages are drafted" and "not every stage is
+ * drafted". Listing "all" as a blocked predeterminer would reject them by
+ * rejecting the noun phrase itself, and would take the genuine universal "all
+ * the stages are drafted" down with it — the hedge has to be what is guarded,
+ * not the quantifier it hedges. So the guard is not/nearly/almost, optionally
+ * followed by "all", and it sits ahead of the noun phrase either way: before
+ * "the" in "not all the stages", before "all" in "not all stages". Without it
+ * the report also quoted prose the page does not contain, since the message
+ * quotes the match, and the match began at "the".
+ *
+ * Prose is whitespace-collapsed before the pattern runs, so both guards are
+ * exact rather than a bet about line wrapping.
  *
  * Nothing in the tree matches this today, in either direction: no docs/*.html
  * and no README.md contains any of the three phrases, and no stage in any
@@ -668,8 +721,16 @@ const SPELLED_NUMBERS: Record<string, number> = {
  * the tree — see the tests reconstructing be6cea9's card in check-site.test.ts.
  */
 const DRAFTED_STAGE_TEXT_CLAIM_PATTERN =
-  /(?<!\b(?:of|half)\s)\b(?:the|all|every)\s+stages?(?:\s+texts?)?\s+(?:(?:is|are|remains?)\s+(?:still\s+)?(?:drafted|awaiting\s+review|unreviewed)|(?:is|are)\s+not\s+yet\s+reviewed|(?:has|have)\s+not\s+(?:yet\s+)?been\s+reviewed)\b/gi;
+  /(?<!\b(?:of|half)\s)(?<!\b(?:not|nearly|almost)\s+(?:all\s+)?)\b(?:the|all|every)\s+stages?(?:\s+texts?)?\s+(?:(?:is|are|remains?)\s+(?:still\s+)?(?:drafted|awaiting\s+review|unreviewed)|(?:is|are)\s+not\s+yet\s+reviewed|(?:has|have)\s+not\s+(?:yet\s+)?been\s+reviewed)\b/gi;
 
+/**
+ * Non-greedy to the first </div>, which is the whole surface only while a
+ * route-status div stays flat. The ten on docs/index.html hold an <svg>, prose,
+ * and in two of them a pair of <a> links — no nested div anywhere — so this
+ * reads all of each one today. Wrap that prose in anything, a status-body div
+ * or a flex row, and the read narrows to the text before the wrapper closes,
+ * silently, with no report to say a surface went dark.
+ */
 const ROUTE_STATUS_PATTERN = /<div class="route-status[^"]*">([\s\S]*?)<\/div>/g;
 
 /**
@@ -1073,10 +1134,11 @@ function readStageDraftedCounts(routeDir: string): StageDraftedCounts | null {
 
 /**
  * The paragraph a match sits in: where its text begins, and the text between
- * that point and the match. Null when the match is in no paragraph at all.
- * Only the opening-count check calls this; the property claims are read
- * straight off the page, so a claim written outside a <p> still gets checked
- * and only its figure goes unread.
+ * that point and the match. Null when the match is in no paragraph at all,
+ * which both callers read as "not a claim about waypoints" — the universal
+ * property claim needs the paragraph to have named waypoints before it, and
+ * the opening count needs the paragraph to start with one, so a claim written
+ * outside a <p> is a claim with nothing to scope it.
  */
 function paragraphBefore(html: string, at: number): { start: number; prefix: string } | null {
   let start = -1;
@@ -2225,6 +2287,14 @@ export function checkSite(root: string, overrides: PageOverrides = {}): Problem[
    * reports, and which this one passes over rather than saying twice.) So
    * nothing here starts red. Only camino-ingles (1 variant) and
    * camino-portugues (3) declare any today, and both publish one.
+   *
+   * A heading neither anchor recognises is not only a silent miss. It is a
+   * silent miss for a route that declares no variants — nothing to compare, so
+   * nothing said — but for a route that declares some, the same novel markup
+   * falls into the inverse branch and reports "publishes no Variants section,
+   * but index.json declares N", of a page that is publishing them. That is a
+   * false positive, and a loud one; it is also self-correcting, since the fix
+   * it asks for is the standard heading the reader wanted anyway.
    */
   function checkVariantsSection(id: string, detailHtml: string): void {
     const route = indexRouteById.get(id);
@@ -2292,6 +2362,9 @@ export function checkSite(root: string, overrides: PageOverrides = {}): Problem[
     };
 
     for (const claim of detailHtml.matchAll(UNIVERSAL_WAYPOINT_PROPERTY_PATTERN)) {
+      const paragraph = paragraphBefore(detailHtml, claim.index);
+      if (paragraph === null || !WAYPOINT_NOUN_PATTERN.test(paragraph.prefix)) continue;
+
       for (const [, name] of claim[1].matchAll(WAYPOINT_PROPERTY_CODE_PATTERN)) {
         const without = countWithoutProperty(properties, name);
         if (without === 0) continue;
@@ -2346,12 +2419,16 @@ export function checkSite(root: string, overrides: PageOverrides = {}): Problem[
    * generated glyph stands in for identity: every card inlines it, and the
    * file it is read from is the same one checkInlinedAsset compares that card
    * against. The glyph is not unique in the page, though — the hero
-   * constellation inlines seven of the eight a second and third time, above
-   * the grid — so this walks the cards forward and takes the ones containing
-   * the glyph, rather than walking backward from the first occurrence of it,
-   * which lands outside every card for seven of the eight routes. Card bounds
-   * come from routeGroupEnd, which counts div nesting from an opening tag and
-   * is named for the only caller it had rather than for anything it assumes.
+   * constellation at docs/index.html:76-119 inlines seven of the eight a second
+   * and third time, as a glyph-fog and a glyph-ink copy of each, every one of
+   * the fourteen between :78 and :109 and so all of them above the grid that
+   * opens at :141. Only kumano-kodo-kohechi, which the constellation leaves
+   * out, appears once. So this walks the cards forward and takes the ones
+   * containing the glyph, rather than walking backward from the first
+   * occurrence of it, which lands outside every card for seven of the eight
+   * routes. Card bounds come from routeGroupEnd, which counts div nesting from
+   * an opening tag and is named for the only caller it had rather than for
+   * anything it assumes.
    *
    * Scoped to the route-status divs, which is where a card says what state its
    * data is in. The card's descriptive paragraph is left out deliberately:
