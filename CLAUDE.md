@@ -105,6 +105,15 @@ Stages are cut from `route.main.geojson` when a route has one, never from
 `route.geojson`, which bundles optional variants: the Camino Francés' committed
 geometry is 994 km against 764 km of stages.
 
+`enrich-waypoints` measures the other line — its 300 m corridor and the
+`stageIndex` / `kmFromStart` it writes all run along `route.geojson` — so on a
+route that has a main line it refuses rather than write an assignment
+`build-ways` disagrees with. `--overwrite-stage-index` waives the refusal, and
+still prints it. The corridor itself is left where it is: measured against the
+walked line instead, it would newly exclude 105 waypoints across the corpus, 46
+of them Kumano Nakahechi's Nachi and Shingū cluster, and would change no
+package — all 105 are already named in a `ways/report.json` dropped list.
+
 Everything the build writes is deterministic — `departedAt` and the report's
 `generatedAt` come from the route's own `metadata.json` `lastUpdated`, not from
 wall-clock time, so CI's drift check has something stable to diff.

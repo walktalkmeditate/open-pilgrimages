@@ -39,6 +39,13 @@ npx tsx scripts/enrich/waypoints.ts {routeId}
 
 Report what was added by type, what was skipped, and the new total.
 
+A route that has both `stages.json` and `route.main.geojson` exits 1 here
+instead, printing both lines' lengths: its days are cut from the walked line and
+this script measures along `route.geojson`, so the `stageIndex` and
+`kmFromStart` it would write are measured along a line no package is cut from.
+That is the guard working, not a fault. Report the refusal to the user and stop
+— do not pass `--overwrite-stage-index` without them asking for it by name.
+
 ## Phase 4: Stats (skip if `--skip-stats` or `--only-geometry` or `--only-waypoints`)
 
 Research current pilgrimage statistics for this route. Use WebSearch and WebFetch to find the latest data from official sources.

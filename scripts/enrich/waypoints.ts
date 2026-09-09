@@ -8,6 +8,7 @@ import {
   haversineKm, minDistanceToLineKm, projectOntoLine,
   pointToSegmentDistanceKm, type Coord,
 } from "./geo-utils.js";
+import { walkedLine, lineLengthMeters } from "../ways/geo.js";
 import { MOMENT_TYPES } from "../ways/moments.js";
 import { resolveInvokedPath } from "../cli.js";
 
@@ -95,6 +96,54 @@ export function wholeRouteRange(routeCoords: Coord[], distanceKm: number): Stage
   };
 }
 
+export const OVERWRITE_FLAG = "--overwrite-stage-index";
+
+/**
+ * build-ways cuts a route's days from route.main.geojson wherever one exists;
+ * everything below measures along route.geojson, which is that same route with
+ * the variants still on it. Where both files are present the two lines are
+ * different lengths, so every stageIndex and kmFromStart this script writes
+ * would be measured along a line no package is cut from — and would replace
+ * whatever was derived from the walked line with a cruder answer.
+ *
+ * The loss is what makes this worth refusing over rather than merely getting
+ * right later: neither field records where it came from, so a re-run leaves no
+ * trace. Coverage collapses at the next build, in a report that names no cause
+ * and no run.
+ *
+ * Only once the days exist. A section is enriched before it has any — Shikoku's
+ * day rule ends a day at the nearest named accommodation or town waypoint, and
+ * can only read what a run like this one wrote — and that bootstrap has no cut
+ * to disagree with yet.
+ */
+export function stageAssignmentRefusal(routeDir: string, routeId: string): string | undefined {
+  if (!existsSync(join(routeDir, "stages.json"))) return undefined;
+  const mainPath = join(routeDir, "route.main.geojson");
+  if (!existsSync(mainPath)) return undefined;
+
+  const mainKm = lineLengthMeters(walkedLine(loadJson(mainPath))) / 1000;
+  // getRouteCoords, not walkedLine: the figure has to be the length of the line
+  // the corridor and the assignment below actually run over, joins between
+  // features included, or it would understate what this script measures along.
+  const routeKm = lineLengthMeters(getRouteCoords(routeDir)) / 1000;
+  const wpPath = join(routeDir, "waypoints.geojson");
+  const assigned = existsSync(wpPath)
+    ? loadJson(wpPath).features.filter(
+        (f: any) => typeof f.properties?.stageIndex === "number").length
+    : 0;
+
+  return [
+    `${routeId}: refusing to assign stages — this route's days are not cut from the line this script measures.`,
+    `  route.main.geojson  ${mainKm.toFixed(1)} km  — build-ways cuts the days from this`,
+    `  route.geojson       ${routeKm.toFixed(1)} km  — this run would measure along this, ` +
+      `${(routeKm / mainKm).toFixed(2)}x longer`,
+    `  ${assigned} waypoint(s) on disk already carry a stageIndex, and every one would be overwritten.`,
+    `Derive both fields from route.main.geojson instead. A route that has already been re-derived`,
+    `records the rule it used in its metadata.json provenance.`,
+    `To fetch anyway and accept the overwrite, pass ${OVERWRITE_FLAG}.`,
+  ].join("\n");
+}
+
 function getStageRanges(routeDir: string, routeCoords: Coord[]): StageRangeInfo {
   const stages = loadJson(join(routeDir, "stages.json"));
   const ranges: StageRange[] = [];
@@ -178,9 +227,10 @@ function assignStageByGeography(
 }
 
 async function main() {
-  const routeId = process.argv[2];
+  const args = process.argv.slice(2);
+  const routeId = args.find((arg) => !arg.startsWith("--"));
   if (!routeId) {
-    console.error("Usage: tsx scripts/enrich/waypoints.ts <route-id>");
+    console.error(`Usage: tsx scripts/enrich/waypoints.ts <route-id> [${OVERWRITE_FLAG}]`);
     process.exit(1);
   }
 
@@ -197,6 +247,18 @@ async function main() {
   if (!meta.overview?.bbox) {
     console.error(`Missing overview.bbox in metadata.json for ${routeId}.`);
     process.exit(1);
+  }
+
+  // Ahead of the Overpass fetch, so a refused route costs nothing and cannot
+  // half-write. The overridden arm still prints: a gate that goes quiet when
+  // it is waived reads exactly like a gate that found nothing.
+  const refusal = stageAssignmentRefusal(routeDir, routeId);
+  if (refusal) {
+    if (!args.includes(OVERWRITE_FLAG)) {
+      console.error(refusal);
+      process.exit(1);
+    }
+    console.warn(`${refusal}\n${OVERWRITE_FLAG} was passed — overwriting anyway.\n`);
   }
 
   const routeCoords = getRouteCoords(routeDir);

@@ -1,10 +1,11 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { readFileSync } from "fs";
+import { existsSync, mkdtempSync, readdirSync, readFileSync, rmSync, statSync, writeFileSync } from "fs";
 import { join } from "path";
+import { tmpdir } from "os";
 import Ajv2020 from "ajv/dist/2020.js";
 import { classifyNode, OSM_TAG_MAP, type OsmNode } from "./osm.js";
-import { keepsNode, wholeRouteRange } from "./waypoints.js";
+import { keepsNode, wholeRouteRange, stageAssignmentRefusal, OVERWRITE_FLAG } from "./waypoints.js";
 import { MOMENT_TYPES } from "../ways/moments.js";
 
 // waypoints.ts only runs its enrichment when it is the invoked script, so
@@ -105,6 +106,118 @@ test("a section with no stages yet spreads one provisional range over its whole 
   assert.equal(ranges[0].distanceKm, 154.5);
   assert.deepEqual(ranges[0].startCoord, [0, 0]);
   assert.deepEqual(ranges[0].endCoord, [0.04, 0]);
+});
+
+const lineFeature = (coordinates: Array<[number, number]>) => ({
+  type: "FeatureCollection",
+  features: [{ type: "Feature", geometry: { type: "LineString", coordinates }, properties: {} }],
+});
+
+/**
+ * A route directory carrying only the four files the refusal reads. Each is
+ * written separately so a test can leave one out and see the guard's answer
+ * turn on that file alone.
+ */
+function fixtureRoute(files: {
+  stages?: boolean;
+  main?: Array<[number, number]>;
+  route?: Array<[number, number]>;
+  stageIndexes?: Array<number | undefined>;
+}): string {
+  const dir = mkdtempSync(join(tmpdir(), "enrich-waypoints-test-"));
+  if (files.stages) writeFileSync(join(dir, "stages.json"), JSON.stringify({ stages: [] }));
+  if (files.main) writeFileSync(join(dir, "route.main.geojson"), JSON.stringify(lineFeature(files.main)));
+  if (files.route) writeFileSync(join(dir, "route.geojson"), JSON.stringify(lineFeature(files.route)));
+  if (files.stageIndexes) {
+    writeFileSync(join(dir, "waypoints.geojson"), JSON.stringify({
+      type: "FeatureCollection",
+      features: files.stageIndexes.map((stageIndex, i) => ({
+        type: "Feature",
+        id: `wp-${i}`,
+        geometry: { type: "Point", coordinates: [0, 0] },
+        properties: { ...(stageIndex !== undefined && { stageIndex }) },
+      })),
+    }));
+  }
+  return dir;
+}
+
+test("a route whose days are cut from a different line refuses the assignment", () => {
+  // #given a section whose route.geojson runs twice the length of the walked
+  // line its days are cut from, and three waypoints of which two are assigned
+  const dir = fixtureRoute({
+    stages: true,
+    main: [[0, 0], [0.01, 0]],
+    route: [[0, 0], [0.02, 0]],
+    stageIndexes: [0, undefined, 3],
+  });
+  try {
+    const refusal = stageAssignmentRefusal(dir, "fixture-route");
+
+    // #then the run is refused, and the message names the route, both lines
+    // with their measured lengths, how far apart they are, and what would go
+    assert.ok(refusal, "a route cut from another line must refuse");
+    assert.match(refusal, /^fixture-route: refusing to assign stages/);
+    assert.match(refusal, /route\.main\.geojson\s+1\.1 km/);
+    assert.match(refusal, /route\.geojson\s+2\.2 km/);
+    assert.match(refusal, /2\.00x longer/);
+    // #and the count is of waypoints that carry a stageIndex, not of features
+    assert.match(refusal, /2 waypoint\(s\) on disk already carry a stageIndex/);
+    assert.match(refusal, new RegExp(`pass ${OVERWRITE_FLAG}`));
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test("the bootstrap run, before the days are cut, is not refused", () => {
+  // #given a section with a walked line but no stages.json — the state Shikoku
+  // was enriched in, because its day rule reads the waypoints that run writes
+  const dir = fixtureRoute({ main: [[0, 0], [0.01, 0]], route: [[0, 0], [0.02, 0]] });
+  try {
+    // #then nothing is refused: there is no cut yet for the assignment to disagree with
+    assert.equal(stageAssignmentRefusal(dir, "fixture-route"), undefined);
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test("a route measured against the only line it has is not refused", () => {
+  // #given a section whose days are cut from route.geojson itself
+  const dir = fixtureRoute({ stages: true, route: [[0, 0], [0.02, 0]], stageIndexes: [0, 1] });
+  try {
+    // #then the assignment below measures the same line build-ways does, so it stands
+    assert.equal(stageAssignmentRefusal(dir, "fixture-route"), undefined);
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test("every route in this dataset whose days are cut from a main line is refused", () => {
+  // #given the real corpus rather than a fixture
+  const routesDir = join(ROOT, "routes");
+  const refused: string[] = [];
+  for (const id of readdirSync(routesDir).sort()) {
+    const dir = join(routesDir, id);
+    if (!statSync(dir).isDirectory()) continue;
+
+    // #when a route has both a day cut and a walked line the cut is measured against
+    const cutFromMainLine =
+      existsSync(join(dir, "stages.json")) && existsSync(join(dir, "route.main.geojson"));
+    const refusal = stageAssignmentRefusal(dir, id);
+
+    // #then it is refused, and a route without both is not
+    assert.equal(refusal !== undefined, cutFromMainLine, `${id}`);
+    if (refusal) {
+      refused.push(id);
+      // #and the two lines really do disagree, which is the whole hazard
+      assert.match(refusal, /\d+\.\d\dx longer/, `${id} must measure both lines`);
+    }
+  }
+
+  // #and the four Shikoku sections are among them, so this cannot pass vacuously
+  for (const section of ["awa", "iyo", "sanuki", "tosa"]) {
+    assert.ok(refused.includes(`shikoku-88-${section}`), `shikoku-88-${section} must be protected`);
+  }
 });
 
 test("a waypoint sourced from an OSM way validates", () => {
