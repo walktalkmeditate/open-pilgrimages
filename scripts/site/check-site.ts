@@ -390,17 +390,31 @@ const KEY_FACTS_LEADING_DISTANCE_PATTERN = /^\s*~?\s*([\d,]+(?:\.\d+)?)\s*km\b/;
  * The elevation figure itself appears in two shapes: parenthesised on
  * eighteen of the twenty-two Start/End rows ("Takijiri-oji (100 m)") and
  * after a comma on iseji's and ohechi's four ("Tanabe, 10 m").
- * "Porto Cathedral (S&eacute; do Porto) (80 m)" reads 80 rather than failing
- * on the first bracket because the pattern requires a digit immediately inside
- * the bracket, which the name's own parenthetical does not have. No committed
- * cell matches both patterns — the commas in "Ir&uacute;n, Spain, at the
- * French border (20 m)" and "Ry&omacr;zen-ji, Temple 1 (15 m)" are followed by
- * words, not figures — so the parenthesised-first order settles only a case
- * that has not arisen. Both patterns require the
- * "m" unit, which is what keeps "Ry&omacr;zen-ji, Temple 1 (15 m)" and
- * "&Omacr;kubo-ji, Temple 88 (450 m)" from reading a temple number as an
- * altitude — and the comma pattern's \b is what stops it reading a "5 miles"
- * that nobody has written yet.
+ *
+ * Each pattern requires a digit immediately after its delimiter — inside the
+ * bracket, or after the comma-space — and that requirement is what keeps a
+ * number inside the place name out of the reading. "Porto Cathedral
+ * (S&eacute; do Porto) (80 m)" reads 80 rather than failing on the first
+ * bracket, and "Ry&omacr;zen-ji, Temple 1 (15 m)" and "&Omacr;kubo-ji, Temple
+ * 88 (450 m)" read 15 and 450 rather than a temple number: strip the "m" unit
+ * from both patterns and all three still read the same figure, as do the other
+ * nineteen, so the unit is not what protects them. What it does guard against
+ * is a bracketed figure that is no measurement at all, which no committed cell
+ * carries. The comma pattern's \b is load-bearing on its own terms: without
+ * it, ", 5 miles from X" matches and yields 5.
+ *
+ * Where both patterns match one cell, the match with the lower index wins, so
+ * the figure the cell states first is the one read. No committed cell matches
+ * both — the commas in "Ir&uacute;n, Spain, at the French border (20 m)" and
+ * "Ry&omacr;zen-ji, Temple 1 (15 m)" are followed by words, not figures — so
+ * this reads all twenty-two exactly as a parenthesised-first order does. It
+ * settles a shape whose two halves are already separate habits: comma-form
+ * altitudes on iseji's and ohechi's four cells, and trailing "&mdash; …"
+ * prose on four others, one of which — camino-portugues' coastal End, "A
+ * Guarda, Spain &mdash; border ferry crossing from Caminha (5 m)" — puts its
+ * own altitude inside that trailing clause. Written together they give
+ * "Pamplona, 446 m &mdash; below Alto del Perd&oacute;n (780 m)", where 446 is
+ * the point and 780 a hill it passes.
  */
 const KEY_FACTS_DURATION_ROW_PATTERN =
   /<tr><th scope="row">Typical duration<\/th><td>([\s\S]*?)<\/td><\/tr>/;
@@ -433,6 +447,21 @@ function normalizedCell(rendered: string): string {
 
 function figureFromCell(rendered: string): number {
   return Number(rendered.replace(/,/g, ""));
+}
+
+/**
+ * Whichever of two matches sits earlier in the string it was matched against.
+ * exec rather than match because only RegExpExecArray types index as present,
+ * and both callers pass non-global patterns, which carry no lastIndex state
+ * between calls.
+ */
+function earlierMatch(
+  first: RegExpExecArray | null,
+  second: RegExpExecArray | null,
+): RegExpExecArray | null {
+  if (first === null) return second;
+  if (second === null) return first;
+  return first.index <= second.index ? first : second;
 }
 
 /**
@@ -1827,9 +1856,10 @@ export function checkSite(root: string, overrides: PageOverrides = {}): Problem[
       if (!row) continue;
 
       const cell = normalizedCell(row[1]);
-      const figure =
-        cell.match(KEY_FACTS_POINT_PAREN_ELEVATION_PATTERN) ??
-        cell.match(KEY_FACTS_POINT_COMMA_ELEVATION_PATTERN);
+      const figure = earlierMatch(
+        KEY_FACTS_POINT_PAREN_ELEVATION_PATTERN.exec(cell),
+        KEY_FACTS_POINT_COMMA_ELEVATION_PATTERN.exec(cell),
+      );
       if (!figure) continue; // no elevation published in this cell — the name alone is not checkable
 
       if (figureFromCell(figure[1]) === meters) continue;

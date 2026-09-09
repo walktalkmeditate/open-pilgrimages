@@ -2,7 +2,7 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import { existsSync, readFileSync } from "fs";
 import { join } from "path";
-import { primaryCountry, regionOf } from "./region.js";
+import { countryName, primaryCountry, regionOf } from "./region.js";
 
 const ROOT = join(import.meta.dirname, "..");
 const loadJson = (path: string) => JSON.parse(readFileSync(path, "utf-8"));
@@ -25,6 +25,20 @@ test("a country the table has never heard of lands in Other", () => {
   assert.equal(regionOf("JP"), "Asia");
   assert.equal(regionOf("ZZ"), "Other");
   assert.equal(regionOf(""), "Other");
+});
+
+test("every country code the corpus uses has an English name, and one it does not use has none", () => {
+  // check-site's Countries check rebuilds the cell from these names, and a code
+  // with no name switches that check off for the whole table rather than
+  // failing — the right trade for a route that lands before its page, and a
+  // silent one. Dropping JP or FR from COUNTRY_NAME left the suite green before
+  // this test existed, while JP alone stops five of the eleven Countries cells
+  // being compared.
+  assert.equal(countryName("ES"), "Spain");
+  assert.equal(countryName("FR"), "France");
+  assert.equal(countryName("JP"), "Japan");
+  assert.equal(countryName("PT"), "Portugal");
+  assert.equal(countryName("IT"), undefined);
 });
 
 test("every route's ways card and its index.json entry agree on country and region", () => {

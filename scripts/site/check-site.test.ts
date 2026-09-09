@@ -751,9 +751,11 @@ test("checkSite accepts a per-type waypoint table whose rows sum to its own tota
 // commit orphans without anything noticing. Both live errors were left behind
 // by 1bffcda, which corrected metadata.json and not the pages it feeds.
 
-// Every message checkKeyFactsElevation emits names the Key Facts cell it is
-// about. Filtering on /elevation/i instead also catches "inlined elevation
-// profile does not match …", which belongs to a different guard entirely.
+// Every message the Key Facts guard emits names the Key Facts cell or table it
+// is about — checkKeyFacts' three pairing failures, and the five row closures
+// it dispatches to once a table is paired. Filtering on /elevation/i instead
+// also catches "inlined elevation profile does not match …", which belongs to a
+// different guard entirely.
 const isKeyFactsProblem = (problem: { message: string }): boolean =>
   problem.message.includes("Key Facts");
 
@@ -990,11 +992,15 @@ test("a table whose Distance matches no section is reported, not skipped", () =>
     const problems = checkSite(root).filter(isKeyFactsProblem);
 
     // #then the unpairable table is reported, naming the figure and the
-    // sections it could have been
+    // sections it could have been — and leading with the stale Distance cell,
+    // because that is the edit that most often causes this and the only one
+    // the reader can act on
     assert.equal(problems.length, 1);
     assert.equal(problems[0].file, "docs/r.html");
     assert.match(problems[0].message, /999 km/);
     assert.match(problems[0].message, /routes\/r\/metadata\.json \(243 km\)/);
+    assert.match(problems[0].message, /most likely this Distance cell has drifted from the data/);
+    assert.match(problems[0].message, /every Key Facts cell in this table goes unchecked/);
   } finally {
     rmSync(root, { recursive: true, force: true });
   }
@@ -1029,10 +1035,12 @@ test("a table whose Distance is ambiguous between two sections is reported", () 
     const problems = checkSite(root).filter(isKeyFactsProblem);
 
     // #then the ambiguity is reported, naming both candidate sections, rather
-    // than one of them being picked
+    // than one of them being picked — and saying that the whole table, not
+    // just its elevation cell, is what goes unchecked
     assert.equal(problems.length, 1);
     assert.match(problems[0].message, /routes\/r\/metadata\.json/);
     assert.match(problems[0].message, /routes\/r\/variants\/twin\/metadata\.json/);
+    assert.match(problems[0].message, /every Key Facts cell in this table goes unchecked/);
   } finally {
     rmSync(root, { recursive: true, force: true });
   }
@@ -1507,6 +1515,64 @@ test("the comma-form Start and End cells kumano-kodo-iseji and kumano-kodo-ohech
     assert.equal(problems.length, 1);
     assert.match(problems[0].message, /End elevation as 330 m/);
     assert.match(problems[0].message, /declares 331 m/);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("a cell carrying both elevation shapes reads the figure it states first, not the parenthesised one", () => {
+  // #given the shape both of whose halves are already live habits, written
+  // together: a comma-form altitude as iseji and ohechi write theirs, followed
+  // by the trailing "&mdash; …" prose camino-ingles' Start and camino-norte's
+  // End carry — and, as camino-portugues' coastal End does, an altitude inside
+  // that trailing clause. Preferring the parenthesised match reads 780, the
+  // hill the route passes below, instead of 446, the point itself
+  const root = createFixtureRoot([
+    { id: "r", distanceKm: 243, variants: [{ id: "v", distanceKm: 90 }] },
+  ]);
+  mkdirSync(join(root, "routes", "r", "variants", "v"), { recursive: true });
+  writeFileSync(
+    join(root, "routes", "r", "metadata.json"),
+    JSON.stringify({
+      overview: {
+        startPoint: { name: { en: "Pamplona" }, coordinates: [-1.644, 42.817, 446] },
+      },
+    }),
+  );
+  writeFileSync(
+    join(root, "routes", "r", "variants", "v", "metadata.json"),
+    JSON.stringify({
+      overview: {
+        startPoint: { name: { en: "Pamplona" }, coordinates: [-1.644, 42.817, 500] },
+      },
+    }),
+  );
+  const startCell =
+    '<tr><th scope="row">Start</th>' +
+    "<td>Pamplona, 446 m &mdash; below Alto del Perd&oacute;n (780 m)</td></tr>";
+  writeFileSync(
+    join(root, "docs", "r.html"),
+    "<html><body><code>r</code>" +
+      "<table><caption>Overview of R</caption><tbody>" +
+      '<tr><th scope="row">Distance</th><td>243 km</td></tr>' +
+      startCell +
+      "</tbody></table>" +
+      "<table><caption>Overview of R, V</caption><tbody>" +
+      '<tr><th scope="row">Distance</th><td>90 km</td></tr>' +
+      startCell +
+      "</tbody></table></body></html>",
+  );
+
+  try {
+    // #when checkSite reads each cell
+    const problems = checkSite(root).filter(isKeyFactsProblem);
+
+    // #then the agreeing 446 is accepted, and where 446 is what disagrees it
+    // is 446 the report names — never 780, which nothing declares
+    assert.equal(problems.length, 1);
+    assert.match(problems[0].message, /Start elevation as 446 m/);
+    assert.match(problems[0].message, /declares 500 m/);
+    assert.doesNotMatch(problems[0].message, /780/);
   } finally {
     rmSync(root, { recursive: true, force: true });
   }
