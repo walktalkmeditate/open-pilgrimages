@@ -6,7 +6,12 @@ import { resolveInvokedPath } from "./cli.js";
 import { RESERVED_PAGE_NAMES } from "./pages.js";
 import { nearestVertex, walkedLine, haversineMeters, SNAP_METERS, OFF_LINE_TOLERANCE_METERS } from "./ways/geo.js";
 import type { Position } from "./ways/types.js";
-import { readPilgrimage, groupSections, type PilgrimageBlock } from "./pilgrimage.js";
+import {
+  readPilgrimage,
+  groupSections,
+  firstDifferingPath,
+  type PilgrimageBlock,
+} from "./pilgrimage.js";
 import { findRouteDirectories } from "./routes.js";
 import {
   ANY_BOX,
@@ -592,6 +597,29 @@ export function validatePilgrimages(root: string, dirs: string[], errors: Valida
         });
       }
     }
+
+    // Twenty-one years of whole-circuit figures, repeated in four files for
+    // the same reason the name is: build-index lifts one section's copy to the
+    // pilgrimage entry, so a drifted copy would be dropped without a word. The
+    // block is a hundred lines deep, so what the message carries is the field
+    // that differs and the two sections holding it, rather than both copies.
+    const [first, ...rest] = members;
+    const disagreement = rest
+      .map((other) => ({
+        other,
+        field: firstDifferingPath(first.block.stats, other.block.stats, "stats"),
+      }))
+      .find((candidate) => candidate.field !== undefined);
+    if (disagreement) {
+      errors.push({
+        file: `pilgrimage:${id}`,
+        message:
+          `sections of "${id}" declare conflicting ${disagreement.field}: ` +
+          `"${first.routeId}" and "${disagreement.other.routeId}" do not agree`,
+        severity: "error",
+      });
+    }
+
     const orders = members.map((m) => m.block.order);
     const duplicate = orders.find((o, i) => orders.indexOf(o) !== i);
     if (duplicate !== undefined) {

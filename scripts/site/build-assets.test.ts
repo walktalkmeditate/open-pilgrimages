@@ -64,6 +64,30 @@ test("every route with stats gets a sparkline and every route a profile", () => 
   assert.ok(existsSync(join(ASSETS, "sparklines", "camino-frances.svg")));
 });
 
+/**
+ * A sparkline is keyed by the id of the thing it describes, and the page it is
+ * inlined into is that id's page — so a whole-circuit series drawn under
+ * `shikoku-88-awa` would tell a reader of the Awa page that 1,622 people
+ * finished Awa. Nobody has ever finished Awa: the Omotenashi Network issues one
+ * certificate for the circuit. The four dōjō carry the series in their
+ * `pilgrimage.stats` block and no `stats.json`, and this is the shape that keeps
+ * `build-assets` from drawing it four times over.
+ *
+ * The pilgrimage's own page is where such a figure would belong, and it does not
+ * render one today — see .superpowers/sdd/task-2b-report.md for what that would
+ * take, including sparklineSvg's hard-coded "rising", which this series falls
+ * against.
+ */
+test("a section carrying pilgrimage-level stats gets no sparkline of its own", () => {
+  buildAssets(ROOT);
+
+  for (const dojo of ["awa", "tosa", "iyo", "sanuki"]) {
+    const id = `shikoku-88-${dojo}`;
+    assert.equal(existsSync(join(ROOT, "routes", id, "stats.json")), false, `${id} stats.json`);
+    assert.equal(existsSync(join(ASSETS, "sparklines", `${id}.svg`)), false, `${id} sparkline`);
+  }
+});
+
 test("a page is written for each pilgrimage, listing its sections in order", () => {
   const root = mkdtempSync(join(tmpdir(), "build-assets-test-"));
   try {

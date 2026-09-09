@@ -233,6 +233,13 @@ export interface PilgrimageEntry {
   sections: string[];
   distanceKm?: number;
   stageCount?: number;
+  /**
+   * Copied from the sections rather than summed from them: unlike distance and
+   * stages, a count measured over the whole walk is already the pilgrimage's
+   * own figure, and adding four identical copies of it together would be four
+   * times the truth.
+   */
+  stats?: Record<string, unknown>;
 }
 
 /**
@@ -275,6 +282,13 @@ export function scanPilgrimages(sections: ScannedSection[]): PilgrimageEntry[] {
           entry.stageCount = stageCounts.reduce((sum, count) => sum + count, 0);
         }
       }
+
+      // Taken from one section because validate has already refused sections
+      // that disagree — the same standing this entry's name and kind have, and
+      // the reason all three are read through readPilgrimage. Set after the
+      // derived totals so a reader meets the pilgrimage's own summary before a
+      // hundred lines of year series.
+      if (block.stats) entry.stats = block.stats;
       return entry;
     })
     .sort((a, b) => byCodepoint(a.id, b.id));

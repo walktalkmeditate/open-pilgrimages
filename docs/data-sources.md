@@ -1,6 +1,6 @@
 # Data Sources for Pilgrimage Statistics
 
-This guide documents where the annual pilgrim statistics in each route's `stats.json` come from, and how to refresh them when new data is published.
+This guide documents where the annual pilgrim statistics come from, and how to refresh them when new data is published. A route's own figures live in its `routes/{id}/stats.json`; figures counted over a whole pilgrimage live in the `pilgrimage.stats` block its sections repeat, because a pilgrimage has no directory.
 
 The route data in this repository is meant to be reproducible: every figure should be traceable to a primary source. When you refresh stats for a new year, follow this guide so future contributors can audit the data and update it without re-discovering the sources.
 
@@ -229,7 +229,11 @@ There is no central agency that publishes annual pilgrim statistics for Shikoku 
 - https://www.henro88map.com/ (English-language Henro guide)
 - https://shikoku88.net/en/
 
-Statistics for Shikoku 88 belong in each dōjō section's own `routes/shikoku-88-{awa,tosa,iyo,sanuki}/stats.json`, sourced from these tourism bureaus and marked as estimates where appropriate. What the bureaus publish is measured over the whole circuit, not per province, so a section that carries those figures has to say so in its `dataNote`. The 21-year Omotenashi Network walking-completion series that `routes/shikoku-88/stats.json` held was deleted with that route directory when the pilgrimage became four sections; it is recoverable from git history.
+**The 21-year walking-completion series:** what the bureaus publish is measured over the whole circuit, not per province, and the Shikoku 88 is four sections with no directory of its own to hold a file. So the series lives in the `pilgrimage.stats` block of each dōjō's `routes/shikoku-88-{awa,tosa,iyo,sanuki}/metadata.json` — repeated identically in all four, the way `name`, `kind` and `circular` already are, with `npm run validate` refusing sections that disagree and `npm run build-index` lifting one copy to `pilgrimages[]` in `index.json`. Its `dataNote` is what says the figures are the circuit's and not the dōjō's, which is why the schema requires it.
+
+The series itself is the Omotenashi Network's Henro Ambassador certificates (2005–2025, fiscal year 1 July – 30 June), counting only self-powered pilgrims who pass through the Maeyama salon — walking and cycling counted separately, each with the year's foreign share. Refresh it from <https://www.omotenashi88.net/list_henrotaishi.html>, in all four files at once.
+
+`routes/shikoku-88-*/stats.json` stays available for a figure that really is one dōjō's, and none exists today. A per-section file is the wrong home for a circuit-wide count, and so is a per-section sparkline: `build-assets` keys `docs/assets/sparklines/{id}.svg` on the id of the thing the figure describes, so drawing this series four times would tell a reader of the Awa page that 1,622 people completed Awa.
 
 ---
 

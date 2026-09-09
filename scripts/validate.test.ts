@@ -1731,6 +1731,147 @@ test("identical names written in different key orders do not read as conflicting
   }
 });
 
+const shikokuStats = {
+  lastUpdated: "2026-03-27",
+  dataYear: 2025,
+  dataNote: "Shikoku has no central pilgrim office.",
+  annualPilgrims: {
+    walkingCompletions: {
+      trend: [
+        { year: 2021, count: 899, foreign: 15, note: "COVID-19" },
+        { year: 2025, count: 1622, foreign: 536 },
+      ],
+    },
+  },
+};
+
+/** Two sections of one pilgrimage, each carrying the stats block it is given. */
+function sectionsWithStats(root: string, a: unknown, b: unknown): [string, string] {
+  const one = join(root, "routes", "awa");
+  const two = join(root, "routes", "tosa");
+  mkdirSync(one, { recursive: true });
+  mkdirSync(two, { recursive: true });
+  writeJson(join(one, "metadata.json"), { id: "awa", pilgrimage: { ...legs(1), stats: a } });
+  writeJson(join(two, "metadata.json"), { id: "tosa", pilgrimage: { ...legs(2), stats: b } });
+  return [one, two];
+}
+
+test("sections of one pilgrimage may not disagree on stats", () => {
+  const root = mkdtempSync(join(tmpdir(), "validate-pilgrimage-test-"));
+  try {
+    // #given one section's copy of the whole-circuit series drifted by a year
+    const drifted = structuredClone(shikokuStats);
+    drifted.annualPilgrims.walkingCompletions.trend[1].count = 1600;
+    const dirs = sectionsWithStats(root, shikokuStats, drifted);
+
+    const errors: ValidationError[] = [];
+    validatePilgrimages(root, dirs, errors);
+
+    // #then the field that differs and both sections holding it are named
+    assert.equal(errors.length, 1);
+    assert.equal(errors[0].severity, "error");
+    assert.match(errors[0].message, /shikoku-88/);
+    assert.match(errors[0].message, /stats\.annualPilgrims\.walkingCompletions\.trend\[1\]\.count/);
+    assert.match(errors[0].message, /"awa"/);
+    assert.match(errors[0].message, /"tosa"/);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("a stats block one section leaves out is a conflict too", () => {
+  const root = mkdtempSync(join(tmpdir(), "validate-pilgrimage-test-"));
+  try {
+    // #given build-index lifts stats from whichever section it reads first, so
+    // a section quietly carrying none is a silent difference
+    const dirs = sectionsWithStats(root, shikokuStats, undefined);
+
+    const errors: ValidationError[] = [];
+    validatePilgrimages(root, dirs, errors);
+
+    assert.equal(errors.length, 1);
+    assert.match(errors[0].message, /conflicting stats:/);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("identical stats written in different key orders do not read as conflicting", () => {
+  const root = mkdtempSync(join(tmpdir(), "validate-pilgrimage-test-"));
+  try {
+    // #given the same block hand-copied into two metadata.json files, with the
+    // keys typed in a different order — the trap the name check already names
+    const { dataNote, dataYear, ...rest } = shikokuStats;
+    const dirs = sectionsWithStats(root, shikokuStats, { ...rest, dataYear, dataNote });
+
+    const errors: ValidationError[] = [];
+    validatePilgrimages(root, dirs, errors);
+
+    assert.deepEqual(errors, []);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("sections that carry no stats at all raise nothing", () => {
+  const root = mkdtempSync(join(tmpdir(), "validate-pilgrimage-test-"));
+  try {
+    // #given the Caminos and the Kumano Kodō, whose sections have none
+    const a = join(root, "routes", "one");
+    const b = join(root, "routes", "two");
+    mkdirSync(a, { recursive: true });
+    mkdirSync(b, { recursive: true });
+    writeJson(join(a, "metadata.json"), { id: "one", pilgrimage: legs(1) });
+    writeJson(join(b, "metadata.json"), { id: "two", pilgrimage: legs(2) });
+
+    const errors: ValidationError[] = [];
+    validatePilgrimages(root, [a, b], errors);
+
+    assert.deepEqual(errors, []);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("the schema requires a stats block to say how its figures were counted", () => {
+  const root = mkdtempSync(join(tmpdir(), "validate-schema-test-"));
+  try {
+    // #given a whole-circuit figure published on a section is one a reader
+    // takes for that section's own unless the block says otherwise
+    const { dataNote, ...withoutNote } = shikokuStats;
+    const dir = join(root, "routes", "awa");
+    mkdirSync(dir, { recursive: true });
+    const path = join(dir, "metadata.json");
+    writeJson(path, {
+      schemaVersion: "1.0.0",
+      id: "awa",
+      lastUpdated: "2026-09-09T00:00:00Z",
+      name: { en: "Awa" },
+      description: { en: "The first dōjō." },
+      overview: {
+        distanceKm: 154.5,
+        estimatedDays: { min: 4, max: 8 },
+        topology: "linear",
+        startPoint: { name: { en: "Ryōzen-ji" } },
+        difficulty: "hard",
+      },
+      tradition: { type: "buddhist" },
+      provenance: { sources: [], license: "ODbL-1.0" },
+      pilgrimage: { ...legs(1), stats: withoutNote },
+    });
+
+    const errors: ValidationError[] = [];
+    validateFile(createValidator(), "pilgrimage.schema.json", path, errors);
+
+    assert.ok(
+      errors.some((e) => /dataNote/.test(e.message)),
+      JSON.stringify(errors),
+    );
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
 test("a section's own topology no longer arms the circuit check", () => {
   const root = mkdtempSync(join(tmpdir(), "validate-chain-test-"));
   try {

@@ -32,7 +32,19 @@
           "kind": { "type": "string", "enum": ["legs", "alternatives"] },
           "sections": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
           "distanceKm": { "type": "number", "minimum": 0 },
-          "stageCount": { "type": "integer", "minimum": 0 }
+          "stageCount": { "type": "integer", "minimum": 0 },
+          "stats": {
+            "type": "object",
+            "required": ["lastUpdated", "dataYear", "dataNote", "annualPilgrims"],
+            "properties": {
+              "lastUpdated": { "type": "string", "format": "date" },
+              "dataYear": { "type": "integer" },
+              "dataNote": { "type": "string" },
+              "annualPilgrims": { "type": "object" }
+            },
+            "additionalProperties": true,
+            "description": "Counts measured over the whole walk, copied verbatim from the sections' agreed `pilgrimage.stats` block. Absent for a pilgrimage whose sections carry none. `pilgrimage.schema.json` is where the full shape is stated and `validate` is what refuses sections that disagree; this restates only the keys a consumer may rely on, so the two files have no depths to drift over."
+          }
         }
       }
     },

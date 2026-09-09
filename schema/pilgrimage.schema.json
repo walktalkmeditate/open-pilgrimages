@@ -330,6 +330,64 @@
         "circular": {
           "type": "boolean",
           "description": "The legs return to where they began, so the last section's final stage must close against the first section's first stage. A property of the whole walk: the sections it is made of are each linear."
+        },
+        "stats": {
+          "type": "object",
+          "required": ["lastUpdated", "dataYear", "dataNote", "annualPilgrims"],
+          "properties": {
+            "lastUpdated": {
+              "type": "string",
+              "format": "date",
+              "description": "When these figures were last checked against their sources, which is not when the section's metadata last changed."
+            },
+            "dataYear": {
+              "type": "integer",
+              "description": "The most recent year the figures cover."
+            },
+            "dataNote": {
+              "type": "string",
+              "description": "How the counts were made and what they leave out. Required rather than optional: a whole-circuit figure published on a section's page is one a reader will otherwise take for that section's own."
+            },
+            "annualPilgrims": {
+              "type": "object",
+              "properties": {
+                "latest": {
+                  "type": "object",
+                  "required": ["year", "count"],
+                  "properties": {
+                    "year": { "type": "integer" },
+                    "count": { "type": "integer", "minimum": 0 },
+                    "note": { "type": "string" }
+                  },
+                  "additionalProperties": true
+                },
+                "trend": { "$ref": "#/$defs/PilgrimTrend" },
+                "walkingCompletions": { "$ref": "#/$defs/PilgrimSeries" },
+                "cyclingCompletions": { "$ref": "#/$defs/PilgrimSeries" },
+                "source": { "type": "string", "format": "uri" }
+              },
+              "additionalProperties": true
+            },
+            "demographics": { "type": "object" },
+            "seasonalDistribution": { "type": "array" },
+            "modeOfTravel": { "type": "array" },
+            "infrastructure": { "type": "object" },
+            "sources": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": ["name"],
+                "properties": {
+                  "name": { "type": "string" },
+                  "url": { "type": "string", "format": "uri" },
+                  "accessDate": { "type": "string", "format": "date" }
+                },
+                "additionalProperties": true
+              }
+            }
+          },
+          "additionalProperties": true,
+          "description": "Counts and context measured over the whole walk. Every section of the pilgrimage repeats it and `validate` refuses sections that disagree, exactly as `name`, `kind` and `circular` are repeated — a pilgrimage has no directory of its own to hold a file. It is not a file either, so it carries neither a `schemaVersion` nor a `routeId`: `routes/{id}/stats.json` states one route's figures, and a figure measured over a circuit is no section's."
         }
       },
       "description": "The pilgrimage this section belongs to. Index-level only; a pilgrimage has no directory."
@@ -374,6 +432,42 @@
         "coordinates": { "$ref": "#/$defs/Coordinates" }
       },
       "additionalProperties": true
+    },
+    "PilgrimTrend": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["year", "count"],
+        "properties": {
+          "year": { "type": "integer" },
+          "count": { "type": "integer", "minimum": 0 },
+          "foreign": {
+            "type": "integer",
+            "minimum": 0,
+            "description": "How many of that year's count came from outside the pilgrimage's own country."
+          },
+          "note": { "type": "string" }
+        },
+        "additionalProperties": true
+      },
+      "description": "One entry per year, in the order the years run."
+    },
+    "PilgrimSeries": {
+      "type": "object",
+      "required": ["trend"],
+      "properties": {
+        "trend": { "$ref": "#/$defs/PilgrimTrend" },
+        "note": { "type": "string" },
+        "cumulativeTotal": { "type": "integer", "minimum": 0 },
+        "cumulativeTotalNote": {
+          "type": "string",
+          "description": "Why the sum of the trend is not the total the source publishes, where the two differ."
+        },
+        "cumulativeForeign": { "type": "integer", "minimum": 0 },
+        "source": { "type": "string", "format": "uri" }
+      },
+      "additionalProperties": true,
+      "description": "A year series counted one way — on foot, by bicycle — where a pilgrimage counts each mode separately."
     },
     "TerrainType": {
       "type": "string",
