@@ -17,6 +17,7 @@ import {
   ANY_BOX,
   TICKED_BOX,
   checklistEntry,
+  checklistEntryLines,
   buildReviewChecklist,
   escapeForPattern,
   selectReviewChecklist,
@@ -941,6 +942,30 @@ export function validateDraftedText(root: string, dirs: string[], errors: Valida
         });
       }
       continue;
+    }
+
+    // Drafted stages are checked here too, and deliberately: a stray tick
+    // beside a stage's open line is precisely what would let a later commit
+    // drop that "drafted": true and pass both halves of the gate. Waiting for
+    // the flag to come off would be catching it one commit too late.
+    for (const stage of stages) {
+      const collisions = checklistEntryLines(
+        checklist.entries,
+        ANY_BOX,
+        `${checklist.qualifier}stage ${stage.index}`,
+      );
+      if (collisions.length > 1) {
+        const where = `lines ${collisions.slice(0, -1).join(", ")} and ${collisions.at(-1)}`;
+        errors.push({
+          file: checklist.file,
+          message:
+            `stage ${stage.index} of "${routeId}" has more than one line in ${checklist.file}, ` +
+            `at ${where}; a stage gets exactly one, and a second lets a tick written for ` +
+            `something else stand as this stage's review — keep the line that records the ` +
+            `review and delete the rest`,
+          severity: "error",
+        });
+      }
     }
 
     for (const stage of stages) {

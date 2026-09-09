@@ -2,6 +2,12 @@ const FENCE_LINE = /^(`{3,}|~{3,})/;
 const INDENTED_LINE = /^(?: {4,}|\t)/;
 const LIST_ITEM_LINE = /^[ \t]*(?:[-*+]|\d+[.)])[ \t]/;
 
+export interface ChecklistLine {
+  /** 1-based, counted in the file as written, so a message can send a reader to it. */
+  number: number;
+  text: string;
+}
+
 /**
  * Per spec section 6, the checklist quotes each stage's drafted text
  * verbatim, so a line shaped like "- [x] stage N" can appear inside that
@@ -13,40 +19,50 @@ const LIST_ITEM_LINE = /^[ \t]*(?:[-*+]|\d+[.)])[ \t]/;
  * code. Four spaces under a list item is a nested entry, which is how a
  * checklist that groups its stages under their section is written — dropping
  * those hid real entries, and a hidden entry reads as no entry at all.
+ *
+ * Each kept line carries its number in the unfiltered file, because a reader
+ * sent to a line has to find it where it actually is.
  */
-export function topLevelChecklistLines(checklist: string): string {
-  const kept: string[] = [];
+function keptChecklistLines(checklist: string): ChecklistLine[] {
+  const kept: ChecklistLine[] = [];
   let fenceMarker: string | null = null;
   let inList = false;
 
-  for (const line of checklist.split("\n")) {
+  checklist.split("\n").forEach((line, index) => {
+    const number = index + 1;
     const trimmed = line.trimStart();
 
     if (fenceMarker !== null) {
       if (trimmed.startsWith(fenceMarker)) fenceMarker = null;
-      continue;
+      return;
     }
 
     const fenceOpen = FENCE_LINE.exec(trimmed);
     if (fenceOpen) {
       fenceMarker = fenceOpen[1];
-      continue;
+      return;
     }
 
-    if (trimmed.startsWith(">")) continue;
+    if (trimmed.startsWith(">")) return;
     if (trimmed === "") {
-      kept.push(line);
-      continue;
+      kept.push({ number, text: line });
+      return;
     }
 
     const isListItem = LIST_ITEM_LINE.test(line);
-    if (INDENTED_LINE.test(line) && !(inList && isListItem)) continue;
+    if (INDENTED_LINE.test(line) && !(inList && isListItem)) return;
 
     inList = isListItem;
-    kept.push(line);
-  }
+    kept.push({ number, text: line });
+  });
 
-  return kept.join("\n");
+  return kept;
+}
+
+export function topLevelChecklistLines(checklist: string): string {
+  return keptChecklistLines(checklist)
+    .map((line) => line.text)
+    .join("\n");
 }
 
 /** Every bullet GitHub renders as a task list, including the ordered forms. */
@@ -64,16 +80,39 @@ export function checklistEntry(lines: string, box: string, label: string): boole
   return new RegExp(`^[ \\t]*${BULLET}[ \\t]+\\[[${box}]\\][ \\t]+${label}\\b`, "m").test(lines);
 }
 
+/**
+ * Where every line matching `label` sits in the file. One entry is the honest
+ * count: a stage is one day of one section, and its line is the record of one
+ * reviewer having read it. Two lines for it cannot be written by anyone
+ * describing the tree truthfully — the second either repeats a judgement
+ * already recorded or contradicts it, and a reader has no way to tell which
+ * of the two the gate will consult. The shape it comes in is an entry
+ * appended beside a line left over from an earlier pass, which is how a
+ * drafter ends up shipping a tick against prose it wrote itself.
+ */
+export function checklistEntryLines(
+  entries: ChecklistLine[],
+  box: string,
+  label: string,
+): number[] {
+  return entries
+    .filter((entry) => checklistEntry(entry.text, box, label))
+    .map((entry) => entry.number);
+}
+
 export interface ReviewChecklist {
   file: string;
   lines: string;
   /** Prefixes every entry in a pilgrimage-level file, and nothing in a section's own. */
   qualifier: string;
+  /** The same filtered view as `lines`, kept line by line so a collision can be located. */
+  entries: ChecklistLine[];
 }
 
 /** Pure constructor: filters `content` through {@link topLevelChecklistLines} and labels it with the file it came from, without touching disk. */
 export function buildReviewChecklist(file: string, content: string, qualifier: string): ReviewChecklist {
-  return { file, lines: topLevelChecklistLines(content), qualifier };
+  const entries = keptChecklistLines(content);
+  return { file, lines: entries.map((entry) => entry.text).join("\n"), qualifier, entries };
 }
 
 export function mentionsAnyStage(checklist: ReviewChecklist, indices: number[]): boolean {

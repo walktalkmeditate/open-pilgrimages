@@ -2127,6 +2127,126 @@ test("a fence that never closes cannot swallow the checklist", () => {
   }
 });
 
+test("one stage cannot carry two checklist lines", () => {
+  const root = mkdtempSync(join(tmpdir(), "validate-drafted-test-"));
+  try {
+    // #given an entry appended for a stage that already had one
+    const dir = draftedSection(root, "one", [{ index: 0, name: "d1" }]);
+    writeChecklist(root, "one", "# one\n\n- [ ] stage 0\n- [x] stage 0\n");
+
+    const errors: ValidationError[] = [];
+    validateDraftedText(root, [dir], errors);
+
+    // #then the collision is named, with both of the lines that make it
+    const duplicate = errors.filter((e) => /more than one line/.test(e.message));
+    assert.equal(duplicate.length, 1, JSON.stringify(errors));
+    assert.match(duplicate[0].message, /stage 0/);
+    assert.match(duplicate[0].message, /"one"/);
+    assert.match(duplicate[0].message, /lines 3 and 4/);
+    assert.equal(duplicate[0].file, "docs/review/one.md");
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("a drafter appending its section's entries beside the leftover ticks is refused", () => {
+  const root = mkdtempSync(join(tmpdir(), "validate-drafted-test-"));
+  try {
+    // #given the real shape: a shared file that recorded "nothing drafted
+    // here yet" with a tick, and a drafter that appended its own open entry
+    // rather than replacing that line
+    const dir = draftedSection(
+      root,
+      "kumano-kodo-kohechi",
+      [{ index: 0, name: "d1", drafted: true }],
+      KOHECHI,
+    );
+    writeChecklist(
+      root,
+      "kumano-kodo",
+      "# Kumano Kodō\n\n- [x] kumano-kodo-kohechi stage 0\n\n- [ ] kumano-kodo-kohechi stage 0\n",
+    );
+
+    const errors: ValidationError[] = [];
+    validateDraftedText(root, [dir], errors);
+
+    // #then the tick it pre-authorised itself is reported, even though the
+    // stage is still flagged drafted — that flag is exactly what the stray
+    // tick would let a later commit remove unreviewed
+    const duplicate = errors.filter((e) => /more than one line/.test(e.message));
+    assert.equal(duplicate.length, 1, JSON.stringify(errors));
+    assert.match(duplicate[0].message, /kumano-kodo-kohechi/);
+    assert.match(duplicate[0].message, /stage 0/);
+    assert.match(duplicate[0].message, /lines 3 and 5/);
+    assert.equal(duplicate[0].file, "docs/review/kumano-kodo.md");
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("a stage whose quoted text contains its own checkbox is not a duplicate", () => {
+  const root = mkdtempSync(join(tmpdir(), "validate-drafted-test-"));
+  try {
+    // #given the checklist quoting the drafted text verbatim, as §6 requires,
+    // where that text happens to contain lines shaped like entries
+    const dir = draftedSection(root, "one", [{ index: 0, name: "d1" }]);
+    writeChecklist(
+      root,
+      "one",
+      "# one\n\n- [x] stage 0\n\n```\n- [x] stage 0\n- [ ] stage 0\n```\n\n> - [x] stage 0\n\nQuoted:\n\n    - [x] stage 0\n",
+    );
+
+    const errors: ValidationError[] = [];
+    validateDraftedText(root, [dir], errors);
+
+    // #then the quoted copies are not lines the checklist carries, so the one
+    // real entry stands alone and the stage passes
+    assert.deepEqual(errors, []);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("two sections' stage 0 in one shared file is not a duplicate", () => {
+  const root = mkdtempSync(join(tmpdir(), "validate-drafted-test-"));
+  try {
+    // #given the ordinary shape of a pilgrimage-level checklist, where every
+    // section contributes a stage 0
+    const kohechi = draftedSection(root, "kumano-kodo-kohechi", [{ index: 0, name: "d1" }], KOHECHI);
+    const iseji = draftedSection(root, "kumano-kodo-iseji", [{ index: 0, name: "d1" }], {
+      ...KOHECHI,
+      order: 3,
+    });
+    writeChecklist(
+      root,
+      "kumano-kodo",
+      "# Kumano Kodō\n\n- [x] kumano-kodo-kohechi stage 0\n- [x] kumano-kodo-iseji stage 0\n",
+    );
+
+    const errors: ValidationError[] = [];
+    validateDraftedText(root, [kohechi, iseji], errors);
+
+    assert.deepEqual(errors, []);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("stage 1 and stage 10 are different stages, not a collision", () => {
+  const root = mkdtempSync(join(tmpdir(), "validate-drafted-test-"));
+  try {
+    const dir = draftedSection(root, "one", [{ index: 1, name: "d1" }, { index: 10, name: "d2" }]);
+    writeChecklist(root, "one", "# one\n\n- [x] stage 1\n- [x] stage 10\n");
+
+    const errors: ValidationError[] = [];
+    validateDraftedText(root, [dir], errors);
+
+    assert.deepEqual(errors, []);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
 // Issue #9: six small traps left in the pipeline for the next two content
 // PRs. Two are behavioural; these fixtures and tests cover those two.
 
