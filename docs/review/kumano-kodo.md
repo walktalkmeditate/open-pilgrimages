@@ -106,7 +106,7 @@ changed no HTML.
 - **Distance** measured 16.69 km (`ways/report.json` `sliceKm`) against 16.7 km declared in
   `stages.json`, ratio 0.9994. Previously declared: **none** — the `variants/kohechi` stub
   this section was promoted from carried no stages, only 70 km for the whole route
-- **Places** none — `waypoints.geojson` holds no features
+- **Places** at review time, none — `waypoints.geojson` held no features
 - **Grounding the text cites**
   - Kōyasan's temple lodgings — **citation replaced in review.** The three features the
     drafter cited carry no lodging tag: `node/5092538153` 高室院 (89 m), `node/5092538163`
@@ -201,7 +201,7 @@ repository alone.
   `node/1426712521` (`place=quarter`, 三浦 / Miura) 31 m off at 31.647 km
 - **Distance** measured 13.145 km against 13.1 km declared, ratio 1.0034. Previously
   declared: **none**
-- **Places** none — `waypoints.geojson` holds no features
+- **Places** at review time, none — `waypoints.geojson` held no features
 - **Grounding the text cites**
   - Kaya-goya hut — `node/3101640888` (`historic=ruins`, `name="Kaya-Goya Ato Ruin"`), 24 m
     off, at 18.36 km
@@ -300,7 +300,7 @@ reflection: The highest ground on the route comes on its shortest day — is tha
   measure 1,042 m, twice the 500 m the build snaps across
 - **Distance** measured 18.769 km against 18.8 km declared, ratio 0.9983. Previously
   declared: **none**
-- **Places** none — `waypoints.geojson` holds no features
+- **Places** at review time, none — `waypoints.geojson` held no features
 - **Grounding the text cites**
   - Miura-tōge — OSM has **no pass node** here. The crossing is attested by
     `node/4483811890` (`amenity=toilets`, 三浦峠公衆トイレ) 33 m off and `node/4483811891`
@@ -375,7 +375,7 @@ it into a river name.
   the same shrine sits 3 m from that vertex; this section pins the shrine's OSM way instead
 - **Distance** measured 14.559 km against 14.6 km declared, ratio 0.9972. Previously
   declared: **none**
-- **Places** none — `waypoints.geojson` holds no features
+- **Places** at review time, none — `waypoints.geojson` held no features
 - **Grounding the text cites**
   - Hatenashi-tōge — added in review; the drafter recorded no grounding for the name. OSM
     has no pass node, as at Miura-tōge, but `node/5702262721` (`tourism=information`,

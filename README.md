@@ -2,7 +2,7 @@
 
 A canonical, open-source dataset of pilgrimage routes worldwide.
 
-159,624 GPS points. 11,862 waypoints. 113 stages. 10 routes across 3 traditions. All structured as JSON and GeoJSON.
+159,624 GPS points. 11,863 waypoints. 113 stages. 10 routes across 3 traditions. All structured as JSON and GeoJSON.
 
 ## What's In the Box
 
@@ -28,7 +28,7 @@ Routes that belong to no pilgrimage grouping yet.
 | Route | Distance | Topology | Tradition | Route Points | Waypoints | Stats |
 |-------|----------|----------|-----------|-------------|-----------|-------|
 | [Shikoku 88](routes/shikoku-88/) | 1,200 km | Circular | Buddhist | 49,097 | 2,980 | 21 years (2005-2025) |
-| [Kumano Kodo](routes/kumano-kodo-nakahechi/) | 36 km | Network | Shinto/Buddhist | 3,786 | 114 | 22 years (2003-2024) |
+| [Kumano Kodo](routes/kumano-kodo-nakahechi/) | 36 km | Network | Shinto/Buddhist | 3,786 | 115 | 22 years (2003-2024) |
 | [Kohechi](routes/kumano-kodo-kohechi/) | 63 km | Linear | Shinto/Buddhist | 3,061 | 35 | — |
 | [Iseji](routes/kumano-kodo-iseji/) | 170 km | Linear | Shinto/Buddhist | 0 | 0 | — |
 | [Ōhechi](routes/kumano-kodo-ohechi/) | 90 km | Linear | Shinto/Buddhist | 0 | 0 | — |
@@ -50,7 +50,7 @@ Routes that belong to no pilgrimage grouping yet.
 | Accommodation | 532 | 250 | 75 | 180 | 92 | 39 | 124 | 16 | 9 |
 | Food (restaurant/cafe) | 713 | 764 | 265 | 600 | 425 | 152 | 456 | 10 | 2 |
 | Transport (bus/train) | 511 | 657 | 180 | 431 | 302 | 136 | 1,395 | 28 | 8 |
-| Supply (convenience/toilet) | 189 | 235 | 53 | 134 | 122 | 26 | 690 | 39 | 10 |
+| Supply (convenience/toilet) | 189 | 235 | 53 | 134 | 122 | 26 | 690 | 40 | 10 |
 | Sacred sites | 9 | 68 | — | — | — | — | 88 | 18 | 5 |
 | Towns | 36 | 51 | — | — | — | — | — | 2 | — |
 

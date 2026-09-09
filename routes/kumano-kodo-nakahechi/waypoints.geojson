@@ -1277,6 +1277,28 @@
     },
     {
       "type": "Feature",
+      "id": "wp-osm-supply-node10936209205",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          135.7639971,
+          33.8551386
+        ]
+      },
+      "properties": {
+        "routeId": "kumano-kodo-nakahechi",
+        "name": "Unnamed",
+        "type": "supply",
+        "subtype": "toilet",
+        "stageIndex": 3,
+        "kmFromStart": 31.3,
+        "icon": "toilet",
+        "source": "osm",
+        "osmId": "node/10936209205"
+      }
+    },
+    {
+      "type": "Feature",
       "id": "wp-osm-supply-node13100087952",
       "geometry": {
         "type": "Point",

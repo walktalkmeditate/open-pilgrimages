@@ -44,7 +44,7 @@
     "countries": ["JP"],
     "bbox": [135.49, 33.60, 135.94, 33.90],
     "bboxNote": {
-      "en": "The north bound was 34.22 while the Kohechi was still a variant folded into this directory, and 34.22 is Koyasan, whose anchor stands 41.0 km from the nearest point on this section's line. It is now 33.90, a little under 5 km north of the walked line's own northern extreme at 33.8622, the same order of padding the south bound carries. The 43 waypoints the old bound had admitted from the Kohechi's corridor were removed in the same commit, because a bound narrowed on its own would leave enrich-waypoints silently dropping them on its next run instead of the record saying they were wrong."
+      "en": "The north bound was 34.22 while the Kohechi was still a variant folded into this directory, and 34.22 is Koyasan, whose anchor stands 41.0 km from the nearest point on this section's line. It is now 33.90, a little under 5 km north of the walked line's own northern extreme at 33.8622, the same order of padding the south bound carries. The 42 waypoints the old bound had admitted from the Kohechi's corridor were removed in the same commit, because a bound narrowed on its own would leave enrich-waypoints silently dropping them on its next run instead of the record saying they were wrong. Sharing an osmId with the Kohechi is not by itself grounds for removal: the Kohechi's final 2.2 km is this section's own line, so a feature standing on that stretch is walked by both and belongs in both files. Only the four that also stood more than BUFFER_KM from this section's line were removed on that ground; node/10936209205, 9 m off it, stays."
     }
   },
 
