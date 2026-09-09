@@ -839,6 +839,27 @@
       }
     },
     {
+      "id": "wp-osm-town-node691562991",
+      "frac": 0.38366163063521064,
+      "kind": "waypoint",
+      "label": "Mihara",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 32.90823088711024,
+        "lon": 132.84800305210297
+      },
+      "pin": {
+        "lat": 32.9082148,
+        "lon": 132.8479536
+      },
+      "names": {
+        "id": "Mihara",
+        "ja": "三原村",
+        "ko": "미하라무라",
+        "zh": "三原村"
+      }
+    },
+    {
       "id": "stage-end",
       "frac": 1,
       "kind": "waypoint",
@@ -855,9 +876,107 @@
       "names": {
         "ja": "延光寺"
       }
+    },
+    {
+      "id": "temple-39",
+      "frac": 1,
+      "kind": "waypoint",
+      "label": "Enko-ji",
+      "icon": "seal",
+      "at": {
+        "lat": 32.96117,
+        "lon": 132.774102
+      },
+      "pin": {
+        "lat": 32.961,
+        "lon": 132.774
+      },
+      "text": "Temple 39 · Shingon Chizan · stamp available (¥500)",
+      "names": {
+        "ja": "延光寺"
+      },
+      "sitMinutes": 5
     }
   ],
-  "marks": [],
+  "marks": [
+    {
+      "id": "wp-osm-accommodation-node12912519902",
+      "kind": "bed",
+      "name": "Guest House Kurousagi",
+      "at": {
+        "lat": 32.894918,
+        "lon": 132.874522
+      },
+      "frac": 0.143795978831973,
+      "offLineMeters": 205.3
+    },
+    {
+      "id": "wp-osm-food-node11532181369",
+      "kind": "food",
+      "name": "Yamabiko Cafe",
+      "at": {
+        "lat": 32.913018,
+        "lon": 132.844867
+      },
+      "frac": 0.4174761343559443,
+      "offLineMeters": 25.4
+    },
+    {
+      "id": "wp-osm-supply-node10821759897",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 32.921842,
+        "lon": 132.840304
+      },
+      "frac": 0.4746413115780596,
+      "offLineMeters": 165.1
+    },
+    {
+      "id": "wp-osm-supply-node10821758014",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 32.92862,
+        "lon": 132.811343
+      },
+      "frac": 0.6576555995695401,
+      "offLineMeters": 48.8
+    },
+    {
+      "id": "wp-osm-transport-node9960792085",
+      "kind": "transport",
+      "name": "Hirata",
+      "at": {
+        "lat": 32.95563,
+        "lon": 132.795176
+      },
+      "frac": 0.8634618435685227,
+      "offLineMeters": 158.2
+    },
+    {
+      "id": "wp-osm-food-node8506196246",
+      "kind": "food",
+      "name": "レストラン スワロー",
+      "at": {
+        "lat": 32.95798,
+        "lon": 132.794712
+      },
+      "frac": 0.8741704824445622,
+      "offLineMeters": 221.8
+    },
+    {
+      "id": "wp-osm-medical-node1423737263",
+      "kind": "medical",
+      "name": "幡多希望の家",
+      "at": {
+        "lat": 32.961138,
+        "lon": 132.78145
+      },
+      "frac": 0.9679795384786004,
+      "offLineMeters": 286
+    }
+  ],
   "stage": {
     "routeId": "shikoku-88-tosa",
     "index": 14,

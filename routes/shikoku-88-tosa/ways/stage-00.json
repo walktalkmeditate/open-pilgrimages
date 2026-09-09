@@ -1354,17 +1354,6 @@
       },
       "frac": 0.8962692463589403,
       "offLineMeters": 10.6
-    },
-    {
-      "id": "wp-osm-accommodation-node11535055772",
-      "kind": "bed",
-      "name": "Haryugetu Guesthouse",
-      "at": {
-        "lat": 33.582208,
-        "lon": 134.325783
-      },
-      "frac": 1,
-      "offLineMeters": 21.1
     }
   ],
   "stage": {

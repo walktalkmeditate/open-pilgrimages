@@ -1029,6 +1029,41 @@
       }
     },
     {
+      "id": "wp-osm-viewpoint-node1275225550",
+      "frac": 0.9919772969929732,
+      "kind": "waypoint",
+      "label": "天狗の鼻",
+      "icon": "eye",
+      "at": {
+        "lat": 32.72648162702601,
+        "lon": 133.01953394133173
+      },
+      "pin": {
+        "lat": 32.7267094,
+        "lon": 133.0214308
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-viewpoint-node4984012722",
+      "frac": 0.9956464160291089,
+      "kind": "waypoint",
+      "label": "足摺岬展望台",
+      "icon": "eye",
+      "at": {
+        "lat": 32.72580393567736,
+        "lon": 133.01949729656744
+      },
+      "pin": {
+        "lat": 32.7256763,
+        "lon": 133.0206821
+      },
+      "names": {
+        "ja": "足摺岬展望台"
+      },
+      "sitMinutes": 5
+    },
+    {
       "id": "stage-end",
       "frac": 1,
       "kind": "waypoint",
@@ -1044,7 +1079,140 @@
       }
     }
   ],
-  "marks": [],
+  "marks": [
+    {
+      "id": "wp-osm-accommodation-node12908978212",
+      "kind": "bed",
+      "name": "民宿いさりび",
+      "at": {
+        "lat": 32.846256,
+        "lon": 132.954601
+      },
+      "frac": 0.00015970331291114768,
+      "offLineMeters": 12.2
+    },
+    {
+      "id": "wp-osm-accommodation-node12911869507",
+      "kind": "bed",
+      "name": "民宿くもも",
+      "at": {
+        "lat": 32.843993,
+        "lon": 132.952349
+      },
+      "frac": 0.020318821952583277,
+      "offLineMeters": 13.2
+    },
+    {
+      "id": "wp-osm-accommodation-node10819508622",
+      "kind": "bed",
+      "name": "Ōkinohama",
+      "at": {
+        "lat": 32.830668,
+        "lon": 132.956296
+      },
+      "frac": 0.11251519215846396,
+      "offLineMeters": 88.2
+    },
+    {
+      "id": "wp-osm-accommodation-node1404095643",
+      "kind": "bed",
+      "name": "Kaiyu-Inn 海癒",
+      "at": {
+        "lat": 32.826735,
+        "lon": 132.954799
+      },
+      "frac": 0.14745528032679528,
+      "offLineMeters": 30
+    },
+    {
+      "id": "wp-osm-accommodation-node10819478832",
+      "kind": "bed",
+      "name": "大岐マリン",
+      "at": {
+        "lat": 32.826058,
+        "lon": 132.95185
+      },
+      "frac": 0.16138425711513696,
+      "offLineMeters": 17.1
+    },
+    {
+      "id": "wp-osm-supply-node10819509705",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 32.824537,
+        "lon": 132.950009
+      },
+      "frac": 0.1806985532181467,
+      "offLineMeters": 4.4
+    },
+    {
+      "id": "wp-osm-supply-node10819497799",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 32.820119,
+        "lon": 132.949134
+      },
+      "frac": 0.20562515099481513,
+      "offLineMeters": 79.7
+    },
+    {
+      "id": "wp-osm-supply-node12908978211",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 32.787398,
+        "lon": 132.999698
+      },
+      "frac": 0.6139958945577941,
+      "offLineMeters": 167.3
+    },
+    {
+      "id": "wp-osm-supply-node9444928875",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 32.771258,
+        "lon": 133.006877
+      },
+      "frac": 0.7087949743490285,
+      "offLineMeters": 8.5
+    },
+    {
+      "id": "wp-osm-supply-node1275225668",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 32.725811,
+        "lon": 133.01967
+      },
+      "frac": 0.9955111305311948,
+      "offLineMeters": 16
+    },
+    {
+      "id": "wp-osm-supply-node1275225604",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 32.725243,
+        "lon": 133.018876
+      },
+      "frac": 0.9997417312329187,
+      "offLineMeters": 15.3
+    },
+    {
+      "id": "wp-osm-transport-node9444928826",
+      "kind": "transport",
+      "name": "Cape Ashizuri",
+      "at": {
+        "lat": 32.72504,
+        "lon": 133.01809
+      },
+      "frac": 1,
+      "offLineMeters": 68.6
+    }
+  ],
   "stage": {
     "routeId": "shikoku-88-tosa",
     "index": 12,

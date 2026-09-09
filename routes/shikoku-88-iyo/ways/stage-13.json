@@ -610,9 +610,222 @@
       "names": {
         "ja": "三角寺"
       }
+    },
+    {
+      "id": "temple-65",
+      "frac": 1,
+      "kind": "waypoint",
+      "label": "Sankaku-ji",
+      "icon": "seal",
+      "at": {
+        "lat": 33.968375,
+        "lon": 133.586593
+      },
+      "pin": {
+        "lat": 33.968,
+        "lon": 133.587
+      },
+      "text": "Temple 65 · Koyasan Shingon · stamp available (¥500)",
+      "names": {
+        "ja": "三角寺"
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-sacred_site-node4839325648",
+      "frac": 1,
+      "kind": "waypoint",
+      "label": "Sankaku-ji",
+      "icon": "building.columns",
+      "at": {
+        "lat": 33.968375,
+        "lon": 133.586593
+      },
+      "pin": {
+        "lat": 33.9673725,
+        "lon": 133.5866363
+      },
+      "sitMinutes": 5
     }
   ],
-  "marks": [],
+  "marks": [
+    {
+      "id": "wp-osm-accommodation-node12948927058",
+      "kind": "bed",
+      "name": "HOTEL AZ 愛媛土居インター店",
+      "at": {
+        "lat": 33.966656,
+        "lon": 133.469251
+      },
+      "frac": 0.000782140186982375,
+      "offLineMeters": 289.6
+    },
+    {
+      "id": "wp-osm-supply-node4070932426",
+      "kind": "supply",
+      "name": "FamilyMart",
+      "at": {
+        "lat": 33.965054,
+        "lon": 133.471551
+      },
+      "frac": 0.011567373502425236,
+      "offLineMeters": 50.5
+    },
+    {
+      "id": "wp-osm-transport-node3152606491",
+      "kind": "transport",
+      "name": "川西",
+      "at": {
+        "lat": 33.967075,
+        "lon": 133.477584
+      },
+      "frac": 0.05578161976694847,
+      "offLineMeters": 138.2
+    },
+    {
+      "id": "wp-osm-transport-node3152610402",
+      "kind": "transport",
+      "name": "豊田",
+      "at": {
+        "lat": 33.967508,
+        "lon": 133.482568
+      },
+      "frac": 0.0885237608495512,
+      "offLineMeters": 156.3
+    },
+    {
+      "id": "wp-osm-food-node4070947874",
+      "kind": "food",
+      "name": "手打ちうどんロケット",
+      "at": {
+        "lat": 33.966653,
+        "lon": 133.487485
+      },
+      "frac": 0.12773184371015447,
+      "offLineMeters": 152.9
+    },
+    {
+      "id": "wp-osm-transport-node3152605177",
+      "kind": "transport",
+      "name": "大町",
+      "at": {
+        "lat": 33.966218,
+        "lon": 133.492547
+      },
+      "frac": 0.16355414939303028,
+      "offLineMeters": 68.8
+    },
+    {
+      "id": "wp-osm-supply-node4069930109",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 33.967702,
+        "lon": 133.495734
+      },
+      "frac": 0.1908577285805678,
+      "offLineMeters": 219.9
+    },
+    {
+      "id": "wp-osm-transport-node3152605848",
+      "kind": "transport",
+      "name": "寒川駅前",
+      "at": {
+        "lat": 33.966918,
+        "lon": 133.499725
+      },
+      "frac": 0.21637822315613553,
+      "offLineMeters": 26.4
+    },
+    {
+      "id": "wp-osm-transport-node8949781056",
+      "kind": "transport",
+      "name": "Iyo-Sangawa",
+      "at": {
+        "lat": 33.967913,
+        "lon": 133.500121
+      },
+      "frac": 0.21920762386052414,
+      "offLineMeters": 137
+    },
+    {
+      "id": "wp-osm-supply-node704203108",
+      "kind": "supply",
+      "name": "FamilyMart 寒川西店",
+      "at": {
+        "lat": 33.96728,
+        "lon": 133.504476
+      },
+      "frac": 0.2505510880261809,
+      "offLineMeters": 23.4
+    },
+    {
+      "id": "wp-osm-supply-node4069929622",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 33.969024,
+        "lon": 133.506341
+      },
+      "frac": 0.266486834170125,
+      "offLineMeters": 187.1
+    },
+    {
+      "id": "wp-osm-transport-node3152610054",
+      "kind": "transport",
+      "name": "西浜",
+      "at": {
+        "lat": 33.967834,
+        "lon": 133.507958
+      },
+      "frac": 0.2745638719621421,
+      "offLineMeters": 43.3
+    },
+    {
+      "id": "wp-osm-transport-node3152607737",
+      "kind": "transport",
+      "name": "池之下",
+      "at": {
+        "lat": 33.973862,
+        "lon": 133.529064
+      },
+      "frac": 0.464910230491142,
+      "offLineMeters": 296.5
+    },
+    {
+      "id": "wp-osm-supply-node976667299",
+      "kind": "supply",
+      "name": "Circle K",
+      "at": {
+        "lat": 33.972608,
+        "lon": 133.535964
+      },
+      "frac": 0.4987768874979669,
+      "offLineMeters": 184.7
+    },
+    {
+      "id": "wp-osm-supply-node12951554465",
+      "kind": "supply",
+      "name": "Lawson",
+      "at": {
+        "lat": 33.976782,
+        "lon": 133.547565
+      },
+      "frac": 0.6029927480385827,
+      "offLineMeters": 41.2
+    },
+    {
+      "id": "wp-osm-supply-node11411822969",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 33.974237,
+        "lon": 133.566149
+      },
+      "frac": 0.7699322360724181,
+      "offLineMeters": 44.2
+    }
+  ],
   "stage": {
     "routeId": "shikoku-88-iyo",
     "index": 13,

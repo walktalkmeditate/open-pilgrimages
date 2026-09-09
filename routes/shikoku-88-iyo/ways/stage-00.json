@@ -1894,17 +1894,6 @@
       },
       "frac": 0.9868134221635395,
       "offLineMeters": 115.2
-    },
-    {
-      "id": "wp-osm-transport-node3152606538",
-      "kind": "transport",
-      "name": "平城札所前",
-      "at": {
-        "lat": 32.96309,
-        "lon": 132.563178
-      },
-      "frac": 0.9936581004788654,
-      "offLineMeters": 78.3
     }
   ],
   "stage": {

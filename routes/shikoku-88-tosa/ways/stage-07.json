@@ -954,7 +954,7 @@
   "theirActiveSeconds": 3600,
   "moments": [
     {
-      "id": "stage-start",
+      "id": "wp-osm-town-node697489675",
       "frac": 0.0008448486180407547,
       "kind": "waypoint",
       "label": "Tosa",
@@ -984,6 +984,81 @@
       }
     },
     {
+      "id": "temple-35",
+      "frac": 0.14293137457399924,
+      "kind": "waypoint",
+      "label": "Kiyotaki-ji",
+      "icon": "seal",
+      "at": {
+        "lat": 33.512468,
+        "lon": 133.409582
+      },
+      "pin": {
+        "lat": 33.513,
+        "lon": 133.41
+      },
+      "text": "Temple 35 · Shingon Buzan · stamp available (¥500)",
+      "names": {
+        "ja": "清滝寺"
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-sacred_site-node3919866480",
+      "frac": 0.14293137457399924,
+      "kind": "waypoint",
+      "label": "35 Kiyotaki-ji",
+      "icon": "building.columns",
+      "at": {
+        "lat": 33.512468,
+        "lon": 133.409582
+      },
+      "pin": {
+        "lat": 33.5124748,
+        "lon": 133.409532
+      },
+      "names": {
+        "ja": "第35番札所 清滝寺"
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-sacred_site-node5459380601",
+      "frac": 0.6285109526255961,
+      "kind": "waypoint",
+      "label": "正念寺",
+      "icon": "building.columns",
+      "at": {
+        "lat": 33.450395675124554,
+        "lon": 133.440886777434
+      },
+      "pin": {
+        "lat": 33.4515783,
+        "lon": 133.4420898
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "temple-36",
+      "frac": 0.8288159129158594,
+      "kind": "waypoint",
+      "label": "Shoryu-ji",
+      "icon": "seal",
+      "at": {
+        "lat": 33.42606290096615,
+        "lon": 133.45097780071586
+      },
+      "pin": {
+        "lat": 33.426,
+        "lon": 133.451
+      },
+      "text": "Temple 36 · Shingon Buzan · stamp available (¥500)",
+      "names": {
+        "ja": "青竜寺"
+      },
+      "sitMinutes": 5
+    },
+    {
       "id": "stage-end",
       "frac": 0.9999171710629292,
       "kind": "waypoint",
@@ -999,7 +1074,30 @@
       }
     }
   ],
-  "marks": [],
+  "marks": [
+    {
+      "id": "wp-osm-medical-node1423735472",
+      "kind": "medical",
+      "name": "市立土佐市民病院",
+      "at": {
+        "lat": 33.494508,
+        "lon": 133.423847
+      },
+      "frac": 0.00919060866755276,
+      "offLineMeters": 256.6
+    },
+    {
+      "id": "wp-osm-accommodation-node11372865970",
+      "kind": "bed",
+      "name": "Ohenro Guest House Lilian",
+      "at": {
+        "lat": 33.4388,
+        "lon": 133.435633
+      },
+      "frac": 0.9999171710629292,
+      "offLineMeters": 18.2
+    }
+  ],
   "stage": {
     "routeId": "shikoku-88-tosa",
     "index": 7,

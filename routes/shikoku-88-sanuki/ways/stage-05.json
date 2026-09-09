@@ -2092,6 +2092,25 @@
       }
     },
     {
+      "id": "wp-osm-sacred_site-node13058002702",
+      "frac": 0.6410945242184045,
+      "kind": "waypoint",
+      "label": "Kosaka Shrine",
+      "icon": "building.columns",
+      "at": {
+        "lat": 34.20797581883089,
+        "lon": 134.4281141351579
+      },
+      "pin": {
+        "lat": 34.207091,
+        "lon": 134.42638
+      },
+      "names": {
+        "ja": "小坂神社"
+      },
+      "sitMinutes": 5
+    },
+    {
       "id": "stage-end",
       "frac": 1,
       "kind": "waypoint",
@@ -2110,7 +2129,74 @@
       }
     }
   ],
-  "marks": [],
+  "marks": [
+    {
+      "id": "wp-osm-supply-node302548357",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 34.190144,
+        "lon": 134.206531
+      },
+      "frac": 0.0019101500671428956,
+      "offLineMeters": 27.9
+    },
+    {
+      "id": "wp-osm-accommodation-node11416744269",
+      "kind": "bed",
+      "name": "Minshuku Yasokubo",
+      "at": {
+        "lat": 34.190573,
+        "lon": 134.207928
+      },
+      "frac": 0.004748433709028452,
+      "offLineMeters": 9.7
+    },
+    {
+      "id": "wp-osm-transport-node1011920450",
+      "kind": "transport",
+      "name": "Sanuki-Aioi",
+      "at": {
+        "lat": 34.211967,
+        "lon": 134.424379
+      },
+      "frac": 0.6270555346912445,
+      "offLineMeters": 134.2
+    },
+    {
+      "id": "wp-osm-supply-node307657702",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 34.207716,
+        "lon": 134.433724
+      },
+      "frac": 0.653748718323069,
+      "offLineMeters": 298.6
+    },
+    {
+      "id": "wp-osm-supply-node7211580761",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 34.169489,
+        "lon": 134.502095
+      },
+      "frac": 0.9676751264126187,
+      "offLineMeters": 12.3
+    },
+    {
+      "id": "wp-osm-transport-node7759735034",
+      "kind": "transport",
+      "name": "霊山寺前(バスのりば)",
+      "at": {
+        "lat": 34.158907,
+        "lon": 134.503222
+      },
+      "frac": 0.9982331828106605,
+      "offLineMeters": 71.3
+    }
+  ],
   "stage": {
     "routeId": "shikoku-88-sanuki",
     "index": 5,

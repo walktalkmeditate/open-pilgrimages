@@ -1212,6 +1212,135 @@
       }
     },
     {
+      "id": "wp-osm-sacred_site-node9623452732",
+      "frac": 0.3151432002687095,
+      "kind": "waypoint",
+      "label": "西麻植八幡神社",
+      "icon": "building.columns",
+      "at": {
+        "lat": 34.063880205578634,
+        "lon": 134.33817151732032
+      },
+      "pin": {
+        "lat": 34.0618987,
+        "lon": 134.3359986
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "temple-11",
+      "frac": 0.399052663591539,
+      "kind": "waypoint",
+      "label": "Fujii-dera",
+      "icon": "seal",
+      "at": {
+        "lat": 34.0519699722394,
+        "lon": 134.34904928786247
+      },
+      "pin": {
+        "lat": 34.052,
+        "lon": 134.349
+      },
+      "text": "Temple 11 · Rinzai Myoshinji · stamp available (¥500)",
+      "names": {
+        "ja": "藤井寺"
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-sacred_site-node302592266",
+      "frac": 0.41217749980639734,
+      "kind": "waypoint",
+      "label": "11 Fujii-dera",
+      "icon": "building.columns",
+      "at": {
+        "lat": 34.05162052186629,
+        "lon": 134.34811028313916
+      },
+      "pin": {
+        "lat": 34.0516692,
+        "lon": 134.3485336
+      },
+      "names": {
+        "ja": "第11番札所 藤井寺"
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-sacred_site-node6099934916",
+      "frac": 0.5285151541987747,
+      "kind": "waypoint",
+      "label": "Choudo-An",
+      "icon": "building.columns",
+      "at": {
+        "lat": 34.03317464087695,
+        "lon": 134.34523523357234
+      },
+      "pin": {
+        "lat": 34.0332235,
+        "lon": 134.3451938
+      },
+      "names": {
+        "ja": "長戸庵"
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-sacred_site-node11419669334",
+      "frac": 0.6024913463905645,
+      "kind": "waypoint",
+      "label": "ishidou-gongen",
+      "icon": "building.columns",
+      "at": {
+        "lat": 34.02429417824509,
+        "lon": 134.3350934570832
+      },
+      "pin": {
+        "lat": 34.0242857,
+        "lon": 134.3350473
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-sacred_site-node378075409",
+      "frac": 0.6469134194066571,
+      "kind": "waypoint",
+      "label": "Ryusui-An",
+      "icon": "building.columns",
+      "at": {
+        "lat": 34.01611687066951,
+        "lon": 134.33060362436618
+      },
+      "pin": {
+        "lat": 34.0161827,
+        "lon": 134.3304967
+      },
+      "names": {
+        "ja": "柳水庵"
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "temple-12",
+      "frac": 0.8743493105775865,
+      "kind": "waypoint",
+      "label": "Shozan-ji",
+      "icon": "seal",
+      "at": {
+        "lat": 33.985073,
+        "lon": 134.310591
+      },
+      "pin": {
+        "lat": 33.985,
+        "lon": 134.31
+      },
+      "text": "The 'Burning Mountain Temple' — first major mountain climb.",
+      "names": {
+        "ja": "焼山寺"
+      },
+      "sitMinutes": 5
+    },
+    {
       "id": "stage-end",
       "frac": 0.999254442662976,
       "kind": "waypoint",
@@ -1227,7 +1356,129 @@
       }
     }
   ],
-  "marks": [],
+  "marks": [
+    {
+      "id": "wp-osm-supply-node9405053107",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 34.083771,
+        "lon": 134.315865
+      },
+      "frac": 0.13851527268107874,
+      "offLineMeters": 2.7
+    },
+    {
+      "id": "wp-osm-accommodation-node11535058669",
+      "kind": "bed",
+      "name": "Awarakuya",
+      "at": {
+        "lat": 34.065509,
+        "lon": 134.319271
+      },
+      "frac": 0.23437334301134113,
+      "offLineMeters": 195.5
+    },
+    {
+      "id": "wp-osm-medical-node12067670312",
+      "kind": "medical",
+      "name": "島野外科内科",
+      "at": {
+        "lat": 34.065236,
+        "lon": 134.322573
+      },
+      "frac": 0.25081260275444084,
+      "offLineMeters": 180
+    },
+    {
+      "id": "wp-osm-food-node9442303950",
+      "kind": "food",
+      "name": "手打ちそば川内 橋本 川島店",
+      "at": {
+        "lat": 34.064906,
+        "lon": 134.324881
+      },
+      "frac": 0.25755476629072444,
+      "offLineMeters": 138.8
+    },
+    {
+      "id": "wp-osm-supply-node319320786",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 34.064942,
+        "lon": 134.326071
+      },
+      "frac": 0.26471293649440175,
+      "offLineMeters": 144.5
+    },
+    {
+      "id": "wp-osm-food-node12944059808",
+      "kind": "food",
+      "name": "吉野川製麺所",
+      "at": {
+        "lat": 34.065929,
+        "lon": 134.328532
+      },
+      "frac": 0.2738169291830928,
+      "offLineMeters": 39.7
+    },
+    {
+      "id": "wp-osm-supply-node9405053046",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 34.066415,
+        "lon": 134.328784
+      },
+      "frac": 0.27461006185610587,
+      "offLineMeters": 11.4
+    },
+    {
+      "id": "wp-osm-supply-node9405053050",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 34.063216,
+        "lon": 134.33945
+      },
+      "frac": 0.32083863030175547,
+      "offLineMeters": 25.2
+    },
+    {
+      "id": "wp-osm-supply-node9405053058",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 34.060864,
+        "lon": 134.347146
+      },
+      "frac": 0.3534861014843471,
+      "offLineMeters": 4.4
+    },
+    {
+      "id": "wp-osm-accommodation-node11331009969",
+      "kind": "bed",
+      "name": "Oyado Eleven",
+      "at": {
+        "lat": 34.053328,
+        "lon": 134.350381
+      },
+      "frac": 0.3968386381202419,
+      "offLineMeters": 141.5
+    },
+    {
+      "id": "wp-osm-accommodation-node11544133369",
+      "kind": "bed",
+      "name": "Sudachi-an",
+      "at": {
+        "lat": 33.987009,
+        "lon": 134.326619
+      },
+      "frac": 0.999254442662976,
+      "offLineMeters": 42.4
+    }
+  ],
   "stage": {
     "routeId": "shikoku-88-awa",
     "index": 1,

@@ -1294,6 +1294,35 @@
       }
     },
     {
+      "id": "wp-osm-town-node697482793",
+      "frac": 0.7955601852012447,
+      "kind": "waypoint",
+      "label": "Susaki",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 33.400745233546544,
+        "lon": 133.28342101592156
+      },
+      "pin": {
+        "lat": 33.400826,
+        "lon": 133.2829594
+      },
+      "names": {
+        "ar": "سوساكي، كوتشي",
+        "cs": "Susaki",
+        "de": "Susaki",
+        "es": "Susaki",
+        "fr": "Susaki",
+        "id": "Susaki",
+        "ja": "須崎市",
+        "ko": "스사키시",
+        "pl": "Susaki",
+        "ru": "Сусаки",
+        "uk": "Сусакі",
+        "zh": "须崎市"
+      }
+    },
+    {
       "id": "stage-end",
       "frac": 1,
       "kind": "waypoint",
@@ -1309,7 +1338,63 @@
       }
     }
   ],
-  "marks": [],
+  "marks": [
+    {
+      "id": "wp-osm-supply-node5568013724",
+      "kind": "supply",
+      "name": "7-Eleven",
+      "at": {
+        "lat": 33.40863,
+        "lon": 133.295475
+      },
+      "frac": 0.7303150168041204,
+      "offLineMeters": 269
+    },
+    {
+      "id": "wp-osm-supply-node13419252122",
+      "kind": "supply",
+      "name": "Dawson",
+      "at": {
+        "lat": 33.405052,
+        "lon": 133.285521
+      },
+      "frac": 0.7798058260941044,
+      "offLineMeters": 150.8
+    },
+    {
+      "id": "wp-osm-transport-node8383580512",
+      "kind": "transport",
+      "name": "Awa",
+      "at": {
+        "lat": 33.366987,
+        "lon": 133.258839
+      },
+      "frac": 0.9909066992137787,
+      "offLineMeters": 82
+    },
+    {
+      "id": "wp-osm-supply-node12898846611",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 33.365472,
+        "lon": 133.25841
+      },
+      "frac": 0.995490209685468,
+      "offLineMeters": 58.9
+    },
+    {
+      "id": "wp-osm-accommodation-node12898846612",
+      "kind": "bed",
+      "name": "民宿あわの里",
+      "at": {
+        "lat": 33.363528,
+        "lon": 133.257573
+      },
+      "frac": 1,
+      "offLineMeters": 206.6
+    }
+  ],
   "stage": {
     "routeId": "shikoku-88-tosa",
     "index": 8,

@@ -959,6 +959,65 @@
       }
     },
     {
+      "id": "temple-86",
+      "frac": 0.03642760277981842,
+      "kind": "waypoint",
+      "label": "Shido-ji",
+      "icon": "seal",
+      "at": {
+        "lat": 34.323958,
+        "lon": 134.179669
+      },
+      "pin": {
+        "lat": 34.324,
+        "lon": 134.18
+      },
+      "text": "Temple 86 · Shingon Zentsuji · stamp available (¥500)",
+      "names": {
+        "ja": "志度寺"
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "temple-87",
+      "frac": 0.3762680324183621,
+      "kind": "waypoint",
+      "label": "Nagao-ji",
+      "icon": "seal",
+      "at": {
+        "lat": 34.26699589595554,
+        "lon": 134.17229519635532
+      },
+      "pin": {
+        "lat": 34.267,
+        "lon": 134.172
+      },
+      "text": "Temple 87 · Tendai · stamp available (¥500)",
+      "names": {
+        "ja": "長尾寺"
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-sacred_site-node13057949002",
+      "frac": 0.5734866220890122,
+      "kind": "waypoint",
+      "label": "Oishi Shrine",
+      "icon": "building.columns",
+      "at": {
+        "lat": 34.234309911095636,
+        "lon": 134.17345868400722
+      },
+      "pin": {
+        "lat": 34.2351191,
+        "lon": 134.1720685
+      },
+      "names": {
+        "ja": "大石神社"
+      },
+      "sitMinutes": 5
+    },
+    {
       "id": "stage-end",
       "frac": 1,
       "kind": "waypoint",
@@ -975,9 +1034,305 @@
       "names": {
         "ja": "大窪寺"
       }
+    },
+    {
+      "id": "temple-88",
+      "frac": 1,
+      "kind": "waypoint",
+      "label": "Okubo-ji",
+      "icon": "seal",
+      "at": {
+        "lat": 34.19102,
+        "lon": 134.206794
+      },
+      "pin": {
+        "lat": 34.191,
+        "lon": 134.207
+      },
+      "text": "Final temple. Pilgrims traditionally leave their walking staff here.",
+      "names": {
+        "ja": "大窪寺"
+      },
+      "sitMinutes": 5
     }
   ],
-  "marks": [],
+  "marks": [
+    {
+      "id": "wp-osm-food-node10593663355",
+      "kind": "food",
+      "name": "富士屋寿し",
+      "at": {
+        "lat": 34.323912,
+        "lon": 134.17264
+      },
+      "frac": 0.0034879116416453512,
+      "offLineMeters": 54.7
+    },
+    {
+      "id": "wp-osm-supply-node2006133064",
+      "kind": "supply",
+      "name": "Lawson",
+      "at": {
+        "lat": 34.321948,
+        "lon": 134.172627
+      },
+      "frac": 0.00434603554040008,
+      "offLineMeters": 163
+    },
+    {
+      "id": "wp-osm-transport-node601281509",
+      "kind": "transport",
+      "name": "琴電志度駅",
+      "at": {
+        "lat": 34.322432,
+        "lon": 134.173147
+      },
+      "frac": 0.006480133882922026,
+      "offLineMeters": 105.3
+    },
+    {
+      "id": "wp-osm-transport-node601281508",
+      "kind": "transport",
+      "name": "志度駅",
+      "at": {
+        "lat": 34.321704,
+        "lon": 134.173161
+      },
+      "frac": 0.006882032698035496,
+      "offLineMeters": 185.9
+    },
+    {
+      "id": "wp-osm-medical-node2007953822",
+      "kind": "medical",
+      "name": "レデイ調剤薬局",
+      "at": {
+        "lat": 34.321536,
+        "lon": 134.174713
+      },
+      "frac": 0.012029950807549726,
+      "offLineMeters": 201.6
+    },
+    {
+      "id": "wp-osm-supply-node762939774",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 34.324606,
+        "lon": 134.178213
+      },
+      "frac": 0.029977922433703036,
+      "offLineMeters": 99.9
+    },
+    {
+      "id": "wp-osm-supply-node2007953363",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 34.321204,
+        "lon": 134.176317
+      },
+      "frac": 0.05700001638499804,
+      "offLineMeters": 197.7
+    },
+    {
+      "id": "wp-osm-food-node2007953268",
+      "kind": "food",
+      "name": "Unnamed",
+      "at": {
+        "lat": 34.321098,
+        "lon": 134.177008
+      },
+      "frac": 0.05763196880558767,
+      "offLineMeters": 134.4
+    },
+    {
+      "id": "wp-osm-medical-node2007952957",
+      "kind": "medical",
+      "name": "Unnamed",
+      "at": {
+        "lat": 34.320752,
+        "lon": 134.17906
+      },
+      "frac": 0.059667471018058124,
+      "offLineMeters": 53.5
+    },
+    {
+      "id": "wp-osm-supply-node2007952900",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 34.320703,
+        "lon": 134.178088
+      },
+      "frac": 0.059879375637151386,
+      "offLineMeters": 35.9
+    },
+    {
+      "id": "wp-osm-transport-node2007952439",
+      "kind": "transport",
+      "name": "Unnamed",
+      "at": {
+        "lat": 34.320268,
+        "lon": 134.181172
+      },
+      "frac": 0.062475236889682935,
+      "offLineMeters": 246.7
+    },
+    {
+      "id": "wp-osm-medical-node1423706463",
+      "kind": "medical",
+      "name": "ツツミ病院",
+      "at": {
+        "lat": 34.317052,
+        "lon": 134.178543
+      },
+      "frac": 0.07963570538651257,
+      "offLineMeters": 26.6
+    },
+    {
+      "id": "wp-osm-supply-node762939692",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 34.315728,
+        "lon": 134.179813
+      },
+      "frac": 0.08870564565879242,
+      "offLineMeters": 15.8
+    },
+    {
+      "id": "wp-osm-medical-node2523256751",
+      "kind": "medical",
+      "name": "たに歯科クリニック",
+      "at": {
+        "lat": 34.313669,
+        "lon": 134.18016
+      },
+      "frac": 0.09997534914743508,
+      "offLineMeters": 17.5
+    },
+    {
+      "id": "wp-osm-transport-node599934830",
+      "kind": "transport",
+      "name": "Orange Town",
+      "at": {
+        "lat": 34.302399,
+        "lon": 134.180698
+      },
+      "frac": 0.16165194150071371,
+      "offLineMeters": 129.9
+    },
+    {
+      "id": "wp-osm-transport-node599934829",
+      "kind": "transport",
+      "name": "広瀬橋",
+      "at": {
+        "lat": 34.28483,
+        "lon": 134.176491
+      },
+      "frac": 0.264618283866737,
+      "offLineMeters": 5.1
+    },
+    {
+      "id": "wp-osm-supply-node761147052",
+      "kind": "supply",
+      "name": "ミニストップ",
+      "at": {
+        "lat": 34.284071,
+        "lon": 134.175608
+      },
+      "frac": 0.26857006826733604,
+      "offLineMeters": 80.7
+    },
+    {
+      "id": "wp-osm-accommodation-node11416760369",
+      "kind": "bed",
+      "name": "Nagao-ji Ryokan",
+      "at": {
+        "lat": 34.266061,
+        "lon": 134.17153
+      },
+      "frac": 0.3837769150026906,
+      "offLineMeters": 17.8
+    },
+    {
+      "id": "wp-osm-supply-node8220337830",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 34.266131,
+        "lon": 134.169421
+      },
+      "frac": 0.38387875676432287,
+      "offLineMeters": 210.4
+    },
+    {
+      "id": "wp-osm-supply-node8220337823",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 34.266618,
+        "lon": 134.169474
+      },
+      "frac": 0.3865593727334228,
+      "offLineMeters": 205.4
+    },
+    {
+      "id": "wp-osm-supply-node12964188849",
+      "kind": "supply",
+      "name": "Lawson",
+      "at": {
+        "lat": 34.265288,
+        "lon": 134.174055
+      },
+      "frac": 0.3967275696838911,
+      "offLineMeters": 163.9
+    },
+    {
+      "id": "wp-osm-accommodation-node11416730769",
+      "kind": "bed",
+      "name": "Inn Tek-Tek",
+      "at": {
+        "lat": 34.265034,
+        "lon": 134.171965
+      },
+      "frac": 0.3975133946991597,
+      "offLineMeters": 29.7
+    },
+    {
+      "id": "wp-osm-transport-node599934827",
+      "kind": "transport",
+      "name": "旭町",
+      "at": {
+        "lat": 34.265075,
+        "lon": 134.173252
+      },
+      "frac": 0.3976660576867643,
+      "offLineMeters": 88.7
+    },
+    {
+      "id": "wp-osm-supply-node2338970515",
+      "kind": "supply",
+      "name": "FamilyMart",
+      "at": {
+        "lat": 34.261851,
+        "lon": 134.175379
+      },
+      "frac": 0.41538376370280544,
+      "offLineMeters": 276.1
+    },
+    {
+      "id": "wp-osm-supply-node1047293782",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 34.190622,
+        "lon": 134.206372
+      },
+      "frac": 0.9971500083512631,
+      "offLineMeters": 16
+    }
+  ],
   "stage": {
     "routeId": "shikoku-88-sanuki",
     "index": 4,

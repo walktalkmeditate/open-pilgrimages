@@ -1274,6 +1274,99 @@
       }
     },
     {
+      "id": "wp-osm-sacred_site-node370030192",
+      "frac": 0.5641991750531831,
+      "kind": "waypoint",
+      "label": "白鳥神社",
+      "icon": "building.columns",
+      "at": {
+        "lat": 33.771978,
+        "lon": 134.580817
+      },
+      "pin": {
+        "lat": 33.7728786,
+        "lon": 134.5800428
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-sacred_site-node298593792",
+      "frac": 0.8804942247550761,
+      "kind": "waypoint",
+      "label": "恵比寿神社",
+      "icon": "building.columns",
+      "at": {
+        "lat": 33.736711,
+        "lon": 134.550581
+      },
+      "pin": {
+        "lat": 33.7356815,
+        "lon": 134.5507357
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-sacred_site-node5394602633",
+      "frac": 0.9369913951209476,
+      "kind": "waypoint",
+      "label": "Hiwasa Hachiman Shrine",
+      "icon": "building.columns",
+      "at": {
+        "lat": 33.73523749378386,
+        "lon": 134.53969495944355
+      },
+      "pin": {
+        "lat": 33.7349021,
+        "lon": 134.5403324
+      },
+      "names": {
+        "ja": "日和佐八幡神社"
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-town-node298625630",
+      "frac": 0.9568176962450926,
+      "kind": "waypoint",
+      "label": "Minami",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 33.73432718061576,
+        "lon": 134.53547559322269
+      },
+      "pin": {
+        "lat": 33.7345812,
+        "lon": 134.5354307
+      },
+      "names": {
+        "fr": "Minami",
+        "id": "Minami",
+        "ja": "美波町",
+        "ko": "미나미초",
+        "th": "มินามิ",
+        "zh": "美波町"
+      }
+    },
+    {
+      "id": "wp-osm-sacred_site-node369741886",
+      "frac": 0.9996655323760978,
+      "kind": "waypoint",
+      "label": "23 Yakuo-ji",
+      "icon": "building.columns",
+      "at": {
+        "lat": 33.732048678932685,
+        "lon": 134.5281029100177
+      },
+      "pin": {
+        "lat": 33.7322973,
+        "lon": 134.5275924
+      },
+      "names": {
+        "ja": "第23番札所 薬王寺"
+      },
+      "sitMinutes": 5
+    },
+    {
       "id": "stage-end",
       "frac": 1,
       "kind": "waypoint",
@@ -1290,9 +1383,140 @@
       "names": {
         "ja": "薬王寺"
       }
+    },
+    {
+      "id": "temple-23",
+      "frac": 1,
+      "kind": "waypoint",
+      "label": "Yakuo-ji",
+      "icon": "seal",
+      "at": {
+        "lat": 33.731992,
+        "lon": 134.528063
+      },
+      "pin": {
+        "lat": 33.732,
+        "lon": 134.528
+      },
+      "text": "Last temple in Tokushima. 75 km gap to the next temple.",
+      "names": {
+        "ja": "薬王寺"
+      },
+      "sitMinutes": 5
     }
   ],
-  "marks": [],
+  "marks": [
+    {
+      "id": "wp-osm-transport-node9430425139",
+      "kind": "transport",
+      "name": "Yuki",
+      "at": {
+        "lat": 33.775804,
+        "lon": 134.591636
+      },
+      "frac": 0.5059025872046218,
+      "offLineMeters": 87.1
+    },
+    {
+      "id": "wp-osm-supply-node9430425623",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 33.774157,
+        "lon": 134.588253
+      },
+      "frac": 0.5229462400422432,
+      "offLineMeters": 3.8
+    },
+    {
+      "id": "wp-osm-supply-node11350212070",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 33.77251,
+        "lon": 134.585392
+      },
+      "frac": 0.5403602596929364,
+      "offLineMeters": 23.9
+    },
+    {
+      "id": "wp-osm-transport-node265017159",
+      "kind": "transport",
+      "name": "Tainohama",
+      "at": {
+        "lat": 33.772771,
+        "lon": 134.583838
+      },
+      "frac": 0.5507953660437913,
+      "offLineMeters": 7.5
+    },
+    {
+      "id": "wp-osm-transport-node265017851",
+      "kind": "transport",
+      "name": "Kiki",
+      "at": {
+        "lat": 33.766516,
+        "lon": 134.569447
+      },
+      "frac": 0.6387336175071707,
+      "offLineMeters": 166.4
+    },
+    {
+      "id": "wp-osm-supply-node11874408278",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 33.734464,
+        "lon": 134.540791
+      },
+      "frac": 0.9378367763180603,
+      "offLineMeters": 131.6
+    },
+    {
+      "id": "wp-osm-medical-node5394655856",
+      "kind": "medical",
+      "name": "美波町国民健康保険日和佐診療所",
+      "at": {
+        "lat": 33.735692,
+        "lon": 134.532335
+      },
+      "frac": 0.9645632947268977,
+      "offLineMeters": 215.1
+    },
+    {
+      "id": "wp-osm-accommodation-node5044547321",
+      "kind": "bed",
+      "name": "Hiwasa guest house",
+      "at": {
+        "lat": 33.732968,
+        "lon": 134.533997
+      },
+      "frac": 0.9703311978981684,
+      "offLineMeters": 11.5
+    },
+    {
+      "id": "wp-osm-food-node2875936823",
+      "kind": "food",
+      "name": "ひわさ屋",
+      "at": {
+        "lat": 33.731887,
+        "lon": 134.533898
+      },
+      "frac": 0.9756703023371525,
+      "offLineMeters": 42.2
+    },
+    {
+      "id": "wp-osm-accommodation-node11350962171",
+      "kind": "bed",
+      "name": "Guest House Sakura-an",
+      "at": {
+        "lat": 33.732095,
+        "lon": 134.532162
+      },
+      "frac": 0.9815962234597462,
+      "offLineMeters": 6.3
+    }
+  ],
   "stage": {
     "routeId": "shikoku-88-awa",
     "index": 4,

@@ -2077,6 +2077,26 @@
       "sitMinutes": 5
     },
     {
+      "id": "temple-66",
+      "frac": 0.5356426322063502,
+      "kind": "waypoint",
+      "label": "Unpen-ji",
+      "icon": "seal",
+      "at": {
+        "lat": 34.03491958882767,
+        "lon": 133.72390460897455
+      },
+      "pin": {
+        "lat": 34.035,
+        "lon": 133.724
+      },
+      "text": "Cloud Monastery — highest temple on the pilgrimage at 911m.",
+      "names": {
+        "ja": "雲辺寺"
+      },
+      "sitMinutes": 5
+    },
+    {
       "id": "wp-osm-viewpoint-node13189823602",
       "frac": 0.5387150234184915,
       "kind": "waypoint",
@@ -2121,6 +2141,26 @@
       "pin": {
         "lat": 34.0911479,
         "lon": 133.704952
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "temple-67",
+      "frac": 0.7904670232949045,
+      "kind": "waypoint",
+      "label": "Daiko-ji",
+      "icon": "seal",
+      "at": {
+        "lat": 34.102211,
+        "lon": 133.719304
+      },
+      "pin": {
+        "lat": 34.102,
+        "lon": 133.719
+      },
+      "text": "Temple 67 · Shingon Zentsuji · stamp available (¥500)",
+      "names": {
+        "ja": "大興寺"
       },
       "sitMinutes": 5
     },

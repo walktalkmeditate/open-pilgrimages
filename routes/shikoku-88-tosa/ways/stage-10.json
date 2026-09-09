@@ -1242,6 +1242,60 @@
       }
     },
     {
+      "id": "wp-osm-sacred_site-node13044815801",
+      "frac": 0.33071684836777604,
+      "kind": "waypoint",
+      "label": "Iyoki Tenmangu Shrine",
+      "icon": "building.columns",
+      "at": {
+        "lat": 33.14427893147797,
+        "lon": 133.12387886490146
+      },
+      "pin": {
+        "lat": 33.1444426,
+        "lon": 133.1214124
+      },
+      "names": {
+        "ja": "天満宮"
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-sacred_site-node10810977710",
+      "frac": 0.39407578748682975,
+      "kind": "waypoint",
+      "label": "八坂神社",
+      "icon": "building.columns",
+      "at": {
+        "lat": 33.131702486705244,
+        "lon": 133.11913344963853
+      },
+      "pin": {
+        "lat": 33.1317722,
+        "lon": 133.1192661
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-sacred_site-node13044816301",
+      "frac": 0.586823692772878,
+      "kind": "waypoint",
+      "label": "Kumano Shrine",
+      "icon": "building.columns",
+      "at": {
+        "lat": 33.1036395862112,
+        "lon": 133.0987695048507
+      },
+      "pin": {
+        "lat": 33.1033148,
+        "lon": 133.0996059
+      },
+      "names": {
+        "ja": "熊野神社"
+      },
+      "sitMinutes": 5
+    },
+    {
       "id": "stage-end",
       "frac": 0.9999858354924348,
       "kind": "waypoint",
@@ -1257,7 +1311,184 @@
       }
     }
   ],
-  "marks": [],
+  "marks": [
+    {
+      "id": "wp-osm-food-node6907495685",
+      "kind": "food",
+      "name": "満州軒",
+      "at": {
+        "lat": 33.2101,
+        "lon": 133.140193
+      },
+      "frac": 0.01835931921741246,
+      "offLineMeters": 137.9
+    },
+    {
+      "id": "wp-osm-medical-node1423745667",
+      "kind": "medical",
+      "name": "高幡会大西病院",
+      "at": {
+        "lat": 33.209426,
+        "lon": 133.141244
+      },
+      "frac": 0.02269679685024222,
+      "offLineMeters": 152.7
+    },
+    {
+      "id": "wp-osm-supply-node11376111769",
+      "kind": "supply",
+      "name": "FamilyMart",
+      "at": {
+        "lat": 33.207771,
+        "lon": 133.141301
+      },
+      "frac": 0.02742762023847142,
+      "offLineMeters": 24.7
+    },
+    {
+      "id": "wp-osm-transport-node8383599018",
+      "kind": "transport",
+      "name": "Kaina",
+      "at": {
+        "lat": 33.133115,
+        "lon": 133.116204
+      },
+      "frac": 0.40137371383456816,
+      "offLineMeters": 255.5
+    },
+    {
+      "id": "wp-osm-transport-node13166920601",
+      "kind": "transport",
+      "name": "Unnamed",
+      "at": {
+        "lat": 33.12199,
+        "lon": 133.119963
+      },
+      "frac": 0.4439210674647164,
+      "offLineMeters": 59.6
+    },
+    {
+      "id": "wp-osm-transport-node8383599019",
+      "kind": "transport",
+      "name": "Iyoki",
+      "at": {
+        "lat": 33.105175,
+        "lon": 133.098589
+      },
+      "frac": 0.5805188176685544,
+      "offLineMeters": 22.4
+    },
+    {
+      "id": "wp-osm-supply-node5796338662",
+      "kind": "supply",
+      "name": "ローソン",
+      "at": {
+        "lat": 33.088644,
+        "lon": 133.100541
+      },
+      "frac": 0.6677078152003671,
+      "offLineMeters": 54.2
+    },
+    {
+      "id": "wp-osm-transport-node8383599020",
+      "kind": "transport",
+      "name": "Tosa-Saga",
+      "at": {
+        "lat": 33.080901,
+        "lon": 133.101498
+      },
+      "frac": 0.7010259405985868,
+      "offLineMeters": 52
+    },
+    {
+      "id": "wp-osm-supply-node5572401621",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 33.068945,
+        "lon": 133.107627
+      },
+      "frac": 0.7641133096127397,
+      "offLineMeters": 43.1
+    },
+    {
+      "id": "wp-osm-supply-node5572388823",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 33.067217,
+        "lon": 133.107922
+      },
+      "frac": 0.7714707031309462,
+      "offLineMeters": 39.6
+    },
+    {
+      "id": "wp-osm-transport-node8383599021",
+      "kind": "transport",
+      "name": "Saga-Kōen",
+      "at": {
+        "lat": 33.064119,
+        "lon": 133.106369
+      },
+      "frac": 0.785196256948688,
+      "offLineMeters": 17.1
+    },
+    {
+      "id": "wp-osm-water_source-node10810968860",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 33.062739,
+        "lon": 133.107183
+      },
+      "frac": 0.7905683536451723,
+      "offLineMeters": 32.7
+    },
+    {
+      "id": "wp-osm-transport-node8383599022",
+      "kind": "transport",
+      "name": "Tosa-Shirahama",
+      "at": {
+        "lat": 33.056647,
+        "lon": 133.097519
+      },
+      "frac": 0.8325612392045867,
+      "offLineMeters": 93.4
+    },
+    {
+      "id": "wp-osm-food-node12905484056",
+      "kind": "food",
+      "name": "ニュー白浜",
+      "at": {
+        "lat": 33.054659,
+        "lon": 133.097708
+      },
+      "frac": 0.8411916224705479,
+      "offLineMeters": 13.4
+    },
+    {
+      "id": "wp-osm-food-node11377020569",
+      "kind": "food",
+      "name": "Kakegawa Takoyaki",
+      "at": {
+        "lat": 33.032851,
+        "lon": 133.093292
+      },
+      "frac": 0.9363962664117531,
+      "offLineMeters": 15.2
+    },
+    {
+      "id": "wp-osm-supply-node11377019169",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 33.032354,
+        "lon": 133.093475
+      },
+      "frac": 0.9378897312312144,
+      "offLineMeters": 23.4
+    }
+  ],
   "stage": {
     "routeId": "shikoku-88-tosa",
     "index": 10,

@@ -1274,6 +1274,42 @@
       }
     },
     {
+      "id": "wp-osm-sacred_site-node4857660589",
+      "frac": 0.6245535875894672,
+      "kind": "waypoint",
+      "label": "福城寺",
+      "icon": "building.columns",
+      "at": {
+        "lat": 33.636022,
+        "lon": 132.863141
+      },
+      "pin": {
+        "lat": 33.6364124,
+        "lon": 132.8620155
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "temple-44",
+      "frac": 0.8539024357905142,
+      "kind": "waypoint",
+      "label": "Daiho-ji",
+      "icon": "seal",
+      "at": {
+        "lat": 33.661098204461226,
+        "lon": 132.91154093249395
+      },
+      "pin": {
+        "lat": 33.661,
+        "lon": 132.912
+      },
+      "text": "Temple 44 · Shingon Buzan · stamp available (¥500)",
+      "names": {
+        "ja": "大宝寺"
+      },
+      "sitMinutes": 5
+    },
+    {
       "id": "stage-end",
       "frac": 0.9996178635019669,
       "kind": "waypoint",
@@ -1289,7 +1325,272 @@
       }
     }
   ],
-  "marks": [],
+  "marks": [
+    {
+      "id": "wp-osm-accommodation-node5923663885",
+      "kind": "bed",
+      "name": "Rairakuku",
+      "at": {
+        "lat": 33.585217,
+        "lon": 132.753892
+      },
+      "frac": 0.00027334182667459675,
+      "offLineMeters": 12.6
+    },
+    {
+      "id": "wp-osm-transport-node11393125069",
+      "kind": "transport",
+      "name": "Umezu",
+      "at": {
+        "lat": 33.580295,
+        "lon": 132.761434
+      },
+      "frac": 0.037582191074039366,
+      "offLineMeters": 18
+    },
+    {
+      "id": "wp-osm-supply-node10858037380",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 33.579485,
+        "lon": 132.76781
+      },
+      "frac": 0.06420893638095357,
+      "offLineMeters": 40.3
+    },
+    {
+      "id": "wp-osm-food-node5923150586",
+      "kind": "food",
+      "name": "Namihei",
+      "at": {
+        "lat": 33.595606,
+        "lon": 132.784581
+      },
+      "frac": 0.1905028556379838,
+      "offLineMeters": 19.1
+    },
+    {
+      "id": "wp-osm-supply-node10858059638",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 33.612741,
+        "lon": 132.786626
+      },
+      "frac": 0.26657512920906584,
+      "offLineMeters": 17.1
+    },
+    {
+      "id": "wp-osm-transport-node3152605818",
+      "kind": "transport",
+      "name": "宮成",
+      "at": {
+        "lat": 33.631527,
+        "lon": 132.862731
+      },
+      "frac": 0.6041512087055475,
+      "offLineMeters": 11
+    },
+    {
+      "id": "wp-osm-transport-node3152607539",
+      "kind": "transport",
+      "name": "森田",
+      "at": {
+        "lat": 33.635667,
+        "lon": 132.862052
+      },
+      "frac": 0.6228512769289822,
+      "offLineMeters": 86.5
+    },
+    {
+      "id": "wp-osm-accommodation-node11417170369",
+      "kind": "bed",
+      "name": "Yurano no mori",
+      "at": {
+        "lat": 33.64135,
+        "lon": 132.876755
+      },
+      "frac": 0.6842645758851138,
+      "offLineMeters": 81.8
+    },
+    {
+      "id": "wp-osm-supply-node10858037381",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 33.648702,
+        "lon": 132.883948
+      },
+      "frac": 0.7290831578400071,
+      "offLineMeters": 35.5
+    },
+    {
+      "id": "wp-osm-accommodation-node12922784442",
+      "kind": "bed",
+      "name": "へんろ宿　OHESO",
+      "at": {
+        "lat": 33.653334,
+        "lon": 132.900197
+      },
+      "frac": 0.7943882101416769,
+      "offLineMeters": 272.5
+    },
+    {
+      "id": "wp-osm-transport-node3152603510",
+      "kind": "transport",
+      "name": "久万役場前",
+      "at": {
+        "lat": 33.655528,
+        "lon": 132.901356
+      },
+      "frac": 0.8034330219189053,
+      "offLineMeters": 138.7
+    },
+    {
+      "id": "wp-osm-transport-node6376107786",
+      "kind": "transport",
+      "name": "久万高原",
+      "at": {
+        "lat": 33.655003,
+        "lon": 132.901629
+      },
+      "frac": 0.8035716976077386,
+      "offLineMeters": 202.2
+    },
+    {
+      "id": "wp-osm-transport-node3152607280",
+      "kind": "transport",
+      "name": "曙町",
+      "at": {
+        "lat": 33.655427,
+        "lon": 132.902228
+      },
+      "frac": 0.8075609983286091,
+      "offLineMeters": 166.7
+    },
+    {
+      "id": "wp-osm-supply-node13246986325",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 33.655487,
+        "lon": 132.90313
+      },
+      "frac": 0.8090460441546652,
+      "offLineMeters": 178.3
+    },
+    {
+      "id": "wp-osm-supply-node5923153485",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 33.658205,
+        "lon": 132.902065
+      },
+      "frac": 0.8146609330023116,
+      "offLineMeters": 31.1
+    },
+    {
+      "id": "wp-osm-supply-node13176202701",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 33.661009,
+        "lon": 132.911064
+      },
+      "frac": 0.8508629263214824,
+      "offLineMeters": 28.5
+    },
+    {
+      "id": "wp-osm-transport-node3152607538",
+      "kind": "transport",
+      "name": "森林組合前",
+      "at": {
+        "lat": 33.666239,
+        "lon": 132.924934
+      },
+      "frac": 0.9329096899266773,
+      "offLineMeters": 202.4
+    },
+    {
+      "id": "wp-osm-transport-node3152603380",
+      "kind": "transport",
+      "name": "下河合",
+      "at": {
+        "lat": 33.670069,
+        "lon": 132.925985
+      },
+      "frac": 0.9474167506620039,
+      "offLineMeters": 45
+    },
+    {
+      "id": "wp-osm-supply-node11397216270",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 33.670865,
+        "lon": 132.926061
+      },
+      "frac": 0.950281334989975,
+      "offLineMeters": 11.8
+    },
+    {
+      "id": "wp-osm-transport-node3152608174",
+      "kind": "transport",
+      "name": "畑野川",
+      "at": {
+        "lat": 33.672219,
+        "lon": 132.92881
+      },
+      "frac": 0.9642917175544017,
+      "offLineMeters": 8.4
+    },
+    {
+      "id": "wp-osm-accommodation-node5923153685",
+      "kind": "bed",
+      "name": "Wasaro",
+      "at": {
+        "lat": 33.671365,
+        "lon": 132.931282
+      },
+      "frac": 0.9740369655246043,
+      "offLineMeters": 9.7
+    },
+    {
+      "id": "wp-osm-accommodation-node11417119269",
+      "kind": "bed",
+      "name": "8 Cho Zaka Japanese Inn",
+      "at": {
+        "lat": 33.670771,
+        "lon": 132.93466
+      },
+      "frac": 0.9868091410463025,
+      "offLineMeters": 14.8
+    },
+    {
+      "id": "wp-osm-transport-node3152603014",
+      "kind": "transport",
+      "name": "ふるさと村",
+      "at": {
+        "lat": 33.670745,
+        "lon": 132.936449
+      },
+      "frac": 0.9932221815144282,
+      "offLineMeters": 6.1
+    },
+    {
+      "id": "wp-osm-accommodation-node5923659291",
+      "kind": "bed",
+      "name": "Karibaen",
+      "at": {
+        "lat": 33.669937,
+        "lon": 132.937885
+      },
+      "frac": 0.9996178635019669,
+      "offLineMeters": 38.1
+    }
+  ],
   "stage": {
     "routeId": "shikoku-88-iyo",
     "index": 5,

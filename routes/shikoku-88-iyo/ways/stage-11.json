@@ -1134,6 +1134,140 @@
       }
     },
     {
+      "id": "temple-60",
+      "frac": 0.42063377384628525,
+      "kind": "waypoint",
+      "label": "Yokomine-ji",
+      "icon": "seal",
+      "at": {
+        "lat": 33.83775311841826,
+        "lon": 133.11102215505858
+      },
+      "pin": {
+        "lat": 33.838,
+        "lon": 133.111
+      },
+      "text": "Temple 60 · Shingon Omuro · stamp available (¥500)",
+      "names": {
+        "ja": "横峰寺"
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-sacred_site-node13055529205",
+      "frac": 0.6673876881680271,
+      "kind": "waypoint",
+      "label": "Kouonji Okuno-in",
+      "icon": "building.columns",
+      "at": {
+        "lat": 33.876841961464976,
+        "lon": 133.09964666263335
+      },
+      "pin": {
+        "lat": 33.8768783,
+        "lon": 133.0997176
+      },
+      "names": {
+        "ja": "香園寺奥の院白瀧"
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "temple-61",
+      "frac": 0.7569768693481728,
+      "kind": "waypoint",
+      "label": "Koon-ji",
+      "icon": "seal",
+      "at": {
+        "lat": 33.89383837755709,
+        "lon": 133.10308576753567
+      },
+      "pin": {
+        "lat": 33.894,
+        "lon": 133.103
+      },
+      "text": "Temple 61 · Shingon · stamp available (¥500)",
+      "names": {
+        "ja": "香園寺"
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-sacred_site-node412335530",
+      "frac": 0.7576412330530989,
+      "kind": "waypoint",
+      "label": "61 Kōon-ji",
+      "icon": "building.columns",
+      "at": {
+        "lat": 33.89389969101981,
+        "lon": 133.10325345616263
+      },
+      "pin": {
+        "lat": 33.893603,
+        "lon": 133.1034109
+      },
+      "names": {
+        "ja": "第61番札所 香園寺"
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-sacred_site-node11407826114",
+      "frac": 0.7749862085921795,
+      "kind": "waypoint",
+      "label": "Mishima-jinja Shrine",
+      "icon": "building.columns",
+      "at": {
+        "lat": 33.89497436483278,
+        "lon": 133.10734479795983
+      },
+      "pin": {
+        "lat": 33.8961263,
+        "lon": 133.10725
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "temple-62",
+      "frac": 0.815682885555121,
+      "kind": "waypoint",
+      "label": "Hoju-ji",
+      "icon": "seal",
+      "at": {
+        "lat": 33.897288,
+        "lon": 133.115084
+      },
+      "pin": {
+        "lat": 33.897,
+        "lon": 133.115
+      },
+      "text": "Temple 62 · Shingon Zentsuji · stamp available (¥500)",
+      "names": {
+        "ja": "宝寿寺"
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "temple-63",
+      "frac": 0.8717897743124798,
+      "kind": "waypoint",
+      "label": "Kichijo-ji",
+      "icon": "seal",
+      "at": {
+        "lat": 33.895829,
+        "lon": 133.129272
+      },
+      "pin": {
+        "lat": 33.896,
+        "lon": 133.129
+      },
+      "text": "Temple 63 · Toji Shingon · stamp available (¥500)",
+      "names": {
+        "ja": "吉祥寺"
+      },
+      "sitMinutes": 5
+    },
+    {
       "id": "stage-end",
       "frac": 1,
       "kind": "waypoint",
@@ -1150,9 +1284,302 @@
       "names": {
         "ja": "前神寺"
       }
+    },
+    {
+      "id": "temple-64",
+      "frac": 1,
+      "kind": "waypoint",
+      "label": "Maegami-ji",
+      "icon": "seal",
+      "at": {
+        "lat": 33.890354,
+        "lon": 133.160529
+      },
+      "pin": {
+        "lat": 33.89,
+        "lon": 133.161
+      },
+      "text": "Temple 64 · Shingon Ishizuchi · stamp available (¥500)",
+      "names": {
+        "ja": "前神寺"
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-sacred_site-node412335769",
+      "frac": 1,
+      "kind": "waypoint",
+      "label": "64 Maegami-ji",
+      "icon": "building.columns",
+      "at": {
+        "lat": 33.890354,
+        "lon": 133.160529
+      },
+      "pin": {
+        "lat": 33.8903607,
+        "lon": 133.1605615
+      },
+      "names": {
+        "ja": "第64番札所 前神寺"
+      },
+      "sitMinutes": 5
     }
   ],
-  "marks": [],
+  "marks": [
+    {
+      "id": "wp-osm-transport-node3152605250",
+      "kind": "transport",
+      "name": "妙口",
+      "at": {
+        "lat": 33.883301,
+        "lon": 133.079547
+      },
+      "frac": 0.10205074234640125,
+      "offLineMeters": 238.2
+    },
+    {
+      "id": "wp-osm-transport-node3152605203",
+      "kind": "transport",
+      "name": "大頭",
+      "at": {
+        "lat": 33.881627,
+        "lon": 133.076965
+      },
+      "frac": 0.10269512983335781,
+      "offLineMeters": 62.7
+    },
+    {
+      "id": "wp-osm-supply-node11404766169",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 33.848715,
+        "lon": 133.100339
+      },
+      "frac": 0.34515790167038957,
+      "offLineMeters": 4.9
+    },
+    {
+      "id": "wp-osm-supply-node412335502",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 33.837789,
+        "lon": 133.109986
+      },
+      "frac": 0.416758369329105,
+      "offLineMeters": 20.5
+    },
+    {
+      "id": "wp-osm-supply-node1741429935",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 33.83984,
+        "lon": 133.114442
+      },
+      "frac": 0.4379418195836754,
+      "offLineMeters": 98.9
+    },
+    {
+      "id": "wp-osm-water_source-node13406797193",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 33.888919,
+        "lon": 133.098727
+      },
+      "frac": 0.7235349086216968,
+      "offLineMeters": 25.9
+    },
+    {
+      "id": "wp-osm-transport-node3152605114",
+      "kind": "transport",
+      "name": "大師入口",
+      "at": {
+        "lat": 33.896119,
+        "lon": 133.102748
+      },
+      "frac": 0.7598724918989893,
+      "offLineMeters": 244.6
+    },
+    {
+      "id": "wp-osm-supply-node3212649944",
+      "kind": "supply",
+      "name": "Seven-Eleven",
+      "at": {
+        "lat": 33.897101,
+        "lon": 133.106091
+      },
+      "frac": 0.7710824932075925,
+      "offLineMeters": 243.8
+    },
+    {
+      "id": "wp-osm-transport-node3152606887",
+      "kind": "transport",
+      "name": "新宮",
+      "at": {
+        "lat": 33.896913,
+        "lon": 133.107283
+      },
+      "frac": 0.7900258055638071,
+      "offLineMeters": 192.7
+    },
+    {
+      "id": "wp-osm-transport-node3152606275",
+      "kind": "transport",
+      "name": "小松総合支所前",
+      "at": {
+        "lat": 33.897094,
+        "lon": 133.111599
+      },
+      "frac": 0.7982965296740258,
+      "offLineMeters": 52.9
+    },
+    {
+      "id": "wp-osm-medical-node1423730763",
+      "kind": "medical",
+      "name": "倬清会横山病院",
+      "at": {
+        "lat": 33.896091,
+        "lon": 133.11315
+      },
+      "frac": 0.8038204445993875,
+      "offLineMeters": 61.8
+    },
+    {
+      "id": "wp-osm-transport-node265007014",
+      "kind": "transport",
+      "name": "Iyo-Komatsu",
+      "at": {
+        "lat": 33.897657,
+        "lon": 133.116705
+      },
+      "frac": 0.8213014697861583,
+      "offLineMeters": 37.9
+    },
+    {
+      "id": "wp-osm-transport-node3152606276",
+      "kind": "transport",
+      "name": "小松駅前",
+      "at": {
+        "lat": 33.896907,
+        "lon": 133.116539
+      },
+      "frac": 0.8231098155228938,
+      "offLineMeters": 9.1
+    },
+    {
+      "id": "wp-osm-transport-node3152610362",
+      "kind": "transport",
+      "name": "西町入口",
+      "at": {
+        "lat": 33.896265,
+        "lon": 133.12363
+      },
+      "frac": 0.84877284346281,
+      "offLineMeters": 3.7
+    },
+    {
+      "id": "wp-osm-transport-node265009422",
+      "kind": "transport",
+      "name": "Iyo-Himi",
+      "at": {
+        "lat": 33.896796,
+        "lon": 133.130755
+      },
+      "frac": 0.8713872335707806,
+      "offLineMeters": 166
+    },
+    {
+      "id": "wp-osm-transport-node3152607716",
+      "kind": "transport",
+      "name": "氷見",
+      "at": {
+        "lat": 33.895507,
+        "lon": 133.130278
+      },
+      "frac": 0.8735508285189648,
+      "offLineMeters": 83
+    },
+    {
+      "id": "wp-osm-accommodation-node11402656769",
+      "kind": "bed",
+      "name": "Guesthouse Himi",
+      "at": {
+        "lat": 33.895325,
+        "lon": 133.129508
+      },
+      "frac": 0.8739721469250684,
+      "offLineMeters": 22.3
+    },
+    {
+      "id": "wp-osm-medical-node1423731241",
+      "kind": "medical",
+      "name": "北辰会まなべ病院",
+      "at": {
+        "lat": 33.893203,
+        "lon": 133.131454
+      },
+      "frac": 0.8859969878932261,
+      "offLineMeters": 133.8
+    },
+    {
+      "id": "wp-osm-supply-node12947705964",
+      "kind": "supply",
+      "name": "Lawson",
+      "at": {
+        "lat": 33.895197,
+        "lon": 133.131904
+      },
+      "frac": 0.8876314176358081,
+      "offLineMeters": 87.9
+    },
+    {
+      "id": "wp-osm-transport-node3152610785",
+      "kind": "transport",
+      "name": "野々市",
+      "at": {
+        "lat": 33.895224,
+        "lon": 133.138336
+      },
+      "frac": 0.9100103273983555,
+      "offLineMeters": 167.1
+    },
+    {
+      "id": "wp-osm-transport-node3152607552",
+      "kind": "transport",
+      "name": "楢之木",
+      "at": {
+        "lat": 33.894927,
+        "lon": 133.146373
+      },
+      "frac": 0.940402631122634,
+      "offLineMeters": 124.3
+    },
+    {
+      "id": "wp-osm-transport-node3152608564",
+      "kind": "transport",
+      "name": "石鎚神社",
+      "at": {
+        "lat": 33.894609,
+        "lon": 133.158013
+      },
+      "frac": 0.9822787583501462,
+      "offLineMeters": 205.5
+    },
+    {
+      "id": "wp-osm-supply-node412335767",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 33.892095,
+        "lon": 133.159269
+      },
+      "frac": 0.9904050042300767,
+      "offLineMeters": 6.2
+    }
+  ],
   "stage": {
     "routeId": "shikoku-88-iyo",
     "index": 11,

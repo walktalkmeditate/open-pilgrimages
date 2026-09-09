@@ -1014,6 +1014,313 @@
       }
     },
     {
+      "id": "wp-osm-sacred_site-node12287432670",
+      "frac": 0.28381239195574015,
+      "kind": "waypoint",
+      "label": "宿地神社",
+      "icon": "building.columns",
+      "at": {
+        "lat": 33.181705581005936,
+        "lon": 132.5492121089452
+      },
+      "pin": {
+        "lat": 33.1810736,
+        "lon": 132.5475965
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-sacred_site-node12223972610",
+      "frac": 0.3902042650671037,
+      "kind": "waypoint",
+      "label": "高城神社",
+      "icon": "building.columns",
+      "at": {
+        "lat": 33.20310606672627,
+        "lon": 132.55325903046918
+      },
+      "pin": {
+        "lat": 33.2016184,
+        "lon": 132.5552768
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-sacred_site-node12187487869",
+      "frac": 0.4230083217953932,
+      "kind": "waypoint",
+      "label": "金勢神社",
+      "icon": "building.columns",
+      "at": {
+        "lat": 33.20895,
+        "lon": 132.558805
+      },
+      "pin": {
+        "lat": 33.2076058,
+        "lon": 132.5596445
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-sacred_site-node12386242121",
+      "frac": 0.47429238245172933,
+      "kind": "waypoint",
+      "label": "南豫護国神社",
+      "icon": "building.columns",
+      "at": {
+        "lat": 33.217702,
+        "lon": 132.565571
+      },
+      "pin": {
+        "lat": 33.2189693,
+        "lon": 132.5635135
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-cultural_site-node9719709612",
+      "frac": 0.4773981183882592,
+      "kind": "waypoint",
+      "label": "煙硝矢倉跡",
+      "icon": "book.closed",
+      "at": {
+        "lat": 33.21815528094121,
+        "lon": 132.56624675939983
+      },
+      "pin": {
+        "lat": 33.2188684,
+        "lon": 132.5655633
+      }
+    },
+    {
+      "id": "wp-osm-sacred_site-node12014491344",
+      "frac": 0.47774704109764643,
+      "kind": "waypoint",
+      "label": "カトリック宇和島教会",
+      "icon": "building.columns",
+      "at": {
+        "lat": 33.218206206073724,
+        "lon": 132.56632267950556
+      },
+      "pin": {
+        "lat": 33.2183989,
+        "lon": 132.566138
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-sacred_site-node12123579391",
+      "frac": 0.5106775474326851,
+      "kind": "waypoint",
+      "label": "浄満寺",
+      "icon": "building.columns",
+      "at": {
+        "lat": 33.22357229496007,
+        "lon": 132.5679934168279
+      },
+      "pin": {
+        "lat": 33.2220419,
+        "lon": 132.5690185
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-sacred_site-node12135216042",
+      "frac": 0.5133843096007628,
+      "kind": "waypoint",
+      "label": "顕本寺",
+      "icon": "building.columns",
+      "at": {
+        "lat": 33.223881,
+        "lon": 132.568652
+      },
+      "pin": {
+        "lat": 33.2240413,
+        "lon": 132.5701558
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-sacred_site-node4104885415",
+      "frac": 0.5212759478366247,
+      "kind": "waypoint",
+      "label": "Ryukouin Temple",
+      "icon": "building.columns",
+      "at": {
+        "lat": 33.225264112067805,
+        "lon": 132.5689333999922
+      },
+      "pin": {
+        "lat": 33.2249875,
+        "lon": 132.5692336
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-sacred_site-node12150955477",
+      "frac": 0.5475993092526993,
+      "kind": "waypoint",
+      "label": "赤染神社",
+      "icon": "building.columns",
+      "at": {
+        "lat": 33.22999517086415,
+        "lon": 132.57017838724272
+      },
+      "pin": {
+        "lat": 33.2289394,
+        "lon": 132.5729555
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-sacred_site-node12174186318",
+      "frac": 0.5801350671766241,
+      "kind": "waypoint",
+      "label": "八幡神社",
+      "icon": "building.columns",
+      "at": {
+        "lat": 33.236887832253245,
+        "lon": 132.57088512838408
+      },
+      "pin": {
+        "lat": 33.2368172,
+        "lon": 132.5722736
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-sacred_site-node12174167692",
+      "frac": 0.5830104900288312,
+      "kind": "waypoint",
+      "label": "東禅寺",
+      "icon": "building.columns",
+      "at": {
+        "lat": 33.23755747326158,
+        "lon": 132.57093382111668
+      },
+      "pin": {
+        "lat": 33.237457,
+        "lon": 132.5729089
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-sacred_site-node12174204538",
+      "frac": 0.5846745207940192,
+      "kind": "waypoint",
+      "label": "石鎚神社",
+      "icon": "building.columns",
+      "at": {
+        "lat": 33.237945,
+        "lon": 132.570962
+      },
+      "pin": {
+        "lat": 33.2378756,
+        "lon": 132.574098
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-sacred_site-node12183340078",
+      "frac": 0.5932396109710577,
+      "kind": "waypoint",
+      "label": "明海寺",
+      "icon": "building.columns",
+      "at": {
+        "lat": 33.239886406483,
+        "lon": 132.57043655313728
+      },
+      "pin": {
+        "lat": 33.2400302,
+        "lon": 132.5708159
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-sacred_site-node6310590236",
+      "frac": 0.8164352053019099,
+      "kind": "waypoint",
+      "label": "若宮神社",
+      "icon": "building.columns",
+      "at": {
+        "lat": 33.282073,
+        "lon": 132.596226
+      },
+      "pin": {
+        "lat": 33.2822881,
+        "lon": 132.5953954
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-sacred_site-node6310587761",
+      "frac": 0.8170104400271557,
+      "kind": "waypoint",
+      "label": "多福院",
+      "icon": "building.columns",
+      "at": {
+        "lat": 33.28217998310484,
+        "lon": 132.59632293774288
+      },
+      "pin": {
+        "lat": 33.282093,
+        "lon": 132.5964603
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "temple-41",
+      "frac": 0.8830048412585831,
+      "kind": "waypoint",
+      "label": "Ryuko-ji",
+      "icon": "seal",
+      "at": {
+        "lat": 33.29498434360584,
+        "lon": 132.59898554409153
+      },
+      "pin": {
+        "lat": 33.295,
+        "lon": 132.599
+      },
+      "text": "Temple 41 · Shingon Omuro · stamp available (¥500)",
+      "names": {
+        "ja": "竜光寺"
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-sacred_site-node10031270371",
+      "frac": 0.8841262594166875,
+      "kind": "waypoint",
+      "label": "稲荷神社",
+      "icon": "building.columns",
+      "at": {
+        "lat": 33.29512416369913,
+        "lon": 132.59873949072636
+      },
+      "pin": {
+        "lat": 33.2953474,
+        "lon": 132.5984627
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-sacred_site-node6278284387",
+      "frac": 0.9774569734824475,
+      "kind": "waypoint",
+      "label": "祇園様",
+      "icon": "building.columns",
+      "at": {
+        "lat": 33.306739747789386,
+        "lon": 132.58454004977722
+      },
+      "pin": {
+        "lat": 33.307694,
+        "lon": 132.5861072
+      },
+      "sitMinutes": 5
+    },
+    {
       "id": "stage-end",
       "frac": 1,
       "kind": "waypoint",
@@ -1030,9 +1337,1302 @@
       "names": {
         "ja": "佛木寺"
       }
+    },
+    {
+      "id": "temple-42",
+      "frac": 1,
+      "kind": "waypoint",
+      "label": "Butsumoku-ji",
+      "icon": "seal",
+      "at": {
+        "lat": 33.310553,
+        "lon": 132.581527
+      },
+      "pin": {
+        "lat": 33.311,
+        "lon": 132.581
+      },
+      "text": "Temple 42 · Shingon Omuro · stamp available (¥500)",
+      "names": {
+        "ja": "佛木寺"
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-sacred_site-node7677154317",
+      "frac": 1,
+      "kind": "waypoint",
+      "label": "仏木寺三十三観音霊場33番",
+      "icon": "building.columns",
+      "at": {
+        "lat": 33.310553,
+        "lon": 132.581527
+      },
+      "pin": {
+        "lat": 33.3114001,
+        "lon": 132.581839
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-sacred_site-node7677154339",
+      "frac": 1,
+      "kind": "waypoint",
+      "label": "仏木寺三十三観音霊場11番",
+      "icon": "building.columns",
+      "at": {
+        "lat": 33.310553,
+        "lon": 132.581527
+      },
+      "pin": {
+        "lat": 33.3108846,
+        "lon": 132.5820241
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-sacred_site-node811018827",
+      "frac": 1,
+      "kind": "waypoint",
+      "label": "42 Butsumoku-ji",
+      "icon": "building.columns",
+      "at": {
+        "lat": 33.310553,
+        "lon": 132.581527
+      },
+      "pin": {
+        "lat": 33.3105599,
+        "lon": 132.5814592
+      },
+      "names": {
+        "ja": "第42番札所 佛木寺 仏木寺"
+      },
+      "sitMinutes": 5
     }
   ],
-  "marks": [],
+  "marks": [
+    {
+      "id": "wp-osm-medical-node13904227388",
+      "kind": "medical",
+      "name": "つしま調剤薬局",
+      "at": {
+        "lat": 33.134191,
+        "lon": 132.524179
+      },
+      "frac": 0.008313260659610428,
+      "offLineMeters": 36.5
+    },
+    {
+      "id": "wp-osm-supply-node13904227386",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 33.135103,
+        "lon": 132.524396
+      },
+      "frac": 0.012716759008137303,
+      "offLineMeters": 33.1
+    },
+    {
+      "id": "wp-osm-transport-node3152611580",
+      "kind": "transport",
+      "name": "高田",
+      "at": {
+        "lat": 33.135531,
+        "lon": 132.524708
+      },
+      "frac": 0.014034311791789609,
+      "offLineMeters": 18.6
+    },
+    {
+      "id": "wp-osm-supply-node11386718669",
+      "kind": "supply",
+      "name": "FamilyMart Tsushima Takata",
+      "at": {
+        "lat": 33.139649,
+        "lon": 132.52485
+      },
+      "frac": 0.033521234994163235,
+      "offLineMeters": 40.8
+    },
+    {
+      "id": "wp-osm-transport-node3152607794",
+      "kind": "transport",
+      "name": "津島やすらぎの里入口",
+      "at": {
+        "lat": 33.140165,
+        "lon": 132.525432
+      },
+      "frac": 0.03559425718365624,
+      "offLineMeters": 16.9
+    },
+    {
+      "id": "wp-osm-transport-node3152603230",
+      "kind": "transport",
+      "name": "上谷口",
+      "at": {
+        "lat": 33.141906,
+        "lon": 132.525819
+      },
+      "frac": 0.04385833572357917,
+      "offLineMeters": 11.5
+    },
+    {
+      "id": "wp-osm-transport-node3152607416",
+      "kind": "transport",
+      "name": "松尾トンネル口",
+      "at": {
+        "lat": 33.146133,
+        "lon": 132.529103
+      },
+      "frac": 0.06544317160283326,
+      "offLineMeters": 15.9
+    },
+    {
+      "id": "wp-osm-water_source-node10858002086",
+      "kind": "water",
+      "name": "Unnamed",
+      "at": {
+        "lat": 33.162679,
+        "lon": 132.537829
+      },
+      "frac": 0.1587040413738268,
+      "offLineMeters": 11.9
+    },
+    {
+      "id": "wp-osm-transport-node3152610788",
+      "kind": "transport",
+      "name": "野井",
+      "at": {
+        "lat": 33.164193,
+        "lon": 132.548165
+      },
+      "frac": 0.19788267598791262,
+      "offLineMeters": 117.8
+    },
+    {
+      "id": "wp-osm-transport-node4727131894",
+      "kind": "transport",
+      "name": "Unnamed",
+      "at": {
+        "lat": 33.165323,
+        "lon": 132.548176
+      },
+      "frac": 0.19905092379348116,
+      "offLineMeters": 51.5
+    },
+    {
+      "id": "wp-osm-transport-node3152607486",
+      "kind": "transport",
+      "name": "柿の木（旧道）",
+      "at": {
+        "lat": 33.16572,
+        "lon": 132.547482
+      },
+      "frac": 0.20098925139394497,
+      "offLineMeters": 1.3
+    },
+    {
+      "id": "wp-osm-transport-node3152607485",
+      "kind": "transport",
+      "name": "柿の木",
+      "at": {
+        "lat": 33.166941,
+        "lon": 132.550125
+      },
+      "frac": 0.21279402930364424,
+      "offLineMeters": 134.7
+    },
+    {
+      "id": "wp-osm-transport-node3152609547",
+      "kind": "transport",
+      "name": "草木",
+      "at": {
+        "lat": 33.17156,
+        "lon": 132.553022
+      },
+      "frac": 0.23399430897225038,
+      "offLineMeters": 42.2
+    },
+    {
+      "id": "wp-osm-transport-node3152607826",
+      "kind": "transport",
+      "name": "清水",
+      "at": {
+        "lat": 33.175182,
+        "lon": 132.552417
+      },
+      "frac": 0.2471965911772891,
+      "offLineMeters": 169.6
+    },
+    {
+      "id": "wp-osm-transport-node3152607408",
+      "kind": "transport",
+      "name": "松ヶ鼻",
+      "at": {
+        "lat": 33.179062,
+        "lon": 132.55069
+      },
+      "frac": 0.2713005156488458,
+      "offLineMeters": 0.1
+    },
+    {
+      "id": "wp-osm-transport-node3152608243",
+      "kind": "transport",
+      "name": "石丸",
+      "at": {
+        "lat": 33.180967,
+        "lon": 132.549658
+      },
+      "frac": 0.280265686035646,
+      "offLineMeters": 2.8
+    },
+    {
+      "id": "wp-osm-food-node12284684853",
+      "kind": "food",
+      "name": "Joyfull",
+      "at": {
+        "lat": 33.18245,
+        "lon": 132.54907
+      },
+      "frac": 0.2869188047392123,
+      "offLineMeters": 23
+    },
+    {
+      "id": "wp-osm-transport-node3152603177",
+      "kind": "transport",
+      "name": "上保田",
+      "at": {
+        "lat": 33.185382,
+        "lon": 132.548319
+      },
+      "frac": 0.30002361680517575,
+      "offLineMeters": 1.2
+    },
+    {
+      "id": "wp-osm-transport-node3152603987",
+      "kind": "transport",
+      "name": "保田",
+      "at": {
+        "lat": 33.189629,
+        "lon": 132.547882
+      },
+      "frac": 0.31830294694355926,
+      "offLineMeters": 1.9
+    },
+    {
+      "id": "wp-osm-food-node12277901694",
+      "kind": "food",
+      "name": "ファミリー",
+      "at": {
+        "lat": 33.190644,
+        "lon": 132.548022
+      },
+      "frac": 0.32262247254722365,
+      "offLineMeters": 16.8
+    },
+    {
+      "id": "wp-osm-supply-node12257728506",
+      "kind": "supply",
+      "name": "FamilyMart",
+      "at": {
+        "lat": 33.195068,
+        "lon": 132.546663
+      },
+      "frac": 0.3421544548616035,
+      "offLineMeters": 13.4
+    },
+    {
+      "id": "wp-osm-transport-node3152604368",
+      "kind": "transport",
+      "name": "出口",
+      "at": {
+        "lat": 33.195647,
+        "lon": 132.546534
+      },
+      "frac": 0.3446788716783945,
+      "offLineMeters": 12.9
+    },
+    {
+      "id": "wp-osm-transport-node3152605840",
+      "kind": "transport",
+      "name": "寄松橋",
+      "at": {
+        "lat": 33.200227,
+        "lon": 132.545431
+      },
+      "frac": 0.3577715442822894,
+      "offLineMeters": 190.7
+    },
+    {
+      "id": "wp-osm-transport-node3152608178",
+      "kind": "transport",
+      "name": "番城小学校前",
+      "at": {
+        "lat": 33.200718,
+        "lon": 132.550785
+      },
+      "frac": 0.3766867988327504,
+      "offLineMeters": 9.8
+    },
+    {
+      "id": "wp-osm-food-node12424848496",
+      "kind": "food",
+      "name": "CoCo ICHIBANYA",
+      "at": {
+        "lat": 33.201274,
+        "lon": 132.551077
+      },
+      "frac": 0.3791384713303085,
+      "offLineMeters": 17.7
+    },
+    {
+      "id": "wp-osm-transport-node3152605839",
+      "kind": "transport",
+      "name": "寄松",
+      "at": {
+        "lat": 33.202365,
+        "lon": 132.552412
+      },
+      "frac": 0.3858129791485647,
+      "offLineMeters": 4.7
+    },
+    {
+      "id": "wp-osm-food-node12237204998",
+      "kind": "food",
+      "name": "Gusto",
+      "at": {
+        "lat": 33.203078,
+        "lon": 132.553441
+      },
+      "frac": 0.39054800401067297,
+      "offLineMeters": 14.8
+    },
+    {
+      "id": "wp-osm-supply-node12231106163",
+      "kind": "supply",
+      "name": "FamilyMart",
+      "at": {
+        "lat": 33.205071,
+        "lon": 132.552466
+      },
+      "frac": 0.39464259920461203,
+      "offLineMeters": 199.8
+    },
+    {
+      "id": "wp-osm-transport-node3152606477",
+      "kind": "transport",
+      "name": "川内口",
+      "at": {
+        "lat": 33.20499,
+        "lon": 132.555141
+      },
+      "frac": 0.4007256301997472,
+      "offLineMeters": 6.1
+    },
+    {
+      "id": "wp-osm-food-node12223988510",
+      "kind": "food",
+      "name": "Trattoria Piccola Isola",
+      "at": {
+        "lat": 33.206092,
+        "lon": 132.555481
+      },
+      "frac": 0.4053382322858458,
+      "offLineMeters": 35.4
+    },
+    {
+      "id": "wp-osm-transport-node3152605769",
+      "kind": "transport",
+      "name": "宇和島警察署前",
+      "at": {
+        "lat": 33.20683,
+        "lon": 132.556599
+      },
+      "frac": 0.4101911331751162,
+      "offLineMeters": 5.9
+    },
+    {
+      "id": "wp-osm-food-node12210482069",
+      "kind": "food",
+      "name": "ごはん茶屋 仁",
+      "at": {
+        "lat": 33.208671,
+        "lon": 132.555277
+      },
+      "frac": 0.41413786026309624,
+      "offLineMeters": 209.9
+    },
+    {
+      "id": "wp-osm-supply-node12217485648",
+      "kind": "supply",
+      "name": "Lawson",
+      "at": {
+        "lat": 33.208308,
+        "lon": 132.557162
+      },
+      "frac": 0.4165832051403389,
+      "offLineMeters": 41.5
+    },
+    {
+      "id": "wp-osm-transport-node3152604004",
+      "kind": "transport",
+      "name": "元結掛口",
+      "at": {
+        "lat": 33.209852,
+        "lon": 132.558634
+      },
+      "frac": 0.425307899223986,
+      "offLineMeters": 82.2
+    },
+    {
+      "id": "wp-osm-supply-node5581797021",
+      "kind": "supply",
+      "name": "7-Eleven",
+      "at": {
+        "lat": 33.211197,
+        "lon": 132.559042
+      },
+      "frac": 0.43159332126834715,
+      "offLineMeters": 138.6
+    },
+    {
+      "id": "wp-osm-transport-node3152610835",
+      "kind": "transport",
+      "name": "長堀橋",
+      "at": {
+        "lat": 33.211668,
+        "lon": 132.558832
+      },
+      "frac": 0.43286434706871013,
+      "offLineMeters": 183.7
+    },
+    {
+      "id": "wp-osm-food-node13904181632",
+      "kind": "food",
+      "name": "いごっそ",
+      "at": {
+        "lat": 33.212617,
+        "lon": 132.558817
+      },
+      "frac": 0.43623392098945685,
+      "offLineMeters": 242.9
+    },
+    {
+      "id": "wp-osm-transport-node3152606952",
+      "kind": "transport",
+      "name": "明倫橋",
+      "at": {
+        "lat": 33.213464,
+        "lon": 132.559239
+      },
+      "frac": 0.4430409428115192,
+      "offLineMeters": 245.5
+    },
+    {
+      "id": "wp-osm-transport-node3152605224",
+      "kind": "transport",
+      "name": "天赦園前",
+      "at": {
+        "lat": 33.216072,
+        "lon": 132.562058
+      },
+      "frac": 0.4515661336660398,
+      "offLineMeters": 298.2
+    },
+    {
+      "id": "wp-osm-transport-node3152607513",
+      "kind": "transport",
+      "name": "桜町",
+      "at": {
+        "lat": 33.215391,
+        "lon": 132.563431
+      },
+      "frac": 0.4542557525164076,
+      "offLineMeters": 167.2
+    },
+    {
+      "id": "wp-osm-transport-node3152608611",
+      "kind": "transport",
+      "name": "神田橋",
+      "at": {
+        "lat": 33.214493,
+        "lon": 132.567182
+      },
+      "frac": 0.46044020748053394,
+      "offLineMeters": 143.7
+    },
+    {
+      "id": "wp-osm-transport-node3152606521",
+      "kind": "transport",
+      "name": "市立病院南口",
+      "at": {
+        "lat": 33.215019,
+        "lon": 132.565436
+      },
+      "frac": 0.4618944601009801,
+      "offLineMeters": 24.8
+    },
+    {
+      "id": "wp-osm-transport-node3152603589",
+      "kind": "transport",
+      "name": "京町",
+      "at": {
+        "lat": 33.215508,
+        "lon": 132.568725
+      },
+      "frac": 0.4653785518177378,
+      "offLineMeters": 245.3
+    },
+    {
+      "id": "wp-osm-medical-node1423744636",
+      "kind": "medical",
+      "name": "鎌野病院",
+      "at": {
+        "lat": 33.216211,
+        "lon": 132.567426
+      },
+      "frac": 0.466641867218852,
+      "offLineMeters": 133.7
+    },
+    {
+      "id": "wp-osm-transport-node3152606519",
+      "kind": "transport",
+      "name": "市立病院前",
+      "at": {
+        "lat": 33.216608,
+        "lon": 132.564994
+      },
+      "frac": 0.4701464261234914,
+      "offLineMeters": 78.1
+    },
+    {
+      "id": "wp-osm-food-node12032835644",
+      "kind": "food",
+      "name": "みよしの",
+      "at": {
+        "lat": 33.217134,
+        "lon": 132.565564
+      },
+      "frac": 0.4719186535572374,
+      "offLineMeters": 13.9
+    },
+    {
+      "id": "wp-osm-food-node12032835645",
+      "kind": "food",
+      "name": "にこにこ食堂",
+      "at": {
+        "lat": 33.217243,
+        "lon": 132.564922
+      },
+      "frac": 0.4728601947750527,
+      "offLineMeters": 69.8
+    },
+    {
+      "id": "wp-osm-medical-node12032835009",
+      "kind": "medical",
+      "name": "ダテ薬局",
+      "at": {
+        "lat": 33.21734,
+        "lon": 132.563174
+      },
+      "frac": 0.47429238245172933,
+      "offLineMeters": 226.6
+    },
+    {
+      "id": "wp-osm-transport-node3152607402",
+      "kind": "transport",
+      "name": "東高校前",
+      "at": {
+        "lat": 33.217208,
+        "lon": 132.5626
+      },
+      "frac": 0.47429238245172933,
+      "offLineMeters": 281.8
+    },
+    {
+      "id": "wp-osm-accommodation-node11927103603",
+      "kind": "bed",
+      "name": "Uwajima Regent Hotel",
+      "at": {
+        "lat": 33.218387,
+        "lon": 132.567029
+      },
+      "frac": 0.48020688068683515,
+      "offLineMeters": 25.4
+    },
+    {
+      "id": "wp-osm-transport-node3152604934",
+      "kind": "transport",
+      "name": "堀端町",
+      "at": {
+        "lat": 33.217847,
+        "lon": 132.567549
+      },
+      "frac": 0.4802151246243151,
+      "offLineMeters": 102.5
+    },
+    {
+      "id": "wp-osm-food-node11927834146",
+      "kind": "food",
+      "name": "安藤コーヒー",
+      "at": {
+        "lat": 33.218466,
+        "lon": 132.568211
+      },
+      "frac": 0.48250069503158666,
+      "offLineMeters": 93
+    },
+    {
+      "id": "wp-osm-supply-node12105598225",
+      "kind": "supply",
+      "name": "FamilyMart",
+      "at": {
+        "lat": 33.217528,
+        "lon": 132.569434
+      },
+      "frac": 0.48250069503158666,
+      "offLineMeters": 246.2
+    },
+    {
+      "id": "wp-osm-transport-node3152607322",
+      "kind": "transport",
+      "name": "本町追手",
+      "at": {
+        "lat": 33.218899,
+        "lon": 132.568437
+      },
+      "frac": 0.48250069503158666,
+      "offLineMeters": 100.5
+    },
+    {
+      "id": "wp-osm-transport-node3152610441",
+      "kind": "transport",
+      "name": "追手通り前",
+      "at": {
+        "lat": 33.219713,
+        "lon": 132.568899
+      },
+      "frac": 0.482820127329486,
+      "offLineMeters": 169.3
+    },
+    {
+      "id": "wp-osm-food-node13744174061",
+      "kind": "food",
+      "name": "Kogarashi",
+      "at": {
+        "lat": 33.219822,
+        "lon": 132.568021
+      },
+      "frac": 0.48477409554399303,
+      "offLineMeters": 104.2
+    },
+    {
+      "id": "wp-osm-accommodation-node12118001403",
+      "kind": "bed",
+      "name": "Uwajima Daiichi Hotel",
+      "at": {
+        "lat": 33.220948,
+        "lon": 132.568859
+      },
+      "frac": 0.48750070504770154,
+      "offLineMeters": 233.5
+    },
+    {
+      "id": "wp-osm-food-node13744238521",
+      "kind": "food",
+      "name": "天よし",
+      "at": {
+        "lat": 33.220549,
+        "lon": 132.567319
+      },
+      "frac": 0.48872511938584906,
+      "offLineMeters": 87
+    },
+    {
+      "id": "wp-osm-transport-node3152607910",
+      "kind": "transport",
+      "name": "牛鬼すとりーと",
+      "at": {
+        "lat": 33.221017,
+        "lon": 132.567946
+      },
+      "frac": 0.48936913430276796,
+      "offLineMeters": 163.4
+    },
+    {
+      "id": "wp-osm-transport-node3152604590",
+      "kind": "transport",
+      "name": "南予文化会館前",
+      "at": {
+        "lat": 33.220675,
+        "lon": 132.56619
+      },
+      "frac": 0.4911836771598135,
+      "offLineMeters": 2.3
+    },
+    {
+      "id": "wp-osm-supply-node3698522648",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 33.220788,
+        "lon": 132.564021
+      },
+      "frac": 0.49542580220274335,
+      "offLineMeters": 167.2
+    },
+    {
+      "id": "wp-osm-accommodation-node11982490512",
+      "kind": "bed",
+      "name": "旅館なか川",
+      "at": {
+        "lat": 33.223318,
+        "lon": 132.563715
+      },
+      "frac": 0.4988555383386722,
+      "offLineMeters": 178.3
+    },
+    {
+      "id": "wp-osm-accommodation-node12014491052",
+      "kind": "bed",
+      "name": "民宿みはら",
+      "at": {
+        "lat": 33.222382,
+        "lon": 132.563236
+      },
+      "frac": 0.4988555383386722,
+      "offLineMeters": 175.9
+    },
+    {
+      "id": "wp-osm-food-node11934498729",
+      "kind": "food",
+      "name": "お好み焼き すかがわ",
+      "at": {
+        "lat": 33.224499,
+        "lon": 132.563564
+      },
+      "frac": 0.4988555383386722,
+      "offLineMeters": 291.4
+    },
+    {
+      "id": "wp-osm-transport-node3152602994",
+      "kind": "transport",
+      "name": "お茶撰橋",
+      "at": {
+        "lat": 33.222585,
+        "lon": 132.564915
+      },
+      "frac": 0.49897920820695446,
+      "offLineMeters": 44.2
+    },
+    {
+      "id": "wp-osm-food-node9719690487",
+      "kind": "food",
+      "name": "Kappoh Tanaka - Uwajima Traditional Cooking",
+      "at": {
+        "lat": 33.222523,
+        "lon": 132.565592
+      },
+      "frac": 0.5009665911546772,
+      "offLineMeters": 7.4
+    },
+    {
+      "id": "wp-osm-transport-node3152606828",
+      "kind": "transport",
+      "name": "恵美須町",
+      "at": {
+        "lat": 33.224337,
+        "lon": 132.564676
+      },
+      "frac": 0.5019035386366709,
+      "offLineMeters": 225
+    },
+    {
+      "id": "wp-osm-supply-node11927129844",
+      "kind": "supply",
+      "name": "FamilyMart",
+      "at": {
+        "lat": 33.222773,
+        "lon": 132.566809
+      },
+      "frac": 0.5052971355418115,
+      "offLineMeters": 23.7
+    },
+    {
+      "id": "wp-osm-food-node11927182414",
+      "kind": "food",
+      "name": "ほづみ亭",
+      "at": {
+        "lat": 33.223584,
+        "lon": 132.566782
+      },
+      "frac": 0.5069130807097583,
+      "offLineMeters": 56.2
+    },
+    {
+      "id": "wp-osm-accommodation-node12125904000",
+      "kind": "bed",
+      "name": "スーパーホテル宇和島駅前天然温泉",
+      "at": {
+        "lat": 33.224164,
+        "lon": 132.566788
+      },
+      "frac": 0.5081453462071761,
+      "offLineMeters": 112.2
+    },
+    {
+      "id": "wp-osm-supply-node12386243620",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 33.225434,
+        "lon": 132.566444
+      },
+      "frac": 0.5171433158068428,
+      "offLineMeters": 177.3
+    },
+    {
+      "id": "wp-osm-transport-node3152607323",
+      "kind": "transport",
+      "name": "本社前",
+      "at": {
+        "lat": 33.224944,
+        "lon": 132.567469
+      },
+      "frac": 0.5171433158068428,
+      "offLineMeters": 67.5
+    },
+    {
+      "id": "wp-osm-transport-node3152611619",
+      "kind": "transport",
+      "name": "鶴島町",
+      "at": {
+        "lat": 33.225738,
+        "lon": 132.565971
+      },
+      "frac": 0.5171433158068428,
+      "offLineMeters": 232.5
+    },
+    {
+      "id": "wp-osm-transport-node3152602980",
+      "kind": "transport",
+      "name": "JR宇和島駅前",
+      "at": {
+        "lat": 33.225635,
+        "lon": 132.567936
+      },
+      "frac": 0.519697340825788,
+      "offLineMeters": 92.9
+    },
+    {
+      "id": "wp-osm-transport-node7832095789",
+      "kind": "transport",
+      "name": "Uwajima",
+      "at": {
+        "lat": 33.226047,
+        "lon": 132.567504
+      },
+      "frac": 0.5283871732182278,
+      "offLineMeters": 151.4
+    },
+    {
+      "id": "wp-osm-accommodation-node5583293623",
+      "kind": "bed",
+      "name": "宇和島オリエンタルホテル",
+      "at": {
+        "lat": 33.227364,
+        "lon": 132.565711
+      },
+      "frac": 0.5372170426860275,
+      "offLineMeters": 283.1
+    },
+    {
+      "id": "wp-osm-supply-node11932537538",
+      "kind": "supply",
+      "name": "Asahi Soft Drinks",
+      "at": {
+        "lat": 33.226959,
+        "lon": 132.567349
+      },
+      "frac": 0.5372170426860275,
+      "offLineMeters": 165.1
+    },
+    {
+      "id": "wp-osm-supply-node9582855253",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 33.228716,
+        "lon": 132.565934
+      },
+      "frac": 0.5372170426860275,
+      "offLineMeters": 268.7
+    },
+    {
+      "id": "wp-osm-transport-node3152604828",
+      "kind": "transport",
+      "name": "和霊神社前",
+      "at": {
+        "lat": 33.227951,
+        "lon": 132.566031
+      },
+      "frac": 0.5372170426860275,
+      "offLineMeters": 245.8
+    },
+    {
+      "id": "wp-osm-medical-node1423731074",
+      "kind": "medical",
+      "name": "加藤整形外科病院",
+      "at": {
+        "lat": 33.229244,
+        "lon": 132.567691
+      },
+      "frac": 0.5393428268010949,
+      "offLineMeters": 161.4
+    },
+    {
+      "id": "wp-osm-supply-node12141399678",
+      "kind": "supply",
+      "name": "7-Eleven",
+      "at": {
+        "lat": 33.228829,
+        "lon": 132.568341
+      },
+      "frac": 0.5394161637443982,
+      "offLineMeters": 85.4
+    },
+    {
+      "id": "wp-osm-transport-node3152604827",
+      "kind": "transport",
+      "name": "和霊大橋元",
+      "at": {
+        "lat": 33.231494,
+        "lon": 132.568305
+      },
+      "frac": 0.5511928742208739,
+      "offLineMeters": 210.2
+    },
+    {
+      "id": "wp-osm-transport-node3152604825",
+      "kind": "transport",
+      "name": "和霊中町",
+      "at": {
+        "lat": 33.231268,
+        "lon": 132.571161
+      },
+      "frac": 0.554651016114044,
+      "offLineMeters": 1.4
+    },
+    {
+      "id": "wp-osm-transport-node3152607770",
+      "kind": "transport",
+      "name": "泉町",
+      "at": {
+        "lat": 33.233287,
+        "lon": 132.571603
+      },
+      "frac": 0.563506306052092,
+      "offLineMeters": 0.2
+    },
+    {
+      "id": "wp-osm-food-node12167360457",
+      "kind": "food",
+      "name": "宿と珈琲 Sun&Moon 太陽と月",
+      "at": {
+        "lat": 33.233341,
+        "lon": 132.574145
+      },
+      "frac": 0.5651577969299675,
+      "offLineMeters": 232.8
+    },
+    {
+      "id": "wp-osm-food-node12365032865",
+      "kind": "food",
+      "name": "珈琲伝説",
+      "at": {
+        "lat": 33.23504,
+        "lon": 132.569129
+      },
+      "frac": 0.5722735162350955,
+      "offLineMeters": 151
+    },
+    {
+      "id": "wp-osm-transport-node3152603073",
+      "kind": "transport",
+      "name": "フジ北宇和島店前",
+      "at": {
+        "lat": 33.234679,
+        "lon": 132.568174
+      },
+      "frac": 0.5722735162350955,
+      "offLineMeters": 243.4
+    },
+    {
+      "id": "wp-osm-supply-node12185334663",
+      "kind": "supply",
+      "name": "Lawson",
+      "at": {
+        "lat": 33.237336,
+        "lon": 132.570679
+      },
+      "frac": 0.5820066592791445,
+      "offLineMeters": 22.2
+    },
+    {
+      "id": "wp-osm-transport-node7832690122",
+      "kind": "transport",
+      "name": "Kita-Uwajima",
+      "at": {
+        "lat": 33.238624,
+        "lon": 132.569788
+      },
+      "frac": 0.5883067011193605,
+      "offLineMeters": 93.5
+    },
+    {
+      "id": "wp-osm-supply-node12157067397",
+      "kind": "supply",
+      "name": "FamilyMart",
+      "at": {
+        "lat": 33.240068,
+        "lon": 132.568434
+      },
+      "frac": 0.5969105294626783,
+      "offLineMeters": 161.3
+    },
+    {
+      "id": "wp-osm-transport-node3152608164",
+      "kind": "transport",
+      "name": "申生田",
+      "at": {
+        "lat": 33.243505,
+        "lon": 132.568144
+      },
+      "frac": 0.609555737610798,
+      "offLineMeters": 241.7
+    },
+    {
+      "id": "wp-osm-transport-node3152607500",
+      "kind": "transport",
+      "name": "根無川",
+      "at": {
+        "lat": 33.243617,
+        "lon": 132.571037
+      },
+      "frac": 0.611132263986726,
+      "offLineMeters": 4.6
+    },
+    {
+      "id": "wp-osm-transport-node3152611609",
+      "kind": "transport",
+      "name": "鳥越",
+      "at": {
+        "lat": 33.253686,
+        "lon": 132.575825
+      },
+      "frac": 0.6610210534738368,
+      "offLineMeters": 8.4
+    },
+    {
+      "id": "wp-osm-transport-node3152607523",
+      "kind": "transport",
+      "name": "梅林口",
+      "at": {
+        "lat": 33.25953,
+        "lon": 132.580389
+      },
+      "frac": 0.6927764941070805,
+      "offLineMeters": 5.7
+    },
+    {
+      "id": "wp-osm-transport-node3152604005",
+      "kind": "transport",
+      "name": "光満",
+      "at": {
+        "lat": 33.264353,
+        "lon": 132.582255
+      },
+      "frac": 0.715329287663992,
+      "offLineMeters": 1.2
+    },
+    {
+      "id": "wp-osm-transport-node3152603474",
+      "kind": "transport",
+      "name": "中畑",
+      "at": {
+        "lat": 33.268227,
+        "lon": 132.583088
+      },
+      "frac": 0.7322573810694474,
+      "offLineMeters": 14.4
+    },
+    {
+      "id": "wp-osm-transport-node3152606897",
+      "kind": "transport",
+      "name": "新屋敷",
+      "at": {
+        "lat": 33.27348,
+        "lon": 132.589683
+      },
+      "frac": 0.7691041654609424,
+      "offLineMeters": 8.6
+    },
+    {
+      "id": "wp-osm-transport-node3152611242",
+      "kind": "transport",
+      "name": "Umane",
+      "at": {
+        "lat": 33.278349,
+        "lon": 132.591761
+      },
+      "frac": 0.7928978706004587,
+      "offLineMeters": 2.7
+    },
+    {
+      "id": "wp-osm-transport-node3152604414",
+      "kind": "transport",
+      "name": "務田",
+      "at": {
+        "lat": 33.282223,
+        "lon": 132.598865
+      },
+      "frac": 0.8207391854119633,
+      "offLineMeters": 211.6
+    },
+    {
+      "id": "wp-osm-supply-node2626509086",
+      "kind": "supply",
+      "name": "Lawson",
+      "at": {
+        "lat": 33.283404,
+        "lon": 132.598141
+      },
+      "frac": 0.8254749523167395,
+      "offLineMeters": 134.5
+    },
+    {
+      "id": "wp-osm-transport-node3152604415",
+      "kind": "transport",
+      "name": "務田公民館前",
+      "at": {
+        "lat": 33.28454,
+        "lon": 132.596404
+      },
+      "frac": 0.8282035010325702,
+      "offLineMeters": 61.7
+    },
+    {
+      "id": "wp-osm-transport-node2626509089",
+      "kind": "transport",
+      "name": "道の駅みま",
+      "at": {
+        "lat": 33.286039,
+        "lon": 132.595597
+      },
+      "frac": 0.8342658605324786,
+      "offLineMeters": 154.8
+    },
+    {
+      "id": "wp-osm-supply-node12309531549",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 33.286878,
+        "lon": 132.595492
+      },
+      "frac": 0.8377971188654311,
+      "offLineMeters": 174.8
+    },
+    {
+      "id": "wp-osm-transport-node3152607529",
+      "kind": "transport",
+      "name": "森ヶ鼻",
+      "at": {
+        "lat": 33.288867,
+        "lon": 132.598096
+      },
+      "frac": 0.8491824065973916,
+      "offLineMeters": 6.1
+    },
+    {
+      "id": "wp-osm-supply-node10042783209",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 33.293275,
+        "lon": 132.599915
+      },
+      "frac": 0.8736043685860234,
+      "offLineMeters": 2.6
+    },
+    {
+      "id": "wp-osm-food-node8374058217",
+      "kind": "food",
+      "name": "お食事処　長命水",
+      "at": {
+        "lat": 33.29445,
+        "lon": 132.599936
+      },
+      "frac": 0.8789080477009862,
+      "offLineMeters": 6.9
+    },
+    {
+      "id": "wp-osm-transport-node3152608241",
+      "kind": "transport",
+      "name": "石ヶ鼻",
+      "at": {
+        "lat": 33.292149,
+        "lon": 132.594658
+      },
+      "frac": 0.9091811647055655,
+      "offLineMeters": 237.8
+    },
+    {
+      "id": "wp-osm-transport-node3152606846",
+      "kind": "transport",
+      "name": "成妙学校前",
+      "at": {
+        "lat": 33.298745,
+        "lon": 132.592817
+      },
+      "frac": 0.9294947603551241,
+      "offLineMeters": 3.9
+    },
+    {
+      "id": "wp-osm-transport-node3152605182",
+      "kind": "transport",
+      "name": "大藤",
+      "at": {
+        "lat": 33.305184,
+        "lon": 132.589367
+      },
+      "frac": 0.9574024452691929,
+      "offLineMeters": 178.3
+    },
+    {
+      "id": "wp-osm-transport-node3152607691",
+      "kind": "transport",
+      "name": "正地",
+      "at": {
+        "lat": 33.306668,
+        "lon": 132.587052
+      },
+      "frac": 0.9719097851830506,
+      "offLineMeters": 184
+    },
+    {
+      "id": "wp-osm-transport-node3152603616",
+      "kind": "transport",
+      "name": "仏木寺",
+      "at": {
+        "lat": 33.309977,
+        "lon": 132.581619
+      },
+      "frac": 0.9950999493892949,
+      "offLineMeters": 12
+    }
+  ],
   "stage": {
     "routeId": "shikoku-88-iyo",
     "index": 2,

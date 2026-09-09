@@ -1064,6 +1064,63 @@
       }
     },
     {
+      "id": "wp-osm-sacred_site-node11377065269",
+      "frac": 0.007940797950304038,
+      "kind": "waypoint",
+      "label": "Kanonji Daishido",
+      "icon": "building.columns",
+      "at": {
+        "lat": 33.03727438613024,
+        "lon": 133.07420682881386
+      },
+      "pin": {
+        "lat": 33.0374654,
+        "lon": 133.0743411
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-viewpoint-node6851902953",
+      "frac": 0.26323307222457804,
+      "kind": "waypoint",
+      "label": "土佐西南大規模公園球技場",
+      "icon": "eye",
+      "at": {
+        "lat": 33.013648589666815,
+        "lon": 133.00312680746484
+      },
+      "pin": {
+        "lat": 33.0134817,
+        "lon": 133.0031349
+      },
+      "names": {
+        "ja": "土佐西南大規模公園球技場"
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-town-node697489702",
+      "frac": 0.2772511255839983,
+      "kind": "waypoint",
+      "label": "Kuroshio",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 33.010885,
+        "lon": 132.999925
+      },
+      "pin": {
+        "lat": 33.0119279,
+        "lon": 132.9983969
+      },
+      "names": {
+        "fr": "Kuroshio",
+        "id": "Kuroshio",
+        "ja": "黒潮町",
+        "ko": "구로시오초",
+        "zh": "黑潮町"
+      }
+    },
+    {
       "id": "stage-end",
       "frac": 0.9998971674243711,
       "kind": "waypoint",
@@ -1079,7 +1136,118 @@
       }
     }
   ],
-  "marks": [],
+  "marks": [
+    {
+      "id": "wp-osm-accommodation-node11377475869",
+      "kind": "bed",
+      "name": "Henro House Maaru",
+      "at": {
+        "lat": 33.035748,
+        "lon": 133.076432
+      },
+      "frac": 0.00001908657021521642,
+      "offLineMeters": 40.9
+    },
+    {
+      "id": "wp-osm-transport-node8383599023",
+      "kind": "transport",
+      "name": "Ariigawa",
+      "at": {
+        "lat": 33.039041,
+        "lon": 133.07103
+      },
+      "frac": 0.018216776911604813,
+      "offLineMeters": 69.5
+    },
+    {
+      "id": "wp-osm-transport-node8383599024",
+      "kind": "transport",
+      "name": "Tosa-Kamikawaguchi",
+      "at": {
+        "lat": 33.042996,
+        "lon": 133.056095
+      },
+      "frac": 0.06297976233592742,
+      "offLineMeters": 231.6
+    },
+    {
+      "id": "wp-osm-transport-node8383599025",
+      "kind": "transport",
+      "name": "Uminoōmukae",
+      "at": {
+        "lat": 33.040669,
+        "lon": 133.047422
+      },
+      "frac": 0.09215600264532647,
+      "offLineMeters": 182.8
+    },
+    {
+      "id": "wp-osm-transport-node8383599028",
+      "kind": "transport",
+      "name": "Tosa-Irino",
+      "at": {
+        "lat": 33.023883,
+        "lon": 133.011606
+      },
+      "frac": 0.22087639258446443,
+      "offLineMeters": 278.3
+    },
+    {
+      "id": "wp-osm-transport-node9470907587",
+      "kind": "transport",
+      "name": "Unnamed",
+      "at": {
+        "lat": 33.011252,
+        "lon": 132.999991
+      },
+      "frac": 0.2764137190723502,
+      "offLineMeters": 30.4
+    },
+    {
+      "id": "wp-osm-supply-node1800676598",
+      "kind": "supply",
+      "name": "スリーエフ中村竹島店",
+      "at": {
+        "lat": 32.963973,
+        "lon": 132.975265
+      },
+      "frac": 0.4951888336418953,
+      "offLineMeters": 58.8
+    },
+    {
+      "id": "wp-osm-supply-node10819478831",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 32.93974,
+        "lon": 132.971736
+      },
+      "frac": 0.5999188038969526,
+      "offLineMeters": 56.2
+    },
+    {
+      "id": "wp-osm-food-node10819497798",
+      "kind": "food",
+      "name": "Luce Café and Dining",
+      "at": {
+        "lat": 32.903435,
+        "lon": 132.935062
+      },
+      "frac": 0.7751075442310933,
+      "offLineMeters": 60.8
+    },
+    {
+      "id": "wp-osm-supply-node10819508925",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 32.902849,
+        "lon": 132.935482
+      },
+      "frac": 0.7773230349687864,
+      "offLineMeters": 43.9
+    }
+  ],
   "stage": {
     "routeId": "shikoku-88-tosa",
     "index": 11,

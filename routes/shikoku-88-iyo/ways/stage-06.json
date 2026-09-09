@@ -824,6 +824,63 @@
       }
     },
     {
+      "id": "temple-45",
+      "frac": 0.36916801697828366,
+      "kind": "waypoint",
+      "label": "Iwaya-ji",
+      "icon": "seal",
+      "at": {
+        "lat": 33.658962,
+        "lon": 132.981062
+      },
+      "pin": {
+        "lat": 33.659,
+        "lon": 132.981
+      },
+      "text": "The 'Cave Temple' — dramatically set in cliff faces.",
+      "names": {
+        "ja": "岩屋寺"
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-sacred_site-node11417102669",
+      "frac": 0.36916801697828366,
+      "kind": "waypoint",
+      "label": "Iwaya Temple Okunoin Hakusan Gyojo",
+      "icon": "building.columns",
+      "at": {
+        "lat": 33.658962,
+        "lon": 132.981062
+      },
+      "pin": {
+        "lat": 33.6584676,
+        "lon": 132.9789124
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-town-node691563033",
+      "frac": 0.9796399255154501,
+      "kind": "waypoint",
+      "label": "Kumakogen",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 33.66040629085904,
+        "lon": 132.90105999132732
+      },
+      "pin": {
+        "lat": 33.6602974,
+        "lon": 132.9008253
+      },
+      "names": {
+        "id": "Kumakogen",
+        "ja": "久万高原町",
+        "ko": "구마코겐초",
+        "zh": "久萬高原町"
+      }
+    },
+    {
       "id": "stage-end",
       "frac": 1,
       "kind": "waypoint",
@@ -839,7 +896,151 @@
       }
     }
   ],
-  "marks": [],
+  "marks": [
+    {
+      "id": "wp-osm-transport-node3152603048",
+      "kind": "transport",
+      "name": "ゴルフ場前",
+      "at": {
+        "lat": 33.67009,
+        "lon": 132.946502
+      },
+      "frac": 0.05409382112445901,
+      "offLineMeters": 14.8
+    },
+    {
+      "id": "wp-osm-transport-node3152606354",
+      "kind": "transport",
+      "name": "嵯峨山",
+      "at": {
+        "lat": 33.67192,
+        "lon": 132.958079
+      },
+      "frac": 0.12307157055006532,
+      "offLineMeters": 10
+    },
+    {
+      "id": "wp-osm-transport-node3152607846",
+      "kind": "transport",
+      "name": "温泉前",
+      "at": {
+        "lat": 33.671492,
+        "lon": 132.962051
+      },
+      "frac": 0.14547225743821696,
+      "offLineMeters": 11
+    },
+    {
+      "id": "wp-osm-transport-node3152610001",
+      "kind": "transport",
+      "name": "西の川",
+      "at": {
+        "lat": 33.671564,
+        "lon": 132.968238
+      },
+      "frac": 0.18033656711586835,
+      "offLineMeters": 0.7
+    },
+    {
+      "id": "wp-osm-transport-node3152604646",
+      "kind": "transport",
+      "name": "古岩屋",
+      "at": {
+        "lat": 33.668061,
+        "lon": 132.972339
+      },
+      "frac": 0.21410971349036179,
+      "offLineMeters": 1.6
+    },
+    {
+      "id": "wp-osm-transport-node3152607834",
+      "kind": "transport",
+      "name": "清瀬橋",
+      "at": {
+        "lat": 33.665694,
+        "lon": 132.981601
+      },
+      "frac": 0.2717507631963943,
+      "offLineMeters": 3
+    },
+    {
+      "id": "wp-osm-transport-node3152606338",
+      "kind": "transport",
+      "name": "岩屋寺",
+      "at": {
+        "lat": 33.657835,
+        "lon": 132.986294
+      },
+      "frac": 0.33067072047835633,
+      "offLineMeters": 2.9
+    },
+    {
+      "id": "wp-osm-accommodation-node8374601817",
+      "kind": "bed",
+      "name": "国民宿舎古岩屋荘",
+      "at": {
+        "lat": 33.667679,
+        "lon": 132.973509
+      },
+      "frac": 0.5172340579628636,
+      "offLineMeters": 6.7
+    },
+    {
+      "id": "wp-osm-transport-node3152607388",
+      "kind": "transport",
+      "name": "Higashikariba",
+      "at": {
+        "lat": 33.669684,
+        "lon": 132.940073
+      },
+      "frac": 0.7277058825302017,
+      "offLineMeters": 18.8
+    },
+    {
+      "id": "wp-osm-transport-node3152611587",
+      "kind": "transport",
+      "name": "高野口",
+      "at": {
+        "lat": 33.667733,
+        "lon": 132.908405
+      },
+      "frac": 0.9175677157345106,
+      "offLineMeters": 288.9
+    },
+    {
+      "id": "wp-osm-transport-node3152605100",
+      "kind": "transport",
+      "name": "大宝寺口",
+      "at": {
+        "lat": 33.663153,
+        "lon": 132.906992
+      },
+      "frac": 0.9404680750087708,
+      "offLineMeters": 5.9
+    },
+    {
+      "id": "wp-osm-transport-node3152607365",
+      "kind": "transport",
+      "name": "東国",
+      "at": {
+        "lat": 33.661558,
+        "lon": 132.904139
+      },
+      "frac": 0.9588680937690134,
+      "offLineMeters": 0.3
+    },
+    {
+      "id": "wp-osm-transport-node3152603509",
+      "kind": "transport",
+      "name": "久万営業所",
+      "at": {
+        "lat": 33.659982,
+        "lon": 132.899886
+      },
+      "frac": 0.9803171258637414,
+      "offLineMeters": 117.9
+    }
+  ],
   "stage": {
     "routeId": "shikoku-88-iyo",
     "index": 6,

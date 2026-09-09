@@ -1749,6 +1749,26 @@
       }
     },
     {
+      "id": "temple-38",
+      "frac": 0.001843287280820114,
+      "kind": "waypoint",
+      "label": "Kongofuku-ji",
+      "icon": "seal",
+      "at": {
+        "lat": 32.725901,
+        "lon": 133.018563
+      },
+      "pin": {
+        "lat": 32.726,
+        "lon": 133.019
+      },
+      "text": "Cape Ashizuri — southernmost point of Shikoku.",
+      "names": {
+        "ja": "金剛福寺"
+      },
+      "sitMinutes": 5
+    },
+    {
       "id": "stage-end",
       "frac": 0.9996308896483024,
       "kind": "waypoint",
@@ -1764,7 +1784,30 @@
       }
     }
   ],
-  "marks": [],
+  "marks": [
+    {
+      "id": "wp-osm-accommodation-node9444928782",
+      "kind": "bed",
+      "name": "金剛福寺宿坊",
+      "at": {
+        "lat": 32.724986,
+        "lon": 133.017243
+      },
+      "frac": 0,
+      "offLineMeters": 145
+    },
+    {
+      "id": "wp-osm-accommodation-node11535055771",
+      "kind": "bed",
+      "name": "Ocean, River, Mountain Retreat",
+      "at": {
+        "lat": 32.89218,
+        "lon": 132.892095
+      },
+      "frac": 0.9996308896483024,
+      "offLineMeters": 23.4
+    }
+  ],
   "stage": {
     "routeId": "shikoku-88-tosa",
     "index": 13,

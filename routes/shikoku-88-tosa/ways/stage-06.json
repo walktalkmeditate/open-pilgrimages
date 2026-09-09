@@ -1137,6 +1137,130 @@
       }
     },
     {
+      "id": "wp-osm-sacred_site-node5369299652",
+      "frac": 0.012615606978207218,
+      "kind": "waypoint",
+      "label": "妙見宮星神社",
+      "icon": "building.columns",
+      "at": {
+        "lat": 33.545196,
+        "lon": 133.579389
+      },
+      "pin": {
+        "lat": 33.5462063,
+        "lon": 133.5802593
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-sacred_site-node1085588477",
+      "frac": 0.18272527708738548,
+      "kind": "waypoint",
+      "label": "石土神社",
+      "icon": "building.columns",
+      "at": {
+        "lat": 33.526032163827914,
+        "lon": 133.60563263117774
+      },
+      "pin": {
+        "lat": 33.5259474,
+        "lon": 133.6052605
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "temple-32",
+      "frac": 0.22115645451100666,
+      "kind": "waypoint",
+      "label": "Zenjibu-ji",
+      "icon": "seal",
+      "at": {
+        "lat": 33.526633,
+        "lon": 133.611345
+      },
+      "pin": {
+        "lat": 33.527,
+        "lon": 133.611
+      },
+      "text": "Temple 32 · Shingon Buzan · stamp available (¥500)",
+      "names": {
+        "ja": "禅師峰寺"
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-sacred_site-node5447091866",
+      "frac": 0.47582157281329224,
+      "kind": "waypoint",
+      "label": "住吉神社",
+      "icon": "building.columns",
+      "at": {
+        "lat": 33.50087498516671,
+        "lon": 133.55502954967136
+      },
+      "pin": {
+        "lat": 33.5002913,
+        "lon": 133.5548482
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-sacred_site-node5447091847",
+      "frac": 0.48865384961212327,
+      "kind": "waypoint",
+      "label": "嶋宮神社",
+      "icon": "building.columns",
+      "at": {
+        "lat": 33.50122197587858,
+        "lon": 133.5514153197616
+      },
+      "pin": {
+        "lat": 33.5002906,
+        "lon": 133.5516365
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "temple-33",
+      "frac": 0.5193470453139256,
+      "kind": "waypoint",
+      "label": "Sekkei-ji",
+      "icon": "seal",
+      "at": {
+        "lat": 33.500737,
+        "lon": 133.543204
+      },
+      "pin": {
+        "lat": 33.501,
+        "lon": 133.543
+      },
+      "text": "Temple 33 · Rinzai Myoshinji · stamp available (¥500)",
+      "names": {
+        "ja": "雪蹊寺"
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "temple-34",
+      "frac": 0.750432723477926,
+      "kind": "waypoint",
+      "label": "Tanema-ji",
+      "icon": "seal",
+      "at": {
+        "lat": 33.49204,
+        "lon": 133.487863
+      },
+      "pin": {
+        "lat": 33.492,
+        "lon": 133.488
+      },
+      "text": "Temple 34 · Shingon Buzan · stamp available (¥500)",
+      "names": {
+        "ja": "種間寺"
+      },
+      "sitMinutes": 5
+    },
+    {
       "id": "stage-end",
       "frac": 1,
       "kind": "waypoint",
@@ -1167,7 +1291,151 @@
       }
     }
   ],
-  "marks": [],
+  "marks": [
+    {
+      "id": "wp-osm-supply-node5549749588",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 33.538425,
+        "lon": 133.588131
+      },
+      "frac": 0.06760932263148134,
+      "offLineMeters": 284.3
+    },
+    {
+      "id": "wp-osm-transport-node1924071038",
+      "kind": "transport",
+      "name": "Unnamed",
+      "at": {
+        "lat": 33.531329,
+        "lon": 133.605853
+      },
+      "frac": 0.15646154794914321,
+      "offLineMeters": 240.2
+    },
+    {
+      "id": "wp-osm-transport-node1085591328",
+      "kind": "transport",
+      "name": "丸山通",
+      "at": {
+        "lat": 33.5244,
+        "lon": 133.603132
+      },
+      "frac": 0.2660189756451302,
+      "offLineMeters": 143
+    },
+    {
+      "id": "wp-osm-accommodation-node12895661763",
+      "kind": "bed",
+      "name": "海老庄",
+      "at": {
+        "lat": 33.516827,
+        "lon": 133.573386
+      },
+      "frac": 0.37254002510618917,
+      "offLineMeters": 247.2
+    },
+    {
+      "id": "wp-osm-medical-node1423743295",
+      "kind": "medical",
+      "name": "緑風会海里マリン病院",
+      "at": {
+        "lat": 33.514093,
+        "lon": 133.572613
+      },
+      "frac": 0.37967462523283574,
+      "offLineMeters": 87
+    },
+    {
+      "id": "wp-osm-medical-node12895661762",
+      "kind": "medical",
+      "name": "Mac",
+      "at": {
+        "lat": 33.513329,
+        "lon": 133.574145
+      },
+      "frac": 0.3812586277927397,
+      "offLineMeters": 68.4
+    },
+    {
+      "id": "wp-osm-supply-node12895661761",
+      "kind": "supply",
+      "name": "FamilyMart",
+      "at": {
+        "lat": 33.512722,
+        "lon": 133.573883
+      },
+      "frac": 0.3835073668500819,
+      "offLineMeters": 90.5
+    },
+    {
+      "id": "wp-osm-supply-node807637641",
+      "kind": "supply",
+      "name": "FamilyMart",
+      "at": {
+        "lat": 33.507338,
+        "lon": 133.570865
+      },
+      "frac": 0.4074274297211918,
+      "offLineMeters": 233.3
+    },
+    {
+      "id": "wp-osm-medical-node1423739867",
+      "kind": "medical",
+      "name": "楠瀬病院",
+      "at": {
+        "lat": 33.500288,
+        "lon": 133.548115
+      },
+      "frac": 0.4998411520044422,
+      "offLineMeters": 128.2
+    },
+    {
+      "id": "wp-osm-medical-node1423729699",
+      "kind": "medical",
+      "name": "互光会長浜病院",
+      "at": {
+        "lat": 33.501177,
+        "lon": 133.544977
+      },
+      "frac": 0.5104934757891672,
+      "offLineMeters": 23.3
+    },
+    {
+      "id": "wp-osm-accommodation-node11416984469",
+      "kind": "bed",
+      "name": "Ohenro House 33 (Women-only guest house)",
+      "at": {
+        "lat": 33.499604,
+        "lon": 133.545652
+      },
+      "frac": 0.5120324773169539,
+      "offLineMeters": 157.7
+    },
+    {
+      "id": "wp-osm-supply-node1431445207",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 33.494722,
+        "lon": 133.440716
+      },
+      "frac": 0.9421362600214682,
+      "offLineMeters": 161.2
+    },
+    {
+      "id": "wp-osm-medical-node1423737330",
+      "kind": "medical",
+      "name": "広正会井上病院",
+      "at": {
+        "lat": 33.496035,
+        "lon": 133.426986
+      },
+      "frac": 0.9957739803571438,
+      "offLineMeters": 119.4
+    }
+  ],
   "stage": {
     "routeId": "shikoku-88-tosa",
     "index": 6,

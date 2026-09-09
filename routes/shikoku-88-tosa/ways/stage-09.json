@@ -1274,6 +1274,46 @@
       }
     },
     {
+      "id": "wp-osm-sacred_site-node13044642302",
+      "frac": 0.27941541054493574,
+      "kind": "waypoint",
+      "label": "Kure Hachimangu Shrine",
+      "icon": "building.columns",
+      "at": {
+        "lat": 33.328140578797196,
+        "lon": 133.22787426542354
+      },
+      "pin": {
+        "lat": 33.3276339,
+        "lon": 133.2299745
+      },
+      "names": {
+        "ja": "久礼八幡宮"
+      },
+      "sitMinutes": 5
+    },
+    {
+      "id": "wp-osm-town-node697482801",
+      "frac": 0.9811724508596317,
+      "kind": "waypoint",
+      "label": "Shimanto",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 33.212266179289394,
+        "lon": 133.13597969926806
+      },
+      "pin": {
+        "lat": 33.2114694,
+        "lon": 133.1370848
+      },
+      "names": {
+        "id": "Shimanto",
+        "ja": "四万十町",
+        "ko": "시만토초",
+        "zh": "四萬十町"
+      }
+    },
+    {
       "id": "stage-end",
       "frac": 1,
       "kind": "waypoint",
@@ -1290,9 +1330,228 @@
       "names": {
         "ja": "岩本寺"
       }
+    },
+    {
+      "id": "temple-37",
+      "frac": 1,
+      "kind": "waypoint",
+      "label": "Iwamoto-ji",
+      "icon": "seal",
+      "at": {
+        "lat": 33.208021,
+        "lon": 133.134779
+      },
+      "pin": {
+        "lat": 33.208,
+        "lon": 133.135
+      },
+      "text": "Temple 37 · Shingon Chizan · stamp available (¥500)",
+      "names": {
+        "ja": "岩本寺"
+      },
+      "sitMinutes": 5
     }
   ],
-  "marks": [],
+  "marks": [
+    {
+      "id": "wp-osm-transport-node13422919904",
+      "kind": "transport",
+      "name": "中土佐IC口",
+      "at": {
+        "lat": 33.339979,
+        "lon": 133.223216
+      },
+      "frac": 0.22912734759063555,
+      "offLineMeters": 138.3
+    },
+    {
+      "id": "wp-osm-food-node10873078631",
+      "kind": "food",
+      "name": "市場のめし屋 浜ちゃん",
+      "at": {
+        "lat": 33.329037,
+        "lon": 133.230725
+      },
+      "frac": 0.27431582424520007,
+      "offLineMeters": 228.5
+    },
+    {
+      "id": "wp-osm-transport-node8383580513",
+      "kind": "transport",
+      "name": "Tosa-Kure",
+      "at": {
+        "lat": 33.32904,
+        "lon": 133.226692
+      },
+      "frac": 0.27704529306404724,
+      "offLineMeters": 133.2
+    },
+    {
+      "id": "wp-osm-supply-node9437226482",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 33.32464,
+        "lon": 133.225275
+      },
+      "frac": 0.297457615721792,
+      "offLineMeters": 6.3
+    },
+    {
+      "id": "wp-osm-supply-node10810973432",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 33.321476,
+        "lon": 133.224739
+      },
+      "frac": 0.31144487641252566,
+      "offLineMeters": 15.6
+    },
+    {
+      "id": "wp-osm-supply-node10810977709",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 33.307158,
+        "lon": 133.179446
+      },
+      "frac": 0.5181539637992545,
+      "offLineMeters": 8.9
+    },
+    {
+      "id": "wp-osm-food-node12900817776",
+      "kind": "food",
+      "name": "自家製うどん　なかむらや",
+      "at": {
+        "lat": 33.292612,
+        "lon": 133.171895
+      },
+      "frac": 0.5961233897737414,
+      "offLineMeters": 151.3
+    },
+    {
+      "id": "wp-osm-transport-node8383580514",
+      "kind": "transport",
+      "name": "Kageno",
+      "at": {
+        "lat": 33.276498,
+        "lon": 133.174126
+      },
+      "frac": 0.6662717023106243,
+      "offLineMeters": 72.8
+    },
+    {
+      "id": "wp-osm-transport-node8383580515",
+      "kind": "transport",
+      "name": "Rokutanji",
+      "at": {
+        "lat": 33.261863,
+        "lon": 133.169465
+      },
+      "frac": 0.7406873589613184,
+      "offLineMeters": 67.5
+    },
+    {
+      "id": "wp-osm-transport-node8383580516",
+      "kind": "transport",
+      "name": "Niida",
+      "at": {
+        "lat": 33.244879,
+        "lon": 133.161303
+      },
+      "frac": 0.8174425820782507,
+      "offLineMeters": 41.4
+    },
+    {
+      "id": "wp-osm-food-node12900817770",
+      "kind": "food",
+      "name": "食堂ヒラグシ",
+      "at": {
+        "lat": 33.235454,
+        "lon": 133.152471
+      },
+      "frac": 0.8664780220303442,
+      "offLineMeters": 4.9
+    },
+    {
+      "id": "wp-osm-food-node708839638",
+      "kind": "food",
+      "name": "レストラン風人",
+      "at": {
+        "lat": 33.231103,
+        "lon": 133.149269
+      },
+      "frac": 0.8868213483523185,
+      "offLineMeters": 68.4
+    },
+    {
+      "id": "wp-osm-food-node12901241590",
+      "kind": "food",
+      "name": "Unnamed",
+      "at": {
+        "lat": 33.225017,
+        "lon": 133.144504
+      },
+      "frac": 0.9183531609988781,
+      "offLineMeters": 26.1
+    },
+    {
+      "id": "wp-osm-transport-node12190171763",
+      "kind": "transport",
+      "name": "Kubokawa",
+      "at": {
+        "lat": 33.212922,
+        "lon": 133.137227
+      },
+      "frac": 0.9767217804595701,
+      "offLineMeters": 55.6
+    },
+    {
+      "id": "wp-osm-transport-node8383599017",
+      "kind": "transport",
+      "name": "Kubokawa",
+      "at": {
+        "lat": 33.212426,
+        "lon": 133.137357
+      },
+      "frac": 0.9781873025041168,
+      "offLineMeters": 94.8
+    },
+    {
+      "id": "wp-osm-accommodation-node6905122286",
+      "kind": "bed",
+      "name": "まるか旅館",
+      "at": {
+        "lat": 33.211643,
+        "lon": 133.136202
+      },
+      "frac": 0.9825800121134471,
+      "offLineMeters": 60.9
+    },
+    {
+      "id": "wp-osm-accommodation-node12901241596",
+      "kind": "bed",
+      "name": "木のホテル",
+      "at": {
+        "lat": 33.210114,
+        "lon": 133.134366
+      },
+      "frac": 0.9914626101430951,
+      "offLineMeters": 10.9
+    },
+    {
+      "id": "wp-osm-supply-node13166874401",
+      "kind": "supply",
+      "name": "Unnamed",
+      "at": {
+        "lat": 33.208616,
+        "lon": 133.134066
+      },
+      "frac": 0.9970982950950997,
+      "offLineMeters": 48.2
+    }
+  ],
   "stage": {
     "routeId": "shikoku-88-tosa",
     "index": 9,
