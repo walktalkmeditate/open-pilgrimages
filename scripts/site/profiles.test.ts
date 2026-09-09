@@ -75,6 +75,35 @@ test("profileSvg returns an empty string for no stages", () => {
   assert.equal(profileSvg([], 800, 100), "");
 });
 
+test("profileSvg draws nothing when no stage declares a high point", () => {
+  const flat: ProfileStage[] = [
+    { name: "A", distanceKm: 28.3, highPointMeters: 0, lowPointMeters: 0 },
+    { name: "B", distanceKm: 24.3, highPointMeters: 0, lowPointMeters: 0 },
+  ];
+  assert.equal(profileSvg(flat, 800, 100), "");
+});
+
+test("a stage that declares only a low point still draws", () => {
+  const belowSeaLevel: ProfileStage[] = [
+    { name: "A", distanceKm: 10, highPointMeters: 3, lowPointMeters: -5 },
+  ];
+  assert.match(profileSvg(belowSeaLevel, 800, 100), /high point 3 m/);
+});
+
+/**
+ * The four dōjō were cut from 2D lines and their stages carry no elevation.
+ * Before this, `build-assets` published four SVGs whose aria-label read "low
+ * point 0 m, high point 1 m" for a pilgrimage whose own metadata declares
+ * 911 m at Temple 66 — the peak floor turning silence into a measurement.
+ */
+test("the Shikoku dōjō, whose stages carry no elevation, get no profile", () => {
+  for (const dojo of ["awa", "tosa", "iyo", "sanuki"]) {
+    const stages = stagesOf(stagesJson(`shikoku-88-${dojo}`));
+    assert.ok(stages.length > 0, `shikoku-88-${dojo} has stages to read`);
+    assert.equal(profileSvg(stages), "", `shikoku-88-${dojo} should draw no profile`);
+  }
+});
+
 test("profileSvg never emits NaN", () => {
   const flat: ProfileStage[] = [
     { name: "flat", distanceKm: 5, highPointMeters: 100, lowPointMeters: 100 },

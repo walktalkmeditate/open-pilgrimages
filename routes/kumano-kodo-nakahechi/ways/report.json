@@ -119,7 +119,7 @@
         "wp-osm-transport-node3578364302 (\"Nachisan\") is 21937 m from the line, beyond the 300 m limit",
         "wp-osm-transport-node3584262360 (\"Nachi station\") is 26448 m from the line, beyond the 300 m limit",
         "wp-osm-transport-node4187376206 (\"Ukegawa\") is 2449 m from the line, beyond the 300 m limit",
-        "wp-osm-transport-node4451596589 (\"Takijiri\") is 22319 m from the line, beyond the 300 m limit",
+        "wp-osm-transport-node4451596589 (\"Takijiri\") is 97 m from the section's walked line, 0.0 km along it, and stage 3 covers 29.0–35.9 km — its stageIndex names a stage that does not reach it, so the 22319 m is to a different stretch of the same line",
         "wp-osm-transport-node4456061991 (\"Iseki\") is 24833 m from the line, beyond the 300 m limit",
         "wp-osm-transport-node4456079489 (\"Kawaseki\") is 25782 m from the line, beyond the 300 m limit",
         "wp-osm-transport-node4456079589 (\"Amanomya\") is 26550 m from the line, beyond the 300 m limit",

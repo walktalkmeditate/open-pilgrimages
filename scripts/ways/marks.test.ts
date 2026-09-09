@@ -4,7 +4,7 @@ import { readFileSync } from "fs";
 import { join } from "path";
 import { buildMarks, MARK_KIND_BY_TYPE, MARK_NAME_MAX, MAX_MARKS } from "./marks.js";
 import { walkedLine, cumulativeMeters, simplify, roundLine, RDP_TOLERANCE_METERS, projectOnLine } from "./geo.js";
-import type { WaypointFeature } from "./moments.js";
+import type { SectionContext, WaypointFeature } from "./moments.js";
 import type { Position } from "./types.js";
 
 const FIXTURE = join(import.meta.dirname, "..", "fixtures", "way-fixture-route");
@@ -13,6 +13,25 @@ const loadJson = (name: string) => JSON.parse(readFileSync(join(FIXTURE, name), 
 function stageSlice(from: number, to: number): { line: Position[]; cumulative: number[] } {
   const line = roundLine(simplify(walkedLine(loadJson("route.main.geojson")).slice(from, to + 1), RDP_TOLERANCE_METERS));
   return { line, cumulative: cumulativeMeters(line) };
+}
+
+/** The whole fixture route, and the vertices of it one stage walks. */
+function sectionAt(from: number, to: number, stageIndex: number): SectionContext {
+  const line = walkedLine(loadJson("route.main.geojson"));
+  const cumulative = cumulativeMeters(line);
+  return { line, cumulative, stageIndex, fromMeters: cumulative[from], toMeters: cumulative[to] };
+}
+
+/** A synthetic line that is the whole section and the whole stage at once. */
+function wholeLineIsTheStage(line: Position[]): SectionContext {
+  const cumulative = cumulativeMeters(line);
+  return {
+    line,
+    cumulative,
+    stageIndex: 0,
+    fromMeters: 0,
+    toMeters: cumulative[cumulative.length - 1],
+  };
 }
 
 const waypointsForStage = (index: number): WaypointFeature[] =>
@@ -31,7 +50,7 @@ test("every service type the dataset carries has a mark kind", () => {
 
 test("a water source becomes a water mark with its distance off the line", () => {
   const { line, cumulative } = stageSlice(0, 10);
-  const { marks } = buildMarks({ line, cumulative, waypoints: waypointsForStage(0) });
+  const { marks } = buildMarks({ line, cumulative, waypoints: waypointsForStage(0), section: sectionAt(0, 10, 0) });
 
   assert.deepEqual(marks.map((m) => m.id), ["wp-fuente"]);
   assert.equal(marks[0].kind, "water");
@@ -45,7 +64,7 @@ test("a water source becomes a water mark with its distance off the line", () =>
 
 test("an off-line mark's `at` is where the place is, not the line's nearest point to it", () => {
   const { line, cumulative } = stageSlice(0, 10);
-  const { marks } = buildMarks({ line, cumulative, waypoints: waypointsForStage(0) });
+  const { marks } = buildMarks({ line, cumulative, waypoints: waypointsForStage(0), section: sectionAt(0, 10, 0) });
   const mark = marks.find((m) => m.id === "wp-fuente")!;
 
   const onLine = projectOnLine(line, cumulative, [mark.at.lon, mark.at.lat]);
@@ -54,22 +73,49 @@ test("an off-line mark's `at` is where the place is, not the line's nearest poin
 
 test("a service more than 300 m off the line is dropped and named in the warnings", () => {
   const { line, cumulative } = stageSlice(0, 10);
-  const { marks, dropped } = buildMarks({ line, cumulative, waypoints: waypointsForStage(0) });
+  const { marks, dropped } = buildMarks({ line, cumulative, waypoints: waypointsForStage(0), section: sectionAt(0, 10, 0) });
   assert.equal(marks.some((m) => m.id === "wp-far-fountain"), false);
   assert.equal(dropped.length, 1);
   assert.match(dropped[0], /wp-far-fountain/);
 });
 
+// The same reading on the service side — awa's mis-indexed lodging was a mark,
+// not a moment, and it is the one a walker would have been sent to.
+test("a service on the section line but off this stage's slice names its stale stageIndex", () => {
+  const { line, cumulative } = stageSlice(0, 10);
+  const sectionLine = walkedLine(loadJson("route.main.geojson"));
+  const { marks, dropped } = buildMarks({
+    line,
+    cumulative,
+    waypoints: [
+      {
+        id: "wp-later-inn",
+        type: "Feature",
+        geometry: { type: "Point", coordinates: sectionLine[35] },
+        properties: { routeId: "fixture-way", type: "accommodation", name: "Later Inn", stageIndex: 0 },
+      },
+    ],
+    section: sectionAt(0, 10, 0),
+  });
+
+  assert.deepEqual(marks, []);
+  assert.equal(dropped.length, 1);
+  assert.match(
+    dropped[0],
+    /^wp-later-inn \("Later Inn"\) is 0 m from the section's walked line, [\d.]+ km along it, and stage 0 covers [\d.]+–[\d.]+ km — its stageIndex names a stage that does not reach it, so the \d+ m is to a different stretch of the same line$/,
+  );
+});
+
 test("a moment-type waypoint never becomes a mark", () => {
   const { line, cumulative } = stageSlice(10, 30);
-  const { marks } = buildMarks({ line, cumulative, waypoints: waypointsForStage(1) });
+  const { marks } = buildMarks({ line, cumulative, waypoints: waypointsForStage(1), section: sectionAt(10, 30, 1) });
   assert.deepEqual(marks.map((m) => m.id), ["wp-cafe"]);
   assert.equal(marks[0].kind, "food");
 });
 
 test("the last stage carries a mark of every remaining kind, ordered by frac", () => {
   const { line, cumulative } = stageSlice(30, 40);
-  const { marks } = buildMarks({ line, cumulative, waypoints: waypointsForStage(2) });
+  const { marks } = buildMarks({ line, cumulative, waypoints: waypointsForStage(2), section: sectionAt(30, 40, 2) });
   assert.deepEqual(marks.map((m) => m.kind), ["bed", "medical", "supply", "transport"]);
   assert.deepEqual(marks.map((m) => Math.round(m.frac * 10) / 10), [0.2, 0.4, 0.6, 0.8]);
 });
@@ -87,6 +133,7 @@ test("a mark name is capped at eighty characters", () => {
         properties: { routeId: "fixture-way", type: "food", name: "x".repeat(200), stageIndex: 0 },
       },
     ],
+    section: wholeLineIsTheStage(line),
   });
   assert.equal(marks[0].name.length, MARK_NAME_MAX);
 });
@@ -100,7 +147,12 @@ test("a stage over the app's mark limit keeps the ones nearest the trail", () =>
     properties: { routeId: "fixture-way", type: "water_source", name: `f${i}`, stageIndex: 0 },
   }));
 
-  const { marks, trimmed } = buildMarks({ line, cumulative: cumulativeMeters(line), waypoints });
+  const { marks, trimmed } = buildMarks({
+    line,
+    cumulative: cumulativeMeters(line),
+    waypoints,
+    section: wholeLineIsTheStage(line),
+  });
 
   assert.equal(marks.length, MAX_MARKS);
   assert.equal(trimmed, 5);
@@ -123,6 +175,7 @@ test("a waypoint with no mapped kind is skipped without a warning", () => {
         properties: { routeId: "fixture-way", type: "waymarker", name: "Arrow", stageIndex: 0 },
       },
     ],
+    section: wholeLineIsTheStage(line),
   });
   assert.deepEqual(marks, []);
   assert.deepEqual(dropped, []);

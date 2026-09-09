@@ -42,6 +42,14 @@ const MINIMUM_RANGE_METERS = 1;
 export function profileSvg(stages: ProfileStage[], width = 800, height = 120): string {
   if (stages.length === 0) return "";
 
+  // A dataset that declares no high point anywhere has no profile to draw, and
+  // the peak floor below would render it as a flat path labelled "high point
+  // 1 m" — in an aria-label, as fact. Shikoku's four dōjō are exactly that
+  // case: their lines are 2D and their stages carry no elevation at all, on a
+  // circuit whose own metadata declares 911 m at Temple 66. Silence is the
+  // same answer as no stages: emit nothing, and let the caller skip the file.
+  if (stages.every((stage) => stage.highPointMeters === 0)) return "";
+
   const totalKm = stages.reduce((sum, s) => sum + s.distanceKm, 0) || 1;
   const peak = Math.max(...stages.map((s) => s.highPointMeters), 1);
   const floor = Math.min(...stages.map((s) => s.lowPointMeters));

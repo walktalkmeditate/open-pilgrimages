@@ -256,7 +256,7 @@
       "marks": 48,
       "marksTrimmed": 0,
       "dropped": [
-        "wp-osm-accommodation-node3674103053 (\"Hospedaje Milagros\") is 562 m from the line, beyond the 300 m limit"
+        "wp-osm-accommodation-node3674103053 (\"Hospedaje Milagros\") is 22 m from the section's walked line, 322.0 km along it, and stage 13 covers 322.6–345.2 km — its stageIndex names a stage that does not reach it, so the 562 m is to a different stretch of the same line"
       ]
     },
     {

@@ -6,8 +6,10 @@ import { cap, nonEnglishNames, wholeSecondISO } from "./text.js";
 import {
   buildMoments,
   composedText,
+  dropReason,
   iconFor,
   MOMENT_DROP_METERS,
+  type SectionContext,
   type StagePlace,
   type WaypointFeature,
 } from "./moments.js";
@@ -26,6 +28,25 @@ const loadJson = (name: string) => JSON.parse(readFileSync(join(FIXTURE, name), 
 function stageSlice(from: number, to: number): { line: Position[]; cumulative: number[] } {
   const line = roundLine(simplify(walkedLine(loadJson("route.main.geojson")).slice(from, to + 1), RDP_TOLERANCE_METERS));
   return { line, cumulative: cumulativeMeters(line) };
+}
+
+/** The whole fixture route, and the vertices of it one stage walks. */
+function sectionAt(from: number, to: number, stageIndex: number): SectionContext {
+  const line = walkedLine(loadJson("route.main.geojson"));
+  const cumulative = cumulativeMeters(line);
+  return { line, cumulative, stageIndex, fromMeters: cumulative[from], toMeters: cumulative[to] };
+}
+
+/** A synthetic line that is the whole section and the whole stage at once. */
+function wholeLineIsTheStage(line: Position[]): SectionContext {
+  const cumulative = cumulativeMeters(line);
+  return {
+    line,
+    cumulative,
+    stageIndex: 0,
+    fromMeters: 0,
+    toMeters: cumulative[cumulative.length - 1],
+  };
 }
 
 function waypointsForStage(index: number): WaypointFeature[] {
@@ -112,6 +133,7 @@ test("stage 0's moments are the town, the shrine, the museum, and a synthesized 
     waypoints: waypointsForStage(0),
     start: { name: "Start Town", at: [0, 0] },
     end: { name: "Middle", at: [0.01, 0] },
+    section: sectionAt(0, 10, 0),
   });
 
   assert.deepEqual(result.moments.map((m) => m.id), ["wp-start-town", "wp-shrine", "wp-museum", "stage-end"]);
@@ -132,6 +154,7 @@ test("a start place with a town waypoint on it does not get a second, synthesize
     waypoints: waypointsForStage(0),
     start: { name: "Start Town", at: [0, 0] },
     end: { name: "Middle", at: [0.01, 0] },
+    section: sectionAt(0, 10, 0),
   });
   assert.equal(result.moments.filter((m) => m.id === "stage-start").length, 0);
 });
@@ -144,6 +167,7 @@ test("a moment carries text, local names, sit minutes, and a pin off the line", 
     waypoints: waypointsForStage(1),
     start: { name: "Middle", at: [0.01, 0] },
     end: { name: "Bend", at: [0.02, 0.01] },
+    section: sectionAt(10, 30, 1),
   });
   const byId = new Map(result.moments.map((m) => [m.id, m]));
 
@@ -175,11 +199,78 @@ test("a waypoint more than 300 m off the line is dropped and named in the warnin
     waypoints: waypointsForStage(1),
     start: { name: "Middle", at: [0.01, 0] },
     end: { name: "Bend", at: [0.02, 0.01] },
+    section: sectionAt(10, 30, 1),
   });
   assert.equal(result.moments.some((m) => m.id === "wp-far-chapel"), false);
   assert.equal(result.dropped.length, 1);
   assert.match(result.dropped[0], /wp-far-chapel/);
   assert.match(result.dropped[0], new RegExp(String(MOMENT_DROP_METERS)));
+});
+
+/**
+ * The report this exists for: routes/shikoku-88-awa said "GuestHouse & Cafe
+ * Green House is 34688 m from the line" about a place 182 m from that section's
+ * line and the end anchor of the very stage it names. The 35 km was measured
+ * against stage 0's slice, because the waypoint's stageIndex was left over from
+ * a ten-stage cut. A reader given that sentence concludes the enrichment is
+ * broken; what is broken is one integer.
+ */
+test("a place on the section line but off this stage's slice is reported as a stale stageIndex, not a distance", () => {
+  const { line, cumulative } = stageSlice(0, 10);
+  const sectionLine = walkedLine(loadJson("route.main.geojson"));
+  const filedOnTheWrongStage: WaypointFeature = {
+    id: "wp-later-shrine",
+    type: "Feature",
+    geometry: { type: "Point", coordinates: sectionLine[35] },
+    properties: { routeId: "fixture-way", name: "Later Shrine", type: "sacred_site", stageIndex: 0 },
+  };
+
+  const result = buildMoments({
+    line,
+    cumulative,
+    waypoints: [filedOnTheWrongStage],
+    start: { name: "Start Town", at: [0, 0] },
+    end: { name: "Middle", at: [0.01, 0] },
+    section: sectionAt(0, 10, 0),
+  });
+
+  assert.equal(result.moments.some((m) => m.id === "wp-later-shrine"), false);
+  assert.equal(result.dropped.length, 1);
+  assert.match(
+    result.dropped[0],
+    /^wp-later-shrine \("Later Shrine"\) is 0 m from the section's walked line, [\d.]+ km along it, and stage 0 covers [\d.]+–[\d.]+ km — its stageIndex names a stage that does not reach it, so the \d+ m is to a different stretch of the same line$/,
+  );
+  assert.equal(result.dropped[0].includes(`beyond the ${MOMENT_DROP_METERS} m limit`), false);
+});
+
+test("dropReason reports a distance for a place off the section line too", () => {
+  const section = sectionAt(0, 10, 0);
+  assert.equal(
+    dropReason("wp-far-chapel", "Far Chapel", 812.4, [0.5, 0.5], section),
+    `wp-far-chapel ("Far Chapel") is 812 m from the line, beyond the ${MOMENT_DROP_METERS} m limit`,
+  );
+});
+
+/**
+ * The false positive the span test exists to keep out. A place the stage does
+ * walk past, measured beyond the limit only because the RDP pass cut the corner
+ * it stands on, is a distance — not a wrong index. Reported as a wrong index it
+ * would send a maintainer to edit a stageIndex that is correct.
+ */
+test("a place inside this stage's own stretch keeps the distance message", () => {
+  const section = sectionAt(0, 10, 0);
+  const midway = section.line[5];
+  assert.match(
+    dropReason("wp-corner-cafe", "Corner Café", 329, midway, section),
+    /is 329 m from the line, beyond the 300 m limit$/,
+  );
+});
+
+test("dropReason falls back to the id when the waypoint has no name", () => {
+  assert.match(
+    dropReason("wp-nameless", undefined, 900, [0.5, 0.5], sectionAt(0, 10, 0)),
+    /^wp-nameless \("wp-nameless"\)/,
+  );
 });
 
 test("a town near the stage anchor but far off the line is dropped, not treated as the anchor's marker", () => {
@@ -197,6 +288,7 @@ test("a town near the stage anchor but far off the line is dropped, not treated 
     waypoints: [...waypointsForStage(2), offlineTown],
     start: { name: "Bend", at: [0.02, 0.01] },
     end,
+    section: sectionAt(30, 40, 2),
   });
 
   // The waypoint sits 15 m from the declared anchor but 456 m off the walked
@@ -218,6 +310,7 @@ test("a stage whose only places are its own ends counts zero moments beyond them
     waypoints: waypointsForStage(2),
     start: { name: "Bend", at: [0.02, 0.01] },
     end: { name: "End Town", at: [0.02, 0.02] },
+    section: sectionAt(30, 40, 2),
   });
   assert.deepEqual(result.moments.map((m) => m.id), ["stage-start", "wp-end-town"]);
   assert.deepEqual(result.moments.at(-1)!.names, { es: "Pueblo Final" });
@@ -239,6 +332,7 @@ test("moments are ordered by frac with ties broken by id, so a rebuild is byte-i
     waypoints: [at(0.005, "wp-zulu"), at(0.005, "wp-alpha")],
     start: { name: "A", at: [0, 0] },
     end: { name: "B", at: [0.01, 0] },
+    section: wholeLineIsTheStage(line),
   });
   const middle = result.moments.filter((m) => m.id.startsWith("wp-"));
   assert.deepEqual(middle.map((m) => m.id), ["wp-alpha", "wp-zulu"]);

@@ -149,7 +149,12 @@
         ],
         "note": "OpenStreetMap node/1012320229 (town), 142.09 km along this section's walked line, 172 m off it. No temple falls 25-30 km past the previous day's end at 82.48 km, so the day ends at the named accommodation or town waypoint on the line nearest 27.5 km, 59.61 km on."
       },
-      "distanceKm": 59.6
+      "distanceKm": 59.6,
+      "warnings": [
+        {
+          "en": "59.6 km, the longest day on the circuit. OpenStreetMap records no named accommodation or town on the walked line between Sakaide and Sanuki, so the rule had nowhere nearer to stop. Carry water and food for the whole distance, or break the day at a place off the line."
+        }
+      ]
     },
     {
       "index": 4,

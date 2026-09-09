@@ -194,14 +194,30 @@ export function buildRouteWays(input: RouteWaysInput): RouteWaysResult {
     const hours = midpointHours(stage.estimatedHours);
 
     const stageWaypoints = input.waypoints.filter((w) => w.properties.stageIndex === stage.index);
+    // The whole section's line and the stretch of it this stage walks, carried
+    // alongside the slice so a drop can say whether the place is off route or
+    // merely filed onto a stage that never goes near it.
+    const section = {
+      line,
+      cumulative,
+      stageIndex: stage.index,
+      fromMeters: cumulative[from],
+      toMeters: cumulative[to],
+    };
     const moments = buildMoments({
       line: slice,
       cumulative: sliceCumulative,
       waypoints: stageWaypoints,
       start: { name: stage.start.name.en, at: stage.start.coordinates, localized: stage.start.name },
       end: { name: stage.end.name.en, at: stage.end.coordinates, localized: stage.end.name },
+      section,
     });
-    const marks = buildMarks({ line: slice, cumulative: sliceCumulative, waypoints: stageWaypoints });
+    const marks = buildMarks({
+      line: slice,
+      cumulative: sliceCumulative,
+      waypoints: stageWaypoints,
+      section,
+    });
     const block = buildStageBlock(input.routeId, input.stages.length, stage);
 
     // No `source`: the app assigns .pilgrimage(routeId:stageIndex:) from the

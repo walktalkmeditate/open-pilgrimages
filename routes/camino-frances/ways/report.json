@@ -725,11 +725,11 @@
       "marks": 32,
       "marksTrimmed": 0,
       "dropped": [
-        "wp-osm-accommodation-node536686387 (\"Albergue Los Templarios\") is 492 m from the line, beyond the 300 m limit",
+        "wp-osm-accommodation-node536686387 (\"Albergue Los Templarios\") is 43 m from the section's walked line, 392.8 km along it, and stage 17 covers 393.3–417.1 km — its stageIndex names a stage that does not reach it, so the 492 m is to a different stretch of the same line",
         "wp-osm-supply-node1506191430 (\"Ultramarinos Luisa-Mari\") is 436 m from the line, beyond the 300 m limit",
         "wp-osm-water_source-node12299793028 (\"Unnamed\") is 400 m from the line, beyond the 300 m limit",
         "wp-osm-water_source-node1506191328 (\"Unnamed\") is 306 m from the line, beyond the 300 m limit",
-        "wp-osm-water_source-node3648063969 (\"Unnamed\") is 2443 m from the line, beyond the 300 m limit",
+        "wp-osm-water_source-node3648063969 (\"Unnamed\") is 244 m from the section's walked line, 390.4 km along it, and stage 17 covers 393.3–417.1 km — its stageIndex names a stage that does not reach it, so the 2443 m is to a different stretch of the same line",
         "wp-osm-water_source-node7804581100 (\"Unnamed\") is 327 m from the line, beyond the 300 m limit"
       ]
     },
@@ -905,9 +905,9 @@
       "marks": 43,
       "marksTrimmed": 0,
       "dropped": [
-        "wp-cruz-de-ferro (\"Cruz de Ferro\") is 1568 m from the line, beyond the 300 m limit",
+        "wp-cruz-de-ferro (\"Cruz de Ferro\") is 10 m from the section's walked line, 537.7 km along it, and stage 22 covers 510.3–535.7 km — its stageIndex names a stage that does not reach it, so the 1568 m is to a different stretch of the same line",
         "wp-osm-food-node13615075442 (\"Café Bar Bambú\") is 428 m from the line, beyond the 300 m limit",
-        "wp-osm-water_source-node3637122246 (\"Unnamed\") is 1505 m from the line, beyond the 300 m limit",
+        "wp-osm-water_source-node3637122246 (\"Unnamed\") is 62 m from the section's walked line, 537.7 km along it, and stage 22 covers 510.3–535.7 km — its stageIndex names a stage that does not reach it, so the 1505 m is to a different stretch of the same line",
         "wp-osm-water_source-node6386277651 (\"Unnamed\") is 396 m from the line, beyond the 300 m limit",
         "wp-osm-water_source-node7366533913 (\"Unnamed\") is 473 m from the line, beyond the 300 m limit"
       ]

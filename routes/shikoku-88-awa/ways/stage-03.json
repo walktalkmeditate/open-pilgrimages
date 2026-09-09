@@ -2221,7 +2221,9 @@
     "theme": "",
     "narrative": "",
     "closing": "",
-    "warnings": [],
+    "warnings": [
+      "52.9 km, the longest of Awa's five days. OpenStreetMap records no named accommodation or town on the walked line between Ido-ji and this day's end, so the rule had nowhere nearer to stop. Carry water and food for the whole distance, or break the day at a place off the line."
+    ],
     "distanceKm": 52.9,
     "gainMeters": 0,
     "hours": {

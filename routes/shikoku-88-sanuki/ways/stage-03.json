@@ -2836,7 +2836,9 @@
     "theme": "",
     "narrative": "",
     "closing": "",
-    "warnings": [],
+    "warnings": [
+      "59.6 km, the longest day on the circuit. OpenStreetMap records no named accommodation or town on the walked line between Sakaide and Sanuki, so the rule had nowhere nearer to stop. Carry water and food for the whole distance, or break the day at a place off the line."
+    ],
     "distanceKm": 59.6,
     "gainMeters": 0,
     "hours": {

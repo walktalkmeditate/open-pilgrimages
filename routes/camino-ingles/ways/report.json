@@ -197,7 +197,7 @@
         "wp-osm-food-node5784774406 (\"Cafetería Santa Isabel\") is 430 m from the line, beyond the 300 m limit",
         "wp-osm-food-node6709448335 (\"Sete Culleres\") is 485 m from the line, beyond the 300 m limit",
         "wp-osm-food-node766499622 (\"Casa de Xantar O Dezaseis\") is 313 m from the line, beyond the 300 m limit",
-        "wp-osm-food-node9922502676 (\"Casa de Sushi\") is 379 m from the line, beyond the 300 m limit",
+        "wp-osm-food-node9922502676 (\"Casa de Sushi\") is 293 m from the section's walked line, 191.8 km along it, and stage 5 covers 157.5–191.5 km — its stageIndex names a stage that does not reach it, so the 379 m is to a different stretch of the same line",
         "wp-osm-medical-node11407994268 (\"Farmacia Nogueira Balado\") is 486 m from the line, beyond the 300 m limit",
         "wp-osm-supply-node10108742399 (\"Unnamed\") is 320 m from the line, beyond the 300 m limit",
         "wp-osm-supply-node10836982151 (\"Carnicería Supermercado Méndez\") is 344 m from the line, beyond the 300 m limit",

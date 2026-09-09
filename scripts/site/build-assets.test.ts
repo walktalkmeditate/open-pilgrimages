@@ -1,12 +1,58 @@
-import { test } from "node:test";
+import { test, after } from "node:test";
 import assert from "node:assert/strict";
-import { existsSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from "fs";
+import {
+  cpSync,
+  existsSync,
+  mkdirSync,
+  mkdtempSync,
+  readFileSync,
+  rmSync,
+  statSync,
+  writeFileSync,
+} from "fs";
 import { tmpdir } from "os";
 import { join } from "path";
 import { buildAssets, buildPilgrimagePages } from "./build-assets.js";
 
-const ROOT = join(import.meta.dirname, "..", "..");
+const REPO = join(import.meta.dirname, "..", "..");
+
+/**
+ * buildAssets writes docs/assets/**, docs/<pilgrimage>.html and — the one that
+ * makes this more than an untidiness — routes/<id>/route.gpx. Handed the
+ * repository, `npm test` regenerates committed dataset files: a stale
+ * committed tree is silently repaired by running the tests, and the check that
+ * would have reported it (CI's regeneration diff) never sees anything to
+ * report. Every other test in this file already raises its own root with
+ * mkdtempSync; these need real routes to assert against, so they get a mirror
+ * of the repository rather than the repository.
+ */
+const ROOT = mkdtempSync(join(tmpdir(), "build-assets-mirror-"));
+cpSync(join(REPO, "routes"), join(ROOT, "routes"), { recursive: true });
+cpSync(join(REPO, "docs"), join(ROOT, "docs"), { recursive: true });
+cpSync(join(REPO, "index.json"), join(ROOT, "index.json"));
+
 const ASSETS = join(ROOT, "docs", "assets");
+
+/**
+ * The tripwire for the mirror above. A build pointed back at the repository
+ * rewrites these two files — glyphs.js unconditionally, route.gpx for every
+ * route with geometry — and the rewrite is invisible to `git status` whenever
+ * the bytes come out identical, which is the ordinary case and the reason this
+ * went unnoticed. Timestamps see it anyway.
+ */
+const REPO_WRITE_TRIPWIRES = ["docs/assets/glyphs.js", "routes/camino-ingles/route.gpx"];
+const untouchedSince = REPO_WRITE_TRIPWIRES.map((path) => statSync(join(REPO, path)).mtimeMs);
+
+after(() => {
+  rmSync(ROOT, { recursive: true, force: true });
+  REPO_WRITE_TRIPWIRES.forEach((path, i) => {
+    assert.equal(
+      statSync(join(REPO, path)).mtimeMs,
+      untouchedSince[i],
+      `${path} was rewritten while the tests ran — a buildAssets call is pointed at the repository, not at the mirror`,
+    );
+  });
+});
 
 // Every route that has a route.geojson, plus the coastal variant. The Iseji
 // and the Ōhechi are absent, shipping metadata-only.
@@ -55,13 +101,24 @@ test("buildAssets is idempotent", () => {
   assert.equal(first, second);
 });
 
-test("every route with stats gets a sparkline and every route a profile", () => {
+test("every route with stats gets a sparkline, and every route with elevation a profile", () => {
   const counts = buildAssets(ROOT);
 
   assert.equal(counts.profiles >= 7, true);
   assert.equal(counts.sparklines >= 7, true);
   assert.ok(existsSync(join(ASSETS, "profiles", "camino-primitivo.svg")));
   assert.ok(existsSync(join(ASSETS, "sparklines", "camino-frances.svg")));
+
+  // The four dōjō have stages.json and no elevation in it, so profileSvg
+  // returns "" and no file is written — see its own comment. A profile here
+  // would be the flat "high point 1 m" one this replaced.
+  for (const dojo of ["awa", "tosa", "iyo", "sanuki"]) {
+    assert.equal(
+      existsSync(join(ASSETS, "profiles", `shikoku-88-${dojo}.svg`)),
+      false,
+      `shikoku-88-${dojo} should have no elevation profile`,
+    );
+  }
 });
 
 /**

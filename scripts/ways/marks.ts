@@ -1,7 +1,12 @@
 import type { Position, WayMark, WayMarkKind } from "./types.js";
 import { projectOnLine } from "./geo.js";
 import { cap } from "./text.js";
-import { MOMENT_DROP_METERS, type WaypointFeature } from "./moments.js";
+import {
+  dropReason,
+  MOMENT_DROP_METERS,
+  type SectionContext,
+  type WaypointFeature,
+} from "./moments.js";
 
 /**
  * The six kinds the map has a glyph for. A waypoint of any other service type
@@ -40,6 +45,7 @@ export interface MarkInput {
   cumulative: number[];
   /** Already filtered to this stage's `stageIndex`. */
   waypoints: WaypointFeature[];
+  section: SectionContext;
 }
 
 export function buildMarks(
@@ -59,8 +65,13 @@ export function buildMarks(
     const projection = projectOnLine(input.line, input.cumulative, point);
     if (projection.offLineMeters > MOMENT_DROP_METERS) {
       dropped.push(
-        `${rawId} ("${feature.properties.name ?? rawId}") is ${Math.round(projection.offLineMeters)} m ` +
-          `from the line, beyond the ${MOMENT_DROP_METERS} m limit`,
+        dropReason(
+          rawId,
+          feature.properties.name,
+          projection.offLineMeters,
+          point,
+          input.section,
+        ),
       );
       continue;
     }

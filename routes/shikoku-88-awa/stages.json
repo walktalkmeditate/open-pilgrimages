@@ -116,7 +116,12 @@
         ],
         "note": "OpenStreetMap node/11342795169 (accommodation), 132.39 km along this section's walked line, 182 m off it. No temple falls 25-30 km past the previous day's end at 79.45 km, so the day ends at the named accommodation or town waypoint on the line nearest 27.5 km, 52.94 km on."
       },
-      "distanceKm": 52.9
+      "distanceKm": 52.9,
+      "warnings": [
+        {
+          "en": "52.9 km, the longest of Awa's five days. OpenStreetMap records no named accommodation or town on the walked line between Ido-ji and this day's end, so the rule had nowhere nearer to stop. Carry water and food for the whole distance, or break the day at a place off the line."
+        }
+      ]
     },
     {
       "index": 4,
