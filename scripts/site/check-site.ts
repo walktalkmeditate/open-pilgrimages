@@ -535,6 +535,153 @@ const KEY_FACTS_POINT_ROWS: Array<[label: string, pattern: RegExp, field: "start
 const VARIANTS_SECTION_HEADING_PATTERN = /<h([23])(?:\s[^>]*)?>\s*(?:Other\s+)?Variants\s*<\/h\1>/i;
 const VARIANTS_TABLE_CAPTION_PATTERN = /<caption>[^<]*\bvariants\s+of\b[^<]*<\/caption>/i;
 
+/**
+ * An unqualified plural claim asserts the thing of all of them. Seven detail
+ * pages claim a property of every one of a route's waypoints — six of them in
+ * the words "…, each with <code>stageIndex</code> and <code>kmFromStart</code>"
+ * and docs/kumano-kodo-kohechi.html:146 as "Each has a <code>stageIndex</code>
+ * and a <code>kmFromStart</code>" — and each of those sentences is false the
+ * moment one waypoint arrives without either.
+ *
+ * It has been false, and for most of this repo's life. docs/kumano-kodo.html
+ * shipped "157 logistics waypoints are tagged along the route, each with
+ * <code>stageIndex</code> and <code>kmFromStart</code>" while 3 of those 157
+ * carried no stageIndex and 6 no kmFromStart. The page was later renamed to
+ * docs/kumano-kodo-nakahechi.html and the sentence narrowed to kmFromStart
+ * alone — still with 6 missing — and it read that way until b11701e reworded
+ * it into the counted form below. Replayed over `git rev-list --reverse HEAD`
+ * (341 commits, 339 of them carrying at least one
+ * routes/{id}/waypoints.geojson), the two patterns here report on the 208
+ * commits 70b8af7..174b4f7 and on none of the 126 before or the 7 after: 413
+ * reports, every one of them against the Kumano Kodo page, across the rename
+ * that carried it into a new filename.
+ *
+ * kmFromStart is the *second* property the sentence names, so a pattern
+ * anchored on "each with <code>kmFromStart</code>" matches none of the seven.
+ * What is captured instead is the whole run of <code>…</code> names following
+ * the quantifier, and every name in that run is looked up on every feature.
+ * That is also why no allowlist of property names appears here: a sentence
+ * that begins asserting a third property is checked the day it is written.
+ *
+ * The counted form is the same claim with a figure in it —
+ * docs/kumano-kodo-nakahechi.html:171's "all but six with
+ * <code>kmFromStart</code>" and :172's "All but three carry a
+ * <code>stageIndex</code>" — and its figure has to be exact rather than
+ * merely nonzero. Both are exact today: 6 and 3 of 115. A figure this cannot
+ * read as a number is reported rather than passed over, because an unreadable
+ * claim is the state in which a drift goes unseen; the message names the true
+ * count either way, so it stays actionable.
+ *
+ * Scoped to index.json's route ids in the per-route loop, never over
+ * docs/*.html, the same way checkKeyFacts and checkVariantsSection are: these
+ * sentences are claims about one route's own waypoints file, and a page with
+ * no route id has none to be read against.
+ */
+const UNIVERSAL_WAYPOINT_PROPERTY_PATTERN =
+  /\beach\s+(?:with|has|have|carries|carry)\s+((?:(?:an?|and)\s+)?<code>[A-Za-z][\w-]*<\/code>(?:[\s,]*(?:and\s+)?(?:an?\s+)?<code>[A-Za-z][\w-]*<\/code>)*)/gi;
+
+const COUNTED_WAYPOINT_PROPERTY_PATTERN =
+  /\ball\s+but\s+([A-Za-z]+|[\d,]+)\s+(?:with|carry|carries|have|has)\s+(?:an?\s+)?<code>([A-Za-z][\w-]*)<\/code>/gi;
+
+const WAYPOINT_PROPERTY_CODE_PATTERN = /<code>([A-Za-z][\w-]*)<\/code>/g;
+
+/**
+ * The figure the same sentence opens with — "2,957 logistics waypoints", "115
+ * waypoints" — read against the same file, because it is the same class of
+ * claim in the same sentence and nothing in this file has read it. The nearest
+ * thing to it, checkWaypointTypeTables, sums a breakdown table's rows against
+ * that table's own Total row — an internal consistency check that never opens
+ * the waypoints file.
+ *
+ * It has been wrong too, and a reader is what caught it. docs/camino-norte.html
+ * published "3,634 logistics waypoints" against a file holding 3,484 at
+ * 01595c5 and 2,928 at 1b8cc6c, until a7a4fe0 ("the published numbers catch up
+ * to the real waypoints") corrected it. Those two are the only commits of the
+ * 341 on which this fires.
+ *
+ * Read only out of the paragraph a property claim already sits in, which keeps
+ * its surface to the eight sentences this guard is about. The other "N
+ * waypoints" figures on these pages — docs/camino-portugues.html:396's "(1,043
+ * waypoints)" for the coastal variant, and the Files & CDN table rows — are
+ * left alone, and would be compared against the wrong file if they were not.
+ *
+ * Compared against the file's whole feature count, which is what all eight of
+ * those figures are. camino-frances' 2,957 is that route's total, and the same
+ * sentence's "plus 9 curated sacred sites and 36 towns" names a part of it
+ * rather than an addition to it — read the other way, as total-minus-extras,
+ * three of the eight pages disagree with their own data today. The loose
+ * wording is the page's; the figure it publishes is the file's.
+ */
+const LEADING_WAYPOINT_COUNT_PATTERN = /^\s*([\d,]+)\s+(?:[a-z]+\s+)?waypoints\b/i;
+
+const PARAGRAPH_OPEN_PATTERN = /<p(?:\s[^>]*)?>/g;
+
+// Enough to read the two figures the committed prose spells out ("all but
+// six", "all but three") and the neighbouring ones a rewording would reach
+// for. A word outside this table is not silently ignored — see
+// checkWaypointClaims, which reports a figure it cannot read.
+const SPELLED_NUMBERS: Record<string, number> = {
+  zero: 0, one: 1, two: 2, three: 3, four: 4, five: 5, six: 6, seven: 7,
+  eight: 8, nine: 9, ten: 10, eleven: 11, twelve: 12, thirteen: 13,
+  fourteen: 14, fifteen: 15, sixteen: 16, seventeen: 17, eighteen: 18,
+  nineteen: 19, twenty: 20,
+};
+
+/**
+ * The same rule on the other claim this plan exists for: bare drafted-language
+ * about a route's stage text asserts it of every stage, so it is false unless
+ * every stage carries `drafted: true`.
+ *
+ * Do not replace this with the reading it looks like — "the page says drafted,
+ * so some stage must be drafted". That reading was tried and rejected. The
+ * plan measured it at 0 reports across 202 commits; measured again here it is
+ * 0 across all 341 in `git rev-list --reverse HEAD`, 326 of which carry both a
+ * docs/index.html and a routes/{id}/stages.json. And it misses the drift this
+ * check was written for. At be6cea9 the Kohechi's card on docs/index.html
+ * still read "the stage text is drafted and awaiting review" after three of
+ * its four stages had been reviewed and their flags cleared — one stage
+ * genuinely was still drafted, so the existence reading stayed green on the
+ * one page that was wrong. The universal reading reports that commit and no
+ * other: 1 report across 341, and cecfff2 removed the sentence.
+ *
+ * The words are scoped to the surfaces checkDraftedStageTextClaim reads and to
+ * nowhere else. CHANGELOG.md, CLAUDE.md, docs/review/ and docs/superpowers/
+ * use "drafted", "awaiting review" and "not yet reviewed" 6, 3, 16 and 188
+ * times respectively, all of it correct — the review records are written in
+ * them — and none of the four is a page speaking for a route.
+ *
+ * A quantifier is what makes a claim checkable or not, and this pattern
+ * matches the unquantified shape alone: the noun phrase has to be
+ * "the"/"all"/"every" followed immediately by the stage noun. "the remaining
+ * stages are drafted" and "the first two stages are drafted" do not match,
+ * which is right — they are claims about a subset this has no way to
+ * identify. The lookbehind covers the two words that can stand directly before
+ * "the stages" and still leave the claim a partial one: "of", which every
+ * partitive "N of the …" ends in, and "half". Without it, "three of the stages
+ * are drafted" reads as the bare claim. Prose is whitespace-collapsed before
+ * the pattern runs, so the guard is exact rather than a bet about line
+ * wrapping.
+ *
+ * Nothing in the tree matches this today, in either direction: no docs/*.html
+ * and no README.md contains any of the three phrases, and no stage in any
+ * stages.json is drafted. So the pattern is proved by fixtures rather than by
+ * the tree — see the tests reconstructing be6cea9's card in check-site.test.ts.
+ */
+const DRAFTED_STAGE_TEXT_CLAIM_PATTERN =
+  /(?<!\b(?:of|half)\s)\b(?:the|all|every)\s+stages?(?:\s+texts?)?\s+(?:(?:is|are|remains?)\s+(?:still\s+)?(?:drafted|awaiting\s+review|unreviewed)|(?:is|are)\s+not\s+yet\s+reviewed|(?:has|have)\s+not\s+(?:yet\s+)?been\s+reviewed)\b/gi;
+
+const ROUTE_STATUS_PATTERN = /<div class="route-status[^"]*">([\s\S]*?)<\/div>/g;
+
+/**
+ * A claim as a reader sees it: markup stripped, entities decoded, whitespace
+ * collapsed. Used both to quote a matched claim back in a message and to
+ * prepare a surface before the drafted pattern is run over it, so the pattern
+ * never has to expect an <em> or a line break in the middle of a phrase.
+ */
+function claimText(markup: string): string {
+  return decodeEntities(markup.replace(/<[^>]*>/g, " ")).replace(/\s+/g, " ").trim();
+}
+
 function normalizedCell(rendered: string): string {
   return decodeEntities(rendered).replace(/\s+/g, " ").trim();
 }
@@ -844,6 +991,104 @@ function readDeclaredKeyFacts(sectionDir: string): DeclaredKeyFacts | null {
   if (endElevation !== undefined) declared.endElevationMeters = endElevation;
 
   return declared;
+}
+
+/**
+ * One properties record per waypoint, in file order — the independent source
+ * of truth a page's claims about its waypoints are read against. computeStats
+ * reduces this file to a count (scripts/stats.ts), so it cannot answer what
+ * any individual waypoint carries; this reads the feature list itself, the way
+ * checkRoadsAsset and checkCoastalVariantGpx read their own JSON.
+ *
+ * A feature with no properties object resolves to an empty one rather than
+ * being dropped, so it counts toward the total and against every property
+ * claimed of it — which is what a waypoint missing everything should do to a
+ * sentence saying they all carry something.
+ *
+ * Degrades to null (skip every claim on this page) when the file is missing,
+ * unparsable, or has no features array. A route with no waypoints.geojson at
+ * all is ordinary here — kumano-kodo-iseji and kumano-kodo-ohechi ship without
+ * one — and a malformed one is npm run validate's story to tell.
+ */
+function readWaypointProperties(routeDir: string): Array<Record<string, unknown>> | null {
+  const waypointsPath = join(routeDir, "waypoints.geojson");
+  if (!existsSync(waypointsPath)) return null;
+
+  let parsed: unknown;
+  try {
+    parsed = JSON.parse(readFileSync(waypointsPath, "utf-8"));
+  } catch {
+    return null; // a malformed waypoints.geojson is npm run validate's job
+  }
+
+  const features = (parsed as { features?: unknown } | null)?.features;
+  if (!Array.isArray(features)) return null;
+
+  return features.map((feature) => {
+    const properties = (feature as { properties?: unknown } | null)?.properties;
+    return typeof properties === "object" && properties !== null
+      ? (properties as Record<string, unknown>)
+      : {};
+  });
+}
+
+function countWithoutProperty(
+  properties: Array<Record<string, unknown>>,
+  name: string,
+): number {
+  return properties.filter((one) => one[name] === undefined || one[name] === null).length;
+}
+
+interface StageDraftedCounts {
+  total: number;
+  drafted: number;
+}
+
+/**
+ * How many of a route's stages still carry `drafted: true`, and how many there
+ * are. Nothing else in this file reads that flag — validate.ts and
+ * check-drafted-diff.ts police the flag itself and the review record behind
+ * it, and neither one looks at what the site says about either.
+ */
+function readStageDraftedCounts(routeDir: string): StageDraftedCounts | null {
+  const stagesPath = join(routeDir, "stages.json");
+  if (!existsSync(stagesPath)) return null;
+
+  let parsed: unknown;
+  try {
+    parsed = JSON.parse(readFileSync(stagesPath, "utf-8"));
+  } catch {
+    return null; // a malformed stages.json is npm run validate's job
+  }
+
+  if (!isStagesFileLike(parsed) || !Array.isArray(parsed.stages)) return null;
+
+  return {
+    total: parsed.stages.length,
+    drafted: parsed.stages.filter(
+      (stage: unknown) => (stage as { drafted?: unknown } | null)?.drafted === true,
+    ).length,
+  };
+}
+
+/**
+ * The paragraph a match sits in: where its text begins, and the text between
+ * that point and the match. Null when the match is in no paragraph at all.
+ * Only the opening-count check calls this; the property claims are read
+ * straight off the page, so a claim written outside a <p> still gets checked
+ * and only its figure goes unread.
+ */
+function paragraphBefore(html: string, at: number): { start: number; prefix: string } | null {
+  let start = -1;
+  for (const open of html.matchAll(PARAGRAPH_OPEN_PATTERN)) {
+    if (open.index >= at) break;
+    start = open.index + open[0].length;
+  }
+
+  if (start === -1) return null;
+  if (html.lastIndexOf("</p>", at) >= start) return null;
+
+  return { start, prefix: html.slice(start, at) };
 }
 
 function pointElevation(point: unknown): number | undefined {
@@ -2013,6 +2258,175 @@ export function checkSite(root: string, overrides: PageOverrides = {}): Problem[
     }
   }
 
+  /**
+   * See UNIVERSAL_WAYPOINT_PROPERTY_PATTERN for the rule and what it has
+   * caught, and LEADING_WAYPOINT_COUNT_PATTERN for the figure the same
+   * sentence opens with.
+   *
+   * A paragraph's opening figure is read once however many claims it carries,
+   * so the nakahechi's two sentences — one paragraph with a figure, one
+   * without — produce one reading between them rather than two of the same.
+   */
+  function checkWaypointClaims(id: string, detailHtml: string): void {
+    const properties = readWaypointProperties(join(root, "routes", id));
+    if (properties === null) return;
+
+    const file = `docs/${id}.html`;
+    const source = `routes/${id}/waypoints.geojson`;
+    const total = properties.length;
+    const readParagraphs = new Set<number>();
+
+    const checkOpeningCount = (at: number): void => {
+      const paragraph = paragraphBefore(detailHtml, at);
+      if (paragraph === null || readParagraphs.has(paragraph.start)) return;
+      readParagraphs.add(paragraph.start);
+
+      const opening = paragraph.prefix.match(LEADING_WAYPOINT_COUNT_PATTERN);
+      if (!opening || figureFromCell(opening[1]) === total) return;
+
+      add(
+        file,
+        `opens a waypoint claim with "${claimText(opening[0])}", but ${source} holds ` +
+          `${total.toLocaleString("en-US")} — update the figure, or rebuild the waypoints`,
+      );
+    };
+
+    for (const claim of detailHtml.matchAll(UNIVERSAL_WAYPOINT_PROPERTY_PATTERN)) {
+      for (const [, name] of claim[1].matchAll(WAYPOINT_PROPERTY_CODE_PATTERN)) {
+        const without = countWithoutProperty(properties, name);
+        if (without === 0) continue;
+
+        add(
+          file,
+          `says "${claimText(claim[0])}", but ${source} holds ` +
+            `${without.toLocaleString("en-US")} of ${total.toLocaleString("en-US")} waypoints ` +
+            `with no ${name} — an unqualified plural claim asserts it of all ` +
+            `${total.toLocaleString("en-US")}; reword it as "all but ` +
+            `${without.toLocaleString("en-US")}", or give those waypoints a ${name}`,
+        );
+      }
+
+      checkOpeningCount(claim.index);
+    }
+
+    for (const claim of detailHtml.matchAll(COUNTED_WAYPOINT_PROPERTY_PATTERN)) {
+      const [, figure, name] = claim;
+      const without = countWithoutProperty(properties, name);
+      const claimed = SPELLED_NUMBERS[figure.toLowerCase()] ?? Number(figure.replace(/,/g, ""));
+
+      if (Number.isNaN(claimed)) {
+        add(
+          file,
+          `says "${claimText(claim[0])}", naming "${figure}" as the number of waypoints without ` +
+            `a ${name} — that is not a figure this guard can read, so the claim goes unchecked; ` +
+            `${source} holds ${without.toLocaleString("en-US")} of ` +
+            `${total.toLocaleString("en-US")} waypoints with no ${name}, so state it as a number`,
+        );
+      } else if (claimed !== without) {
+        add(
+          file,
+          `says "${claimText(claim[0])}", but ${source} holds ` +
+            `${without.toLocaleString("en-US")} of ${total.toLocaleString("en-US")} waypoints ` +
+            `with no ${name} — correct the figure to ${without.toLocaleString("en-US")}, or give ` +
+            `the difference a ${name}`,
+        );
+      }
+
+      checkOpeningCount(claim.index);
+    }
+  }
+
+  /**
+   * The status prose on this route's card on docs/index.html, or "" when it
+   * has no card — kumano-kodo-iseji and kumano-kodo-ohechi have none by
+   * design, and degrading in silence is the whole reason this returns a string
+   * rather than reporting a missing card.
+   *
+   * The cards carry no id, no href and no data-* attribute, so the route's own
+   * generated glyph stands in for identity: every card inlines it, and the
+   * file it is read from is the same one checkInlinedAsset compares that card
+   * against. The glyph is not unique in the page, though — the hero
+   * constellation inlines seven of the eight a second and third time, above
+   * the grid — so this walks the cards forward and takes the ones containing
+   * the glyph, rather than walking backward from the first occurrence of it,
+   * which lands outside every card for seven of the eight routes. Card bounds
+   * come from routeGroupEnd, which counts div nesting from an opening tag and
+   * is named for the only caller it had rather than for anything it assumes.
+   *
+   * Scoped to the route-status divs, which is where a card says what state its
+   * data is in. The card's descriptive paragraph is left out deliberately:
+   * prose about how a route's text came to be written is not a claim about
+   * whether it has been reviewed.
+   */
+  function indexCardStatusProse(id: string): string {
+    const glyphPath = join(docs, "assets", "routes", `${id}.svg`);
+    if (!existsSync(glyphPath)) return "";
+
+    const glyph = extractPathD(readFileSync(glyphPath, "utf-8"));
+    if (!glyph) return "";
+
+    const prose: string[] = [];
+    for (let start = indexHtml.indexOf(CARD_OPEN); start !== -1; ) {
+      const end = routeGroupEnd(indexHtml, start);
+      const card = indexHtml.slice(start, end);
+      if (card.includes(glyph)) {
+        for (const status of card.matchAll(ROUTE_STATUS_PATTERN)) prose.push(status[1]);
+      }
+      start = indexHtml.indexOf(CARD_OPEN, Math.max(end, start + 1));
+    }
+
+    return prose.join(" ");
+  }
+
+  /**
+   * See DRAFTED_STAGE_TEXT_CLAIM_PATTERN for the rule, the reading it replaces,
+   * and the measurements behind both.
+   *
+   * Three surfaces, each one a place where a claim can be attributed to a
+   * single route: the route's own detail page, its card's status prose on
+   * docs/index.html, and its row in the README's route table. Every other
+   * place the words appear is either out of scope by file (see the pattern's
+   * comment) or has no route to attribute a claim to — docs/routes.html
+   * carries no route-status markup at all, and docs/contribute.html has no
+   * per-route status structure to read one out of.
+   *
+   * The README is read a line at a time, because its route tables are the only
+   * per-route structure it has. Prose about a route elsewhere in that file is
+   * not covered, and no committed README has ever carried any of these phrases
+   * anywhere.
+   */
+  function checkDraftedStageTextClaim(id: string, detailHtml: string): void {
+    const stages = readStageDraftedCounts(join(root, "routes", id));
+    if (stages === null || stages.total === 0) return;
+    if (stages.drafted === stages.total) return; // the claim would be true of all of them
+
+    const readmeRow =
+      readmeMd.split("\n").find((line) => line.includes(`](routes/${id}/)`)) ?? "";
+
+    const surfaces: Array<[string, string]> = [
+      [`docs/${id}.html`, detailHtml],
+      ["docs/index.html", indexCardStatusProse(id)],
+      ["README.md", readmeRow],
+    ];
+
+    const remedy =
+      stages.drafted === 0
+        ? `drop the claim, or mark the stages drafted again`
+        : `reword it to name the ${stages.drafted} still drafted, or mark the other ` +
+          `${stages.total - stages.drafted} drafted again`;
+
+    for (const [file, surface] of surfaces) {
+      for (const claim of claimText(surface).matchAll(DRAFTED_STAGE_TEXT_CLAIM_PATTERN)) {
+        add(
+          file,
+          `says of "${id}" that ${claim[0]}, but routes/${id}/stages.json marks ` +
+            `${stages.drafted} of its ${stages.total} stages drafted: true — an unqualified ` +
+            `plural claim asserts it of all ${stages.total}; ${remedy}`,
+        );
+      }
+    }
+  }
+
   function checkTerrainNotesDistance(id: string): void {
     const stagesPath = join(root, "routes", id, "stages.json");
     if (!existsSync(stagesPath)) return;
@@ -2312,6 +2726,8 @@ export function checkSite(root: string, overrides: PageOverrides = {}): Problem[
       checkWaypointTypeTables(id, detailHtml);
       checkKeyFacts(id, detailHtml);
       checkVariantsSection(id, detailHtml);
+      checkWaypointClaims(id, detailHtml);
+      checkDraftedStageTextClaim(id, detailHtml);
       if (pilgrimageId !== undefined) {
         checkPilgrimageBacklink(id, pilgrimageId, detailHtml);
       }

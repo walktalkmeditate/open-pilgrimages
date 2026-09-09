@@ -4121,3 +4121,425 @@ test("the committed docs/{id}.html pages already agree with index.json about whi
   // variants for, and no route with variants hides them
   assert.deepEqual(variantsSectionProblems(ROOT), []);
 });
+
+// An unqualified plural claim asserts the thing of all of them. The prose
+// strings below are reproduced verbatim from the committed pages, because the
+// whole design question is whether a check can tell a claim about every
+// waypoint apart from the sentences beside it that mention waypoints and claim
+// nothing of them all.
+
+const FRANCES_UNIVERSAL_CLAIM =
+  "<p>2,957 logistics waypoints are tagged along the route, each with <code>stageIndex</code> " +
+  "and <code>kmFromStart</code>, plus 9 curated sacred sites and 36 towns.</p>";
+
+const KOHECHI_UNIVERSAL_CLAIM =
+  "<p>35 waypoints, every one enriched from OpenStreetMap and carrying its <code>osmId</code>, " +
+  "so a re-run of the enricher reproduces the file exactly. None are hand-curated yet. Each has " +
+  "a <code>stageIndex</code> and a <code>kmFromStart</code>.</p>";
+
+const NAKAHECHI_COUNTED_CLAIMS =
+  "<p>115 waypoints are tagged along the route, all but six with <code>kmFromStart</code>: 21 " +
+  "curated &mdash; 18 sacred sites, 2 towns and Yunomine Onsen &mdash; and 94 enriched from " +
+  "OpenStreetMap.</p>" +
+  "<p>All but three carry a <code>stageIndex</code>. Kumano Nachi Taisha, Nachi Falls and " +
+  "Kumano Hayatama Taisha do not.</p>";
+
+const COASTAL_FILES_ROW =
+  "<p>Files at <code>routes/camino-portugues/variants/coastal/</code>: " +
+  "<code>waypoints.geojson</code> (1,043 waypoints), <code>stats.json</code> (2003&ndash;2025).</p>";
+
+const waypointClaimProblems = (root: string): string[] =>
+  checkSite(root)
+    .filter((p) =>
+      /waypoints with no |not a figure this guard can read|opens a waypoint claim/.test(p.message),
+    )
+    .map((p) => `${p.file}: ${p.message}`);
+
+// The property claims alone. The two fixtures below reproduce a committed
+// sentence verbatim, its published figure included, over a handful of
+// synthetic waypoints — so the opening count is reported too, correctly and
+// beside the point those two tests are making.
+const propertyClaimProblems = (root: string): string[] =>
+  waypointClaimProblems(root).filter((problem) => !problem.includes("opens a waypoint claim"));
+
+function waypointFixture(html: string, features: Array<Record<string, unknown>>): string {
+  const root = createFixtureRoot([{ id: "r" }]);
+  mkdirSync(join(root, "routes", "r"), { recursive: true });
+  writeFileSync(
+    join(root, "routes", "r", "waypoints.geojson"),
+    JSON.stringify({
+      type: "FeatureCollection",
+      features: features.map((properties) => ({ type: "Feature", properties })),
+    }),
+  );
+  writeFileSync(join(root, "docs", "r.html"), `<html><body><code>r</code>${html}</body></html>`);
+  return root;
+}
+
+const withBoth = { stageIndex: 1, kmFromStart: 0.5, osmId: 1 };
+const withoutKm = { stageIndex: 1, osmId: 1 };
+const withoutStageIndex = { kmFromStart: 0.5, osmId: 1 };
+
+test("checkSite reports an 'each with' claim one waypoint does not satisfy (fixture — the kumano-kodo drift, reconstructed)", () => {
+  // #given the Camino Francés sentence verbatim over a file where one waypoint
+  // carries no kmFromStart — the shape docs/kumano-kodo.html shipped for 208
+  // commits, with 6 of 157 missing
+  const root = waypointFixture(FRANCES_UNIVERSAL_CLAIM, [withBoth, withBoth, withoutKm]);
+
+  try {
+    // #when checkSite reads the claim against the waypoints file
+    const problems = propertyClaimProblems(root);
+
+    // #then one problem quotes the claim and names both counts
+    assert.equal(problems.length, 1);
+    assert.match(problems[0], /^docs\/r\.html: says "each with stageIndex and kmFromStart"/);
+    assert.match(problems[0], /holds 1 of 3 waypoints with no kmFromStart/);
+    assert.match(problems[0], /asserts it of all 3/);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("checkSite reads every property an 'each with' claim names, not only the first", () => {
+  // #given the same sentence over a file failing the *second* property it
+  // names — kmFromStart is never the first <code> in any committed wording, so
+  // a pattern anchored on it would match nothing at all
+  const root = waypointFixture(FRANCES_UNIVERSAL_CLAIM, [withoutStageIndex, withoutKm]);
+
+  try {
+    // #when / #then both properties are reported, separately
+    const problems = propertyClaimProblems(root);
+    assert.equal(problems.length, 2);
+    assert.ok(problems.some((p) => p.includes("with no stageIndex")));
+    assert.ok(problems.some((p) => p.includes("with no kmFromStart")));
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("checkSite does not fire on the committed prose that mentions waypoints without claiming a property of all of them (fixture — the Kohechi's osmId sentence and the coastal Files row, verbatim)", () => {
+  // #given the two sentences beside the claims: the Kohechi's "every one
+  // enriched from OpenStreetMap and carrying its osmId", over a file where a
+  // waypoint carries no osmId, and the coastal variant's Files row naming a
+  // count that belongs to a different file entirely. A keyword check on
+  // "waypoints" or on <code>osmId</code> fires on both
+  const root = waypointFixture(
+    "<p>35 waypoints, every one enriched from OpenStreetMap and carrying its <code>osmId</code>, " +
+      "so a re-run of the enricher reproduces the file exactly.</p>" +
+      COASTAL_FILES_ROW,
+    [withBoth, { stageIndex: 1, kmFromStart: 0.5 }],
+  );
+
+  try {
+    // #when / #then nothing is reported
+    assert.deepEqual(waypointClaimProblems(root), []);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("checkSite accepts both committed wordings of the 'each with' claim when the data satisfies them", () => {
+  // #given the Francés sentence and the Kohechi's "Each has a stageIndex and a
+  // kmFromStart", over a file where every waypoint carries all three
+  const root = waypointFixture(FRANCES_UNIVERSAL_CLAIM + KOHECHI_UNIVERSAL_CLAIM, [
+    { ...withBoth },
+    { ...withBoth },
+  ]);
+
+  try {
+    // #when / #then neither wording is reported, and neither opening figure is
+    // read as wrong — 2,957 and 35 sit in paragraphs whose claims are true,
+    // but the counts themselves are checked, so this pins that too
+    const problems = waypointClaimProblems(root);
+    assert.equal(problems.length, 2);
+    assert.ok(problems.every((p) => p.includes("opens a waypoint claim")));
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("checkSite reports an 'all but N' claim whose figure is wrong (fixture — the Nakahechi's own wording, off by one)", () => {
+  // #given docs/kumano-kodo-nakahechi.html:171's sentence over a file where
+  // seven waypoints, not six, carry no kmFromStart
+  const root = waypointFixture(NAKAHECHI_COUNTED_CLAIMS, [
+    withBoth,
+    ...Array.from({ length: 7 }, () => ({ ...withoutKm })),
+  ]);
+
+  try {
+    // #when checkSite reads the figure against the file
+    const problems = waypointClaimProblems(root).filter((p) => p.includes("kmFromStart"));
+
+    // #then the "all but six" figure is named as wrong, against the true one
+    assert.equal(problems.length, 1);
+    assert.match(problems[0], /says "all but six with kmFromStart"/);
+    assert.match(problems[0], /holds 7 of 8 waypoints with no kmFromStart/);
+    assert.match(problems[0], /correct the figure to 7/);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("checkSite reports an 'all but N' figure it cannot read as a number, rather than passing over it", () => {
+  // #given a claim whose count is a word no reader can compare against data —
+  // an unreadable claim is precisely the state in which a drift goes unseen
+  const root = waypointFixture(
+    "<p>3 waypoints are tagged along the route, all but several with <code>kmFromStart</code>.</p>",
+    [withBoth, withoutKm, withoutKm],
+  );
+
+  try {
+    // #when / #then it is reported, and the message still names the true count
+    const problems = waypointClaimProblems(root);
+    assert.equal(problems.length, 1);
+    assert.match(problems[0], /naming "several" as the number of waypoints without a kmFromStart/);
+    assert.match(problems[0], /holds 2 of 3 waypoints with no kmFromStart/);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("checkSite accepts the Nakahechi's committed 'all but N' wording when both figures are exact", () => {
+  // #given both counted sentences verbatim, over a file with exactly six
+  // waypoints lacking kmFromStart and three lacking stageIndex, opening on a
+  // figure that is the file's own total
+  const root = waypointFixture(
+    "<p>10 waypoints are tagged along the route, all but six with <code>kmFromStart</code>.</p>" +
+      "<p>All but three carry a <code>stageIndex</code>.</p>",
+    [
+      ...Array.from({ length: 6 }, () => ({ ...withoutKm })),
+      ...Array.from({ length: 3 }, () => ({ ...withoutStageIndex })),
+      { ...withBoth },
+    ],
+  );
+
+  try {
+    // #when / #then nothing is reported
+    assert.deepEqual(waypointClaimProblems(root), []);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("checkSite reports the figure a waypoint claim's sentence opens with (fixture — docs/camino-norte.html's published 3,634 against a file that never held it)", () => {
+  // #given the shape 01595c5 and 1b8cc6c shipped: a leading count no longer
+  // its file's, in a sentence whose property claim is perfectly true
+  const root = waypointFixture(
+    "<p>3,634 logistics waypoints are tagged along the route, each with <code>stageIndex</code> " +
+      "and <code>kmFromStart</code>.</p>",
+    [withBoth, withBoth],
+  );
+
+  try {
+    // #when checkSite reads the opening figure against the file
+    const problems = waypointClaimProblems(root);
+
+    // #then only the figure is reported, and both numbers are named alike
+    assert.equal(problems.length, 1);
+    assert.match(problems[0], /opens a waypoint claim with "3,634 logistics waypoints"/);
+    assert.match(problems[0], /but routes\/r\/waypoints\.geojson holds 2 —/);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("checkSite does not read a 'N waypoints' figure out of a paragraph that makes no claim about them", () => {
+  // #given the coastal variant's Files row, whose 1,043 belongs to a different
+  // file, in a page whose own claim paragraph opens with the right figure
+  const root = waypointFixture(
+    "<p>2 waypoints are tagged along the route, each with <code>kmFromStart</code>.</p>" +
+      COASTAL_FILES_ROW,
+    [withBoth, withBoth],
+  );
+
+  try {
+    // #when / #then nothing is reported
+    assert.deepEqual(waypointClaimProblems(root), []);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("the committed detail pages already make no waypoint claim their own data does not support (positive control)", () => {
+  // #given the committed tree, where seven pages claim "each with stageIndex
+  // and kmFromStart" and none of those routes has a waypoint missing either,
+  // and the Nakahechi's "all but six" and "all but three" are exact
+  // #when / #then nothing is reported
+  assert.deepEqual(waypointClaimProblems(ROOT), []);
+});
+
+// The drafted claim, and the reading this check deliberately does not take.
+// At be6cea9 the Kohechi's card on docs/index.html still read "the stage text
+// is drafted and awaiting review" after three of its four stages had been
+// reviewed and their flags cleared. One stage was still drafted, so a check
+// asking only "is some stage drafted?" stayed green on the one page that was
+// wrong — see DRAFTED_STAGE_TEXT_CLAIM_PATTERN for the replay figures.
+
+const KOHECHI_CARD_STATUS_AT_BE6CEA9 =
+  "No waypoints curated yet, and the stage text is drafted and awaiting review. " +
+  '<a href="/contribute">Help complete it</a>';
+
+const KOHECHI_CARD_STATUS_TODAY =
+  "Geometry, four stages and elevation measured on the walked line, all four stages&#39; text " +
+  "reviewed and cleared, and 35 waypoints &mdash; those measured against this section&#39;s own " +
+  "relation instead";
+
+const FIXTURE_GLYPH_D = "M10,10 L20,20 L30,10";
+
+function draftedIndexHtml(status: string): string {
+  return (
+    '<html><body><div class="route-grid"><div class="route-card">' +
+    `<h3><svg class="route-glyph"><path pathLength="1" d="${FIXTURE_GLYPH_D}"/></svg> R</h3>` +
+    '<p>A route.</p>' +
+    `<div class="route-status route-status-needs">${status}</div>` +
+    "</div></div></body></html>"
+  );
+}
+
+const draftedClaimProblems = (root: string, indexHtml?: string): string[] =>
+  checkSite(root, indexHtml === undefined ? {} : { indexHtml })
+    .filter((p) => p.message.includes("stages drafted: true"))
+    .map((p) => `${p.file}: ${p.message}`);
+
+function draftedFixture(draftedFlags: boolean[], pageHtml = "", withGlyph = true): string {
+  const root = createFixtureRoot([{ id: "r" }]);
+  mkdirSync(join(root, "routes", "r"), { recursive: true });
+  writeFileSync(
+    join(root, "routes", "r", "stages.json"),
+    JSON.stringify({
+      stages: draftedFlags.map((drafted, index) => ({ index: index + 1, drafted })),
+    }),
+  );
+  if (withGlyph) {
+    mkdirSync(join(root, "docs", "assets", "routes"), { recursive: true });
+    writeFileSync(
+      join(root, "docs", "assets", "routes", "r.svg"),
+      `<svg><path d="${FIXTURE_GLYPH_D}"/></svg>`,
+    );
+  }
+  writeFileSync(join(root, "docs", "r.html"), `<html><body><code>r</code>${pageHtml}</body></html>`);
+  return root;
+}
+
+test("checkSite reports an index card claiming drafted stage text after most of it was reviewed (fixture — be6cea9, reconstructed)", () => {
+  // #given the card's own status prose at be6cea9, verbatim, over a route
+  // whose stages.json says one of four is still drafted
+  const root = draftedFixture([true, false, false, false]);
+
+  try {
+    // #when checkSite reads the card against stages.json
+    const problems = draftedClaimProblems(root, draftedIndexHtml(KOHECHI_CARD_STATUS_AT_BE6CEA9));
+
+    // #then the claim is reported against the card, and both counts are named
+    assert.equal(problems.length, 1);
+    assert.match(problems[0], /^docs\/index\.html: says of "r" that the stage text is drafted,/);
+    assert.match(problems[0], /marks 1 of its 4 stages drafted: true/);
+    assert.match(problems[0], /asserts it of all 4; reword it to name the 1 still drafted/);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("a check asking only whether some stage is drafted would have stayed green on be6cea9's card — this one does not", () => {
+  // #given the same card and the same one-of-four state, which is exactly the
+  // configuration in which the existence reading reports nothing
+  const root = draftedFixture([true, false, false, false]);
+
+  try {
+    // #when / #then the report exists, and it exists *because* three stages
+    // were cleared rather than because none was drafted
+    const problems = draftedClaimProblems(root, draftedIndexHtml(KOHECHI_CARD_STATUS_AT_BE6CEA9));
+    assert.equal(problems.length, 1);
+    assert.match(problems[0], /1 of its 4 stages/);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("checkSite does not fire on drafted-language that names which stages it means (fixture — the qualified forms, and the Kohechi's card today)", () => {
+  // #given the card as it reads today, and five qualified claims a page may
+  // honestly make while three of four stages stand reviewed. A keyword check
+  // on "drafted" or "awaiting review" fires on all six. "Half the stages" and
+  // "One of the stages" are the two shapes the pattern's lookbehind exists
+  // for: both put the bare noun phrase in the middle of a partial claim
+  const root = draftedFixture(
+    [true, false, false, false],
+    "<p>One of the stages is drafted and awaiting review.</p>" +
+      "<p>The remaining stage is drafted.</p>" +
+      "<p>Half the stages are drafted.</p>" +
+      "<p>The first two stages are drafted.</p>" +
+      "<p>Three of the four stages are reviewed; the last is awaiting review.</p>",
+  );
+
+  try {
+    // #when / #then nothing is reported, on the page or on the card
+    assert.deepEqual(draftedClaimProblems(root, draftedIndexHtml(KOHECHI_CARD_STATUS_TODAY)), []);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("checkSite accepts an unqualified drafted claim when every stage really is drafted", () => {
+  // #given the card at 38e3866, before any of the four stages was reviewed —
+  // the same sentence, true when it was written
+  const root = draftedFixture([true, true, true, true]);
+
+  try {
+    // #when / #then nothing is reported
+    assert.deepEqual(
+      draftedClaimProblems(root, draftedIndexHtml(KOHECHI_CARD_STATUS_AT_BE6CEA9)),
+      [],
+    );
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("checkSite reports a drafted claim on a route's own detail page, not only on its index card", () => {
+  // #given the claim on the page itself, and a route with no card at all —
+  // kumano-kodo-iseji and kumano-kodo-ohechi have none, by design
+  const root = draftedFixture(
+    [true, false],
+    "<p>All stages are drafted and awaiting review.</p>",
+    false,
+  );
+
+  try {
+    // #when / #then the page is reported and the missing card is not
+    const problems = draftedClaimProblems(root, draftedIndexHtml(KOHECHI_CARD_STATUS_AT_BE6CEA9));
+    assert.equal(problems.length, 1);
+    assert.match(problems[0], /^docs\/r\.html: says of "r" that All stages are drafted,/);
+    assert.match(problems[0], /marks 1 of its 2 stages drafted: true/);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("checkSite reports a drafted claim in the README's row for that route", () => {
+  // #given the README's route table carrying the claim on the route's own row
+  const root = draftedFixture([false, false]);
+  const readmeMd =
+    "| Route | Distance | Status |\n" +
+    "| [Camino Frances](routes/camino-frances/) | 764 km | Fully enriched |\n" +
+    "| [R](routes/r/) | 10 km | The stage text is still drafted |\n";
+
+  try {
+    // #when / #then the row is reported, and the remedy names the zero case
+    const problems = checkSite(root, { readmeMd })
+      .filter((p) => p.message.includes("stages drafted: true"))
+      .map((p) => `${p.file}: ${p.message}`);
+    assert.equal(problems.length, 1);
+    assert.match(problems[0], /^README\.md: says of "r" that The stage text is still drafted,/);
+    assert.match(problems[0], /marks 0 of its 2 stages drafted: true/);
+    assert.match(problems[0], /drop the claim, or mark the stages drafted again/);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("the committed docs/ and README.md publish no drafted claim, and no stage is drafted (positive control)", () => {
+  // #given the committed tree, where none of the three phrases appears in any
+  // docs/*.html or in README.md and no stages.json carries drafted: true
+  // #when / #then nothing is reported in either direction
+  assert.deepEqual(draftedClaimProblems(ROOT), []);
+});
