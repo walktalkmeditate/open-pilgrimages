@@ -18,6 +18,7 @@ interface FixtureRoute {
   distanceKm?: number;
   variants?: FixtureVariant[];
   pilgrimage?: string;
+  ways?: Record<string, unknown>;
 }
 
 function createFixtureRoot(
@@ -4652,4 +4653,418 @@ test("the committed docs/ and README.md publish no drafted claim, and no stage i
   // docs/*.html or in README.md and no stages.json carries drafted: true
   // #when / #then nothing is reported in either direction
   assert.deepEqual(draftedClaimProblems(ROOT), []);
+});
+
+// Which group the README files a route under. Both drifts this reads for were
+// wrong-heading drifts — see README_GROUP_HEADING_PATTERN for the replay
+// figures, and for why a row under no heading at all is deliberately silent.
+
+const KUMANO_PILGRIMAGE = {
+  id: "kumano-kodo",
+  name: { en: "Kumano Kodō", ja: "熊野古道" },
+  sections: ["kumano-kodo-nakahechi", "kumano-kodo-ohechi"],
+};
+
+const CAMINO_PILGRIMAGE = {
+  id: "camino-de-santiago",
+  name: { en: "Camino de Santiago", es: "Camino de Santiago" },
+  sections: ["camino-frances"],
+};
+
+const TABLE_HEADER = "| Route | Distance |\n|-------|----------|\n";
+
+const NAKAHECHI_ROW = "| [Kumano Kodo (Nakahechi)](routes/kumano-kodo-nakahechi/) | 36 km |\n";
+const OHECHI_ROW = "| [Ōhechi](routes/kumano-kodo-ohechi/) | 90 km |\n";
+const FRANCES_ROW = "| [Camino Frances](routes/camino-frances/) | 764 km |\n";
+const SHIKOKU_ROW = "| [Shikoku 88](routes/shikoku-88/) | 1,200 km |\n";
+
+// README.md:19's shape. The link carries two path segments past the route id,
+// which the id pattern cannot cross, so the row falls out of the scan — a
+// variant has no pilgrimage membership of its own to be filed by.
+const COASTAL_ROW =
+  "| [Camino Portugués da Costa (Coastal)](routes/camino-portugues/variants/coastal/) | 110 km |\n";
+
+function groupingRoot(): string {
+  return createFixtureRoot(
+    [
+      { id: "kumano-kodo-nakahechi", pilgrimage: "kumano-kodo" },
+      { id: "kumano-kodo-ohechi", pilgrimage: "kumano-kodo" },
+      { id: "camino-frances", pilgrimage: "camino-de-santiago" },
+      { id: "camino-portugues", pilgrimage: "camino-de-santiago" },
+      { id: "shikoku-88" },
+    ],
+    { pilgrimages: [KUMANO_PILGRIMAGE, CAMINO_PILGRIMAGE] },
+  );
+}
+
+const groupingProblems = (root: string, readmeMd: string): string[] =>
+  checkSite(root, { readmeMd })
+    .filter((p) => p.file === "README.md" && p.message.includes("is filed under"))
+    .map((p) => p.message);
+
+test("checkSite reports sections filed under a heading that is not their pilgrimage's name (fixture — ad51008, reconstructed)", () => {
+  // #given the README shape ad51008 shipped and nine commits carried: all four
+  // Kumano rows left under "### Other Routes" while index.json gave every one
+  // of them a pilgrimage block
+  const root = groupingRoot();
+  const readmeMd =
+    "### Kumano Kodō\n\nFour alternative ways to the same three shrines.\n\n" +
+    "### Other Routes\n\nRoutes that belong to no pilgrimage grouping yet.\n\n" +
+    TABLE_HEADER +
+    NAKAHECHI_ROW +
+    OHECHI_ROW;
+
+  try {
+    // #when checkSite reads each row's heading against index.json
+    const problems = groupingProblems(root, readmeMd);
+
+    // #then both rows are reported, and each names the heading it sits under
+    // and the one its pilgrimage's name.en asks for
+    assert.equal(problems.length, 2);
+    assert.match(
+      problems[0],
+      /^section "kumano-kodo-nakahechi" is filed under "### Other Routes", but index\.json says it belongs to pilgrimage "kumano-kodo", whose name is "Kumano Kodō" — move the row under "### Kumano Kodō"$/,
+    );
+    assert.match(problems[1], /^section "kumano-kodo-ohechi" is filed under "### Other Routes"/);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("checkSite reports a route that names no pilgrimage filed under a pilgrimage's heading (fixture — 8c56bac, reconstructed)", () => {
+  // #given the other real drift: the commit that first split the one table put
+  // shikoku-88, which names no pilgrimage, under "### Camino de Santiago"
+  const root = groupingRoot();
+  const readmeMd = "### Camino de Santiago\n\n" + TABLE_HEADER + FRANCES_ROW + SHIKOKU_ROW;
+
+  try {
+    // #when checkSite reads both rows under that heading
+    const problems = groupingProblems(root, readmeMd);
+
+    // #then only the unaffiliated one is reported, and the report names the
+    // pilgrimage whose name the heading is
+    assert.equal(problems.length, 1);
+    assert.match(
+      problems[0],
+      /^route "shikoku-88" is filed under "### Camino de Santiago", which is pilgrimage "camino-de-santiago"'s own name, but index\.json gives "shikoku-88" no pilgrimage/,
+    );
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("checkSite does not report a route table that carries no ### heading at all (fixture — 75a92dd, reconstructed)", () => {
+  // #given the README as it stood for the 15 commits from 75a92dd: one
+  // unheaded table under "## What's In the Box", every Camino row already
+  // carrying a pilgrimage block in the data. A rule that demanded a heading
+  // reports 5 times on each of those commits, the first inside a data-only one
+  const root = groupingRoot();
+  const readmeMd =
+    "## What's In the Box\n\n" + TABLE_HEADER + FRANCES_ROW + NAKAHECHI_ROW + SHIKOKU_ROW;
+
+  try {
+    // #when / #then nothing is reported — the absence of a heading is a README
+    // shape, not a claim about the data
+    assert.deepEqual(groupingProblems(root, readmeMd), []);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("checkSite accepts rows filed under their pilgrimage's own name.en, macron included", () => {
+  // #given the README as it reads today: two pilgrimage headings matching
+  // index.json's name.en exactly, and an "### Other Routes" for the route that
+  // belongs to neither
+  const root = groupingRoot();
+  const readmeMd =
+    "### Camino de Santiago\n\n" +
+    TABLE_HEADER +
+    FRANCES_ROW +
+    COASTAL_ROW +
+    "\n### Kumano Kodō\n\n" +
+    TABLE_HEADER +
+    NAKAHECHI_ROW +
+    OHECHI_ROW +
+    "\n### Other Routes\n\n" +
+    TABLE_HEADER +
+    SHIKOKU_ROW;
+
+  try {
+    // #when / #then nothing is reported
+    assert.deepEqual(groupingProblems(root, readmeMd), []);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("checkSite reads a pilgrimage heading whole — a heading that merely contains the name is a different heading", () => {
+  // #given the two near misses a hand-edited README grows: the macron dropped,
+  // and the name wrapped in words. Both would pass a substring reading
+  const root = groupingRoot();
+  const readmeMd =
+    "### Kumano Kodo\n\n" +
+    TABLE_HEADER +
+    NAKAHECHI_ROW +
+    "\n### The Kumano Kodō Sections\n\n" +
+    TABLE_HEADER +
+    OHECHI_ROW;
+
+  try {
+    // #when / #then both are reported, each naming the heading it read
+    const problems = groupingProblems(root, readmeMd);
+    assert.equal(problems.length, 2);
+    assert.match(problems[0], /filed under "### Kumano Kodo", but index\.json says/);
+    assert.match(problems[1], /filed under "### The Kumano Kodō Sections", but index\.json says/);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("checkSite does not file the coastal variant's README row under a pilgrimage heading", () => {
+  // #given README.md:19's row under the heading its parent does not belong to.
+  // The link is routes/camino-portugues/variants/coastal/, and a variant has no
+  // pilgrimage membership of its own for a heading to disagree with
+  const root = groupingRoot();
+  const readmeMd = "### Other Routes\n\n" + TABLE_HEADER + COASTAL_ROW;
+
+  try {
+    // #when / #then nothing is reported
+    assert.deepEqual(groupingProblems(root, readmeMd), []);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("the committed README.md files every route under the group index.json gives it (positive control)", () => {
+  // #given the committed tree, where five Camino rows sit under "### Camino de
+  // Santiago", four Kumano rows under "### Kumano Kodō", and shikoku-88 under
+  // "### Other Routes"
+  // #when / #then nothing is reported
+  assert.deepEqual(
+    checkSite(ROOT)
+      .filter((p) => p.file === "README.md" && p.message.includes("is filed under"))
+      .map((p) => p.message),
+    [],
+  );
+});
+
+// docs/contribute.html's asks, read against the data. See NEED_TAG_SPAN_PATTERN for
+// the name-matching alternative this replaced, for why the key is an
+// attribute, and for the ruling that a variant's completeness is not something
+// index.json can be asked about.
+
+const GENERAL_TAGS =
+  '<span class="need-tag">New routes from other traditions</span>' +
+  '<span class="need-tag">Walking experiences &amp; local knowledge</span>' +
+  '<span class="need-tag">Data corrections &amp; waypoint additions</span>';
+
+const WAYS_BLOCK = { stageCount: 4, bytes: 1024, placesPerStage: 2, sparse: false };
+
+function needTagsRoot(routes: FixtureRoute[], tags: string): string {
+  const root = createFixtureRoot(routes);
+  writeFileSync(
+    join(root, "docs", "contribute.html"),
+    "<html><body><h2>What We Need Most</h2>" +
+      `<div class="need-tags">${GENERAL_TAGS}${tags}</div>` +
+      "</body></html>",
+  );
+  return root;
+}
+
+const needTagProblems = (root: string): string[] =>
+  checkSite(root)
+    .filter((p) => p.file === "docs/contribute.html")
+    .map((p) => p.message);
+
+test("checkSite reports a need tag asking for work on a section that already ships a ways package", () => {
+  // #given the tag naming the Nakahechi — the section a display-name match
+  // lands on for the tag about the Iseji and the Ōhechi, and the one that
+  // makes that match a false positive on today's tree rather than merely a
+  // wrong reading
+  const root = needTagsRoot(
+    [
+      { id: "kumano-kodo-nakahechi", ways: WAYS_BLOCK },
+      { id: "kumano-kodo-iseji" },
+    ],
+    '<span class="need-tag" data-needs="section:kumano-kodo-nakahechi section:kumano-kodo-iseji">' +
+      "Kumano Kodo sections without geometry (Iseji, &#332;hechi)</span>",
+  );
+
+  try {
+    // #when checkSite reads both refs against index.json
+    const problems = needTagProblems(root);
+
+    // #then only the section with a package is reported, and the report names
+    // the ask and the section it read
+    assert.equal(problems.length, 1);
+    assert.match(
+      problems[0],
+      /^need tag "Kumano Kodo sections without geometry \(Iseji, Ōhechi\)" asks for work on section "kumano-kodo-nakahechi", but index\.json publishes a ways package for "kumano-kodo-nakahechi" and its metadata\.json declares no metadataOnly/,
+    );
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("checkSite does not report a need tag for a section whose ways package the length gate withheld", () => {
+  // #given the shape build-index actually produces for a route whose package
+  // fails the gate: a routes/{id}/ways/ directory on disk and no ways block in
+  // index.json. Four of the eight routes with that directory are in it today,
+  // and each genuinely still needs work
+  const root = needTagsRoot(
+    [{ id: "camino-ingles" }],
+    '<span class="need-tag" data-needs="section:camino-ingles">Camino Ingl&eacute;s</span>',
+  );
+  mkdirSync(join(root, "routes", "camino-ingles", "ways"), { recursive: true });
+  writeFileSync(join(root, "routes", "camino-ingles", "ways", "report.json"), "{}");
+
+  try {
+    // #when / #then nothing is reported — the directory is not the signal, the
+    // block is
+    assert.deepEqual(needTagProblems(root), []);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("checkSite does not report a need tag for a section that ships a ways package and declares metadataOnly", () => {
+  // #given both halves of the signal in conflict. No section holds both today
+  // — one with no line has no package to build — but a section declaring it
+  // can never have geometry is never one whose asks are finished
+  const root = needTagsRoot(
+    [{ id: "kumano-kodo-ohechi", ways: WAYS_BLOCK }],
+    '<span class="need-tag" data-needs="section:kumano-kodo-ohechi">&#332;hechi</span>',
+  );
+  mkdirSync(join(root, "routes", "kumano-kodo-ohechi"), { recursive: true });
+  writeFileSync(
+    join(root, "routes", "kumano-kodo-ohechi", "metadata.json"),
+    OHECHI_METADATA_ONLY,
+  );
+
+  try {
+    // #when / #then nothing is reported
+    assert.deepEqual(needTagProblems(root), []);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("checkSite reports a data-needs ref that resolves to nothing in index.json", () => {
+  // #given the three ways a hand-edited ref goes wrong: a section id that is
+  // not a route, a variant of a route that has none of that name, and a bare
+  // id carrying no kind at all. Every one of them would otherwise switch the
+  // completeness check off in silence
+  const root = needTagsRoot(
+    [{ id: "camino-portugues", variants: [{ id: "coastal", distanceKm: 110 }] }],
+    '<span class="need-tag" data-needs="section:kumano-kodo-ohechii">A</span>' +
+      '<span class="need-tag" data-needs="variant:camino-portugues/espirtual">B</span>' +
+      '<span class="need-tag" data-needs="camino-portugues">C</span>',
+  );
+
+  try {
+    // #when checkSite resolves each ref
+    const problems = needTagProblems(root);
+
+    // #then all three are reported, each naming what it looked for and what
+    // index.json holds instead
+    assert.equal(problems.length, 3);
+    assert.match(
+      problems[0],
+      /^need tag "A" names section "kumano-kodo-ohechii", which is not a route in index\.json/,
+    );
+    assert.match(
+      problems[1],
+      /^need tag "B" names variant "camino-portugues\/espirtual", but index\.json gives "camino-portugues" the variants coastal/,
+    );
+    assert.match(
+      problems[2],
+      /^need tag "C" carries data-needs ref "camino-portugues", which is neither section:<route-id> nor variant:<route-id>\/<variant-id>$/,
+    );
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("checkSite accepts the four specific tags docs/contribute.html publishes today, and asks nothing of the three general ones", () => {
+  // #given today's page: two sections without geometry, three variant stubs,
+  // and the Coastal — which ships full geometry while the tag about it asks
+  // for a Spanish continuation no file in this repo records the absence of.
+  // The three general asks carry no data-needs and name nothing to check
+  const root = needTagsRoot(
+    [
+      { id: "kumano-kodo-iseji" },
+      { id: "kumano-kodo-ohechi" },
+      { id: "camino-ingles", variants: [{ id: "a-coruna", distanceKm: 75 }] },
+      {
+        id: "camino-portugues",
+        variants: [
+          { id: "coastal", distanceKm: 110 },
+          { id: "espiritual", distanceKm: 73 },
+          { id: "lisboa", distanceKm: 620 },
+        ],
+      },
+    ],
+    '<span class="need-tag" data-needs="section:kumano-kodo-iseji section:kumano-kodo-ohechi">K</span>' +
+      '<span class="need-tag" data-needs="variant:camino-ingles/a-coruna">I</span>' +
+      '<span class="need-tag" data-needs="variant:camino-portugues/espiritual variant:camino-portugues/lisboa">P</span>' +
+      '<span class="need-tag" data-needs="variant:camino-portugues/coastal">C</span>',
+  );
+
+  try {
+    // #when / #then nothing is reported
+    assert.deepEqual(needTagProblems(root), []);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("checkSite reports a contribute page whose asks are no longer need-tag spans", () => {
+  // #given the page rewritten into markup this check cannot read. Zero tags on
+  // a page that exists is the state in which the whole check goes silent
+  const root = createFixtureRoot([{ id: "kumano-kodo-iseji" }]);
+  writeFileSync(
+    join(root, "docs", "contribute.html"),
+    "<html><body><h2>What We Need Most</h2><ul><li>Kumano Kodo sections</li></ul></body></html>",
+  );
+
+  try {
+    // #when / #then the page is reported rather than passed over
+    const problems = needTagProblems(root);
+    assert.equal(problems.length, 1);
+    assert.match(problems[0], /^has no <span class="need-tag"> asks under its "What We Need Most" heading/);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("the committed docs/contribute.html asks for nothing the data says is finished (positive control)", () => {
+  // #given the committed page, whose four specific tags name two sections
+  // without geometry and four variants, and whose three general tags name
+  // nothing
+  // #when / #then nothing is reported against it
+  assert.deepEqual(
+    checkSite(ROOT)
+      .filter((p) => p.file === "docs/contribute.html")
+      .map((p) => p.message),
+    [],
+  );
+});
+
+test("checkSite reads a need tag that carries a second class alongside need-tag", () => {
+  // #given one tag given a layout hook and left in place. A literal
+  // `<span class="need-tag"` reading drops exactly that tag and keeps the rest
+  // of the page looking checked
+  const root = needTagsRoot(
+    [{ id: "kumano-kodo-nakahechi", ways: WAYS_BLOCK }],
+    '<span class="need-tag need-tag-wide" data-needs="section:kumano-kodo-nakahechi">K</span>',
+  );
+
+  try {
+    // #when / #then the tag is still read, and its finished ask reported
+    const problems = needTagProblems(root);
+    assert.equal(problems.length, 1);
+    assert.match(problems[0], /^need tag "K" asks for work on section "kumano-kodo-nakahechi"/);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
 });

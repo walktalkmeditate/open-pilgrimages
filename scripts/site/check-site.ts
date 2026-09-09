@@ -214,6 +214,60 @@ function readmeDistanceKmPattern(id: string): RegExp {
   return new RegExp(`\\]\\(routes\\/${id}\\/\\)\\s*\\|\\s*([\\d,]+(?:\\.\\d+)?)(?:-[\\d,]+(?:\\.\\d+)?)?\\s*km`);
 }
 
+/**
+ * Which group the README files a route under, read against the membership
+ * index.json declares. The README's route tables sit under `### <heading>`,
+ * and nothing had ever compared a heading to the `pilgrimage` its rows name —
+ * so a section could ship under the wrong pilgrimage, or a route belonging to
+ * none could ship under one, with every guard here green.
+ *
+ * Both drifts this exists for are wrong-heading drifts. Replayed over `git
+ * rev-list --reverse 860a9df` (343 commits — pinned rather than HEAD, so the
+ * figures in this comment stay reproducible as the branch grows; 338 of them
+ * carry both README.md and index.json), checkReadmeGrouping reports 44 times
+ * across 13 commits, and all 44 are one of those two:
+ *
+ *   - 8c56bac..3f827ec, 4 contiguous commits, 2 reports each. The commit that
+ *     first split the README's one table into `### Camino de Santiago` and
+ *     `### Other Routes` left shikoku-88 and kumano-kodo — neither of which
+ *     names a pilgrimage — under the Camino heading.
+ *   - ad51008..40ba691, 9 contiguous commits, 4 reports each. The commit that
+ *     cut the Kumano Kodō into four sections gave all four a `pilgrimage`
+ *     block in the data and left all four rows under `### Other Routes`.
+ *
+ * A *missing* heading is deliberately never reported, which is why the rule
+ * below is two branches and not three. From 75a92dd — the commit that first
+ * gave the five Caminos a `pilgrimage` block, and which changed no prose at
+ * all — through 7a89a60, 15 contiguous commits, the README carried a single
+ * unheaded table under `## What's In the Box`. A rule that demanded a heading
+ * fires 5 times on each of those 15, 75 reports in all, the first of them
+ * inside a data-only commit that would then have had to restructure the README
+ * to land. Which heading a row sits under is a claim about the data; the
+ * absence of any heading is a shape the README is free to have.
+ *
+ * Both directions are read, because one drift is each. A row whose route names
+ * a pilgrimage has to sit under that pilgrimage's own `pilgrimages[].name.en`,
+ * matched whole and exactly — the heading over the four Kumano rows is
+ * "Kumano Kodō", macron and all, and a heading that merely contains the name
+ * is a different heading. A row whose route names no pilgrimage has to sit
+ * under a heading that is *not* any pilgrimage's name; `### Other Routes`,
+ * where shikoku-88 sits today, is what that looks like, and so is every other
+ * heading a README might grow.
+ *
+ * Anchored on a whole table row rather than on the link alone. The link half
+ * is readmeDistanceKmPattern's pattern unchanged, and it is what correctly
+ * drops README.md:19: that row links `routes/camino-portugues/variants/
+ * coastal/`, whose extra path segments `[a-z0-9-]+` cannot cross, and a
+ * variant has no pilgrimage membership of its own to be filed by. The `^|`
+ * and `[…]` in front of it buy the one false positive this could otherwise
+ * grow — a route link written into ordinary prose, which would be read under
+ * whatever `###` happened to precede it. Over the same 338 commits the two
+ * forms match the identical 2,200 lines and produce the identical 44 reports,
+ * so the anchor costs nothing.
+ */
+const README_GROUP_HEADING_PATTERN = /^###\s+(.+?)\s*$/;
+const README_GROUPED_ROUTE_ROW_PATTERN = /^\|\s*\[[^\]]*\]\(routes\/([a-z0-9-]+)\/\)/;
+
 // Every detail page hand-lists a "Waypoint counts by type" table (one per
 // route; camino-portugues.html carries a second one for the coastal variant)
 // ending in its own "Total" row. Nothing sums the rows against that row, so a
@@ -823,6 +877,86 @@ const TERRAIN_NOTES_DISTANCE_PATTERNS = [
   /\bthe\s+(\d+(?:\.\d+)?)\s*km\s+(?:is|covers|measures|spans|totals)\s+the\s+(?:whole\s+|entire\s+|full\s+)?(?:day|stage)\b/gi,
 ] as const;
 
+/**
+ * docs/contribute.html's <h2>What We Need Most</h2> publishes seven
+ * <span class="need-tag"> asks, and an ask that has been answered is the one
+ * kind of stale sentence a reader cannot spot: it looks exactly like a live
+ * one. Four of the seven name something specific — the two Kumano sections
+ * without geometry, the A Coruña stub, the two Portugués stubs, and the
+ * Coastal's Spanish continuation — and all four are still genuinely wanted
+ * today.
+ *
+ * Nothing in that prose can carry the key, and this is the only rule on this
+ * branch of which that is true. Matching on display names was the rejected
+ * alternative, and it mis-identifies four of the six things the tags name
+ * against two it gets right. The tags say "Kumano Kodo", "Camino Inglés" and
+ * "Camino Portugués" (twice); index.json gives those names to
+ * kumano-kodo-nakahechi, camino-ingles and camino-portugues, none of which is
+ * what any of those tags is about. Only "Iseji" and "Ōhechi", inside the first
+ * tag's parenthetical, land on the sections they name. One of the four is a
+ * false positive on today's tree and not merely a wrong reading: the Nakahechi
+ * carries a `ways` block, so a name-matched check reports the tag asking for
+ * the Iseji's and Ōhechi's geometry as work already done, while neither
+ * section has any. The other three are one gate-fix away from the same —
+ * camino-ingles and camino-portugues both have a ways/ directory whose package
+ * the length gate withholds, and the day either passes, three more tags report
+ * falsely.
+ *
+ * So the key is an attribute, the way docs/routes.html's `<td data-value>` and
+ * the route cards' data-days/data-distance-km already are. A bare
+ * `data-route="<id>"` cannot say what these tags say: the first names two
+ * sections at once, and three of the four name *variants*, which are not
+ * routes — `data-route="camino-portugues"` for the Espiritual and Lisboa stubs
+ * would point at the fully-built parent and inherit the same false positive
+ * the name match has. `data-needs` takes a space-separated list of qualified
+ * refs instead — `section:<route-id>` for a section, `variant:<route-id>/
+ * <variant-id>` for one of that route's variants[] — so a tag can name one of
+ * either, several of either, or, for the three general asks, nothing at all.
+ * The kind is written out rather than inferred from a lookup, so a mistyped
+ * section id cannot quietly be re-read as a variant that does not exist
+ * either; every ref has to resolve against index.json, and one that does not
+ * is reported. That resolution check is what keeps the completeness check
+ * below alive — without it, a typo would silently switch it off.
+ *
+ * A section's work is done when index.json gives it a `ways` block and its
+ * metadata.json declares no metadataOnly. The `ways` block is the right bar
+ * because build-index withholds it when the length gate fails: 8 routes carry
+ * a ways/ directory and only 4 (camino-frances, camino-norte,
+ * kumano-kodo-kohechi, kumano-kodo-nakahechi) carry the block, and a route
+ * whose package cannot be published genuinely still needs work. ways/
+ * report.json is deliberately not read — check-site reads it nowhere, and a
+ * report is written for a failing route precisely so someone can see why.
+ * metadataOnly is the second conjunct rather than a redundant one: no section
+ * can hold both today, since a section with no line has no package to build,
+ * but a section that declares it can never have geometry is never a section
+ * whose asks are finished.
+ *
+ * A variant's completeness cannot be judged from index.json, and this check
+ * does not pretend to. A variants[] entry carries `{id, name, distanceKm,
+ * path}` — no `ways` block (none of the four has one), and none of the four
+ * variant metadata.json files declares metadataOnly, the three stubs included.
+ * distanceKm is present on the stubs too, as a planning estimate. "Has a
+ * route.geojson on disk" is the tempting substitute and is wrong twice over:
+ * it is a signal read off an absence, which declaresMetadataOnly exists to
+ * refuse, and the Coastal names the shape it would get backwards — that
+ * variant ships full geometry while the tag about it asks for a Spanish
+ * continuation that no file in this repo records the absence of. Variant refs
+ * are therefore checked for resolution only, and the day index.json says
+ * something about a variant's completeness is the day this gains a branch.
+ *
+ * A tag is recognised by a need-tag class anywhere in its attributes rather
+ * than by a literal `<span class="need-tag"`, the way roadsHeroReferencedIds
+ * recognises a corridor hero. A second class on one tag — a highlight, a
+ * layout hook — would otherwise drop that tag out of the scan while the other
+ * six kept the page looking checked. The wrapper `<div class="need-tags">` is
+ * not a false match: `\b` after "need-tag" cannot fall before the "s".
+ */
+const NEED_TAG_SPAN_PATTERN = /<span\b([^>]*)>([\s\S]*?)<\/span>/g;
+const NEED_TAG_CLASS_PATTERN = /\bclass="[^"]*\bneed-tag\b[^"]*"/;
+const NEED_TAG_REFS_PATTERN = /\bdata-needs="([^"]*)"/;
+const NEED_TAG_SECTION_REF_PATTERN = /^section:([a-z0-9-]+)$/;
+const NEED_TAG_VARIANT_REF_PATTERN = /^variant:([a-z0-9-]+)\/([a-z0-9-]+)$/;
+
 const GLYPHS_JS_KEY_PATTERN = /^\s*"([^"]+)":/gm;
 
 // Every script docs/*.html is allowed to reference. A page can be revealed
@@ -1320,6 +1454,7 @@ interface IndexRouteShape {
   pilgrimage?: string;
   distanceKm?: number;
   variants?: IndexVariantShape[];
+  ways?: object;
 }
 
 function isIndexRouteShape(value: unknown): value is IndexRouteShape {
@@ -1329,10 +1464,18 @@ function isIndexRouteShape(value: unknown): value is IndexRouteShape {
     pilgrimage?: unknown;
     distanceKm?: unknown;
     variants?: unknown;
+    ways?: unknown;
   };
   if (typeof route.id !== "string") return false;
   if (route.pilgrimage !== undefined && typeof route.pilgrimage !== "string") return false;
   if (route.distanceKm !== undefined && typeof route.distanceKm !== "number") return false;
+  // Only the block's presence is read (see NEED_TAG_SPAN_PATTERN) — build-index
+  // owns its contents and index.schema.json validates them. A `ways` that is
+  // not an object at all is a reshaped index rather than a route without a
+  // package, and gets the same refusal to degrade as the rest of this reader.
+  if (route.ways !== undefined && (typeof route.ways !== "object" || route.ways === null)) {
+    return false;
+  }
   if (route.variants === undefined) return true;
   return Array.isArray(route.variants) && route.variants.every(isIndexVariantShape);
 }
@@ -1342,6 +1485,7 @@ interface IndexRoute {
   pilgrimage?: string;
   distanceKm?: number;
   variants: IndexVariantShape[];
+  hasWays: boolean;
 }
 
 /**
@@ -1376,12 +1520,14 @@ function readIndexRoutes(indexPath: string): IndexRoute[] {
     pilgrimage: route.pilgrimage,
     distanceKm: route.distanceKm,
     variants: route.variants ?? [],
+    hasWays: route.ways !== undefined,
   }));
 }
 
 interface IndexPilgrimage {
   id: string;
   sections: string[];
+  nameEn?: string;
 }
 
 function isIndexPilgrimageShape(value: unknown): value is IndexPilgrimage {
@@ -1392,6 +1538,24 @@ function isIndexPilgrimageShape(value: unknown): value is IndexPilgrimage {
     Array.isArray(pilgrimage.sections) &&
     pilgrimage.sections.every((section): section is string => typeof section === "string")
   );
+}
+
+/**
+ * index.schema.json makes `name` required on a pilgrimage and `en` required
+ * inside it, so every schema-valid index.json has this. It is still read
+ * defensively rather than added to isIndexPilgrimageShape's required fields:
+ * this is the one field of a pilgrimage that only checkReadmeGrouping reads,
+ * and promoting it to a load-bearing shape requirement would make check-site
+ * throw outright on an index.json that every other check could still have
+ * something useful to say about. A pilgrimage with no readable English name
+ * has no heading text to compare a README row against, so its sections' rows
+ * are passed over — which is why checkReadmeGrouping names the heading it
+ * expected in every message it does emit.
+ */
+function pilgrimageNameEn(value: unknown): string | undefined {
+  const name = (value as { name?: unknown } | null)?.name;
+  const en = (name as { en?: unknown } | null)?.en;
+  return typeof en === "string" ? en : undefined;
 }
 
 /**
@@ -1417,6 +1581,7 @@ function readIndexPilgrimages(indexPath: string): IndexPilgrimage[] {
   return parsed.pilgrimages.map((pilgrimage) => ({
     id: pilgrimage.id,
     sections: pilgrimage.sections,
+    nameEn: pilgrimageNameEn(pilgrimage),
   }));
 }
 
@@ -1878,6 +2043,69 @@ export function checkSite(root: string, overrides: PageOverrides = {}): Problem[
         `README's route table lists "${id}" at ${match[1]} km, but index.json's distanceKm is ` +
           `${distanceKm} km — update the README's Distance cell`,
       );
+    }
+  }
+
+  /**
+   * See README_GROUP_HEADING_PATTERN for the two drifts this reads for, for
+   * why a row sitting under no heading at all is passed over, and for the
+   * replay figures behind both.
+   */
+  function checkReadmeGrouping(): void {
+    const nameByPilgrimageId = new Map<string, string>();
+    for (const pilgrimage of pilgrimages) {
+      if (pilgrimage.nameEn !== undefined) nameByPilgrimageId.set(pilgrimage.id, pilgrimage.nameEn);
+    }
+    const pilgrimageIdByName = new Map(
+      [...nameByPilgrimageId].map(([pilgrimageId, name]) => [name, pilgrimageId] as const),
+    );
+
+    let heading: string | null = null;
+
+    for (const line of readmeMd.split("\n")) {
+      const headingMatch = line.match(README_GROUP_HEADING_PATTERN);
+      if (headingMatch) {
+        heading = headingMatch[1];
+        continue;
+      }
+
+      const rowMatch = line.match(README_GROUPED_ROUTE_ROW_PATTERN);
+      if (!rowMatch) continue;
+
+      const id = rowMatch[1];
+      // A row for something index.json does not list has no membership to be
+      // read against. The other direction — a route in index.json with no row
+      // at all — is the route-link coverage check in the per-route loop.
+      const route = indexRouteById.get(id);
+      if (route === undefined) continue;
+      // A table under no heading at all is a README shape rather than a drift —
+      // see README_GROUP_HEADING_PATTERN for the 15 commits that settled it.
+      if (heading === null) continue;
+
+      if (route.pilgrimage === undefined) {
+        const claimedBy = pilgrimageIdByName.get(heading);
+        if (claimedBy !== undefined) {
+          add(
+            "README.md",
+            `route "${id}" is filed under "### ${heading}", which is pilgrimage "${claimedBy}"'s ` +
+              `own name, but index.json gives "${id}" no pilgrimage — move the row under a heading ` +
+              `that names no pilgrimage, the way "### Other Routes" carries shikoku-88`,
+          );
+        }
+        continue;
+      }
+
+      const expected = nameByPilgrimageId.get(route.pilgrimage);
+      if (expected === undefined) continue;
+
+      if (heading !== expected) {
+        add(
+          "README.md",
+          `section "${id}" is filed under "### ${heading}", but index.json says it belongs to ` +
+            `pilgrimage "${route.pilgrimage}", whose name is "${expected}" — move the row under ` +
+            `"### ${expected}"`,
+        );
+      }
     }
   }
 
@@ -2740,6 +2968,110 @@ export function checkSite(root: string, overrides: PageOverrides = {}): Problem[
     }
   }
 
+  /**
+   * See NEED_TAG_SPAN_PATTERN for why the key is an attribute rather than the
+   * tag's own words, for the name-matching alternative that reading replaced,
+   * and for the ruling that a variant's completeness is not something
+   * index.json can be asked about.
+   *
+   * Read straight off disk like docs/assets/glyphs.js and the detail pages,
+   * not through PageOverrides: contribute.html is not one of the three pages
+   * checkSite takes an override for, and a fixture drives this by writing the
+   * file the same way the detail-page checks are driven.
+   */
+  function checkContributeNeedTags(): void {
+    const file = "docs/contribute.html";
+    const html = readDocsFile("contribute.html");
+    if (html === "") return; // no such page in this tree — nothing to read
+
+    const tags = [...html.matchAll(NEED_TAG_SPAN_PATTERN)].filter(([, attributes]) =>
+      NEED_TAG_CLASS_PATTERN.test(attributes),
+    );
+
+    // Zero tags on a page that exists is never a clean pass — it means the
+    // asks were reworded into different markup and this check went silent
+    // with them, the same reasoning checkCdnLinks applies to a detail page
+    // with no CDN links.
+    if (tags.length === 0) {
+      add(
+        file,
+        `has no <span class="need-tag"> asks under its "What We Need Most" heading — either the ` +
+          `section was removed, or the tags were rewritten into markup this check no longer reads`,
+      );
+      return;
+    }
+
+    for (const [, attributes, markup] of tags) {
+      const refsMatch = attributes.match(NEED_TAG_REFS_PATTERN);
+      if (!refsMatch) continue; // a general ask names nothing in the data
+
+      const ask = claimText(markup);
+
+      for (const ref of refsMatch[1].split(/\s+/).filter((token) => token.length > 0)) {
+        const sectionMatch = ref.match(NEED_TAG_SECTION_REF_PATTERN);
+        if (sectionMatch) {
+          checkNeedTagSection(file, ask, sectionMatch[1]);
+          continue;
+        }
+
+        const variantMatch = ref.match(NEED_TAG_VARIANT_REF_PATTERN);
+        if (variantMatch) {
+          checkNeedTagVariant(file, ask, variantMatch[1], variantMatch[2]);
+          continue;
+        }
+
+        add(
+          file,
+          `need tag "${ask}" carries data-needs ref "${ref}", which is neither ` +
+            `section:<route-id> nor variant:<route-id>/<variant-id>`,
+        );
+      }
+    }
+  }
+
+  function checkNeedTagSection(file: string, ask: string, id: string): void {
+    const route = indexRouteById.get(id);
+    if (route === undefined) {
+      add(
+        file,
+        `need tag "${ask}" names section "${id}", which is not a route in index.json — correct the ` +
+          `data-needs ref, or restore the section`,
+      );
+      return;
+    }
+
+    if (route.hasWays && !declaresMetadataOnly(join(root, "routes", id))) {
+      add(
+        file,
+        `need tag "${ask}" asks for work on section "${id}", but index.json publishes a ways ` +
+          `package for "${id}" and its metadata.json declares no metadataOnly — that work is ` +
+          `done; drop the tag, or reword it to name what is still missing`,
+      );
+    }
+  }
+
+  function checkNeedTagVariant(file: string, ask: string, parentId: string, variantId: string): void {
+    const route = indexRouteById.get(parentId);
+    if (route === undefined) {
+      add(
+        file,
+        `need tag "${ask}" names variant "${parentId}/${variantId}", but "${parentId}" is not a ` +
+          `route in index.json — correct the data-needs ref, or restore the route`,
+      );
+      return;
+    }
+
+    if (!route.variants.some((variant) => variant.id === variantId)) {
+      const declared = route.variants.map((variant) => variant.id);
+      add(
+        file,
+        `need tag "${ask}" names variant "${parentId}/${variantId}", but index.json gives ` +
+          `"${parentId}" ${declared.length === 0 ? "no variants" : `the variants ${declared.join(", ")}`} ` +
+          `— correct the data-needs ref, or restore the variant`,
+      );
+    }
+  }
+
   const pilgrimageByRouteId = new Map(
     indexRoutes.map((route) => [route.id, route.pilgrimage] as const),
   );
@@ -2906,6 +3238,8 @@ export function checkSite(root: string, overrides: PageOverrides = {}): Problem[
   checkRouteFilterWiring();
   checkDifficultyFilterVocabulary();
   checkCdnLinks();
+  checkReadmeGrouping();
+  checkContributeNeedTags();
 
   // Reverse checks: the loop above confirms everything index.json expects
   // exists. It never confirms the opposite — that everything sitting on disk
