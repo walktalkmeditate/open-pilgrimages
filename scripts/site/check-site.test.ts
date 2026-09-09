@@ -1098,6 +1098,455 @@ test("a cell written with a literal en dash is checked, not silently passed over
   }
 });
 
+// The other six Key Facts rows, checked through the same caption anchor and
+// the same distance pairing. Every <tr> below is lifted verbatim out of a
+// committed page — these are the exact shapes each pattern was narrowed
+// against, not invented ones.
+
+function keyFactsPage(rows: string, distanceCell = "243 km"): string {
+  return (
+    "<html><body><code>r</code>" +
+    "<table><caption>Overview of R</caption><tbody>" +
+    `<tr><th scope="row">Distance</th><td>${distanceCell}</td></tr>` +
+    rows +
+    "</tbody></table></body></html>"
+  );
+}
+
+test("checkSite reports a Key Facts typical duration that disagrees with estimatedDays", () => {
+  // #given docs/camino-frances.html's row verbatim, against metadata whose
+  // typical has since been corrected to 30
+  const root = createFixtureRoot([{ id: "r", distanceKm: 243 }]);
+  mkdirSync(join(root, "routes", "r"), { recursive: true });
+  writeFileSync(
+    join(root, "routes", "r", "metadata.json"),
+    JSON.stringify({ overview: { estimatedDays: { min: 28, max: 35, typical: 30 } } }),
+  );
+  writeFileSync(
+    join(root, "docs", "r.html"),
+    keyFactsPage(
+      '<tr><th scope="row">Typical duration</th><td>31 days (range 28&ndash;35)</td></tr>',
+    ),
+  );
+
+  try {
+    // #when checkSite compares the cell against overview.estimatedDays
+    const problems = checkSite(root).filter(isKeyFactsProblem);
+
+    // #then one problem prints both sides in the page's own order
+    assert.equal(problems.length, 1);
+    assert.equal(problems[0].file, "docs/r.html");
+    assert.match(problems[0].message, /31 days \(range 28–35\)/);
+    assert.match(problems[0].message, /30 days \(range 28–35\)/);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("kumano-kodo-ohechi's range-first duration cell is read in its own order, not the other shape's", () => {
+  // #given docs/kumano-kodo-ohechi.html's row verbatim — the two figures come
+  // before the word "days" and the typical after it, the reverse of the other
+  // nine tables. Read in the typical-first order this cell says typical 3,
+  // min 6, max 4, and the drift below would be attributed to the wrong figure
+  const root = createFixtureRoot([{ id: "r", distanceKm: 90 }]);
+  mkdirSync(join(root, "routes", "r"), { recursive: true });
+  writeFileSync(
+    join(root, "routes", "r", "metadata.json"),
+    JSON.stringify({ overview: { estimatedDays: { min: 3, max: 7, typical: 4 } } }),
+  );
+  writeFileSync(
+    join(root, "docs", "r.html"),
+    keyFactsPage(
+      '<tr><th scope="row">Typical duration</th><td>3&ndash;6 days (typical 4)</td></tr>',
+      "~90 km (not measured &mdash; no walked line exists yet)",
+    ),
+  );
+
+  try {
+    // #when checkSite compares the cell against overview.estimatedDays
+    const problems = checkSite(root).filter(isKeyFactsProblem);
+
+    // #then the max is what disagrees, and both sides read back range-first
+    assert.equal(problems.length, 1);
+    assert.match(problems[0].message, /3–6 days \(typical 4\)/);
+    assert.match(problems[0].message, /3–7 days \(typical 4\)/);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("both duration cell shapes are accepted when they agree with estimatedDays", () => {
+  // #given one page carrying both real shapes — the route's own table written
+  // typical-first and its variant's written range-first
+  const root = createFixtureRoot([
+    { id: "r", distanceKm: 243, variants: [{ id: "v", distanceKm: 90 }] },
+  ]);
+  mkdirSync(join(root, "routes", "r", "variants", "v"), { recursive: true });
+  writeFileSync(
+    join(root, "routes", "r", "metadata.json"),
+    JSON.stringify({ overview: { estimatedDays: { min: 28, max: 35, typical: 31 } } }),
+  );
+  writeFileSync(
+    join(root, "routes", "r", "variants", "v", "metadata.json"),
+    JSON.stringify({ overview: { estimatedDays: { min: 3, max: 6, typical: 4 } } }),
+  );
+  writeFileSync(
+    join(root, "docs", "r.html"),
+    "<html><body><code>r</code>" +
+      "<table><caption>Overview of R</caption><tbody>" +
+      '<tr><th scope="row">Distance</th><td>243 km</td></tr>' +
+      '<tr><th scope="row">Typical duration</th><td>31 days (range 28&ndash;35)</td></tr>' +
+      "</tbody></table>" +
+      "<table><caption>Overview of R, V</caption><tbody>" +
+      '<tr><th scope="row">Distance</th><td>90 km</td></tr>' +
+      '<tr><th scope="row">Typical duration</th><td>3&ndash;6 days (typical 4)</td></tr>' +
+      "</tbody></table></body></html>",
+  );
+
+  try {
+    // #when / #then neither shape is reported
+    assert.deepEqual(checkSite(root).filter(isKeyFactsProblem), []);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("checkSite reports a Key Facts topology that disagrees with overview.topology", () => {
+  // #given docs/kumano-kodo-nakahechi.html's row verbatim — the one table not
+  // reading "Linear" — against metadata that now says circular
+  const root = createFixtureRoot([{ id: "r", distanceKm: 36 }]);
+  mkdirSync(join(root, "routes", "r"), { recursive: true });
+  writeFileSync(
+    join(root, "routes", "r", "metadata.json"),
+    JSON.stringify({ overview: { topology: "circular", difficulty: "moderate" } }),
+  );
+  writeFileSync(
+    join(root, "docs", "r.html"),
+    keyFactsPage(
+      '<tr><th scope="row">Topology</th><td>Network</td></tr>' +
+        '<tr><th scope="row">Difficulty</th><td>Moderate</td></tr>',
+      "36 km",
+    ),
+  );
+
+  try {
+    // #when checkSite compares both single-word cells
+    const problems = checkSite(root).filter(isKeyFactsProblem);
+
+    // #then only the topology is reported, and the declared side is
+    // title-cased to read alike
+    assert.equal(problems.length, 1);
+    assert.match(problems[0].message, /"Network"/);
+    assert.match(problems[0].message, /"Circular"/);
+    assert.match(problems[0].message, /overview\.topology/);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("checkSite reports a Key Facts difficulty separately from topology, on the same table", () => {
+  // #given docs/kumano-kodo-kohechi.html's two rows verbatim, with only the
+  // difficulty drifted — the two rows share one closure, so a difficulty
+  // problem reported as a topology one, or a topology cell read for the
+  // difficulty row, would both pass a single-row test
+  const root = createFixtureRoot([{ id: "r", distanceKm: 63 }]);
+  mkdirSync(join(root, "routes", "r"), { recursive: true });
+  writeFileSync(
+    join(root, "routes", "r", "metadata.json"),
+    JSON.stringify({ overview: { topology: "linear", difficulty: "hard" } }),
+  );
+  writeFileSync(
+    join(root, "docs", "r.html"),
+    keyFactsPage(
+      '<tr><th scope="row">Topology</th><td>Linear</td></tr>' +
+        '<tr><th scope="row">Difficulty</th><td>Expert</td></tr>',
+      "63 km",
+    ),
+  );
+
+  try {
+    // #when checkSite compares both cells
+    const problems = checkSite(root).filter(isKeyFactsProblem);
+
+    // #then the difficulty alone is reported, naming its own field
+    assert.equal(problems.length, 1);
+    assert.match(problems[0].message, /"Expert"/);
+    assert.match(problems[0].message, /"Hard"/);
+    assert.match(problems[0].message, /overview\.difficulty/);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("the title-cased topology and difficulty cells every page publishes are accepted against the data's lower case", () => {
+  // #given the real corpus shape: pages render "Network"/"Expert" while
+  // metadata.json holds "network"/"expert". A case-sensitive comparison would
+  // report all twenty-two of those cells on its first run
+  const root = createFixtureRoot([{ id: "r", distanceKm: 36 }]);
+  mkdirSync(join(root, "routes", "r"), { recursive: true });
+  writeFileSync(
+    join(root, "routes", "r", "metadata.json"),
+    JSON.stringify({ overview: { topology: "network", difficulty: "expert" } }),
+  );
+  writeFileSync(
+    join(root, "docs", "r.html"),
+    keyFactsPage(
+      '<tr><th scope="row">Topology</th><td>Network</td></tr>' +
+        '<tr><th scope="row">Difficulty</th><td>Expert</td></tr>',
+      "36 km",
+    ),
+  );
+
+  try {
+    // #when / #then neither cell is reported
+    assert.deepEqual(checkSite(root).filter(isKeyFactsProblem), []);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("checkSite reports a Key Facts countries cell that disagrees with overview.countries", () => {
+  // #given docs/camino-frances.html's row verbatim against metadata that now
+  // declares a different first country
+  const root = createFixtureRoot([{ id: "r", distanceKm: 764 }]);
+  mkdirSync(join(root, "routes", "r"), { recursive: true });
+  writeFileSync(
+    join(root, "routes", "r", "metadata.json"),
+    JSON.stringify({ overview: { countries: ["PT", "ES"] } }),
+  );
+  writeFileSync(
+    join(root, "docs", "r.html"),
+    keyFactsPage(
+      '<tr><th scope="row">Countries</th><td>France &rarr; Spain</td></tr>',
+      "764 km",
+    ),
+  );
+
+  try {
+    // #when checkSite rebuilds the cell from the declared codes
+    const problems = checkSite(root).filter(isKeyFactsProblem);
+
+    // #then one problem names both renderings and the codes behind the
+    // declared one
+    assert.equal(problems.length, 1);
+    assert.match(problems[0].message, /"France → Spain"/);
+    assert.match(problems[0].message, /"Portugal → Spain"/);
+    assert.match(problems[0].message, /PT, ES/);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("the entity-written arrow every Countries cell uses is accepted", () => {
+  // #given the real corpus shape: the Countries cells write "&rarr;" while the
+  // stage-interior headings on the same pages write a literal "→". Comparing
+  // the raw cell against a rebuilt "France → Spain" would report every
+  // multi-country cell there is
+  const root = createFixtureRoot([{ id: "r", distanceKm: 764 }]);
+  mkdirSync(join(root, "routes", "r"), { recursive: true });
+  writeFileSync(
+    join(root, "routes", "r", "metadata.json"),
+    JSON.stringify({ overview: { countries: ["FR", "ES"] } }),
+  );
+  writeFileSync(
+    join(root, "docs", "r.html"),
+    keyFactsPage(
+      '<tr><th scope="row">Countries</th><td>France &rarr; Spain</td></tr>',
+      "764 km",
+    ),
+  );
+
+  try {
+    // #when / #then the cell is accepted
+    assert.deepEqual(checkSite(root).filter(isKeyFactsProblem), []);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("a country code with no English name is skipped, not reported", () => {
+  // #given a route through a country COUNTRY_NAME does not cover. Failing here
+  // would break CI on the commit that adds the route, before anyone could
+  // write its page — so the cell goes unchecked until the map grows the code
+  const root = createFixtureRoot([{ id: "r", distanceKm: 764 }]);
+  mkdirSync(join(root, "routes", "r"), { recursive: true });
+  writeFileSync(
+    join(root, "routes", "r", "metadata.json"),
+    JSON.stringify({ overview: { countries: ["IT"] } }),
+  );
+  writeFileSync(
+    join(root, "docs", "r.html"),
+    keyFactsPage('<tr><th scope="row">Countries</th><td>Italy</td></tr>', "764 km"),
+  );
+
+  try {
+    // #when / #then nothing is reported for a code the map cannot render
+    assert.deepEqual(checkSite(root).filter(isKeyFactsProblem), []);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("checkSite reports a Key Facts Start elevation that disagrees with startPoint's altitude", () => {
+  // #given docs/kumano-kodo-kohechi.html's row verbatim against metadata whose
+  // altitude has moved
+  const root = createFixtureRoot([{ id: "r", distanceKm: 63 }]);
+  mkdirSync(join(root, "routes", "r"), { recursive: true });
+  writeFileSync(
+    join(root, "routes", "r", "metadata.json"),
+    JSON.stringify({
+      overview: {
+        startPoint: { name: { en: "Koyasan" }, coordinates: [135.582004, 34.212105, 831] },
+        endPoint: { name: { en: "Kumano Hongu Taisha" }, coordinates: [135.77, 33.84, 80] },
+      },
+    }),
+  );
+  writeFileSync(
+    join(root, "docs", "r.html"),
+    keyFactsPage(
+      '<tr><th scope="row">Start</th><td>K&omacr;yasan (830 m)</td></tr>' +
+        '<tr><th scope="row">End</th><td>Kumano Hongu Taisha (80 m)</td></tr>',
+      "63 km",
+    ),
+  );
+
+  try {
+    // #when checkSite compares each figure against its own coordinate
+    const problems = checkSite(root).filter(isKeyFactsProblem);
+
+    // #then the Start alone is reported, naming its own field
+    assert.equal(problems.length, 1);
+    assert.match(problems[0].message, /Start elevation as 830 m/);
+    assert.match(problems[0].message, /declares 831 m/);
+    assert.match(problems[0].message, /overview\.startPoint\.coordinates/);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("a Start cell whose place name carries its own parenthetical, and one whose name is followed by a temple number, both read the right figure", () => {
+  // #given the two cells that break a naive "first number in the cell" or
+  // "first bracket" reading: docs/camino-portugues.html's
+  // "Porto Cathedral (S&eacute; do Porto) (80 m)", whose name owns the first
+  // bracket, and docs/shikoku-88.html's "Ry&omacr;zen-ji, Temple 1 (15 m)",
+  // whose name owns a bare number
+  const root = createFixtureRoot([
+    { id: "r", distanceKm: 243, variants: [{ id: "v", distanceKm: 1200 }] },
+  ]);
+  mkdirSync(join(root, "routes", "r", "variants", "v"), { recursive: true });
+  writeFileSync(
+    join(root, "routes", "r", "metadata.json"),
+    JSON.stringify({
+      overview: {
+        startPoint: { name: { en: "Porto Cathedral (Sé do Porto)" }, coordinates: [-8.611, 41.143, 80] },
+      },
+    }),
+  );
+  writeFileSync(
+    join(root, "routes", "r", "variants", "v", "metadata.json"),
+    JSON.stringify({
+      overview: {
+        startPoint: { name: { en: "Ryōzen-ji (Temple 1)" }, coordinates: [134.503, 34.16, 15] },
+        endPoint: { name: { en: "Ōkubo-ji (Temple 88)" }, coordinates: [134.207, 34.191, 450] },
+      },
+    }),
+  );
+  writeFileSync(
+    join(root, "docs", "r.html"),
+    "<html><body><code>r</code>" +
+      "<table><caption>Overview of R</caption><tbody>" +
+      '<tr><th scope="row">Distance</th><td>243 km</td></tr>' +
+      '<tr><th scope="row">Start</th><td>Porto Cathedral (S&eacute; do Porto) (80 m)</td></tr>' +
+      "</tbody></table>" +
+      "<table><caption>Overview of R, V</caption><tbody>" +
+      '<tr><th scope="row">Distance</th><td>1,200 km</td></tr>' +
+      '<tr><th scope="row">Start</th><td>Ry&omacr;zen-ji, Temple 1 (15 m)</td></tr>' +
+      '<tr><th scope="row">End</th><td>&Omacr;kubo-ji, Temple 88 (450 m)</td></tr>' +
+      "</tbody></table></body></html>",
+  );
+
+  try {
+    // #when / #then no cell is reported — 80, 15 and 450 are read, not "Sé do
+    // Porto", 1 or 88
+    assert.deepEqual(checkSite(root).filter(isKeyFactsProblem), []);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("the comma-form Start and End cells kumano-kodo-iseji and kumano-kodo-ohechi publish are checked too", () => {
+  // #given docs/kumano-kodo-ohechi.html's rows verbatim: four of the
+  // twenty-two Start/End cells put the altitude after a comma rather than in
+  // brackets, and those are the two sections with no walked line — the pages a
+  // drift gate can least afford to skip
+  const root = createFixtureRoot([{ id: "r", distanceKm: 90 }]);
+  mkdirSync(join(root, "routes", "r"), { recursive: true });
+  writeFileSync(
+    join(root, "routes", "r", "metadata.json"),
+    JSON.stringify({
+      overview: {
+        startPoint: { name: { en: "Tanabe" }, coordinates: [135.3834, 33.732, 10] },
+        endPoint: { name: { en: "Kumano Nachi Taisha" }, coordinates: [135.89, 33.668, 331] },
+      },
+    }),
+  );
+  writeFileSync(
+    join(root, "docs", "r.html"),
+    keyFactsPage(
+      '<tr><th scope="row">Start</th><td>Tanabe, 10 m</td></tr>' +
+        '<tr><th scope="row">End</th><td>Kumano Nachi Taisha, 330 m</td></tr>',
+      "~90 km (not measured &mdash; no walked line exists yet)",
+    ),
+  );
+
+  try {
+    // #when checkSite reads the comma form
+    const problems = checkSite(root).filter(isKeyFactsProblem);
+
+    // #then the drifted End is reported and the agreeing Start is not
+    assert.equal(problems.length, 1);
+    assert.match(problems[0].message, /End elevation as 330 m/);
+    assert.match(problems[0].message, /declares 331 m/);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("a Start cell that paraphrases its own name.en is not reported when the figure agrees", () => {
+  // #given the reason the place name is never compared: seven of the
+  // twenty-two committed Start/End cells do not contain their name.en at all
+  // and ten are not equal to it. This is docs/camino-norte.html's Start —
+  // "Ir&uacute;n, Spain, at the French border" against "Irún, Spain (French
+  // border)" — beside docs/camino-primitivo.html's, which drops the name's
+  // parenthetical entirely
+  const root = createFixtureRoot([{ id: "r", distanceKm: 788 }]);
+  mkdirSync(join(root, "routes", "r"), { recursive: true });
+  writeFileSync(
+    join(root, "routes", "r", "metadata.json"),
+    JSON.stringify({
+      overview: {
+        startPoint: { name: { en: "Irún, Spain (French border)" }, coordinates: [-1.789, 43.338, 20] },
+        endPoint: { name: { en: "Santiago de Compostela" }, coordinates: [-8.544, 42.881, 260] },
+      },
+    }),
+  );
+  writeFileSync(
+    join(root, "docs", "r.html"),
+    keyFactsPage(
+      '<tr><th scope="row">Start</th><td>Ir&uacute;n, Spain, at the French border (20 m)</td></tr>' +
+        '<tr><th scope="row">End</th><td>Santiago de Compostela (260 m) &mdash; via Arz&uacute;a, where the Norte joins the Camino Franc&eacute;s</td></tr>',
+      "788 km",
+    ),
+  );
+
+  try {
+    // #when / #then the paraphrase is not a problem
+    assert.deepEqual(checkSite(root).filter(isKeyFactsProblem), []);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
 test("terrainNotes naming a distance that contradicts the stage is reported", () => {
   // #given a stage of 18.6 km whose notes say the day is 15.3 km
   const root = createFixtureRoot([{ id: "camino-frances" }]);
@@ -1334,6 +1783,28 @@ test("every committed Overview table pairs with a section and agrees with it (po
   const problems = checkSite(ROOT).filter(isKeyFactsProblem);
   assert.deepEqual(problems, []);
 });
+
+// Per-row positive controls: the committed pages agree with their data on
+// each row separately, so a future data correction is attributed to the row it
+// broke rather than to "some Key Facts problem". These cannot tell a clean
+// corpus from a pattern that has stopped matching — the fixture tests above,
+// which each require exactly one problem, are what pin that down.
+for (const field of [
+  "overview.estimatedDays",
+  "overview.topology",
+  "overview.difficulty",
+  "overview.countries",
+  "overview.startPoint.coordinates",
+  "overview.endPoint.coordinates",
+]) {
+  test(`every committed Key Facts cell agrees with ${field} (positive control)`, () => {
+    const problems = checkSite(ROOT);
+    assert.deepEqual(
+      problems.filter((p) => p.message.includes(field)),
+      [],
+    );
+  });
+}
 
 test("the committed README's Distance cells already agree with index.json's distanceKm for every route (positive control)", () => {
   const problems = checkSite(ROOT);

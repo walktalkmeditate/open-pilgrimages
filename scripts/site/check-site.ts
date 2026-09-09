@@ -2,6 +2,7 @@ import { existsSync, readFileSync, readdirSync } from "fs";
 import { join } from "path";
 import { resolveInvokedPath } from "../cli.js";
 import { RESERVED_PAGE_NAMES } from "../pages.js";
+import { countryName } from "../region.js";
 import { computeStats, type RouteStats } from "../stats.js";
 import {
   CDN_REPO_BASE,
@@ -308,7 +309,7 @@ const KEY_FACTS_ELEVATION_TOTALS_PATTERN =
 
 /**
  * The Distance row that sits in the same <tbody>, and the one figure in it
- * that is this section's own length — see checkKeyFactsElevation for why that
+ * that is this section's own length — see checkKeyFacts for why that
  * figure is what pairs a table with a section.
  *
  * Only the leading figure, because a Distance cell carries real editorial
@@ -326,6 +327,109 @@ const KEY_FACTS_ELEVATION_TOTALS_PATTERN =
 const KEY_FACTS_DISTANCE_ROW_PATTERN =
   /<tr><th scope="row">Distance<\/th><td>([\s\S]*?)<\/td><\/tr>/;
 const KEY_FACTS_LEADING_DISTANCE_PATTERN = /^\s*~?\s*([\d,]+(?:\.\d+)?)\s*km\b/;
+
+/**
+ * The rest of the Overview table. Everything above reads one row; these read
+ * the other six, against the same routes/{section}/metadata.json overview and
+ * through the same caption anchor and distance pairing.
+ *
+ * All eleven tables carry all six rows — the six patterns below, scanned over
+ * docs/*.html, return 66 matches, which is 11 × 6 — so unlike the elevation
+ * row there is no section that deliberately omits one. A missing row is still
+ * a silent skip rather than a report, for the same reason Distance is not
+ * re-checked here: this guard exists to catch a published figure orphaned by a
+ * data correction, not to police which rows a page chooses to publish.
+ *
+ * Distance is deliberately absent from this list. The pairing already keys on
+ * that row, so a Distance cell that drifts from index.json makes its table
+ * match no section and is reported there. Checking it again would emit two
+ * reports for one edit, and the two would disagree about what the reader is
+ * being told to fix.
+ *
+ * Cells are decoded before anything is matched, so a separator can arrive as
+ * an entity or as the literal character without doubling every alternation.
+ * Both spellings are live in docs/: `grep -ho '&rarr;' docs/*.html` counts 141
+ * and `grep -ho '→' docs/*.html` counts 113 — the arrows in the stage-interior
+ * headings ("Ferrol → Neda") are written literally while the Countries cells
+ * are written as entities. decodeEntities already carries rarr and ndash, and
+ * checkStageInteriors already takes this same decode-then-compare reading of a
+ * detail page.
+ *
+ * Two shapes of cell, and two ways of reading them:
+ *
+ * Topology, Difficulty and Countries are compared whole, because in all
+ * thirty-three of those cells the value is the entire cell — nothing but
+ * "Linear", "Expert", "Portugal → Spain". A cell that grows an editorial aside
+ * will be reported, and that is the intended reading: these are data cells,
+ * and prose about a route's difficulty belongs in the page's own paragraphs,
+ * where nothing has to parse it.
+ *
+ * Typical duration and Start/End are read with anchored patterns, because
+ * those cells carry more than the figure. The duration cell states the same
+ * three numbers in two different orders — "31 days (range 28&ndash;35)" on
+ * nine tables against "9&ndash;14 days (typical 11)" on kumano-kodo-iseji's
+ * and kumano-kodo-ohechi's, the same two sections whose figures are declared
+ * rather than measured. Both orders are accepted; neither is preferred, and
+ * nothing here asks a page to change the one it uses.
+ *
+ * Start and End are checked on their elevation figure and never on the place
+ * name, and that is a limit rather than an oversight. Measured against the
+ * committed pages: 7 of the 22 Start/End cells do not contain their own
+ * name.en as a substring at all ("K&omacr;yasan" for "Koyasan",
+ * "Ry&omacr;zen-ji, Temple 1" for "Ry&omacr;zen-ji (Temple 1)",
+ * "Ir&uacute;n, Spain, at the French border" for "Ir&uacute;n, Spain (French
+ * border)"), and 10 of the 22 are not equal to it once the elevation figure is
+ * taken out (add "Saint-Jean-Pied-de-Port, France" for
+ * "Saint-Jean-Pied-de-Port", and the two Santiago cells that append "&mdash;
+ * via Arz&uacute;a" and "&mdash; via Melide"). So neither an equality reading
+ * nor a containment reading of these cells holds today, and a name check would
+ * report between seven and ten correct cells on its first run. Every one of
+ * those differences is the page reading better than the datum. Do not tighten
+ * this.
+ *
+ * The elevation figure itself appears in two shapes: parenthesised on
+ * eighteen of the twenty-two Start/End rows ("Takijiri-oji (100 m)") and
+ * after a comma on iseji's and ohechi's four ("Tanabe, 10 m").
+ * "Porto Cathedral (S&eacute; do Porto) (80 m)" reads 80 rather than failing
+ * on the first bracket because the pattern requires a digit immediately inside
+ * the bracket, which the name's own parenthetical does not have. No committed
+ * cell matches both patterns — the commas in "Ir&uacute;n, Spain, at the
+ * French border (20 m)" and "Ry&omacr;zen-ji, Temple 1 (15 m)" are followed by
+ * words, not figures — so the parenthesised-first order settles only a case
+ * that has not arisen. Both patterns require the
+ * "m" unit, which is what keeps "Ry&omacr;zen-ji, Temple 1 (15 m)" and
+ * "&Omacr;kubo-ji, Temple 88 (450 m)" from reading a temple number as an
+ * altitude — and the comma pattern's \b is what stops it reading a "5 miles"
+ * that nobody has written yet.
+ */
+const KEY_FACTS_DURATION_ROW_PATTERN =
+  /<tr><th scope="row">Typical duration<\/th><td>([\s\S]*?)<\/td><\/tr>/;
+const KEY_FACTS_TOPOLOGY_ROW_PATTERN =
+  /<tr><th scope="row">Topology<\/th><td>([\s\S]*?)<\/td><\/tr>/;
+const KEY_FACTS_DIFFICULTY_ROW_PATTERN =
+  /<tr><th scope="row">Difficulty<\/th><td>([\s\S]*?)<\/td><\/tr>/;
+const KEY_FACTS_COUNTRIES_ROW_PATTERN =
+  /<tr><th scope="row">Countries<\/th><td>([\s\S]*?)<\/td><\/tr>/;
+const KEY_FACTS_START_ROW_PATTERN =
+  /<tr><th scope="row">Start<\/th><td>([\s\S]*?)<\/td><\/tr>/;
+const KEY_FACTS_END_ROW_PATTERN = /<tr><th scope="row">End<\/th><td>([\s\S]*?)<\/td><\/tr>/;
+
+const KEY_FACTS_DURATION_TYPICAL_FIRST_PATTERN =
+  /^\s*(\d+)\s*days?\s*\(\s*range\s+(\d+)\s*–\s*(\d+)\s*\)/;
+const KEY_FACTS_DURATION_RANGE_FIRST_PATTERN =
+  /^\s*(\d+)\s*–\s*(\d+)\s*days?\s*\(\s*typical\s+(\d+)\s*\)/;
+
+const KEY_FACTS_POINT_PAREN_ELEVATION_PATTERN = /\((\d[\d,]*)\s*m\)/;
+const KEY_FACTS_POINT_COMMA_ELEVATION_PATTERN = /,\s*(\d[\d,]*)\s*m\b/;
+
+const KEY_FACTS_POINT_ROWS: Array<[label: string, pattern: RegExp, field: "startPoint" | "endPoint"]> = [
+  ["Start", KEY_FACTS_START_ROW_PATTERN, "startPoint"],
+  ["End", KEY_FACTS_END_ROW_PATTERN, "endPoint"],
+];
+
+function normalizedCell(rendered: string): string {
+  return decodeEntities(rendered).replace(/\s+/g, " ").trim();
+}
 
 function figureFromCell(rendered: string): number {
   return Number(rendered.replace(/,/g, ""));
@@ -417,8 +521,12 @@ interface MetadataOverviewLike {
   distanceKm?: unknown;
   difficulty?: unknown;
   bestMonths?: unknown;
-  estimatedDays?: { typical?: unknown };
+  estimatedDays?: { typical?: unknown; min?: unknown; max?: unknown };
   elevationRange?: unknown;
+  topology?: unknown;
+  countries?: unknown;
+  startPoint?: unknown;
+  endPoint?: unknown;
 }
 
 interface MetadataLike {
@@ -543,6 +651,84 @@ function readDeclaredElevationRange(sectionDir: string): DeclaredElevationRange 
   if (typeof totalDescentMeters === "number") declared.totalDescentMeters = totalDescentMeters;
 
   return declared;
+}
+
+interface DeclaredKeyFacts {
+  typicalDays?: number;
+  minDays?: number;
+  maxDays?: number;
+  topology?: string;
+  difficulty?: string;
+  countries?: string[];
+  startElevationMeters?: number;
+  endElevationMeters?: number;
+}
+
+/**
+ * The other six Key Facts rows' figures, read from the same section
+ * metadata.json readDeclaredElevationRange above reads. Separate from that
+ * reader rather than folded into it because the two answer different
+ * questions: a null there means "this section declares no elevationRange", a
+ * meaningful and common state that the caller skips on. There is no equivalent
+ * here — a section that declares none of these six fields is schema-invalid,
+ * which validate reports — so this returns null only when metadata.json is
+ * missing or unparsable, and otherwise a record of whatever it found.
+ *
+ * Every field is independently optional even though schema/pilgrimage.schema.json
+ * puts estimatedDays, topology, startPoint and difficulty in overview.required.
+ * countries and endPoint are genuinely optional there, estimatedDays.typical is
+ * optional inside its own object, and a NamedLocation's coordinates may be a
+ * [lon, lat] pair with no third element. A field this reader did not find is a
+ * cell that goes uncompared, never a report: this guard exists to catch a
+ * published figure that drifted from its data, and a route with no data to
+ * drift from is validate's problem, not this one's.
+ */
+function readDeclaredKeyFacts(sectionDir: string): DeclaredKeyFacts | null {
+  const metaPath = join(sectionDir, "metadata.json");
+  if (!existsSync(metaPath)) return null;
+
+  let parsed: unknown;
+  try {
+    parsed = JSON.parse(readFileSync(metaPath, "utf-8"));
+  } catch {
+    return null; // an unparsable metadata.json is npm run validate's job
+  }
+
+  if (!isMetadataLike(parsed)) return null;
+  const overview = parsed.overview;
+  if (typeof overview !== "object" || overview === null) return null;
+
+  const { estimatedDays, topology, difficulty, countries, startPoint, endPoint } = overview;
+
+  const declared: DeclaredKeyFacts = {};
+
+  if (typeof estimatedDays === "object" && estimatedDays !== null) {
+    const { typical, min, max } = estimatedDays;
+    if (typeof typical === "number") declared.typicalDays = typical;
+    if (typeof min === "number") declared.minDays = min;
+    if (typeof max === "number") declared.maxDays = max;
+  }
+
+  if (typeof topology === "string") declared.topology = topology;
+  if (typeof difficulty === "string") declared.difficulty = difficulty;
+  if (Array.isArray(countries) && countries.every((c): c is string => typeof c === "string")) {
+    declared.countries = countries;
+  }
+
+  const startElevation = pointElevation(startPoint);
+  if (startElevation !== undefined) declared.startElevationMeters = startElevation;
+  const endElevation = pointElevation(endPoint);
+  if (endElevation !== undefined) declared.endElevationMeters = endElevation;
+
+  return declared;
+}
+
+function pointElevation(point: unknown): number | undefined {
+  if (typeof point !== "object" || point === null) return undefined;
+  const { coordinates } = point as Record<string, unknown>;
+  if (!Array.isArray(coordinates)) return undefined;
+  const altitude = coordinates[2];
+  return typeof altitude === "number" ? altitude : undefined;
 }
 
 const ROUTE_FILTER_ATTRS: Array<[string, (overview: RouteFilterOverview) => string | undefined]> = [
@@ -1343,32 +1529,45 @@ export function checkSite(root: string, overrides: PageOverrides = {}): Problem[
    * A table that matches no section, or more than one, is reported. An
    * unidentified table is precisely the state in which a real drift goes
    * unseen, so it has to be loud; only a table paired to a section that
-   * declares no range is passed over in silence. One consequence worth naming:
-   * a Key Facts Distance cell that drifts from index.json now surfaces here as
-   * a pairing failure. Nothing had read those cells before — checkReadmeDistanceKm
-   * covers the README's route tables and COMPARE_ROW_PATTERN docs/routes.html's
-   * comparison table, and neither one opens a detail page.
+   * declares nothing to compare is passed over in silence. One consequence
+   * worth naming: a Key Facts Distance cell that drifts from index.json
+   * surfaces here as a pairing failure, which is why all three of those
+   * messages name a stale Distance cell as the likely cause before they
+   * describe the coverage that is lost. Nothing else reads those cells —
+   * checkReadmeDistanceKm covers the README's route tables and
+   * COMPARE_ROW_PATTERN docs/routes.html's comparison table, and neither one
+   * opens a detail page.
+   *
+   * Pairing happens once per table, and every row check below runs off the
+   * section it resolved. See KEY_FACTS_DURATION_ROW_PATTERN for what those
+   * checks read and why Distance is not among them.
    */
-  function checkKeyFactsElevation(id: string, detailHtml: string): void {
+  function checkKeyFacts(id: string, detailHtml: string): void {
     const file = `docs/${id}.html`;
     const routeDir = join(root, "routes", id);
     const route = indexRouteById.get(id);
     if (!route) return;
 
+    const sectionDir = (variantId?: string) =>
+      variantId === undefined ? routeDir : join(routeDir, "variants", variantId);
+
     const sections: Array<{
       file: string;
       distanceKm?: number;
       declared: DeclaredElevationRange | null;
+      keyFacts: DeclaredKeyFacts | null;
     }> = [
       {
         file: `routes/${id}/metadata.json`,
         distanceKm: route.distanceKm,
-        declared: readDeclaredElevationRange(routeDir),
+        declared: readDeclaredElevationRange(sectionDir()),
+        keyFacts: readDeclaredKeyFacts(sectionDir()),
       },
       ...route.variants.map((variant) => ({
         file: `routes/${id}/variants/${variant.id}/metadata.json`,
         distanceKm: variant.distanceKm,
-        declared: readDeclaredElevationRange(join(routeDir, "variants", variant.id)),
+        declared: readDeclaredElevationRange(sectionDir(variant.id)),
+        keyFacts: readDeclaredKeyFacts(sectionDir(variant.id)),
       })),
     ];
 
@@ -1390,8 +1589,8 @@ export function checkSite(root: string, overrides: PageOverrides = {}): Problem[
         add(
           file,
           `"${caption}" has no Distance row opening with an "N km" figure, so nothing says which ` +
-            `section of "${id}" it describes and its Key Facts elevation cell goes unchecked — ` +
-            `open the Distance cell with that section's own distanceKm (${sectionList})`,
+            `section of "${id}" it describes and every Key Facts cell in this table goes ` +
+            `unchecked — open the Distance cell with that section's own distanceKm (${sectionList})`,
         );
         continue;
       }
@@ -1404,8 +1603,9 @@ export function checkSite(root: string, overrides: PageOverrides = {}): Problem[
         add(
           file,
           `"${caption}" opens with a Distance of ${leadingDistance[1]} km, which is the distanceKm ` +
-            `of no section of "${id}" in index.json (${sectionList}) — so nothing says which ` +
-            `section this table describes and its Key Facts elevation cell goes unchecked`,
+            `of no section of "${id}" in index.json (${sectionList}) — most likely this Distance ` +
+            `cell has drifted from the data, and until it names one section's distance every Key ` +
+            `Facts cell in this table goes unchecked`,
         );
         continue;
       }
@@ -1416,49 +1616,230 @@ export function checkSite(root: string, overrides: PageOverrides = {}): Problem[
           `"${caption}" opens with a Distance of ${leadingDistance[1]} km, which is the distanceKm ` +
             `of ${matches.length} sections of "${id}" in index.json ` +
             `(${matches.map((section) => section.file).join(", ")}) — so nothing tells their ` +
-            `tables apart and this one's Key Facts elevation cell goes unchecked`,
+            `tables apart and every Key Facts cell in this table goes unchecked`,
         );
         continue;
       }
 
-      const { file: source, declared } = matches[0];
-      if (!declared) continue; // this section declares no range to compare against
+      const { file: source, declared, keyFacts } = matches[0];
 
-      const row = tbody.match(KEY_FACTS_ELEVATION_ROW_PATTERN);
-      if (!row) continue; // the row is optional in both directions
-      const cell = row[1];
+      checkKeyFactsElevation(file, caption, tbody, source, declared);
+      if (!keyFacts) continue; // metadata.json missing or unparsable — validate's job
+      checkKeyFactsDuration(file, caption, tbody, source, keyFacts);
+      checkKeyFactsWord(file, caption, tbody, source, "Topology", keyFacts.topology);
+      checkKeyFactsWord(file, caption, tbody, source, "Difficulty", keyFacts.difficulty);
+      checkKeyFactsCountries(file, caption, tbody, source, keyFacts.countries);
+      checkKeyFactsEndpoints(file, caption, tbody, source, keyFacts);
+    }
+  }
 
-      const range = cell.match(KEY_FACTS_ELEVATION_RANGE_PATTERN);
-      const { minMeters, maxMeters, totalAscentMeters, totalDescentMeters } = declared;
+  function checkKeyFactsElevation(
+    file: string,
+    caption: string,
+    tbody: string,
+    source: string,
+    declared: DeclaredElevationRange | null,
+  ): void {
+    if (!declared) return; // this section declares no range to compare against
 
-      if (range && minMeters !== undefined && maxMeters !== undefined) {
-        const drifted =
-          figureFromCell(range[1]) !== minMeters || figureFromCell(range[2]) !== maxMeters;
-        if (drifted) {
-          add(
-            file,
-            `"${caption}" gives an elevation range of ${range[1]}–${range[2]} m, but ${source} ` +
-              `declares ${minMeters.toLocaleString("en-US")}–${maxMeters.toLocaleString("en-US")} m ` +
-              `— update the Key Facts cell, or correct overview.elevationRange`,
-          );
-        }
+    const row = tbody.match(KEY_FACTS_ELEVATION_ROW_PATTERN);
+    if (!row) return; // the row is optional in both directions
+    const cell = row[1];
+
+    const range = cell.match(KEY_FACTS_ELEVATION_RANGE_PATTERN);
+    const { minMeters, maxMeters, totalAscentMeters, totalDescentMeters } = declared;
+
+    if (range && minMeters !== undefined && maxMeters !== undefined) {
+      const drifted =
+        figureFromCell(range[1]) !== minMeters || figureFromCell(range[2]) !== maxMeters;
+      if (drifted) {
+        add(
+          file,
+          `"${caption}" gives an elevation range of ${range[1]}–${range[2]} m, but ${source} ` +
+            `declares ${minMeters.toLocaleString("en-US")}–${maxMeters.toLocaleString("en-US")} m ` +
+            `— update the Key Facts cell, or correct overview.elevationRange`,
+        );
       }
+    }
 
-      const totals = cell.match(KEY_FACTS_ELEVATION_TOTALS_PATTERN);
-      if (totals && totalAscentMeters !== undefined && totalDescentMeters !== undefined) {
-        const drifted =
-          figureFromCell(totals[1]) !== totalAscentMeters ||
-          figureFromCell(totals[2]) !== totalDescentMeters;
-        if (drifted) {
-          add(
-            file,
-            `"${caption}" gives a total ascent of ${totals[1]} m and descent of ${totals[2]} m, ` +
-              `but ${source} declares ${totalAscentMeters.toLocaleString("en-US")} m and ` +
-              `${totalDescentMeters.toLocaleString("en-US")} m — update the Key Facts cell, or ` +
-              `correct overview.elevationRange`,
-          );
-        }
+    const totals = cell.match(KEY_FACTS_ELEVATION_TOTALS_PATTERN);
+    if (totals && totalAscentMeters !== undefined && totalDescentMeters !== undefined) {
+      const drifted =
+        figureFromCell(totals[1]) !== totalAscentMeters ||
+        figureFromCell(totals[2]) !== totalDescentMeters;
+      if (drifted) {
+        add(
+          file,
+          `"${caption}" gives a total ascent of ${totals[1]} m and descent of ${totals[2]} m, ` +
+            `but ${source} declares ${totalAscentMeters.toLocaleString("en-US")} m and ` +
+            `${totalDescentMeters.toLocaleString("en-US")} m — update the Key Facts cell, or ` +
+            `correct overview.elevationRange`,
+        );
       }
+    }
+  }
+
+  /**
+   * Both sides are printed in whichever of the two orders the page itself
+   * used, so a reader is comparing like with like rather than reading the
+   * declared figures back in a shape their page does not use. typical is
+   * dropped from both sides together when the section declares none — schema
+   * requires min and max inside estimatedDays but not typical — which keeps
+   * the message from printing a figure that was never compared.
+   */
+  function checkKeyFactsDuration(
+    file: string,
+    caption: string,
+    tbody: string,
+    source: string,
+    declared: DeclaredKeyFacts,
+  ): void {
+    const row = tbody.match(KEY_FACTS_DURATION_ROW_PATTERN);
+    if (!row) return;
+    const cell = normalizedCell(row[1]);
+
+    const typicalFirst = cell.match(KEY_FACTS_DURATION_TYPICAL_FIRST_PATTERN);
+    const rangeFirst = cell.match(KEY_FACTS_DURATION_RANGE_FIRST_PATTERN);
+    const rendered = typicalFirst
+      ? { typical: Number(typicalFirst[1]), min: Number(typicalFirst[2]), max: Number(typicalFirst[3]) }
+      : rangeFirst
+        ? { typical: Number(rangeFirst[3]), min: Number(rangeFirst[1]), max: Number(rangeFirst[2]) }
+        : null;
+    if (!rendered) return; // neither shape — nothing to read a figure out of
+
+    const { typicalDays, minDays, maxDays } = declared;
+    if (minDays === undefined || maxDays === undefined) return;
+
+    const comparedTypical = typicalDays !== undefined;
+    const agrees =
+      rendered.min === minDays &&
+      rendered.max === maxDays &&
+      (!comparedTypical || rendered.typical === typicalDays);
+    if (agrees) return;
+
+    const inPageShape = (typical: number | undefined, min: number, max: number) => {
+      if (typical === undefined) return `${min}–${max} days`;
+      return typicalFirst
+        ? `${typical} days (range ${min}–${max})`
+        : `${min}–${max} days (typical ${typical})`;
+    };
+
+    add(
+      file,
+      `"${caption}" gives a typical duration of ` +
+        `${inPageShape(comparedTypical ? rendered.typical : undefined, rendered.min, rendered.max)}, ` +
+        `but ${source} declares ${inPageShape(typicalDays, minDays, maxDays)} — update the Key ` +
+        `Facts cell, or correct overview.estimatedDays`,
+    );
+  }
+
+  /**
+   * Topology and Difficulty read identically: one enum value, one cell, and
+   * nothing else in it. The comparison is case-folded because the page
+   * title-cases what the data holds in lower case ("Network" against
+   * "network") — a page that wrote it lower case would be checked all the
+   * same, since this guard is about the value having drifted and not about
+   * how the cell is capitalised. The declared side of the message is
+   * title-cased to match the rendered side, the way the elevation messages
+   * put the thousands separators back on.
+   */
+  function checkKeyFactsWord(
+    file: string,
+    caption: string,
+    tbody: string,
+    source: string,
+    label: "Topology" | "Difficulty",
+    value: string | undefined,
+  ): void {
+    if (value === undefined) return;
+
+    const pattern =
+      label === "Topology" ? KEY_FACTS_TOPOLOGY_ROW_PATTERN : KEY_FACTS_DIFFICULTY_ROW_PATTERN;
+    const row = tbody.match(pattern);
+    if (!row) return;
+
+    const rendered = normalizedCell(row[1]);
+    if (rendered.toLowerCase() === value.toLowerCase()) return;
+
+    const titleCased = value.charAt(0).toUpperCase() + value.slice(1);
+    add(
+      file,
+      `"${caption}" gives a ${label.toLowerCase()} of "${rendered}", but ${source} declares ` +
+        `"${titleCased}" — update the Key Facts cell, or correct overview.${label.toLowerCase()}`,
+    );
+  }
+
+  /**
+   * The cell renders ISO codes as English names joined by an arrow, in the
+   * order the array declares them, so the whole cell is rebuilt from the data
+   * and compared against the whole rendered cell.
+   *
+   * A code countryName does not know silently switches this cell off rather
+   * than failing — see COUNTRY_NAME in scripts/region.ts. The alternative is a
+   * route through a new country breaking CI before its page has been written,
+   * which would make adding a country harder than leaving one unchecked.
+   */
+  function checkKeyFactsCountries(
+    file: string,
+    caption: string,
+    tbody: string,
+    source: string,
+    codes: string[] | undefined,
+  ): void {
+    if (codes === undefined || codes.length === 0) return;
+
+    const names = codes.map(countryName);
+    if (names.some((name) => name === undefined)) return;
+
+    const row = tbody.match(KEY_FACTS_COUNTRIES_ROW_PATTERN);
+    if (!row) return;
+
+    const rendered = normalizedCell(row[1]);
+    const expected = names.join(" → ");
+    if (rendered.toLowerCase() === expected.toLowerCase()) return;
+
+    add(
+      file,
+      `"${caption}" gives countries of "${rendered}", but ${source} declares "${expected}" ` +
+        `(${codes.join(", ")}) — update the Key Facts cell, or correct overview.countries`,
+    );
+  }
+
+  /**
+   * The elevation figure in a Start or End cell, and deliberately not the
+   * place name beside it — KEY_FACTS_DURATION_ROW_PATTERN's comment carries
+   * the measurements showing why a name check would report correct cells, and
+   * asks that this not be tightened.
+   */
+  function checkKeyFactsEndpoints(
+    file: string,
+    caption: string,
+    tbody: string,
+    source: string,
+    declared: DeclaredKeyFacts,
+  ): void {
+    for (const [label, pattern, field] of KEY_FACTS_POINT_ROWS) {
+      const meters =
+        field === "startPoint" ? declared.startElevationMeters : declared.endElevationMeters;
+      if (meters === undefined) continue;
+
+      const row = tbody.match(pattern);
+      if (!row) continue;
+
+      const cell = normalizedCell(row[1]);
+      const figure =
+        cell.match(KEY_FACTS_POINT_PAREN_ELEVATION_PATTERN) ??
+        cell.match(KEY_FACTS_POINT_COMMA_ELEVATION_PATTERN);
+      if (!figure) continue; // no elevation published in this cell — the name alone is not checkable
+
+      if (figureFromCell(figure[1]) === meters) continue;
+
+      add(
+        file,
+        `"${caption}" gives the ${label} elevation as ${figure[1]} m, but ${source} declares ` +
+          `${meters.toLocaleString("en-US")} m — update the Key Facts cell, or correct ` +
+          `overview.${field}.coordinates`,
+      );
     }
   }
 
@@ -1759,7 +2140,7 @@ export function checkSite(root: string, overrides: PageOverrides = {}): Problem[
       checkInlinedAsset("sparklines", id, detailPages);
       checkInteriorJourney(id, detailHtml);
       checkWaypointTypeTables(id, detailHtml);
-      checkKeyFactsElevation(id, detailHtml);
+      checkKeyFacts(id, detailHtml);
       if (pilgrimageId !== undefined) {
         checkPilgrimageBacklink(id, pilgrimageId, detailHtml);
       }
