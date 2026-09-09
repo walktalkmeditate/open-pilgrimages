@@ -1,0 +1,450 @@
+{
+  "schemaVersion": "1.0.0",
+  "routeId": "shikoku-88-tosa",
+  "stageCount": 15,
+  "stages": [
+    {
+      "index": 0,
+      "name": {
+        "en": "Yakuō-ji (Temple 23) to Haryugetu Guesthouse"
+      },
+      "start": {
+        "name": {
+          "en": "Yakuō-ji (Temple 23)",
+          "ja": "薬王寺"
+        },
+        "coordinates": [
+          134.528,
+          33.732
+        ],
+        "note": "Section boundary. Coordinates and name are taken verbatim from this section's metadata.json overview, so the neighbouring section's stage anchor is the same point. 0.00 km along this section's walked line, 6 m off it."
+      },
+      "end": {
+        "name": {
+          "en": "Haryugetu Guesthouse"
+        },
+        "coordinates": [
+          134.325783,
+          33.582208
+        ],
+        "note": "OpenStreetMap node/11535055772 (accommodation), 32.08 km along this section's walked line, 19 m off it. No temple falls 25-30 km past the previous day's end at 0.00 km, so the day ends at the named accommodation or town waypoint on the line nearest 27.5 km, 32.08 km on."
+      },
+      "distanceKm": 32.1
+    },
+    {
+      "index": 1,
+      "name": {
+        "en": "Haryugetu Guesthouse to Tokumasu Minshuku"
+      },
+      "start": {
+        "name": {
+          "en": "Haryugetu Guesthouse"
+        },
+        "coordinates": [
+          134.325783,
+          33.582208
+        ],
+        "note": "Where stage 0 ended."
+      },
+      "end": {
+        "name": {
+          "en": "Tokumasu Minshuku"
+        },
+        "coordinates": [
+          134.2045341,
+          33.3655675
+        ],
+        "note": "OpenStreetMap node/10810952434 (accommodation), 62.89 km along this section's walked line, 14 m off it. No temple falls 25-30 km past the previous day's end at 32.08 km, so the day ends at the named accommodation or town waypoint on the line nearest 27.5 km, 30.81 km on."
+      },
+      "distanceKm": 30.8
+    },
+    {
+      "index": 2,
+      "name": {
+        "en": "Tokumasu Minshuku to Kongocho-ji (Temple 26)"
+      },
+      "start": {
+        "name": {
+          "en": "Tokumasu Minshuku"
+        },
+        "coordinates": [
+          134.2045341,
+          33.3655675
+        ],
+        "note": "Where stage 1 ended."
+      },
+      "end": {
+        "name": {
+          "en": "Kongocho-ji (Temple 26)",
+          "ja": "金剛頂寺"
+        },
+        "coordinates": [
+          134.123,
+          33.307
+        ],
+        "note": "Temple 26, 88.08 km along this section's walked line, 5 m off it — 25.19 km from the previous day's end at 62.89 km, inside the 25-30 km band and, of the temples in it, the one nearest 27.5 km."
+      },
+      "distanceKm": 25.2
+    },
+    {
+      "index": 3,
+      "name": {
+        "en": "Kongocho-ji (Temple 26) to Konomine-ji (Temple 27)",
+        "ja": "金剛頂寺〜神峰寺"
+      },
+      "start": {
+        "name": {
+          "en": "Kongocho-ji (Temple 26)",
+          "ja": "金剛頂寺"
+        },
+        "coordinates": [
+          134.123,
+          33.307
+        ],
+        "note": "Where stage 2 ended."
+      },
+      "end": {
+        "name": {
+          "en": "Konomine-ji (Temple 27)",
+          "ja": "神峰寺"
+        },
+        "coordinates": [
+          133.975,
+          33.468
+        ],
+        "note": "Temple 27, 116.63 km along this section's walked line, 53 m off it — 28.55 km from the previous day's end at 88.08 km, inside the 25-30 km band and, of the temples in it, the one nearest 27.5 km."
+      },
+      "distanceKm": 28.5
+    },
+    {
+      "index": 4,
+      "name": {
+        "en": "Konomine-ji (Temple 27) to 黒潮温泉ホテル"
+      },
+      "start": {
+        "name": {
+          "en": "Konomine-ji (Temple 27)",
+          "ja": "神峰寺"
+        },
+        "coordinates": [
+          133.975,
+          33.468
+        ],
+        "note": "Where stage 3 ended."
+      },
+      "end": {
+        "name": {
+          "en": "黒潮温泉ホテル"
+        },
+        "coordinates": [
+          133.7050083,
+          33.5584009
+        ],
+        "note": "OpenStreetMap node/1762646861 (accommodation), 152.39 km along this section's walked line, 57 m off it. No temple falls 25-30 km past the previous day's end at 116.63 km, so the day ends at the named accommodation or town waypoint on the line nearest 27.5 km, 35.76 km on."
+      },
+      "distanceKm": 35.8
+    },
+    {
+      "index": 5,
+      "name": {
+        "en": "黒潮温泉ホテル to Chikurin-ji (Temple 31)"
+      },
+      "start": {
+        "name": {
+          "en": "黒潮温泉ホテル"
+        },
+        "coordinates": [
+          133.7050083,
+          33.5584009
+        ],
+        "note": "Where stage 4 ended."
+      },
+      "end": {
+        "name": {
+          "en": "Chikurin-ji (Temple 31)",
+          "ja": "竹林寺"
+        },
+        "coordinates": [
+          133.577,
+          33.547
+        ],
+        "note": "Temple 31, 177.82 km along this section's walked line, 72 m off it — 25.43 km from the previous day's end at 152.39 km, inside the 25-30 km band and, of the temples in it, the one nearest 27.5 km."
+      },
+      "distanceKm": 25.4
+    },
+    {
+      "index": 6,
+      "name": {
+        "en": "Chikurin-ji (Temple 31) to Tosa",
+        "ja": "竹林寺〜土佐市"
+      },
+      "start": {
+        "name": {
+          "en": "Chikurin-ji (Temple 31)",
+          "ja": "竹林寺"
+        },
+        "coordinates": [
+          133.577,
+          33.547
+        ],
+        "note": "Where stage 5 ended."
+      },
+      "end": {
+        "name": {
+          "en": "Tosa",
+          "ar": "توسا، كوتشي",
+          "cs": "Tosa",
+          "de": "Tosa",
+          "es": "Tosa",
+          "fr": "Tosa",
+          "id": "Tosa",
+          "ja": "土佐市",
+          "ko": "도사시",
+          "lt": "Tosa",
+          "pl": "Tosa",
+          "ru": "Тоса",
+          "uk": "Тоса",
+          "zh": "土佐市"
+        },
+        "coordinates": [
+          133.425544,
+          33.4960168
+        ],
+        "note": "OpenStreetMap node/697489675 (town), 205.29 km along this section's walked line, 107 m off it. No temple falls 25-30 km past the previous day's end at 177.82 km, so the day ends at the named accommodation or town waypoint on the line nearest 27.5 km, 27.46 km on."
+      },
+      "distanceKm": 27.5
+    },
+    {
+      "index": 7,
+      "name": {
+        "en": "Tosa to Ohenro Guest House Lilian"
+      },
+      "start": {
+        "name": {
+          "en": "Tosa",
+          "ar": "توسا، كوتشي",
+          "cs": "Tosa",
+          "de": "Tosa",
+          "es": "Tosa",
+          "fr": "Tosa",
+          "id": "Tosa",
+          "ja": "土佐市",
+          "ko": "도사시",
+          "lt": "Tosa",
+          "pl": "Tosa",
+          "ru": "Тоса",
+          "uk": "Тоса",
+          "zh": "土佐市"
+        },
+        "coordinates": [
+          133.425544,
+          33.4960168
+        ],
+        "note": "Where stage 6 ended."
+      },
+      "end": {
+        "name": {
+          "en": "Ohenro Guest House Lilian"
+        },
+        "coordinates": [
+          133.4356326,
+          33.4388003
+        ],
+        "note": "OpenStreetMap node/11372865970 (accommodation), 226.42 km along this section's walked line, 18 m off it. No temple falls 25-30 km past the previous day's end at 205.29 km, so the day ends at the named accommodation or town waypoint on the line nearest 27.5 km, 21.14 km on."
+      },
+      "distanceKm": 21.1
+    },
+    {
+      "index": 8,
+      "name": {
+        "en": "Ohenro Guest House Lilian to 民宿あわの里"
+      },
+      "start": {
+        "name": {
+          "en": "Ohenro Guest House Lilian"
+        },
+        "coordinates": [
+          133.4356326,
+          33.4388003
+        ],
+        "note": "Where stage 7 ended."
+      },
+      "end": {
+        "name": {
+          "en": "民宿あわの里"
+        },
+        "coordinates": [
+          133.2575734,
+          33.3635277
+        ],
+        "note": "OpenStreetMap node/12898846612 (accommodation), 252.98 km along this section's walked line, 207 m off it. No temple falls 25-30 km past the previous day's end at 226.42 km, so the day ends at the named accommodation or town waypoint on the line nearest 27.5 km, 26.56 km on."
+      },
+      "distanceKm": 26.6
+    },
+    {
+      "index": 9,
+      "name": {
+        "en": "民宿あわの里 to Iwamoto-ji (Temple 37)"
+      },
+      "start": {
+        "name": {
+          "en": "民宿あわの里"
+        },
+        "coordinates": [
+          133.2575734,
+          33.3635277
+        ],
+        "note": "Where stage 8 ended."
+      },
+      "end": {
+        "name": {
+          "en": "Iwamoto-ji (Temple 37)",
+          "ja": "岩本寺"
+        },
+        "coordinates": [
+          133.135,
+          33.208
+        ],
+        "note": "Temple 37, 280.88 km along this section's walked line, 21 m off it — 27.90 km from the previous day's end at 252.98 km, inside the 25-30 km band and, of the temples in it, the one nearest 27.5 km."
+      },
+      "distanceKm": 27.9
+    },
+    {
+      "index": 10,
+      "name": {
+        "en": "Iwamoto-ji (Temple 37) to Henro House Maaru"
+      },
+      "start": {
+        "name": {
+          "en": "Iwamoto-ji (Temple 37)",
+          "ja": "岩本寺"
+        },
+        "coordinates": [
+          133.135,
+          33.208
+        ],
+        "note": "Where stage 9 ended."
+      },
+      "end": {
+        "name": {
+          "en": "Henro House Maaru"
+        },
+        "coordinates": [
+          133.0764324,
+          33.0357481
+        ],
+        "note": "OpenStreetMap node/11377475869 (accommodation), 309.05 km along this section's walked line, 41 m off it. No temple falls 25-30 km past the previous day's end at 280.88 km, so the day ends at the named accommodation or town waypoint on the line nearest 27.5 km, 28.17 km on."
+      },
+      "distanceKm": 28.2
+    },
+    {
+      "index": 11,
+      "name": {
+        "en": "Henro House Maaru to 民宿いさりび"
+      },
+      "start": {
+        "name": {
+          "en": "Henro House Maaru"
+        },
+        "coordinates": [
+          133.0764324,
+          33.0357481
+        ],
+        "note": "Where stage 10 ended."
+      },
+      "end": {
+        "name": {
+          "en": "民宿いさりび"
+        },
+        "coordinates": [
+          132.9546005,
+          32.846256
+        ],
+        "note": "OpenStreetMap node/12908978212 (accommodation), 342.61 km along this section's walked line, 13 m off it. No temple falls 25-30 km past the previous day's end at 309.05 km, so the day ends at the named accommodation or town waypoint on the line nearest 27.5 km, 33.56 km on."
+      },
+      "distanceKm": 33.6
+    },
+    {
+      "index": 12,
+      "name": {
+        "en": "民宿いさりび to 金剛福寺宿坊"
+      },
+      "start": {
+        "name": {
+          "en": "民宿いさりび"
+        },
+        "coordinates": [
+          132.9546005,
+          32.846256
+        ],
+        "note": "Where stage 11 ended."
+      },
+      "end": {
+        "name": {
+          "en": "金剛福寺宿坊"
+        },
+        "coordinates": [
+          133.0172427,
+          32.724986
+        ],
+        "note": "OpenStreetMap node/9444928782 (accommodation), 363.53 km along this section's walked line, 145 m off it. No temple falls 25-30 km past the previous day's end at 342.61 km, so the day ends at the named accommodation or town waypoint on the line nearest 27.5 km, 20.92 km on."
+      },
+      "distanceKm": 20.9
+    },
+    {
+      "index": 13,
+      "name": {
+        "en": "金剛福寺宿坊 to Ocean, River, Mountain Retreat"
+      },
+      "start": {
+        "name": {
+          "en": "金剛福寺宿坊"
+        },
+        "coordinates": [
+          133.0172427,
+          32.724986
+        ],
+        "note": "Where stage 12 ended."
+      },
+      "end": {
+        "name": {
+          "en": "Ocean, River, Mountain Retreat"
+        },
+        "coordinates": [
+          132.8920954,
+          32.8921798
+        ],
+        "note": "OpenStreetMap node/11535055771 (accommodation), 399.33 km along this section's walked line, 24 m off it. No temple falls 25-30 km past the previous day's end at 363.53 km, so the day ends at the named accommodation or town waypoint on the line nearest 27.5 km, 35.80 km on."
+      },
+      "distanceKm": 35.8
+    },
+    {
+      "index": 14,
+      "name": {
+        "en": "Ocean, River, Mountain Retreat to Enkō-ji (Temple 39)"
+      },
+      "start": {
+        "name": {
+          "en": "Ocean, River, Mountain Retreat"
+        },
+        "coordinates": [
+          132.8920954,
+          32.8921798
+        ],
+        "note": "Where stage 13 ended."
+      },
+      "end": {
+        "name": {
+          "en": "Enkō-ji (Temple 39)",
+          "ja": "延光寺"
+        },
+        "coordinates": [
+          132.774,
+          32.961
+        ],
+        "note": "Section boundary. Coordinates and name are taken verbatim from this section's metadata.json overview, so the neighbouring section's stage anchor is the same point. 418.50 km along this section's walked line, 21 m off it. A boundary day ends at the boundary temple itself whatever its length, and the lodging fallback does not apply here; this one runs 19.17 km."
+      },
+      "distanceKm": 19.2
+    }
+  ]
+}

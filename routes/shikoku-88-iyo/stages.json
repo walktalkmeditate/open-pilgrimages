@@ -1,0 +1,423 @@
+{
+  "schemaVersion": "1.0.0",
+  "routeId": "shikoku-88-iyo",
+  "stageCount": 14,
+  "stages": [
+    {
+      "index": 0,
+      "name": {
+        "en": "Enkō-ji (Temple 39) to Kanjizai-ji (Temple 40)",
+        "ja": "延光寺〜観自在寺"
+      },
+      "start": {
+        "name": {
+          "en": "Enkō-ji (Temple 39)",
+          "ja": "延光寺"
+        },
+        "coordinates": [
+          132.774,
+          32.961
+        ],
+        "note": "Section boundary. Coordinates and name are taken verbatim from this section's metadata.json overview, so the neighbouring section's stage anchor is the same point. 0.00 km along this section's walked line, 21 m off it."
+      },
+      "end": {
+        "name": {
+          "en": "Kanjizai-ji (Temple 40)",
+          "ja": "観自在寺"
+        },
+        "coordinates": [
+          132.564,
+          32.965
+        ],
+        "note": "Temple 40, 27.16 km along this section's walked line, 45 m off it — 27.16 km from the previous day's end at 0.00 km, inside the 25-30 km band and, of the temples in it, the one nearest 27.5 km."
+      },
+      "distanceKm": 27.2
+    },
+    {
+      "index": 1,
+      "name": {
+        "en": "Kanjizai-ji (Temple 40) to Hotel Ailin"
+      },
+      "start": {
+        "name": {
+          "en": "Kanjizai-ji (Temple 40)",
+          "ja": "観自在寺"
+        },
+        "coordinates": [
+          132.564,
+          32.965
+        ],
+        "note": "Where stage 0 ended."
+      },
+      "end": {
+        "name": {
+          "en": "Hotel Ailin"
+        },
+        "coordinates": [
+          132.5244295,
+          33.132053
+        ],
+        "note": "OpenStreetMap node/10858084271 (accommodation), 53.80 km along this section's walked line, 33 m off it. No temple falls 25-30 km past the previous day's end at 27.16 km, so the day ends at the named accommodation or town waypoint on the line nearest 27.5 km, 26.64 km on."
+      },
+      "distanceKm": 26.6
+    },
+    {
+      "index": 2,
+      "name": {
+        "en": "Hotel Ailin to Butsumoku-ji (Temple 42)"
+      },
+      "start": {
+        "name": {
+          "en": "Hotel Ailin"
+        },
+        "coordinates": [
+          132.5244295,
+          33.132053
+        ],
+        "note": "Where stage 1 ended."
+      },
+      "end": {
+        "name": {
+          "en": "Butsumoku-ji (Temple 42)",
+          "ja": "佛木寺"
+        },
+        "coordinates": [
+          132.581,
+          33.311
+        ],
+        "note": "Temple 42, 79.90 km along this section's walked line, 70 m off it — 26.10 km from the previous day's end at 53.80 km, inside the 25-30 km band and, of the temples in it, the one nearest 27.5 km."
+      },
+      "distanceKm": 26.1
+    },
+    {
+      "index": 3,
+      "name": {
+        "en": "Butsumoku-ji (Temple 42) to Ozu",
+        "ja": "佛木寺〜大洲市"
+      },
+      "start": {
+        "name": {
+          "en": "Butsumoku-ji (Temple 42)",
+          "ja": "佛木寺"
+        },
+        "coordinates": [
+          132.581,
+          33.311
+        ],
+        "note": "Where stage 2 ended."
+      },
+      "end": {
+        "name": {
+          "en": "Ozu",
+          "ar": "اوزو، إهيمه",
+          "cs": "Ózu",
+          "de": "Ōzu",
+          "es": "Ōzu",
+          "fr": "Ōzu",
+          "id": "Ozu",
+          "ja": "大洲市",
+          "ko": "오즈시",
+          "pl": "Ōzu",
+          "ru": "Одзу",
+          "uk": "Одзу",
+          "zh": "大洲市"
+        },
+        "coordinates": [
+          132.5446842,
+          33.506488
+        ],
+        "note": "OpenStreetMap node/691563007 (town), 112.35 km along this section's walked line, 99 m off it. No temple falls 25-30 km past the previous day's end at 79.90 km, so the day ends at the named accommodation or town waypoint on the line nearest 27.5 km, 32.45 km on."
+      },
+      "distanceKm": 32.5
+    },
+    {
+      "index": 4,
+      "name": {
+        "en": "Ozu to Rairakuku"
+      },
+      "start": {
+        "name": {
+          "en": "Ozu",
+          "ar": "اوزو، إهيمه",
+          "cs": "Ózu",
+          "de": "Ōzu",
+          "es": "Ōzu",
+          "fr": "Ōzu",
+          "id": "Ozu",
+          "ja": "大洲市",
+          "ko": "오즈시",
+          "pl": "Ōzu",
+          "ru": "Одзу",
+          "uk": "Одзу",
+          "zh": "大洲市"
+        },
+        "coordinates": [
+          132.5446842,
+          33.506488
+        ],
+        "note": "Where stage 3 ended."
+      },
+      "end": {
+        "name": {
+          "en": "Rairakuku"
+        },
+        "coordinates": [
+          132.7538917,
+          33.5852172
+        ],
+        "note": "OpenStreetMap node/5923663885 (accommodation), 138.83 km along this section's walked line, 11 m off it. No temple falls 25-30 km past the previous day's end at 112.35 km, so the day ends at the named accommodation or town waypoint on the line nearest 27.5 km, 26.48 km on."
+      },
+      "distanceKm": 26.5
+    },
+    {
+      "index": 5,
+      "name": {
+        "en": "Rairakuku to Karibaen"
+      },
+      "start": {
+        "name": {
+          "en": "Rairakuku"
+        },
+        "coordinates": [
+          132.7538917,
+          33.5852172
+        ],
+        "note": "Where stage 4 ended."
+      },
+      "end": {
+        "name": {
+          "en": "Karibaen"
+        },
+        "coordinates": [
+          132.9378852,
+          33.6699367
+        ],
+        "note": "OpenStreetMap node/5923659291 (accommodation), 164.92 km along this section's walked line, 38 m off it. No temple falls 25-30 km past the previous day's end at 138.83 km, so the day ends at the named accommodation or town waypoint on the line nearest 27.5 km, 26.09 km on."
+      },
+      "distanceKm": 26.1
+    },
+    {
+      "index": 6,
+      "name": {
+        "en": "Karibaen to Ichiriki"
+      },
+      "start": {
+        "name": {
+          "en": "Karibaen"
+        },
+        "coordinates": [
+          132.9378852,
+          33.6699367
+        ],
+        "note": "Where stage 5 ended."
+      },
+      "end": {
+        "name": {
+          "en": "Ichiriki"
+        },
+        "coordinates": [
+          132.8982921,
+          33.6627716
+        ],
+        "note": "OpenStreetMap node/10858072227 (accommodation), 182.39 km along this section's walked line, 94 m off it. No temple falls 25-30 km past the previous day's end at 164.92 km, so the day ends at the named accommodation or town waypoint on the line nearest 27.5 km, 17.47 km on."
+      },
+      "distanceKm": 17.5
+    },
+    {
+      "index": 7,
+      "name": {
+        "en": "Ichiriki to Ishite-ji (Temple 51)"
+      },
+      "start": {
+        "name": {
+          "en": "Ichiriki"
+        },
+        "coordinates": [
+          132.8982921,
+          33.6627716
+        ],
+        "note": "Where stage 6 ended."
+      },
+      "end": {
+        "name": {
+          "en": "Ishite-ji (Temple 51)",
+          "ja": "石手寺"
+        },
+        "coordinates": [
+          132.796,
+          33.848
+        ],
+        "note": "Temple 51, 210.26 km along this section's walked line, 15 m off it — 27.87 km from the previous day's end at 182.39 km, inside the 25-30 km band and, of the temples in it, the one nearest 27.5 km."
+      },
+      "distanceKm": 27.9
+    },
+    {
+      "index": 8,
+      "name": {
+        "en": "Ishite-ji (Temple 51) to Hōjō Suigun Youth Hostel"
+      },
+      "start": {
+        "name": {
+          "en": "Ishite-ji (Temple 51)",
+          "ja": "石手寺"
+        },
+        "coordinates": [
+          132.796,
+          33.848
+        ],
+        "note": "Where stage 7 ended."
+      },
+      "end": {
+        "name": {
+          "en": "Hōjō Suigun Youth Hostel"
+        },
+        "coordinates": [
+          132.7722368,
+          33.9689834
+        ],
+        "note": "OpenStreetMap node/11535058569 (accommodation), 234.28 km along this section's walked line, 9 m off it. No temple falls 25-30 km past the previous day's end at 210.26 km, so the day ends at the named accommodation or town waypoint on the line nearest 27.5 km, 24.02 km on."
+      },
+      "distanceKm": 24
+    },
+    {
+      "index": 9,
+      "name": {
+        "en": "Hōjō Suigun Youth Hostel to Nankobo (Temple 55)"
+      },
+      "start": {
+        "name": {
+          "en": "Hōjō Suigun Youth Hostel"
+        },
+        "coordinates": [
+          132.7722368,
+          33.9689834
+        ],
+        "note": "Where stage 8 ended."
+      },
+      "end": {
+        "name": {
+          "en": "Nankobo (Temple 55)",
+          "ja": "南光坊"
+        },
+        "coordinates": [
+          132.996,
+          34.069
+        ],
+        "note": "Temple 55, 262.59 km along this section's walked line, 2 m off it — 28.31 km from the previous day's end at 234.28 km, inside the 25-30 km band and, of the temples in it, the one nearest 27.5 km."
+      },
+      "distanceKm": 28.3
+    },
+    {
+      "index": 10,
+      "name": {
+        "en": "Nankobo (Temple 55) to ゲストハウス BEKKU"
+      },
+      "start": {
+        "name": {
+          "en": "Nankobo (Temple 55)",
+          "ja": "南光坊"
+        },
+        "coordinates": [
+          132.996,
+          34.069
+        ],
+        "note": "Where stage 9 ended."
+      },
+      "end": {
+        "name": {
+          "en": "ゲストハウス BEKKU"
+        },
+        "coordinates": [
+          133.0597474,
+          33.9004435
+        ],
+        "note": "OpenStreetMap node/12944733844 (accommodation), 294.17 km along this section's walked line, 9 m off it. No temple falls 25-30 km past the previous day's end at 262.59 km, so the day ends at the named accommodation or town waypoint on the line nearest 27.5 km, 31.58 km on."
+      },
+      "distanceKm": 31.6
+    },
+    {
+      "index": 11,
+      "name": {
+        "en": "ゲストハウス BEKKU to Maegami-ji (Temple 64)"
+      },
+      "start": {
+        "name": {
+          "en": "ゲストハウス BEKKU"
+        },
+        "coordinates": [
+          133.0597474,
+          33.9004435
+        ],
+        "note": "Where stage 10 ended."
+      },
+      "end": {
+        "name": {
+          "en": "Maegami-ji (Temple 64)",
+          "ja": "前神寺"
+        },
+        "coordinates": [
+          133.161,
+          33.89
+        ],
+        "note": "Temple 64, 319.88 km along this section's walked line, 59 m off it — 25.71 km from the previous day's end at 294.17 km, inside the 25-30 km band and, of the temples in it, the one nearest 27.5 km."
+      },
+      "distanceKm": 25.7
+    },
+    {
+      "index": 12,
+      "name": {
+        "en": "Maegami-ji (Temple 64) to HOTEL AZ 愛媛土居インター店"
+      },
+      "start": {
+        "name": {
+          "en": "Maegami-ji (Temple 64)",
+          "ja": "前神寺"
+        },
+        "coordinates": [
+          133.161,
+          33.89
+        ],
+        "note": "Where stage 11 ended."
+      },
+      "end": {
+        "name": {
+          "en": "HOTEL AZ 愛媛土居インター店"
+        },
+        "coordinates": [
+          133.4692511,
+          33.9666556
+        ],
+        "note": "OpenStreetMap node/12948927058 (accommodation), 352.63 km along this section's walked line, 290 m off it. No temple falls 25-30 km past the previous day's end at 319.88 km, so the day ends at the named accommodation or town waypoint on the line nearest 27.5 km, 32.75 km on."
+      },
+      "distanceKm": 32.8
+    },
+    {
+      "index": 13,
+      "name": {
+        "en": "HOTEL AZ 愛媛土居インター店 to Sankaku-ji (Temple 65)"
+      },
+      "start": {
+        "name": {
+          "en": "HOTEL AZ 愛媛土居インター店"
+        },
+        "coordinates": [
+          133.4692511,
+          33.9666556
+        ],
+        "note": "Where stage 12 ended."
+      },
+      "end": {
+        "name": {
+          "en": "Sankaku-ji (Temple 65)",
+          "ja": "三角寺"
+        },
+        "coordinates": [
+          133.587,
+          33.968
+        ],
+        "note": "Section boundary. Coordinates and name are taken verbatim from this section's metadata.json overview, so the neighbouring section's stage anchor is the same point. 365.68 km along this section's walked line, 56 m off it. A boundary day ends at the boundary temple itself whatever its length, and the lodging fallback does not apply here; this one runs 13.05 km."
+      },
+      "distanceKm": 13
+    }
+  ]
+}

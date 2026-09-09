@@ -632,6 +632,17 @@
           "credential"
         ],
         "accessDate": "2026-03-26"
+      },
+      {
+        "name": "Derived from the walked line",
+        "url": "https://github.com/walktalkmeditate/open-pilgrimages",
+        "license": "ODbL-1.0",
+        "dataTypes": [
+          "stages",
+          "distances"
+        ],
+        "accessDate": "2026-09-09",
+        "notes": "The day divisions are cut by rule rather than taken from a guidebook, so they can be re-run. The rule: a day ends at a temple whenever one falls between 25 and 30 km along this section's route.main.geojson; where no temple does, it ends at the nearest named accommodation or town waypoint on the line instead. Two tie-breaks make it deterministic. Where several candidates qualify the day ends at the one nearest 27.5 km, the middle of the band, and where two are equally near, at the earlier one along the line — the same test in both arms. The fallback arm is not confined to the band, because it exists for the stretches where the band is empty. \"Named\" means the waypoint carries a name that is a non-empty string other than the literal \"Unnamed\" the enrichment writes when OpenStreetMap gave the node none: accommodation is not one of the types enrichment requires a name for, so two unnamed accommodation waypoints sit in this pilgrimage's files and the rule filters them itself. A candidate counts as on the line when it lies within 500 m of it, the radius build-ways snaps a stage boundary across. Position along the line is measured by perpendicular projection onto route.main.geojson, not read from a waypoint's own kmFromStart, which this pilgrimage records on two different scales. Section boundaries override both arms: a boundary day ends at the boundary temple itself whatever its length, and the lodging fallback does not apply there. shikoku-88-sanuki holds Temple 88 fixed the same way, so the circuit's closing return from it to Temple 1 is one stage. The spec's original rule was temples only, and the temple spacing does not carry it. Of the 88 temple-to-temple legs, measured on these same lines, only 4 fall inside 25-30 km, while 10 exceed 30 km and carry 552.3 km — 48% of the 1,140.9 km circuit — the longest Temple 37 to Temple 38 at 82.7 km. Across those ten there is no temple to end a day at in either direction, which is what the second arm is for; without it half the route could not be paced at all. Cut 2026-09-09 against the walked line measured the same day. This section came to 5 stages, the four dojo to 40. Each stage's distanceKm is the length of route.main.geojson between its own two anchors, rounded to one decimal, and each anchor's own note records which arm chose it."
       }
     ],
     "contributors": [

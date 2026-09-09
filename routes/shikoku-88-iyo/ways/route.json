@@ -1,0 +1,167 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "shikoku-88-iyo",
+  "name": "Iyo (Temples 39-65)",
+  "country": "JP",
+  "region": "Asia",
+  "distanceKm": 365.8,
+  "stageCount": 14,
+  "tradition": "buddhist",
+  "summary": "The third of the four dōjō: Temple 39 Enkō-ji to Temple 65 Sankaku-ji, 365.7 km along 26 temple-to-temple henro trail relations. Twenty-six legs of every length — four longer than 30 km, the longest Temple 43 to Temple 44 at 70.3 km, and against them a run of five from Temple 46 to Temple 51 that are each under 5 km. Iyo carries the third of the four stages of spiritual progression the pilgrimage maps onto Shikoku's four provinces: enlightenment.",
+  "stages": [
+    {
+      "index": 0,
+      "name": "Enkō-ji (Temple 39) to Kanjizai-ji (Temple 40)",
+      "distanceKm": 27.2,
+      "hours": {
+        "min": 1,
+        "max": 1
+      },
+      "gainMeters": 0,
+      "difficulty": ""
+    },
+    {
+      "index": 1,
+      "name": "Kanjizai-ji (Temple 40) to Hotel Ailin",
+      "distanceKm": 26.6,
+      "hours": {
+        "min": 1,
+        "max": 1
+      },
+      "gainMeters": 0,
+      "difficulty": ""
+    },
+    {
+      "index": 2,
+      "name": "Hotel Ailin to Butsumoku-ji (Temple 42)",
+      "distanceKm": 26.1,
+      "hours": {
+        "min": 1,
+        "max": 1
+      },
+      "gainMeters": 0,
+      "difficulty": ""
+    },
+    {
+      "index": 3,
+      "name": "Butsumoku-ji (Temple 42) to Ozu",
+      "distanceKm": 32.5,
+      "hours": {
+        "min": 1,
+        "max": 1
+      },
+      "gainMeters": 0,
+      "difficulty": ""
+    },
+    {
+      "index": 4,
+      "name": "Ozu to Rairakuku",
+      "distanceKm": 26.5,
+      "hours": {
+        "min": 1,
+        "max": 1
+      },
+      "gainMeters": 0,
+      "difficulty": ""
+    },
+    {
+      "index": 5,
+      "name": "Rairakuku to Karibaen",
+      "distanceKm": 26.1,
+      "hours": {
+        "min": 1,
+        "max": 1
+      },
+      "gainMeters": 0,
+      "difficulty": ""
+    },
+    {
+      "index": 6,
+      "name": "Karibaen to Ichiriki",
+      "distanceKm": 17.5,
+      "hours": {
+        "min": 1,
+        "max": 1
+      },
+      "gainMeters": 0,
+      "difficulty": ""
+    },
+    {
+      "index": 7,
+      "name": "Ichiriki to Ishite-ji (Temple 51)",
+      "distanceKm": 27.9,
+      "hours": {
+        "min": 1,
+        "max": 1
+      },
+      "gainMeters": 0,
+      "difficulty": ""
+    },
+    {
+      "index": 8,
+      "name": "Ishite-ji (Temple 51) to Hōjō Suigun Youth Hostel",
+      "distanceKm": 24,
+      "hours": {
+        "min": 1,
+        "max": 1
+      },
+      "gainMeters": 0,
+      "difficulty": ""
+    },
+    {
+      "index": 9,
+      "name": "Hōjō Suigun Youth Hostel to Nankobo (Temple 55)",
+      "distanceKm": 28.3,
+      "hours": {
+        "min": 1,
+        "max": 1
+      },
+      "gainMeters": 0,
+      "difficulty": ""
+    },
+    {
+      "index": 10,
+      "name": "Nankobo (Temple 55) to ゲストハウス BEKKU",
+      "distanceKm": 31.6,
+      "hours": {
+        "min": 1,
+        "max": 1
+      },
+      "gainMeters": 0,
+      "difficulty": ""
+    },
+    {
+      "index": 11,
+      "name": "ゲストハウス BEKKU to Maegami-ji (Temple 64)",
+      "distanceKm": 25.7,
+      "hours": {
+        "min": 1,
+        "max": 1
+      },
+      "gainMeters": 0,
+      "difficulty": ""
+    },
+    {
+      "index": 12,
+      "name": "Maegami-ji (Temple 64) to HOTEL AZ 愛媛土居インター店",
+      "distanceKm": 32.8,
+      "hours": {
+        "min": 1,
+        "max": 1
+      },
+      "gainMeters": 0,
+      "difficulty": ""
+    },
+    {
+      "index": 13,
+      "name": "HOTEL AZ 愛媛土居インター店 to Sankaku-ji (Temple 65)",
+      "distanceKm": 13,
+      "hours": {
+        "min": 1,
+        "max": 1
+      },
+      "gainMeters": 0,
+      "difficulty": ""
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "shikoku-88-sanuki",
+  "name": "Sanuki (Temples 65-88, and the return to Temple 1)",
+  "country": "JP",
+  "region": "Asia",
+  "distanceKm": 202.2,
+  "stageCount": 6,
+  "tradition": "buddhist",
+  "summary": "The last of the four dōjō, and the one that closes the circuit: Temple 65 Sankaku-ji to Temple 88 Ōkubo-ji, then on to Temple 1 Ryōzen-ji where the pilgrimage began — 202.2 km along 24 temple-to-temple henro trail relations. The temples stand closest together here — Temple 68 to Temple 69 is 0.11 km and Temple 72 to Temple 73 is 0.46 km. The last relation is the 39.8 km return from Ōkubo-ji to Ryōzen-ji, and it is the only leg in this section longer than 30 km. Sanuki carries the fourth of the four stages of spiritual progression the pilgrimage maps onto Shikoku's four provinces: nirvana.",
+  "stages": [
+    {
+      "index": 0,
+      "name": "Sankaku-ji (Temple 65) to Fujikawa Ryokan",
+      "distanceKm": 38.3,
+      "hours": {
+        "min": 1,
+        "max": 1
+      },
+      "gainMeters": 0,
+      "difficulty": ""
+    },
+    {
+      "index": 1,
+      "name": "Fujikawa Ryokan to Konzo-ji (Temple 76)",
+      "distanceKm": 29.3,
+      "hours": {
+        "min": 1,
+        "max": 1
+      },
+      "gainMeters": 0,
+      "difficulty": ""
+    },
+    {
+      "index": 2,
+      "name": "Konzo-ji (Temple 76) to Sakaide",
+      "distanceKm": 14.9,
+      "hours": {
+        "min": 1,
+        "max": 1
+      },
+      "gainMeters": 0,
+      "difficulty": ""
+    },
+    {
+      "index": 3,
+      "name": "Sakaide to Sanuki",
+      "distanceKm": 59.6,
+      "hours": {
+        "min": 1,
+        "max": 1
+      },
+      "gainMeters": 0,
+      "difficulty": ""
+    },
+    {
+      "index": 4,
+      "name": "Sanuki to Okubo-ji (Temple 88)",
+      "distanceKm": 20.3,
+      "hours": {
+        "min": 1,
+        "max": 1
+      },
+      "gainMeters": 0,
+      "difficulty": ""
+    },
+    {
+      "index": 5,
+      "name": "Okubo-ji (Temple 88) to Ryōzen-ji (Temple 1)",
+      "distanceKm": 39.8,
+      "hours": {
+        "min": 1,
+        "max": 1
+      },
+      "gainMeters": 0,
+      "difficulty": ""
+    }
+  ]
+}

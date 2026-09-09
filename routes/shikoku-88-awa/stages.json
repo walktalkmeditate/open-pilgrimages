@@ -1,0 +1,150 @@
+{
+  "schemaVersion": "1.0.0",
+  "routeId": "shikoku-88-awa",
+  "stageCount": 5,
+  "stages": [
+    {
+      "index": 0,
+      "name": {
+        "en": "Ryōzen-ji (Temple 1) to Kirihata-ji (Temple 10)",
+        "ja": "霊山寺〜切幡寺"
+      },
+      "start": {
+        "name": {
+          "en": "Ryōzen-ji (Temple 1)",
+          "ja": "霊山寺"
+        },
+        "coordinates": [
+          134.503,
+          34.16,
+          15
+        ],
+        "note": "Section boundary. Coordinates and name are taken verbatim from this section's metadata.json overview, so the neighbouring section's stage anchor is the same point. 0.00 km along this section's walked line, 64 m off it."
+      },
+      "end": {
+        "name": {
+          "en": "Kirihata-ji (Temple 10)",
+          "ja": "切幡寺"
+        },
+        "coordinates": [
+          134.304,
+          34.108
+        ],
+        "note": "Temple 10, 28.26 km along this section's walked line, 49 m off it — 28.26 km from the previous day's end at 0.00 km, inside the 25-30 km band and, of the temples in it, the one nearest 27.5 km."
+      },
+      "distanceKm": 28.3
+    },
+    {
+      "index": 1,
+      "name": {
+        "en": "Kirihata-ji (Temple 10) to Sudachi-an"
+      },
+      "start": {
+        "name": {
+          "en": "Kirihata-ji (Temple 10)",
+          "ja": "切幡寺"
+        },
+        "coordinates": [
+          134.304,
+          34.108
+        ],
+        "note": "Where stage 0 ended."
+      },
+      "end": {
+        "name": {
+          "en": "Sudachi-an"
+        },
+        "coordinates": [
+          134.3266188,
+          33.9870093
+        ],
+        "note": "OpenStreetMap node/11544133369 (accommodation), 52.54 km along this section's walked line, 43 m off it. No temple falls 25-30 km past the previous day's end at 28.26 km, so the day ends at the named accommodation or town waypoint on the line nearest 27.5 km, 24.28 km on."
+      },
+      "distanceKm": 24.3
+    },
+    {
+      "index": 2,
+      "name": {
+        "en": "Sudachi-an to Ido-ji (Temple 17)"
+      },
+      "start": {
+        "name": {
+          "en": "Sudachi-an"
+        },
+        "coordinates": [
+          134.3266188,
+          33.9870093
+        ],
+        "note": "Where stage 1 ended."
+      },
+      "end": {
+        "name": {
+          "en": "Ido-ji (Temple 17)",
+          "ja": "井戸寺"
+        },
+        "coordinates": [
+          134.485,
+          34.085
+        ],
+        "note": "Temple 17, 79.45 km along this section's walked line, 46 m off it — 26.90 km from the previous day's end at 52.54 km, inside the 25-30 km band and, of the temples in it, the one nearest 27.5 km."
+      },
+      "distanceKm": 26.9
+    },
+    {
+      "index": 3,
+      "name": {
+        "en": "Ido-ji (Temple 17) to GuestHouse & Cafe Green House"
+      },
+      "start": {
+        "name": {
+          "en": "Ido-ji (Temple 17)",
+          "ja": "井戸寺"
+        },
+        "coordinates": [
+          134.485,
+          34.085
+        ],
+        "note": "Where stage 2 ended."
+      },
+      "end": {
+        "name": {
+          "en": "GuestHouse & Cafe Green House"
+        },
+        "coordinates": [
+          134.5864013,
+          33.8483688
+        ],
+        "note": "OpenStreetMap node/11342795169 (accommodation), 132.39 km along this section's walked line, 182 m off it. No temple falls 25-30 km past the previous day's end at 79.45 km, so the day ends at the named accommodation or town waypoint on the line nearest 27.5 km, 52.94 km on."
+      },
+      "distanceKm": 52.9
+    },
+    {
+      "index": 4,
+      "name": {
+        "en": "GuestHouse & Cafe Green House to Yakuō-ji (Temple 23)"
+      },
+      "start": {
+        "name": {
+          "en": "GuestHouse & Cafe Green House"
+        },
+        "coordinates": [
+          134.5864013,
+          33.8483688
+        ],
+        "note": "Where stage 3 ended."
+      },
+      "end": {
+        "name": {
+          "en": "Yakuō-ji (Temple 23)",
+          "ja": "薬王寺"
+        },
+        "coordinates": [
+          134.528,
+          33.732
+        ],
+        "note": "Section boundary. Coordinates and name are taken verbatim from this section's metadata.json overview, so the neighbouring section's stage anchor is the same point. 154.48 km along this section's walked line, 6 m off it. A boundary day ends at the boundary temple itself whatever its length, and the lodging fallback does not apply here; this one runs 22.09 km."
+      },
+      "distanceKm": 22.1
+    }
+  ]
+}

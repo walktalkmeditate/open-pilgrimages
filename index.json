@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
   "release": "v1.8.0",
-  "generatedAt": "2026-09-09T17:00:06.153Z",
+  "generatedAt": "2026-09-09T17:51:53.168Z",
   "pilgrimages": [
     {
       "id": "camino-de-santiago",
@@ -46,6 +46,7 @@
         "shikoku-88-sanuki"
       ],
       "distanceKm": 1140.9,
+      "stageCount": 40,
       "stats": {
         "lastUpdated": "2026-03-27",
         "dataYear": 2025,
@@ -284,7 +285,13 @@
       "topology": "linear",
       "tradition": "buddhist",
       "path": "routes/shikoku-88-awa",
-      "pilgrimage": "shikoku-88"
+      "pilgrimage": "shikoku-88",
+      "ways": {
+        "stageCount": 5,
+        "bytes": 135896,
+        "placesPerStage": 2.6,
+        "sparse": true
+      }
     },
     {
       "id": "shikoku-88-iyo",
@@ -297,7 +304,13 @@
       "topology": "linear",
       "tradition": "buddhist",
       "path": "routes/shikoku-88-iyo",
-      "pilgrimage": "shikoku-88"
+      "pilgrimage": "shikoku-88",
+      "ways": {
+        "stageCount": 14,
+        "bytes": 271542,
+        "placesPerStage": 0.3,
+        "sparse": true
+      }
     },
     {
       "id": "shikoku-88-sanuki",
@@ -310,7 +323,13 @@
       "topology": "linear",
       "tradition": "buddhist",
       "path": "routes/shikoku-88-sanuki",
-      "pilgrimage": "shikoku-88"
+      "pilgrimage": "shikoku-88",
+      "ways": {
+        "stageCount": 6,
+        "bytes": 166820,
+        "placesPerStage": 0.7,
+        "sparse": true
+      }
     },
     {
       "id": "shikoku-88-tosa",
@@ -323,7 +342,13 @@
       "topology": "linear",
       "tradition": "buddhist",
       "path": "routes/shikoku-88-tosa",
-      "pilgrimage": "shikoku-88"
+      "pilgrimage": "shikoku-88",
+      "ways": {
+        "stageCount": 15,
+        "bytes": 296324,
+        "placesPerStage": 0.3,
+        "sparse": true
+      }
     }
   ]
 }

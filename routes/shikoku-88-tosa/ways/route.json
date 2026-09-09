@@ -1,0 +1,178 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "shikoku-88-tosa",
+  "name": "Tosa (Temples 23-39)",
+  "country": "JP",
+  "region": "Asia",
+  "distanceKm": 418.6,
+  "stageCount": 15,
+  "tradition": "buddhist",
+  "summary": "The second of the four dōjō: Temple 23 Yakuō-ji to Temple 39 Enkō-ji, 418.5 km along 16 temple-to-temple henro trail relations. The longest and emptiest of the four — sixteen legs for 418 km, five of them longer than 30 km and the longest, Temple 37 to Temple 38, 82.7 km. Tosa carries the second of the four stages of spiritual progression the pilgrimage maps onto Shikoku's four provinces: discipline.",
+  "stages": [
+    {
+      "index": 0,
+      "name": "Yakuō-ji (Temple 23) to Haryugetu Guesthouse",
+      "distanceKm": 32.1,
+      "hours": {
+        "min": 1,
+        "max": 1
+      },
+      "gainMeters": 0,
+      "difficulty": ""
+    },
+    {
+      "index": 1,
+      "name": "Haryugetu Guesthouse to Tokumasu Minshuku",
+      "distanceKm": 30.8,
+      "hours": {
+        "min": 1,
+        "max": 1
+      },
+      "gainMeters": 0,
+      "difficulty": ""
+    },
+    {
+      "index": 2,
+      "name": "Tokumasu Minshuku to Kongocho-ji (Temple 26)",
+      "distanceKm": 25.2,
+      "hours": {
+        "min": 1,
+        "max": 1
+      },
+      "gainMeters": 0,
+      "difficulty": ""
+    },
+    {
+      "index": 3,
+      "name": "Kongocho-ji (Temple 26) to Konomine-ji (Temple 27)",
+      "distanceKm": 28.5,
+      "hours": {
+        "min": 1,
+        "max": 1
+      },
+      "gainMeters": 0,
+      "difficulty": ""
+    },
+    {
+      "index": 4,
+      "name": "Konomine-ji (Temple 27) to 黒潮温泉ホテル",
+      "distanceKm": 35.8,
+      "hours": {
+        "min": 1,
+        "max": 1
+      },
+      "gainMeters": 0,
+      "difficulty": ""
+    },
+    {
+      "index": 5,
+      "name": "黒潮温泉ホテル to Chikurin-ji (Temple 31)",
+      "distanceKm": 25.4,
+      "hours": {
+        "min": 1,
+        "max": 1
+      },
+      "gainMeters": 0,
+      "difficulty": ""
+    },
+    {
+      "index": 6,
+      "name": "Chikurin-ji (Temple 31) to Tosa",
+      "distanceKm": 27.5,
+      "hours": {
+        "min": 1,
+        "max": 1
+      },
+      "gainMeters": 0,
+      "difficulty": ""
+    },
+    {
+      "index": 7,
+      "name": "Tosa to Ohenro Guest House Lilian",
+      "distanceKm": 21.1,
+      "hours": {
+        "min": 1,
+        "max": 1
+      },
+      "gainMeters": 0,
+      "difficulty": ""
+    },
+    {
+      "index": 8,
+      "name": "Ohenro Guest House Lilian to 民宿あわの里",
+      "distanceKm": 26.6,
+      "hours": {
+        "min": 1,
+        "max": 1
+      },
+      "gainMeters": 0,
+      "difficulty": ""
+    },
+    {
+      "index": 9,
+      "name": "民宿あわの里 to Iwamoto-ji (Temple 37)",
+      "distanceKm": 27.9,
+      "hours": {
+        "min": 1,
+        "max": 1
+      },
+      "gainMeters": 0,
+      "difficulty": ""
+    },
+    {
+      "index": 10,
+      "name": "Iwamoto-ji (Temple 37) to Henro House Maaru",
+      "distanceKm": 28.2,
+      "hours": {
+        "min": 1,
+        "max": 1
+      },
+      "gainMeters": 0,
+      "difficulty": ""
+    },
+    {
+      "index": 11,
+      "name": "Henro House Maaru to 民宿いさりび",
+      "distanceKm": 33.6,
+      "hours": {
+        "min": 1,
+        "max": 1
+      },
+      "gainMeters": 0,
+      "difficulty": ""
+    },
+    {
+      "index": 12,
+      "name": "民宿いさりび to 金剛福寺宿坊",
+      "distanceKm": 20.9,
+      "hours": {
+        "min": 1,
+        "max": 1
+      },
+      "gainMeters": 0,
+      "difficulty": ""
+    },
+    {
+      "index": 13,
+      "name": "金剛福寺宿坊 to Ocean, River, Mountain Retreat",
+      "distanceKm": 35.8,
+      "hours": {
+        "min": 1,
+        "max": 1
+      },
+      "gainMeters": 0,
+      "difficulty": ""
+    },
+    {
+      "index": 14,
+      "name": "Ocean, River, Mountain Retreat to Enkō-ji (Temple 39)",
+      "distanceKm": 19.2,
+      "hours": {
+        "min": 1,
+        "max": 1
+      },
+      "gainMeters": 0,
+      "difficulty": ""
+    }
+  ]
+}

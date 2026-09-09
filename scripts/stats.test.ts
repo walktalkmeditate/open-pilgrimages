@@ -14,7 +14,7 @@ test("totals match the figures published on the site and README", () => {
   assert.equal(totals.routes, 13);
   assert.equal(totals.routePoints, 158948);
   assert.equal(totals.waypoints, 10800);
-  assert.equal(totals.stages, 103);
+  assert.equal(totals.stages, 143);
 });
 
 test("per-route figures match npm run stats", () => {
