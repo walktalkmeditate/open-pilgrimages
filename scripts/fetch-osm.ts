@@ -1,17 +1,29 @@
 import { writeFileSync, mkdirSync, existsSync, readFileSync } from "fs";
 import { join } from "path";
+import { resolveInvokedPath } from "./cli.js";
 
 const ROOT = join(import.meta.dirname, "..");
 const CACHE_DIR = join(ROOT, ".cache", "osm");
 const OVERPASS_URL = "https://overpass-api.de/api/interpreter";
 
-interface RouteConfig {
+/**
+ * Overpass answers Node's default User-Agent with 406 Not Acceptable, so
+ * every route below fetched nothing until this was set. Deliberately the same
+ * string scripts/enrich/osm.ts already sends rather than a fourth identity for
+ * the same project against the same endpoint — it is also what the Shikoku
+ * cache behind the 1.9.0 plan's Task 1 was fetched under, so this script now
+ * reproduces that fetch rather than merely resembling it.
+ */
+const USER_AGENT =
+  "open-pilgrimages-enrich/1.0 (+https://github.com/walktalkmeditate/open-pilgrimages)";
+
+export interface RouteConfig {
   id: string;
   query: string;
   description: string;
 }
 
-const ROUTES: RouteConfig[] = [
+export const ROUTES: RouteConfig[] = [
   {
     id: "camino-frances",
     description: "Camino de Santiago (Frances) — OSM superroute 2163573",
@@ -63,10 +75,27 @@ out geom;`,
   },
 ];
 
-async function fetchOverpass(query: string): Promise<unknown> {
-  const response = await fetch(OVERPASS_URL, {
+/**
+ * What the sweep needs in order to run against something other than the real
+ * network and the real project `.cache/osm/`. Both fields default to the real
+ * thing, so calling any of these with no runtime — what main() does —
+ * reproduces the behaviour of a hand-run `npm run fetch` exactly. Tests supply
+ * a temp `cacheDir` (so no test can overwrite a real route's cache, which is
+ * gitignored and expensive to re-obtain) and a fake `fetchImpl` (so a failure
+ * path can be proved without a request reaching a shared free API).
+ */
+export interface FetchOsmRuntime {
+  cacheDir?: string;
+  fetchImpl?: typeof fetch;
+}
+
+export async function fetchOverpass(query: string, fetchImpl: typeof fetch = fetch): Promise<unknown> {
+  const response = await fetchImpl(OVERPASS_URL, {
     method: "POST",
-    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+      "User-Agent": USER_AGENT,
+    },
     body: `data=${encodeURIComponent(query)}`,
   });
 
@@ -75,10 +104,6 @@ async function fetchOverpass(query: string): Promise<unknown> {
   }
 
   return response.json();
-}
-
-function getCachePath(routeId: string): string {
-  return join(CACHE_DIR, `${routeId}.json`);
 }
 
 function isCacheFresh(path: string, maxAgeMs: number): boolean {
@@ -92,8 +117,13 @@ function isCacheFresh(path: string, maxAgeMs: number): boolean {
   }
 }
 
-async function fetchRoute(config: RouteConfig, force: boolean): Promise<void> {
-  const cachePath = getCachePath(config.id);
+export async function fetchRoute(
+  config: RouteConfig,
+  force: boolean,
+  runtime: FetchOsmRuntime = {},
+): Promise<void> {
+  const cacheDir = runtime.cacheDir ?? CACHE_DIR;
+  const cachePath = join(cacheDir, `${config.id}.json`);
   const maxAge = 7 * 24 * 60 * 60 * 1000; // 7 days
 
   if (!force && isCacheFresh(cachePath, maxAge)) {
@@ -102,7 +132,7 @@ async function fetchRoute(config: RouteConfig, force: boolean): Promise<void> {
   }
 
   console.log(`  ↳ Fetching from Overpass API...`);
-  const data = await fetchOverpass(config.query);
+  const data = await fetchOverpass(config.query, runtime.fetchImpl ?? fetch);
 
   const cached = {
     fetchedAt: new Date().toISOString(),
@@ -115,24 +145,61 @@ async function fetchRoute(config: RouteConfig, force: boolean): Promise<void> {
   console.log(`  ↳ Cached to ${cachePath}`);
 }
 
-async function main() {
-  const force = process.argv.includes("--force");
+/**
+ * Returns the ids that failed, in sweep order. One route's failure does not
+ * abort the other six: they are independent queries, and a route that fails
+ * still has whatever cache it had before, which is why the sweep continues
+ * past it. What it must not do is disappear — the ids come back so main() can
+ * fail the process on them.
+ */
+export async function runFetchOsm(
+  routes: RouteConfig[],
+  force: boolean,
+  runtime: FetchOsmRuntime = {},
+): Promise<string[]> {
+  const failed: string[] = [];
 
-  mkdirSync(CACHE_DIR, { recursive: true });
+  for (const route of routes) {
+    console.log(`${route.id}: ${route.description}`);
+    try {
+      await fetchRoute(route, force, runtime);
+    } catch (err) {
+      console.error(`  ✗ Failed: ${err instanceof Error ? err.message : err}`);
+      console.error(`  ↳ Continuing (cached data may still be available)`);
+      failed.push(route.id);
+    }
+  }
+
+  return failed;
+}
+
+export async function main(runtime: FetchOsmRuntime = {}): Promise<void> {
+  const force = process.argv.includes("--force");
+  const cacheDir = runtime.cacheDir ?? CACHE_DIR;
+
+  mkdirSync(cacheDir, { recursive: true });
 
   console.log("Fetching route data from OpenStreetMap\n");
 
-  for (const route of ROUTES) {
-    console.log(`${route.id}: ${route.description}`);
-    try {
-      await fetchRoute(route, force);
-    } catch (err) {
-      console.error(`  ✗ Failed: ${err instanceof Error ? err.message : err}`);
-      console.error(`  ↳ Skipping (cached data may still be available)`);
-    }
+  const failed = await runFetchOsm(ROUTES, force, runtime);
+
+  if (failed.length > 0) {
+    // This script exited 0 on every failure until now, so a sweep that
+    // reached Overpass for nothing — which is what a missing User-Agent
+    // produced, seven times over — was indistinguishable from one that
+    // worked. `npm run pipeline` runs this first and chains on &&, so a
+    // silent success handed months-old cache to build-ways as if it were the
+    // fetch that had just been asked for.
+    console.error(
+      `\nFetch failed for ${failed.length} of ${ROUTES.length} route(s): ${failed.join(", ")}`,
+    );
+    process.exitCode = 1;
+    return;
   }
 
   console.log("\nFetch complete. Run 'npm run validate' to check data.");
 }
 
-main();
+if (import.meta.filename === resolveInvokedPath(process.argv[1])) {
+  main();
+}
