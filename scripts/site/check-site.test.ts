@@ -3963,3 +3963,161 @@ test("an index.json with no pilgrimages field at all is not malformed", () => {
     rmSync(root, { recursive: true, force: true });
   }
 });
+
+// A Variants section on a route page whose index.json entry declares no
+// variants — the shape docs/kumano-kodo-nakahechi.html carried for 18 commits
+// after the Iseji became a sibling section. The two prose strings below are
+// reproduced verbatim from the committed pages, because the whole design
+// question is whether a check can tell a published Variants section apart from
+// the word "variant" in a sentence — and one of those sentences is the one
+// that fixed this bug.
+
+const NAKAHECHI_DISTANCE_CELL =
+  '<tr><th scope="row">Distance</th><td>36 km, measured on this section&#39;s walked line. The ' +
+  '<a href="/kumano-kodo-kohechi">Kohechi</a> and the <a href="/kumano-kodo-iseji">Iseji</a> are ' +
+  "sibling sections, not variants of this one &mdash; 63 km measured on the Kohechi&#39;s own " +
+  "line, and a declared ~170 km on the Iseji that no walked line has measured yet.</td></tr>";
+
+const PRIMITIVO_HOSPITALES_PROSE =
+  "<p>The 30.5 km O C&aacute;davo &rarr; Lugo stage is the longest single day on the route; many " +
+  "pilgrims split it at Castroverde. Day 5 (Pola de Allande &rarr; La Mesa) crosses Puerto del " +
+  "Palo and can optionally be swapped for the higher, more exposed Hospitales variant &mdash; " +
+  "not recommended in poor weather.</p>" +
+  "<li>Deciding the night before whether to take the Hospitales variant tomorrow</li>" +
+  "<li>Meeting pilgrims at Berducedo who took the other variant</li>";
+
+const VARIANTS_TABLE =
+  "<table><caption>Metadata-only variants of the Kumano Kodo.</caption>" +
+  '<thead><tr><th scope="col">Variant</th><th scope="col">Distance</th></tr></thead>' +
+  "<tbody><tr><td>Iseji (Eastern/Coastal Route)</td><td>170 km</td></tr></tbody></table>";
+
+const variantsSectionProblems = (root: string): string[] =>
+  checkSite(root)
+    .filter((p) => p.message.includes("Variants section"))
+    .map((p) => `${p.file}: ${p.message}`);
+
+function variantsFixture(html: string, variants?: FixtureVariant[]): string {
+  const root = createFixtureRoot([{ id: "r", ...(variants ? { variants } : {}) }]);
+  writeFileSync(join(root, "docs", "r.html"), `<html><body><code>r</code>${html}</body></html>`);
+  return root;
+}
+
+test("checkSite reports a route page publishing a Variants section its index.json entry has no variants for (fixture — the kumano-kodo-nakahechi bug, reconstructed)", () => {
+  // #given the deleted markup: an <h2>Variants</h2> over a table presenting a
+  // sibling section as a variant, on a route index.json gives no variants[]
+  const root = variantsFixture(`<h2>Variants</h2>${VARIANTS_TABLE}`);
+
+  try {
+    // #when checkSite reads the page against index.json
+    const problems = variantsSectionProblems(root);
+
+    // #then one problem names the page, the route, and the heading it found
+    assert.equal(problems.length, 1);
+    assert.match(problems[0], /^docs\/r\.html: publishes a Variants section \(<h2>Variants<\/h2>\)/);
+    assert.match(problems[0], /declares no variants for "r"/);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("checkSite reports a variants table left behind under a renamed heading (fixture — the caption anchor, with no <h2>Variants</h2> anywhere on the page)", () => {
+  // #given the half-finished edit: the heading rewritten the way b11701e
+  // rewrote it, the table beneath it untouched
+  const root = variantsFixture(`<h2>The Other Ways</h2>${VARIANTS_TABLE}`);
+
+  try {
+    // #when / #then the table's own caption is enough to report it
+    const problems = variantsSectionProblems(root);
+    assert.equal(problems.length, 1);
+    assert.match(problems[0], /publishes a Variants section \(<caption>Metadata-only variants of/);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("checkSite does not fire on the committed prose that legitimately uses the word 'variant' (fixture — nakahechi:63's denial sentence and the Primitivo's Hospitales route, verbatim)", () => {
+  // #given a page with no Variants section at all, carrying the exact sentence
+  // that fixed this bug ("are sibling sections, not variants of this one") and
+  // the Primitivo's three mentions of the Hospitales route — a real walking
+  // alternative that is in no route's variants[]. A keyword check fires on
+  // both; this one must not
+  const root = variantsFixture(
+    `<h2>The Other Ways</h2><table><tbody>${NAKAHECHI_DISTANCE_CELL}</tbody></table>` +
+      PRIMITIVO_HOSPITALES_PROSE,
+  );
+
+  try {
+    // #when / #then nothing is reported
+    assert.deepEqual(variantsSectionProblems(root), []);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("checkSite accepts a route page publishing a Variants section its index.json entry does declare variants for (fixture)", () => {
+  // #given docs/camino-ingles.html's shape: one declared variant, one section
+  const root = variantsFixture(
+    "<h2>Variants</h2><table><caption>Variants of the route.</caption>" +
+      "<tbody><tr><td>A Coru&ntilde;a</td><td>75 km</td></tr></tbody></table>",
+    [{ id: "a-coruna", distanceKm: 75 }],
+  );
+
+  try {
+    // #when / #then neither direction of the check reports anything
+    assert.deepEqual(variantsSectionProblems(root), []);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("checkSite is not confused by an Overview table nested inside a Variants section (fixture — docs/camino-portugues.html's shape)", () => {
+  // #given the page that puts a full Key Facts table for one variant *inside*
+  // its <h2>Variants</h2>, with the metadata-only table under an <h3> after it
+  const root = variantsFixture(
+    "<h2>Variants</h2><h3>Coastal</h3>" +
+      "<table><caption>Overview of the Coastal route.</caption>" +
+      '<tbody><tr><th scope="row">Distance</th><td>110 km</td></tr></tbody></table>' +
+      "<h3>Other Variants</h3><table><caption>Metadata-only variants of the route.</caption>" +
+      "<tbody><tr><td>Espiritual</td><td>73 km</td></tr></tbody></table>",
+    [
+      { id: "coastal", distanceKm: 110 },
+      { id: "espiritual", distanceKm: 73 },
+    ],
+  );
+
+  try {
+    // #when / #then the nested table changes nothing: variants are declared,
+    // a section is published, and there is no problem to report
+    assert.deepEqual(variantsSectionProblems(root), []);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("checkSite reports a route whose page publishes no Variants section for the variants index.json declares (fixture — the inverse)", () => {
+  // #given the opposite failure: data the site is hiding rather than data the
+  // site invented
+  const root = variantsFixture("<h2>The Other Ways</h2><p>Nothing about variants here.</p>", [
+    { id: "a-coruna", distanceKm: 75 },
+  ]);
+
+  try {
+    // #when checkSite reads the page against index.json
+    const problems = variantsSectionProblems(root);
+
+    // #then one problem names the count and the variant it could not find
+    assert.equal(problems.length, 1);
+    assert.match(problems[0], /publishes no Variants section, but index\.json declares 1 variant/);
+    assert.match(problems[0], /a-coruna/);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("the committed docs/{id}.html pages already agree with index.json about which routes have variants (positive control)", () => {
+  // #given the committed tree, where camino-ingles declares one variant and
+  // camino-portugues three, and the other eight routes declare none
+  // #when / #then no route page publishes a Variants section it has no
+  // variants for, and no route with variants hides them
+  assert.deepEqual(variantsSectionProblems(ROOT), []);
+});

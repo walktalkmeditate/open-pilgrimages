@@ -441,6 +441,100 @@ const KEY_FACTS_POINT_ROWS: Array<[label: string, pattern: RegExp, field: "start
   ["End", KEY_FACTS_END_ROW_PATTERN, "endPoint"],
 ];
 
+/**
+ * Whether a route detail page publishes a Variants section at all. Read
+ * against index.json's variants[] for that route by checkVariantsSection, in
+ * both directions.
+ *
+ * The bug: docs/kumano-kodo-nakahechi.html carried an <h2>Variants</h2> whose
+ * table presented the Iseji as a variant *of the Nakahechi*, through the
+ * release whose whole premise was that the Iseji is a sibling section under a
+ * pilgrimage and not a variant of anything. index.json gave that route no
+ * variants[] the entire time; docs/routes.html had already dropped the rows,
+ * README.md had moved them into the pilgrimage table, and
+ * scripts/build-index.test.ts asserts variants === undefined for it. Replayed
+ * over `git rev-list --reverse HEAD` (340 commits), scoped to route ids, the
+ * two patterns below fire on that page for the 18 commits 44f5543..174b4f7
+ * inclusive and on no other route page at any commit in that range.
+ *
+ * Keyed on the structure — a section heading, or the caption of a variants
+ * table — and never on the word "variant". Every use of the word in docs/ today
+ * is a legitimate one: `grep -oi variant docs/*.html | wc -l` counts 32
+ * occurrences on 29 lines across seven pages, and they are:
+ *
+ *   - docs/camino-primitivo.html:110,165,168,181,186 — the Hospitales
+ *     variant, a higher, more exposed walking alternative to one day of the
+ *     Primitivo. It is real, it is described five times, and it is not in that
+ *     route's variants[]: no directory, no distanceKm, nothing for a data
+ *     check to compare against. Editorial prose about a way to walk a stage is
+ *     not a published variant.
+ *   - docs/camino-norte.html:173,177,494 — the coastal variant of the Norte,
+ *     the same shape: three mentions inside stage narratives, no variants[].
+ *   - docs/camino-portugues.html:7,203,395,396 — a meta description, a
+ *     sentence about choosing "the longer forest variant", a paragraph of
+ *     history, and a file path (routes/camino-portugues/variants/coastal/,
+ *     which alone accounts for three of the 32).
+ *   - docs/contribute.html:58 — a "wanted" tag naming two stubs.
+ *   - docs/routes.html:347,399,400,402,405,425 — the catalog's own variants
+ *     table, plus a waypoint-table caption that mentions the Coastal variant
+ *     in passing.
+ *   - docs/kumano-kodo-nakahechi.html:63 — and this is the one that settles
+ *     it. That line is the Distance cell b11701e wrote to *fix* the bug: "The
+ *     Kohechi and the Iseji are sibling sections, not variants of this one".
+ *     The sentence denying the relationship contains the word. A keyword rule
+ *     scoped to route ids fires on camino-primitivo for 215 commits, on
+ *     camino-norte for 196, and on kumano-kodo-nakahechi for 24 — the 18 with
+ *     the bug plus the 6 since the fix, still red on the corrected page.
+ *
+ * Scoped to index.json's route ids in the per-route loop, never over
+ * docs/*.html. Unscoped, these same patterns fire on docs/routes.html for 217
+ * of the 340 commits: that page is the catalog, it carries every route's
+ * variants under one <h2>Variants</h2>, and it has no route id of its own to
+ * look variants[] up by. checkKeyFacts and checkTerrainNotesDistance, the
+ * checks added in the three commits before this one, are scoped the same way.
+ *
+ * Two anchors, because a page can publish the section under either. The
+ * heading is the section marker (docs/camino-ingles.html:241,
+ * docs/camino-portugues.html:325, and its <h3>Other Variants</h3> at :398);
+ * the caption is the table's own (docs/camino-ingles.html:243,
+ * docs/camino-portugues.html:400, and the deleted nakahechi table's
+ * "Metadata-only variants of the Kumano Kodo."). Firing on either means a
+ * variants table left behind under a renamed heading is still caught — and
+ * that is the whole reason the caption anchor is here, since every page that
+ * carries a variants table today also carries the heading above it.
+ *
+ * Four committed captions name a variant. The caption pattern requires
+ * "variants of", which is what the two on route pages say and what the two on
+ * docs/routes.html do not: :347 is a waypoint table mentioning the Coastal
+ * variant in passing, correctly passed over, and :402 is a real variants table
+ * captioned "Pilgrimage route variants, their parent route, and data
+ * completeness", which this pattern would miss. That is a known limit rather
+ * than an oversight — routes.html is out of scope, and a variants table
+ * captioned that way on a route page would still be caught by its heading.
+ *
+ * Heading text is matched whole, not as a substring. Across all 340 commits,
+ * exactly two heading texts in docs/*.html have ever contained the word —
+ * <h2>Variants</h2> and <h3>Other Variants</h3>, 856 and 215 matches
+ * respectively over every page at every commit, and nothing else at all.
+ * Requiring the whole text is what keeps b11701e's replacement heading —
+ * <h2>The Other Ways</h2>, over prose that links all four sections — out of
+ * the reading.
+ *
+ * These read presence only, and deliberately not the table under the heading.
+ * docs/camino-portugues.html:337 puts a full Overview table *inside* its
+ * <h2>Variants</h2> section, for the coastal variant; any rule that tried to
+ * parse "the table belonging to the Variants heading" would have to decide
+ * which of the two it meant. Presence has no such question to answer.
+ *
+ * KEY_FACTS_TABLE_PATTERN's caption-anchored parse was the obvious thing to
+ * reuse and does not fit: it exists to hand a <tbody> to the row readers, and
+ * this check never opens a table body. What it does borrow is that pattern's
+ * lesson — anchor on the <caption>, because a table can sit under a heading
+ * that says nothing about it.
+ */
+const VARIANTS_SECTION_HEADING_PATTERN = /<h([23])(?:\s[^>]*)?>\s*(?:Other\s+)?Variants\s*<\/h\1>/i;
+const VARIANTS_TABLE_CAPTION_PATTERN = /<caption>[^<]*\bvariants\s+of\b[^<]*<\/caption>/i;
+
 function normalizedCell(rendered: string): string {
   return decodeEntities(rendered).replace(/\s+/g, " ").trim();
 }
@@ -1873,6 +1967,52 @@ export function checkSite(root: string, overrides: PageOverrides = {}): Problem[
     }
   }
 
+  /**
+   * See VARIANTS_SECTION_HEADING_PATTERN for what counts as publishing a
+   * Variants section and why the word "variant" is not it.
+   *
+   * The inverse direction — variants declared, no section published — is
+   * checked too, and it is checked because the tree earns it. Across all 340
+   * commits there are 859 route/commit pairs declaring at least one variant;
+   * on 618 of them the route's detail page exists at that commit, and all 618
+   * of those pages publish a Variants section. (The other 241 have no detail
+   * page at all, which the route-contract check a few loops down already
+   * reports, and which this one passes over rather than saying twice.) So
+   * nothing here starts red. Only camino-ingles (1 variant) and
+   * camino-portugues (3) declare any today, and both publish one.
+   */
+  function checkVariantsSection(id: string, detailHtml: string): void {
+    const route = indexRouteById.get(id);
+    if (!route) return;
+
+    const anchor =
+      VARIANTS_SECTION_HEADING_PATTERN.exec(detailHtml) ??
+      VARIANTS_TABLE_CAPTION_PATTERN.exec(detailHtml);
+    const declared = route.variants;
+    const file = `docs/${id}.html`;
+
+    if (anchor && declared.length === 0) {
+      add(
+        file,
+        `publishes a Variants section (${anchor[0]}) while index.json declares no variants for ` +
+          `"${id}" — a sibling section or a walking alternative described on this page is not a ` +
+          `variant of it; remove the section, or declare the variant under ` +
+          `routes/${id}/variants/ and rebuild index.json`,
+      );
+      return;
+    }
+
+    if (!anchor && declared.length > 0) {
+      add(
+        file,
+        `publishes no Variants section, but index.json declares ${declared.length} variant(s) for ` +
+          `"${id}" (${declared.map((variant) => variant.id).join(", ")}) — the page is hiding data ` +
+          `the catalog and the CDN already publish; add the section, or remove the variant(s) from ` +
+          `routes/${id}/variants/ and rebuild index.json`,
+      );
+    }
+  }
+
   function checkTerrainNotesDistance(id: string): void {
     const stagesPath = join(root, "routes", id, "stages.json");
     if (!existsSync(stagesPath)) return;
@@ -2171,6 +2311,7 @@ export function checkSite(root: string, overrides: PageOverrides = {}): Problem[
       checkInteriorJourney(id, detailHtml);
       checkWaypointTypeTables(id, detailHtml);
       checkKeyFacts(id, detailHtml);
+      checkVariantsSection(id, detailHtml);
       if (pilgrimageId !== undefined) {
         checkPilgrimageBacklink(id, pilgrimageId, detailHtml);
       }
