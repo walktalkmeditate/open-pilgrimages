@@ -606,7 +606,8 @@
         "url": "https://www.openstreetmap.org",
         "license": "ODbL-1.0",
         "dataTypes": [
-          "geometry"
+          "geometry",
+          "waypoints"
         ],
         "accessDate": "2026-09-09"
       },

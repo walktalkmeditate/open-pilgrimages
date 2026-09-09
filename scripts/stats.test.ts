@@ -12,8 +12,8 @@ test("totals match the figures published on the site and README", () => {
   const { totals } = computeStats(ROOT);
 
   assert.equal(totals.routes, 13);
-  assert.equal(totals.routePoints, 110527);
-  assert.equal(totals.waypoints, 8883);
+  assert.equal(totals.routePoints, 158948);
+  assert.equal(totals.waypoints, 10800);
   assert.equal(totals.stages, 103);
 });
 
@@ -24,6 +24,8 @@ test("per-route figures match npm run stats", () => {
   assert.equal(byId.get("camino-frances")!.waypoints, 2957);
   assert.equal(byId.get("camino-frances")!.stages, 33);
   assert.equal(byId.get("shikoku-88-awa")!.distanceKm, 154.5);
+  assert.equal(byId.get("shikoku-88-awa")!.routePoints, 7660);
+  assert.equal(byId.get("shikoku-88-awa")!.waypoints, 203);
   assert.equal(byId.get("kumano-kodo-nakahechi")!.waypoints, 115);
   assert.equal(byId.get("kumano-kodo-kohechi")!.waypoints, 35);
   assert.equal(byId.get("camino-ingles")!.distanceKm, 112);
@@ -208,5 +210,5 @@ test("running stats.ts as a CLI script prints the route points total the site an
 
   // #then the totals block prints a thousands-separated Route points line
   // matching the figure the site and README publish
-  assert.match(output, /Route points: 110,527/);
+  assert.match(output, /Route points: 158,948/);
 });

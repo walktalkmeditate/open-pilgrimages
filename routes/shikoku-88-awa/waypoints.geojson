@@ -1,0 +1,4977 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "temple-1",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.503,
+          34.16
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Ryozen-ji",
+        "nameLocalized": {
+          "ja": "霊山寺"
+        },
+        "type": "sacred_site",
+        "subtype": "temple",
+        "templeNumber": 1,
+        "stageIndex": 0,
+        "kmFromStart": 0,
+        "icon": "temple",
+        "tradition": "buddhist",
+        "denomination": "Koyasan Shingon",
+        "credentialStamp": true,
+        "stampFee": {
+          "currency": "JPY",
+          "amount": 500
+        },
+        "tags": [
+          "start",
+          "temple"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-transport-node7759735034",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.5032221,
+          34.1589065
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "霊山寺前(バスのりば)",
+        "type": "transport",
+        "subtype": "bus_stop",
+        "stageIndex": 0,
+        "kmFromStart": 0.2,
+        "icon": "bus_stop",
+        "source": "osm",
+        "osmId": "node/7759735034"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-cultural_site-node13958033489",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.4960149,
+          34.1583456
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "The Main Gate",
+        "nameLocalized": {
+          "de": "Eingangstor",
+          "ja": "正門"
+        },
+        "type": "cultural_site",
+        "subtype": "ruins",
+        "stageIndex": 0,
+        "kmFromStart": 0.9,
+        "icon": "ruins",
+        "source": "osm",
+        "osmId": "node/13958033489"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-cultural_site-node5812294761",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.496749,
+          34.1596687
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "The former Bando POW Camp",
+        "nameLocalized": {
+          "de": "Das ehemalige Kriegsgefangenenlager Bando",
+          "ja": "板東俘虜収容所跡"
+        },
+        "type": "cultural_site",
+        "subtype": "ruins",
+        "stageIndex": 0,
+        "kmFromStart": 1,
+        "icon": "ruins",
+        "source": "osm",
+        "osmId": "node/5812294761"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "temple-2",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.49,
+          34.156
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Gokuraku-ji",
+        "nameLocalized": {
+          "ja": "極楽寺"
+        },
+        "type": "sacred_site",
+        "subtype": "temple",
+        "templeNumber": 2,
+        "stageIndex": 0,
+        "kmFromStart": 1.4,
+        "icon": "temple",
+        "tradition": "buddhist",
+        "denomination": "Koyasan Shingon",
+        "credentialStamp": true,
+        "stampFee": {
+          "currency": "JPY",
+          "amount": 500
+        },
+        "tags": [
+          "temple"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node9392203617",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.4817878,
+          34.1490112
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Unnamed",
+        "type": "supply",
+        "subtype": "vending_machine",
+        "stageIndex": 0,
+        "kmFromStart": 3,
+        "icon": "vending_machine",
+        "source": "osm",
+        "osmId": "node/9392203617"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-transport-node12338374093",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.4837411,
+          34.1488775
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Awa-Kawabata",
+        "nameLocalized": {
+          "ja": "阿波川端",
+          "ko": "아와카와바타"
+        },
+        "type": "transport",
+        "subtype": "train_station",
+        "stageIndex": 0,
+        "kmFromStart": 3.1,
+        "icon": "train_station",
+        "source": "osm",
+        "osmId": "node/12338374093"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "temple-3",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.469,
+          34.147
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Konsen-ji",
+        "nameLocalized": {
+          "ja": "金泉寺"
+        },
+        "type": "sacred_site",
+        "subtype": "temple",
+        "templeNumber": 3,
+        "stageIndex": 0,
+        "kmFromStart": 4,
+        "icon": "temple",
+        "tradition": "buddhist",
+        "denomination": "Koyasan Shingon",
+        "credentialStamp": true,
+        "stampFee": {
+          "currency": "JPY",
+          "amount": 500
+        },
+        "tags": [
+          "temple"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-sacred_site-node314747849",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.4685024,
+          34.147453
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "03 Konsen-ji",
+        "nameLocalized": {
+          "es": "Konsen-ji #3",
+          "ja": "第03番札所 金泉寺"
+        },
+        "type": "sacred_site",
+        "subtype": "church",
+        "stageIndex": 0,
+        "kmFromStart": 4.7,
+        "icon": "church",
+        "source": "osm",
+        "osmId": "node/314747849"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node314747854",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.4682421,
+          34.1469969
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Unnamed",
+        "type": "supply",
+        "subtype": "toilet",
+        "stageIndex": 0,
+        "kmFromStart": 5,
+        "icon": "toilet",
+        "source": "osm",
+        "osmId": "node/314747854"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-town-node308115575",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.4626394,
+          34.1443632
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Itano",
+        "nameLocalized": {
+          "fr": "Itano",
+          "id": "Itano",
+          "ja": "板野町",
+          "ko": "이타노초",
+          "ru": "Итано",
+          "th": "อิตาโนะ",
+          "zh": "板野町"
+        },
+        "type": "town",
+        "subtype": "town",
+        "stageIndex": 0,
+        "kmFromStart": 5.2,
+        "icon": "town",
+        "source": "osm",
+        "osmId": "node/308115575"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node9392203565",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.4621849,
+          34.1436137
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Unnamed",
+        "type": "supply",
+        "subtype": "vending_machine",
+        "stageIndex": 0,
+        "kmFromStart": 5.3,
+        "icon": "vending_machine",
+        "source": "osm",
+        "osmId": "node/9392203565"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-transport-node6204561912",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.4649851,
+          34.141607
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Unnamed",
+        "type": "transport",
+        "subtype": "bus_stop",
+        "stageIndex": 0,
+        "kmFromStart": 5.5,
+        "icon": "bus_stop",
+        "source": "osm",
+        "osmId": "node/6204561912"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-transport-node8119625805",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.4657683,
+          34.1420587
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Itano",
+        "nameLocalized": {
+          "es": "Itano",
+          "ja": "板野",
+          "ja_rm": "Itano",
+          "ko": "이타노"
+        },
+        "type": "transport",
+        "subtype": "train_station",
+        "stageIndex": 0,
+        "kmFromStart": 5.5,
+        "icon": "train_station",
+        "source": "osm",
+        "osmId": "node/8119625805"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-medical-node1423654392",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.461576,
+          34.14569
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "十全会井上病院",
+        "type": "medical",
+        "subtype": "hospital",
+        "stageIndex": 0,
+        "kmFromStart": 6.2,
+        "icon": "hospital",
+        "source": "osm",
+        "osmId": "node/1423654392"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node1791448852",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.4547094,
+          34.1411574
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Unnamed",
+        "type": "supply",
+        "subtype": "convenience_store",
+        "stageIndex": 0,
+        "kmFromStart": 6.7,
+        "icon": "convenience_store",
+        "source": "osm",
+        "osmId": "node/1791448852"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node1791448849",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.4511105,
+          34.1411514
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "FamilyMart",
+        "nameLocalized": {
+          "ja": "ファミリーマート"
+        },
+        "type": "supply",
+        "subtype": "convenience_store",
+        "stageIndex": 0,
+        "kmFromStart": 7,
+        "icon": "convenience_store",
+        "source": "osm",
+        "osmId": "node/1791448849"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "temple-4",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.431,
+          34.151
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Dainichi-ji",
+        "nameLocalized": {
+          "ja": "大日寺"
+        },
+        "type": "sacred_site",
+        "subtype": "temple",
+        "templeNumber": 4,
+        "stageIndex": 0,
+        "kmFromStart": 9,
+        "icon": "temple",
+        "tradition": "buddhist",
+        "denomination": "Toji Shingon",
+        "credentialStamp": true,
+        "stampFee": {
+          "currency": "JPY",
+          "amount": 500
+        },
+        "tags": [
+          "temple"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "temple-5",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.432,
+          34.137
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Jizo-ji",
+        "nameLocalized": {
+          "ja": "地蔵寺"
+        },
+        "type": "sacred_site",
+        "subtype": "temple",
+        "templeNumber": 5,
+        "stageIndex": 0,
+        "kmFromStart": 11,
+        "icon": "temple",
+        "tradition": "buddhist",
+        "denomination": "Shingon Omuro",
+        "credentialStamp": true,
+        "stampFee": {
+          "currency": "JPY",
+          "amount": 500
+        },
+        "tags": [
+          "temple"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-transport-node13083322501",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.4323456,
+          34.1413032
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Dainichiji-guchi",
+        "nameLocalized": {
+          "ja": "大一路口"
+        },
+        "type": "transport",
+        "subtype": "bus_stop",
+        "stageIndex": 0,
+        "kmFromStart": 12.3,
+        "icon": "bus_stop",
+        "source": "osm",
+        "osmId": "node/13083322501"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node1791448763",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.4330925,
+          34.1336752
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Lawson Station",
+        "type": "supply",
+        "subtype": "convenience_store",
+        "stageIndex": 0,
+        "kmFromStart": 13.1,
+        "icon": "convenience_store",
+        "source": "osm",
+        "osmId": "node/1791448763"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-food-node4857721822",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.4328576,
+          34.1345349
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "ギャラリー光",
+        "nameLocalized": {
+          "ja": "ギャラリー光"
+        },
+        "type": "food",
+        "subtype": "cafe",
+        "stageIndex": 0,
+        "kmFromStart": 13.1,
+        "icon": "cafe",
+        "source": "osm",
+        "osmId": "node/4857721822"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-transport-node6204482112",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.4332014,
+          34.1341493
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Rakan",
+        "nameLocalized": {
+          "es": "Rakan"
+        },
+        "type": "transport",
+        "subtype": "bus_stop",
+        "stageIndex": 0,
+        "kmFromStart": 13.1,
+        "icon": "bus_stop",
+        "source": "osm",
+        "osmId": "node/6204482112"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-transport-node6204482113",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.4320792,
+          34.1337933
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Unnamed",
+        "type": "transport",
+        "subtype": "bus_stop",
+        "stageIndex": 0,
+        "kmFromStart": 13.1,
+        "icon": "bus_stop",
+        "source": "osm",
+        "osmId": "node/6204482113"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-accommodation-node13030776301",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.4264657,
+          34.1324132
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Hotel Morimotoya",
+        "nameLocalized": {
+          "ja": "板野店"
+        },
+        "type": "accommodation",
+        "subtype": "hotel",
+        "stageIndex": 0,
+        "kmFromStart": 13.6,
+        "icon": "hotel",
+        "source": "osm",
+        "osmId": "node/13030776301"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node9392203494",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.4082001,
+          34.1269885
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Unnamed",
+        "type": "supply",
+        "subtype": "vending_machine",
+        "stageIndex": 0,
+        "kmFromStart": 16,
+        "icon": "vending_machine",
+        "source": "osm",
+        "osmId": "node/9392203494"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "temple-6",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.388,
+          34.118
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Anraku-ji",
+        "nameLocalized": {
+          "ja": "安楽寺"
+        },
+        "type": "sacred_site",
+        "subtype": "temple",
+        "templeNumber": 6,
+        "stageIndex": 0,
+        "kmFromStart": 16.3,
+        "icon": "temple",
+        "tradition": "buddhist",
+        "denomination": "Koyasan Shingon",
+        "credentialStamp": true,
+        "stampFee": {
+          "currency": "JPY",
+          "amount": 500
+        },
+        "tags": [
+          "temple"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-transport-node13083316001",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.3945228,
+          34.1201095
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Higashihara",
+        "nameLocalized": {
+          "ja": "東原"
+        },
+        "type": "transport",
+        "subtype": "bus_stop",
+        "stageIndex": 0,
+        "kmFromStart": 16.4,
+        "icon": "bus_stop",
+        "source": "osm",
+        "osmId": "node/13083316001"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "temple-7",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.378,
+          34.121
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Juraku-ji",
+        "nameLocalized": {
+          "ja": "十楽寺"
+        },
+        "type": "sacred_site",
+        "subtype": "temple",
+        "templeNumber": 7,
+        "stageIndex": 0,
+        "kmFromStart": 17.5,
+        "icon": "temple",
+        "tradition": "buddhist",
+        "denomination": "Koyasan Shingon",
+        "credentialStamp": true,
+        "stampFee": {
+          "currency": "JPY",
+          "amount": 500
+        },
+        "tags": [
+          "temple"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node9392203357",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.3619119,
+          34.1187135
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Unnamed",
+        "type": "supply",
+        "subtype": "vending_machine",
+        "stageIndex": 0,
+        "kmFromStart": 21,
+        "icon": "vending_machine",
+        "source": "osm",
+        "osmId": "node/9392203357"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-transport-node5974475593",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.353623,
+          34.1196783
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "土成 高速バス停",
+        "type": "transport",
+        "subtype": "bus_stop",
+        "stageIndex": 0,
+        "kmFromStart": 21.2,
+        "icon": "bus_stop",
+        "source": "osm",
+        "osmId": "node/5974475593"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "temple-8",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.34,
+          34.123
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Kumadani-ji",
+        "nameLocalized": {
+          "ja": "熊谷寺"
+        },
+        "type": "sacred_site",
+        "subtype": "temple",
+        "templeNumber": 8,
+        "stageIndex": 0,
+        "kmFromStart": 21.7,
+        "icon": "temple",
+        "tradition": "buddhist",
+        "denomination": "Koyasan Shingon",
+        "credentialStamp": true,
+        "stampFee": {
+          "currency": "JPY",
+          "amount": 500
+        },
+        "tags": [
+          "temple"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node9392203345",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.3571221,
+          34.1183488
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Unnamed",
+        "type": "supply",
+        "subtype": "vending_machine",
+        "stageIndex": 0,
+        "kmFromStart": 22,
+        "icon": "vending_machine",
+        "source": "osm",
+        "osmId": "node/9392203345"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node9392203296",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.3499961,
+          34.11819
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Unnamed",
+        "type": "supply",
+        "subtype": "vending_machine",
+        "stageIndex": 0,
+        "kmFromStart": 22.9,
+        "icon": "vending_machine",
+        "source": "osm",
+        "osmId": "node/9392203296"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "temple-9",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.334,
+          34.104
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Horin-ji",
+        "nameLocalized": {
+          "ja": "法輪寺"
+        },
+        "type": "sacred_site",
+        "subtype": "temple",
+        "templeNumber": 9,
+        "stageIndex": 0,
+        "kmFromStart": 24.1,
+        "icon": "temple",
+        "tradition": "buddhist",
+        "denomination": "Koyasan Shingon",
+        "credentialStamp": true,
+        "stampFee": {
+          "currency": "JPY",
+          "amount": 500
+        },
+        "tags": [
+          "temple"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node9392203197",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.339903,
+          34.1174272
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Unnamed",
+        "type": "supply",
+        "subtype": "vending_machine",
+        "stageIndex": 0,
+        "kmFromStart": 25.4,
+        "icon": "vending_machine",
+        "source": "osm",
+        "osmId": "node/9392203197"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-food-node13166645601",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.3342426,
+          34.1047148
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "やきいも亭",
+        "type": "food",
+        "subtype": "cafe",
+        "stageIndex": 0,
+        "kmFromStart": 26.7,
+        "icon": "cafe",
+        "source": "osm",
+        "osmId": "node/13166645601"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-sacred_site-node5411354162",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.336661,
+          34.102548
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "椙尾神社",
+        "type": "sacred_site",
+        "subtype": "church",
+        "stageIndex": 0,
+        "kmFromStart": 26.9,
+        "icon": "church",
+        "source": "osm",
+        "osmId": "node/5411354162"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "temple-10",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.304,
+          34.108
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Kirihata-ji",
+        "nameLocalized": {
+          "ja": "切幡寺"
+        },
+        "type": "sacred_site",
+        "subtype": "temple",
+        "templeNumber": 10,
+        "stageIndex": 0,
+        "kmFromStart": 27.9,
+        "icon": "temple",
+        "tradition": "buddhist",
+        "denomination": "Koyasan Shingon",
+        "credentialStamp": true,
+        "stampFee": {
+          "currency": "JPY",
+          "amount": 500
+        },
+        "tags": [
+          "temple"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node6992537152",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.3378247,
+          34.0694991
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "7-Eleven",
+        "nameLocalized": {
+          "ja": "セブン-イレブン"
+        },
+        "type": "supply",
+        "subtype": "convenience_store",
+        "stageIndex": 0,
+        "kmFromStart": 32.4,
+        "icon": "convenience_store",
+        "source": "osm",
+        "osmId": "node/6992537152"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-transport-node13967883982",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.3349665,
+          34.0693527
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "鴨島営業所",
+        "type": "transport",
+        "subtype": "bus_stop",
+        "stageIndex": 0,
+        "kmFromStart": 32.4,
+        "icon": "bus_stop",
+        "source": "osm",
+        "osmId": "node/13967883982"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-accommodation-node11331009969",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.3503809,
+          34.0533282
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Oyado Eleven",
+        "type": "accommodation",
+        "subtype": "hostel",
+        "stageIndex": 0,
+        "kmFromStart": 33.3,
+        "icon": "hostel",
+        "source": "osm",
+        "osmId": "node/11331009969"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-sacred_site-node302592266",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.3485336,
+          34.0516692
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "11 Fujii-dera",
+        "nameLocalized": {
+          "ja": "第11番札所 藤井寺"
+        },
+        "type": "sacred_site",
+        "subtype": "church",
+        "stageIndex": 0,
+        "kmFromStart": 33.5,
+        "icon": "church",
+        "source": "osm",
+        "osmId": "node/302592266"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-sacred_site-node9623452732",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.3359986,
+          34.0618987
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "西麻植八幡神社",
+        "type": "sacred_site",
+        "subtype": "church",
+        "stageIndex": 0,
+        "kmFromStart": 33.5,
+        "icon": "church",
+        "source": "osm",
+        "osmId": "node/9623452732"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node9405053107",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.315865,
+          34.0837711
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Unnamed",
+        "type": "supply",
+        "subtype": "vending_machine",
+        "stageIndex": 0,
+        "kmFromStart": 35.9,
+        "icon": "vending_machine",
+        "source": "osm",
+        "osmId": "node/9405053107"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "temple-11",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.349,
+          34.052
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Fujii-dera",
+        "nameLocalized": {
+          "ja": "藤井寺"
+        },
+        "type": "sacred_site",
+        "subtype": "temple",
+        "templeNumber": 11,
+        "stageIndex": 0,
+        "kmFromStart": 37.2,
+        "icon": "temple",
+        "tradition": "buddhist",
+        "denomination": "Rinzai Myoshinji",
+        "credentialStamp": true,
+        "stampFee": {
+          "currency": "JPY",
+          "amount": 500
+        },
+        "tags": [
+          "temple"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-accommodation-node11535058669",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.3192711,
+          34.0655086
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Awarakuya",
+        "type": "accommodation",
+        "subtype": "guesthouse",
+        "stageIndex": 0,
+        "kmFromStart": 37.3,
+        "icon": "guesthouse",
+        "source": "osm",
+        "osmId": "node/11535058669"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-medical-node12067670312",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.3225727,
+          34.0652363
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "島野外科内科",
+        "type": "medical",
+        "subtype": "hospital",
+        "stageIndex": 0,
+        "kmFromStart": 37.6,
+        "icon": "hospital",
+        "source": "osm",
+        "osmId": "node/12067670312"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node319320786",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.3260711,
+          34.0649421
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Unnamed",
+        "type": "supply",
+        "subtype": "convenience_store",
+        "stageIndex": 0,
+        "kmFromStart": 38.1,
+        "icon": "convenience_store",
+        "source": "osm",
+        "osmId": "node/319320786"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-food-node9442303950",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.3248813,
+          34.0649055
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "手打ちそば川内 橋本 川島店",
+        "type": "food",
+        "subtype": "restaurant",
+        "stageIndex": 0,
+        "kmFromStart": 38.1,
+        "icon": "restaurant",
+        "source": "osm",
+        "osmId": "node/9442303950",
+        "hours": "Tu-Fr 11:00-19:30; Sa,Su 11:00-20:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node9405053046",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.3287839,
+          34.0664153
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Unnamed",
+        "type": "supply",
+        "subtype": "vending_machine",
+        "stageIndex": 0,
+        "kmFromStart": 38.4,
+        "icon": "vending_machine",
+        "source": "osm",
+        "osmId": "node/9405053046"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-food-node12944059808",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.328532,
+          34.0659294
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "吉野川製麺所",
+        "type": "food",
+        "subtype": "restaurant",
+        "stageIndex": 0,
+        "kmFromStart": 38.4,
+        "icon": "restaurant",
+        "source": "osm",
+        "osmId": "node/12944059808",
+        "hours": "Mo-Fr,Su[3] off; Sa-Su 10:30-14:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node9405053050",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.3394504,
+          34.0632162
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Unnamed",
+        "type": "supply",
+        "subtype": "vending_machine",
+        "stageIndex": 0,
+        "kmFromStart": 39.3,
+        "icon": "vending_machine",
+        "source": "osm",
+        "osmId": "node/9405053050"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node9405053058",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.3471463,
+          34.0608637
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Unnamed",
+        "type": "supply",
+        "subtype": "vending_machine",
+        "stageIndex": 0,
+        "kmFromStart": 39.9,
+        "icon": "vending_machine",
+        "source": "osm",
+        "osmId": "node/9405053058"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-sacred_site-node6099934916",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.3451938,
+          34.0332235
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Choudo-An",
+        "nameLocalized": {
+          "ja": "長戸庵"
+        },
+        "type": "sacred_site",
+        "subtype": "church",
+        "stageIndex": 0,
+        "kmFromStart": 43.5,
+        "icon": "church",
+        "source": "osm",
+        "osmId": "node/6099934916"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-sacred_site-node11419669334",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.3350473,
+          34.0242857
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "ishidou-gongen",
+        "type": "sacred_site",
+        "subtype": "church",
+        "stageIndex": 0,
+        "kmFromStart": 44.9,
+        "icon": "church",
+        "source": "osm",
+        "osmId": "node/11419669334"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-sacred_site-node378075409",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.3304967,
+          34.0161827
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Ryusui-An",
+        "nameLocalized": {
+          "ja": "柳水庵"
+        },
+        "type": "sacred_site",
+        "subtype": "church",
+        "stageIndex": 0,
+        "kmFromStart": 45.8,
+        "icon": "church",
+        "source": "osm",
+        "osmId": "node/378075409"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "temple-12",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.31,
+          33.985
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Shozan-ji",
+        "nameLocalized": {
+          "ja": "焼山寺"
+        },
+        "type": "sacred_site",
+        "subtype": "temple",
+        "templeNumber": 12,
+        "stageIndex": 0,
+        "kmFromStart": 50.1,
+        "icon": "temple",
+        "elevation": 700,
+        "tradition": "buddhist",
+        "denomination": "Koyasan Shingon",
+        "credentialStamp": true,
+        "stampFee": {
+          "currency": "JPY",
+          "amount": 500
+        },
+        "description": "The 'Burning Mountain Temple' — first major mountain climb.",
+        "tags": [
+          "temple",
+          "mountain",
+          "difficult"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-accommodation-node11544133369",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.3266188,
+          33.9870093
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Sudachi-an",
+        "type": "accommodation",
+        "subtype": "guesthouse",
+        "stageIndex": 0,
+        "kmFromStart": 55.9,
+        "icon": "guesthouse",
+        "source": "osm",
+        "osmId": "node/11544133369"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node9405052451",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.3424618,
+          33.9868613
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Unnamed",
+        "type": "supply",
+        "subtype": "toilet",
+        "stageIndex": 0,
+        "kmFromStart": 57.6,
+        "icon": "toilet",
+        "source": "osm",
+        "osmId": "node/9405052451"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node9405052394",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.3939124,
+          34.0203186
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Unnamed",
+        "type": "supply",
+        "subtype": "toilet",
+        "stageIndex": 0,
+        "kmFromStart": 65.6,
+        "icon": "toilet",
+        "source": "osm",
+        "osmId": "node/9405052394"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node9405052342",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.4015697,
+          34.0269916
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Unnamed",
+        "type": "supply",
+        "subtype": "vending_machine",
+        "stageIndex": 0,
+        "kmFromStart": 65.9,
+        "icon": "vending_machine",
+        "source": "osm",
+        "osmId": "node/9405052342"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node269109297",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.4186871,
+          34.0350632
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "高瀬公衆便所",
+        "type": "supply",
+        "subtype": "toilet",
+        "stageIndex": 0,
+        "kmFromStart": 68.1,
+        "icon": "toilet",
+        "source": "osm",
+        "osmId": "node/269109297"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node9405052196",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.4209205,
+          34.0360508
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Unnamed",
+        "type": "supply",
+        "subtype": "vending_machine",
+        "stageIndex": 0,
+        "kmFromStart": 68.2,
+        "icon": "vending_machine",
+        "source": "osm",
+        "osmId": "node/9405052196"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node9405052178",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.4239353,
+          34.0379789
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Unnamed",
+        "type": "supply",
+        "subtype": "vending_machine",
+        "stageIndex": 0,
+        "kmFromStart": 68.4,
+        "icon": "vending_machine",
+        "source": "osm",
+        "osmId": "node/9405052178"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node9405052173",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.4464739,
+          34.0395526
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Unnamed",
+        "type": "supply",
+        "subtype": "vending_machine",
+        "stageIndex": 0,
+        "kmFromStart": 70.6,
+        "icon": "vending_machine",
+        "source": "osm",
+        "osmId": "node/9405052173"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "temple-13",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.463,
+          34.038
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Dainichi-ji",
+        "nameLocalized": {
+          "ja": "大日寺"
+        },
+        "type": "sacred_site",
+        "subtype": "temple",
+        "templeNumber": 13,
+        "stageIndex": 1,
+        "kmFromStart": 70.9,
+        "icon": "temple",
+        "tradition": "buddhist",
+        "denomination": "Shingon Daikakuji",
+        "credentialStamp": true,
+        "stampFee": {
+          "currency": "JPY",
+          "amount": 500
+        },
+        "tags": [
+          "temple"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node270408582",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.4555525,
+          34.0374461
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "FamilyMart",
+        "nameLocalized": {
+          "ja": "ファミリーマート"
+        },
+        "type": "supply",
+        "subtype": "convenience_store",
+        "stageIndex": 0,
+        "kmFromStart": 71.1,
+        "icon": "convenience_store",
+        "source": "osm",
+        "osmId": "node/270408582"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node9405052875",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.4623546,
+          34.0380734
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Unnamed",
+        "type": "supply",
+        "subtype": "vending_machine",
+        "stageIndex": 0,
+        "kmFromStart": 71.4,
+        "icon": "vending_machine",
+        "source": "osm",
+        "osmId": "node/9405052875"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node9407174876",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.4729111,
+          34.044206
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Unnamed",
+        "type": "supply",
+        "subtype": "vending_machine",
+        "stageIndex": 0,
+        "kmFromStart": 73.1,
+        "icon": "vending_machine",
+        "source": "osm",
+        "osmId": "node/9407174876"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "temple-14",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.476,
+          34.05
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Joraku-ji",
+        "nameLocalized": {
+          "ja": "常楽寺"
+        },
+        "type": "sacred_site",
+        "subtype": "temple",
+        "templeNumber": 14,
+        "stageIndex": 1,
+        "kmFromStart": 73.2,
+        "icon": "temple",
+        "tradition": "buddhist",
+        "denomination": "Koyasan Shingon",
+        "credentialStamp": true,
+        "stampFee": {
+          "currency": "JPY",
+          "amount": 500
+        },
+        "tags": [
+          "temple"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-sacred_site-node12373206418",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.4754294,
+          34.0489461
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Hie Shrine",
+        "nameLocalized": {
+          "de": "Hie Schrein"
+        },
+        "type": "sacred_site",
+        "subtype": "church",
+        "stageIndex": 0,
+        "kmFromStart": 73.9,
+        "icon": "church",
+        "source": "osm",
+        "osmId": "node/12373206418"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "temple-15",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.474,
+          34.056
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Awa Kokubun-ji",
+        "nameLocalized": {
+          "ja": "阿波国分寺"
+        },
+        "type": "sacred_site",
+        "subtype": "temple",
+        "templeNumber": 15,
+        "stageIndex": 1,
+        "kmFromStart": 74,
+        "icon": "temple",
+        "tradition": "buddhist",
+        "denomination": "Soto Zen",
+        "credentialStamp": true,
+        "stampFee": {
+          "currency": "JPY",
+          "amount": 500
+        },
+        "tags": [
+          "temple"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-sacred_site-node12373206292",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.4761056,
+          34.0509322
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Hachiman Shrine",
+        "nameLocalized": {
+          "de": "Hachiman Schrein"
+        },
+        "type": "sacred_site",
+        "subtype": "church",
+        "stageIndex": 0,
+        "kmFromStart": 74.5,
+        "icon": "church",
+        "source": "osm",
+        "osmId": "node/12373206292"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-sacred_site-node12373206293",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.4760092,
+          34.0514117
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Jigen-ji",
+        "nameLocalized": {
+          "de": "Jigen-ji"
+        },
+        "type": "sacred_site",
+        "subtype": "church",
+        "stageIndex": 0,
+        "kmFromStart": 74.9,
+        "icon": "church",
+        "source": "osm",
+        "osmId": "node/12373206293"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "temple-16",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.474,
+          34.068
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Kannon-ji",
+        "nameLocalized": {
+          "ja": "観音寺"
+        },
+        "type": "sacred_site",
+        "subtype": "temple",
+        "templeNumber": 16,
+        "stageIndex": 1,
+        "kmFromStart": 75.8,
+        "icon": "temple",
+        "tradition": "buddhist",
+        "denomination": "Koyasan Shingon",
+        "credentialStamp": true,
+        "stampFee": {
+          "currency": "JPY",
+          "amount": 500
+        },
+        "tags": [
+          "temple"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node9415722353",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.4738391,
+          34.0688016
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Unnamed",
+        "type": "supply",
+        "subtype": "vending_machine",
+        "stageIndex": 0,
+        "kmFromStart": 77.5,
+        "icon": "vending_machine",
+        "source": "osm",
+        "osmId": "node/9415722353"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node9415722321",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.477153,
+          34.0689293
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Unnamed",
+        "type": "supply",
+        "subtype": "vending_machine",
+        "stageIndex": 0,
+        "kmFromStart": 77.9,
+        "icon": "vending_machine",
+        "source": "osm",
+        "osmId": "node/9415722321"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node9415722366",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.4749033,
+          34.0684305
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Unnamed",
+        "type": "supply",
+        "subtype": "vending_machine",
+        "stageIndex": 0,
+        "kmFromStart": 77.9,
+        "icon": "vending_machine",
+        "source": "osm",
+        "osmId": "node/9415722366"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node9415722320",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.4785973,
+          34.0691593
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Unnamed",
+        "type": "supply",
+        "subtype": "vending_machine",
+        "stageIndex": 0,
+        "kmFromStart": 78,
+        "icon": "vending_machine",
+        "source": "osm",
+        "osmId": "node/9415722320"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-food-node13279984685",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.477743,
+          34.0713039
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "CoCo ICHIBANYA",
+        "nameLocalized": {
+          "ja": "CoCo壱番屋"
+        },
+        "type": "food",
+        "subtype": "restaurant",
+        "stageIndex": 0,
+        "kmFromStart": 78,
+        "icon": "restaurant",
+        "source": "osm",
+        "osmId": "node/13279984685"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node5931175986",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.4801137,
+          34.0715675
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "FamilyMart",
+        "nameLocalized": {
+          "ja": "ファミリーマート"
+        },
+        "type": "supply",
+        "subtype": "convenience_store",
+        "stageIndex": 0,
+        "kmFromStart": 78.3,
+        "icon": "convenience_store",
+        "source": "osm",
+        "osmId": "node/5931175986",
+        "hours": "24/7"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node9415722312",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.482225,
+          34.0715983
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Unnamed",
+        "type": "supply",
+        "subtype": "vending_machine",
+        "stageIndex": 0,
+        "kmFromStart": 78.5,
+        "icon": "vending_machine",
+        "source": "osm",
+        "osmId": "node/9415722312"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "temple-17",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.485,
+          34.085
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Ido-ji",
+        "nameLocalized": {
+          "ja": "井戸寺"
+        },
+        "type": "sacred_site",
+        "subtype": "temple",
+        "templeNumber": 17,
+        "stageIndex": 1,
+        "kmFromStart": 78.6,
+        "icon": "temple",
+        "tradition": "buddhist",
+        "denomination": "Shingon Zentsuji",
+        "credentialStamp": true,
+        "stampFee": {
+          "currency": "JPY",
+          "amount": 500
+        },
+        "tags": [
+          "temple"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node5931175985",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.4829523,
+          34.0722496
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "7-Eleven",
+        "nameLocalized": {
+          "ja": "セブン-イレブン"
+        },
+        "type": "supply",
+        "subtype": "convenience_store",
+        "stageIndex": 0,
+        "kmFromStart": 78.7,
+        "icon": "convenience_store",
+        "source": "osm",
+        "osmId": "node/5931175985",
+        "hours": "24/7"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node14144768288",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.4823122,
+          34.0737762
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Otsuka Foods",
+        "nameLocalized": {
+          "ja": "大塚食品"
+        },
+        "type": "supply",
+        "subtype": "vending_machine",
+        "stageIndex": 0,
+        "kmFromStart": 78.8,
+        "icon": "vending_machine",
+        "source": "osm",
+        "osmId": "node/14144768288"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node5989316987",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.4828719,
+          34.074165
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Unnamed",
+        "type": "supply",
+        "subtype": "toilet",
+        "stageIndex": 0,
+        "kmFromStart": 78.9,
+        "icon": "toilet",
+        "source": "osm",
+        "osmId": "node/5989316987"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-medical-node5931175487",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.4850359,
+          34.0718306
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "国府クリニック",
+        "type": "medical",
+        "subtype": "hospital",
+        "stageIndex": 0,
+        "kmFromStart": 79,
+        "icon": "hospital",
+        "source": "osm",
+        "osmId": "node/5931175487"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-medical-node5931175486",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.485802,
+          34.072209
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "たまき青空病院",
+        "type": "medical",
+        "subtype": "hospital",
+        "stageIndex": 0,
+        "kmFromStart": 79.1,
+        "icon": "hospital",
+        "source": "osm",
+        "osmId": "node/5931175486"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-accommodation-node6781547486",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.4848777,
+          34.0738523
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Tokushima City, Tokushima HENRO HOUSE pellegrino",
+        "nameLocalized": {
+          "ja": "Henro House pellegrino"
+        },
+        "type": "accommodation",
+        "subtype": "hostel",
+        "stageIndex": 0,
+        "kmFromStart": 79.1,
+        "icon": "hostel",
+        "source": "osm",
+        "osmId": "node/6781547486"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node9415722291",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.488842,
+          34.073604
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Unnamed",
+        "type": "supply",
+        "subtype": "vending_machine",
+        "stageIndex": 0,
+        "kmFromStart": 79.1,
+        "icon": "vending_machine",
+        "source": "osm",
+        "osmId": "node/9415722291"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node9415722302",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.4860405,
+          34.0739906
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Unnamed",
+        "type": "supply",
+        "subtype": "vending_machine",
+        "stageIndex": 0,
+        "kmFromStart": 79.2,
+        "icon": "vending_machine",
+        "source": "osm",
+        "osmId": "node/9415722302"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node276562886",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.4836305,
+          34.0853588
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Lawson",
+        "nameLocalized": {
+          "ja": "ローソン",
+          "ko": "로손"
+        },
+        "type": "supply",
+        "subtype": "convenience_store",
+        "stageIndex": 0,
+        "kmFromStart": 80.4,
+        "icon": "convenience_store",
+        "source": "osm",
+        "osmId": "node/276562886"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-accommodation-node11544133273",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.4854697,
+          34.0845501
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "松本屋 Matsumoto-ya",
+        "type": "accommodation",
+        "subtype": "guesthouse",
+        "stageIndex": 0,
+        "kmFromStart": 80.4,
+        "icon": "guesthouse",
+        "source": "osm",
+        "osmId": "node/11544133273"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-food-node12397143923",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.4843354,
+          34.0862824
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "焼肉 天山閣 国府店",
+        "type": "food",
+        "subtype": "restaurant",
+        "stageIndex": 0,
+        "kmFromStart": 80.4,
+        "icon": "restaurant",
+        "source": "osm",
+        "osmId": "node/12397143923"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-sacred_site-node3386821690",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.4858585,
+          34.0851834
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "八幡神社",
+        "type": "sacred_site",
+        "subtype": "church",
+        "stageIndex": 0,
+        "kmFromStart": 80.5,
+        "icon": "church",
+        "source": "osm",
+        "osmId": "node/3386821690"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-food-node12875272992",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.4891051,
+          34.0863219
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "バースブック珈琲",
+        "type": "food",
+        "subtype": "cafe",
+        "stageIndex": 0,
+        "kmFromStart": 80.9,
+        "icon": "cafe",
+        "source": "osm",
+        "osmId": "node/12875272992"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node3076814939",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.4948377,
+          34.0854886
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "FamilyMart",
+        "nameLocalized": {
+          "ja": "ファミリーマート"
+        },
+        "type": "supply",
+        "subtype": "convenience_store",
+        "stageIndex": 0,
+        "kmFromStart": 81.1,
+        "icon": "convenience_store",
+        "source": "osm",
+        "osmId": "node/3076814939"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node5269603899",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.4968357,
+          34.0840742
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "セブン-イレブン徳島国府バイパス店",
+        "type": "supply",
+        "subtype": "convenience_store",
+        "stageIndex": 0,
+        "kmFromStart": 81.1,
+        "icon": "convenience_store",
+        "source": "osm",
+        "osmId": "node/5269603899"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-food-node6017518485",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.506957,
+          34.0803743
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "やま",
+        "type": "food",
+        "subtype": "restaurant",
+        "stageIndex": 0,
+        "kmFromStart": 81.8,
+        "icon": "restaurant",
+        "source": "osm",
+        "osmId": "node/6017518485"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-food-node5978129286",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.5088701,
+          34.0810597
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "ココイチ",
+        "type": "food",
+        "subtype": "restaurant",
+        "stageIndex": 0,
+        "kmFromStart": 81.9,
+        "icon": "restaurant",
+        "source": "osm",
+        "osmId": "node/5978129286"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-food-node5142083622",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.5081583,
+          34.0790245
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Kanran Okonomiyaki",
+        "type": "food",
+        "subtype": "restaurant",
+        "stageIndex": 0,
+        "kmFromStart": 82,
+        "icon": "restaurant",
+        "source": "osm",
+        "osmId": "node/5142083622"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-sacred_site-node14062963801",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.5125595,
+          34.0817912
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Tokushima Mosque",
+        "type": "sacred_site",
+        "subtype": "church",
+        "stageIndex": 0,
+        "kmFromStart": 82.3,
+        "icon": "church",
+        "source": "osm",
+        "osmId": "node/14062963801"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-medical-node1423661480",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.510822,
+          34.084281
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "青香会徳島リハビリテーション病院",
+        "type": "medical",
+        "subtype": "hospital",
+        "stageIndex": 0,
+        "kmFromStart": 82.4,
+        "icon": "hospital",
+        "source": "osm",
+        "osmId": "node/1423661480"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-transport-node4513214853",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.5188608,
+          34.0834378
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "島田石橋",
+        "type": "transport",
+        "subtype": "bus_stop",
+        "stageIndex": 0,
+        "kmFromStart": 82.8,
+        "icon": "bus_stop",
+        "source": "osm",
+        "osmId": "node/4513214853"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-transport-node4513214854",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.5175478,
+          34.0837027
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "北島田一丁目",
+        "type": "transport",
+        "subtype": "bus_stop",
+        "stageIndex": 0,
+        "kmFromStart": 82.8,
+        "icon": "bus_stop",
+        "source": "osm",
+        "osmId": "node/4513214854"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node5938945587",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.5191469,
+          34.0840105
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "7-Eleven",
+        "nameLocalized": {
+          "ja": "セブン-イレブン"
+        },
+        "type": "supply",
+        "subtype": "convenience_store",
+        "stageIndex": 0,
+        "kmFromStart": 82.8,
+        "icon": "convenience_store",
+        "source": "osm",
+        "osmId": "node/5938945587"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-medical-node6092676286",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.5193988,
+          34.0771111
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "徳島検診センター",
+        "type": "medical",
+        "subtype": "hospital",
+        "stageIndex": 0,
+        "kmFromStart": 83.1,
+        "icon": "hospital",
+        "source": "osm",
+        "osmId": "node/6092676286"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-transport-node8707630256",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.5186716,
+          34.0793919
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Kuramoto",
+        "nameLocalized": {
+          "ja": "蔵本",
+          "ko": "구라모토"
+        },
+        "type": "transport",
+        "subtype": "train_station",
+        "stageIndex": 0,
+        "kmFromStart": 83.1,
+        "icon": "train_station",
+        "source": "osm",
+        "osmId": "node/8707630256"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-medical-node12080105513",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.5166232,
+          34.0792803
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "ありす調剤薬局",
+        "type": "medical",
+        "subtype": "pharmacy",
+        "stageIndex": 0,
+        "kmFromStart": 83.1,
+        "icon": "pharmacy",
+        "source": "osm",
+        "osmId": "node/12080105513"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-food-node13961811622",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.5187194,
+          34.0758127
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Tully's Coffee",
+        "nameLocalized": {
+          "ja": "タリーズコーヒー"
+        },
+        "type": "food",
+        "subtype": "cafe",
+        "stageIndex": 0,
+        "kmFromStart": 83.6,
+        "icon": "cafe",
+        "source": "osm",
+        "osmId": "node/13961811622"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-food-node12942346123",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.5242066,
+          34.0779121
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "焼きそば専門店 突貫亭",
+        "type": "food",
+        "subtype": "restaurant",
+        "stageIndex": 0,
+        "kmFromStart": 83.9,
+        "icon": "restaurant",
+        "source": "osm",
+        "osmId": "node/12942346123",
+        "hours": "10:00-22:00"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node2088681160",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.533542,
+          34.0786574
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "FamilyMart",
+        "nameLocalized": {
+          "ja": "ファミリーマート",
+          "ja_rm": "Famirī Mato"
+        },
+        "type": "supply",
+        "subtype": "convenience_store",
+        "stageIndex": 0,
+        "kmFromStart": 84.3,
+        "icon": "convenience_store",
+        "source": "osm",
+        "osmId": "node/2088681160"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-sacred_site-node3759299802",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.5323588,
+          34.0761141
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "日本聖公会徳島聖テモテ教会",
+        "type": "sacred_site",
+        "subtype": "church",
+        "stageIndex": 0,
+        "kmFromStart": 84.3,
+        "icon": "church",
+        "source": "osm",
+        "osmId": "node/3759299802"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-sacred_site-node2093377378",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.5425565,
+          34.0725422
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "滝薬師",
+        "type": "sacred_site",
+        "subtype": "church",
+        "stageIndex": 0,
+        "kmFromStart": 84.7,
+        "icon": "church",
+        "source": "osm",
+        "osmId": "node/2093377378"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-sacred_site-node3797659460",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.542773,
+          34.074464
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "お笠大名神",
+        "type": "sacred_site",
+        "subtype": "church",
+        "stageIndex": 0,
+        "kmFromStart": 84.9,
+        "icon": "church",
+        "source": "osm",
+        "osmId": "node/3797659460"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node2981248033",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.5451071,
+          34.0756317
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Unnamed",
+        "type": "supply",
+        "subtype": "toilet",
+        "stageIndex": 0,
+        "kmFromStart": 85,
+        "icon": "toilet",
+        "source": "osm",
+        "osmId": "node/2981248033"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-transport-node2981248037",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.5450017,
+          34.0765886
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "南出来島",
+        "type": "transport",
+        "subtype": "bus_stop",
+        "stageIndex": 0,
+        "kmFromStart": 85,
+        "icon": "bus_stop",
+        "source": "osm",
+        "osmId": "node/2981248037"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-food-node3761175293",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.5461289,
+          34.0748693
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "CHA-CHA HOUSE COFFEE",
+        "type": "food",
+        "subtype": "cafe",
+        "stageIndex": 0,
+        "kmFromStart": 85,
+        "icon": "cafe",
+        "source": "osm",
+        "osmId": "node/3761175293"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-water_source-node7232491717",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.5435199,
+          34.0718596
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Unnamed",
+        "type": "water_source",
+        "subtype": "fountain",
+        "stageIndex": 0,
+        "kmFromStart": 85.2,
+        "icon": "fountain",
+        "source": "osm",
+        "osmId": "node/7232491717"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node2981246631",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.5478127,
+          34.0735773
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Unnamed",
+        "type": "supply",
+        "subtype": "toilet",
+        "stageIndex": 0,
+        "kmFromStart": 85.3,
+        "icon": "toilet",
+        "source": "osm",
+        "osmId": "node/2981246631"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node6017457096",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.546009,
+          34.0716934
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Lawson",
+        "nameLocalized": {
+          "ja": "ローソン",
+          "ko": "로손"
+        },
+        "type": "supply",
+        "subtype": "convenience_store",
+        "stageIndex": 0,
+        "kmFromStart": 85.4,
+        "icon": "convenience_store",
+        "source": "osm",
+        "osmId": "node/6017457096"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node2982746816",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.5470105,
+          34.0711147
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "7-Eleven",
+        "nameLocalized": {
+          "ja": "セブン-イレブン"
+        },
+        "type": "supply",
+        "subtype": "convenience_store",
+        "stageIndex": 0,
+        "kmFromStart": 85.5,
+        "icon": "convenience_store",
+        "source": "osm",
+        "osmId": "node/2982746816"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node2993384575",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.5487055,
+          34.0720909
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Unnamed",
+        "type": "supply",
+        "subtype": "toilet",
+        "stageIndex": 0,
+        "kmFromStart": 85.5,
+        "icon": "toilet",
+        "source": "osm",
+        "osmId": "node/2993384575"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-food-node3761183054",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.5461384,
+          34.0710112
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "龍鳳飯店",
+        "type": "food",
+        "subtype": "restaurant",
+        "stageIndex": 0,
+        "kmFromStart": 85.5,
+        "icon": "restaurant",
+        "source": "osm",
+        "osmId": "node/3761183054"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-sacred_site-node2993752103",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.5446029,
+          34.0698175
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "天神社",
+        "nameLocalized": {
+          "ja_rm": "Ten-jinja"
+        },
+        "type": "sacred_site",
+        "subtype": "church",
+        "stageIndex": 0,
+        "kmFromStart": 85.7,
+        "icon": "church",
+        "source": "osm",
+        "osmId": "node/2993752103"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node13938908135",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.5450026,
+          34.0701752
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "阿波おどり会館1Fトイレ",
+        "type": "supply",
+        "subtype": "toilet",
+        "stageIndex": 0,
+        "kmFromStart": 85.7,
+        "icon": "toilet",
+        "source": "osm",
+        "osmId": "node/13938908135"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-food-node2991740559",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.5475936,
+          34.0706958
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "nyanfflu",
+        "type": "food",
+        "subtype": "cafe",
+        "stageIndex": 0,
+        "kmFromStart": 85.8,
+        "icon": "cafe",
+        "source": "osm",
+        "osmId": "node/2991740559"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-food-node3752499776",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.5489684,
+          34.0703782
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "ufotable cafe",
+        "type": "food",
+        "subtype": "cafe",
+        "stageIndex": 0,
+        "kmFromStart": 85.9,
+        "icon": "cafe",
+        "source": "osm",
+        "osmId": "node/3752499776"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-food-node3757641388",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.5477586,
+          34.0696498
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "いろりあん",
+        "type": "food",
+        "subtype": "restaurant",
+        "stageIndex": 0,
+        "kmFromStart": 85.9,
+        "icon": "restaurant",
+        "source": "osm",
+        "osmId": "node/3757641388"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-food-node3755457917",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.5496373,
+          34.0692309
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Lanan cafe",
+        "type": "food",
+        "subtype": "cafe",
+        "stageIndex": 0,
+        "kmFromStart": 86,
+        "icon": "cafe",
+        "source": "osm",
+        "osmId": "node/3755457917"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-food-node3761222562",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.5472945,
+          34.0690792
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "cafe MONTE",
+        "type": "food",
+        "subtype": "cafe",
+        "stageIndex": 0,
+        "kmFromStart": 86,
+        "icon": "cafe",
+        "source": "osm",
+        "osmId": "node/3761222562"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-food-node3761222563",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.5475428,
+          34.0683624
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "ジョワ",
+        "type": "food",
+        "subtype": "restaurant",
+        "stageIndex": 0,
+        "kmFromStart": 86,
+        "icon": "restaurant",
+        "source": "osm",
+        "osmId": "node/3761222563"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node13055161792",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.5467254,
+          34.0686894
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Unnamed",
+        "type": "supply",
+        "subtype": "vending_machine",
+        "stageIndex": 0,
+        "kmFromStart": 86,
+        "icon": "vending_machine",
+        "source": "osm",
+        "osmId": "node/13055161792"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node13052299538",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.5474149,
+          34.0675007
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Coca-Cola",
+        "nameLocalized": {
+          "ja": "コカ・コーラ"
+        },
+        "type": "supply",
+        "subtype": "vending_machine",
+        "stageIndex": 0,
+        "kmFromStart": 86.2,
+        "icon": "vending_machine",
+        "source": "osm",
+        "osmId": "node/13052299538"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node2982746818",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.5501992,
+          34.0685966
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Unnamed",
+        "type": "supply",
+        "subtype": "toilet",
+        "stageIndex": 0,
+        "kmFromStart": 86.3,
+        "icon": "toilet",
+        "source": "osm",
+        "osmId": "node/2982746818"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-food-node3184534941",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.5499881,
+          34.0681467
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "かんの",
+        "type": "food",
+        "subtype": "restaurant",
+        "stageIndex": 0,
+        "kmFromStart": 86.3,
+        "icon": "restaurant",
+        "source": "osm",
+        "osmId": "node/3184534941"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-food-node3754115479",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.5505291,
+          34.0680327
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "中華家庭料理 福林",
+        "type": "food",
+        "subtype": "restaurant",
+        "stageIndex": 0,
+        "kmFromStart": 86.3,
+        "icon": "restaurant",
+        "source": "osm",
+        "osmId": "node/3754115479"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-food-node3757622191",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.548084,
+          34.0675037
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "ちどり",
+        "type": "food",
+        "subtype": "restaurant",
+        "stageIndex": 0,
+        "kmFromStart": 86.3,
+        "icon": "restaurant",
+        "source": "osm",
+        "osmId": "node/3757622191"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-sacred_site-node3790298938",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.5489865,
+          34.0680965
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "井利大明神",
+        "type": "sacred_site",
+        "subtype": "church",
+        "stageIndex": 0,
+        "kmFromStart": 86.3,
+        "icon": "church",
+        "source": "osm",
+        "osmId": "node/3790298938"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-food-node6364042486",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.5495753,
+          34.0675985
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Girasole",
+        "type": "food",
+        "subtype": "restaurant",
+        "stageIndex": 0,
+        "kmFromStart": 86.3,
+        "icon": "restaurant",
+        "source": "osm",
+        "osmId": "node/6364042486"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node2982746814",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.5490125,
+          34.0668491
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "7-Eleven",
+        "nameLocalized": {
+          "ja": "セブン-イレブン"
+        },
+        "type": "supply",
+        "subtype": "convenience_store",
+        "stageIndex": 0,
+        "kmFromStart": 86.4,
+        "icon": "convenience_store",
+        "source": "osm",
+        "osmId": "node/2982746814"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-transport-node2982748633",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.5505431,
+          34.0667844
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "仲之町一丁目",
+        "type": "transport",
+        "subtype": "bus_stop",
+        "stageIndex": 0,
+        "kmFromStart": 86.4,
+        "icon": "bus_stop",
+        "source": "osm",
+        "osmId": "node/2982748633"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-transport-node2982748637",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.5484243,
+          34.0670649
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Konya machi",
+        "nameLocalized": {
+          "ja": "紺屋町"
+        },
+        "type": "transport",
+        "subtype": "bus_stop",
+        "stageIndex": 0,
+        "kmFromStart": 86.4,
+        "icon": "bus_stop",
+        "source": "osm",
+        "osmId": "node/2982748637"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-sacred_site-node3791825163",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.5492786,
+          34.0663915
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "お芳大明神",
+        "type": "sacred_site",
+        "subtype": "church",
+        "stageIndex": 0,
+        "kmFromStart": 86.4,
+        "icon": "church",
+        "source": "osm",
+        "osmId": "node/3791825163"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node9905568401",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.5498082,
+          34.0658442
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Unnamed",
+        "type": "supply",
+        "subtype": "vending_machine",
+        "stageIndex": 0,
+        "kmFromStart": 86.4,
+        "icon": "vending_machine",
+        "source": "osm",
+        "osmId": "node/9905568401"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-medical-node1423659797",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.5467054,
+          34.0645024
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "燈来会大久保病院",
+        "type": "medical",
+        "subtype": "hospital",
+        "stageIndex": 0,
+        "kmFromStart": 86.5,
+        "icon": "hospital",
+        "source": "osm",
+        "osmId": "node/1423659797"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-food-node13601966652",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.5472206,
+          34.0667303
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "CoCo ICHIBANYA",
+        "nameLocalized": {
+          "ja": "CoCo壱番屋"
+        },
+        "type": "food",
+        "subtype": "restaurant",
+        "stageIndex": 0,
+        "kmFromStart": 86.6,
+        "icon": "restaurant",
+        "source": "osm",
+        "osmId": "node/13601966652"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-transport-node265018777",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.5467037,
+          34.0545653
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Nikenya",
+        "nameLocalized": {
+          "ja": "二軒屋",
+          "ko": "니켄야"
+        },
+        "type": "transport",
+        "subtype": "train_station",
+        "stageIndex": 0,
+        "kmFromStart": 86.8,
+        "icon": "train_station",
+        "source": "osm",
+        "osmId": "node/265018777"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-medical-node1423658224",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.5441419,
+          34.0634408
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "徳島逓信病院",
+        "type": "medical",
+        "subtype": "hospital",
+        "stageIndex": 0,
+        "kmFromStart": 86.8,
+        "icon": "hospital",
+        "source": "osm",
+        "osmId": "node/1423658224"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node11083754197",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.5428564,
+          34.0560017
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Unnamed",
+        "type": "supply",
+        "subtype": "vending_machine",
+        "stageIndex": 0,
+        "kmFromStart": 86.8,
+        "icon": "vending_machine",
+        "source": "osm",
+        "osmId": "node/11083754197"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-food-node13710645943",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.546621,
+          34.0611584
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "二〓麺",
+        "type": "food",
+        "subtype": "restaurant",
+        "stageIndex": 0,
+        "kmFromStart": 86.8,
+        "icon": "restaurant",
+        "source": "osm",
+        "osmId": "node/13710645943"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node13710645941",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.5474288,
+          34.0609467
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "7-Eleven",
+        "nameLocalized": {
+          "ja": "セブン-イレブン"
+        },
+        "type": "supply",
+        "subtype": "convenience_store",
+        "stageIndex": 0,
+        "kmFromStart": 87.2,
+        "icon": "convenience_store",
+        "source": "osm",
+        "osmId": "node/13710645941"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-medical-node1423661472",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.5636608,
+          34.0143767
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "雙立会碩心館病院",
+        "type": "medical",
+        "subtype": "hospital",
+        "stageIndex": 0,
+        "kmFromStart": 90.5,
+        "icon": "hospital",
+        "source": "osm",
+        "osmId": "node/1423661472",
+        "hours": "Mo-Fr 09:00-17:30; Sa 09:00-12:00; Su,PH off"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-medical-node12064038554",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.5638064,
+          34.0139362
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "ツヅキ調剤薬局",
+        "type": "medical",
+        "subtype": "pharmacy",
+        "stageIndex": 0,
+        "kmFromStart": 90.5,
+        "icon": "pharmacy",
+        "source": "osm",
+        "osmId": "node/12064038554"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-sacred_site-node12064394219",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.5644587,
+          34.0150724
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "開基神社",
+        "type": "sacred_site",
+        "subtype": "church",
+        "stageIndex": 0,
+        "kmFromStart": 90.5,
+        "icon": "church",
+        "source": "osm",
+        "osmId": "node/12064394219"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node12064394229",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.5614805,
+          34.0143029
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "7-Eleven",
+        "nameLocalized": {
+          "ja": "セブン-イレブン"
+        },
+        "type": "supply",
+        "subtype": "convenience_store",
+        "stageIndex": 0,
+        "kmFromStart": 90.6,
+        "icon": "convenience_store",
+        "source": "osm",
+        "osmId": "node/12064394229"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node12064038556",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.5649411,
+          34.0133075
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Lawson",
+        "nameLocalized": {
+          "ja": "ローソン"
+        },
+        "type": "supply",
+        "subtype": "convenience_store",
+        "stageIndex": 0,
+        "kmFromStart": 90.7,
+        "icon": "convenience_store",
+        "source": "osm",
+        "osmId": "node/12064038556"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-medical-node12064394216",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.5655474,
+          34.013464
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "あおぞら薬局",
+        "type": "medical",
+        "subtype": "pharmacy",
+        "stageIndex": 0,
+        "kmFromStart": 90.7,
+        "icon": "pharmacy",
+        "source": "osm",
+        "osmId": "node/12064394216"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-food-node12064038557",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.5648002,
+          34.0117746
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "徳島ラーメン　麺八",
+        "type": "food",
+        "subtype": "restaurant",
+        "stageIndex": 0,
+        "kmFromStart": 90.8,
+        "icon": "restaurant",
+        "source": "osm",
+        "osmId": "node/12064038557"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-transport-node300337455",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.569601,
+          34.0103853
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Chūden",
+        "nameLocalized": {
+          "ja": "中田",
+          "ko": "주덴"
+        },
+        "type": "transport",
+        "subtype": "train_station",
+        "stageIndex": 0,
+        "kmFromStart": 91.1,
+        "icon": "train_station",
+        "source": "osm",
+        "osmId": "node/300337455"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-medical-node1423661150",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.568762,
+          34.003069
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "道志社小松島病院",
+        "type": "medical",
+        "subtype": "hospital",
+        "stageIndex": 0,
+        "kmFromStart": 91.2,
+        "icon": "hospital",
+        "source": "osm",
+        "osmId": "node/1423661150"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-food-node12064394228",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.5711427,
+          34.0043184
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "小松島食堂",
+        "type": "food",
+        "subtype": "restaurant",
+        "stageIndex": 0,
+        "kmFromStart": 91.2,
+        "icon": "restaurant",
+        "source": "osm",
+        "osmId": "node/12064394228"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node298308513",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.5749316,
+          34.0018679
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "セブンイレブン 日開野店",
+        "type": "supply",
+        "subtype": "convenience_store",
+        "stageIndex": 0,
+        "kmFromStart": 91.3,
+        "icon": "convenience_store",
+        "source": "osm",
+        "osmId": "node/298308513",
+        "hours": "24/7"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node10817288792",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.5738245,
+          34.005436
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Lawson",
+        "type": "supply",
+        "subtype": "convenience_store",
+        "stageIndex": 0,
+        "kmFromStart": 91.4,
+        "icon": "convenience_store",
+        "source": "osm",
+        "osmId": "node/10817288792"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-transport-node11075686731",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.5817717,
+          33.9914978
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "芝生",
+        "nameLocalized": {
+          "ja": "芝生"
+        },
+        "type": "transport",
+        "subtype": "bus_stop",
+        "stageIndex": 0,
+        "kmFromStart": 92.4,
+        "icon": "bus_stop",
+        "source": "osm",
+        "osmId": "node/11075686731"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-transport-node11075686734",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.5816217,
+          33.9937472
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "芝生中",
+        "nameLocalized": {
+          "ja": "芝生中"
+        },
+        "type": "transport",
+        "subtype": "bus_stop",
+        "stageIndex": 0,
+        "kmFromStart": 92.7,
+        "icon": "bus_stop",
+        "source": "osm",
+        "osmId": "node/11075686734"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-transport-node11075686735",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.5819008,
+          33.9889746
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "恩山寺前",
+        "nameLocalized": {
+          "ja": "恩山寺前"
+        },
+        "type": "transport",
+        "subtype": "bus_stop",
+        "stageIndex": 0,
+        "kmFromStart": 93.1,
+        "icon": "bus_stop",
+        "source": "osm",
+        "osmId": "node/11075686735"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node293930719",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.5775862,
+          33.9853574
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Unnamed",
+        "type": "supply",
+        "subtype": "toilet",
+        "stageIndex": 0,
+        "kmFromStart": 94.1,
+        "icon": "toilet",
+        "source": "osm",
+        "osmId": "node/293930719"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "temple-18",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.578,
+          33.986
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Onzan-ji",
+        "nameLocalized": {
+          "ja": "恩山寺"
+        },
+        "type": "sacred_site",
+        "subtype": "temple",
+        "templeNumber": 18,
+        "stageIndex": 1,
+        "kmFromStart": 95.4,
+        "icon": "temple",
+        "tradition": "buddhist",
+        "denomination": "Koyasan Shingon",
+        "credentialStamp": true,
+        "stampFee": {
+          "currency": "JPY",
+          "amount": 500
+        },
+        "tags": [
+          "temple"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "temple-19",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.606,
+          33.968
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Tatsue-ji",
+        "nameLocalized": {
+          "ja": "立江寺"
+        },
+        "type": "sacred_site",
+        "subtype": "temple",
+        "templeNumber": 19,
+        "stageIndex": 1,
+        "kmFromStart": 99.4,
+        "icon": "temple",
+        "tradition": "buddhist",
+        "denomination": "Koyasan Shingon",
+        "credentialStamp": true,
+        "stampFee": {
+          "currency": "JPY",
+          "amount": 500
+        },
+        "tags": [
+          "temple"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node309597024",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.552837,
+          33.9487852
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Lawson",
+        "nameLocalized": {
+          "ja": "ローソン",
+          "ja_rm": "Rōson",
+          "ko": "로손"
+        },
+        "type": "supply",
+        "subtype": "convenience_store",
+        "stageIndex": 0,
+        "kmFromStart": 103.4,
+        "icon": "convenience_store",
+        "source": "osm",
+        "osmId": "node/309597024"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node2990721602",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.523081,
+          33.9321358
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Unnamed",
+        "type": "supply",
+        "subtype": "toilet",
+        "stageIndex": 0,
+        "kmFromStart": 103.8,
+        "icon": "toilet",
+        "source": "osm",
+        "osmId": "node/2990721602"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node2990721600",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.5222028,
+          33.9320451
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Unnamed",
+        "type": "supply",
+        "subtype": "toilet",
+        "stageIndex": 0,
+        "kmFromStart": 103.9,
+        "icon": "toilet",
+        "source": "osm",
+        "osmId": "node/2990721600"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node415526322",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.5207933,
+          33.9316411
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "FamilyMart",
+        "nameLocalized": {
+          "ja": "ファミリーマート",
+          "ja_rm": "Sankusu"
+        },
+        "type": "supply",
+        "subtype": "convenience_store",
+        "stageIndex": 0,
+        "kmFromStart": 104,
+        "icon": "convenience_store",
+        "source": "osm",
+        "osmId": "node/415526322"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-sacred_site-node294058400",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.505258,
+          33.9141272
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "20 Kakurin-ji",
+        "nameLocalized": {
+          "ja": "第20番札所 鶴林寺"
+        },
+        "type": "sacred_site",
+        "subtype": "church",
+        "stageIndex": 0,
+        "kmFromStart": 107.9,
+        "icon": "church",
+        "source": "osm",
+        "osmId": "node/294058400"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "temple-20",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.506,
+          33.914
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Kakurin-ji",
+        "nameLocalized": {
+          "ja": "鶴林寺"
+        },
+        "type": "sacred_site",
+        "subtype": "temple",
+        "templeNumber": 20,
+        "stageIndex": 1,
+        "kmFromStart": 112.5,
+        "icon": "temple",
+        "elevation": 470,
+        "tradition": "buddhist",
+        "denomination": "Koyasan Shingon",
+        "credentialStamp": true,
+        "stampFee": {
+          "currency": "JPY",
+          "amount": 500
+        },
+        "tags": [
+          "temple",
+          "mountain"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node9420966350",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.5181519,
+          33.9060786
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Unnamed",
+        "type": "supply",
+        "subtype": "vending_machine",
+        "stageIndex": 0,
+        "kmFromStart": 112.6,
+        "icon": "vending_machine",
+        "source": "osm",
+        "osmId": "node/9420966350"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-sacred_site-node13478796431",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.5217889,
+          33.8825075
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "21 Tairyu-ji",
+        "nameLocalized": {
+          "ja": "第21番札所 太龍寺"
+        },
+        "type": "sacred_site",
+        "subtype": "church",
+        "stageIndex": 0,
+        "kmFromStart": 115.8,
+        "icon": "church",
+        "source": "osm",
+        "osmId": "node/13478796431"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "temple-21",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.522,
+          33.883
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Tairyu-ji",
+        "nameLocalized": {
+          "ja": "太龍寺"
+        },
+        "type": "sacred_site",
+        "subtype": "temple",
+        "templeNumber": 21,
+        "stageIndex": 1,
+        "kmFromStart": 119.2,
+        "icon": "temple",
+        "elevation": 600,
+        "tradition": "buddhist",
+        "denomination": "Koyasan Shingon",
+        "credentialStamp": true,
+        "stampFee": {
+          "currency": "JPY",
+          "amount": 500
+        },
+        "tags": [
+          "temple",
+          "mountain",
+          "ropeway"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-sacred_site-node388453773",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.5788091,
+          33.8472504
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "轟神社拝殿",
+        "type": "sacred_site",
+        "subtype": "church",
+        "stageIndex": 0,
+        "kmFromStart": 127.4,
+        "icon": "church",
+        "source": "osm",
+        "osmId": "node/388453773"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-sacred_site-node294063123",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.5823363,
+          33.8521418
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "22 Byodo-ji",
+        "nameLocalized": {
+          "ja": "第22番札所 平等寺"
+        },
+        "type": "sacred_site",
+        "subtype": "church",
+        "stageIndex": 0,
+        "kmFromStart": 127.9,
+        "icon": "church",
+        "source": "osm",
+        "osmId": "node/294063123"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-accommodation-node11342795169",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.5864013,
+          33.8483688
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "GuestHouse & Cafe Green House",
+        "type": "accommodation",
+        "subtype": "guesthouse",
+        "stageIndex": 0,
+        "kmFromStart": 128.8,
+        "icon": "guesthouse",
+        "source": "osm",
+        "osmId": "node/11342795169"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "temple-22",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.583,
+          33.852
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Byodo-ji",
+        "nameLocalized": {
+          "ja": "平等寺"
+        },
+        "type": "sacred_site",
+        "subtype": "temple",
+        "templeNumber": 22,
+        "stageIndex": 1,
+        "kmFromStart": 130.1,
+        "icon": "temple",
+        "tradition": "buddhist",
+        "denomination": "Koyasan Shingon",
+        "credentialStamp": true,
+        "stampFee": {
+          "currency": "JPY",
+          "amount": 500
+        },
+        "tags": [
+          "temple"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-transport-node9430425139",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.5916364,
+          33.7758043
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Yuki",
+        "nameLocalized": {
+          "ja": "由岐",
+          "ko": "유키"
+        },
+        "type": "transport",
+        "subtype": "train_station",
+        "stageIndex": 0,
+        "kmFromStart": 139.7,
+        "icon": "train_station",
+        "source": "osm",
+        "osmId": "node/9430425139"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node9430425623",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.5882528,
+          33.7741566
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Unnamed",
+        "type": "supply",
+        "subtype": "vending_machine",
+        "stageIndex": 0,
+        "kmFromStart": 140.1,
+        "icon": "vending_machine",
+        "source": "osm",
+        "osmId": "node/9430425623"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node11350212070",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.5853917,
+          33.7725097
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Unnamed",
+        "type": "supply",
+        "subtype": "toilet",
+        "stageIndex": 0,
+        "kmFromStart": 140.5,
+        "icon": "toilet",
+        "source": "osm",
+        "osmId": "node/11350212070"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-transport-node265017159",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.5838377,
+          33.7727706
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Tainohama",
+        "nameLocalized": {
+          "ja": "田井ノ浜",
+          "ko": "다이노하마"
+        },
+        "type": "transport",
+        "subtype": "train_station",
+        "stageIndex": 0,
+        "kmFromStart": 140.7,
+        "icon": "train_station",
+        "source": "osm",
+        "osmId": "node/265017159"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-sacred_site-node370030192",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.5800428,
+          33.7728786
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "白鳥神社",
+        "type": "sacred_site",
+        "subtype": "church",
+        "stageIndex": 0,
+        "kmFromStart": 140.9,
+        "icon": "church",
+        "source": "osm",
+        "osmId": "node/370030192"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-transport-node265017851",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.5694466,
+          33.7665162
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Kiki",
+        "nameLocalized": {
+          "ja": "木岐",
+          "ko": "기키"
+        },
+        "type": "transport",
+        "subtype": "train_station",
+        "stageIndex": 0,
+        "kmFromStart": 142.8,
+        "icon": "train_station",
+        "source": "osm",
+        "osmId": "node/265017851"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-sacred_site-node5394602633",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.5403324,
+          33.7349021
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Hiwasa Hachiman Shrine",
+        "nameLocalized": {
+          "ja": "日和佐八幡神社"
+        },
+        "type": "sacred_site",
+        "subtype": "church",
+        "stageIndex": 0,
+        "kmFromStart": 149.2,
+        "icon": "church",
+        "source": "osm",
+        "osmId": "node/5394602633"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node11874408278",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.5407911,
+          33.7344643
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Unnamed",
+        "type": "supply",
+        "subtype": "toilet",
+        "stageIndex": 0,
+        "kmFromStart": 149.2,
+        "icon": "toilet",
+        "source": "osm",
+        "osmId": "node/11874408278"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "temple-23",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.528,
+          33.732
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Yakuo-ji",
+        "nameLocalized": {
+          "ja": "薬王寺"
+        },
+        "type": "sacred_site",
+        "subtype": "temple",
+        "templeNumber": 23,
+        "stageIndex": 1,
+        "kmFromStart": 149.8,
+        "icon": "temple",
+        "tradition": "buddhist",
+        "denomination": "Koyasan Shingon",
+        "credentialStamp": true,
+        "stampFee": {
+          "currency": "JPY",
+          "amount": 500
+        },
+        "description": "Last temple in Tokushima. 75 km gap to the next temple.",
+        "tags": [
+          "temple",
+          "phase-boundary"
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-sacred_site-node298593792",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.5507357,
+          33.7356815
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "恵比寿神社",
+        "type": "sacred_site",
+        "subtype": "church",
+        "stageIndex": 0,
+        "kmFromStart": 151.1,
+        "icon": "church",
+        "source": "osm",
+        "osmId": "node/298593792"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-town-node298625630",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.5354307,
+          33.7345812
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Minami",
+        "nameLocalized": {
+          "fr": "Minami",
+          "id": "Minami",
+          "ja": "美波町",
+          "ko": "미나미초",
+          "th": "มินามิ",
+          "zh": "美波町"
+        },
+        "type": "town",
+        "subtype": "town",
+        "stageIndex": 0,
+        "kmFromStart": 152.2,
+        "icon": "town",
+        "source": "osm",
+        "osmId": "node/298625630"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-accommodation-node5044547321",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.5339966,
+          33.7329679
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Hiwasa guest house",
+        "type": "accommodation",
+        "subtype": "hotel",
+        "stageIndex": 0,
+        "kmFromStart": 152.7,
+        "icon": "hotel",
+        "source": "osm",
+        "osmId": "node/5044547321"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-food-node2875936823",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.5338982,
+          33.7318869
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "ひわさ屋",
+        "type": "food",
+        "subtype": "restaurant",
+        "stageIndex": 0,
+        "kmFromStart": 152.9,
+        "icon": "restaurant",
+        "source": "osm",
+        "osmId": "node/2875936823"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-accommodation-node11350962171",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.5321621,
+          33.7320949
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Guest House Sakura-an",
+        "nameLocalized": {
+          "ja": "Guest house さくら庵"
+        },
+        "type": "accommodation",
+        "subtype": "guesthouse",
+        "stageIndex": 0,
+        "kmFromStart": 152.9,
+        "icon": "guesthouse",
+        "source": "osm",
+        "osmId": "node/11350962171"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-supply-node298725358",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.5293045,
+          33.7375281
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Lawson",
+        "nameLocalized": {
+          "ja": "ローソン 日和佐寺前"
+        },
+        "type": "supply",
+        "subtype": "convenience_store",
+        "stageIndex": 0,
+        "kmFromStart": 153.6,
+        "icon": "convenience_store",
+        "source": "osm",
+        "osmId": "node/298725358"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-sacred_site-node369741886",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.5275924,
+          33.7322973
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "23 Yakuo-ji",
+        "nameLocalized": {
+          "ja": "第23番札所 薬王寺"
+        },
+        "type": "sacred_site",
+        "subtype": "church",
+        "stageIndex": 0,
+        "kmFromStart": 153.6,
+        "icon": "church",
+        "source": "osm",
+        "osmId": "node/369741886"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-transport-node369987265",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.535385,
+          33.7433137
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "Kitagawachi",
+        "nameLocalized": {
+          "ja": "北河内",
+          "ko": "기타가와치"
+        },
+        "type": "transport",
+        "subtype": "train_station",
+        "stageIndex": 0,
+        "kmFromStart": 153.6,
+        "icon": "train_station",
+        "source": "osm",
+        "osmId": "node/369987265"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-sacred_site-node369987357",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.5401089,
+          33.748548
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "山神社",
+        "type": "sacred_site",
+        "subtype": "church",
+        "stageIndex": 0,
+        "kmFromStart": 153.6,
+        "icon": "church",
+        "source": "osm",
+        "osmId": "node/369987357"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "wp-osm-medical-node5394655856",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          134.5323351,
+          33.7356923
+        ]
+      },
+      "properties": {
+        "routeId": "shikoku-88-awa",
+        "name": "美波町国民健康保険日和佐診療所",
+        "type": "medical",
+        "subtype": "clinic",
+        "stageIndex": 0,
+        "kmFromStart": 153.6,
+        "icon": "clinic",
+        "source": "osm",
+        "osmId": "node/5394655856"
+      }
+    }
+  ]
+}

@@ -4,7 +4,7 @@ import { readFileSync } from "fs";
 import { join } from "path";
 import Ajv2020 from "ajv/dist/2020.js";
 import { classifyNode, OSM_TAG_MAP, type OsmNode } from "./osm.js";
-import { keepsNode } from "./waypoints.js";
+import { keepsNode, wholeRouteRange } from "./waypoints.js";
 import { MOMENT_TYPES } from "../ways/moments.js";
 
 // waypoints.ts only runs its enrichment when it is the invoked script, so
@@ -87,6 +87,24 @@ test("the sweep follows OSM_TAG_MAP rather than a hand-written list", () => {
   const produced = new Set(Object.values(OSM_TAG_MAP).map((c) => c.type));
   // #then the fixture covers exactly those, so a new type cannot slip out silently
   assert.deepEqual(new Set(Object.keys(TYPE_FIXTURES)), produced);
+});
+
+test("a section with no stages yet spreads one provisional range over its whole line", () => {
+  // #given a line of five points and a section declaring 154.5 km
+  const coords: Array<[number, number]> = [[0, 0], [0.01, 0], [0.02, 0], [0.03, 0], [0.04, 0]];
+
+  // #when the days it will be cut into do not exist yet
+  const { ranges, useGeographicFallback } = wholeRouteRange(coords, 154.5);
+
+  // #then one range spans the line end to end, and nothing falls off either edge
+  assert.equal(ranges.length, 1);
+  assert.equal(useGeographicFallback, false);
+  assert.equal(ranges[0].startIdx, 0);
+  assert.equal(ranges[0].endIdx, coords.length - 1);
+  assert.equal(ranges[0].cumulativeStartKm, 0);
+  assert.equal(ranges[0].distanceKm, 154.5);
+  assert.deepEqual(ranges[0].startCoord, [0, 0]);
+  assert.deepEqual(ranges[0].endCoord, [0.04, 0]);
 });
 
 test("a waypoint sourced from an OSM way validates", () => {

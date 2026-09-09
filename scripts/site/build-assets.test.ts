@@ -8,18 +8,18 @@ import { buildAssets, buildPilgrimagePages } from "./build-assets.js";
 const ROOT = join(import.meta.dirname, "..", "..");
 const ASSETS = join(ROOT, "docs", "assets");
 
-// Every route that has a route.geojson, plus the coastal variant. The four
-// Shikoku dōjō sections are absent until their walked lines are built; so are
-// the Iseji and the Ōhechi, which ship metadata-only.
+// Every route that has a route.geojson, plus the coastal variant. The Iseji
+// and the Ōhechi are absent, shipping metadata-only.
 const IDS = [
   "camino-frances", "camino-ingles", "camino-norte", "camino-portugues",
   "camino-primitivo", "kumano-kodo-kohechi", "kumano-kodo-nakahechi",
+  "shikoku-88-awa", "shikoku-88-iyo", "shikoku-88-sanuki", "shikoku-88-tosa",
   "camino-portugues-coastal",
 ];
 
 test("buildAssets writes a glyph for every route and the coastal variant", () => {
   const counts = buildAssets(ROOT);
-  assert.equal(counts.glyphs, 8);
+  assert.equal(counts.glyphs, 12);
 
   const glyphs = readFileSync(join(ASSETS, "glyphs.js"), "utf-8");
   for (const id of IDS) {

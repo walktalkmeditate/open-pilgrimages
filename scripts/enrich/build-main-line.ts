@@ -1,7 +1,7 @@
 import { readFileSync, writeFileSync, existsSync } from "fs";
 import { join } from "path";
 import { queryOverpass, buildRelationGeomQuery, type OsmRelation } from "./osm.js";
-import { haversineMeters, lineLengthMeters } from "../ways/geo.js";
+import { haversineMeters, lineLengthMeters, SNAP_METERS } from "../ways/geo.js";
 import type { Position } from "../ways/types.js";
 import { resolveInvokedPath } from "../cli.js";
 
@@ -169,7 +169,7 @@ export function shortestPath(
 export function mainLine(
   ways: Position[][],
   anchors: Position[],
-): { line: Position[]; legs: number[]; missing: string[] } {
+): { line: Position[]; legs: number[]; missing: string[]; snaps: number[] } {
   const graph = buildWayGraph(ways);
   const nodes = anchors.map((anchor) => nearestGraphNode(graph, anchor));
 
@@ -201,7 +201,7 @@ export function mainLine(
     append(path.line);
   }
 
-  return { line, legs, missing };
+  return { line, legs, missing, snaps: nodes.map((n) => n.meters) };
 }
 
 /**
@@ -216,6 +216,28 @@ export function refuseIncompleteLine(missing: string[]): void {
   for (const gap of missing) console.error(`  ⚠ ${gap}`);
   console.error(
     `${missing.length} leg(s) have no connected path. Refusing to write a line with gaps in it.`,
+  );
+  process.exit(1);
+}
+
+/**
+ * The second gate, and it catches what the first cannot see. Withholding a
+ * *terminal* relation leaves the remaining graph perfectly connected — the
+ * line simply stops short, `missing` stays empty, and nothing complains.
+ * Measured on Awa, dropping 22→23 shortened the line by 21.6 km in silence
+ * and moved Temple 23's anchor 13,454 m off the graph. Only the snap says so.
+ * SNAP_METERS is the same tolerance build-ways snaps stage boundaries with,
+ * so an anchor past it could not be cut to anyway.
+ */
+export function refuseDistantAnchors(snaps: Array<{ label: string; meters: number }>): void {
+  const far = snaps.filter((s) => s.meters > SNAP_METERS);
+  if (far.length === 0) return;
+  for (const anchor of far) {
+    console.error(`  ⚠ ${anchor.label} is ${Math.round(anchor.meters)} m from the nearest point on the line`);
+  }
+  console.error(
+    `${far.length} anchor(s) sit further than ${SNAP_METERS} m from the line. ` +
+      `Refusing to write a line that does not reach them — the pinned relations are wrong or one is missing.`,
   );
   process.exit(1);
 }
@@ -275,6 +297,123 @@ export function requireRelations(routeDir: string, routeId: string): number[] {
   return relations;
 }
 
+export interface Anchor {
+  coordinates: Position;
+  label: string;
+}
+
+interface AnchorSet {
+  anchors: Anchor[];
+  from: string;
+  /** Declared km per leg, where the anchors came from something that declares one. */
+  declaredLegKm?: number[];
+}
+
+/**
+ * Stage boundaries anchor the line for a route that already has stages. A
+ * section whose days are still to be cut *from this line* has none, and its
+ * two declared endpoints alone will not stand in for them: the shortest path
+ * between Temple 1 and Temple 23 takes every shortcut the trail declines to.
+ * So the places already placed on the route by hand anchor it instead, in
+ * route order, with the section's own endpoints closing each end — a boundary
+ * temple belongs to the neighbouring section and is not among its own
+ * curated waypoints.
+ *
+ * `kmFromStart` orders them and is read for nothing else. It is a distance
+ * along whatever line the waypoints were last measured against, which for a
+ * section cut out of a larger route is not this one; the order it gives is
+ * still the order the route visits them in.
+ */
+export function anchorsFrom(routeDir: string, routeId: string): AnchorSet {
+  const stagesPath = join(routeDir, "stages.json");
+  if (existsSync(stagesPath)) {
+    const stages = (loadJson(stagesPath) as { stages: unknown }).stages as Array<{
+      index: number;
+      name: { en: string };
+      distanceKm: number;
+      start: { coordinates: Position };
+      end: { coordinates: Position };
+    }>;
+    if (!Array.isArray(stages) || stages.length === 0) {
+      throw new Error(`${routeId}: stages.json has no stages to anchor a walked line to`);
+    }
+    const anchors = stages.map((stage) => ({
+      coordinates: stage.start.coordinates,
+      label: stage.name.en,
+    }));
+    const last = stages[stages.length - 1];
+    anchors.push({ coordinates: last.end.coordinates, label: `end of ${last.name.en}` });
+    return { anchors, from: "stages.json", declaredLegKm: stages.map((s) => s.distanceKm) };
+  }
+
+  const metadata = loadJson(join(routeDir, "metadata.json")) as {
+    overview?: {
+      startPoint?: { name?: { en?: string }; coordinates?: Position };
+      endPoint?: { name?: { en?: string }; coordinates?: Position };
+    };
+  };
+  const start = metadata.overview?.startPoint;
+  const end = metadata.overview?.endPoint;
+  if (!start?.coordinates || !end?.coordinates) {
+    throw new Error(
+      `${routeId}: with no stages.json, the walked line is anchored on overview.startPoint, ` +
+        `the curated waypoints, and overview.endPoint — and metadata.json declares no such endpoints.`,
+    );
+  }
+
+  const waypointsPath = join(routeDir, "waypoints.geojson");
+  if (!existsSync(waypointsPath)) {
+    throw new Error(
+      `${routeId}: with no stages.json, the curated waypoints anchor the walked line, ` +
+        `and there is no waypoints.geojson to read them from.`,
+    );
+  }
+  const waypoints = (loadJson(waypointsPath) as { features: unknown }).features as Array<{
+    id?: string;
+    geometry: { coordinates: Position };
+    properties: { name?: string; source?: string; kmFromStart?: number };
+  }>;
+  const curated = (Array.isArray(waypoints) ? waypoints : []).filter(
+    (f) => f.properties?.source === undefined,
+  );
+  if (curated.length === 0) {
+    throw new Error(
+      `${routeId}: waypoints.geojson holds no curated waypoints, so there is nothing between ` +
+        `the endpoints to hold the line to the route.`,
+    );
+  }
+  for (const feature of curated) {
+    if (typeof feature.properties.kmFromStart !== "number") {
+      throw new Error(
+        `${routeId}: curated waypoint "${feature.id ?? feature.properties.name}" has no ` +
+          `kmFromStart, so the anchors cannot be put in route order.`,
+      );
+    }
+  }
+
+  const anchors: Anchor[] = [
+    { coordinates: start.coordinates, label: start.name?.en ?? "start" },
+    ...[...curated]
+      .sort((a, b) => a.properties.kmFromStart! - b.properties.kmFromStart!)
+      .map((f) => ({
+        coordinates: f.geometry.coordinates,
+        label: f.properties.name ?? f.id ?? "curated waypoint",
+      })),
+    { coordinates: end.coordinates, label: end.name?.en ?? "end" },
+  ];
+
+  // A section's own endpoint is often one of its curated waypoints too, and an
+  // anchor repeated back to back only scores a zero-length leg.
+  const deduped = anchors.filter(
+    (anchor, i) =>
+      i === 0 ||
+      anchor.coordinates[0] !== anchors[i - 1].coordinates[0] ||
+      anchor.coordinates[1] !== anchors[i - 1].coordinates[1],
+  );
+
+  return { anchors: deduped, from: "overview endpoints and waypoints.geojson" };
+}
+
 async function main(): Promise<void> {
   const routeId = process.argv[2];
   if (!routeId) {
@@ -283,19 +422,11 @@ async function main(): Promise<void> {
   }
 
   const routeDir = join(ROOT, "routes", routeId);
-  const metadata = loadJson(join(routeDir, "metadata.json")) as { name: { en: string } };
-  const stagesPath = join(routeDir, "stages.json");
-  if (!existsSync(stagesPath)) {
-    console.error(`${routeId} has no stages.json, so there is nothing to anchor a walked line to.`);
-    process.exit(1);
-  }
-  const stages = (loadJson(stagesPath) as { stages: unknown }).stages as Array<{
-    index: number;
+  const metadata = loadJson(join(routeDir, "metadata.json")) as {
     name: { en: string };
-    distanceKm: number;
-    start: { coordinates: Position };
-    end: { coordinates: Position };
-  }>;
+    overview?: { distanceKm?: number };
+  };
+  const { anchors, from, declaredLegKm } = anchorsFrom(routeDir, routeId);
 
   const relationIds = requireRelations(routeDir, routeId);
   const query = buildRelationGeomQuery(relationIds);
@@ -313,12 +444,12 @@ async function main(): Promise<void> {
 
   const ways = extractWays(relations);
   console.log(`${relations.length} relation(s), ${ways.length} member way(s)`);
+  console.log(`${anchors.length} anchor(s) from ${from}`);
 
-  const anchors: Position[] = stages.map((s) => s.start.coordinates);
-  anchors.push(stages[stages.length - 1].end.coordinates);
-
-  const result = mainLine(ways, anchors);
+  const result = mainLine(ways, anchors.map((a) => a.coordinates));
   refuseIncompleteLine(result.missing);
+  const snaps = anchors.map((anchor, i) => ({ label: anchor.label, meters: result.snaps[i] }));
+  refuseDistantAnchors(snaps);
 
   const geojson = {
     type: "FeatureCollection",
@@ -345,18 +476,35 @@ async function main(): Promise<void> {
   writeFileSync(join(routeDir, "route.main.geojson"), JSON.stringify(geojson) + "\n");
 
   const totalKm = lineLengthMeters(result.line) / 1000;
-  const declaredKm = stages.reduce((sum, s) => sum + s.distanceKm, 0);
+  const declaredKm = declaredLegKm
+    ? declaredLegKm.reduce((sum, km) => sum + km, 0)
+    : metadata.overview?.distanceKm;
+  const against = declaredKm === undefined
+    ? ""
+    : ` against ${declaredKm.toFixed(1)} km declared`;
+  console.log(`\nWrote route.main.geojson: ${result.line.length} points, ${totalKm.toFixed(1)} km${against}\n`);
+
+  const worst = snaps.reduce((a, b) => (b.meters > a.meters ? b : a));
   console.log(
-    `\nWrote route.main.geojson: ${result.line.length} points, ${totalKm.toFixed(1)} km ` +
-      `against ${declaredKm.toFixed(1)} km of stages\n`,
+    `  worst anchor snap: ${Math.round(worst.meters)} m at ${worst.label} ` +
+      `(limit ${SNAP_METERS} m), ${result.missing.length} leg(s) unconnected\n`,
   );
-  for (const stage of stages) {
-    const km = result.legs[stage.index] / 1000;
-    const ratio = km / stage.distanceKm;
+
+  for (let i = 0; i < result.legs.length; i++) {
+    const km = result.legs[i] / 1000;
+    const declared = declaredLegKm?.[i];
+    if (declared === undefined) {
+      console.log(
+        `  ${String(i).padStart(2)} ${`${anchors[i].label} → ${anchors[i + 1].label}`.slice(0, 52).padEnd(54)} ` +
+          `${km.toFixed(2)} km`,
+      );
+      continue;
+    }
+    const ratio = km / declared;
     const verdict = Math.abs(ratio - 1) <= 0.1 ? "ok  " : "GATE";
     console.log(
-      `  ${verdict} ${String(stage.index).padStart(2)} ${stage.name.en.slice(0, 44).padEnd(46)} ` +
-        `${km.toFixed(2)} km vs ${stage.distanceKm} km (${ratio.toFixed(3)})`,
+      `  ${verdict} ${String(i).padStart(2)} ${anchors[i].label.slice(0, 44).padEnd(46)} ` +
+        `${km.toFixed(2)} km vs ${declared} km (${ratio.toFixed(3)})`,
     );
   }
 }

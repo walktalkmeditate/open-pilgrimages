@@ -68,6 +68,33 @@ interface StageRangeInfo {
   useGeographicFallback: boolean;
 }
 
+/**
+ * A section whose day stages are cut *from these very waypoints* has to be
+ * enriched before it has any: Shikoku's day rule ends a day at the nearest
+ * named accommodation or town wherever no temple falls in range, and it can
+ * only read what a run like this one wrote. One provisional range stands in
+ * for the days that do not exist yet — every waypoint lands on stage 0, with
+ * a kmFromStart spread across the section's declared distance — and both are
+ * re-assigned once the days are cut.
+ *
+ * The corridor is deliberately untouched by this: which places are admitted
+ * is decided by route.geojson and BUFFER_KM whether or not stages exist, so
+ * the derived set a later re-run reproduces does not turn on it.
+ */
+export function wholeRouteRange(routeCoords: Coord[], distanceKm: number): StageRangeInfo {
+  return {
+    ranges: [{
+      startIdx: 0,
+      endIdx: routeCoords.length - 1,
+      startCoord: routeCoords[0],
+      endCoord: routeCoords[routeCoords.length - 1],
+      distanceKm,
+      cumulativeStartKm: 0,
+    }],
+    useGeographicFallback: false,
+  };
+}
+
 function getStageRanges(routeDir: string, routeCoords: Coord[]): StageRangeInfo {
   const stages = loadJson(join(routeDir, "stages.json"));
   const ranges: StageRange[] = [];
@@ -173,7 +200,23 @@ async function main() {
   }
 
   const routeCoords = getRouteCoords(routeDir);
-  const { ranges: stageRanges, useGeographicFallback } = getStageRanges(routeDir, routeCoords);
+  const hasStages = existsSync(join(routeDir, "stages.json"));
+  if (!hasStages && typeof meta.overview?.distanceKm !== "number") {
+    console.error(
+      `${routeId} has no stages.json to assign waypoints to and no overview.distanceKm ` +
+      `to spread them across instead.`,
+    );
+    process.exit(1);
+  }
+  const { ranges: stageRanges, useGeographicFallback } = hasStages
+    ? getStageRanges(routeDir, routeCoords)
+    : wholeRouteRange(routeCoords, meta.overview.distanceKm);
+  if (!hasStages) {
+    console.log(
+      `  ⚠ No stages.json yet — every waypoint lands on stage 0 with a provisional ` +
+      `kmFromStart across ${meta.overview.distanceKm} km, to be re-assigned once the days are cut.`,
+    );
+  }
   const bbox = meta.overview.bbox as [number, number, number, number];
 
   const curated = existing.features.filter((f: any) => f.properties.source !== "osm");
