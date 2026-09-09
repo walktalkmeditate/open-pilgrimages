@@ -7,15 +7,19 @@ const CACHE_DIR = join(ROOT, ".cache", "osm");
 const OVERPASS_URL = "https://overpass-api.de/api/interpreter";
 
 /**
- * Overpass answers Node's default User-Agent with 406 Not Acceptable, so
- * every route below fetched nothing until this was set. Deliberately the same
- * string scripts/enrich/osm.ts already sends rather than a fourth identity for
- * the same project against the same endpoint — it is also what the Shikoku
- * cache behind the 1.9.0 plan's Task 1 was fetched under, so this script now
- * reproduces that fetch rather than merely resembling it.
+ * Overpass answers Node's default User-Agent with 406 Not Acceptable, so every
+ * route below fetched nothing until this was set.
+ *
+ * Named for this script rather than borrowing scripts/enrich/osm.ts's string,
+ * following scripts/fetch-roads.ts: Overpass operators read the User-Agent to
+ * tell one workload from another and to reach whoever is running it, and this
+ * one sweeps every configured route's full relation geometry — a heavier and
+ * rarer job than enrichment's per-route POI queries. Sharing an identity would
+ * hide that distinction at the only place it can be seen. It costs nothing in
+ * reproducibility: Overpass varies its response by query, never by who asked.
  */
 const USER_AGENT =
-  "open-pilgrimages-enrich/1.0 (+https://github.com/walktalkmeditate/open-pilgrimages)";
+  "open-pilgrimages-routes/1.0 (+https://github.com/walktalkmeditate/open-pilgrimages)";
 
 export interface RouteConfig {
   id: string;
