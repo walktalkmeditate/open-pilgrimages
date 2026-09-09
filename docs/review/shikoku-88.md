@@ -1,8 +1,8 @@
 # Shikoku 88 — drafted text review
 
-Twenty stages carry drafted text: five of `shikoku-88-awa` and fifteen of `shikoku-88-tosa`.
-Each entry below holds what the text was written from, so it can be judged against its
-evidence rather than on its own.
+Thirty-four stages carry drafted text: five of `shikoku-88-awa`, fifteen of
+`shikoku-88-tosa` and fourteen of `shikoku-88-iyo`. Each entry below holds what the text was
+written from, so it can be judged against its evidence rather than on its own.
 
 This is the checklist spec §6 requires of the Shikoku 88 content work. `npm run validate`
 reads it alongside `routes/shikoku-88-*/stages.json`, and `npm run check-drafted-diff` reads
@@ -11,22 +11,60 @@ fails CI. It covers a whole pilgrimage, so **every line names its section**. The
 each have a stage 0, and one unqualified `- [x] stage 0` would clear all four at once — the
 gate refuses that form, and this file must never contain it.
 
-**The Awa text was drafted in Task 6a and the Tosa text in Task 6b, each declared here by the
-task that wrote it. Nothing in this file is a review.** All twenty of those lines are open,
-and clearing one is a later task's work, by an agent that had no part in the drafting: an
-author who ticks his own prose records a review that did not happen.
+**The Awa text was drafted in Task 6a, the Tosa text in Task 6b and the Iyo text in Task 6c,
+each declared here by the task that wrote it. Nothing in this file is a review.** All
+thirty-four of those lines are open, and clearing one is a later task's work, by an agent
+that had no part in the drafting: an author who ticks his own prose records a review that did
+not happen.
 
 ## What the drafter did not have
 
 Two absences shaped every sentence below, and a reader checking the text should know they
 were chosen rather than overlooked.
 
-**No elevation, anywhere in this pilgrimage.** All four sections' `route.main.geojson` are
-2-D; no stage in any of them declares `elevationGainMeters`, `elevationLossMeters`,
-`highPointMeters` or `lowPointMeters`; every `ways/stage-NN.json` therefore ships
-`gainMeters: 0`; and `routes/shikoku-88-awa/metadata.json` has no `overview.elevationRange`
-to read. §6 lists climb among the permitted grounds, and here there is none to permit. So no
-drafted sentence describes ascent, descent, a pass, or a day as hard for its terrain.
+**No elevation on any stage — but eighteen temple waypoints carry a point height.**
+
+> **Corrected in Task 6c.** This paragraph opened "No elevation, anywhere in this
+> pilgrimage" while Tasks 6a and 6b drafted against it, and that sentence was false: it is
+> true of the lines, the stage fields and the shipped packages, and not of the waypoints.
+> Tosa's drafter found the counter-example and qualified the claim inside its own section
+> rather than here, so the shared paragraph went on asserting it. The original wording is
+> recorded rather than erased, because two sections were written under it and one entry
+> below still quotes it: **shikoku-88-tosa's bullet "`elevation` on three temple waypoints"
+> quotes the superseded sentence verbatim, and is left exactly as its drafter wrote it.**
+> Nothing either section wrote rests on a height, so the over-strong claim cost Awa and Tosa
+> no text; the correction changes what a later drafter is allowed to reach for, not what
+> those two did.
+
+All four sections' `route.main.geojson` are 2-D; no stage in any of them declares
+`elevationGainMeters`, `elevationLossMeters`, `highPointMeters` or `lowPointMeters`; every
+`ways/stage-NN.json` therefore ships `gainMeters: 0`; and no section's `metadata.json` has an
+`overview.elevationRange` to read. **Stages carry no elevation**, and `gainMeters: 0` means
+*unknown*, not *none*.
+
+What the four sections do carry is a point `elevation` on **eighteen temple waypoints** in
+`waypoints.geojson`, measured on the committed files:
+
+| section | count | temples |
+| --- | --- | --- |
+| `shikoku-88-awa` | 3 | T12 700 m · T20 470 m · T21 600 m |
+| `shikoku-88-tosa` | 3 | T24 160 m · T27 380 m · T31 140 m |
+| `shikoku-88-iyo` | 5 | T45 560 m · T58 250 m · T60 750 m · T64 250 m · T65 350 m |
+| `shikoku-88-sanuki` | 7 | T66 911 m · T71 160 m · T81 250 m · T82 330 m · T84 280 m · T85 200 m · T88 450 m |
+
+An `elevation` on a temple waypoint is an OSM tag on a temple, and §6 permits both — so a
+drafter may state one, as a height at that temple and nothing more.
+
+**A point height is not a climb.** One number at a gate says nothing about the gradient
+between two of them, so everything the rest of this paragraph asserted still holds: §6 lists
+climb among the permitted grounds and this pilgrimage has none to permit, and **no drafted
+sentence anywhere below describes ascent, descent, a pass, or a day as hard for its terrain**.
+A reviewer should read any future sentence that turns one of these eighteen numbers into a
+climb as an error of the same kind as one built on `gainMeters: 0`.
+
+Awa's and Tosa's drafters used none of the six heights available to them. Iyo's used two of
+its five, both as heights and neither as a gradient, and records under its own section which
+two and why the other three stayed out.
 
 The text also asserts no *flatness*. Silence about height is not a claim that the ground is
 level, and nothing below says a day is easy, gentle, level or downhill. Where a day's shape
@@ -134,18 +172,18 @@ So each stage's endpoints below are read from `stages.json`, and each agrees wit
 
 ## Appending a section
 
-Iyo and Sanuki hold ticked lines at the foot of this file and nothing else, because the
-gate wants a line per stage whether or not there is text behind it. A drafter taking one of
-those sections **lifts that section's block out of the closing list and replaces it with a
-`## <section-id> — <name>` heading and one `### <section-id> stage N` entry per stage**, in
-the shape Awa uses. Nothing above needs to move: the top matter is pilgrimage-wide and the
-sections are independent of each other. Keep the section headings in walking order — awa,
-tosa, iyo, sanuki — so the file reads in the order the circuit is walked.
+Sanuki holds ticked lines at the foot of this file and nothing else, because the gate wants a
+line per stage whether or not there is text behind it. A drafter taking that section **lifts
+its block out of the closing list and replaces it with a `## <section-id> — <name>` heading
+and one `### <section-id> stage N` entry per stage**, in the shape Awa uses. Nothing above
+needs to move: the top matter is pilgrimage-wide and the sections are independent of each
+other. Keep the section headings in walking order — awa, tosa, iyo, sanuki — so the file
+reads in the order the circuit is walked.
 
-Tosa was lifted out of that list in Task 6b, and the lift is the whole of the move: its
-fifteen ticked lines were **deleted**, not left standing beside the fifteen open ones its
-entries carry. `validate` now refuses a second line for the same section-and-stage and names
-both line numbers, so leaving them would fail rather than quietly pre-tick a review.
+Tosa was lifted out of that list in Task 6b and Iyo in Task 6c, and the lift is the whole of
+the move: each section's ticked lines were **deleted**, not left standing beside the open ones
+its entries carry. `validate` now refuses a second line for the same section-and-stage and
+names both line numbers, so leaving them would fail rather than quietly pre-tick a review.
 
 ---
 
@@ -1280,37 +1318,1031 @@ walker would make.
 
 ---
 
+---
+
+## shikoku-88-iyo — Iyo (Temples 39-65)
+
+Temple 39 Enkō-ji to Temple 65 Sankaku-ji, **365.677 km** of walked line (`ways/report.json`
+`walkedLine`, 13,983 points), cut into fourteen days. Twenty-six waypoints here carry a
+`templeNumber`, 40 through 65: Temple 39 is this section's start anchor, taken verbatim from
+`overview.startPoint`, and its own numbered waypoint belongs to `shikoku-88-tosa`. The day cut
+ends six of the fourteen days at a temple — stages 0, 2, 7, 9, 11 and 13, the last of those
+under the boundary override. The other eight end at a lodging or a town.
+
+Temple positions on the line, which most of the text below is arithmetic on:
+
+`temple-40` 27.156 · `temple-41` 76.831 · `temple-42` 79.897 · `temple-43` 90.785 ·
+`temple-44` 161.227 · `temple-45` 171.377 · `temple-46` 197.070 · `temple-47` 197.952 ·
+`temple-48` 202.396 · `temple-49` 205.700 · `temple-50` 207.450 · `temple-51` 210.263 ·
+`temple-52` 221.405 · `temple-53` 224.043 · `temple-54` 258.991 · `temple-55` 262.590 ·
+`temple-56` 265.687 · `temple-57` 268.660 · `temple-58` 271.037 · `temple-59` 277.273 ·
+`temple-60` 305.019 · `temple-61` 313.671 · `temple-62` 315.168 · `temple-63` 316.605 ·
+`temple-64` 319.881 · `temple-65` 365.677 km.
+
+The twenty-six steps, starting from the section's own 0.000 km at Temple 39: 27.156, 49.675,
+3.066, 10.888, 70.442, 10.150, 25.693, 0.882, 4.444, 3.304, 1.750, 2.813, 11.142, 2.638,
+34.947, 3.599, 3.098, 2.973, 2.377, 6.236, 27.745, 8.652, 1.497, 1.438, 3.276, 45.796 km.
+They sum to 365.677, the whole line.
+
+Four properties of that list carry most of the narratives below:
+
+- **Four steps run over 30 km** — 70.442, 49.675, 45.796 and 34.947 — and together they carry
+  **200.860 km, 54.9%** of the section. `metadata.json`'s `description` declares the four and
+  calls the longest, Temple 43 → 44, **70.3 km**. Measured on the walked line it is
+  **70.442**, and the 142 m difference is recorded here rather than smoothed: the description's
+  legs are relation lengths (its own note says the member ways sum to 366.7 km against a
+  365.677 km walked line) and everything in this file is a projection onto the walked line.
+  The narratives use the measured figure, 70.4.
+- **Three of the twenty-six steps fall inside the 25–30 km band the day cut looks in** —
+  27.156, 25.693 and 27.745. That settles less than it looks: the first arm measures the band
+  from the *previous day's end*, not from the previous temple, so five days end at a temple on
+  that arm even though only three temple-to-temple legs are band-length. The sixth temple
+  ending, stage 13, is the boundary override and not either arm.
+- **The narrowest step is Temple 46 → 47 at 0.882 km**, and Temples 46 to 51 are six temples
+  inside **13.193 km** with all five steps between them under 5 km — the run
+  `metadata.json`'s `description` declares, and the only run of five consecutive sub-5 km
+  steps anywhere in the section. The next-longest such run is four, Temples 54 to 58.
+- **Neither the widest nor the narrowest step ends a day.** 70.442 km (Temple 43 → 44) is
+  crossed by the tail of stage 3, the whole of stage 4 and the first 22.4 km of stage 5 —
+  three days inside one step, and stage 4 is the only day in the section with no temple on it
+  at all. 0.882 km (Temple 46 → 47) falls inside stage 7, which holds six temples and ends at
+  the last of them.
+
+**Places.** `waypoints.geojson` holds **953** features — the most of the four sections by a
+long way, against Tosa's 372, Sanuki's 389 and Awa's 203, which come to 964 between them.
+Per stage, by `stageIndex`: 52, 35, 134, 121, 71, 26, 16, 84, 117, 75, 88, 32, 84, 18. Of the 953, **473 are bus stops**, 82 `sacred_site`/`church`, 69 restaurants, 50
+toilets, 49 convenience stores, 43 `sacred_site`/`wayside_shrine`, 41 accommodation (23
+`hotel`, 14 `guesthouse`, 4 `hostel`), 28 hospitals, 26 temples, 23 cafés, 21 train stations,
+18 vending machines, 15 pharmacies, 7 towns (4 `city`, 3 `town`), 4 fountains, 2 clinics, 1
+`cultural_site` and **1 viewpoint**.
+
+**Coverage, and the two days it hides.** `ways/report.json`'s `places` block reports
+`placesPerStage: 10.4` with `sparse: false`. That figure is not places per stage in any plain
+sense: it is the mean of `momentsBeyondEnds`, the count of `sacred_site`, `cultural_site`,
+`viewpoint` and `town` waypoints on a stage that are neither its own start nor its own end.
+10.4 is the best of the four sections (Awa 9.6, Sanuki 9.3, Tosa 3.1). Per stage it runs 4, 0,
+19, 50, 16, 2, 3, 15, 5, 6, 13, 7, 6, 0 — and **stages 1 and 13 are zeros**. Nothing between
+either of those days' two endpoints is a shrine, a town, a viewpoint or a ruin. Both
+narratives say so in as many words, because `sparse: false` is a fact about the section and
+those two days are not covered by it. A reviewer should check that neither sentence reads as
+"nothing is there": stage 1 carries 35 recorded places and stage 13 carries 18, and both
+entries below give the counts.
+
+### What Iyo refused, on top of the shared list above
+
+Everything under "What was refused" binds here unchanged. Beyond it, this section offered
+eight things Awa and Tosa did not, or offered them differently.
+
+- **"Enlightenment" as what Iyo means.** It sits verbatim in this section's own `description`
+  — "Iyo carries the third of the four stages of spiritual progression the pilgrimage maps
+  onto Shikoku's four provinces: enlightenment" — and again in
+  `cultural.historicalSignificance`. Refused, on the reasoning that refused "awakening" for
+  Awa and "discipline" for Tosa. §6's two sentences must both hold: a dōjō name's meaning is
+  present in the section's own files and is not one of the kinds §6 enumerates, and it
+  attaches to the section rather than to any day of it. **No narrative below names the dōjō or
+  its meaning.**
+- **`description` fields on two temple waypoints.** `temple-45` carries "The 'Cave Temple' —
+  dramatically set in cliff faces." and `temple-51` "Near Dogo Onsen. National Treasure gate."
+  Refused on Tosa's precedent for Cape Muroto and Cape Ashizuri, which is the sharper test:
+  these attach to temples, which *are* an enumerated kind, and they still fail. The first is a
+  terrain characterisation standing on no profile; the second names a place no `town` node
+  here supports and a heritage designation that is not a temple, shrine, pass, town, distance
+  or climb.
+- **`tags` on three temple waypoints** — `temple-45` `["temple","mountain","scenic"]`,
+  `temple-51` `["temple","national-treasure"]`, `temple-60` `["temple","mountain"]`. Refused
+  exactly as Tosa refused the same field. `mountain` and `scenic` are terrain and character
+  claims with no measurement behind them, and this is the kind of sentence the no-climb rule
+  exists to stop.
+- **"Dōgo" as a place.** Stage 8 opens on twelve lodgings inside 800 m, which is the Dōgo
+  Onsen quarter, and any reader who knows Shikoku will recognise it. In this section the word
+  exists only inside names — `node/5103430714` "Hotel Villa Dogo", `node/5635161092` "Hotel
+  Eco Dogo", `node/13866539538` ホテル道後湯の町, `node/3534347860` 道後プリンスホテル, and the
+  dropped bus stop `node/3152610454` 道後姫塚 — and in `temple-51`'s refused description. No
+  `town` waypoint names it. So stage 8's narrative describes the cluster and does not name it,
+  the way Tosa left Cape Ashizuri to a bus stop's name. Recorded here so the omission is
+  visible.
+- **Uwajima as a town or a city.** Stage 2's dense run passes through it, and
+  `waypoints.geojson` holds seven `type: town` features of which Uwajima is not one — they are
+  Sukumo, Ainan, Seiyo, Ozu, Uchiko, Kumakogen and Imabari. The name appears once in the text
+  below, as **the name of a station**: `wp-osm-transport-node7832095789` / `node/7832095789`,
+  `train_station`, "Uwajima" 宇和島, in the way Awa named Yuki, Tainohama and Kiki.
+- **Three of the five temple elevations.** `temple-58` 250 m, `temple-64` 250 m and
+  `temple-65` 350 m were available under the corrected shared paragraph above and are not
+  used. Each would have been a bare number in a sentence that already had a shape to describe,
+  and five heights scattered through fourteen days would make the section look as though it
+  had a profile. See "The two heights used" below.
+- **The stamp fee, the temple hours, the anniversary row.**
+  `pilgrimage.stats.infrastructure` carries a 500 JPY stamp fee changed 2024-04-01, an
+  08:00–17:00 opening changed the same day, and the 2015 trend row's 1200th-anniversary note.
+  All refused: pilgrimage-wide, and two of the three are dates.
+- **A single word for the sacred sites on stage 12.** Six `sacred_site` features stand in that
+  day's stretch and their names do not agree on a kind — `node/10572420866` 白山神社 a shrine,
+  `node/10688013064` 新居浜キリスト教会 a Christian church, `node/10673975133` 毘沙門堂 a hall,
+  `node/10669837034` 萩生寺 and `node/6069894534` 別格12 延命寺 temples, and
+  `node/11408953169` "Jizoharajizoan". The narrative calls them "six sacred places" and names
+  none, because no one word covers them; Awa's wording for the church-subtype nodes is the
+  precedent.
+
+### The two heights used
+
+`temple-45` 560 m appears in stage 6's narrative and `temple-60` 750 m in stage 11's. Both are
+phrased as facts about the waypoint — "its waypoint is one of five in Iyo that carry a height,
+and the number on it is 560 m"; "its waypoint carries a height of 750 m — the highest of the
+five heights any temple in Iyo records". Three things were done deliberately and a reviewer
+should rule on each:
+
+- **Both sentences name the count of five.** Twenty-one of Iyo's twenty-six temples carry no
+  `elevation`, and a height given without that count would let a reader infer the silent
+  twenty-one are lower. They are not lower or higher; nothing is recorded for them.
+- **Neither height stands next to a distance in a way that could be read as a gradient.** In
+  stage 6 the 560 m sits in its own clause after "6.4 km in, 10.2 km on from Daihō-ji"; in
+  stage 11 the 750 m sits after "10.8 km into this day, 27.7 km on from Iyo Kokubun-ji". A
+  reviewer should judge whether the separation is enough, because the failure mode is exactly
+  the one the shared paragraph warns about: a walker reading "6.4 km" and "560 m" in one
+  sentence may take the second as the first's climb, and **nothing in this repository says
+  what the ground does between any two of these points.**
+- **Nothing else changed because of them.** Every narrative here is built from spacing, as
+  Awa's and Tosa's are. The two heights are additions to two sentences, not the basis of any
+  claim; delete both and no other sentence in the fourteen needs rewriting. That is the
+  honest measure of what a point height is worth without a profile beside it.
+
+### The four that reach the enrichment corridor and not the stage
+
+`ways/report.json`'s per-stage `dropped` arrays hold four entries between them — on stages 4,
+7 and 8, two of them on 8 — and its top-level `dropped` is empty, so a reader checking only
+the top-level list sees nothing and has to go stage by stage. **All four are ordinary
+near-misses of the 300 m limit**: the report's figures are 301, 303, 309 and 325 m. Nothing
+here behaves like Tosa's Ashizuri
+cluster, which sat 1.75–2.08 km from the walked line after passing the 300 m enrichment
+corridor. The check still had to be run, because the two lines are just as far apart on this
+section: enrichment measures against `route.geojson`, **636.621 km** across 14,893 points, and
+`build-ways` against `route.main.geojson`, **365.677 km** across 13,983 — a factor of **1.74**.
+Measured with `projectOnLine` against `route.main.geojson`, **no waypoint in this section
+stands more than 323 m from the walked line**, so on Iyo the trap does not spring.
+
+| waypoint | `report.json` | off `route.main.geojson` | off `route.geojson` | stage |
+| --- | --- | --- | --- | --- |
+| `node/3152605161` 大洲駅前, bus stop | 301 m | 298 m | 298 m | 4 |
+| `node/1423738628` 杏林会東明病院, hospital | 325 m | 323 m | 281 m | 7 |
+| `node/3152610454` 道後姫塚, bus stop | 309 m | 308 m | 273 m | 8 |
+| `node/5500182421` unnamed fountain | 303 m | 298 m | 285 m | 8 |
+
+The report's figure and this file's differ by 1–3 m on every row because `build-ways` measures
+a mark against the stage's own shipped route points, after `simplify`, `strideCap` and
+`roundLine`, and this file measures against the committed line. Two of the four sit under 300 m
+on the committed line and are dropped anyway; the report's number is the one that decides, and
+it is the one each entry below quotes. **None of the four is named in any narrative.** Stages 4
+and 7 say a place does not reach the day and give its metres; stage 8 says two do.
+
+### Where Iyo's day-ends are filed
+
+`metadata.json`'s `provenance` records that 12 of the pilgrimage's 36 mid-route day-end places
+are filed on the day that *begins* there rather than the one that arrives. **Six of the twelve
+are in Iyo**, checked on the committed line; the other six are Tosa's, and Awa and Sanuki have
+none. Every endpoint below is therefore read from `stages.json` and not from any waypoint's
+`stageIndex`:
+
+| day-end | projects at | boundary vertex | Δ | filed on | arriving day |
+| --- | --- | --- | --- | --- | --- |
+| `temple-40` Kanjizai-ji | 27.15597 km | 27.15597 km (vertex 1094) | +3.6 × 10⁻¹² m | stage 1 | **stage 0** |
+| `node/10858084271` Hotel Ailin | 53.79761 km | 53.81080 km (vertex 2012) | −13.19 m | stage 1 | stage 1 |
+| `temple-42` Butsumoku-ji | 79.89694 km | 79.89694 km (vertex 3071) | 0.00 m | stage 2 | stage 2 |
+| `node/691563007` Ozu | 112.35023 km | 112.35023 km (vertex 4292) | 0.00 m | stage 3 | stage 3 |
+| `node/5923663885` Rairakuku | 138.83490 km | 138.82507 km (vertex 5061) | +9.83 m | stage 5 | **stage 4** |
+| `node/5923659291` Karibaen | 164.92094 km | 164.93076 km (vertex 6179) | −9.81 m | stage 5 | stage 5 |
+| `node/10858072227` Ichiriki | 182.39223 km | 182.37631 km (vertex 6931) | +15.92 m | stage 7 | **stage 6** |
+| `temple-51` Ishite-ji | 210.26296 km | 210.26899 km (vertex 8295) | −6.03 m | stage 7 | stage 7 |
+| `node/11535058569` Hōjō Suigun Youth Hostel | 234.28215 km | 234.26583 km (vertex 9270) | +16.32 m | stage 9 | **stage 8** |
+| `temple-55` Nankōbō | 262.58983 km | 262.58343 km (vertex 10169) | +6.40 m | stage 10 | **stage 9** |
+| `node/12944733844` ゲストハウス BEKKU | 294.16815 km | 294.23480 km (vertex 11158) | −66.65 m | stage 10 | stage 10 |
+| `temple-64` Maegami-ji | 319.88102 km | 319.88102 km (vertex 12229) | 0.00 m | stage 11 | stage 11 |
+| `node/12948927058` HOTEL AZ 愛媛土居インター店 | 352.63107 km | 352.62674 km (vertex 13509) | +4.33 m | stage 13 | **stage 12** |
+
+All fifteen boundaries snapped; none went proportional. The sign of Δ decides every row, as it
+does in Tosa: a day-end that projects past its own boundary vertex by any margin lands on the
+day that begins there. **Kanjizai-ji is the extreme case `metadata.json`'s `provenance` names
+by name** — it projects onto its vertex to within 3.6 × 10⁻¹² m, a floating-point residual, and
+the residual is positive, so Temple 40 is filed on stage 1 rather than on the day that walks to
+it. Butsumoku-ji, Ozu and Maegami-ji project onto their vertices to an exact zero and are filed
+on the arriving day. The widest Δ in either direction is ゲストハウス BEKKU at −66.65 m, four
+times the next largest here.
+
+Two of the six misfilings are temples, and both bite the arithmetic below: **`temple-40` and
+`temple-55` each stand at a day's end while carrying the following day's `stageIndex`**, so a
+temple count read off `stageIndex` gives stage 0 no temples and stage 9 only one, and hands
+stages 1 and 10 a temple that stands at their first step. Every count in this file is read from
+the projections and the boundary spans instead, and stages 0 and 9 say in their **Places** line
+that their own end temple is not among the features filed on them.
+
+### Vocabulary, and one thing this section did not re-open
+
+"Gate" stands for a temple in nine of the fourteen entries below — stages 0, 1, 2, 4, 5, 7, 9,
+10 and 11 — and "bed" for an `accommodation` waypoint in three, stages 5, 8 and 12. Neither
+word is in any file. Tosa's stage 0 note asks a reviewer to settle that substitution once for
+the whole pilgrimage; **Iyo inherits the question and does not re-open it**, and if the answer
+is no, these nine entries change with Tosa's eleven and not separately.
+
+**Measurement.** As for Awa and Tosa: every along-line kilometre and off-line metre below is
+the perpendicular projection of the place's own coordinate onto the committed
+`routes/shikoku-88-iyo/route.main.geojson`, computed with `projectOnLine` from
+`scripts/ways/geo.ts`; boundary vertices come from `stageBoundaries` on the same line. The
+twenty-six temple waypoints carry no OSM id — they come from the Shikoku 88 official-site
+source `metadata.json` declares under `provenance.sources` — and are cited as `temple-40` …
+`temple-65`. Every other id is an OpenStreetMap node and resolves at
+`https://api.openstreetmap.org/api/0.6/node/<id>.json`. Each **Distance** line gives the span
+between the two boundary vertices, the figure `stages.json` declares, and `ways/report.json`'s
+`sliceKm`, `ratio` and `passedGate` for the slice actually shipped.
+
+**Romanisation.** The temple waypoints' `name.en` strings carry no macrons — "Ryuko-ji",
+"Daiho-ji", "Joruri-ji", "Nankobo". The narratives macronise them, which is what Awa did with
+the same field ("Ryozen-ji" → "Ryōzen-ji", "Shozan-ji" → "Shōzan-ji") and which two of this
+section's own files corroborate: `node/4435546089` is named "55 南光坊 (Nankōbō)" and
+`node/412335530` "61 Kōon-ji". One consequence is visible to a walker: `stages.json`'s stage 9
+name is the unmacronned "Nankobo (Temple 55)" and stage 9's narrative says "Nankōbō", so the
+title and the text differ on two vowels. A reviewer should decide which spelling wins.
+
+---
+
+### shikoku-88-iyo stage 0 — Enkō-ji (Temple 39) to Kanjizai-ji (Temple 40)
+
+- **Start** Enkō-ji (Temple 39) — section boundary, 21 m off the line, at 0.000 km. The
+  anchor's coordinates and name are `metadata.json`'s `overview.startPoint`, and
+  `shikoku-88-tosa` ends at the same point
+- **End** Kanjizai-ji (Temple 40) — `temple-40`, 45 m off the line, at 27.156 km. First arm:
+  27.16 km past the section's start, inside the band and the only temple in it
+- **Distance** 27.156 km between the boundary vertices against **27.2 km** declared. Shipped
+  slice 26.915 km (`ways/report.json` `sliceKm`), ratio 0.9895, `passedGate: true`,
+  `boundaryMode: snap`. Previously declared: **none** — this section's stages were cut in Task
+  5b and have never carried another figure
+- **Places** 52 filed on the stage; `ways/report.json` drops none of them. `temple-40` at the
+  day's end is **not** among the 52 — it carries `stageIndex: 1`; see the day-ends table above
+- **Grounding the text cites**
+  - "Temple 39 to Temple 40 is 27.2 km, and this day is the whole of that step" — `temple-40`
+    at **27.156 km** from the section's own 0.000 km at Temple 39, the first step in the list
+    above, and the day's span is the same 27.156
+  - "a gate at each end and none between" — no feature projecting inside 0.000–27.156 km
+    carries a `templeNumber` except `temple-40` at the far end. The feature at **0.000 km** is
+    `wp-osm-sacred_site-node4434097289` / `node/4434097289` (`sacred_site` / `church`, name
+    "39 Enko-ji", `ja` 第39番札所 延光寺, 16 m off) — one of the church-subtype twins
+    `metadata.json`'s `provenance` warns about, and not counted as a temple by the cut or by
+    this text
+  - "Fifty-two places are filed on it, twenty-three of them bus stops" — 52 features carry
+    `stageIndex: 0`, of which 23 carry `subtype: bus_stop`
+  - "Sukumo comes at 6.8 km and Ainan at 26.8" — `wp-osm-town-node691562989` /
+    `node/691562989` (`town` / `city`, 宿毛市), 173 m off, at **6.818 km**; and
+    `wp-osm-town-node691563002` / `node/691563002` (`town` / `town`, 愛南町), 179 m off, at
+    **26.801 km**
+  - "the twenty kilometres between them hold no town at all" — 26.801 − 6.818 = **19.983 km**,
+    and no other `type: town` feature projects into it. The section's seven towns sit at
+    6.818, 26.801, 92.342, 112.350, 124.926, 182.023 and 262.804 km
+  - "the only viewpoint among Iyo's nine hundred and fifty-three recorded places" —
+    `wp-osm-viewpoint-node10858037378` / `node/10858037378` (`viewpoint` / `viewpoint`, name
+    茶偓跡), 11 m off, at **13.102 km**. It is the section's only `type: viewpoint` feature, 1
+    of 953. It is called "a viewpoint" and not named, on the precedent of Tosa's unnamed
+    rest-area viewpoint at 137.6 km
+  - "the 5.2 km before it are the longest stretch of the day with nothing marked on them" —
+    `node/5334189372` (中華旬菜 水滸, 277 m off) at 7.930 km to the viewpoint at 13.102 =
+    **5.173 km**, against a next-longest gap on this stage of 3.161 km (13.102 → 16.264)
+
+```
+theme:      Two towns, and the only viewpoint Iyo records
+narrative:  Temple 39 to Temple 40 is 27.2 km, and this day is the whole of that step: a gate at each end and none between. Fifty-two places are filed on it, twenty-three of them bus stops. Sukumo comes at 6.8 km and Ainan at 26.8, and the twenty kilometres between them hold no town at all. At 13.1 km, in the middle of that, stands the only viewpoint among Iyo's nine hundred and fifty-three recorded places, and the 5.2 km before it are the longest stretch of the day with nothing marked on them. Kanjizai-ji closes it at 27.2 km.
+reflection: One viewpoint in nine hundred and fifty-three places, and the 5.2 km before it hold nothing at all — what were you looking at on the way there?
+```
+
+**Open.** Not reviewed. "the only viewpoint among Iyo's nine hundred and fifty-three recorded
+places" is a claim about OpenStreetMap's coverage of viewpoints, in a sentence a walker will
+read as a claim about what there is to look at — the same objection Tosa's stage 10 water
+source drew. The reflection leans on it harder than the narrative does. A reviewer should
+decide whether "recorded" carries the weight, or whether a superlative over a type with one
+member should not be drawn at all.
+
+- [ ] shikoku-88-iyo stage 0
+
+---
+
+### shikoku-88-iyo stage 1 — Kanjizai-ji (Temple 40) to Hotel Ailin
+
+- **Start** Kanjizai-ji (Temple 40) — `temple-40`, 45 m off the line, at 27.156 km
+- **End** Hotel Ailin — `wp-osm-accommodation-node10858084271` / `node/10858084271`
+  (`accommodation` / `hotel`), 33 m off the line, at 53.798 km. Second arm: no temple falls
+  25–30 km past 27.16 km
+- **Distance** 26.655 km between the boundary vertices against **26.6 km** declared. Shipped
+  slice 26.466 km, ratio 0.9950, `passedGate: true`. Previously declared: **none**
+- **Places** 35 filed on the stage; `ways/report.json` drops none of them. `momentsBeyondEnds:
+  0` — one of two stages in the section where nothing between the endpoints is a `sacred_site`,
+  `cultural_site`, `viewpoint` or `town`
+- **Grounding the text cites**
+  - "Kanjizai-ji to Ryūkō-ji is 49.7 km, the second-widest step between two temples in Iyo" —
+    `temple-41` 76.831 − `temple-40` 27.156 = **49.675 km**, second in the step list only to
+    Temple 43 → 44's 70.442
+  - "this day walks the first 26.7 of it" — the day's span, 26.655 km
+  - "the next gate is still 23.0 km beyond where it stops" — 76.831 − 53.811 = **23.020 km**
+    from the day's boundary vertex
+  - "Thirty-five places are recorded on the way and twenty-four of them are bus stops" — 35
+    features with `stageIndex: 1`, 24 with `subtype: bus_stop`
+  - "three convenience stores, two hospitals, two places to eat and a pharmacy are nearly all
+    the rest" — of the 35: 3 `convenience_store`, 2 `hospital`, 2 `type: food` (both
+    `restaurant`), 1 `pharmacy`, 1 vending machine, 1 hotel (the day's end) and `temple-40`
+    (the day's start)
+  - "Nothing between the two ends is a shrine, a town or a viewpoint" — the only
+    `sacred_site`, `cultural_site`, `viewpoint` or `town` feature projecting inside
+    27.156–53.811 km is `temple-40` at 27.156, the day's own start. `ways/report.json` reports
+    `momentsBeyondEnds: 0`
+  - "which is true of only one other day here" — the `momentsBeyondEnds` list is 4, **0**, 19,
+    50, 16, 2, 3, 15, 5, 6, 13, 7, 6, **0**; the other zero is stage 13
+  - "from 37.5 km to 47.3 the record marks nothing at all: 9.7 km, the longest such stretch
+    anywhere in this section" — `node/3152607473` (柏, bus stop, 60 m off) at 37.548 km to
+    `node/3152605200` (大門, bus stop, 89 m) at 47.295 = **9.747 km**. Nothing of any type
+    projects into it. The section's next-longest such gap is 9.569 km, on stage 6
+  - "The day ends at Hotel Ailin, 53.8 km in" — `node/10858084271` at **53.798 km**
+
+```
+theme:      The longest unmarked stretch in Iyo
+narrative:  Kanjizai-ji to Ryūkō-ji is 49.7 km, the second-widest step between two temples in Iyo, and this day walks the first 26.7 of it — the next gate is still 23.0 km beyond where it stops. Thirty-five places are recorded on the way and twenty-four of them are bus stops; three convenience stores, two hospitals, two places to eat and a pharmacy are nearly all the rest. Nothing between the two ends is a shrine, a town or a viewpoint, which is true of only one other day here. And from 37.5 km to 47.3 the record marks nothing at all: 9.7 km, the longest such stretch anywhere in this section. The day ends at Hotel Ailin, 53.8 km in.
+reflection: The longest unmarked stretch in the section falls in the middle of this day. Who decided what was worth marking?
+```
+
+**Open.** Not reviewed. Two things. The reflection asks about the map rather than the walk,
+which is the most openly data-facing question in the fourteen — it is here because this day's
+whole shape is a coverage fact and pretending otherwise would have been worse. And "which is
+true of only one other day here" is a cross-stage comparison of a kind Awa's stage 1 note and
+Tosa's stage 4 note both raised: a walker reading this one stage package cannot check it. That
+question is still open for the pilgrimage.
+
+- [ ] shikoku-88-iyo stage 1
+
+---
+
+### shikoku-88-iyo stage 2 — Hotel Ailin to Butsumoku-ji (Temple 42)
+
+- **Start** Hotel Ailin — `node/10858084271`, 33 m off the line, at 53.798 km
+- **End** Butsumoku-ji (Temple 42) — `temple-42`, 70 m off the line, at 79.897 km. First arm:
+  26.10 km past the previous day's end and the only temple inside the band — `temple-41` at
+  76.831 km is 23.02 km on and short of it, `temple-43` at 90.785 is 36.97 km on and past it
+- **Distance** 26.086 km between the boundary vertices against **26.1 km** declared. Shipped
+  slice 25.943 km, ratio 0.9940, `passedGate: true`. Previously declared: **none**
+- **Places** 134 filed on the stage, the most of any day in the section (52 / 35 / **134** /
+  121 / 71 / 26 / 16 / 84 / 117 / 75 / 88 / 32 / 84 / 18). `ways/report.json` drops none of
+  them
+- **Grounding the text cites**
+  - "one hundred and thirty-four places on 26.1 km" — the per-stage counts above
+  - "sixty-two of them bus stops and eighteen of them places to eat" — 62 `subtype: bus_stop`
+    and 18 `type: food` (15 `restaurant`, 3 `cafe`). None of the 18 is named, so the claim is
+    the count
+  - "six of the section's forty-one places to stay stand inside 1.5 km of each other" —
+    `node/11927103603` (Uwajima Regent Hotel, 24 m off, 66.321 km), `node/12118001403`
+    (Uwajima Daiichi Hotel, 230 m, 66.503), `node/11982490512` (旅館なか川, 178 m, 66.806),
+    `node/12014491052` (民宿みはら, 176 m, 66.806), `node/12125904000`
+    (スーパーホテル宇和島駅前天然温泉, 109 m, 67.048) and `node/5583293623`
+    (宇和島オリエンタルホテル, 283 m, 67.807). Span **1.486 km**; `waypoints.geojson` holds 41
+    `type: accommodation` features in all
+  - "the Uwajima station among them" — `wp-osm-transport-node7832095789` / `node/7832095789`
+    (`train_station`, "Uwajima" 宇和島), 151 m off, at **67.362 km**, inside that 1.486 km. A
+    second station, Kita-Uwajima (`node/7832690122`, 94 m, 69.135 km), stands on the day and is
+    **outside** the cluster, which is why the sentence says one station and not two
+  - "at 66.3 km the only ruins Iyo records" — `wp-osm-cultural_site-node9719709612` /
+    `node/9719709612` (`cultural_site` / `ruins`, name 煙硝矢倉跡), 104 m off, at **66.250 km**.
+    It is the section's only `type: cultural_site` feature, 1 of 953. The name is not given —
+    unlike Awa's Bandō camp and Tosa's ruined restaurant, this one carries no `en` string, and
+    a romanisation would be the drafter's and not the file's
+  - "both of the day's temples fall in its last 3.1 km" — `temple-41` at 76.831 km and
+    `temple-42` at 79.897, the day's end; 79.897 − 76.831 = **3.066 km**
+  - "Ryūkō-ji at 76.8 km, 49.7 km on from Kanjizai-ji" — `temple-41`, 3 m off, at 76.831 km;
+    76.831 − 27.156 = **49.675 km**
+  - "Butsumoku-ji at 79.9, where the day ends" — `temple-42`, 70 m off, at **79.897 km**. A
+    church-subtype twin stands on the same point: `node/811018827`, name "42 Butsumoku-ji",
+    第42番札所 佛木寺 仏木寺, 6 m off. It is not cited
+
+```
+theme:      One hundred and thirty-four places in twenty-six kilometres
+narrative:  More is recorded on this day than on any other in Iyo — one hundred and thirty-four places on 26.1 km, sixty-two of them bus stops and eighteen of them places to eat. Much of it arrives at once: six of the section's forty-one places to stay stand inside 1.5 km of each other, the Uwajima station among them, and at 66.3 km the only ruins Iyo records. Then it thins, and both of the day's temples fall in its last 3.1 km — Ryūkō-ji at 76.8 km, 49.7 km on from Kanjizai-ji, and Butsumoku-ji at 79.9, where the day ends.
+reflection: The busiest day in the section, and both its gates stand in the last three kilometres of it. Which part will you have been walking for?
+```
+
+**Open.** Not reviewed. "Then it thins" is a reading: between 69.4 km and 76.7 km the record
+holds 17 features, against 72 in the 5 km before it, so the word is supported, but it is a
+judgement about density and not a measurement quoted. The day's 134 places include the
+`water_source` fountain at 57.957 km, three wayside shrines and seventeen `sacred_site`
+churches — none of them named, because the narrative chose the density and the two temples over
+an inventory. A reviewer may think a day this full deserves one named place that is not a
+temple, a bed or a station; Tosa's stage 2 note raises the same objection about the same
+choice.
+
+- [ ] shikoku-88-iyo stage 2
+
+---
+
+### shikoku-88-iyo stage 3 — Butsumoku-ji (Temple 42) to Ozu
+
+- **Start** Butsumoku-ji (Temple 42) — `temple-42`, 70 m off the line, at 79.897 km
+- **End** Ozu — `wp-osm-town-node691563007` / `node/691563007` (`town` / `city`, 大洲市), 99 m
+  off the line, at 112.350 km. Second arm: no temple falls 25–30 km past 79.90 km, and the
+  fallback is not band-confined, so the day runs 32.45 km
+- **Distance** 32.453 km between the boundary vertices against **32.5 km** declared. Shipped
+  slice 32.215 km, ratio 0.9912, `passedGate: true`. Previously declared: **none**. This is the
+  second-longest day of the fourteen, 293 m under stage 12
+- **Places** 121 filed on the stage; `ways/report.json` drops none of them
+- **Grounding the text cites**
+  - "Meiseki-ji stands 10.9 km into this day and is the only temple on it" — `temple-43`, 14 m
+    off, at 90.785 km; 90.785 − 79.897 = **10.888 km**. It is the only feature projecting
+    inside 79.897–112.350 km that carries a `templeNumber`
+  - "twenty-eight numbered wayside shrines of a single series, all between 90.8 and 92.4 km" —
+    28 features whose `ja` name begins 坪ヶ内新四国 and ends in a number, running
+    `node/7398047551` (坪ヶ内新四国四十二番, 137 m off) at **90.786 km** to `node/7398047582`
+    (坪ヶ内新四国十三番, 218 m) at **92.442 km**. Span **1.656 km**
+  - "1.7 km holding more than half of the forty-three wayside shrines the whole section
+    records" — 28 of the **43** features carrying `subtype: wayside_shrine`. All 28 carry
+    `stageIndex: 3`, and 31 of the 43 stand on this stage in all; the other three are
+    `node/12920656971` (道中安全見守大師, 87.661 km), `node/7114441471` (白王権現, 90.241) and
+    `node/6961669269` (柳天王神社, 100.633). Three more of the 43 stand within 600 m of
+    Butsumoku-ji, at 79.312, 79.894 and 79.897 km, and are filed on stage 2
+  - "Seiyo comes at 92.3 km, in the middle of them" — `wp-osm-town-node691562997` /
+    `node/691562997` (`town` / `city`, 西予市), 151 m off, at **92.342 km**, between the
+    series' 90.786 and 92.442
+  - "the day runs 20.0 km to Ozu and stops there, 32.5 km in" — 112.350 − 92.342 =
+    **20.008 km**; the day's span is 32.453
+  - "Meiseki-ji to Daihō-ji is 70.4 km, the widest step between two temples in Iyo" —
+    `temple-44` 161.227 − `temple-43` 90.785 = **70.442 km**, the largest in the step list.
+    `metadata.json`'s `description` calls the same leg 70.3 km; see the section preamble
+  - "48.9 km of it are still ahead" — 161.227 − 112.350 = **48.877 km**
+
+```
+theme:      Twenty-eight numbered shrines in less than two kilometres
+narrative:  Meiseki-ji stands 10.9 km into this day and is the only temple on it. Just past it the record does something it does nowhere else in Iyo: twenty-eight numbered wayside shrines of a single series, all between 90.8 and 92.4 km — 1.7 km holding more than half of the forty-three wayside shrines the whole section records. Seiyo comes at 92.3 km, in the middle of them. After that the day runs 20.0 km to Ozu and stops there, 32.5 km in. Meiseki-ji to Daihō-ji is 70.4 km, the widest step between two temples in Iyo, and 48.9 km of it are still ahead.
+reflection: Twenty-eight numbered shrines inside 1.7 km, and one temple in 32.5 — which of those two counts is the day?
+```
+
+**Open.** Not reviewed. The twenty-eight shrines are a miniature numbered circuit and the
+narrative says only that they are numbered, of one series, and how many there are in how far —
+everything a reader wants next about what the series is, and what its numbers count, is outside
+this repository, so it is outside the sentence, on the Bandō precedent. "the record does
+something it does nowhere else in Iyo" is a claim about the whole section's
+`subtype: wayside_shrine` features and is re-derivable from the 43; a reviewer should check that
+the sentence is heard as being about the record, since the shrines themselves are certainly
+there.
+
+- [ ] shikoku-88-iyo stage 3
+
+---
+
+### shikoku-88-iyo stage 4 — Ozu to Rairakuku
+
+- **Start** Ozu — `node/691563007`, 99 m off the line, at 112.350 km
+- **End** Rairakuku — `wp-osm-accommodation-node5923663885` / `node/5923663885`
+  (`accommodation` / `guesthouse`), 11 m off the line, at 138.835 km. Second arm again
+- **Distance** 26.475 km between the boundary vertices against **26.5 km** declared. Shipped
+  slice 26.381 km, ratio 0.9955, `passedGate: true`. Previously declared: **none**
+- **Places** 71 filed on the stage. `ways/report.json` drops 1 as off route:
+  `wp-osm-transport-node3152605161` (大洲駅前, a bus stop, **301 m**), so 70 reach the day. The
+  drop is cited in the narrative by its metres and not by its name
+- **Grounding the text cites**
+  - "the only one of Iyo's fourteen days with no temple anywhere on it — none at either end
+    and none between" — no feature carrying a `templeNumber` projects inside 112.350–138.825
+    km, and neither endpoint is a temple. Stage 1's stretch holds `temple-40` at its start and
+    stage 12's holds `temple-64` at its start; every other day holds at least one. This is the
+    only empty one
+  - "the 70.4 km from Meiseki-ji to Daihō-ji, the widest step between two temples in the
+    section" — **70.442 km**, from the step list
+  - "when it stops there are 22.4 km of that step still to walk" — 161.227 − 138.825 =
+    **22.402 km** from the day's boundary vertex
+  - "Seventy-one places are recorded, forty-one of them bus stops" — 71 features with
+    `stageIndex: 4`, 41 with `subtype: bus_stop`
+  - "Three stations come inside 3.7 km — Niiya, Kitayama and Ikazaki" —
+    `wp-osm-transport-node7832285057` / `node/7832285057` (Niiya 新谷, 98 m off, 118.786 km),
+    `wp-osm-transport-node7832095785` / `node/7832095785` (Kitayama 喜多山, 127 m, 120.074) and
+    `wp-osm-transport-node7832095786` / `node/7832095786` (Ikazaki 五十崎, 81 m, 122.517);
+    122.517 − 118.786 = **3.731 km**. All three `subtype: train_station`, all three inside the
+    build's 300 m
+  - "the town of Uchiko at 124.9 km" — `wp-osm-town-node691563021` / `node/691563021`
+    (`town` / `town`, 内子町), 76 m off, at **124.926 km**
+  - "One of the seventy-one, a bus stop 301 m off the line, does not reach the day" — the drop
+    above. Measured against the committed line it is 298 m; the report's 301 m, taken against
+    the stage's own shipped route points, is the figure that decides
+  - "It ends at Rairakuku, a guesthouse at 138.8 km" — `node/5923663885` at **138.835 km**,
+    `subtype: guesthouse`
+
+```
+theme:      The one day with no temple on it
+narrative:  This is the only one of Iyo's fourteen days with no temple anywhere on it — none at either end and none between. It sits inside the 70.4 km from Meiseki-ji to Daihō-ji, the widest step between two temples in the section, and when it stops there are 22.4 km of that step still to walk. Seventy-one places are recorded, forty-one of them bus stops. Three stations come inside 3.7 km — Niiya, Kitayama and Ikazaki — and the town of Uchiko at 124.9 km. One of the seventy-one, a bus stop 301 m off the line, does not reach the day. It ends at Rairakuku, a guesthouse at 138.8 km.
+reflection: A whole day inside the gap between two gates, with neither of them on it. Does walking need a destination, or only a direction?
+```
+
+**Open.** Not reviewed. This is the only narrative in the fourteen that tells a walker a place
+in the file will not appear on the map — Tosa's stage 7 does the same work with "reaches the
+day", and Tosa's own note asks whether a walker can be expected to read that distinction. Here
+it is stated outright, with the metres, which is the other way of answering the same question;
+a reviewer should pick one form for the pilgrimage. The reflection is the only one here that
+asks nothing about the day's own numbers.
+
+- [ ] shikoku-88-iyo stage 4
+
+---
+
+### shikoku-88-iyo stage 5 — Rairakuku to Karibaen
+
+- **Start** Rairakuku — `node/5923663885`, 11 m off the line, at 138.835 km
+- **End** Karibaen — `wp-osm-accommodation-node5923659291` / `node/5923659291`
+  (`accommodation` / `guesthouse`), 38 m off the line, at 164.921 km. Second arm: no temple
+  falls 25–30 km past 138.83 km — `temple-44` is 22.40 km on, inside the day and short of the
+  band
+- **Distance** 26.106 km between the boundary vertices against **26.1 km** declared. Shipped
+  slice 25.923 km, ratio 0.9932, `passedGate: true`. Previously declared: **none**
+- **Places** 26 filed on the stage, the third-fewest of the fourteen; `ways/report.json` drops
+  none of them
+- **Grounding the text cites**
+  - "Daihō-ji stands 22.4 km into this day and closes the 70.4 km that have run since
+    Meiseki-ji" — `temple-44`, 43 m off, at 161.227 km; 161.227 − 138.825 = **22.402 km** from
+    the boundary vertex, and 161.227 − 90.785 = **70.442 km** since `temple-43`
+  - "8.8 km from 145.8 km with nothing marked on them, the third-longest such run in Iyo" —
+    `wp-osm-supply-node10858059638` / `node/10858059638` (an unnamed `toilet`, 13 m off) at
+    145.769 km to the next feature of any type, `node/3152605818` (宮成, bus stop, 7 m) at
+    154.579 = **8.810 km**. The section's two longer gaps are 9.747 km (stage 1) and 9.569 km
+    (stage 6)
+  - "Twenty-six places are recorded on the whole day" — 26 features with `stageIndex: 5`
+  - "six of them are places to stay" — 6 of the 26 carry `type: accommodation`:
+    `node/5923663885` (Rairakuku, the day's start, 138.835), `node/11417170369` (Yurano no
+    mori, 79 m off, 156.680), `node/12922784442` (へんろ宿　OHESO, 267 m, 159.535),
+    `node/5923153685` (Wasaro, 11 m, 164.256), `node/11417119269` (8 Cho Zaka Japanese Inn, 15
+    m, 164.589) and `node/5923659291` (Karibaen, the day's end, 164.921)
+  - "three of those inside the last 700 m" — 164.256, 164.589 and 164.921; span **0.665 km**,
+    ending at the day's end
+  - "seven are public toilets" — 7 of the 26 carry `subtype: toilet`
+  - "Karibaen, the last of the beds, ends the day at 164.9 km" — `node/5923659291` at
+    **164.921 km**, the highest-projecting of the six
+
+```
+theme:      Twenty-two kilometres, and then the temple
+narrative:  Daihō-ji stands 22.4 km into this day and closes the 70.4 km that have run since Meiseki-ji. Before it the record almost stops: 8.8 km from 145.8 km with nothing marked on them, the third-longest such run in Iyo. Twenty-six places are recorded on the whole day, and six of them are places to stay — three of those inside the last 700 m — while seven are public toilets. Karibaen, the last of the beds, ends the day at 164.9 km.
+reflection: Twenty-two kilometres to one gate, then three beds inside seven hundred metres. The day's shape is all at its ends — where does its middle go?
+```
+
+**Open.** Not reviewed. "the record almost stops" is lifted from Tosa's stage 11 and is a
+reading of a gap, not a measurement; it is used here for the same reason and should be judged
+with that one. "The day's shape is all at its ends" is the strongest reading in the fourteen:
+26 places on 26.1 km is not sparse, and what the sentence means is that the temple and the beds
+are at the ends, not that the middle is empty. A reviewer should decide whether the reflection
+says that clearly enough.
+
+- [ ] shikoku-88-iyo stage 5
+
+---
+
+### shikoku-88-iyo stage 6 — Karibaen to Ichiriki
+
+- **Start** Karibaen — `node/5923659291`, 38 m off the line, at 164.921 km
+- **End** Ichiriki — `wp-osm-accommodation-node10858072227` / `node/10858072227`
+  (`accommodation` / `guesthouse`), 94 m off the line, at 182.392 km. Second arm: no temple
+  falls 25–30 km past 164.92 km, and the fallback found nothing nearer 27.5 km than 17.47 km on
+- **Distance** 17.446 km between the boundary vertices against **17.5 km** declared. Shipped
+  slice 17.318 km, ratio 0.9896, `passedGate: true`. Previously declared: **none**. This is the
+  second-shortest day of the fourteen
+- **Places** 16 filed on the stage, the fewest of the fourteen; `ways/report.json` drops none
+  of them
+- **Grounding the text cites**
+  - "Sixteen places are recorded on this day, the fewest of the fourteen, and twelve of them
+    are bus stops" — the per-stage counts in the section preamble; 12 of the 16 carry
+    `subtype: bus_stop`. The other four are `node/8374601817` (国民宿舎古岩屋荘, an
+    `accommodation` / `hotel`, 9 m off, 168.779 km), one `sacred_site` / `church`, the town of
+    Kumakogen and `temple-45`
+  - "Iwaya-ji comes 6.4 km in, 10.2 km on from Daihō-ji" — `temple-45`, 7 m off, at 171.377
+    km; 171.377 − 164.931 = **6.446 km** from the boundary vertex, and 171.377 − 161.227 =
+    **10.150 km** since `temple-44`
+  - "its waypoint is one of five in Iyo that carry a height, and the number on it is 560 m" —
+    `temple-45`'s `elevation` is **560**. The five are `temple-45` 560, `temple-58` 250,
+    `temple-60` 750, `temple-64` 250 and `temple-65` 350; the other twenty-one temple waypoints
+    carry no `elevation` at all. This is a point height on a temple waypoint, permitted by the
+    corrected shared paragraph above and by §6, and **it is not a climb** — see "The two
+    heights used". `temple-45` also carries `tags` `["temple","mountain","scenic"]` and a
+    `description`, and both are refused
+  - "Past the temple the record marks nothing for 9.6 km, the second-longest such run here" —
+    171.377 to `node/3152611587` (高野口, bus stop, 289 m off) at 180.946 = **9.569 km**.
+    Nothing of any type projects into it. Only stage 1's 9.747 km is longer
+  - "the town of Kumakogen at 182.0 km" — `wp-osm-town-node691563033` / `node/691563033`
+    (`town` / `town`, 久万高原町), 26 m off, at **182.023 km**
+  - "0.4 km after it, the guesthouse where the day ends" — 182.392 − 182.023 = **0.369 km**
+  - "17.4 km — the shortest Iyo has cut but one" — the spans 27.156, 26.655, 26.086, 32.453,
+    26.475, 26.106, **17.446**, 27.893, 23.997, 28.318, 31.651, 25.646, 32.746 and 13.050
+
+```
+theme:      The fewest places of any day in Iyo
+narrative:  Sixteen places are recorded on this day, the fewest of the fourteen, and twelve of them are bus stops. Iwaya-ji comes 6.4 km in, 10.2 km on from Daihō-ji; its waypoint is one of five in Iyo that carry a height, and the number on it is 560 m. Past the temple the record marks nothing for 9.6 km, the second-longest such run here. Then the town of Kumakogen at 182.0 km and, 0.4 km after it, the guesthouse where the day ends at 17.4 km — the shortest Iyo has cut but one.
+reflection: Sixteen marked places in 17.4 km, and nine and a half of those kilometres hold none of them. Is a day like that short, or long?
+```
+
+**Open.** Not reviewed. **This is one of the two entries a reviewer of the elevation
+correction should look at first.** "its waypoint is one of five in Iyo that carry a height, and
+the number on it is 560 m" sits in the same sentence as "6.4 km in" and "10.2 km on", and a
+walker may read the 560 as what those kilometres climb. Nothing in this repository says what
+the ground does between Daihō-ji and Iwaya-ji. The clause is deliberately about the waypoint
+and deliberately gives the count of five, so that the twenty-one silent temples are visible; a
+reviewer should decide whether that is enough, or whether the height should come out and leave
+the day described by spacing alone, as Awa's and Tosa's forty are.
+
+- [ ] shikoku-88-iyo stage 6
+
+---
+
+### shikoku-88-iyo stage 7 — Ichiriki to Ishite-ji (Temple 51)
+
+- **Start** Ichiriki — `node/10858072227`, 94 m off the line, at 182.392 km
+- **End** Ishite-ji (Temple 51) — `temple-51`, 15 m off the line, at 210.263 km. First arm:
+  27.87 km past the previous day's end, inside the band and, of the two temples in it, the one
+  nearest 27.5 km — `temple-50` at 25.07 km past that end is the other
+- **Distance** 27.893 km between the boundary vertices against **27.9 km** declared. Shipped
+  slice 27.627 km, ratio 0.9902, `passedGate: true`. Previously declared: **none**
+- **Places** 84 filed on the stage. `ways/report.json` drops 1 as off route:
+  `wp-osm-medical-node1423738628` (杏林会東明病院, a hospital, **325 m**), so 83 reach the day
+- **Grounding the text cites**
+  - "The day walks 14.7 km before it reaches a temple" — `temple-46` at 197.070 km less the
+    day's boundary vertex at 182.376 = **14.694 km**
+  - "then six come inside 13.2 km" — `temple-46` 197.070 (2 m off), `temple-47` 197.952 (10
+    m), `temple-48` 202.396 (43 m), `temple-49` 205.700 (105 m), `temple-50` 207.450 (36 m),
+    `temple-51` 210.263 (15 m); 210.263 − 197.070 = **13.193 km**
+  - "Jōruri-ji at 197.1 km, Yasaka-ji 0.9 km after it — the narrowest step between two temples
+    anywhere in Iyo" — 197.952 − 197.070 = **0.882 km**, the smallest in the step list, against
+    a next-smallest of 1.438 (Temple 63 → 64)
+  - "then Sairin-ji, Jōdo-ji, Hanta-ji, and Ishite-ji closing the day at 210.3 km" — the four
+    positions above; `temple-51` is the day's end
+  - "Each of the five steps between them is under 5 km" — 0.882, 4.444, 3.304, 1.750, 2.813
+  - "this is the only run of five in the section of which that is true" — reading the step
+    list for consecutive values under 5 km gives runs of 1, **5**, 1, 4 and 3; the five is
+    Temples 46 → 51 and the four is Temples 54 → 58. `metadata.json`'s `description` declares
+    the same run: "a run of five from Temple 46 to Temple 51 that are each under 5 km"
+  - "Eighty-four places are filed on the day, forty-nine of them bus stops" — 84 features with
+    `stageIndex: 7`, 49 with `subtype: bus_stop`
+  - "one, a hospital 325 m off the line, does not reach it" — the drop above. Measured against
+    the committed line it is 323 m; the report's 325 m is the figure that decides
+  - A church-subtype twin stands 53 m from `temple-49`: `node/2971105388` (極楽寺, 270 m off,
+    205.647 km). It is not cited
+
+```
+theme:      Six temples in thirteen kilometres
+narrative:  The day walks 14.7 km before it reaches a temple, and then six come inside 13.2 km. Jōruri-ji at 197.1 km, Yasaka-ji 0.9 km after it — the narrowest step between two temples anywhere in Iyo — then Sairin-ji, Jōdo-ji, Hanta-ji, and Ishite-ji closing the day at 210.3 km. Each of the five steps between them is under 5 km, and this is the only run of five in the section of which that is true. Eighty-four places are filed on the day, forty-nine of them bus stops; one, a hospital 325 m off the line, does not reach it.
+reflection: Six gates in one day, the closest pair 0.9 km apart. Does arriving get easier with repetition, or thinner?
+```
+
+**Open.** Not reviewed. "and this is the only run of five in the section of which that is
+true" describes the step list rather than the walk, and is the most arithmetic-facing sentence
+in the fourteen; it is here because `metadata.json`'s own `description` singles the run out, so
+the section already tells a reader it matters. The reflection's "or thinner" is a reading of
+six arrivals in one day and nothing in any file supports or contradicts it; Awa's stage 0
+closing clause raises the same question about the same shape.
+
+- [ ] shikoku-88-iyo stage 7
+
+---
+
+### shikoku-88-iyo stage 8 — Ishite-ji (Temple 51) to Hōjō Suigun Youth Hostel
+
+- **Start** Ishite-ji (Temple 51) — `temple-51`, 15 m off the line, at 210.263 km
+- **End** Hōjō Suigun Youth Hostel — `wp-osm-accommodation-node11535058569` /
+  `node/11535058569` (`accommodation` / `guesthouse`), 9 m off the line, at 234.282 km. Second
+  arm: no temple falls 25–30 km past 210.26 km
+- **Distance** 23.997 km between the boundary vertices against **24 km** declared. Shipped
+  slice 23.865 km, ratio 0.9944, `passedGate: true`. Previously declared: **none**
+- **Places** 117 filed on the stage, the second-most of the fourteen. `ways/report.json` drops
+  2 as off route: `wp-osm-transport-node3152610454` (道後姫塚, a bus stop, **309 m**) and
+  `wp-osm-water_source-node5500182421` (an unnamed fountain, **303 m**), so 115 reach the day
+- **Grounding the text cites**
+  - "Twelve of Iyo's forty-one places to stay stand inside 800 m of each other" — 12 of the
+    section's 41 `type: accommodation` features, from `node/2438070589` (Matsuyama Youth
+    Hostel, 106 m off) at **211.107 km** to `node/4758834167` (Sen Guesthouse, 143 m) at
+    **211.907 km**, span **0.799 km**. The other ten are `node/3534347860`, `node/5103430714`,
+    `node/5635161092`, `node/5634021317`, `node/5635161095`, `node/5635161096`,
+    `node/13866539538`, `node/5635161097`, `node/3584613211` and `node/11505741250`. Five of
+    the twelve carry a name containing "Dogo" or 道後 and the cluster is not named; see "What
+    Iyo refused"
+  - "beginning 0.8 km into this day" — 211.107 − 210.269 = **0.838 km** from the boundary
+    vertex
+  - "nowhere else in the section are beds recorded so close together" — sliding an 800 m window
+    along the 41 accommodation projections, the maximum outside this cluster is **5** (starting
+    66.321 km, stage 2). Widening the window to 3.4 km — the figure Tosa's tightest cluster
+    used — this one reaches 13 and no other reaches 7
+  - "Taisan-ji at 221.4 km, Enmyō-ji 2.6 km on" — `temple-52` (太山寺), 17 m off, at 221.405
+    km, **11.142 km** past `temple-51`; `temple-53` (圓明寺), 45 m, at 224.043, **2.638 km**
+    after it
+  - "five stations inside 8.4 km — Iyo-Wake, Horie, Kōyōdai, Awai and Yanagihara" —
+    `node/7733520880` (伊予和気, 186 m off, 224.182 km), `node/7826453328` (堀江, 51 m,
+    226.791), `node/7733520879` (光洋台, 91 m, 229.360), `node/7826453327` (粟井, 165 m,
+    231.311) and `node/7826453326` (柳原, 146 m, 232.559); 232.559 − 224.182 = **8.377 km**.
+    All five `subtype: train_station`, all five inside the build's 300 m
+  - "A hundred and seventeen places are filed on 24.0 km" — 117 features with `stageIndex: 8`;
+    the day's span is 23.997 km
+  - "two of them, a bus stop and a water fountain each about 305 m off the line, do not reach
+    the day" — the two drops above, 309 m and 303 m by the report, 308 m and 298 m against the
+    committed line. Neither is named
+  - `temple-52` 太山寺 and `temple-56` 泰山寺 both romanise as "Taisan-ji" and are the only
+    repeated temple name in Iyo. The narrative does not say so, because the second stands on
+    stage 10 and the sentence would be about another day
+
+```
+theme:      Twelve places to stay in eight hundred metres
+narrative:  Twelve of Iyo's forty-one places to stay stand inside 800 m of each other, beginning 0.8 km into this day — nowhere else in the section are beds recorded so close together. After them the day runs to a railway: Taisan-ji at 221.4 km, Enmyō-ji 2.6 km on, and then five stations inside 8.4 km — Iyo-Wake, Horie, Kōyōdai, Awai and Yanagihara. A hundred and seventeen places are filed on 24.0 km, and two of them, a bus stop and a water fountain each about 305 m off the line, do not reach the day.
+reflection: Twelve places to stay inside eight hundred metres, all of them in the day's first 1.7 km. What does it do to a morning to pass every bed you could have slept in?
+```
+
+**Open.** Not reviewed. Three things. "the day runs to a railway" is Tosa's "strung along a
+railway" in a shorter form and is a reading of five station waypoints. "nowhere else in the
+section are beds recorded so close together" is a computed superlative over the 41 carried
+accommodation waypoints, not a claim about where beds actually are — the same qualification
+Tosa's stage 12 entry makes about its own tightest run. And the whole entry describes the Dōgo
+Onsen quarter without naming it, on the reasoning under "What Iyo refused": a reviewer who
+thinks the refusal is too strict should note that the alternative source is a hotel's own name,
+which is how Tosa admitted "Cape Ashizuri" as a bus stop's name and refused it as a place.
+
+- [ ] shikoku-88-iyo stage 8
+
+---
+
+### shikoku-88-iyo stage 9 — Hōjō Suigun Youth Hostel to Nankōbō (Temple 55)
+
+- **Start** Hōjō Suigun Youth Hostel — `node/11535058569`, 9 m off the line, at 234.282 km
+- **End** Nankōbō (Temple 55) — `temple-55`, 2 m off the line, at 262.590 km. First arm: 28.31
+  km past the previous day's end and the only temple inside the band — `temple-54` at 24.73 km
+  on falls 275 m short of it
+- **Distance** 28.318 km between the boundary vertices against **28.3 km** declared. Shipped
+  slice 28.188 km, ratio 0.9960, `passedGate: true`. Previously declared: **none**
+- **Places** 75 filed on the stage; `ways/report.json` drops none of them. `temple-55` at the
+  day's end is **not** among the 75 — it carries `stageIndex: 10`; see the day-ends table above
+- **Grounding the text cites**
+  - "Enmyō-ji is 34.9 km behind before a temple appears again — the fourth-widest step between
+    two temples in Iyo" — `temple-54` 258.991 − `temple-53` 224.043 = **34.947 km**; the step
+    list ranks 70.442, 49.675, 45.796, **34.947**, 27.745
+  - "this day walks 24.7 km of that gap before Enmei-ji stands at 259.0 km" — `temple-54`, 26
+    m off, at 258.991 km; 258.991 − 234.266 = **24.725 km** from the boundary vertex
+  - "Nankōbō comes 3.6 km after it and closes the day" — `temple-55` at 262.590 km;
+    262.590 − 258.991 = **3.599 km**
+  - "both of the day's gates fall inside its last 3.6 km" — 262.583 (the boundary vertex) −
+    258.991 = **3.592 km**, holding `temple-54` and `temple-55`
+  - "Seventy-five places are filed on the stage; forty are bus stops" — 75 features with
+    `stageIndex: 9`, 40 with `subtype: bus_stop`
+  - "four are stations — Asanami, Kikuma, Iyo-Kameoka and Ōnishi" —
+    `wp-osm-transport-node8583968615` / `node/8583968615` (Asanami, 106 m off, 240.512 km),
+    `wp-osm-transport-node7832077479` / `node/7832077479` (Kikuma 菊間, 118 m, 245.344),
+    `wp-osm-transport-node7832077480` / `node/7832077480` (Iyo-Kameoka 伊予亀岡, 86 m,
+    249.415) and `wp-osm-transport-node7832077481` / `node/7832077481` (Ōnishi 大西, 154 m,
+    255.340). All four `subtype: train_station`, all four inside 300 m
+  - A church-subtype twin stands 51 m from `temple-55`: `node/4435546089`, name
+    "55 南光坊 (Nankōbō)", at 262.756 km. It is not cited in the narrative, but its name is the
+    file's own evidence for the macronised spelling; see "Romanisation" above
+
+```
+theme:      Both of the day's gates in its last four kilometres
+narrative:  Enmyō-ji is 34.9 km behind before a temple appears again — the fourth-widest step between two temples in Iyo — and this day walks 24.7 km of that gap before Enmei-ji stands at 259.0 km. Nankōbō comes 3.6 km after it and closes the day, so both of the day's gates fall inside its last 3.6 km. Seventy-five places are filed on the stage; forty are bus stops and four are stations — Asanami, Kikuma, Iyo-Kameoka and Ōnishi.
+reflection: Twenty-five kilometres, and then two gates inside four. Does the waiting belong to the arriving, or is it its own thing?
+```
+
+**Open.** Not reviewed. The theme and the narrative both say "gates"; the vocabulary note
+above lists the nine entries that do, and Tosa's stage 0 note asks a reviewer to settle the
+substitution once. The narrative also names "Enmyō-ji" and "Enmei-ji" in successive clauses;
+they are `temple-53` 圓明寺 and `temple-54` 延命寺, two different temples whose romanisations
+differ by two letters, and a reviewer should decide whether the sentence is legible or whether
+one of them should be given its number.
+
+- [ ] shikoku-88-iyo stage 9
+
+---
+
+### shikoku-88-iyo stage 10 — Nankōbō (Temple 55) to ゲストハウス BEKKU
+
+- **Start** Nankōbō (Temple 55) — `temple-55`, 2 m off the line, at 262.590 km
+- **End** ゲストハウス BEKKU — `wp-osm-accommodation-node12944733844` / `node/12944733844`
+  (`accommodation` / `guesthouse`), 9 m off the line, at 294.168 km. Second arm: no temple
+  falls 25–30 km past 262.59 km — `temple-60` is 42.43 km on
+- **Distance** 31.651 km between the boundary vertices against **31.6 km** declared. Shipped
+  slice 31.462 km, ratio 0.9956, `passedGate: true`. Previously declared: **none**. This day's
+  end place projects **66.65 m short** of its own boundary vertex, the widest Δ in the section
+- **Places** 88 filed on the stage; `ways/report.json` drops none of them
+- **Grounding the text cites**
+  - "Nankōbō opens this day and four more temples follow inside 14.7 km" — `temple-55` at
+    262.590 km and `temple-59` at 277.273; 277.273 − 262.590 = **14.683 km**
+  - "Taisan-ji 3.1 km on, Eifuku-ji 3.0 km after that, Senyū-ji 2.4 km after that, and Iyo
+    Kokubun-ji at 277.3 km" — `temple-56` (泰山寺) 265.687 (12 m off), `temple-57` 268.660 (42
+    m), `temple-58` 271.037 (50 m), `temple-59` 277.273 (55 m); steps **3.098, 2.973, 2.377,
+    6.236 km**. `temple-58` carries `elevation` 250 and it is not cited
+  - "past Iyo Kokubun-ji the line runs 17.0 km to where the day stops" — 294.235 − 277.273 =
+    **16.962 km** to the boundary vertex
+  - "Yokomine-ji, the next temple, is 27.7 km further still" — `temple-60` 305.019 −
+    `temple-59` 277.273 = **27.745 km**
+  - "Imabari stands 0.2 km into the day" — `wp-osm-town-node637454152` / `node/637454152`
+    (`town` / `city`, 今治市), 291 m off, at **262.804 km**, 0.214 km past `temple-55` and
+    0.221 km past the boundary vertex, inside the build's 300 m
+  - "the last of the seven towns Iyo records" — the seven `type: town` features project at
+    6.818, 26.801, 92.342, 112.350, 124.926, 182.023 and **262.804 km**; nothing of that type
+    stands past it in the remaining 102.9 km
+  - "Eighty-eight places on 31.6 km, forty-one of them bus stops" — 88 features with
+    `stageIndex: 10`, 41 with `subtype: bus_stop`. Five of the 88 carry a `templeNumber`
+  - Two church-subtype twins stand on this day, `node/4435546089` ("55 南光坊 (Nankōbō)",
+    262.756 km) and `node/4435546090` ("57 栄福寺 (Eifuku-ji)", 268.588 km). Neither is cited
+
+```
+theme:      Five gates in the first fifteen kilometres, and none after
+narrative:  Nankōbō opens this day and four more temples follow inside 14.7 km — Taisan-ji 3.1 km on, Eifuku-ji 3.0 km after that, Senyū-ji 2.4 km after that, and Iyo Kokubun-ji at 277.3 km. Then nothing: past Iyo Kokubun-ji the line runs 17.0 km to where the day stops, and Yokomine-ji, the next temple, is 27.7 km further still. Imabari stands 0.2 km into the day, the last of the seven towns Iyo records. Eighty-eight places on 31.6 km, forty-one of them bus stops.
+reflection: Five gates in the first fifteen kilometres and none in the last seventeen. Which half of the day will you remember having walked?
+```
+
+**Open.** Not reviewed. "Then nothing" means no temple, and the seventeen kilometres it
+describes carry 36 recorded places against 52 in the 14.7 km before them; the sentence relies
+on the reader carrying "temples" forward from the clause before it. A reviewer should decide whether that is clear
+enough, or whether the word has to be repeated. This day also uses the second romanised
+"Taisan-ji" — `temple-56` 泰山寺, where stage 8 used `temple-52` 太山寺 — and neither entry
+tells the reader they are different temples with the same spelling.
+
+- [ ] shikoku-88-iyo stage 10
+
+---
+
+### shikoku-88-iyo stage 11 — ゲストハウス BEKKU to Maegami-ji (Temple 64)
+
+- **Start** ゲストハウス BEKKU — `node/12944733844`, 9 m off the line, at 294.168 km
+- **End** Maegami-ji (Temple 64) — `temple-64`, 59 m off the line, at 319.881 km. First arm:
+  25.71 km past the previous day's end and the only temple inside the band — `temple-63` at
+  22.37 km on is the nearest that is not
+- **Distance** 25.646 km between the boundary vertices against **25.7 km** declared. Shipped
+  slice 25.457 km, ratio 0.9905, `passedGate: true`. Previously declared: **none**
+- **Places** 32 filed on the stage; `ways/report.json` drops none of them
+- **Grounding the text cites**
+  - "Yokomine-ji stands 10.8 km into this day, 27.7 km on from Iyo Kokubun-ji" — `temple-60`,
+    28 m off, at 305.019 km; 305.019 − 294.235 = **10.784 km** from the boundary vertex, and
+    305.019 − 277.273 = **27.745 km** since `temple-59`
+  - "its waypoint carries a height of 750 m — the highest of the five heights any temple in
+    Iyo records" — `temple-60`'s `elevation` is **750**, against 560, 350, 250 and 250 on
+    `temple-45`, `temple-65`, `temple-58` and `temple-64`. A point height on a temple waypoint,
+    permitted by the corrected shared paragraph above, and **not a climb** — see "The two
+    heights used". `temple-60` also carries `tags` `["temple","mountain"]`, which is refused
+  - "across the 14.5 km from 296.8 km to 311.4 the record holds four things, three public
+    toilets and the temple itself" — between `wp-osm-transport-node3152605250` /
+    `node/3152605250` (妙口, bus stop, 238 m off) at 296.848 km and
+    `wp-osm-sacred_site-node13055529205` / `node/13055529205` (香園寺奥の院白瀧, 8 m) at
+    311.372 km — a span of **14.524 km** — exactly four features project:
+    `node/11404766169` (6 m, 303.071), `node/412335502` (20 m, 304.916) and
+    `node/1741429935` (99 m, 305.461), all three unnamed `supply` / `toilet`, and `temple-60`
+    at 305.019
+  - "Kōon-ji at 313.7 km, Hōju-ji 1.5 km on, Kichijō-ji 1.4 km after that, and Maegami-ji 3.3
+    km further" — `temple-61` 313.671 (20 m off), `temple-62` 315.168 (33 m), `temple-63`
+    316.605 (31 m), `temple-64` 319.881 (59 m); steps **8.652, 1.497, 1.438, 3.276 km** from
+    `temple-60`
+  - "four temples inside 6.2 km" — 319.881 − 313.671 = **6.210 km**
+  - "with two stations and a guesthouse among them" — `wp-osm-transport-node265007014` /
+    `node/265007014` (Iyo-Komatsu 伊予小松, 38 m off, 315.318 km),
+    `wp-osm-transport-node265009422` / `node/265009422` (Iyo-Himi 伊予氷見, 166 m, 316.595) and
+    `wp-osm-accommodation-node11402656769` / `node/11402656769` (Guesthouse Himi, 23 m,
+    316.551), all three inside 313.671–319.881
+  - "Thirty-two places on 25.7 km, and five of them are gates" — 32 features with
+    `stageIndex: 11`, of which `temple-60` through `temple-64` carry a `templeNumber`
+  - Two church-subtype twins stand on this day, `node/412335530` ("61 Kōon-ji", 313.686 km) and
+    `node/412335769` ("64 Maegami-ji", 319.881 km). Neither is cited
+
+```
+theme:      One gate alone, then four inside six kilometres
+narrative:  Yokomine-ji stands 10.8 km into this day, 27.7 km on from Iyo Kokubun-ji, and its waypoint carries a height of 750 m — the highest of the five heights any temple in Iyo records. Little stands near it: across the 14.5 km from 296.8 km to 311.4 the record holds four things, three public toilets and the temple itself. Then the spacing closes — Kōon-ji at 313.7 km, Hōju-ji 1.5 km on, Kichijō-ji 1.4 km after that, and Maegami-ji 3.3 km further, four temples inside 6.2 km with two stations and a guesthouse among them. Thirty-two places on 25.7 km, and five of them are gates.
+reflection: One gate with fourteen kilometres of almost nothing around it, then four inside six. Does a temple mean more when it is the only thing there?
+```
+
+**Open.** Not reviewed. **This is the second of the two entries a reviewer of the elevation
+correction should look at.** "carries a height of 750 m" is the largest of the eighteen numbers
+the correction makes available anywhere outside Sanuki, it sits in a sentence with "10.8 km
+into this day" and "27.7 km on", and Yokomine-ji is the temple a reader is most likely to
+already know as a mountain temple — `temple-60`'s own refused `tags` say `mountain`. If any
+sentence in the fourteen is going to be read as a climb, it is this one. It is written to say
+only what the tag says; a reviewer should decide whether saying only that is possible here.
+"Then the spacing closes" is Awa's stage 2 wording and is a reading of the step list.
+
+- [ ] shikoku-88-iyo stage 11
+
+---
+
+### shikoku-88-iyo stage 12 — Maegami-ji (Temple 64) to HOTEL AZ 愛媛土居インター店
+
+- **Start** Maegami-ji (Temple 64) — `temple-64`, 59 m off the line, at 319.881 km
+- **End** HOTEL AZ 愛媛土居インター店 — `wp-osm-accommodation-node12948927058` /
+  `node/12948927058` (`accommodation` / `hotel`), **290 m** off the line, at 352.631 km — the
+  farthest-off day-end anchor in the section, and inside the 500 m the boundary snap carries.
+  Second arm: no temple falls 25–30 km past 319.88 km
+- **Distance** 32.746 km between the boundary vertices against **32.8 km** declared — the
+  longest day of the fourteen, 293 m longer than stage 3. Shipped slice 32.616 km, ratio
+  0.9944, `passedGate: true`. Previously declared: **none**
+- **Places** 84 filed on the stage; `ways/report.json` drops none of them
+- **Grounding the text cites**
+  - "Iyo's longest day, 32.8 km" — the spans listed under stage 6; 32.746 is the largest
+  - "between Maegami-ji and the hotel it ends at the record marks no place to stay at all" —
+    **no** `type: accommodation` feature projects inside 319.881–352.627 km. The day's own end,
+    `node/12948927058`, projects at 352.631 km, **4.33 m past** the boundary vertex, and
+    carries `stageIndex: 13`; it is one of the six misfilings tabled above
+  - "No temple stands on it either" — the only feature carrying a `templeNumber` projecting
+    inside the stretch is `temple-64` at 319.881, the day's own start
+  - "Maegami-ji to Sankaku-ji is 45.8 km, the third-widest step between two temples in the
+    section" — `temple-65` 365.677 − `temple-64` 319.881 = **45.796 km**; the step list ranks
+    70.442, 49.675, **45.796**, 34.947
+  - "this day walks 32.7 of them" — the day's span, 32.746 km
+  - "Eighty-four places are filed on it and fifty-nine are bus stops" — 84 features with
+    `stageIndex: 12`, 59 with `subtype: bus_stop`, the second-most of any day here after stage
+    2's 62
+  - "Six sacred places, four hospitals and four convenience stores are most of what is left" —
+    6 `type: sacred_site` (all `subtype: church`), 4 `hospital` and 4 `convenience_store`. The
+    six are named under "What Iyo refused" and none is named in the narrative, because their
+    own names do not agree on a kind
+  - "one station, Iyo-Doi, comes 4.0 km before the end" — `wp-osm-transport-node9000033924` /
+    `node/9000033924` (Iyo-Doi 伊予土居, `train_station`), 114 m off, at **348.598 km**;
+    352.627 − 348.598 = **4.029 km**. It is the only `train_station` on the day
+
+```
+theme:      The longest day, and no bed marked on it
+narrative:  Iyo's longest day, 32.8 km, and between Maegami-ji and the hotel it ends at the record marks no place to stay at all. No temple stands on it either: Maegami-ji to Sankaku-ji is 45.8 km, the third-widest step between two temples in the section, and this day walks 32.7 of them. Eighty-four places are filed on it and fifty-nine are bus stops. Six sacred places, four hospitals and four convenience stores are most of what is left, and one station, Iyo-Doi, comes 4.0 km before the end.
+reflection: The longest day in the section, and no bed marked between its ends. How far do you trust a map to know where you can stop?
+```
+
+**Open.** Not reviewed. Two things, and the first is the sharpest in the fourteen. **"no place
+to stay at all" is a fact about OpenStreetMap and a walker will read it as a fact about the
+road** — this is Awa's stage 3 shape without Awa's committed `warnings` entry to carry the
+qualification, because this stage has no `warnings` array. Awa's 52.9 km day says the same thing
+and ships a warning telling the walker to carry food and water; this 32.7 km day says it in the
+narrative alone. A reviewer should decide whether a `warnings` entry belongs here too, which is
+a change outside `interior` and outside this task. The reflection makes the qualification the
+question, which is deliberate and may be too clever. Second: the day's end hotel is 290 m off
+the line and 4 m past its own boundary, so a walker following the stage package walks to a
+place the record puts just outside the day.
+
+- [ ] shikoku-88-iyo stage 12
+
+---
+
+### shikoku-88-iyo stage 13 — HOTEL AZ 愛媛土居インター店 to Sankaku-ji (Temple 65)
+
+- **Start** HOTEL AZ 愛媛土居インター店 — `node/12948927058`, 290 m off the line, at 352.631 km
+- **End** Sankaku-ji (Temple 65) — `temple-65`, 56 m off the line, at 365.677 km. Section
+  boundary; the anchor's coordinates and name are `metadata.json`'s `overview.endPoint`, and
+  `shikoku-88-sanuki` begins from the same point. The stage's committed `end.note` records that
+  a boundary day ends at the boundary temple whatever its length, and that the lodging fallback
+  does not apply
+- **Distance** 13.050 km between the boundary vertices against **13 km** declared — the
+  shortest day of the fourteen. Shipped slice 12.966 km, ratio 0.9974, `passedGate: true`.
+  Previously declared: **none**
+- **Places** 18 filed on the stage, the second-fewest; `ways/report.json` drops none of them.
+  `momentsBeyondEnds: 0` — the second of the section's two such days
+- **Grounding the text cites**
+  - "13.1 km, the shortest day in Iyo" — the spans listed under stage 6; 13.050 is the
+    smallest
+  - "a boundary day ends at the boundary temple whatever its length" — this stage's own
+    committed `end.note`, and `metadata.json`'s `provenance`, which records the 30 km trigger:
+    where the section's end anchor lies no more than 30 km ahead of the day's start, neither
+    arm is consulted
+  - "Eighteen places are recorded on it — four convenience stores, six bus stops, three
+    toilets, a restaurant" — 18 features with `stageIndex: 13`: 6 `bus_stop`, 4
+    `convenience_store`, 3 `toilet`, 1 `restaurant`, 1 `train_station`, 1 `accommodation` (the
+    day's start), 1 `sacred_site` / `church` and `temple-65`
+  - "the station at Iyo-Sangawa 2.8 km in" — `wp-osm-transport-node8949781056` /
+    `node/8949781056` (Iyo-Sangawa 伊予寒川, `train_station`), 135 m off, at **355.474 km**;
+    355.474 − 352.627 = **2.847 km**
+  - "Nothing between the hotel it starts from and the temple it ends at is a shrine, a town or
+    a viewpoint" — the only `sacred_site`, `cultural_site`, `viewpoint` or `town` features
+    projecting inside 352.627–365.677 km are `temple-65` at 365.677 and its church-subtype
+    twin `wp-osm-sacred_site-node4839325648` / `node/4839325648` (name "Sankaku-ji", 112 m
+    off), which projects onto the same point. Both stand **at** the day's end, and
+    `ways/report.json` reports `momentsBeyondEnds: 0`
+  - "only one other day in the section is like that" — the `momentsBeyondEnds` list; the other
+    zero is stage 1
+  - "Maegami-ji to Sankaku-ji is 45.8 km and this day is its last 13.1" — **45.796 km**, of
+    which this day is the final 13.050
+  - "Sankaku-ji closes Iyo at 365.7 km, and Sanuki begins from the same point" —
+    `walkedLine.lengthKm` **365.677**; `metadata.json`'s `osm.note` records that this section
+    "ends at Temple 65, where `shikoku-88-sanuki` begins", and both sections take the anchor
+    verbatim from this section's `overview`
+  - `temple-65` carries `elevation` 350 and it is not cited
+
+```
+theme:      Thirteen kilometres, because the section ends here
+narrative:  13.1 km, the shortest day in Iyo, and it is short for one reason: a boundary day ends at the boundary temple whatever its length. Eighteen places are recorded on it — four convenience stores, six bus stops, three toilets, a restaurant, and the station at Iyo-Sangawa 2.8 km in. Nothing between the hotel it starts from and the temple it ends at is a shrine, a town or a viewpoint; only one other day in the section is like that. Maegami-ji to Sankaku-ji is 45.8 km and this day is its last 13.1. Sankaku-ji closes Iyo at 365.7 km, and Sanuki begins from the same point.
+reflection: The shortest of the fourteen, and it is short only because a section had to end. How much of a journey is decided by where someone drew its edges?
+```
+
+**Open.** Not reviewed. Both the narrative and the reflection explain the day by the cutting
+rule, which is the deepest this section goes into its own machinery — Tosa's stages 3, 6 and 12
+do the same and its notes ask whether a walker wants to be told how the day was chosen. That
+question should be settled once. The reflection also looks past the section boundary, as Awa's
+stage 4 and Tosa's stage 14 do, and is open to the same objection: the package a walker reads
+contains this day and not the section it closes.
+
+- [ ] shikoku-88-iyo stage 13
+
+---
+
 ## Sections with no drafted text yet
 
 The lines below are **not a review**, and nothing in this task drafted, rewrote or read the
 text they name — there is none. They are here because the gate requires them: once a
 pilgrimage-level checklist exists, `validate` asks every stage of every section under that
 pilgrimage for a line, ticked where the stage carries no `"drafted": true`. Without them
-these 20 stages fail as "not listed", which would assert something false — that a stage is
+these 6 stages fail as "not listed", which would assert something false — that a stage is
 waiting on a review — rather than nothing.
 
 What a ticked line asserts here is only what the gate reads off it: **no drafted text on this
-stage is awaiting review.** For both sections that is verifiable in one command —
-`grep drafted routes/shikoku-88-iyo/stages.json` and its sibling return nothing. When a
-drafter takes one of these sections, its block is replaced by full entries; see "Appending a
-section" above.
-
-### shikoku-88-iyo — Iyo (Temples 39-65), 14 stages
-
-- [x] shikoku-88-iyo stage 0
-- [x] shikoku-88-iyo stage 1
-- [x] shikoku-88-iyo stage 2
-- [x] shikoku-88-iyo stage 3
-- [x] shikoku-88-iyo stage 4
-- [x] shikoku-88-iyo stage 5
-- [x] shikoku-88-iyo stage 6
-- [x] shikoku-88-iyo stage 7
-- [x] shikoku-88-iyo stage 8
-- [x] shikoku-88-iyo stage 9
-- [x] shikoku-88-iyo stage 10
-- [x] shikoku-88-iyo stage 11
-- [x] shikoku-88-iyo stage 12
-- [x] shikoku-88-iyo stage 13
+stage is awaiting review.** For Sanuki that is verifiable in one command —
+`grep drafted routes/shikoku-88-sanuki/stages.json` returns nothing. When a drafter takes
+that section, its block is replaced by full entries; see "Appending a section" above. Iyo's
+block was the other half of this list until Task 6c, and its fourteen ticked lines were
+deleted in the same commit that added its fourteen open ones.
 
 ### shikoku-88-sanuki — Sanuki (Temples 65-88, and the return to Temple 1), 6 stages
 
