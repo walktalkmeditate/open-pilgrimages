@@ -746,6 +746,100 @@ test("checkSite accepts a per-type waypoint table whose rows sum to its own tota
   }
 });
 
+// The Key Facts elevation cell: the one published figure a "data: correct …"
+// commit orphans without anything noticing. Both live errors were left behind
+// by 1bffcda, which corrected metadata.json and not the pages it feeds.
+
+test("checkSite reports a Key Facts elevation range that disagrees with metadata", () => {
+  // #given a detail page whose Key Facts cell still reads the figures the
+  // metadata used to carry
+  const root = createFixtureRoot([{ id: "r" }]);
+  mkdirSync(join(root, "routes", "r"), { recursive: true });
+  writeFileSync(
+    join(root, "routes", "r", "metadata.json"),
+    JSON.stringify({ overview: { elevationRange: { minMeters: 5, maxMeters: 410 } } }),
+  );
+  writeFileSync(
+    join(root, "docs", "r.html"),
+    "<html><body><code>r</code>" +
+      "<table><caption>Overview of R</caption><tbody>" +
+      '<tr><th scope="row">Elevation range</th><td>10&ndash;420 m</td></tr>' +
+      "</tbody></table></body></html>",
+  );
+
+  try {
+    // #when checkSite compares the cell against overview.elevationRange
+    const problems = checkSite(root).filter((p) => /elevation/i.test(p.message));
+
+    // #then one problem names the page and all four figures — both rendered, both declared
+    assert.equal(problems.length, 1);
+    assert.equal(problems[0].file, "docs/r.html");
+    assert.match(problems[0].message, /10/);
+    assert.match(problems[0].message, /420/);
+    assert.match(problems[0].message, /5/);
+    assert.match(problems[0].message, /410/);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("a Key Facts elevation range that matches metadata is accepted", () => {
+  // #given the same page and metadata, with the cell corrected
+  const root = createFixtureRoot([{ id: "r" }]);
+  mkdirSync(join(root, "routes", "r"), { recursive: true });
+  writeFileSync(
+    join(root, "routes", "r", "metadata.json"),
+    JSON.stringify({ overview: { elevationRange: { minMeters: 5, maxMeters: 410 } } }),
+  );
+  writeFileSync(
+    join(root, "docs", "r.html"),
+    "<html><body><code>r</code>" +
+      "<table><caption>Overview of R</caption><tbody>" +
+      '<tr><th scope="row">Elevation range</th><td>5&ndash;410 m</td></tr>' +
+      "</tbody></table></body></html>",
+  );
+
+  try {
+    // #when / #then nothing is reported
+    assert.deepEqual(
+      checkSite(root).filter((p) => /elevation/i.test(p.message)),
+      [],
+    );
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("a section with elevation data but no Elevation range row is not reported", () => {
+  // #given kumano-kodo-iseji's real shape: a declared elevationRange the page
+  // deliberately does not publish, because nothing has measured it. Demanding
+  // the row wherever the data exists is the one guaranteed false positive
+  // this check can produce
+  const root = createFixtureRoot([{ id: "r" }]);
+  mkdirSync(join(root, "routes", "r"), { recursive: true });
+  writeFileSync(
+    join(root, "routes", "r", "metadata.json"),
+    JSON.stringify({ overview: { elevationRange: { minMeters: 0, maxMeters: 647 } } }),
+  );
+  writeFileSync(
+    join(root, "docs", "r.html"),
+    "<html><body><code>r</code>" +
+      "<table><caption>Overview of R. Not measured on a walked line.</caption><tbody>" +
+      '<tr><th scope="row">Distance</th><td>~170 km</td></tr>' +
+      "</tbody></table></body></html>",
+  );
+
+  try {
+    // #when / #then the absent row is not a problem
+    assert.deepEqual(
+      checkSite(root).filter((p) => /elevation/i.test(p.message)),
+      [],
+    );
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
 test("terrainNotes naming a distance that contradicts the stage is reported", () => {
   // #given a stage of 18.6 km whose notes say the day is 15.3 km
   const root = createFixtureRoot([{ id: "camino-frances" }]);
@@ -976,6 +1070,11 @@ test("the committed docs/{id}.html per-type waypoint tables already sum to their
     problems.filter((p) => p.message.includes("rows sum to")),
     [],
   );
+});
+
+test("no route page's Key Facts elevation disagrees with its metadata (positive control)", () => {
+  const problems = checkSite(ROOT).filter((p) => /elevation/i.test(p.message));
+  assert.deepEqual(problems, []);
 });
 
 test("the committed README's Distance cells already agree with index.json's distanceKm for every route (positive control)", () => {

@@ -228,6 +228,70 @@ const WAYPOINT_TYPE_TABLE_PATTERN =
 const WAYPOINT_TYPE_ROW_PATTERN = /<tr><th scope="row">([^<]+)<\/th><td>([\d,]+)[^<]*<\/td><\/tr>/g;
 
 /**
+ * The Key Facts table at the top of every route detail page publishes the
+ * route's elevation range, and nothing compared it to the data it was written
+ * from. Both live errors this guard was written against arrived the same way:
+ * 1bffcda ("data: correct elevation ranges that contradicted their own
+ * stages") corrected routes/{id}/metadata.json and left the pages saying what
+ * they had said before it. The Kumano Kodo instance had the identical cause
+ * and survived 92 commits, across a rename that carried it into a new
+ * filename. A published figure orphaned by a data correction is the shape of
+ * drift this exists for, and a reader is the only thing that has ever caught
+ * one.
+ *
+ * Read per route id from the per-route loop, never over docs/*.html. The two
+ * generated pages — the pilgrimage pages carrying build-assets' GENERATED
+ * marker — are link lists with no Key Facts table at all, so an unscoped scan
+ * would only ever have them to say nothing about.
+ *
+ * Anchored on the <caption>, not on the <h2>Key Facts</h2> above it, because
+ * there are eleven of these tables and not ten: docs/camino-portugues.html
+ * carries a second for the coastal variant, sitting under an <h3> inside
+ * <h2>Variants</h2> with no Key Facts heading anywhere above it — and that
+ * table held one of the two wrong cells. Anchoring on the heading would have
+ * missed the bug the guard was written for.
+ *
+ * Keyed on metadata.json, not on the per-stage high and low points in
+ * stages.json. The two agree everywhere except shikoku-88, whose metadata
+ * declares a minimum of 0 m against stages that bottom out at 5 m, and it is
+ * metadata the cells were written from — the page is a rendering of the
+ * declared overview, so the declared overview is what it has to agree with.
+ * It is also the only source a section without a walked line has:
+ * kumano-kodo-iseji declares a range it has no stages to derive one from.
+ *
+ * The row is optional and has to stay optional. That same iseji declares an
+ * elevationRange (0–647 m, under a note saying it is declared rather than
+ * measured) while docs/kumano-kodo-iseji.html deliberately publishes no
+ * Elevation range row at all. A guard that demanded the row wherever the data
+ * exists would false-positive on the first page it read.
+ *
+ * Two independently anchored patterns rather than one rule over the cell's
+ * numbers, because shikoku-88's cell is more than a range: "0&ndash;911 m
+ * (highest temple: Unpen-ji, Temple 66); total ascent 16,780 m, descent
+ * 14,470 m per the 10-stage breakdown &mdash; true cumulative totals over the
+ * full circuit are commonly cited as ~18,000 m each". Anything that scans
+ * every figure in there flags the temple number (66), the stage count (10)
+ * and the ~18,000 m aside, none of which are claims about this route's own
+ * profile. The range pattern takes the cell's first "a&ndash;b m" and the
+ * totals pattern the one "total ascent … descent …" clause; between them they
+ * read every one of the eleven cells and nothing else in any of them.
+ *
+ * Rendered figures carry thousands separators ("1,505"), so the commas come
+ * out before anything is compared.
+ */
+const KEY_FACTS_TABLE_PATTERN =
+  /<caption>(Overview of [^<]*)<\/caption>\s*<tbody>([\s\S]*?)<\/tbody>/g;
+const KEY_FACTS_ELEVATION_ROW_PATTERN =
+  /<tr><th scope="row">Elevation range<\/th><td>([^<]*)<\/td><\/tr>/;
+const KEY_FACTS_ELEVATION_RANGE_PATTERN = /(\d[\d,]*)\s*&ndash;\s*(\d[\d,]*)\s*m/;
+const KEY_FACTS_ELEVATION_TOTALS_PATTERN =
+  /total ascent\s+([\d,]+)\s*m,?\s*descent\s+([\d,]+)\s*m/;
+
+function metersFromCell(rendered: string): number {
+  return Number(rendered.replace(/,/g, ""));
+}
+
+/**
  * terrainNotes prose mentions kilometres constantly without describing the
  * stage's own length: a mid-stage split point ("split this stage at Pasaia
  * (~10 km)"), an alternative nobody walks ("walking around the bay instead is
@@ -314,6 +378,7 @@ interface MetadataOverviewLike {
   difficulty?: unknown;
   bestMonths?: unknown;
   estimatedDays?: { typical?: unknown };
+  elevationRange?: unknown;
 }
 
 interface MetadataLike {
@@ -395,6 +460,49 @@ function declaresMetadataOnly(routeDir: string): boolean {
 
   if (!isMetadataLike(parsed)) return false;
   return typeof parsed.metadataOnly === "string" && parsed.metadataOnly.trim().length > 0;
+}
+
+interface DeclaredElevationRange {
+  minMeters?: number;
+  maxMeters?: number;
+  totalAscentMeters?: number;
+  totalDescentMeters?: number;
+}
+
+/**
+ * The figures a Key Facts elevation cell is checked against, read straight
+ * from a section's own metadata.json — a route directory's or a variant's,
+ * the shape is the same. Every field is independently optional because the
+ * data makes them so: kumano-kodo-iseji declares a min and a max and no
+ * totals, having no line to derive totals from. Returns null when there is no
+ * elevationRange to compare against at all, which is not a problem — see
+ * KEY_FACTS_TABLE_PATTERN on why the row is optional in both directions.
+ */
+function readDeclaredElevationRange(sectionDir: string): DeclaredElevationRange | null {
+  const metaPath = join(sectionDir, "metadata.json");
+  if (!existsSync(metaPath)) return null;
+
+  let parsed: unknown;
+  try {
+    parsed = JSON.parse(readFileSync(metaPath, "utf-8"));
+  } catch {
+    return null; // an unparsable metadata.json is npm run validate's job
+  }
+
+  if (!isMetadataLike(parsed)) return null;
+  const range = parsed.overview?.elevationRange;
+  if (typeof range !== "object" || range === null) return null;
+
+  const { minMeters, maxMeters, totalAscentMeters, totalDescentMeters } =
+    range as Record<string, unknown>;
+
+  const declared: DeclaredElevationRange = {};
+  if (typeof minMeters === "number") declared.minMeters = minMeters;
+  if (typeof maxMeters === "number") declared.maxMeters = maxMeters;
+  if (typeof totalAscentMeters === "number") declared.totalAscentMeters = totalAscentMeters;
+  if (typeof totalDescentMeters === "number") declared.totalDescentMeters = totalDescentMeters;
+
+  return declared;
 }
 
 const ROUTE_FILTER_ATTRS: Array<[string, (overview: RouteFilterOverview) => string | undefined]> = [
@@ -1144,6 +1252,81 @@ export function checkSite(root: string, overrides: PageOverrides = {}): Problem[
     }
   }
 
+  function checkKeyFactsElevation(id: string, detailHtml: string): void {
+    const file = `docs/${id}.html`;
+    const routeDir = join(root, "routes", id);
+    const variantsDir = join(routeDir, "variants");
+
+    /**
+     * A page's Overview tables run in the order its sections do: the route's
+     * own first, then one per variant. So they pair positionally against
+     * routes/{id}/metadata.json followed by each routes/{id}/variants/{variant}
+     * directory. Nothing in the markup identifies which section a table
+     * belongs to — the caption is prose that does not match the section's name
+     * (VARIANT_ROW_PATTERN documents the same problem in docs/routes.html's
+     * variants table) and no id appears anywhere on the table.
+     *
+     * Every variant directory takes a slot whether or not it declares a range,
+     * so a route that declares none cannot slide a variant's figures into the
+     * route's own table. A table past the last slot is left unchecked rather
+     * than guessed at.
+     */
+    const sections: Array<{ file: string; declared: DeclaredElevationRange | null }> = [
+      { file: `routes/${id}/metadata.json`, declared: readDeclaredElevationRange(routeDir) },
+    ];
+
+    if (existsSync(variantsDir)) {
+      for (const entry of readdirSync(variantsDir, { withFileTypes: true })) {
+        if (!entry.isDirectory()) continue;
+        sections.push({
+          file: `routes/${id}/variants/${entry.name}/metadata.json`,
+          declared: readDeclaredElevationRange(join(variantsDir, entry.name)),
+        });
+      }
+    }
+
+    [...detailHtml.matchAll(KEY_FACTS_TABLE_PATTERN)].forEach(([, caption, tbody], index) => {
+      const declared = sections[index]?.declared;
+      if (!declared) return;
+
+      const row = tbody.match(KEY_FACTS_ELEVATION_ROW_PATTERN);
+      if (!row) return; // the row is optional in both directions
+      const cell = row[1];
+      const source = sections[index].file;
+
+      const range = cell.match(KEY_FACTS_ELEVATION_RANGE_PATTERN);
+      const { minMeters, maxMeters, totalAscentMeters, totalDescentMeters } = declared;
+
+      if (range && minMeters !== undefined && maxMeters !== undefined) {
+        const drifted =
+          metersFromCell(range[1]) !== minMeters || metersFromCell(range[2]) !== maxMeters;
+        if (drifted) {
+          add(
+            file,
+            `"${caption}" gives an elevation range of ${range[1]}–${range[2]} m, but ${source} ` +
+              `declares ${minMeters}–${maxMeters} m — update the Key Facts cell, or correct ` +
+              `overview.elevationRange`,
+          );
+        }
+      }
+
+      const totals = cell.match(KEY_FACTS_ELEVATION_TOTALS_PATTERN);
+      if (totals && totalAscentMeters !== undefined && totalDescentMeters !== undefined) {
+        const drifted =
+          metersFromCell(totals[1]) !== totalAscentMeters ||
+          metersFromCell(totals[2]) !== totalDescentMeters;
+        if (drifted) {
+          add(
+            file,
+            `"${caption}" gives a total ascent of ${totals[1]} m and descent of ${totals[2]} m, ` +
+              `but ${source} declares ${totalAscentMeters} m and ${totalDescentMeters} m — update ` +
+              `the Key Facts cell, or correct overview.elevationRange`,
+          );
+        }
+      }
+    });
+  }
+
   function checkTerrainNotesDistance(id: string): void {
     const stagesPath = join(root, "routes", id, "stages.json");
     if (!existsSync(stagesPath)) return;
@@ -1441,6 +1624,7 @@ export function checkSite(root: string, overrides: PageOverrides = {}): Problem[
       checkInlinedAsset("sparklines", id, detailPages);
       checkInteriorJourney(id, detailHtml);
       checkWaypointTypeTables(id, detailHtml);
+      checkKeyFactsElevation(id, detailHtml);
       if (pilgrimageId !== undefined) {
         checkPilgrimageBacklink(id, pilgrimageId, detailHtml);
       }
