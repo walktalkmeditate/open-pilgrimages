@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
   "routeId": "kumano-kodo-nakahechi",
-  "generatedAt": "2026-08-20T00:00:00Z",
+  "generatedAt": "2026-09-08T00:00:00Z",
   "walkedLine": {
     "source": "route.main.geojson",
     "points": 1592,

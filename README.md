@@ -21,6 +21,23 @@ The Route Points column counts `route.geojson` only. `route.main.geojson`, where
 
 The Camino Portugués da Costa entry above covers the Portuguese section (Porto → Caminha ferry → A Guarda); the Spanish continuation through Oia/Baiona/Vigo/Redondela is planned for a future release. The Camino Inglés also ships an A Coruña start variant stub, and the Camino Portugués ships Espiritual and Lisboa variant stubs — each with metadata only, full geometry/stages planned for future releases.
 
+### Kumano Kodō
+
+Four alternative ways to the same three shrines. They are not legs of one walk, so
+there is no total: a walker picks one.
+
+| Route | Distance | Topology | Tradition | Route Points | Waypoints | Stats |
+|-------|----------|----------|-----------|-------------|-----------|-------|
+| [Kumano Kodo (Nakahechi)](routes/kumano-kodo-nakahechi/) | 36 km | Network | Shinto/Buddhist | 3,786 | 115 | 22 years (2003-2024) |
+| [Kohechi](routes/kumano-kodo-kohechi/) | 63 km | Linear | Shinto/Buddhist | 3,061 | 35 | — |
+| [Iseji](routes/kumano-kodo-iseji/) | 170 km | Linear | Shinto/Buddhist | 0 | 0 | — |
+| [Ōhechi](routes/kumano-kodo-ohechi/) | 90 km | Linear | Shinto/Buddhist | 0 | 0 | — |
+
+The Nakahechi was `kumano-kodo` until 1.8.0; that id no longer exists. The Iseji and
+Ōhechi ship as metadata only — OpenStreetMap does not yet hold enough of either trail
+to draw a line — so their distances are planning estimates rather than measurements,
+and neither has a `ways/` package.
+
 ### Other Routes
 
 Routes that belong to no pilgrimage grouping yet.
@@ -28,10 +45,6 @@ Routes that belong to no pilgrimage grouping yet.
 | Route | Distance | Topology | Tradition | Route Points | Waypoints | Stats |
 |-------|----------|----------|-----------|-------------|-----------|-------|
 | [Shikoku 88](routes/shikoku-88/) | 1,200 km | Circular | Buddhist | 49,097 | 2,980 | 21 years (2005-2025) |
-| [Kumano Kodo](routes/kumano-kodo-nakahechi/) | 36 km | Network | Shinto/Buddhist | 3,786 | 115 | 22 years (2003-2024) |
-| [Kohechi](routes/kumano-kodo-kohechi/) | 63 km | Linear | Shinto/Buddhist | 3,061 | 35 | — |
-| [Iseji](routes/kumano-kodo-iseji/) | 170 km | Linear | Shinto/Buddhist | 0 | 0 | — |
-| [Ōhechi](routes/kumano-kodo-ohechi/) | 90 km | Linear | Shinto/Buddhist | 0 | 0 | — |
 
 ### Three Layers of Data
 
