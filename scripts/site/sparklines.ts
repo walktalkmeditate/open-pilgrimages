@@ -36,6 +36,23 @@ export function trendOf(statsJson: unknown): TrendPoint[] {
 
 const MINIMUM_RANGE_COUNT = 1;
 
+/**
+ * Where the series ends against where it began, in the words the aria-label
+ * reads aloud. The word was the literal "rising" until the Shikoku 88's
+ * walking completions arrived — 1,740 in 2005 to 1,622 in 2025, the first
+ * falling series this dataset has held. Every series that came before rises,
+ * so the label had never yet been wrong; the first one to fall would have had
+ * a screen reader announce the opposite of the picture beside it.
+ *
+ * It compares the two ends and not the shape between them, which is what the
+ * hard-coded word claimed too: the Inglés dips hard in 2020 and still rises.
+ */
+function endpointVerb(first: number, last: number): string {
+  if (last > first) return "rising to";
+  if (last < first) return "falling to";
+  return "unchanged at";
+}
+
 export function sparklineSvg(trend: TrendPoint[], width = 120, height = 30): string {
   if (trend.length < 2) return "";
 
@@ -56,7 +73,8 @@ export function sparklineSvg(trend: TrendPoint[], width = 120, height = 30): str
   return [
     `<svg viewBox="0 0 ${width} ${height}" class="spark" role="img"`,
     ` aria-label="Pilgrims per year, ${first.year} to ${last.year}:`,
-    ` ${first.count.toLocaleString("en-US")} rising to ${last.count.toLocaleString("en-US")}">`,
+    ` ${first.count.toLocaleString("en-US")} ${endpointVerb(first.count, last.count)}` +
+      ` ${last.count.toLocaleString("en-US")}">`,
     `<path d="M${points.join(" L")}" class="spark-line" fill="none"/>`,
     `</svg>`,
   ].join("");

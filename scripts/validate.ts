@@ -599,10 +599,12 @@ export function validatePilgrimages(root: string, dirs: string[], errors: Valida
     }
 
     // Twenty-one years of whole-circuit figures, repeated in four files for
-    // the same reason the name is: build-index lifts one section's copy to the
-    // pilgrimage entry, so a drifted copy would be dropped without a word. The
-    // block is a hundred lines deep, so what the message carries is the field
-    // that differs and the two sections holding it, rather than both copies.
+    // the same reason the name is. This is the only check over them: index.json
+    // carries a summary of the block, not the series, so a consumer that wants
+    // the years fetches whichever section it happens to hold, and a drifted
+    // copy would be one section's private truth. The block is a hundred lines
+    // deep, so what the message carries is the field that differs and the two
+    // sections holding it, rather than both copies.
     const [first, ...rest] = members;
     const disagreement = rest
       .map((other) => ({

@@ -74,9 +74,11 @@ test("every route with stats gets a sparkline and every route a profile", () => 
  * `build-assets` from drawing it four times over.
  *
  * The pilgrimage's own page is where such a figure would belong, and it does not
- * render one today — see .superpowers/sdd/task-2b-report.md for what that would
- * take, including sparklineSvg's hard-coded "rising", which this series falls
- * against.
+ * render one today. `sparklineSvg` now reads its own verb off the data, so the
+ * falling series would be labelled correctly; its noun would not. "Pilgrims per
+ * year" is right for the six arrival series and wrong for a count of completed
+ * circuits, and `trendOf` discards which key it read the series from, so the
+ * noun has to come from whoever builds that page.
  */
 test("a section carrying pilgrimage-level stats gets no sparkline of its own", () => {
   buildAssets(ROOT);

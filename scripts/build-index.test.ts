@@ -646,13 +646,25 @@ const SHIKOKU_STATS = {
   lastUpdated: "2026-03-27",
   dataYear: 2025,
   dataNote: "Shikoku has no central pilgrim office.",
-  annualPilgrims: { walkingCompletions: { trend: [{ year: 2025, count: 1622, foreign: 536 }] } },
+  annualPilgrims: {
+    latest: { year: 2025, count: 150000, note: "Estimated total (all modes)." },
+    walkingCompletions: { trend: [{ year: 2025, count: 1622, foreign: 536 }] },
+  },
+  demographics: { genderSplit: { male: 0.73, female: 0.27 } },
+};
+
+/** What the registry keeps of SHIKOKU_STATS — see `statsSummary`. */
+const SHIKOKU_SUMMARY = {
+  lastUpdated: "2026-03-27",
+  dataYear: 2025,
+  dataNote: "Shikoku has no central pilgrim office.",
+  annualPilgrims: { latest: { year: 2025, count: 150000, note: "Estimated total (all modes)." } },
 };
 
 test("a pilgrimage's stats are lifted from its sections, not summed across them", () => {
-  // #given four sections each repeating the same whole-circuit series, the way
+  // #given four sections each repeating the same whole-circuit figures, the way
   // they repeat the name — the certificate is issued for the circuit, so four
-  // copies of 1,622 are one fact, not 6,488
+  // copies of 150,000 are one fact, not 600,000
   const { root, routesDir } = createTempRoutesDir([
     { dirName: "awa", id: "awa", metadata: { pilgrimage: { ...SHIKOKU, order: 1, stats: SHIKOKU_STATS } } },
     { dirName: "tosa", id: "tosa", metadata: { pilgrimage: { ...SHIKOKU, order: 2, stats: SHIKOKU_STATS } } },
@@ -660,7 +672,55 @@ test("a pilgrimage's stats are lifted from its sections, not summed across them"
   try {
     const index = buildIndex(routesDir, null, () => NEW, root, RELEASE);
 
-    assert.deepEqual(index.pilgrimages?.[0].stats, SHIKOKU_STATS);
+    assert.deepEqual(index.pilgrimages?.[0].stats, SHIKOKU_SUMMARY);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("the registry summarises a pilgrimage's figures rather than carrying the series", () => {
+  // #given a stats block holding a year series and a demographics breakdown
+  // alongside the summary fields
+  const { root, routesDir } = createTempRoutesDir([
+    { dirName: "awa", id: "awa", metadata: { pilgrimage: { ...SHIKOKU, order: 1, stats: SHIKOKU_STATS } } },
+  ]);
+  try {
+    const index = buildIndex(routesDir, null, () => NEW, root, RELEASE);
+
+    // #then neither rides along into the file every consumer downloads first
+    const stats = index.pilgrimages![0].stats as Record<string, unknown>;
+    assert.equal("demographics" in stats, false);
+    assert.deepEqual(Object.keys(stats.annualPilgrims as object), ["latest"]);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("a stats block with no latest figure summarises to the fields it does carry", () => {
+  const { annualPilgrims, ...seriesOnly } = SHIKOKU_STATS;
+  const { root, routesDir } = createTempRoutesDir([
+    {
+      dirName: "awa",
+      id: "awa",
+      metadata: {
+        pilgrimage: {
+          ...SHIKOKU,
+          order: 1,
+          stats: { ...seriesOnly, annualPilgrims: { walkingCompletions: annualPilgrims.walkingCompletions } },
+        },
+      },
+    },
+  ]);
+  try {
+    const index = buildIndex(routesDir, null, () => NEW, root, RELEASE);
+
+    // #then annualPilgrims is absent rather than an empty object claiming a
+    // figure nobody published
+    assert.deepEqual(index.pilgrimages?.[0].stats, {
+      lastUpdated: "2026-03-27",
+      dataYear: 2025,
+      dataNote: "Shikoku has no central pilgrim office.",
+    });
   } finally {
     rmSync(root, { recursive: true, force: true });
   }
@@ -683,24 +743,45 @@ test("a pilgrimage whose sections carry no stats has none", () => {
   }
 });
 
+const statsSections = (stats: unknown) => [
+  { dirName: "awa", id: "awa", metadata: { pilgrimage: { ...SHIKOKU, order: 1, stats } } },
+  { dirName: "tosa", id: "tosa", metadata: { pilgrimage: { ...SHIKOKU, order: 2, stats } } },
+];
+
 test("stamps a fresh generatedAt when a shared pilgrimage's stats change", () => {
-  const sections = (stats: unknown) => [
-    { dirName: "awa", id: "awa", metadata: { pilgrimage: { ...SHIKOKU, order: 1, stats } } },
-    { dirName: "tosa", id: "tosa", metadata: { pilgrimage: { ...SHIKOKU, order: 2, stats } } },
-  ];
-  const { root, routesDir } = createTempRoutesDir(sections(SHIKOKU_STATS));
+  const { root, routesDir } = createTempRoutesDir(statsSections(SHIKOKU_STATS));
   try {
     const first = buildIndex(routesDir, null, () => OLD, root, RELEASE);
 
     // A refreshed year moves nothing about either route's own fields, which is
     // the shape the content comparison has to catch.
     const refreshed = structuredClone(SHIKOKU_STATS);
-    refreshed.annualPilgrims.walkingCompletions.trend[0].count = 1700;
-    writeRouteFixtures(routesDir, sections(refreshed));
+    refreshed.annualPilgrims.latest.count = 160000;
+    writeRouteFixtures(routesDir, statsSections(refreshed));
 
     const second = buildIndex(routesDir, first, () => NEW, root, RELEASE);
 
     assert.equal(second.generatedAt, NEW);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("keeps the old generatedAt when only the series the registry omits changes", () => {
+  const { root, routesDir } = createTempRoutesDir(statsSections(SHIKOKU_STATS));
+  try {
+    const first = buildIndex(routesDir, null, () => OLD, root, RELEASE);
+
+    const refreshed = structuredClone(SHIKOKU_STATS);
+    refreshed.annualPilgrims.walkingCompletions.trend[0].count = 1700;
+    writeRouteFixtures(routesDir, statsSections(refreshed));
+
+    const second = buildIndex(routesDir, first, () => NEW, root, RELEASE);
+
+    // #then the stamp holds, because index.json genuinely did not change — the
+    // series lives on the sections, and a consumer refetches it from there
+    assert.equal(second.generatedAt, OLD);
+    assert.deepEqual(second.pilgrimages?.[0].stats, SHIKOKU_SUMMARY);
   } finally {
     rmSync(root, { recursive: true, force: true });
   }
@@ -716,7 +797,7 @@ test("index.schema.json accepts a pilgrimage's stats and a pilgrimage without an
       JSON.stringify({
         ...base,
         pilgrimages: [
-          { id: "shikoku-88", name: { en: "Shikoku" }, kind: "legs", sections: ["awa"], stats: SHIKOKU_STATS },
+          { id: "shikoku-88", name: { en: "Shikoku" }, kind: "legs", sections: ["awa"], stats: SHIKOKU_SUMMARY },
           { id: "kumano-kodo", name: { en: "Kumano Kodō" }, kind: "alternatives", sections: ["one"] },
         ],
       }),
@@ -735,7 +816,7 @@ test("index.schema.json refuses stats that do not say how the figures were count
   const root = mkdtempSync(join(tmpdir(), "build-index-schema-test-"));
   try {
     const base = JSON.parse(readFileSync(join(ROOT, "index.json"), "utf-8")) as RouteIndex;
-    const { dataNote, ...withoutNote } = SHIKOKU_STATS;
+    const { dataNote, ...withoutNote } = SHIKOKU_SUMMARY;
     const path = join(root, "index.json");
     writeFileSync(
       path,
@@ -751,6 +832,42 @@ test("index.schema.json refuses stats that do not say how the figures were count
     validateFile(createValidator(), "index.schema.json", path, errors);
 
     assert.ok(errors.some((e) => /dataNote/.test(e.message)), JSON.stringify(errors));
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("index.schema.json refuses a whole stats block lifted into the registry", () => {
+  const root = mkdtempSync(join(tmpdir(), "build-index-schema-test-"));
+  try {
+    const base = JSON.parse(readFileSync(join(ROOT, "index.json"), "utf-8")) as RouteIndex;
+    const path = join(root, "index.json");
+    writeFileSync(
+      path,
+      JSON.stringify({
+        ...base,
+        pilgrimages: [
+          { id: "shikoku-88", name: { en: "Shikoku" }, kind: "legs", sections: ["awa"], stats: SHIKOKU_STATS },
+        ],
+      }),
+    );
+
+    const errors: ValidationError[] = [];
+    validateFile(createValidator(), "index.schema.json", path, errors);
+
+    // #then it is refused at both depths — the breakdown beside the summary
+    // fields, and the series beside `latest` — so a regression is caught in CI
+    // rather than in the file size
+    assert.ok(
+      errors.some((e) => /^\/pilgrimages\/0\/stats: must NOT have additional properties$/.test(e.message)),
+      JSON.stringify(errors),
+    );
+    assert.ok(
+      errors.some((e) =>
+        /^\/pilgrimages\/0\/stats\/annualPilgrims: must NOT have additional properties$/.test(e.message),
+      ),
+      JSON.stringify(errors),
+    );
   } finally {
     rmSync(root, { recursive: true, force: true });
   }

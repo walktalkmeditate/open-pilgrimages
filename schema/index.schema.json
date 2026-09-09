@@ -35,15 +35,31 @@
           "stageCount": { "type": "integer", "minimum": 0 },
           "stats": {
             "type": "object",
-            "required": ["lastUpdated", "dataYear", "dataNote", "annualPilgrims"],
+            "required": ["lastUpdated", "dataYear", "dataNote"],
             "properties": {
               "lastUpdated": { "type": "string", "format": "date" },
               "dataYear": { "type": "integer" },
               "dataNote": { "type": "string" },
-              "annualPilgrims": { "type": "object" }
+              "annualPilgrims": {
+                "type": "object",
+                "required": ["latest"],
+                "properties": {
+                  "latest": {
+                    "type": "object",
+                    "required": ["year", "count"],
+                    "properties": {
+                      "year": { "type": "integer" },
+                      "count": { "type": "integer", "minimum": 0 },
+                      "note": { "type": "string" }
+                    },
+                    "additionalProperties": true
+                  }
+                },
+                "additionalProperties": false
+              }
             },
-            "additionalProperties": true,
-            "description": "Counts measured over the whole walk, copied verbatim from the sections' agreed `pilgrimage.stats` block. Absent for a pilgrimage whose sections carry none. `pilgrimage.schema.json` is where the full shape is stated and `validate` is what refuses sections that disagree; this restates only the keys a consumer may rely on, so the two files have no depths to drift over."
+            "additionalProperties": false,
+            "description": "A summary of the whole-walk figures the pilgrimage's sections carry, so a consumer can see that they exist and how current they are without fetching a section. Absent for a pilgrimage whose sections carry none. The year series, demographics and infrastructure are deliberately not here: `additionalProperties: false` is what keeps them out, because index.json is the one file every consumer downloads from @main and a hundred lines of trend data is not a summary. `pilgrimage.schema.json` states the full block, every section repeats it, and `validate` refuses sections that disagree."
           }
         }
       }

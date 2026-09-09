@@ -71,6 +71,69 @@ test("sparklineSvg handles a flat series without dividing by zero", () => {
   assert.equal(svg.includes("Infinity"), false);
 });
 
+test("sparklineSvg says rising when the series ends above where it began", () => {
+  assert.match(
+    sparklineSvg(SAMPLE, 120, 30),
+    /aria-label="Pilgrims per year, 2000 to 2002: 100 rising to 300"/,
+  );
+});
+
+// Shikoku 88's walking completions: 1,740 in 2005 to 1,622 in 2025, the first
+// falling series this dataset has held. The word was the literal "rising"
+// until it arrived, so nothing had ever caught the difference.
+test("sparklineSvg says falling when the series ends below where it began", () => {
+  const falling: TrendPoint[] = [
+    { year: 2005, count: 1740 },
+    { year: 2015, count: 2200 },
+    { year: 2025, count: 1622 },
+  ];
+
+  assert.match(
+    sparklineSvg(falling, 120, 30),
+    /aria-label="Pilgrims per year, 2005 to 2025: 1,740 falling to 1,622"/,
+  );
+});
+
+test("sparklineSvg says unchanged when the series ends where it began", () => {
+  const returned: TrendPoint[] = [
+    { year: 2000, count: 50 },
+    { year: 2001, count: 90 },
+    { year: 2002, count: 50 },
+  ];
+
+  assert.match(
+    sparklineSvg(returned, 120, 30),
+    /aria-label="Pilgrims per year, 2000 to 2002: 50 unchanged at 50"/,
+  );
+});
+
+// The word describes the two ends and not the shape between them, which is
+// what the hard-coded one claimed too — the Inglés collapses in 2020 and its
+// label has always said rising.
+test("a dip inside a rising series does not change the word", () => {
+  const dipped: TrendPoint[] = [
+    { year: 2019, count: 100 },
+    { year: 2020, count: 5 },
+    { year: 2021, count: 400 },
+  ];
+
+  assert.match(sparklineSvg(dipped, 120, 30), / 100 rising to 400"/);
+});
+
+// The real block, not a fixture: the four dōjō carry it in metadata.json
+// rather than a stats.json, so trendOf's walkingCompletions fallback is the
+// path a Shikoku sparkline would take the day a page renders one.
+test("the committed Shikoku 88 series reads as falling end to end", () => {
+  const metadata = JSON.parse(
+    readFileSync(join(ROOT, "routes", "shikoku-88-awa", "metadata.json"), "utf-8"),
+  ) as { pilgrimage: { stats: unknown } };
+  const trend = trendOf(metadata.pilgrimage.stats);
+
+  assert.deepEqual(trend[0], { year: 2005, count: 1740 });
+  assert.deepEqual(trend[trend.length - 1], { year: 2025, count: 1622 });
+  assert.match(sparklineSvg(trend, 120, 30), / 1,740 falling to 1,622"/);
+});
+
 test("sparklineSvg returns an empty string for fewer than two points", () => {
   assert.equal(sparklineSvg([], 120, 30), "");
   assert.equal(sparklineSvg([{ year: 2000, count: 1 }], 120, 30), "");

@@ -234,12 +234,39 @@ export interface PilgrimageEntry {
   distanceKm?: number;
   stageCount?: number;
   /**
-   * Copied from the sections rather than summed from them: unlike distance and
-   * stages, a count measured over the whole walk is already the pilgrimage's
-   * own figure, and adding four identical copies of it together would be four
-   * times the truth.
+   * A summary of the sections' agreed `pilgrimage.stats` block, not the block
+   * itself — see `statsSummary`.
    */
   stats?: Record<string, unknown>;
+}
+
+/** Scalars, carried across whole. `annualPilgrims` is picked apart below. */
+const SUMMARY_KEYS = ["lastUpdated", "dataYear", "dataNote"] as const;
+
+/**
+ * What `pilgrimages[]` restates of a pilgrimage's figures: when they were last
+ * checked, the year they reach, how they were counted, and the single most
+ * recent number. The year series, demographics and infrastructure stay on the
+ * sections.
+ *
+ * `pilgrimages[]` exists so a consumer can see what a pilgrimage is without
+ * fetching its sections, and index.json is the one file every consumer
+ * downloads from @main before anything else. A twenty-one-year series with
+ * per-year foreign counts is not that, and lifting one tripled the file for
+ * every consumer that never asked about Shikoku. It is also not how the
+ * registry treats figures elsewhere: no route's `stats.json` is copied into it
+ * at all — the five Camino files are fetched separately.
+ */
+function statsSummary(stats: Record<string, unknown>): Record<string, unknown> | undefined {
+  const summary: Record<string, unknown> = {};
+  for (const key of SUMMARY_KEYS) {
+    if (stats[key] !== undefined) summary[key] = stats[key];
+  }
+
+  const latest = (stats.annualPilgrims as { latest?: unknown } | undefined)?.latest;
+  if (latest !== undefined) summary.annualPilgrims = { latest };
+
+  return Object.keys(summary).length > 0 ? summary : undefined;
 }
 
 /**
@@ -285,10 +312,13 @@ export function scanPilgrimages(sections: ScannedSection[]): PilgrimageEntry[] {
 
       // Taken from one section because validate has already refused sections
       // that disagree — the same standing this entry's name and kind have, and
-      // the reason all three are read through readPilgrimage. Set after the
-      // derived totals so a reader meets the pilgrimage's own summary before a
-      // hundred lines of year series.
-      if (block.stats) entry.stats = block.stats;
+      // the reason all three are read through readPilgrimage. Summarised rather
+      // than copied whole, and set after the derived totals, so the entry stays
+      // a card a consumer reads before deciding to fetch anything.
+      if (block.stats) {
+        const summary = statsSummary(block.stats);
+        if (summary) entry.stats = summary;
+      }
       return entry;
     })
     .sort((a, b) => byCodepoint(a.id, b.id));
