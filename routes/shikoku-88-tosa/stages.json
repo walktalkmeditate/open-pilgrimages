@@ -30,7 +30,6 @@
         "note": "OpenStreetMap node/11535055772 (accommodation), 32.08 km along this section's walked line, 19 m off it. No temple falls 25-30 km past the previous day's end at 0.00 km, so the day ends at the named accommodation or town waypoint on the line nearest 27.5 km, 32.08 km on."
       },
       "distanceKm": 32.1,
-      "drafted": true,
       "interior": {
         "theme": {
           "en": "Seventy-seven kilometres to the first temple"
@@ -69,7 +68,6 @@
         "note": "OpenStreetMap node/10810952434 (accommodation), 62.89 km along this section's walked line, 14 m off it. No temple falls 25-30 km past the previous day's end at 32.08 km, so the day ends at the named accommodation or town waypoint on the line nearest 27.5 km, 30.81 km on."
       },
       "distanceKm": 30.8,
-      "drafted": true,
       "interior": {
         "theme": {
           "en": "Twenty-four bus stops, and still no temple"
@@ -109,7 +107,6 @@
         "note": "Temple 26, 88.08 km along this section's walked line, 5 m off it — 25.19 km from the previous day's end at 62.89 km, inside the 25-30 km band and, of the temples in it, the one nearest 27.5 km."
       },
       "distanceKm": 25.2,
-      "drafted": true,
       "interior": {
         "theme": {
           "en": "The first temple, and then two more"
@@ -151,7 +148,6 @@
         "note": "Temple 27, 116.63 km along this section's walked line, 53 m off it — 28.55 km from the previous day's end at 88.08 km, inside the 25-30 km band and, of the temples in it, the one nearest 27.5 km."
       },
       "distanceKm": 28.5,
-      "drafted": true,
       "interior": {
         "theme": {
           "en": "One leg, one day"
@@ -191,7 +187,6 @@
         "note": "OpenStreetMap node/1762646861 (accommodation), 152.39 km along this section's walked line, 57 m off it. No temple falls 25-30 km past the previous day's end at 116.63 km, so the day ends at the named accommodation or town waypoint on the line nearest 27.5 km, 35.76 km on."
       },
       "distanceKm": 35.8,
-      "drafted": true,
       "interior": {
         "theme": {
           "en": "Thirty-eight kilometres between two temples"
@@ -231,7 +226,6 @@
         "note": "Temple 31, 177.82 km along this section's walked line, 72 m off it — 25.43 km from the previous day's end at 152.39 km, inside the 25-30 km band and, of the temples in it, the one nearest 27.5 km."
       },
       "distanceKm": 25.4,
-      "drafted": true,
       "interior": {
         "theme": {
           "en": "Four temples in twenty-three kilometres"
@@ -285,7 +279,6 @@
         "note": "OpenStreetMap node/697489675 (town), 205.29 km along this section's walked line, 107 m off it. No temple falls 25-30 km past the previous day's end at 177.82 km, so the day ends at the named accommodation or town waypoint on the line nearest 27.5 km, 27.46 km on."
       },
       "distanceKm": 27.5,
-      "drafted": true,
       "interior": {
         "theme": {
           "en": "Four hundred and fifty-seven metres out of the band"
@@ -337,7 +330,6 @@
         "note": "OpenStreetMap node/11372865970 (accommodation), 226.42 km along this section's walked line, 18 m off it. No temple falls 25-30 km past the previous day's end at 205.29 km, so the day ends at the named accommodation or town waypoint on the line nearest 27.5 km, 21.14 km on."
       },
       "distanceKm": 21.1,
-      "drafted": true,
       "interior": {
         "theme": {
           "en": "Two gates, and almost nothing between them"
@@ -376,7 +368,6 @@
         "note": "OpenStreetMap node/12898846612 (accommodation), 252.98 km along this section's walked line, 207 m off it. No temple falls 25-30 km past the previous day's end at 226.42 km, so the day ends at the named accommodation or town waypoint on the line nearest 27.5 km, 26.56 km on."
       },
       "distanceKm": 26.6,
-      "drafted": true,
       "interior": {
         "theme": {
           "en": "Nineteen kilometres before anything is marked"
@@ -416,7 +407,6 @@
         "note": "Temple 37, 280.88 km along this section's walked line, 21 m off it — 27.90 km from the previous day's end at 252.98 km, inside the 25-30 km band and, of the temples in it, the one nearest 27.5 km."
       },
       "distanceKm": 27.9,
-      "drafted": true,
       "interior": {
         "theme": {
           "en": "The last six hundred metres hold the day"
@@ -425,7 +415,7 @@
           "en": "Iwamoto-ji closes this day at 280.9 km, 58.1 km on from Shōryū-ji — the third-widest gap between temples in Tosa — and the day walks the last 27.9 of it. For most of that the record runs thin and strung along a railway: six stations, five places to eat. Then the last 0.6 km takes six of the day's twenty-one places at once — two Kubokawa stations, the town of Shimanto, two places to stay, a toilet — and the temple after them."
         },
         "reflection": {
-          "en": "Fifty-eight kilometres between two gates, and most of what the day holds arrives in its last six hundred metres. What does nearness do to distance?"
+          "en": "Fifty-eight kilometres between two gates. What does nearness do to distance?"
         }
       }
     },
@@ -456,7 +446,6 @@
         "note": "OpenStreetMap node/11377475869 (accommodation), 309.05 km along this section's walked line, 41 m off it. No temple falls 25-30 km past the previous day's end at 280.88 km, so the day ends at the named accommodation or town waypoint on the line nearest 27.5 km, 28.17 km on."
       },
       "distanceKm": 28.2,
-      "drafted": true,
       "interior": {
         "theme": {
           "en": "The first of three days in one gap"
@@ -495,7 +484,6 @@
         "note": "OpenStreetMap node/12908978212 (accommodation), 342.61 km along this section's walked line, 13 m off it. No temple falls 25-30 km past the previous day's end at 309.05 km, so the day ends at the named accommodation or town waypoint on the line nearest 27.5 km, 33.56 km on."
       },
       "distanceKm": 33.6,
-      "drafted": true,
       "interior": {
         "theme": {
           "en": "Thirteen places over thirty-four kilometres"
@@ -534,7 +522,6 @@
         "note": "OpenStreetMap node/9444928782 (accommodation), 363.53 km along this section's walked line, 145 m off it. No temple falls 25-30 km past the previous day's end at 342.61 km, so the day ends at the named accommodation or town waypoint on the line nearest 27.5 km, 20.92 km on."
       },
       "distanceKm": 20.9,
-      "drafted": true,
       "interior": {
         "theme": {
           "en": "Fifty-nine metres short of a gate"
@@ -573,7 +560,6 @@
         "note": "OpenStreetMap node/11535055771 (accommodation), 399.33 km along this section's walked line, 24 m off it. No temple falls 25-30 km past the previous day's end at 363.53 km, so the day ends at the named accommodation or town waypoint on the line nearest 27.5 km, 35.80 km on."
       },
       "distanceKm": 35.8,
-      "drafted": true,
       "interior": {
         "theme": {
           "en": "One gate, then thirty-six kilometres unmarked"
@@ -613,7 +599,6 @@
         "note": "Section boundary. Coordinates and name are taken verbatim from this section's metadata.json overview, so the neighbouring section's stage anchor is the same point. 418.50 km along this section's walked line, 21 m off it. A boundary day ends at the boundary temple itself whatever its length, and the lodging fallback does not apply here; this one runs 19.17 km."
       },
       "distanceKm": 19.2,
-      "drafted": true,
       "interior": {
         "theme": {
           "en": "The shortest day, and the last gate"
