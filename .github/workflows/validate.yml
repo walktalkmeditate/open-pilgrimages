@@ -116,12 +116,18 @@ jobs:
         # build-assets also writes docs/<pilgrimage-id>.html, which is a
         # published page, so a page never generated locally (or left stale
         # by a renamed section) has to count as drift too.
+        #
+        # The three rebuild commands are named one by one rather than as
+        # `npm run pipeline`, which now starts with `fetch`: a contributor
+        # whose Overpass call is rate-limited would abort before build-ways
+        # and never reach the rebuild this message is asking for. The steps
+        # above run the same three individually for the same reason.
         run: |
           changes="$(git status --porcelain --untracked-files=all docs routes)"
           if [ -n "$changes" ]; then
             echo "$changes"
             echo "docs or routes is out of date — run npm run build-assets and commit the result."
-            echo "If the routes/*/ways/ drift, that comes from build-ways, not build-assets — run npm run pipeline (build-ways + build-index + validate) instead."
+            echo "If the routes/*/ways/ drift, that comes from build-ways, not build-assets — run npm run build-ways, npm run build-index and npm run validate instead."
             exit 1
           fi
       - run: npm run check-site

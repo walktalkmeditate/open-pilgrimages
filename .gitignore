@@ -15,4 +15,5 @@ Thumbs.db
 .superpowers/
 .build-index-test-*/
 .build-ways-test-*/
+.enrich-waypoints-test-*/
 .worktrees/

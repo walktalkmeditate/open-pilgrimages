@@ -144,6 +144,26 @@ export function stageAssignmentRefusal(routeDir: string, routeId: string): strin
   ].join("\n");
 }
 
+/**
+ * The refusal above only composes the message; this is the half that acts on
+ * it. It throws rather than exiting inline so that both arms are reachable
+ * from a test — an enforcement written straight into main() can be softened to
+ * a warning by one word with nothing failing, which is the same silence the
+ * refusal itself exists to break.
+ *
+ * The overridden arm still prints: a gate that goes quiet when it is waived
+ * reads exactly like a gate that found nothing.
+ */
+export function enforceStageAssignmentRefusal(
+  refusal: string | undefined,
+  args: readonly string[],
+  print: (message: string) => void,
+): void {
+  if (refusal === undefined) return;
+  if (!args.includes(OVERWRITE_FLAG)) throw new Error(refusal);
+  print(`${refusal}\n${OVERWRITE_FLAG} was passed — overwriting anyway.\n`);
+}
+
 function getStageRanges(routeDir: string, routeCoords: Coord[]): StageRangeInfo {
   const stages = loadJson(join(routeDir, "stages.json"));
   const ranges: StageRange[] = [];
@@ -250,16 +270,12 @@ async function main() {
   }
 
   // Ahead of the Overpass fetch, so a refused route costs nothing and cannot
-  // half-write. The overridden arm still prints: a gate that goes quiet when
-  // it is waived reads exactly like a gate that found nothing.
-  const refusal = stageAssignmentRefusal(routeDir, routeId);
-  if (refusal) {
-    if (!args.includes(OVERWRITE_FLAG)) {
-      console.error(refusal);
-      process.exit(1);
-    }
-    console.warn(`${refusal}\n${OVERWRITE_FLAG} was passed — overwriting anyway.\n`);
-  }
+  // half-write.
+  enforceStageAssignmentRefusal(
+    stageAssignmentRefusal(routeDir, routeId),
+    args,
+    (message) => console.warn(message),
+  );
 
   const routeCoords = getRouteCoords(routeDir);
   const hasStages = existsSync(join(routeDir, "stages.json"));

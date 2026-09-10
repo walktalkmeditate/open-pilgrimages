@@ -132,7 +132,9 @@ least one place beyond the day's own start and end. Read it as "not empty".
   6.
 - **Iyo clears 12 of its 14.** Stage 1, Kanjizai-ji (Temple 40) to Hotel
   Ailin, and stage 13, HOTEL AZ 愛媛土居インター店 to Sankaku-ji (Temple 65),
-  carry nothing at all between their two ends. Stage 1's longest unmarked run
+  are the two that do not. Both still carry marks — 34 and 16 — so a walker
+  has services on the map; what those two days do not offer is somewhere to
+  arrive at between the start and the finish. Stage 1's longest unmarked run
   is 9.7 km.
 - **`placesPerStage` is a mean of those beyond-ends counts, so read it as
   one.** Awa 9.6, Tosa 3.1, Iyo 10.4, Sanuki 9.3. Iyo's 10.4 is an average

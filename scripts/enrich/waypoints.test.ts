@@ -1,11 +1,18 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { existsSync, mkdtempSync, readdirSync, readFileSync, rmSync, statSync, writeFileSync } from "fs";
+import {
+  cpSync, existsSync, mkdirSync, mkdtempSync, readdirSync, readFileSync, rmSync, statSync,
+  writeFileSync,
+} from "fs";
+import { spawnSync } from "child_process";
 import { join } from "path";
 import { tmpdir } from "os";
 import Ajv2020 from "ajv/dist/2020.js";
 import { classifyNode, OSM_TAG_MAP, type OsmNode } from "./osm.js";
-import { keepsNode, wholeRouteRange, stageAssignmentRefusal, OVERWRITE_FLAG } from "./waypoints.js";
+import {
+  keepsNode, wholeRouteRange, stageAssignmentRefusal, enforceStageAssignmentRefusal,
+  OVERWRITE_FLAG,
+} from "./waypoints.js";
 import { MOMENT_TYPES } from "../ways/moments.js";
 
 // waypoints.ts only runs its enrichment when it is the invoked script, so
@@ -217,6 +224,131 @@ test("every route in this dataset whose days are cut from a main line is refused
   // #and the four Shikoku sections are among them, so this cannot pass vacuously
   for (const section of ["awa", "iyo", "sanuki", "tosa"]) {
     assert.ok(refused.includes(`shikoku-88-${section}`), `shikoku-88-${section} must be protected`);
+  }
+});
+
+const REFUSAL = "fixture-route: refusing to assign stages — days cut from another line.";
+
+test("without the override flag the guard stops the run rather than warning about it", () => {
+  // #given a composed refusal and a command line that does not waive it
+  const printed: string[] = [];
+
+  // #then the guard throws, which is what the script's exit code is made of —
+  // a refusal that only prints leaves the overwrite it names to go ahead
+  assert.throws(
+    () => enforceStageAssignmentRefusal(REFUSAL, [], (m) => printed.push(m)),
+    (err: Error) => {
+      assert.equal(err.message, REFUSAL);
+      return true;
+    },
+  );
+  // #and nothing was written as a mere warning on the way past
+  assert.deepEqual(printed, []);
+});
+
+test("with the override flag the guard proceeds, and still prints what it waived", () => {
+  // #given the same refusal and a command line that passes the flag
+  const printed: string[] = [];
+
+  // #when the guard runs
+  enforceStageAssignmentRefusal(REFUSAL, [OVERWRITE_FLAG], (m) => printed.push(m));
+
+  // #then it returns — and the waived refusal is still on the record, because a
+  // gate that goes quiet when it is waived reads like a gate that found nothing
+  assert.equal(printed.length, 1);
+  assert.ok(printed[0].includes(REFUSAL), "the waived refusal must still be printed in full");
+  assert.match(printed[0], new RegExp(`${OVERWRITE_FLAG} was passed`));
+});
+
+test("a route with nothing to refuse passes the guard in silence", () => {
+  const printed: string[] = [];
+  enforceStageAssignmentRefusal(undefined, [], (m) => printed.push(m));
+  assert.deepEqual(printed, []);
+});
+
+/**
+ * A whole route directory the enricher can be run against end to end, with the
+ * Overpass answer already in the cache it reads — a test that needed the
+ * network to prove a gate would not be a test of the gate.
+ *
+ * Nested inside the repo root rather than the system tmpdir: node resolves the
+ * "tsx" loader as a bare specifier from cwd, and only walking up to the repo's
+ * own node_modules/ can satisfy that.
+ */
+function scriptRepo(): { dir: string; scriptPath: string; wpPath: string } {
+  const dir = mkdtempSync(join(ROOT, ".enrich-waypoints-test-"));
+  cpSync(join(ROOT, "scripts"), join(dir, "scripts"), { recursive: true });
+  writeFileSync(join(dir, "package.json"), JSON.stringify({ type: "module", version: "0.0.0" }));
+
+  const routeDir = join(dir, "routes", "fixture-route");
+  mkdirSync(routeDir, { recursive: true });
+  writeFileSync(join(routeDir, "metadata.json"),
+    JSON.stringify({ overview: { bbox: [0, 0, 0.02, 0.01], distanceKm: 2.2 } }));
+  writeFileSync(join(routeDir, "route.geojson"), JSON.stringify(lineFeature([[0, 0], [0.02, 0]])));
+  writeFileSync(join(routeDir, "route.main.geojson"), JSON.stringify(lineFeature([[0, 0], [0.01, 0]])));
+  writeFileSync(join(routeDir, "stages.json"), JSON.stringify({
+    stages: [{ start: { coordinates: [0, 0] }, end: { coordinates: [0.01, 0] }, distanceKm: 1.1 }],
+  }));
+  const wpPath = join(routeDir, "waypoints.geojson");
+  writeFileSync(wpPath, JSON.stringify({
+    type: "FeatureCollection",
+    features: [{
+      type: "Feature",
+      id: "wp-curated",
+      geometry: { type: "Point", coordinates: [0.005, 0] },
+      properties: { routeId: "fixture-route", name: "Fixture", type: "town", source: "curated", stageIndex: 0 },
+    }],
+  }));
+
+  const cacheDir = join(dir, ".cache", "enrich");
+  mkdirSync(cacheDir, { recursive: true });
+  writeFileSync(join(cacheDir, "pois-fixture-route.json"),
+    JSON.stringify({ fetchedAt: new Date().toISOString(), data: { elements: [] } }));
+
+  return { dir, scriptPath: join(dir, "scripts", "enrich", "waypoints.ts"), wpPath };
+}
+
+const runEnricher = (dir: string, scriptPath: string, args: string[]) =>
+  spawnSync(process.execPath, ["--import", "tsx", scriptPath, "fixture-route", ...args],
+    { cwd: dir, encoding: "utf-8" });
+
+test("the script itself refuses: it exits non-zero and writes nothing", () => {
+  // #given a route whose days are cut from a line this run does not measure
+  const { dir, scriptPath, wpPath } = scriptRepo();
+  try {
+    const before = readFileSync(wpPath, "utf-8");
+
+    // #when the enricher is run without the flag
+    const run = runEnricher(dir, scriptPath, []);
+
+    // #then the run fails, names the route, and the waypoints on disk are as
+    // they were — the guard's teeth are the exit code, not the message
+    assert.equal(run.status, 1, run.stderr);
+    assert.match(run.stderr, /fixture-route: refusing to assign stages/);
+    assert.match(run.stderr, new RegExp(`pass ${OVERWRITE_FLAG}`));
+    assert.equal(readFileSync(wpPath, "utf-8"), before);
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test("the script itself honours the override: it finishes, and says what it waived", () => {
+  // #given the same route
+  const { dir, scriptPath, wpPath } = scriptRepo();
+  try {
+    // #when the enricher is run with the flag
+    const run = runEnricher(dir, scriptPath, [OVERWRITE_FLAG]);
+
+    // #then it runs to the end
+    assert.equal(run.status, 0, run.stderr);
+    assert.match(run.stdout, /Total waypoints: 1/);
+    // #and the refusal it waived is on the record beside the result
+    assert.match(run.stderr, /fixture-route: refusing to assign stages/);
+    assert.match(run.stderr, new RegExp(`${OVERWRITE_FLAG} was passed`));
+    // #and the assignment really was rewritten over what was on disk
+    assert.equal(JSON.parse(readFileSync(wpPath, "utf-8")).features.length, 1);
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
   }
 });
 
