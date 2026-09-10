@@ -110,6 +110,24 @@ a review that did not happen.
 > — Iyo stage 4's arithmetic for a drop and Sanuki's inventory of the words its closing return refused —
 > and both are corrected under their entries on this file's convention.
 
+> **Corrected in Task 10.** Task 9b's "No line in this file is open, no stage carries `"drafted": true`" was
+> true of the tree it left and is stale in exactly three places. Task 10 edited the `interior` text of
+> **`shikoku-88-tosa` stage 11, `shikoku-88-iyo` stage 2 and `shikoku-88-iyo` stage 5** — three fixes Task 9a
+> and Task 9b each wrote out and queued rather than made — re-flagged those three stages `"drafted": true`,
+> and unticked their three lines. **Three lines in this file are open and the other thirty-seven are
+> ticked.** The two section notes that count them are stale in the same three places and no others: Tosa's
+> "all fifteen lines are ticked again and all fifteen flags are cleared" is now true of fourteen, and Iyo's
+> "all fourteen lines are ticked again and all fourteen flags are cleared" of twelve. Both are corrected here
+> rather than rewritten, because what each recorded still happened.
+>
+> The reasoning is Task 8a's and is not amended: editing cleared prose is authorship, so an editor cannot
+> tick his own wording, and a later reader with no part in the editing clears it again. **Nothing Task 7b,
+> Task 7c, Task 9a or Task 9b found has been withdrawn** — each of the three entries keeps every earlier
+> pass's record above the new one, so those three now read drafted → reviewed → revised → read → revised.
+> Separately, **three editing notes are corrected and no narrative was**: Iyo stage 4's arithmetic for a
+> drop, Iyo stage 6's claim about its own effect, and Sanuki's inventory of the words its closing return
+> refused. Correcting a note is not authorship and carries no flag.
+
 ## What the drafter did not have
 
 Two absences shaped every sentence below, and a reader checking the text should know they
@@ -2776,7 +2794,45 @@ still holds.
   the official-site source, not an OpenStreetMap sample, so no mapping hedge is owed.
   **342.607 − 280.878 = 61.729 km** is unchanged.
 
-- [x] shikoku-88-tosa stage 11
+**Edited in Task 10. The hedge Task 9a queued, put back inside the clause it protects.**
+
+Task 9a cleared this narrative and wrote out the fix it would not make itself: *"put the hedge back in the
+verb — '7.3 km with **nothing mapped on it** … then 7.5 km more with **nothing mapped**'"*. Task 10 makes
+it, and overrules the deference Task 9a rested on rather than the reading. **The precedent is not the same
+shape.** Awa stage 3's "so the **day** had nowhere nearer to stop" hedges a **construct** — the day the cut
+produced — and no unmapped thing can falsify a construct. These two clauses are about **terrain**: as Task 8b
+left them they say the ground is empty, and what is measured is that the map is.
+
+```
+theme:      Thirteen places over thirty-four kilometres
+narrative:  The middle day of the 82.7 km gap, and the longest of the three at 33.6 km. Thirteen places reach it. Four railway stations come in the first 7.4 km, then a viewpoint and the town of Kuroshio — and after that the map almost gives out: 7.3 km with nothing mapped on it, a convenience store, a café and two toilets, then 7.5 km more with nothing mapped, and the day ends at a minshuku. No temple has stood on the way for 61.7 km.
+reflection: Sixty-two kilometres since the last gate and twenty-one still to the next — what keeps a day like this from being only transit?
+```
+
+- **Nothing became stronger.** Two words entered and each of them narrows a scope: *mapped* takes its blank
+  from a claim about the ground back to a claim about the record. **No figure was added and none removed** —
+  the narrative still carries the ten Task 8b left it with, so Task 9a's ruling on the count is untouched —
+  and no comparative or superlative gained a rank.
+- **Nothing became weaker.** Task 6b's drafted clauses read "7.3 km with nothing **marked** … then 7.5 km
+  more with nothing **marked**", and *mapped* and *marked* scope to the same record; this is the substitution
+  Task 8b made everywhere else in Tosa, applied to the two clauses where it dropped the word instead. Both
+  spans and both brackets are re-measured here and unchanged: Kuroshio **318.35026** → スリーエフ
+  **325.65652** = **7.306 km**, and the last toilet **335.12568** → the day's end boundary **342.60605** =
+  **7.480 km**, each empty against **all 372** features with the off-line limit removed, which is the check
+  Task 7b made and the reason the sentence is worth this much care.
+- **Task 8b's own reason for dropping *marked* is answered rather than ignored.** It cut the word as "one
+  claim written three times", the governing "the map almost gives out" already saying whose absence this is.
+  That holds for a reader who carries an attribution across a colon; Task 9a's finding is that by the second
+  blank, eleven words further on, it is no longer being carried. **The governing clause is left exactly as
+  Task 8b wrote it**, so what returns is two words and not a rewrite.
+- **Everything else is carried word for word** — the theme, the reflection, "Thirteen places reach it", the
+  four stations, "No temple has stood on the way for 61.7 km" — so Task 7b's ruling on *reach*, Task 9a's
+  ruling on the ten figures and its ruling on the flat "No temple" all still attach to the sentences they
+  were written about.
+- **The flag is on again and this line is unticked.** Editing cleared prose is authorship: Task 10 wrote
+  these two words and cannot record a reading of them.
+
+- [ ] shikoku-88-tosa stage 11
 
 ---
 
@@ -4016,7 +4072,43 @@ ruins mapped in Iyo".**
 - **"Then it thins" is carried word for word**, with the density Task 7c independently counted still behind
   it, and the reflection — including the "last three kilometres" rounding Task 7c recorded — is untouched.
 
-- [x] shikoku-88-iyo stage 2
+**Edited in Task 10. Task 9b's own fix, judged and taken; it costs no figure.**
+
+Task 9b recorded the fault and named the repair without making it: *"and, **just before them**, the only
+ruins mapped in Iyo"*. Judged here on three questions and taken on all three. **Does it fix what is wrong?**
+The fault is that "among them" reaches over the ruins once the ruins have no position of their own, putting
+them inside the lodging cluster; an explicit position for them ends the reach, and *just before them* is one.
+**Is it true?** Re-measured on the committed `route.main.geojson`: the six lodgings run **66.32093 →
+67.80699 km** and `node/9719709612` 煙硝矢倉跡 projects at **66.25024**, so the ruins stand **71.3 m** before
+the first bed. The clause claims an order and the order is exact. **Does it cost a figure?** No: it prints
+none, and the cumulative kilometre Task 8c removed from all fourteen narratives stays out.
+
+```
+theme:      More places than on any other day in Iyo
+narrative:  More places stand on this day than on any other in Iyo — sixty-two bus stops among them, and eighteen places to eat. Much of it arrives at once: six of the section's places to stay stand inside 1.5 km of each other, the Uwajima station among them, and, just before them, the only ruins mapped in Iyo. Then it thins, and both of the day's temples fall in its last 3.1 km — Ryūkō-ji, 49.7 km on from Kanjizai-ji, and Butsumoku-ji, where the day ends.
+reflection: The busiest day in the section, and both its gates stand in the last three kilometres of it. Which part will you have been walking for?
+```
+
+- **Nothing became stronger.** *Just before them* names a range and not a point, so it is weaker than the
+  drafted "at 66.3 km" it stands in for, and it is the only reading of the clause that the measurement
+  supports where the sentence as Task 8c left it had two, one of them false. It claims **order** and not
+  distance, and order is what is exactly known here — 66.25024 against 66.32093 — so the 71 m that sits below
+  the precision the sentence used to print is not being printed now. **No figure was added and none removed:
+  the narrative stays at the six Task 8c left it with.**
+- **Nothing became weaker.** The three things the clause is entitled to say all survive — that Iyo maps
+  exactly one ruin (one `type: cultural_site` feature in 953, Task 7c's ruling, and *mapped* still says that
+  and no more), that it stands in this day's dense arrival, and that the day's beds and its station cluster.
+  Nothing about the cluster's edges moved: **66.321 → 67.807, span 1.486 km**, with Uwajima station at
+  **67.362** inside it and Kita-Uwajima at **69.135** outside, which is the span Task 7c checked deliberately.
+- ***Them* is unambiguous.** Both occurrences take the six places to stay: the station is singular and cannot
+  be the antecedent of a plural. The clause claims no exclusivity over the 71 m, and needs none — a church at
+  **66.258** and a bus stop at **66.319** also project inside it, and neither is a bed, a station or a ruin.
+- **Everything else is carried word for word**, so Task 7c's rulings on the comparative, on the sliding
+  1.5 km window over all 41 accommodation projections, on "Then it thins", and on the reflection's "last
+  three kilometres" rounding all still attach to the sentences they were written about.
+- **The flag is on again and this line is unticked.**
+
+- [ ] shikoku-88-iyo stage 2
 
 ---
 
@@ -4241,6 +4333,15 @@ reflection: A whole day inside the gap between two gates, with neither of them o
   across all fifteen of its stages and the house style now refuses *does not reach it* outright — so the
   three change together here, exactly as that sentence anticipated. **Nothing Task 7c found is withdrawn:
   the drop is still recorded, by kind and by metres, in the Places line and the grounding bullet above.**
+
+  > **Corrected in Task 10.** "41 of the 70 that reach it" counts the dropped waypoint into the reaching
+  > set. The drop — `node/3152605161` 大洲駅前, 301 m — is itself a bus stop, so the reaching figures are
+  > **40 of the 70**, against 41 of the 71 filed. Task 9b found this and recorded it under its own reading
+  > below; it is corrected here too, against the sentence that states it, so a reader meeting the figure
+  > meets the correction with it. Task 8c's wording is left standing, as this file leaves every superseded
+  > sentence standing. **Nothing in the narrative moves**: 40/70 and 41/71 are both majorities, "Most of
+  > what is mapped on it is bus stops" asserts no total, and Task 8c's argument — that removing the count
+  > lapses the condition Task 7c stated — does not rest on which of the two fractions is quoted.
 - **"the only one of Iyo's fourteen days" → "the only one of Iyo's days".** One figure; the uniqueness Task
   7c checked against all fourteen spans is unchanged.
 - **"the town of Uchiko at 124.9 km" → "the town of Uchiko after them"**, and **"a guesthouse at 138.8 km" →
@@ -4400,7 +4501,43 @@ section-wide gap list are unchanged.
   defence of "The day's shape is all at its ends" — which rested on the exactness of both halves of the
   sentence before it — still rests on sentences this pass left standing.
 
-- [x] shikoku-88-iyo stage 5
+**Edited in Task 10, with Tosa's stage 11 and in the same words, which is what this stage's drafter asked
+for.**
+
+Task 9b cleared this narrative and carried Task 9a's fix forward without making it: *"put the hedge back in
+the verb — '8.8 km with **nothing mapped** on them'"*. Task 10 makes it. The deference both readers rested
+on is Awa stage 3's "so the **day** had nowhere nearer to stop", which hedges a **construct** — the day the
+cut produced — where this clause is about **terrain**: "nothing on them" says the ground is empty, and what
+is measured is that the map is. Milder than Tosa's is still the same fault, and the two stages have been
+judged together since Task 7c asked for it, so they are fixed together too.
+
+```
+theme:      Twenty-two kilometres, and then the temple
+narrative:  Daihō-ji stands 22.4 km into this day and closes the 70.4 km that have run since Meiseki-ji. Before it the map almost gives out: 8.8 km with nothing mapped on them, the third-longest such run in Iyo. Six places to stay stand on the day — three of them inside its last 700 m — and seven public toilets. Karibaen, the last of the beds, ends the day.
+reflection: Twenty-two kilometres to one gate, then three beds inside seven hundred metres. The day's shape is all at its ends — where does its middle go?
+```
+
+- **Nothing became stronger.** One word entered and it narrows a scope. **No figure was added and none
+  removed** — the narrative stays at the eight Task 8c left it with — and the superlative keeps its bound:
+  *the third-longest such run in Iyo*, unchanged, and still ranked on the single sorted list of all 953
+  projections rather than on per-stage maxima.
+- **Nothing became weaker.** Task 6c's drafted clause read "8.8 km from 145.8 km with nothing **marked** on
+  them", and *mapped* and *marked* scope to the same record; only the cumulative kilometre Task 8c removed
+  stays out, and it was never what the hedge was doing. The span is re-measured here and unchanged:
+  `node/10858059638` **145.769** → `node/3152605818` 宮成 **154.579** = **8.810 km**, with **nothing of any
+  type** projecting into it.
+- **The governing clause is left exactly as Task 8c wrote it.** "Before it the map almost gives out" was the
+  wording Task 8b and Task 8c landed on together for the two stages Task 7c asked be judged as one, and
+  Task 10 does not re-open it — what changes is the clause beneath the colon, which is the clause a walker
+  reads as a fact about the road.
+- **Everything else is carried word for word**: the two positive existence claims (6 `type: accommodation`
+  and 7 `subtype: toilet` of the 26, none dropped, so neither is owed a hedge), "three of them inside its
+  last 700 m" — 0.665 km across the three beds and 0.675 km to the day's end vertex — "Karibaen, the last of
+  the beds", the theme and the whole reflection. Task 7c's defence of "The day's shape is all at its ends"
+  still rests on sentences this pass left standing.
+- **The flag is on again and this line is unticked.**
+
+- [ ] shikoku-88-iyo stage 5
 
 ---
 
@@ -4514,6 +4651,16 @@ reflection: Sixteen places mapped in 17.4 km, and nine and a half of those kilom
   `stages.json` declares 17.5 (anchor to anchor), and that a walker sees both. The walker now sees one, the
   declared figure, and the convention question is untouched: this pass settles nothing about it, and the
   three entries the convention moves still move together.
+
+  > **Corrected in Task 10.** "The walker now sees one, the declared figure" overstates what the edit did.
+  > **The walker still sees both.** The reflection one line below reads "Sixteen places mapped in
+  > **17.4 km**" — the vertex span, 17.4456 — while `stages.json` declares `distanceKm: 17.5`, 17.4713
+  > anchor to anchor, so the pair Task 7c recorded is intact where it always was. Task 9b found this and
+  > recorded it under its own reading below; it is corrected here too, against the sentence that states it.
+  > **The note overstates and the text is fine**: neither figure is false of what it measures and nothing in
+  > the theme, the narrative or the reflection changes. The rest of the bullet stands — one cumulative
+  > kilometre is out, *just past it* names a range 0.369 km sits inside and is the weaker form, and the
+  > convention question this entry is one of three to move is still open.
 - **"the shortest Iyo has cut but one" is carried word for word.**
 - **Reflection: "Sixteen marked places in 17.4 km" → "Sixteen places mapped in 17.4 km".** One word, and the
   only reflection change on this stage; the rest of the sentence, including the "nine and a half" rounding
@@ -5558,6 +5705,17 @@ types precisely rather than saying nothing is there" still attaches to the sente
 >
 > All six stages carry `"drafted": true` again and all six lines are unticked. The Task 7a review of each is
 > left exactly as its reader wrote it.
+
+> **Corrected in Task 10.** "Two of those words were already in the shipped text and are left alone" is exact
+> for **stage 5**, the day the sentence beside it speaks of, and it undercounts the **section** this note
+> speaks for. Scanned across all six, words from the closing return's refusal list stand in **four** places
+> on three stages: stage 5's "Ryōzen-ji **closes** Sanuki" and its reflection's "Who decides when a walk is
+> **finished**?", plus stage 1's "Konzō-ji **closes** the day" and stage 4's "because the temple sequence
+> **completes** there". All four are pre-existing, Task 8c introduced none and removed none, and all four are
+> right to stand — Task 9b's section note below records the count and rules on each of them, and stage 4's
+> entry says the same of its own *completes*. **Nothing in any of the six narratives moves**, and none of
+> *return*, *circle* or *nirvana* appears anywhere in them. Task 8c's wording is left standing, as this file
+> leaves every superseded sentence standing.
 
 **Read in Task 9b**, by the same reader who read Iyo's fourteen, with no part in the drafting, no part in
 any of the three editing passes, and no part in Task 9a's reading of Awa and Tosa. **All six stages stand;

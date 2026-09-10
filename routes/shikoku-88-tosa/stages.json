@@ -484,12 +484,13 @@
         "note": "OpenStreetMap node/12908978212 (accommodation), 342.61 km along this section's walked line, 13 m off it. No temple falls 25-30 km past the previous day's end at 309.05 km, so the day ends at the named accommodation or town waypoint on the line nearest 27.5 km, 33.56 km on."
       },
       "distanceKm": 33.6,
+      "drafted": true,
       "interior": {
         "theme": {
           "en": "Thirteen places over thirty-four kilometres"
         },
         "narrative": {
-          "en": "The middle day of the 82.7 km gap, and the longest of the three at 33.6 km. Thirteen places reach it. Four railway stations come in the first 7.4 km, then a viewpoint and the town of Kuroshio — and after that the map almost gives out: 7.3 km with nothing on it, a convenience store, a café and two toilets, then 7.5 km more with nothing, and the day ends at a minshuku. No temple has stood on the way for 61.7 km."
+          "en": "The middle day of the 82.7 km gap, and the longest of the three at 33.6 km. Thirteen places reach it. Four railway stations come in the first 7.4 km, then a viewpoint and the town of Kuroshio — and after that the map almost gives out: 7.3 km with nothing mapped on it, a convenience store, a café and two toilets, then 7.5 km more with nothing mapped, and the day ends at a minshuku. No temple has stood on the way for 61.7 km."
         },
         "reflection": {
           "en": "Sixty-two kilometres since the last gate and twenty-one still to the next — what keeps a day like this from being only transit?"
