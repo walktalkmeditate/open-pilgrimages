@@ -50,6 +50,19 @@ a review that did not happen.
 > drafters' sentence standing: it was true when it was written, and what it recorded still
 > happened.
 
+> **Corrected in Task 8b.** Task 8a's "Those five are the only open lines in this file" was true of the
+> tree it left, and it is stale now for exactly the reason its own sentence was. Task 8b edited all
+> fifteen of `shikoku-88-tosa`'s narratives, three of its reflections and two of its themes — for a walker
+> rather than for a reviewer — re-flagged those fifteen stages `"drafted": true`, and unticked their fifteen
+> lines. **Twenty lines in this file are open**: Awa's five and Tosa's fifteen. Iyo's fourteen and Sanuki's
+> six are untouched and still ticked.
+>
+> Task 8a's reasoning is not repeated here because it is not amended: editing cleared prose is authorship,
+> the editor cannot tick his own wording any more than a drafter could, and a later reader with no part in
+> the editing clears it again. **Nothing Task 7b found has been withdrawn.** Every Tosa entry below keeps
+> its Task 7b review verbatim — including the clause it struck on stage 9 and the six judgements it recorded
+> without striking — and the revision is recorded beneath it rather than in place of it.
+
 ## What the drafter did not have
 
 Two absences shaped every sentence below, and a reader checking the text should know they
@@ -863,6 +876,34 @@ reflection: Twenty-two kilometres to one gate, and the section ends at it — wh
 > narratives changes under the other convention**, so the pilgrimage-wide question Awa's stage 2
 > raised is not decided here and nothing in this section turns on it.
 
+**Edited in Task 8b**, the second editing pass, in the house style Task 8a set on Awa and against Awa's five
+edited narratives read first as the register to match. The same three rules: the dataset's own vocabulary
+comes out and the walker's goes in; the figure count comes down; and no distance is given as a kilometre
+measured from the section's start, because a walker reading one day's page has no frame for it. **No
+measurement was re-opened and none was changed.** Every figure Task 7b verified still verifies at the value it
+verified; the figures this pass dropped were dropped from the prose only, and every one of them is still
+written out in the grounding bullets above each entry, which is where a reader who wants them should go.
+
+**The vocabulary.** Thirty occurrences of the dataset's own words stood in these fifteen stages — *the record
+holds*, *the record*, *recorded*, *records*, *marked*, *marks*, *mark*, *unmarked*, *unrecorded*, *filed on*,
+*on the map*, *waypoints*, *the walked line*, *on the line*, *never reaches* — across twelve narratives, three
+reflections and two themes. **None remains, and none of the hedges they carried left with them.** Every
+absence claim below still says the absence is in the mapping; none of them says it is on the ground. Each
+rewritten hedge is set out stage by stage with the reason the new wording claims no more than the old.
+
+**The figures.** Counting numerals and spelled-out numbers alike — anything stating a count, a measurement, a
+rank or a bounded position, in either form — the fifteen narratives ran **9 · 10 · 10 · 10 · 12 · 13 · 11 · 7 ·
+8 · 11 · 14 · 12 · 10 · 8 · 10**: 155 figures, 10.3 to a narrative, worst 14. They now run **7 · 7 · 7 · 6 · 7 ·
+6 · 9 · 6 · 5 · 8 · 8 · 10 · 8 · 5 · 5**: 104 figures, 6.9 to a narrative, worst 10. Awa's five, counted the
+same way, run **9 · 9 · 6 · 5 · 7** — 36 figures, 7.2 to a narrative, worst 9 — so the fifteen now sit a
+little below the register they were matched against. **Two of them did not come down to Awa's middle and
+say so in their own entries**: stage 6, whose three step figures are held in place by Task 7b's own defence
+of the word "early", lands on 9, Awa's own worst; and stage 11, whose day *is* a sequence of measured
+blanks, is at 10, the only narrative in the fifteen above anything Awa carries.
+
+All fifteen stages carry `"drafted": true` again and all fifteen lines are unticked. The Task 7b review of
+each is left exactly as its reader wrote it.
+
 Temple 23 Yakuō-ji to Temple 39 Enkō-ji, **418.501 km** of walked line (`ways/report.json`
 `walkedLine`, 15,280 points), cut into fifteen days. Sixteen waypoints here carry a
 `templeNumber`, 24 through 39: Temple 23 is this section's start anchor, taken verbatim from
@@ -1075,7 +1116,35 @@ only six on the stage ✓. The ruins node is at **8.585 km / 24 m**, the section
 - **The ruined restaurant stands, on the Bandō precedent** the previous reader confirmed: the
   node's own `name` and its ruined state, and nothing else.
 
-- [x] shikoku-88-tosa stage 0
+**Edited in Task 8b. One dataset phrase out, two figures out; the railway hedge kept, moved into the verb.**
+Nine figures down to seven. This day begins at the section's own 0.000 km, so **none of its figures is a
+cumulative section kilometre** — 77.5, 28.8 and 8.6 are all measured from where the walker stands on the
+morning of day one, which is why 77.5 stays where stage 5's 153.3 could not.
+
+```
+theme:      Seventy-seven kilometres to the first temple
+narrative:  Tosa's first temple stands 77.5 km from the section's first step, and this day walks 32.1 of them. Nothing on it carries a temple number. What is mapped instead is a railway — six stations, Hiwasa in the first half-kilometre, then Yamagawachi, Hegawa, Mugi, Sabase and Kaifu — and, 8.6 km in, a ruined restaurant. No temple falls 25 to 30 km ahead of the section's start, so the day ends at a bed rather than a gate: the Haryugetu Guesthouse.
+reflection: Hotsumisaki-ji is still 45.5 km ahead when this day ends — what does a day hold when nothing on it is a gate?
+```
+
+- **"What the record holds instead is a railway" → "What is mapped instead is a railway".** Task 7b cleared
+  this sentence on the ground that "the sentence names them all and attributes the claim to the record": six
+  `train_station` waypoints are what the file holds, and *a railway* is a reading of their ordering. The
+  attribution had to survive and only its noun changed. *Is mapped* carries the same hedge in the verb Awa's
+  stage 3 and stage 4 now use — an unmapped railway would be a railway still, and neither version asserts
+  anything about the ground. The six names follow immediately in both.
+- **"Kaifu at 28.8 km" → "Kaifu".** The six stations are named in walking order and the first is placed
+  ("in the first half-kilometre"); the last one's figure ranked nothing. **28.750 km** is unchanged above.
+- **"the Haryugetu Guesthouse, 32.1 km on" → "the Haryugetu Guesthouse".** The day's own distance stays — it
+  is printed in the narrative's first sentence, where it was already. This was the second of two.
+- **"at 8.6 km" → "8.6 km in".** The same measurement, read as a position inside the day rather than as a
+  coordinate on a line.
+- **"a ruined restaurant" and the "gate"/"bed" metonyms are carried word for word**, so Task 7b's
+  Bandō-precedent ruling on the first and its section-wide ruling on the other two — the one it settled for all
+  eleven entries that use those words — still defend the exact words they were written about.
+- **The reflection stands.**
+
+- [ ] shikoku-88-tosa stage 0
 
 ---
 
@@ -1143,7 +1212,42 @@ convenience store, 1 clinic, 1 cafe, 1 toilet) ✓. 熊野神社 **38.01433 / 7 
   stage 0 ended at the Haryugetu Guesthouse — and the appositive "at a bed" is what resolves it to
   "at the same kind of place". The reading is recoverable in the sentence; nothing is false.
 
-- [x] shikoku-88-tosa stage 1
+**Edited in Task 8b. Three dataset words out, one cumulative kilometre out, one inventory out.** Ten figures
+down to seven.
+
+```
+theme:      Twenty-four bus stops, and still no temple
+narrative:  A second day, 30.8 km, and the section's first temple is still 14.7 km beyond where it ends. Most of what is mapped on it is bus stops. Three sacred places break that run early — Kumano Shrine and Myōken-gū inside the first 7 km, Meitokuji inside the first twelve — and then nothing is mapped for 9.4 km, the longest such stretch on the day. It ends where the day before it ended, at a bed: Tokumasu Minshuku.
+reflection: Two days, 62.9 km, and no temple yet — what are you walking toward while the thing you are walking toward has not appeared?
+```
+
+- **"Twenty-four of the thirty-seven places recorded here are bus stops" → "Most of what is mapped on it is
+  bus stops."** Awa's stage 3 move — the inventory drops, the comparison survives — with one difference the
+  shape of this claim forces. A proportion of everything *on the day* would be a claim about the world that
+  an unmapped shop could falsify, so the hedge moves into the subject: *what is mapped on it* is the set the
+  proportion is taken over, and **24 of 37** is a majority of it. The theme still prints the twenty-four, and
+  both counts stay in the grounding bullets above.
+- **"Meitokuji at 44.0 km" → "Meitokuji inside the first twelve".** 44.0 km is measured from Temple 23, a day
+  and a half behind. Meitokuji projects at **43.968 km**, **11.889 km** past this day's start anchor — inside
+  the first twelve, elliptical on the "inside the first 7 km" three words earlier, in the form Awa's stage 0
+  used for Itano ("before the fifth"). A window the measurement sits inside claims less than the measurement
+  did.
+- **"nothing at all is marked for 9.4 km, the longest unrecorded stretch of the day" → "nothing is mapped for
+  9.4 km, the longest such stretch on the day."** Two hedges become one, in the verb, with *such* carrying it
+  into the superlative — the reduction Awa's stage 4 made, on the reasoning that **three hedges are not a
+  stronger claim than one; they are one claim written three times.** 野根 **44.904** → 水尻 **54.266** =
+  **9.362 km** is unchanged, and so is the next-longest gap of **2.532 km** it ranks against.
+- **"Tokumasu Minshuku, 62.9 km into the section" → "Tokumasu Minshuku".** The third rule. The reflection
+  keeps 62.9 and keeps it legitimately: there it is what the walker has walked in two days, not a coordinate
+  on a line he cannot see.
+- **"break that run early", "It ends where the day before it ended, at a bed", and "Kumano Shrine" and
+  "Myōken-gū" are all carried word for word**, so Task 7b's three rulings on this stage — the run measured
+  either side of the blank, the appositive that resolves "where the day before it ended" to "at the same kind
+  of place", and the name-over-subtype reading of 熊野神社 and 妙見宮 — still attach to the sentences they
+  were written about.
+- **The reflection stands.**
+
+- [ ] shikoku-88-tosa stage 1
 
 ---
 
@@ -1201,7 +1305,40 @@ Span **25.22330**, `snap`; no drops.
   achieved enlightenment" would have put the refused sentence's own words on the page. **The
   omission is right and should stay.**
 
-- [x] shikoku-88-tosa stage 2
+**Edited in Task 8b. No dataset word to remove; one inventory sentence out and two step figures with it.**
+Ten figures down to seven. This narrative was already clean of the dataset's own vocabulary — one of only
+three in the fifteen. What made it read as a survey was a single sentence, and it is the same sentence Awa's
+stage 3 carried.
+
+```
+theme:      The first temple, and then two more
+narrative:  Two days and 62.9 km have passed with no temple on them; this day reaches the first 14.7 km in. Hotsumisaki-ji, then Shinshō-ji, then Kongōchō-ji after the shortest step between any two temples in Tosa, and the day ends at its gate. More places stand on this day than on any other in the section, and forty-four of them are bus stops. Three temples inside 10.5 km, after seventy-seven and a half kilometres with none.
+reflection: Seventy-seven kilometres for the first gate and ten and a half for the next two — which of those two rhythms is the pilgrimage?
+```
+
+- **"Sixty-one places stand on this day, more than on any other in the section, and forty-four of them are
+  bus stops" → "More places stand on this day than on any other in the section, and forty-four of them are
+  bus stops."** Awa's move in structure as well as in effect: the superlative is the fact, the inventory was
+  the arithmetic behind it (61 against 56 / 47 / 37 / 26 / 21 / 20 / 20 / 19 / 14 / 9 / 8 / 6 / 6). **Left
+  unhedged deliberately, for Awa's reason:** this is not an absence claim but a comparison between fifteen
+  days counted the same way out of one file, and a reader who takes it as "this day has more on it than the
+  others" is not misled by anything. *Forty-four of them are bus stops* is kept because a count of a subset
+  is a positive existence claim — 44 bus stops do stand on the day — where a proportion of everything on it
+  would not have been.
+- **"then Shinshō-ji 6.7 km on, then Kongōchō-ji 3.8 km after that — the shortest step …" → "then Shinshō-ji,
+  then Kongōchō-ji after the shortest step …"** Awa's stage 2 ruling on 1.1 km applied here: the figure was
+  doing nothing the superlative was not. **3.849 km** against a next-shortest of **6.074**. 6.7 goes with it
+  because the run is already bounded by "Three temples inside 10.5 km" in the closing sentence, and
+  **6.686 + 3.849 = 10.535**.
+- **"the shortest step between any two temples in Tosa" is carried word for word.** Task 7b found that here,
+  unlike Awa's stage 0, the idiom is literally true of *any* two and not merely of consecutive ones, because
+  the smallest distance between any two of a section's temples is necessarily its smallest consecutive step.
+  The clause was **moved, not reworded** — it now follows "then Kongōchō-ji" rather than "3.8 km after that" —
+  and the step it names is the same one.
+- **The reflection stands**, and carries "Seventy-seven" and "ten and a half", both of which the narrative
+  also keeps.
+
+- [ ] shikoku-88-tosa stage 2
 
 ---
 
@@ -1264,7 +1401,48 @@ and "27 Kōnomine-ji" at **116.61475**, **14.20 m** earlier — both inside 15 m
   `metadata.json`'s `provenance` cites for why the cut's "temple" means a `templeNumber`. A walker
   whose app draws two marks on one gate is better served by the sentence than by its absence.
 
-- [x] shikoku-88-tosa stage 3
+**Edited in Task 8b. Two dataset words out, one inventory out, one band figure out — and the one clause in
+the fifteen where Task 7b's exact wording and the vocabulary rule could not both be kept.** Ten figures down
+to six.
+
+```
+theme:      One leg, one day
+narrative:  Kongōchō-ji to Kōnomine-ji is 28.5 km, and it is the only one of Tosa's sixteen temple-to-temple legs that falls inside the band the day cut looks in. So this day is a leg exactly: one gate to the next, with nothing for the rule to choose between. Nahari comes 18.9 km in, the first mapped town in the section. Forty bus stops stand on it, and at the end two more entries sit within 15 m of Kōnomine-ji itself — a shrine, and another carrying the temple's own name.
+reflection: The one day here that is also a single leg between two gates — does knowing that change how you walk it?
+```
+
+- **"two more waypoints sit within 15 m of Kōnomine-ji itself" → "two more entries sit within 15 m of
+  Kōnomine-ji itself".** Task 7b defended this clause in as many words — "It is a fact about the file, stated
+  as a fact about the file ('two more waypoints')" — and *waypoint*, the one word on the vocabulary list, is
+  the word its defence rests on. Carrying it verbatim would have left the section's most technical noun in a
+  walker's stage text; deleting the clause would have thrown away a fact that entry judged worth keeping
+  ("A walker whose app draws two marks on one gate is better served by the sentence than by its absence").
+  **So the noun was swapped and the argument reconciled here rather than silently detached**, on the
+  precedent Awa's stage 3 set for "the record holds". *Entry* is a word for a line in a file exactly as
+  *waypoint* was; it is the drafter's own word for this same object in the clause's second half; and the
+  sentence still states a fact about the file as a fact about the file. It does **not** say two more *places*
+  stand there, which would assert that a duplicate entry is a building. `node/408839221` 神峯神社 at
+  **116.62895** and `node/408839421` "27 Kōnomine-ji" **14.20 m** earlier are the same two features, and both
+  are still inside 15 m.
+  - "a second entry carrying the temple's own name" → "another carrying the temple's own name", so the noun
+    is not used twice in one clause. Same referent, one figure less.
+- **"the first town the section records" → "the first mapped town in the section".** *First* asserts none
+  before it, so this is an absence claim and the hedge is kept — in Awa stage 3's own construction, "the
+  first mapped bed is 0.6 km on". Nahari at **107.019 km** is still the earliest of the section's eight
+  `type: town` features.
+- **"Fifty-six places stand on the day and forty of them are bus stops" → "Forty bus stops stand on it".**
+  The inventory goes, as on stage 2; what survives is a positive existence claim over the same 40 features.
+- **"the 25 to 30 km band the day cut looks in" → "the band the day cut looks in".** No claim moves. The
+  sentence's content is that **exactly one** of the sixteen legs falls inside the band, and 28.547 is printed
+  four words earlier. The band's edges are printed twice more in this section — stages 6 and 12 — where a
+  margin against them is load-bearing; here nothing rests on them.
+- **"Tosa's sixteen temple-to-temple legs" and "with nothing for the rule to choose between" are carried word
+  for word**, so Task 7b's count check (seventeen temples, sixteen legs, summing to 418.501 km — the whole
+  line) and its ruling that describing the cut is not a §6 problem still attach to the sentences they were
+  written about.
+- **The reflection stands.**
+
+- [ ] shikoku-88-tosa stage 3
 
 ---
 
@@ -1340,7 +1518,41 @@ against **40** on stage 3, **44** on stage 2 and **24** on stage 1 ✓. Aki **13
   re-measured each one. If the pilgrimage later settles against day-adjacency language, that is a
   pilgrimage-wide edit touching Awa and Sanuki too, not a Tosa review finding.
 
-- [x] shikoku-88-tosa stage 4
+**Edited in Task 8b. The one-word fix Task 7b asked a later editorial pass to make, made — plus three
+cumulative kilometres and three counts out.** Twelve figures down to seven.
+
+```
+theme:      Thirty-eight kilometres between two temples
+narrative:  Kōnomine-ji to Dainichi-ji is 38.4 km and this day takes 35.8 of it, so no temple stands on it at all. What reaches the day changes character: railway stations, public toilets and convenience stores, against the bus stops that carried the three days before — two here, against forty on the day before. The city of Aki comes 13.6 km in, and a viewpoint after it. The day ends at a hotel, 2.6 km short of the temple it has been walking toward.
+reflection: Two temples thirty-eight kilometres apart, and neither of them on this day — what is a day worth that is only the space between?
+```
+
+- **"What the record holds changes character" → "What reaches the day changes character".** This is Task 7b's
+  own replacement, quoted from its entry above and adopted verbatim rather than invented here. It removes the
+  dataset noun *and* closes the discipline slip that entry recorded: the record holds twelve stations on this
+  day and the package carries eleven, because あき総合病院前 is **311.9 m** off and dropped. *Reaches* is the
+  verb this section uses wherever a drop matters — stages 7 and 11, and now 8 and 13 — and under it the
+  sentence is exactly true. **This was the section's one breach of its own discipline and it is closed.**
+- **"eleven railway stations, twelve public toilets and ten convenience stores" → "railway stations, public
+  toilets and convenience stores".** The sentence's point is the change of kind, which Task 7b noted twelve
+  would not have altered either. Bare plurals claim less than counts do — at least two of each, against
+  11 / 12 / 10 — and all three counts stay in the grounding bullets above.
+- **"two bus stops here, against forty on the day before" → "two here, against forty on the day before"**,
+  elliptical on the "bus stops" three words earlier. Both figures stay because they *are* the contrast the
+  sentence exists for. **"the three days before" is carried word for word**, so Task 7b's check — bus-stop
+  counts 5 / 24 / 44 / 40 / 2 across stages 0–4, so the three carried by bus stops are stages 1, 2 and 3, not
+  four days and not two — still defends the phrase it was written about.
+- **"The city of Aki comes at 130.2 km and a viewpoint at 137.6. The day ends at a hotel at 152.4 km" → "The
+  city of Aki comes 13.6 km in, and a viewpoint after it. The day ends at a hotel".** Three cumulative
+  kilometres, all measured from Temple 23 four days back. Aki is **130.193 − 116.629 = 13.564 km** past this
+  day's start anchor, on the anchor convention Task 7b established as this section's throughout and which no
+  printed digit here turns on. The viewpoint's position ranked nothing and is given as an ordering; the
+  hotel's is the day's own end, and the day's distance is already in the first sentence.
+- **"2.6 km short of the temple it has been walking toward" stays.** It is the whole shape of the day and the
+  reflection turns on it.
+- **The reflection stands.**
+
+- [ ] shikoku-88-tosa stage 4
 
 ---
 
@@ -1399,7 +1611,41 @@ The 38.4 km "with none" is the Temple 27 → 28 step, **38.365** ✓. Konan **15
   kilometre, and both readings agree that Konan is inside the day's first kilometre. This is the
   precise trap Awa's stage 2 fell into at 18.75 km, and Tosa stepped around it.
 
-- [x] shikoku-88-tosa stage 5
+**Edited in Task 8b. The largest cut of the fifteen — thirteen figures down to six — with two cumulative
+kilometres out and the Konan construction reduced to the half Task 7b actually defended.** No dataset word
+stood in this narrative; what stood in it was arithmetic.
+
+```
+theme:      Four temples in twenty-three kilometres
+narrative:  After 38.4 km with none, four temples fall inside this one day. Dainichi-ji stands 2.6 km in, and Tosa Kokubun-ji, Zenraku-ji and Chikurin-ji follow, the last closing the day 22.8 km on from the first. The city of Konan stands inside the day's first kilometre, and five convenience stores stand on the day.
+reflection: Four gates in twenty-three kilometres after thirty-eight with none — how quickly can attention change its pace?
+```
+
+- **"Tosa Kokubun-ji 9.2 km after it, Zenraku-ji 7.1 km after that, and Chikurin-ji 6.5 km further, closing
+  the day at 177.8 km — 22.8 km from the first of them to the last" → "and Tosa Kokubun-ji, Zenraku-ji and
+  Chikurin-ji follow, the last closing the day 22.8 km on from the first."** Awa's stage 0 shape: name the
+  temples in order, place the first, bound the run. The three steps **9.211 / 7.079 / 6.539** sum to exactly
+  the **22.829 km** the sentence keeps, so nothing is asserted that was not asserted before and nothing is
+  lost a reader cannot recover; all three are in the grounding bullets above. 177.8 is a cumulative kilometre
+  and goes with them.
+- **"The city of Konan stands at 153.3 km, inside the day's first kilometre" → "The city of Konan stands
+  inside the day's first kilometre."** Task 7b called this "the best-handled rounding in the section and
+  should be left alone", and **the half of it that was doing the work is exactly the half that is kept.**
+  That entry's argument was that Konan is 0.950 km past the day's start anchor and 0.929 km past its boundary
+  vertex, that the two conventions round to 1.0 and to 0.9, and that rather than pick one and print a digit
+  the other contradicts the drafter gave the absolute position *and* the containing kilometre. Dropping the
+  absolute position prints **no digit either convention contradicts**, and both conventions agree Konan is
+  inside the day's first kilometre. The trap Task 7b praised the drafter for stepping around is still stepped
+  around; what leaves is the cumulative kilometre that was the price of stepping around it.
+- **"Twenty-six places in all, four of them temples" → nothing.** The inventory, and its second half is
+  already the narrative's own first clause: "four temples fall inside this one day".
+- **"After 38.4 km with none", "four temples", "Dainichi-ji stands 2.6 km in" and "five convenience stores
+  stand on the day" are unchanged.** 38.4 is the Temple 27 → 28 step this day answers, 2.6 places the first
+  gate inside the day, and the convenience stores are a positive existence claim over five features.
+- **The reflection stands**, and had to: it carries "twenty-three" and "thirty-eight", the two figures the day
+  turns on, and Task 7b ruled on the first of them with the other three theme roundings under this entry.
+
+- [ ] shikoku-88-tosa stage 5
 
 ---
 
@@ -1461,7 +1707,43 @@ the stage's committed `end.note` is the fact's own source ✓. Tosa **205.28657 
   Awa's struck "ordinary", it characterises position rather than a place, and the positions are
   right there.
 
-- [x] shikoku-88-tosa stage 6
+**Edited in Task 8b. One dataset word and one cumulative kilometre out — and the smallest figure cut of the
+fifteen, eleven down to nine.**
+
+**This is one of two stages that would not come down to Awa's middle, and the reason is Task 7b's own defence
+of a word it declined to strike.** Nine figures is Awa's own worst — its stages 0 and 1 both carry nine — so
+this narrative reaches the register's edge rather than falling outside it. That entry recorded "Three temples come early" as soft — the three stand 6.1,
+14.3 and 20.6 km into a 27.4 km day, so the third is at 75% of it — and let it stand because "all three exact
+distances follow it immediately so a reader can check it in the same sentence". **Cutting 6.1, 8.2 and 6.3
+would strip the defence off the word without striking the word**, which is the one thing an editing pass may
+not do. The obvious substitute was drafted and rejected: "Zenjibu-ji 6.1 km in, then Sekkei-ji and Tanema-ji,
+all three inside the day's first 21 km" carries four figures too, saves nothing, and makes "early" harder to
+check rather than easier. **The clause is carried word for word.**
+
+```
+theme:      Four hundred and fifty-seven metres out of the band
+narrative:  Three temples come early — Zenjibu-ji 6.1 km in, Sekkei-ji 8.2 km after it, Tanema-ji 6.3 km after that — and then the day has to find somewhere to stop. Kiyotaki-ji, the next one, stands 30.5 km from where this day began: 457 m past the 30 km edge of the band the cut ends days in. So the day ends at Tosa instead, the city. Four shrines stand on it, and four hospitals.
+reflection: Four hundred and fifty-seven metres decided where this day ends. How much of any day is decided that finely?
+```
+
+- **"Twenty places are recorded on it, four of them shrines and four of them hospitals" → "Four shrines stand
+  on it, and four hospitals."** The inventory goes and *recorded* goes with it. Both halves become positive
+  existence claims over the same eight features — `node/5369299652`, `node/1085588477`, `node/5447091866`,
+  `node/5447091847` and the four `subtype: hospital` nodes — so neither asserts a total, which is what
+  *recorded* had been hedging. Task 7b's finding that "shrines" is read from the names ending 神社 and not
+  from the `church` subtype is untouched, because the word and its four referents are.
+- **"the day ends at Tosa instead, the city, at 205.3 km" → "the day ends at Tosa instead, the city."** A
+  cumulative kilometre measured from Temple 23, seven days back. **"ends at Tosa" is carried word for word**,
+  so Task 7b's ruling on it — that a `town`/`city` node 107 m off the walked line is not a place the walker
+  fails to reach, and that calling it the day's end is what `stages.json` does — still defends the phrase it
+  was written about.
+- **The 457 m, the 30.5 km and the 30 km band edge all stay.** They are the day, the theme and the
+  reflection: **208.280 − 177.823 = 30.457 km**, **457.65 m** outside [25, 30]. This is the one place in the
+  section where the band's own edge is load-bearing, which is why stages 3 and 12 could drop it and this
+  stage cannot.
+- **The reflection stands.**
+
+- [ ] shikoku-88-tosa stage 6
 
 ---
 
@@ -1524,7 +1806,35 @@ is why "so far" is load-bearing and correct. 8 filed less one drop = **7** carri
   projects onto **208.28041**, the same point as `temple-35`, 4.6 m off. Naming it would have made
   the day look as though it held three sacred places between its two temples rather than one.
 
-- [x] shikoku-88-tosa stage 7
+**Edited in Task 8b. One figure out of the narrative and nothing else; two dataset words out of the
+reflection.** Seven figures down to six — the smallest change in the fifteen, because Task 7b called this the
+best-disciplined entry in the section and it was right.
+
+```
+theme:      Two gates, and almost nothing between them
+narrative:  Kiyotaki-ji stands 3.0 km into the day and Shōryū-ji 14.5 km beyond it, and between them one thing reaches the day: Shōnen-ji. Seven places reach it in all, the fewest so far in Tosa. Past Shōryū-ji the next temple is 58.1 km away, and no temple falls where a day beginning here would end, so it stops at the Ohenro Guest House Lilian — 21.1 km, the shortest day the section has cut so far.
+reflection: Twenty-one kilometres, two gates, and one mapped thing between them — what fills a day the map leaves blank?
+```
+
+- **"between them one thing reaches the day: Shōnen-ji, 10.3 km after the first gate" → "…: Shōnen-ji."** The
+  position ranked nothing the sentence needed. What the sentence is for is that exactly one thing reaches a
+  21 km day between two gates, and **10.307 km** stays in the grounding bullets above.
+- **The rest of the narrative is carried word for word, including both uses of *reaches*.** Task 7b ruled on
+  that verb at length — "'reaches the day' is right and should not be replaced with 'within 300 m of the
+  route' … says the same thing in the walker's own terms and is exactly true" — and **this pass adopts it as
+  the section's house verb rather than editing it**: stages 4, 8 and 13 now use it too, and stage 4's is that
+  entry's own suggested wording. "the fewest so far in Tosa" and "the shortest day the section has cut so
+  far" keep their "so far", which Task 7b showed is load-bearing because stages 12 and 14 come in shorter
+  later.
+- **Reflection: "one marked thing between them — what fills a day the record leaves blank?" → "one mapped
+  thing between them — what fills a day the map leaves blank?"** Two swaps, neither a change of claim.
+  *Marked* → *mapped* is the verb Awa's rewrite settled on. *The record* → *the map* is Awa stage 3's
+  reflection edit, made for the same reason and with the same effect: the question still names the boundary
+  of what the data can settle rather than crossing it, and it still asserts nothing about the road. The count
+  of one is unchanged — 正念寺 is the only carried place between the two temples, because 民泊汐風 at
+  **350.7 m** is dropped, which is the fact the whole reflection rests on.
+
+- [ ] shikoku-88-tosa stage 7
 
 ---
 
@@ -1589,7 +1899,42 @@ gives them ✓. 6 filed and 6 carried against stage 7's 7 ✓. `temple-37` 280.8
   station" — the day names Susaki and counts the rest. The refusal is recorded above where a
   future editor will find it, which is the correct place for it.
 
-- [x] shikoku-88-tosa stage 8
+**Edited in Task 8b. Two dataset phrases out of the narrative, one out of the theme, two out of the
+reflection; two cumulative kilometres out.** Eight figures down to five — the joint-lowest of the fifteen,
+with stages 13 and 14.
+
+```
+theme:      Nineteen kilometres before anything is mapped
+narrative:  This day walks 19.4 km before anything at all is mapped on it — the longest such opening anywhere in Tosa. What comes after comes quickly: two convenience stores, the city of Susaki, a station, a toilet, and the day's end. Six places reach it in 26.6 km, the fewest of any day here so far, and no temple on it: the next stands 54.5 km beyond where this one began.
+reflection: Nineteen kilometres with nothing mapped along them — is that an absence, or a kind of quiet?
+```
+
+- **Theme: "Nineteen kilometres before anything is marked" → "Nineteen kilometres before anything is
+  mapped".** One word, the same claim, in the verb the narrative below now carries. **This is one of only two
+  themes this pass touched**, and it was touched because *marked* is dataset vocabulary and nothing else in
+  it is.
+- **"before the record marks a single place — the longest such opening anywhere in Tosa" → "before anything
+  at all is mapped on it — the longest such opening anywhere in Tosa."** The absence is the whole stage and
+  it stays hedged, in the verb. *Such* was already carrying the qualifier into the superlative and is
+  untouched. **19.405 km** to `node/5568013724` is unchanged, and so is Task 7b's check of the superlative
+  against every one of the fifteen openings — next-largest **6.424 km**, a factor of three.
+- **"the city of Susaki at 247.6 km … and the day's end at 253.0 km" → "the city of Susaki … and the day's
+  end."** Both cumulative, measured from Temple 23 nine days back. The six places still come in the order
+  Task 7b verified them in, and the order is what the sentence is for.
+- **"Six places on 26.6 km" → "Six places reach it in 26.6 km".** *Reach* is **added** rather than removed.
+  The bare form asserted that six places are on the day; the section's own verb says only that six reach it.
+  Six are filed and six are carried here, so the two readings coincide on this stage — but the weaker one is
+  the one that generalises, and it is the verb stages 7, 11 and 13 use. **26.6 km is the day's own distance
+  and stays.**
+- **Reflection: "Nineteen kilometres and nothing on the map to mark them" → "Nineteen kilometres with nothing
+  mapped along them".** Task 7b cleared this question on the precedent Task 7a set for Awa's stage 3, noting
+  that its premise is doubly qualified. It still is, in one word instead of two: *mapped* carries what *on
+  the map* and *to mark* carried between them, and **two hedges on one clause are not a stronger claim than
+  one.** The question still offers the walker two readings of a mapped absence and takes neither.
+- **The unnamed station is untouched**, so "What Tosa refused" above still describes this text exactly:
+  `node/8383580512` is named "Awa" (安和) and the narrative still calls it "a station".
+
+- [ ] shikoku-88-tosa stage 8
 
 ---
 
@@ -1660,7 +2005,40 @@ the whole list and not against a per-stage summary ✓. Span **27.89934** ✓. 2
   the sentence attributes it to the record ("the record runs thin and strung along a railway").
   Stage 0 makes the same move from six stations and clears on the same ground.
 
-- [x] shikoku-88-tosa stage 9
+**Edited in Task 8b. One dataset noun out, one cumulative kilometre out, two counts out — and the
+six-of-twenty-one deliberately kept.** Eleven figures down to eight.
+
+```
+theme:      The last six hundred metres hold the day
+narrative:  Iwamoto-ji closes this day 58.1 km on from Shōryū-ji — the third-widest gap between temples in Tosa — and the day walks the last 27.9 of it. For most of that what is mapped runs thin and strung along a railway: stations, and places to eat. Then the last 0.6 km takes six of the day's twenty-one places at once — two Kubokawa stations, the town of Shimanto, two places to stay, a toilet — and the temple after them.
+reflection: Fifty-eight kilometres between two gates. What does nearness do to distance?
+```
+
+- **"the record runs thin and strung along a railway" → "what is mapped runs thin and strung along a
+  railway".** Task 7b cleared "strung along a railway" because the sentence attributes it to the record,
+  exactly as stage 0 does, so the attribution had to survive; it does, in the construction stage 0 now uses.
+  Six `train_station` waypoints in order along the day are unchanged, and the sentence still reaches for no
+  terrain.
+- **"six stations, five places to eat" → "stations, and places to eat".** Neither count ranks anything, and
+  the sentence's claim is the thinness and the shape rather than the tally. Bare plurals claim less than 6
+  and 5 do; both counts stay in the grounding bullets above.
+- **"Iwamoto-ji closes this day at 280.9 km" → "Iwamoto-ji closes this day".** Cumulative. What the sentence
+  is for — the **58.069 km** since Shōryū-ji and its rank — is untouched, and **"the third-widest gap between
+  temples in Tosa" is carried word for word**, so Task 7b's check against the whole sixteen-step list
+  (82.712 · 77.547 · **58.068** · 54.911 · 38.365) still defends it.
+- **"six of the day's twenty-one places" is kept, and keeping it is the point of this entry.** It is the most
+  survey-like sentence left in the fifteen, and it is the reason the theme above it is honest. Task 7b struck
+  a clause from this stage's reflection — "most of what the day holds arrives in its last six hundred metres"
+  — because **there is no reading of "most" on which 6 of 21 is most**, and the ground it struck it on was
+  that "the narrative directly above it prints the true fraction in as many words". The theme "The last six
+  hundred metres hold the day" survives on a **17× density** (6 places in 647 m against 15 across the other
+  27.25 km) and not on a fraction, but removing the fraction from the narrative beneath it would leave the
+  theme's only correction sitting in a review file the walker never opens. **So the one inventory in these
+  fifteen that a walker is better off reading stays.**
+- **The reflection stands as Task 7b left it**, one clause shorter than the drafter wrote it. This pass
+  neither restored the struck clause nor touched what remains of it.
+
+- [ ] shikoku-88-tosa stage 9
 
 ---
 
@@ -1731,7 +2109,42 @@ No drops.
 - **"a henro house" is read off the node's own name** ("Henro House Maaru", `subtype: guesthouse`)
   — the same move stage 11 makes with 民宿いさりび and stage 14 with Guest House Kurousagi.
 
-- [x] shikoku-88-tosa stage 10
+**Edited in Task 8b. The worst narrative in the section by figure count — fourteen down to eight — with one
+dataset word out, one inventory and three counts out, and two cumulative kilometres out.**
+
+```
+theme:      The first of three days in one gap
+narrative:  Iwamoto-ji to Kongōfuku-ji is 82.7 km, the widest gap between two temples in this section, and the cut spends three whole days and the first 59 m of a fourth crossing it. This is the first of the three, 28.2 km. Railway stations, shrines and places to eat stand on it — and the only water source mapped anywhere in Tosa, a fountain. It ends at a henro house, with 54.5 km of the gap still ahead.
+reflection: Eighty-three kilometres between one gate and the next, and this day covers a third of it — how do you hold a distance you cannot finish?
+```
+
+- **"Nineteen places stand on it — five railway stations, three shrines, three places to eat —" → "Railway
+  stations, shrines and places to eat stand on it".** The inventory and three counts at once, which is what
+  made this the densest of the fifteen. Bare plurals claim less than 5 / 3 / 3 do, and all four counts are in
+  the grounding bullets above. Task 7b's note that "shrines" is read from the names — 天満宮, 八坂神社,
+  熊野神社 — rather than from the `church` subtype survives with the word.
+- **"the only water source recorded anywhere in Tosa" → "the only water source mapped anywhere in Tosa".**
+  *Recorded* is on the vocabulary list, and it is also the hedge Task 7b accepted the sentence on: "It says
+  'the only water source **recorded**', the subject of the whole clause is what the record holds". **The
+  hedge is not removed; it is re-verbed**, into the word Awa's rewrite settled on and this section now uses
+  throughout. An unmapped spring is a spring still, and the sentence says only that one water source is
+  mapped — `node/10810968860`, 1 of 372 features. Task 7b's second point is untouched and still holds: the
+  section also records nine vending machines and 27 convenience stores and `logistics.waterNotes` calls
+  vending machines ubiquitous, so the record does not support an inference of scarcity and this wording draws
+  none.
+- **"at 303.2 km" → nothing, and "It ends at a henro house at 309.0 km" → "It ends at a henro house".** Two
+  cumulative kilometres, measured from Temple 23 ten days back. The fountain's position ranked nothing; the
+  day's end is the day's end, and **54.5 km of the gap still ahead** is the figure that places it — measured
+  forward, from where the walker will be standing.
+- **"the widest gap between two temples in this section" is carried word for word.** Task 7b called the
+  section-limit "the load-bearing thing here": Temple 37 → 38 is also the widest leg on the whole circuit and
+  the section's own `description` says so, and this text deliberately does not claim it. Rewording it was
+  never available.
+- **"the cut spends three whole days and the first 59 m of a fourth crossing it" and "a henro house" are
+  carried word for word too**, the second because Task 7b showed it is read off the node's own name.
+- **The reflection stands.**
+
+- [ ] shikoku-88-tosa stage 10
 
 ---
 
@@ -1800,7 +2213,49 @@ empty ✓. 342.607 − `temple-37` 280.878 = **61.729** ✓ and `temple-38` 363.
 - **"Thirteen places reach it" is the right verb**, for the reason stage 7's entry gives: the
   record holds fourteen and the package carries thirteen.
 
-- [x] shikoku-88-tosa stage 11
+**Edited in Task 8b. Four dataset phrases out and two cumulative kilometres out — but only two figures, and
+this is the one narrative in the fifteen still above anything Awa carries.** Twelve figures down to ten,
+against Awa's worst of nine.
+
+**Why it stays high.** This day *is* a sequence of measured blanks: four stations in the first 7.4 km, then
+**7.307 km** with nothing in it, then four places, then **7.480 km** with nothing in it. Task 7b verified both
+brackets against all 372 features with the off-line limit removed, so a misfiled or dropped waypoint could not
+have hidden inside either, and **the two spans are the day's whole shape**. A version without them describes a
+day with no shape at all, and the figures that would have gone are the ones a walker most needs.
+
+```
+theme:      Thirteen places over thirty-four kilometres
+narrative:  The middle day of the 82.7 km gap, and the longest of the three at 33.6 km. Thirteen places reach it. Four railway stations come in the first 7.4 km, then a viewpoint and the town of Kuroshio — and after that the map almost gives out: 7.3 km with nothing on it, a convenience store, a café and two toilets, then 7.5 km more with nothing, and the day ends at a minshuku. No temple has stood on the way for 61.7 km.
+reflection: Sixty-two kilometres since the last gate and twenty-one still to the next — what keeps a day like this from being only transit?
+```
+
+- **"the record almost stops" → "the map almost gives out".** This clause is the attribution both blank claims
+  hang from — it governs them, as *the record* did — and only its noun changed, to the one Awa's stage 3
+  reflection settled on. Nothing about the road is asserted in either version.
+- **"7.3 km with nothing marked … then 7.5 km more with nothing marked" → "7.3 km with nothing on it … then
+  7.5 km more with nothing".** *Marked* appeared twice underneath a governing hedge that already says whose
+  absence this is. That is one claim written three times, which Awa's stage 4 reduced on the same reasoning.
+  Both spans are unchanged: Kuroshio **318.350** → スリーエフ **325.657**, and the last toilet **335.126** →
+  the day's end boundary **342.606**.
+- **"the town of Kuroshio at 318.4 km" → "the town of Kuroshio", and "the day ends at a minshuku at 342.6 km"
+  → "the day ends at a minshuku".** Both cumulative, measured from Temple 23 eleven days back. Both places
+  keep their position in the ordering, which is what the sentence uses them for, and "a minshuku" keeps the
+  name's own word.
+- **"No temple has stood on the line for 61.7 km" → "No temple has stood on the way for 61.7 km".** *The line*
+  is this repository's name for `route.main.geojson` and no walker has a definition for it; *the way* is what
+  Awa's rewrite put in its place, and it is the vaguer of the two and therefore not the stronger.
+  **342.607 − 280.878 = 61.729 km** is unchanged. The absence needs no mapping hedge because temples are an
+  exhaustively known set here — sixteen `templeNumber` features from the official-site source — which is the
+  same reason stages 2, 4 and 8 can say "no temple" flatly.
+- **"Thirteen places reach it" is carried word for word, and cutting it was considered and rejected.** It
+  duplicates the theme's "Thirteen places", so cutting it would have saved a figure — but the theme states
+  the count with **no verb**, and *reach* is the whole of its hedge. Removing the sentence would have left the
+  number in the theme unqualified, which is a stronger claim than the drafter made. Task 7b's ruling on the
+  verb ("the record holds fourteen and the package carries thirteen") still attaches to the sentence it was
+  written about.
+- **The reflection stands.**
+
+- [ ] shikoku-88-tosa stage 11
 
 ---
 
@@ -1881,7 +2336,34 @@ Re-measured: the five lodgings project at **342.60708 · 343.03130 · 344.95259 
   property of the walked line and the 300 m build limit, not of this text, and it is not the
   prose's to fix.
 
-- [x] shikoku-88-tosa stage 12
+**Edited in Task 8b. One dataset noun out and one band figure out; all five of the day's load-bearing
+measurements stay.** Ten figures down to eight.
+
+```
+theme:      Fifty-nine metres short of a gate
+narrative:  Five places to stay stand in the first 3.4 km of this day, the tightest run of beds anywhere in Tosa; then it goes 17.6 km to its end. Kongōfuku-ji is 21.0 km from where the day began — too near for the band the cut ends days in — so no temple qualified, and the day stops 59 m short of the gate, at a lodging that carries the temple's own name. In the last 200 m before it the day gathers two viewpoints, two toilets and a bus stop named Cape Ashizuri.
+reflection: Fifty-nine metres from the gate, and the day ends anyway, because the rule measured from somewhere else. Is arriving a place, or a decision?
+```
+
+- **"the record gathers two viewpoints, two toilets and a bus stop named Cape Ashizuri" → "the day gathers
+  two viewpoints, two toilets and a bus stop named Cape Ashizuri".** Awa's stage 4 verb, in Awa's own
+  sentence shape ("the day gathers what the rest of it withheld: …"). **This is a positive list, not an
+  absence claim, so it needs no hedge**: five named features do stand in the last 200 m, and the sentence
+  never said they were all that stood there. **"a bus stop named Cape Ashizuri" is carried word for word**,
+  so Task 7b's finding — that the cape is named once, as a bus stop's `name` and nothing else, in the same
+  construction Awa used for Yuki, Tainohama and Kiki, and that `temple-38`'s refused `description` appears
+  nowhere — still defends the exact words it was written about. **The refusal of temple `description` fields
+  still holds.**
+- **"the 25 to 30 km band the cut ends days in" → "the band the cut ends days in".** As on stage 3. The claim
+  is that **20.983 km** is too near for the band, and 21.0 is printed in the same clause; the band's edges
+  are printed on stage 6, where the 457 m margin against them is what the day is about.
+- **Everything else is carried word for word.** The **3.363 km** five-bed run and "the tightest run of beds
+  anywhere in Tosa", which Task 7b verified by brute force over all 28 carried `accommodation` waypoints
+  against a next-tightest five of **20.500 km**; the 17.6 km; the 21.0 km; and the **59 m**, which the theme
+  and the reflection both turn on and which stage 13 reads from the other side.
+- **The reflection stands.**
+
+- [ ] shikoku-88-tosa stage 12
 
 ---
 
@@ -1961,7 +2443,63 @@ section by **34 m** over stage 4's 35.78138 ✓; `temple-39` 418.50087 − `temp
   correctly. Not false under every reading, so recorded rather than struck — but it is the one
   sentence in the fifteen a final pass should look at again.
 
-- [x] shikoku-88-tosa stage 13
+**Edited in Task 8b. Six dataset phrases out of the narrative, one out of the theme, two out of the
+reflection — and the one loose reading Task 7b asked a final pass to look at again, closed.** Eight figures
+down to five.
+
+```
+theme:      One gate, then thirty-six kilometres with nothing mapped
+narrative:  Kongōfuku-ji stands 59 m into this day, and past it nothing is mapped for 35.7 km — the longest such stretch in Tosa. Three places reach this day: the temple, the lodging it starts from, and the place it ends. Kongōfuku-ji to Enkō-ji is 54.9 km, and this day takes 35.8 of them, almost all of it past the gate.
+reflection: Thirty-six kilometres with nothing mapped along them — what do you notice when nothing is pointed out to you?
+```
+
+- **"past it the record holds nothing for 35.7 km — the longest stretch in Tosa with nothing marked on it" →
+  "past it nothing is mapped for 35.7 km — the longest such stretch in Tosa."** Task 7b counted the
+  qualifiers here across all three fields and found the discipline stricter than Awa's stage 4 — which is
+  exactly the case Awa's rewrite then ruled on: **three hedges are not a stronger claim than one; they are
+  one claim written three times.** One is kept, in the verb, with *such* carrying it into the superlative, in
+  Awa's own words. **399.328 − 363.590 = 35.739 km** is unchanged, and so is Task 7b's check of it with the
+  off-line limit removed: of all 372 features, not one projects into that span, so the claim is true of the
+  whole file and not merely of the package.
+- **"Six places are filed on the day and three of them are lodgings 0.9 to 1.5 km off the walked line, which
+  this day never reaches; what is left is the temple, the lodging the day starts from, and the place it ends"
+  → "Three places reach this day: the temple, the lodging it starts from, and the place it ends."** *Filed
+  on*, *the walked line* and *never reaches* are three of the vocabulary list in one sentence, and the
+  off-line clause is the species this pass exists to remove — a walker does not need to be told that a hotel
+  he will never see is 1.5 km away. What it bought is bought more cheaply by the section's own verb:
+  **"Three places reach this day" says the same thing about the same three carried features** —
+  `node/9444928782`, `temple-38` and `node/11535055771`, exactly as Task 7b enumerated them — and, being the
+  verb that entry ruled on twice, it says only that three reach the day and not that three exist.
+  - Task 7b praised the cut clause as "the honest thing the data made available", telling the walker in as
+    many words that half the day's filed places never reach it. **That honesty was about a count this text no
+    longer states.** With the six gone there is no half to disclose, and what remains is disclosed in the
+    verb. The three drops at **870 / 1,120 / 1,486 m** are still tabled above under "The six that passed
+    enrichment and failed the build", which is where a reader who wants them should go, and **none of them is
+    named here, as none was before.**
+- **"all of it past the gate" → "almost all of it past the gate".** Task 7b recorded this as "the one
+  sentence in the fifteen a final pass should look at again": on a loose reading of "it" as *this day*, the
+  clause is wrong by **58.78 m** — the one margin this section has made load-bearing. **This is that pass.**
+  *Almost all* is true under both readings. Under the grammatical reading Task 7b defended, where the
+  antecedent is "the 35.8 **of them**", the portion of the 54.9 km leg this day takes, *almost all* is simply
+  weaker than *all* and the defence is undisturbed; under the loose reading it stops being wrong. **Nothing
+  is asserted that was not asserted before; one reading stops being false.**
+- **Theme: "One gate, then thirty-six kilometres unmarked" → "One gate, then thirty-six kilometres with
+  nothing mapped".** *Unmarked* is dataset vocabulary. **"unmapped" was drafted as its replacement and
+  rejected**: it reads as a claim that the thirty-six kilometres of road are not in OpenStreetMap, which is
+  false — the walked line is mapped, and it is the line the 35.739 km was measured on. "with nothing mapped"
+  says what the narrative says, at the length a theme allows.
+- **Reflection: "Thirty-six kilometres with nothing on the map to mark them" → "Thirty-six kilometres with
+  nothing mapped along them".** As on stage 8 and for the same reason. The rest of the question — "what do
+  you notice when nothing is pointed out to you?" — is untouched, and it is the half Task 7b's clearance
+  rested on.
+- **Task 7b's central finding survives the edit.** It checked all three fields for whether they describe an
+  absence of data as an absence of things and found that every one carries the qualifier, the reflection
+  twice. Every one still carries it: *nothing is mapped* in the narrative, *with nothing mapped* in the
+  theme, *nothing mapped along them* in the reflection. **Nowhere does any of them say the road is empty.**
+- Its second finding also survives: **no sentence here would need rewriting if waypoints were added.** With
+  the six-count gone, not even a count would move — only the word *three*.
+
+- [ ] shikoku-88-tosa stage 13
 
 ---
 
@@ -2042,7 +2580,40 @@ is the final **19.161** ✓.
   being Enkō-ji, named in the sentence before. The count is right and the temple is named; a
   reader counting the colon's list comes up one short for a sentence.
 
-- [x] shikoku-88-tosa stage 14
+**Edited in Task 8b. Three cumulative kilometres out and one inventory out — and the count wrinkle Task 7b
+noted resolved by the same cut, without moving a claim.** Ten figures down to five.
+
+```
+theme:      The shortest day, and the last gate
+narrative:  19.2 km, the shortest day in Tosa, and it ends at Enkō-ji — the section's own boundary, where Iyo begins from the same point. What stands on the way to it: a guest house, then Mihara, the only village among the section's eight towns, Yamabiko Cafe just past it, two toilets, a station, a restaurant, and a hospital inside the last kilometre. Kongōfuku-ji to Enkō-ji is 54.9 km, and this day closes it.
+reflection: Fifteen days, 418.5 km, sixteen gates — and the last of them is the next section's first. What do you set down here?
+```
+
+- **"Nine places stand on it: a guest house at 402.1 km, then Mihara at 406.7, … a station at 415.9 …" →
+  "What stands on the way to it: a guest house, then Mihara, … a station …"** Three cumulative kilometres,
+  measured from Temple 23 fifteen days back, on the page of the last day. The eight places keep the order
+  Task 7b verified, and every one keeps the name or the kind the drafter chose for it: "a guest house" from
+  the node's own name rather than its `hotel` subtype, "the only village among the section's eight towns",
+  "Yamabiko Cafe" named rather than called a café because its subtype is `restaurant`, and "a hospital inside
+  the last kilometre".
+  - **The same cut closes the wrinkle Task 7b recorded and did not strike**: "Nine places stand on it:" was
+    followed by a list of eight, the ninth being Enkō-ji, named in the sentence before, so a reader counting
+    the colon's list came up one short. The count is gone, so there is nothing to count short. **No claim
+    moved to close it** — a list introduced by "What stands on the way to it" asserts no total at all, where
+    "Nine places" asserted one. Enkō-ji is still named, in the sentence before, as the day's end.
+- **"and this day is its last 19.2" → "and this day closes it".** 19.2 is the day's own distance and is
+  printed as the narrative's first two words; this was the second of two. The day does close the
+  Temple 38 → 39 leg — it ends at Enkō-ji, the leg's far end — so nothing is lost but the repeat.
+- **"Kongōfuku-ji to Enkō-ji is 54.9 km" stays**, as it does on stage 13, so the two days that share the leg
+  still say the same thing about it.
+- **The reflection stands, including its 418.5 km.** Task 7b compared it to Awa's stage 4 and cleared it on
+  that precedent — and the figure Awa's rewrite then removed from *that* stage was a **position** ("Yakuō-ji
+  closes Awa **at** 154.5 km"), not a total. Here 418.5 is a total, on the last page of the section, standing
+  beside "Fifteen days" and "sixteen gates", and a walker who has just walked it has the frame for it.
+  **"sixteen gates" is untouched**, so Task 7b's count ruling — Temples 24 to 39, exactly the set these
+  fifteen days reach — still attaches to it.
+
+- [ ] shikoku-88-tosa stage 14
 
 ---
 
