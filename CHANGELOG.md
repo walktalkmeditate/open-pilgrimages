@@ -6,6 +6,97 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 Consumers read the catalog from `https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@main/index.json` and pin every file they then download to the tag that index's `release` field names. The `v1` alias is no longer maintained — jsDelivr caches tag URLs permanently, so moving it changed nothing a consumer saw.
 
+## [1.9.1] — 2026-09-10
+
+The forty days the Shikoku 88 shipped with in 1.9.0 were grounded — every figure
+in them answered to a measurement on the walked line — but they read like the
+report that produced them rather than like something a walker reads before
+setting out. This is the editorial pass over that text, and **no route data
+moved**: not a distance, not an endpoint, not a waypoint, not a coordinate.
+
+Re-pull if you show a walker the `interior` text or the `ways/` packages that
+echo it. If you read only geometry, distances or places, there is nothing for
+you here.
+
+### Changed
+
+- **All forty narratives were rewritten, with six themes and ten reflections.**
+  Every one of the 40 stages changed in at least one of the three fields: 40
+  narratives, 6 themes (2 in Tosa, 4 in Iyo) and 10 reflections (1 Awa, 3 Tosa,
+  3 Iyo, 3 Sanuki). Outside `interior.theme`, `interior.narrative` and
+  `interior.reflection`, the four `stages.json` files are identical to 1.9.0.
+- **Eight dataset words are gone: 41 occurrences → 0.** The text carried the
+  pipeline's vocabulary where it owed a walker's — *recorded* (17 occurrences),
+  *the record holds* (7), *marks* (7), *waypoint* (4), *filed on the day* (2),
+  *on the map* (2), *the data holds* (1) and *does not reach it* (1). By
+  section, Awa **4 → 0**, Tosa **11 → 0**, Iyo **16 → 0**, Sanuki **10 → 0**.
+  What those words were *doing* survives; see below.
+- **Figures per narrative: a mean of 12.6 → 8.3**, counting spelled-out numbers
+  as well as numerals, because the densest sentences spelled theirs. Across the
+  forty narratives, **503 figures become 331**. The range falls from 8–19 to
+  4–11 and the median from 12 to 9; 39 of the 40 narratives carry fewer and one
+  carries one more. Narratives carrying ten or more figures fall from **35 to
+  11**. The densest, Iyo stage 11, goes from 19 to 9.
+- **43 cumulative section kilometres are gone, and none is left.** A day's text
+  used to place things by their distance from the *section's* start — "Meitokuji
+  at 44.0 km", "the day ends at a hotel at 152.4 km" — a coordinate no walker
+  carries, and the one kind of figure in these narratives that cannot be checked
+  from where the reader is standing. **24 of the 40 stages** carried at least one
+  (Awa 2, Tosa 18, Iyo 22, Sanuki 1); none does now. Distances measured within a
+  day, or from a named place, stay.
+- **The four `ways/` packages shrink by 2,707 bytes** — Awa 129, Tosa 709, Iyo
+  1,155, Sanuki 714 — and that is the whole of what moved in `index.json`
+  besides `release` and `generatedAt`. A stage package carries `theme`,
+  `narrative` and `closing`, and `closing` is `closingFor()` echoing the
+  reflection, so the same edits arrive there as 40 narratives, 6 themes and 10
+  closings.
+
+### What did not change, which is what makes this a patch
+
+No `metadata.json`, `route.geojson`, `route.main.geojson` or
+`waypoints.geojson` was touched, on any route in the corpus. No declared
+distance moved, no stage endpoint or anchor coordinate moved, no waypoint was
+added, dropped or reassigned, no stage was added or removed, and no coverage
+figure changed: `index.json` still reads 5 / 15 / 14 / 6 stages, `placesPerStage`
+9.6 / 3.1 / 10.4 / 9.3, and `sparse: false` on all four sections. Every
+`ways/report.json` is byte-identical, and no route directory outside
+`routes/shikoku-88-*/` is touched at all.
+
+Besides the four `stages.json` and the forty `ways/stage-NN.json`, this release
+changes `index.json`, regenerates the four `docs/shikoku-88-*.html` section
+pages that render the interior text, and adds `docs/review/shikoku-88.md` — the
+record of the read, in which every edit is set against the evidence it answers
+to.
+
+### Three things worth knowing
+
+- **No claim was weakened, and three drafted rewrites were rejected for coming
+  out *stronger* than the data.** All three are recorded in the review file with
+  their measurements: "so there was nowhere nearer to stop" (Awa stage 3), which
+  turns a claim about a map into a claim about the world, and which shipped as
+  "so the day had nowhere nearer to stop" instead; "Three places stand exactly
+  where Zentsū-ji does" (Sanuki stage 1), where all four features do project to
+  an identical **63.80976512540966 km** but stand **102.5, 283.1, 295.9 and
+  102.8 m** off the line, so only their projections coincide and *stand* would
+  claim the ground; and *unmapped* as Tosa stage 13's theme word, which would
+  have said thirty-six kilometres of road are absent from OpenStreetMap when
+  that road is the very line the distance was measured on.
+- **One claim moved, and it moved toward truth.** Tosa stage 13's "all of it
+  past the gate" now reads "almost all of it past the gate". Kongōfuku-ji
+  (Temple 38) projects at 363,589.77 m along Tosa's walked line and that day's
+  start anchor at 363,530.99 m, so **58.78 m of the day precedes the gate** —
+  99.84% of it lies past. The old clause was defensible where its antecedent was
+  the portion of the leg and false by 58.78 m where the antecedent was the day;
+  the new one is true either way, and asserts nothing the narrative's own first
+  clause, "Kongōfuku-ji stands 59 m into this day", did not already say.
+- **The hedges survived, in walker language.** Awa stage 3 said "the data holds
+  no accommodation and no town anywhere on the walked line" and now says
+  "nothing on the way is mapped as a bed or a town" — the absence is still an
+  absence in the mapping and not on the ground, because *mapped* carries exactly
+  what *the data holds* carried. That is the rule the whole pass ran on: where a
+  sentence reported what the dataset does or does not hold, the attribution moved
+  into a verb rather than being dropped.
+
 ## [1.9.0] — 2026-09-09
 
 The Shikoku 88 stops being ten stages that do not touch and becomes what a
@@ -771,6 +862,7 @@ Each route ships with `metadata.json` (overview, tradition, cultural, logistics)
 
 ---
 
+[1.9.1]: https://github.com/walktalkmeditate/open-pilgrimages/compare/v1.9.0...v1.9.1
 [1.9.0]: https://github.com/walktalkmeditate/open-pilgrimages/compare/v1.8.0...v1.9.0
 [1.8.0]: https://github.com/walktalkmeditate/open-pilgrimages/compare/v1.7.1...v1.8.0
 [1.7.1]: https://github.com/walktalkmeditate/open-pilgrimages/compare/v1.7.0...v1.7.1
