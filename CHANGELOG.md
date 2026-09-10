@@ -6,6 +6,224 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 Consumers read the catalog from `https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@main/index.json` and pin every file they then download to the tag that index's `release` field names. The `v1` alias is no longer maintained — jsDelivr caches tag URLs permanently, so moving it changed nothing a consumer saw.
 
+## [1.9.0] — 2026-09-09
+
+The Shikoku 88 stops being ten stages that do not touch and becomes what a
+walker does: forty days around one island, in four legs, ending where it
+began. It is the corpus's first `legs` pilgrimage — sections walked in
+sequence rather than chosen between — and its first circular one.
+
+**This release renames a route id, and nothing forwards.** `shikoku-88` is
+gone as a route: the directory, its `index.json` entry and every file beneath
+it. The walk ships instead as four sections — `shikoku-88-awa`,
+`shikoku-88-tosa`, `shikoku-88-iyo` and `shikoku-88-sanuki`, the four dōjō the
+circuit crosses. `shikoku-88` survives only as the *pilgrimage's* id, in
+`index.json`'s `pilgrimages[]` and in each section's `pilgrimage.id`, where it
+names a grouping rather than anything you can download. Anything pinning the
+old id — a directory path, a jsDelivr URL, a string hard-coded in an app — has
+to follow it to one of the four or it will 404. This is the same break
+`kumano-kodo` took in 1.8.0, for the same reason.
+
+### What was wrong with the ten stages
+
+They were temple *groups*, not days, and they did not chain. Stage 0 ran
+Temples 1–12 and stage 1 began at Temple 13; stage 1 ended at Temple 23 and
+stage 2 began at Temple 24; and so on through all ten. Nothing in the dataset
+recorded the walking between one group's last temple and the next group's
+first.
+
+Measured on the four walked lines this release publishes, the ten groups span
+**812.3 km** of the circuit. The nine gaps between them, plus the closing
+return from Ōkubo-ji (Temple 88) to Ryōzen-ji (Temple 1) that the ten stages
+did not carry either, come to **328.6 km** — from 3.8 km at the narrowest
+(Zentsū-ji to Konzō-ji) to 77.5 km at the widest (Yakuō-ji to Hotsumisaki-ji,
+around Cape Muroto). 812.3 plus 328.6 is the 1,140.9 km the four sections now
+publish end to end, with no gap left anywhere in it.
+
+That unrecorded walking is also why the old figures never reconciled: ten
+declared stage distances summing to **907.3 km**, against a declared circuit
+of **1,200 km**.
+
+### Added
+
+- **`routes/shikoku-88-awa/`, `routes/shikoku-88-tosa/`,
+  `routes/shikoku-88-iyo/` and `routes/shikoku-88-sanuki/`** — the four dōjō,
+  Temples 1–23, 23–39, 39–65 and 65–88, at 154.5 / 418.5 / 365.7 / 202.2 km
+  and 5 / 15 / 14 / 6 stages. Each is cut from its own `route.main.geojson`,
+  built by `npm run build-main-line` from that section's pinned OSM relations.
+  The four chain on identical anchor coordinates at Yakuō-ji (Temple 23),
+  Enkō-ji (39) and Sankaku-ji (65), and Sanuki's last stage ends on the exact
+  coordinate Awa's first begins from, which is what makes the circuit close.
+- **A `shikoku-88` pilgrimage in `index.json`**, `kind: "legs"`, its four
+  sections in `order`, with `distanceKm` 1140.9 and `stageCount` 40. It
+  declares both, where the two `alternatives` pilgrimages declare neither: a
+  sum across alternatives describes no walk anyone takes, but legs are walked
+  in sequence and their sum is the walk. `pilgrimage.circular: true` is
+  declared on all four sections' `metadata.json` — each dōjō is linear and
+  only the circuit they add up to closes — and `validate` checks that the four
+  agree and that the last section's final stage lands back on the first
+  section's first start.
+- **Forty day stages, cut by a rule that can be re-run**, and recorded in full
+  in each section's `provenance.sources` rather than summarised beside it. A
+  day ends at a temple whenever one falls between 25 and 30 km along the
+  section's walked line; where none does, it ends at the nearest named
+  accommodation or town waypoint on that line. Both arms take the candidate
+  nearest 27.5 km and, on a tie, the earlier one. **The spec's rule was
+  temples alone, and the spacing does not carry it.** Of the 88
+  temple-to-temple legs, measured on these same lines, only **4 fall inside
+  25–30 km**, while **ten exceed 30 km and carry 552.3 km — 48% of the
+  circuit** — the longest Temple 37 to Temple 38 at **82.7 km**. Across those
+  ten there is no temple to end a day at in either direction, which is what
+  the second arm is for. **The count came out 40 rather than the spec's about
+  45**, and is reported rather than tuned: the realised cut ends 17 of its 40
+  days at a temple and 23 at a lodging or town (19 accommodation, 4 town), 18
+  of the 40 inside the band, from 13.0 km to 59.6 km. The two longest days are
+  the rule meeting OpenStreetMap's lodging coverage rather than a fault in it,
+  and each carries the fact as a stage warning.
+- **`docs/shikoku-88.html`**, generated by `build-assets` like the Camino's
+  and the Kumano Kodō's pilgrimage pages, plus a detail page for each of the
+  four sections. The catalog's own title and meta descriptions said "ten
+  pilgrimage routes"; the corpus holds thirteen.
+
+### Changed
+
+- **The declared circuit, 1,200 km → 1,140.9 km**, and it is now a sum of
+  measurements rather than a tradition. The four sections declare 154.5,
+  418.5, 365.7 and 202.2 km; their walked lines measure 154.482, 418.501,
+  365.677 and 202.234. The traditional ~1,200 km was never measured against
+  any line in this dataset, and each section's `distanceNote` keeps it beside
+  the new figure rather than dropping it — modern walked totals run from about
+  1,140 km at their most direct to about 1,400 km with every variant.
+- **The ten stage distances are gone with the stages** — 53, 100, 200, 140,
+  140, 35, 60, 19.3, 50 and 110 km. None of the forty that replace them maps
+  onto one of the ten, so there is no pair of figures to give: a group of
+  twelve temples and a day's walk are not the same kind of thing.
+- **No other route's declared distance moved.** `distanceKm` is unchanged
+  across every Camino and every Kumano Kodō section in this release.
+- **The corpus's waypoint count falls, 11,863 → 10,800**, because Shikoku's
+  falls **2,980 → 1,917**. A consumer will see the total drop by 1,063 and
+  should read it as a correction. The old `route.geojson` was a
+  MultiLineString of 77 separate lines, and the enrichment corridor flattens a
+  route into one array of coordinates — so the 76 joins became segments,
+  chords drawn straight across the island, and the 300 m corridor bulged
+  around geometry no walker follows. **1,351 of those 2,980 waypoints — 45% —
+  sit more than 300 m from any of the four walked lines the sections publish
+  now.** The four sections were re-enriched against their own lines, and the
+  88 temples are all present, split 23 / 16 / 26 / 23 between the dōjō.
+- **The twenty-one years of completion data moved off `stats.json` and onto
+  the pilgrimage.** What the Omotenashi Network publishes — 2005 to 2025,
+  walking and cycling, with per-year foreign counts — is measured over the
+  whole circuit, not per province, so it lives in the `pilgrimage.stats` block
+  repeated identically on all four sections' `metadata.json`, and `validate`
+  checks the four agree. **`index.json`'s `pilgrimages[]` entry carries a
+  summary only**: when the figures were last checked, the year they reach, how
+  they were counted, and the single most recent number. The full series, the
+  demographics and the infrastructure figures stay on the sections, because
+  `index.json` is the one file every consumer downloads before anything else
+  and a twenty-one-year series is not what it is for.
+
+### Coverage, honestly
+
+All four sections are flagged `sparse: false`, and that flag is a **section**
+bar, not a per-day promise: it asks that half a section's stages carry at
+least one place beyond the day's own start and end. Read it as "not empty".
+
+- **Awa, Tosa and Sanuki clear it on every stage** — 5 of 5, 15 of 15 and 6 of
+  6.
+- **Iyo clears 12 of its 14.** Stage 1, Kanjizai-ji (Temple 40) to Hotel
+  Ailin, and stage 13, HOTEL AZ 愛媛土居インター店 to Sankaku-ji (Temple 65),
+  carry nothing at all between their two ends. Stage 1's longest unmarked run
+  is 9.7 km.
+- **`placesPerStage` is a mean of those beyond-ends counts, so read it as
+  one.** Awa 9.6, Tosa 3.1, Iyo 10.4, Sanuki 9.3. Iyo's 10.4 is an average
+  with two zeroes in it and a 50 at the other end — stage 3 alone carries 28
+  numbered wayside shrines inside 1.656 km. Its median is 6.
+
+### Elevation is unmeasured, and must not be read as flat
+
+The four walked lines are 2D, and **`gainMeters` is absent — not zero — from
+every one of the forty stage records**, as it is from all 143 stages in the
+corpus. The `ways/stage-NN.json` packages do write `gainMeters: 0`, because
+`way.schema.json` requires the field where the app's `WayStage` declares it
+non-optional and the build writes a zero where the dataset is silent. That
+zero means "not measured".
+
+Eighteen temples carry a point height as an OpenStreetMap tag — 3 in Awa, 3 in
+Tosa, 5 in Iyo, 7 in Sanuki — among them **Unpen-ji (Temple 66) at 911 m**,
+the highest temple on the circuit and the only elevation any of the four
+sections declares in `overview` (Sanuki's `maxMeters`, with no ascent or
+descent total beside it). A height at a gate is not a profile between gates:
+**no elevation profile is published for these four sections**, deliberately,
+and the site's key facts carry no elevation row for three of them.
+
+### Fixed
+
+- **`npm run fetch` reached nothing and exited 0.** It sent no `User-Agent`,
+  and Overpass answers Node's default with `406 Not Acceptable` — so the sweep
+  fetched nothing for any of the seven routes, caught each failure, and
+  reported success. `npm run pipeline` runs it first and chains on `&&`, so an
+  empty sweep was indistinguishable from a working one and handed months-old
+  cache to `build-ways` as if it were the fetch just asked for. It now sends
+  the same agent string `scripts/enrich/osm.ts` already sends, continues past
+  a route that fails, and exits non-zero naming the ones that did.
+- **Sparkline accessibility labels hard-coded the word "rising".** Every
+  series committed before this release rises, so the label had never yet been
+  wrong — and the first one to fall would have had a screen reader announce
+  the opposite of the picture beside it. Shikoku's walking completions are
+  that series: 1,740 in 2005 against 1,622 in 2025. The label now compares the
+  two ends and says `rising to`, `falling to` or `unchanged at`.
+- **`build-ways` reported a stale `stageIndex` as a distance failure.**
+  `wp-cruz-de-ferro` read "1568 m from the line" in the Camino Francés report
+  when it stands **10 m** from that route's walked line, at 537.7 km, and the
+  stage 22 its `stageIndex` names covers 510.3–535.7 km. The 1,568 m was the
+  distance to a different stretch of the same line. The reason now says which
+  stage the waypoint's index names, where the waypoint actually falls, and
+  what the old figure was measuring. Six routes' `ways/report.json` carry the
+  corrected sentence — 68 lines, and the whole of what changed under
+  `routes/camino-*/` and `routes/kumano-kodo-*/` in this release.
+- **`enrich-waypoints` would silently overwrite a stage assignment derived
+  from the walked line.** It measures along `route.geojson` while `build-ways`
+  cuts days from `route.main.geojson`, so a re-run replaced every `stageIndex`
+  and `kmFromStart` with one measured along a line no package is cut from.
+  Neither field records where it came from, so the re-run left no trace and
+  coverage collapsed at the next build in a report naming no cause. It now
+  refuses where a section has both files and any stages, prints both lines'
+  lengths and how many assignments are at stake, and takes
+  `--overwrite-stage-index` for the caller who means it. A section being
+  enriched before it has any days — which is how Shikoku's day rule got the
+  lodging waypoints it reads — has no cut to disagree with, and is not
+  refused.
+
+### Known, and not fixed here
+
+- **The enrichment corridor still measures against the wrong line, on
+  purpose.** It admits an OSM node within 300 m of `route.geojson` while
+  stages are cut from `route.main.geojson`, and on these four sections the two
+  run **1.74× to 2.26× apart** — Awa's 349.7 km route file against a 154.5 km
+  walked line is the widest. Measuring against the walked line is the more
+  honest corridor, and moving it there was still refused: it would newly
+  exclude **105 waypoints corpus-wide, and all 105 are already named in a
+  committed `ways/report.json` dropped list**, so it would change no package
+  on any route and only shrink published data. **Kumano Nakahechi alone would
+  pay 46 of the 105**, 49% of its enriched set, because its route file carries
+  the whole Kumano network against a 35.9 km walked line. The refusal above
+  carries the risk in the meantime.
+- **662 of the Camino Francés' 2,904 OSM waypoints already sit beyond 300 m of
+  its own committed `route.geojson`.** That corridor is not reproducible from
+  the geometry in this repository today. It predates this branch and nothing
+  here touched it.
+- **A `description` can quote a relation's length rather than the walked
+  one.** Iyo's says Temple 43 to Temple 44 is 70.3 km; the walked line
+  measures 70.442. Sanuki's four such figures land within 34 m. Nothing checks
+  the prose against the line.
+- **Temple 72 → Temple 73 is declared a forward step and reads backwards.**
+  `temple-73` records 59.7 km from Sanuki's start and `temple-72` records
+  60.1 — an inversion of 0.457 km, the only one among the pilgrimage's 88
+  legs, and no check sees it. The cause is a genuine tie rather than a
+  backwards line: the walked line passes Mandara-ji twice, 0.914 km apart, at
+  **17.705 m on both passes**, and the projection keeps the second. Every
+  figure derived from that projection inherits the choice.
+
 ## [1.8.0] — 2026-09-08
 
 The Kumano Kodō stops being one route and becomes what it is on the ground: a
@@ -551,6 +769,7 @@ Each route ships with `metadata.json` (overview, tradition, cultural, logistics)
 
 ---
 
+[1.9.0]: https://github.com/walktalkmeditate/open-pilgrimages/compare/v1.8.0...v1.9.0
 [1.8.0]: https://github.com/walktalkmeditate/open-pilgrimages/compare/v1.7.1...v1.8.0
 [1.7.1]: https://github.com/walktalkmeditate/open-pilgrimages/compare/v1.7.0...v1.7.1
 [1.7.0]: https://github.com/walktalkmeditate/open-pilgrimages/compare/v1.6.0...v1.7.0
