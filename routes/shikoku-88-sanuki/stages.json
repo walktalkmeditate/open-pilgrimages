@@ -30,9 +30,10 @@
         "note": "OpenStreetMap node/12953439381 (accommodation), 38.29 km along this section's walked line, 78 m off it. No temple falls 25-30 km past the previous day's end at 0.00 km, so the day ends at the named accommodation or town waypoint on the line nearest 27.5 km, 38.29 km on."
       },
       "distanceKm": 38.3,
+      "drafted": true,
       "interior": {
         "theme": { "en": "Two temples in thirty-eight kilometres" },
-        "narrative": { "en": "Two temples stand on this day. Unpen-ji comes 20.5 km in, and the 10.0 km before it hold nothing the record marks. Its waypoint carries a height of 911 m, the highest of the seven heights Sanuki's temples record; the other sixteen carry none. A viewpoint and a café stand 118 m further along the line. Daikō-ji follows at 30.3 km — 321 m past the 25 to 30 km band the day cut looks in — so no temple ends this day and it runs on to Fujikawa Ryokan at 38.3 km. Thirty places are recorded on the whole of it, fourteen of them bus stops, and not one of them a town." },
+        "narrative": { "en": "Unpen-ji comes 20.5 km in, and nothing is mapped in the 10.0 km before it. The map gives it a height of 911 m, the highest of the seven it gives this section's temples; the other sixteen carry none. A viewpoint and a café stand just past it. Daikō-ji follows 321 m past the 30 km edge of the band the day cut ends days in, so no temple ends this day and it runs on to Fujikawa Ryokan. Fourteen bus stops stand on it, and nothing on it is mapped as a town." },
         "reflection": { "en": "Daikō-ji stands three hundred and twenty-one metres past where a day of this length would have ended. How much of a day is decided by three hundred metres?" }
       }
     },
@@ -63,10 +64,11 @@
         "note": "Temple 76, 67.62 km along this section's walked line, 15 m off it — 29.33 km from the previous day's end at 38.29 km, inside the 25-30 km band and, of the temples in it, the one nearest 27.5 km."
       },
       "distanceKm": 29.3,
+      "drafted": true,
       "interior": {
         "theme": { "en": "Nine temples, and a hundred and seventeen metres between the first two" },
-        "narrative": { "en": "Nine of Sanuki's twenty-three temples stand on this day, more than on any other of the six. Two of them come first and come together: Jinne-in 0.8 km in and Kannon-ji 117 m after it, the narrowest step between two temples this section records. Motoyama-ji follows, and then the spacing opens — 11.7 km to Iyadani-ji, with 6.6 km inside it holding nothing marked at all, ending at Mitoyo. Five more temples come in the 11.9 km after Iyadani-ji, two of them, Mandara-ji and Shusshaka-ji, 0.46 km apart. Three places project onto the line exactly where Zentsū-ji does — a sacred place, a wayside shrine and a place to stay — and Konzō-ji closes the day at 29.3 km. Seventy-five places in all, seventeen of them places to eat." },
-        "reflection": { "en": "The closest two temples this section records stand on this day, and so does its emptiest stretch. Does a day have one shape, or as many as you notice?" }
+        "narrative": { "en": "More temples stand on this day than on any other of the six. It begins on a pair: Jinne-in 0.8 km in and Kannon-ji 117 m after it, the narrowest step between temples in this section. Motoyama-ji follows, and then the spacing opens — 11.7 km to Iyadani-ji, with 6.6 km inside it holding nothing mapped at all, ending at Mitoyo. Five more temples come in the 11.9 km after Iyadani-ji, two of them, Mandara-ji and Shusshaka-ji, 0.46 km apart. Three more places meet the way at exactly the point Zentsū-ji does — a sacred place, a wayside shrine and a place to stay — and Konzō-ji closes the day." },
+        "reflection": { "en": "The closest two temples in this section stand on this day, and so does its emptiest stretch. Does a day have one shape, or as many as you notice?" }
       }
     },
     {
@@ -108,10 +110,11 @@
         "note": "OpenStreetMap node/1012320253 (town), 82.48 km along this section's walked line, 164 m off it. No temple falls 25-30 km past the previous day's end at 67.62 km, so the day ends at the named accommodation or town waypoint on the line nearest 27.5 km, 14.86 km on."
       },
       "distanceKm": 14.9,
+      "drafted": true,
       "interior": {
         "theme": { "en": "Four towns in eleven kilometres, and then none for sixty" },
-        "narrative": { "en": "Four of the six towns Sanuki records stand on this one day, inside 11.4 km of each other — Tadotsu, Marugame, Utazu and Sakaide, where the day ends at 14.9 km. It is the shortest of the six, and the day after it is the longest of the forty. Eighty-five places are filed on it, more to the kilometre than on any other day here: thirty of them are places to eat and twenty-two are bus stops. Two temples come among them, Dōryū-ji 4.0 km in and Goshō-ji 11.2. No temple falls where a day of this length would end — Sanuki Kokubun-ji is 0.8 km short of the band and Shiromine-ji 0.9 km past it — so the day stops at a town instead, and the next place the record could have stopped it is 59.6 km on." },
-        "reflection": { "en": "The shortest day of the six stands directly before the longest, and one gap in the record makes both. Does a map owe you an even pace?" }
+        "narrative": { "en": "Four of Sanuki's mapped towns stand on this one day, inside 11.4 km of each other — Tadotsu, Marugame, Utazu and Sakaide, where the day ends. It is the shortest of the six, and the day after it is the longest of the forty. More places stand on it to the kilometre than on any other day here, thirty of them places to eat. Dōryū-ji comes 4.0 km in and Goshō-ji 11.2. No temple falls where a day of this length would end — Sanuki Kokubun-ji falls just short of the band and Shiromine-ji just past it — so the day stops at a town instead, and the next place the map could have stopped it is 59.6 km on." },
+        "reflection": { "en": "The shortest day of the six stands directly before the longest, and one gap in the map makes both. Does a map owe you an even pace?" }
       }
     },
     {
@@ -170,10 +173,11 @@
           "en": "59.6 km, the longest day on the circuit. OpenStreetMap records no named accommodation or town on the walked line between Sakaide and Sanuki, so the rule had nowhere nearer to stop. Carry water and food for the whole distance, or break the day at a place off the line."
         }
       ],
+      "drafted": true,
       "interior": {
         "theme": { "en": "The longest day of the forty, and the most crowded" },
-        "narrative": { "en": "59.6 km, the longest day of the forty this cut made, and it is long for an absence: from 63.8 km to 149.9 km — 86.1 km — this section's record marks no place to stay at all, and this day is 59.6 of that stretch. No town falls in it either, until the one it ends at. What the day is not is empty. A hundred and sixty-three of Sanuki's three hundred and eighty-nine recorded places stand on it, and the longest run with nothing marked on it is only 4.2 km. Seven temples come among them — Tennō-ji, Sanuki Kokubun-ji, Shiromine-ji, Negoro-ji, Ichinomiya-ji, Yashima-ji and Yakuri-ji — with forty-two bus stops, thirty-one places to eat and sixteen convenience stores. Everything except somewhere to stop." },
-        "reflection": { "en": "The busiest day in Sanuki and the longest of the forty, and those are one fact: nothing recorded on it is a place to sleep. How much of what you carry is decided by what someone wrote down?" }
+        "narrative": { "en": "59.6 km, the longest day of the forty this cut made, and it is long for an absence: nothing is mapped as a place to stay for 86.1 km, and this day is 59.6 of that stretch. No town falls in it either, until the one it ends at. What the day is not is empty. More places stand on this one day than on any other of the six, and the longest run with nothing mapped on it is only 4.2 km. Seven temples come among them — Tennō-ji, Sanuki Kokubun-ji, Shiromine-ji, Negoro-ji, Ichinomiya-ji, Yashima-ji and Yakuri-ji — and thirty-one places to eat. Everything except somewhere to stop." },
+        "reflection": { "en": "The busiest day in Sanuki and the longest of the forty, and those are one fact: nothing mapped on it is a place to sleep. How much of what you carry is decided by what someone wrote down?" }
       }
     },
     {
@@ -217,9 +221,10 @@
         "note": "Temple 88, 162.43 km along this section's walked line, 19 m off it — 20.34 km from the previous day's end at 142.09 km. Held fixed rather than chosen: the temple sequence completes here, and what follows is the circuit's closing return to Temple 1."
       },
       "distanceKm": 20.3,
+      "drafted": true,
       "interior": {
         "theme": { "en": "The last three of the eighty-eight" },
-        "narrative": { "en": "Shidō-ji stands 0.7 km into this day, Nagao-ji 7.6, and Ōkubo-ji closes it at 20.3 — the eighty-sixth, eighty-seventh and eighty-eighth temples, and the last three of Sanuki's twenty-three. The last two places to stay the record holds before Ōkubo-ji come 7.8 and 8.0 km in, 276 m apart, and of the 12.7 km from Nagao-ji to Ōkubo-ji, 8.7 carry nothing marked at all. Twenty-nine places on 20.3 km: six bus stops, five convenience stores, two hospitals. Neither arm of the day cut chose this ending — Ōkubo-ji is held, because the temple sequence completes there." },
+        "narrative": { "en": "Shidō-ji stands 0.7 km into this day, Nagao-ji 7.6, and Ōkubo-ji closes it — the eighty-sixth, eighty-seventh and eighty-eighth temples. The last mapped places to stay before Ōkubo-ji come 8 km in, and of the 12.7 km from Nagao-ji to Ōkubo-ji, 8.7 carry nothing mapped at all. Neither arm of the day cut chose this ending — Ōkubo-ji is held, because the temple sequence completes there." },
         "reflection": { "en": "The numbering ends at this day's last temple, and the walking has 39.8 km left. Which of the two were you counting?" }
       }
     },
@@ -253,9 +258,10 @@
         "note": "Section boundary. Coordinates and name are taken verbatim from this section's metadata.json overview, so the neighbouring section's stage anchor is the same point. 202.23 km along this section's walked line, 64 m off it. A boundary day ends at the boundary temple itself whatever its length, and the lodging fallback does not apply here; this one runs 39.80 km. The stretch from Temple 88 is the circuit's closing return, walked as one stage between two temples the cut holds fixed — Temple 88 where the sequence completes and Temple 1 where the circuit closes."
       },
       "distanceKm": 39.8,
+      "drafted": true,
       "interior": {
         "theme": { "en": "From the eighty-eighth to the first" },
-        "narrative": { "en": "A temple stands at each end of this day and none between them: Ōkubo-ji, the eighty-eighth, and Ryōzen-ji, the first. 39.8 km, the second-longest of Sanuki's six days, and seven places recorded on it, the fewest of the six. Minshuku Yasokubo comes 0.2 km in and is the only place to stay, and the only named accommodation or town, the record holds anywhere past Ōkubo-ji. After it 24.7 km carry nothing marked at all, the longest such stretch in this section. Then a station, a shrine and a shop inside 1.1 km, then 12.6 km more with a single vending machine on them. The last thing the record marks is a bus stop 76 m short of the end, named for the temple it stands in front of. Ryōzen-ji closes Sanuki at 202.2 km, and Awa's first day starts from the same point." },
+        "narrative": { "en": "A temple stands at each end of this day and none between them: Ōkubo-ji, the eighty-eighth, and Ryōzen-ji, the first. 39.8 km, the second-longest of Sanuki's days, and fewer places are mapped on it than on any other day here. Minshuku Yasokubo comes 0.2 km in, and past Ōkubo-ji nothing else is mapped as a place to stay or a town. After it 24.7 km carry nothing mapped at all, the longest such stretch in this section. Then a station, a shrine and a shop inside 1.1 km, then 12.6 km more with a single vending machine on them. The last thing mapped is a bus stop 76 m short of the end, named for the temple it stands in front of. Ryōzen-ji closes Sanuki, and Awa's first day starts from the same point." },
         "reflection": { "en": "Every other section ends where the next one begins; this one ends where the first one began. Who decides when a walk is finished?" }
       }
     }

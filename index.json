@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
   "release": "v1.9.0",
-  "generatedAt": "2026-09-10T16:10:12.668Z",
+  "generatedAt": "2026-09-10T17:02:17.332Z",
   "pilgrimages": [
     {
       "id": "camino-de-santiago",
@@ -307,7 +307,7 @@
       "pilgrimage": "shikoku-88",
       "ways": {
         "stageCount": 14,
-        "bytes": 529476,
+        "bytes": 528295,
         "placesPerStage": 10.4,
         "sparse": false
       }
@@ -326,7 +326,7 @@
       "pilgrimage": "shikoku-88",
       "ways": {
         "stageCount": 6,
-        "bytes": 270822,
+        "bytes": 270108,
         "placesPerStage": 9.3,
         "sparse": false
       }
