@@ -6,6 +6,46 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 Consumers read the catalog from `https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@main/index.json` and pin every file they then download to the tag that index's `release` field names. The `v1` alias is no longer maintained — jsDelivr caches tag URLs permanently, so moving it changed nothing a consumer saw.
 
+## [1.9.2] — 2026-09-14
+
+`kumano-kodo-nakahechi` was still called "Kumano Kodo" — the name of the
+pilgrimage it is one of four sections of. Its Japanese name was 熊野古道, the
+pilgrimage's, not 中辺路. Its description described the whole network.
+
+All three were left behind when 1.8.0 renamed the route id `kumano-kodo` to
+`kumano-kodo-nakahechi`: the id moved and the prose did not. Its three siblings
+have named themselves correctly all along — Kohechi (Mountain Route), Iseji
+(Eastern/Coastal Route), Ōhechi (Southern Coastal Route) — and this repository's
+own pages have called it "the Nakahechi" in running prose since 1.8.0.
+
+**No geometry, distance, stage or waypoint moved.** Re-pull only if you display
+the section's name or description.
+
+### Changed
+
+- **`name.en`: "Kumano Kodo" → "Nakahechi (Central Route)"**, and **`name.ja`:
+  熊野古道 → 中辺路**. A consumer listing the four sections under their
+  pilgrimage showed a header reading "Kumano Kodō" over a row reading "Kumano
+  Kodo", with nothing to say which of the four it was.
+- **`description` is now about this section**, in the register its three
+  siblings already used: where it runs, how far, how much climb, how many days.
+  It replaces a description of the Kumano Kodō network as a whole, which said
+  nothing that distinguished the Nakahechi from the other three.
+- Regenerated `index.json`, `ways/route.json` and `route.gpx` carry the new
+  name; the GPX track itself is byte-identical.
+- `docs/index.html`, `docs/routes.html` and `docs/kumano-kodo-nakahechi.html`
+  follow, and the generated `docs/kumano-kodo.html` picked it up from the data.
+  Two hand-written "(Nakahechi)" disambiguators are gone from card meta lines —
+  the name carries that now.
+
+### Known, and not fixed here
+
+- **The UNESCO inscription and the Dual Pilgrim sister-route relationship left
+  the data with that description.** Both are properties of the Kumano Kodō, not
+  of the Nakahechi, and the `pilgrimage` block has no `description` field to
+  hold them. They remain on `docs/kumano-kodo-nakahechi.html`. Giving the
+  pilgrimage layer its own description is a schema change and its own release.
+
 ## [1.9.1] — 2026-09-10
 
 The forty days the Shikoku 88 shipped with in 1.9.0 were grounded — every figure

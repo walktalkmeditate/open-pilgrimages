@@ -4,8 +4,8 @@
   "lastUpdated": "2026-09-08T00:00:00Z",
 
   "name": {
-    "en": "Kumano Kodo",
-    "ja": "熊野古道"
+    "en": "Nakahechi (Central Route)",
+    "ja": "中辺路"
   },
   "pilgrimage": {
     "id": "kumano-kodo",
@@ -14,8 +14,8 @@
     "order": 1
   },
   "description": {
-    "en": "A network of ancient pilgrimage routes through the mountains of the Kii Peninsula, leading to the three Grand Shrines of Kumano (Kumano Sanzan). UNESCO World Heritage Site since 2004. The Kumano Kodo and the Camino de Santiago are the only two pilgrimage routes in the world with a formal sister-route relationship — both UNESCO-inscribed and linked through the Dual Pilgrim program established in 2015.",
-    "ja": "紀伊半島の山々を通る古代の巡礼路ネットワーク。熊野三山に至る。2004年よりユネスコ世界遺産。"
+    "en": "The central route across the Kii Peninsula: 36 km from Takijiri-oji to Kumano Hongu Taisha by way of Takahara and Chikatsuyu-oji, climbing 2,230 m across four days. The shortest of the four Kumano Kodo routes.",
+    "ja": "紀伊半島を横断する中央の道。滝尻王子から熊野本宮大社まで36km、高原と近露王子を経て、4日間で累積2,230mを登る。熊野古道の四路のうち最短。"
   },
 
   "overview": {

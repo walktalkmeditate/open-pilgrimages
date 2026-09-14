@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
   "release": "v1.9.1",
-  "generatedAt": "2026-09-10T19:32:51.279Z",
+  "generatedAt": "2026-09-14T20:12:22.858Z",
   "pilgrimages": [
     {
       "id": "camino-de-santiago",
@@ -243,8 +243,8 @@
     {
       "id": "kumano-kodo-nakahechi",
       "name": {
-        "en": "Kumano Kodo",
-        "ja": "熊野古道"
+        "en": "Nakahechi (Central Route)",
+        "ja": "中辺路"
       },
       "region": "Asia",
       "country": "JP",
@@ -255,7 +255,7 @@
       "pilgrimage": "kumano-kodo",
       "ways": {
         "stageCount": 4,
-        "bytes": 65871,
+        "bytes": 65686,
         "placesPerStage": 2.5,
         "sparse": false
       }
