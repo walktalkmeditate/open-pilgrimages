@@ -1809,6 +1809,7 @@
         "stageIndex": 2,
         "kmFromStart": 73.6,
         "icon": "church",
+        "description": "Not one of the 88 temples, but a shrine. Jigen-ji follows about half a kilometre on.",
         "source": "osm",
         "osmId": "node/12373206418"
       }
@@ -1868,6 +1869,7 @@
         "stageIndex": 2,
         "kmFromStart": 74.1,
         "icon": "church",
+        "description": "Not one of the 88 temples, but a Buddhist temple. Hie Shrine sits about half a kilometre back.",
         "source": "osm",
         "osmId": "node/12373206293"
       }

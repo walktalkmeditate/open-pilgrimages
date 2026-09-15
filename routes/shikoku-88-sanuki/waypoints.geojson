@@ -167,6 +167,7 @@
         "stageIndex": 0,
         "kmFromStart": 6.6,
         "icon": "church",
+        "description": "椿堂, a hall of 常福寺. The bekkaku (別格) are side temples, not numbered among the 88.",
         "source": "curated",
         "osmId": "node/6069903588"
       }

@@ -11454,6 +11454,7 @@
         "stageIndex": 7,
         "kmFromStart": 198.9,
         "icon": "church",
+        "description": "文殊院. The bekkaku (別格) are side temples walked alongside the 88 without being numbered among them.",
         "source": "curated",
         "osmId": "node/6069879618"
       }
@@ -21775,6 +21776,7 @@
         "stageIndex": 12,
         "kmFromStart": 347.8,
         "icon": "church",
+        "description": "延命寺. A bekkaku (別格) is a side temple, not one of the 88; temple 54 of this section carries the same name.",
         "source": "curated",
         "osmId": "node/6069894534"
       }
