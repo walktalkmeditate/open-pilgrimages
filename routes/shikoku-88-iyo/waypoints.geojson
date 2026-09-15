@@ -45,7 +45,10 @@
         "kmFromStart": 2.6,
         "icon": "hospital",
         "source": "osm",
-        "osmId": "node/1423742792"
+        "osmId": "node/1423742792",
+        "nameLocalized": {
+          "ja": "祥星会聖ケ丘病院"
+        }
       }
     },
     {
@@ -67,7 +70,10 @@
         "kmFromStart": 4.2,
         "icon": "restaurant",
         "source": "osm",
-        "osmId": "node/8506196245"
+        "osmId": "node/8506196245",
+        "nameLocalized": {
+          "ja": "レストラン鶴亀"
+        }
       }
     },
     {
@@ -89,7 +95,10 @@
         "kmFromStart": 6.1,
         "icon": "hospital",
         "source": "osm",
-        "osmId": "node/1423744715"
+        "osmId": "node/1423744715",
+        "nameLocalized": {
+          "ja": "長生会大井田病院"
+        }
       }
     },
     {
@@ -133,7 +142,10 @@
         "kmFromStart": 6.1,
         "icon": "pharmacy",
         "source": "osm",
-        "osmId": "node/13909337124"
+        "osmId": "node/13909337124",
+        "nameLocalized": {
+          "ja": "吉村調剤薬局"
+        }
       }
     },
     {
@@ -177,7 +189,10 @@
         "kmFromStart": 6.5,
         "icon": "church",
         "source": "osm",
-        "osmId": "node/13909337222"
+        "osmId": "node/13909337222",
+        "nameLocalized": {
+          "ja": "日本キリスト改革派"
+        }
       }
     },
     {
@@ -199,7 +214,10 @@
         "kmFromStart": 6.7,
         "icon": "restaurant",
         "source": "osm",
-        "osmId": "node/13904553845"
+        "osmId": "node/13904553845",
+        "nameLocalized": {
+          "ja": "蔵"
+        }
       }
     },
     {
@@ -279,7 +297,10 @@
         "kmFromStart": 6.8,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/13912410010"
+        "osmId": "node/13912410010",
+        "nameLocalized": {
+          "ja": "宿毛市役所前"
+        }
       }
     },
     {
@@ -301,7 +322,10 @@
         "kmFromStart": 6.9,
         "icon": "cafe",
         "source": "osm",
-        "osmId": "node/13919092138"
+        "osmId": "node/13919092138",
+        "nameLocalized": {
+          "ja": "マミむ"
+        }
       }
     },
     {
@@ -323,7 +347,10 @@
         "kmFromStart": 7,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/13919115514"
+        "osmId": "node/13919115514",
+        "nameLocalized": {
+          "ja": "中央1丁目"
+        }
       }
     },
     {
@@ -389,7 +416,10 @@
         "kmFromStart": 7.3,
         "icon": "cafe",
         "source": "osm",
-        "osmId": "node/13919115647"
+        "osmId": "node/13919115647",
+        "nameLocalized": {
+          "ja": "ポケット"
+        }
       }
     },
     {
@@ -411,7 +441,10 @@
         "kmFromStart": 7.5,
         "icon": "hotel",
         "source": "osm",
-        "osmId": "node/4343783694"
+        "osmId": "node/4343783694",
+        "nameLocalized": {
+          "ja": "秋沢ホテル"
+        }
       }
     },
     {
@@ -433,7 +466,10 @@
         "kmFromStart": 7.6,
         "icon": "pharmacy",
         "source": "osm",
-        "osmId": "node/5350214678"
+        "osmId": "node/5350214678",
+        "nameLocalized": {
+          "ja": "木下薬局"
+        }
       }
     },
     {
@@ -455,7 +491,10 @@
         "kmFromStart": 7.9,
         "icon": "restaurant",
         "source": "osm",
-        "osmId": "node/5334189372"
+        "osmId": "node/5334189372",
+        "nameLocalized": {
+          "ja": "中華旬菜 水滸"
+        }
       }
     },
     {
@@ -477,7 +516,10 @@
         "kmFromStart": 7.8,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/13919291932"
+        "osmId": "node/13919291932",
+        "nameLocalized": {
+          "ja": "松田川橋南詰"
+        }
       }
     },
     {
@@ -499,7 +541,10 @@
         "kmFromStart": 13.1,
         "icon": "viewpoint",
         "source": "osm",
-        "osmId": "node/10858037378"
+        "osmId": "node/10858037378",
+        "nameLocalized": {
+          "ja": "茶偓跡"
+        }
       }
     },
     {
@@ -543,7 +588,10 @@
         "kmFromStart": 16.4,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152607314"
+        "osmId": "node/3152607314",
+        "nameLocalized": {
+          "ja": "本村集会所"
+        }
       }
     },
     {
@@ -565,7 +613,10 @@
         "kmFromStart": 17.6,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152603095"
+        "osmId": "node/3152603095",
+        "nameLocalized": {
+          "ja": "一本松病院前"
+        }
       }
     },
     {
@@ -587,7 +638,10 @@
         "kmFromStart": 17.6,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152603097"
+        "osmId": "node/3152603097",
+        "nameLocalized": {
+          "ja": "一本松郵便局"
+        }
       }
     },
     {
@@ -609,7 +663,10 @@
         "kmFromStart": 17.7,
         "icon": "hospital",
         "source": "osm",
-        "osmId": "node/1423732166"
+        "osmId": "node/1423732166",
+        "nameLocalized": {
+          "ja": "国保一本松病院"
+        }
       }
     },
     {
@@ -631,7 +688,10 @@
         "kmFromStart": 17.6,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152603091"
+        "osmId": "node/3152603091",
+        "nameLocalized": {
+          "ja": "一本松"
+        }
       }
     },
     {
@@ -653,7 +713,10 @@
         "kmFromStart": 17.8,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152603093"
+        "osmId": "node/3152603093",
+        "nameLocalized": {
+          "ja": "一本松支所"
+        }
       }
     },
     {
@@ -697,7 +760,10 @@
         "kmFromStart": 18.3,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152606766"
+        "osmId": "node/3152606766",
+        "nameLocalized": {
+          "ja": "広見第一集会所"
+        }
       }
     },
     {
@@ -719,7 +785,10 @@
         "kmFromStart": 19.4,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152606768"
+        "osmId": "node/3152606768",
+        "nameLocalized": {
+          "ja": "広見第二集会所"
+        }
       }
     },
     {
@@ -741,7 +810,10 @@
         "kmFromStart": 19.6,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152607334"
+        "osmId": "node/3152607334",
+        "nameLocalized": {
+          "ja": "札掛"
+        }
       }
     },
     {
@@ -763,7 +835,10 @@
         "kmFromStart": 20.1,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152603517"
+        "osmId": "node/3152603517",
+        "nameLocalized": {
+          "ja": "久保江"
+        }
       }
     },
     {
@@ -785,7 +860,10 @@
         "kmFromStart": 21.6,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152607873"
+        "osmId": "node/3152607873",
+        "nameLocalized": {
+          "ja": "満倉小学校"
+        }
       }
     },
     {
@@ -829,7 +907,10 @@
         "kmFromStart": 21.9,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152605225"
+        "osmId": "node/3152605225",
+        "nameLocalized": {
+          "ja": "太場"
+        }
       }
     },
     {
@@ -851,7 +932,10 @@
         "kmFromStart": 23.5,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152610401"
+        "osmId": "node/3152610401",
+        "nameLocalized": {
+          "ja": "豊田"
+        }
       }
     },
     {
@@ -895,7 +979,10 @@
         "kmFromStart": 24.8,
         "icon": "hospital",
         "source": "osm",
-        "osmId": "node/1423741844"
+        "osmId": "node/1423741844",
+        "nameLocalized": {
+          "ja": "県立南宇和病院"
+        }
       }
     },
     {
@@ -917,7 +1004,10 @@
         "kmFromStart": 24.9,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152604600"
+        "osmId": "node/3152604600",
+        "nameLocalized": {
+          "ja": "南宇和病院"
+        }
       }
     },
     {
@@ -961,7 +1051,10 @@
         "kmFromStart": 25.1,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152606831"
+        "osmId": "node/3152606831",
+        "nameLocalized": {
+          "ja": "愛南町役場"
+        }
       }
     },
     {
@@ -983,7 +1076,10 @@
         "kmFromStart": 24.9,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152603638"
+        "osmId": "node/3152603638",
+        "nameLocalized": {
+          "ja": "伊勢町"
+        }
       }
     },
     {
@@ -1005,7 +1101,10 @@
         "kmFromStart": 25.7,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152604926"
+        "osmId": "node/3152604926",
+        "nameLocalized": {
+          "ja": "城辺古町"
+        }
       }
     },
     {
@@ -1081,7 +1180,10 @@
         "kmFromStart": 25.7,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152603074"
+        "osmId": "node/3152603074",
+        "nameLocalized": {
+          "ja": "フジ南宇和店"
+        }
       }
     },
     {
@@ -1103,7 +1205,10 @@
         "kmFromStart": 26.1,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152604601"
+        "osmId": "node/3152604601",
+        "nameLocalized": {
+          "ja": "南宇和高校前"
+        }
       }
     },
     {
@@ -1125,7 +1230,10 @@
         "kmFromStart": 26.5,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152606802"
+        "osmId": "node/3152606802",
+        "nameLocalized": {
+          "ja": "御荘"
+        }
       }
     },
     {
@@ -1147,7 +1255,10 @@
         "kmFromStart": 26.8,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152606803"
+        "osmId": "node/3152606803",
+        "nameLocalized": {
+          "ja": "御荘中学校前"
+        }
       }
     },
     {
@@ -1194,7 +1305,10 @@
         "kmFromStart": 27.4,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152606538"
+        "osmId": "node/3152606538",
+        "nameLocalized": {
+          "ja": "平城札所前"
+        }
       }
     },
     {
@@ -1216,7 +1330,10 @@
         "kmFromStart": 27.7,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152604038"
+        "osmId": "node/3152604038",
+        "nameLocalized": {
+          "ja": "八幡野"
+        }
       }
     },
     {
@@ -1238,7 +1355,10 @@
         "kmFromStart": 27.9,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152610406"
+        "osmId": "node/3152610406",
+        "nameLocalized": {
+          "ja": "貝塚"
+        }
       }
     },
     {
@@ -1260,7 +1380,10 @@
         "kmFromStart": 28.6,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152604587"
+        "osmId": "node/3152604587",
+        "nameLocalized": {
+          "ja": "南レク御荘公園前"
+        }
       }
     },
     {
@@ -1304,7 +1427,10 @@
         "kmFromStart": 29,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152610838"
+        "osmId": "node/3152610838",
+        "nameLocalized": {
+          "ja": "長崎"
+        }
       }
     },
     {
@@ -1326,7 +1452,10 @@
         "kmFromStart": 29.6,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152610848"
+        "osmId": "node/3152610848",
+        "nameLocalized": {
+          "ja": "長洲橋"
+        }
       }
     },
     {
@@ -1348,7 +1477,10 @@
         "kmFromStart": 30.5,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152606540"
+        "osmId": "node/3152606540",
+        "nameLocalized": {
+          "ja": "平山"
+        }
       }
     },
     {
@@ -1370,7 +1502,10 @@
         "kmFromStart": 30.8,
         "icon": "hospital",
         "source": "osm",
-        "osmId": "node/1423739964"
+        "osmId": "node/1423739964",
+        "nameLocalized": {
+          "ja": "正光会御荘病院"
+        }
       }
     },
     {
@@ -1392,7 +1527,10 @@
         "kmFromStart": 31.9,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152604040"
+        "osmId": "node/3152604040",
+        "nameLocalized": {
+          "ja": "八百坂峠"
+        }
       }
     },
     {
@@ -1414,7 +1552,10 @@
         "kmFromStart": 32.5,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152604039"
+        "osmId": "node/3152604039",
+        "nameLocalized": {
+          "ja": "八百坂"
+        }
       }
     },
     {
@@ -1436,7 +1577,10 @@
         "kmFromStart": 33.3,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152609560"
+        "osmId": "node/3152609560",
+        "nameLocalized": {
+          "ja": "菊川小学校前"
+        }
       }
     },
     {
@@ -1458,7 +1602,10 @@
         "kmFromStart": 33.9,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152609559"
+        "osmId": "node/3152609559",
+        "nameLocalized": {
+          "ja": "菊川"
+        }
       }
     },
     {
@@ -1480,7 +1627,10 @@
         "kmFromStart": 34.7,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152605799"
+        "osmId": "node/3152605799",
+        "nameLocalized": {
+          "ja": "室手"
+        }
       }
     },
     {
@@ -1502,7 +1652,10 @@
         "kmFromStart": 35.6,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152604960"
+        "osmId": "node/3152604960",
+        "nameLocalized": {
+          "ja": "外室手"
+        }
       }
     },
     {
@@ -1524,7 +1677,10 @@
         "kmFromStart": 35.7,
         "icon": "restaurant",
         "source": "osm",
-        "osmId": "node/13904553340"
+        "osmId": "node/13904553340",
+        "nameLocalized": {
+          "ja": "ビーチ"
+        }
       }
     },
     {
@@ -1572,7 +1728,10 @@
         "kmFromStart": 37.5,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152607473"
+        "osmId": "node/3152607473",
+        "nameLocalized": {
+          "ja": "柏"
+        }
       }
     },
     {
@@ -1594,7 +1753,10 @@
         "kmFromStart": 47.3,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152605200"
+        "osmId": "node/3152605200",
+        "nameLocalized": {
+          "ja": "大門"
+        }
       }
     },
     {
@@ -1616,7 +1778,10 @@
         "kmFromStart": 48.1,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152608170"
+        "osmId": "node/3152608170",
+        "nameLocalized": {
+          "ja": "畑地"
+        }
       }
     },
     {
@@ -1638,7 +1803,10 @@
         "kmFromStart": 49,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152611614"
+        "osmId": "node/3152611614",
+        "nameLocalized": {
+          "ja": "鴨田"
+        }
       }
     },
     {
@@ -1660,7 +1828,10 @@
         "kmFromStart": 49.1,
         "icon": "restaurant",
         "source": "osm",
-        "osmId": "node/5537455722"
+        "osmId": "node/5537455722",
+        "nameLocalized": {
+          "ja": "炭やき村"
+        }
       }
     },
     {
@@ -1682,7 +1853,10 @@
         "kmFromStart": 50.2,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152606922"
+        "osmId": "node/3152606922",
+        "nameLocalized": {
+          "ja": "於泥"
+        }
       }
     },
     {
@@ -1704,7 +1878,10 @@
         "kmFromStart": 49.6,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152610808"
+        "osmId": "node/3152610808",
+        "nameLocalized": {
+          "ja": "金剛橋"
+        }
       }
     },
     {
@@ -1726,7 +1903,10 @@
         "kmFromStart": 51,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152609533"
+        "osmId": "node/3152609533",
+        "nameLocalized": {
+          "ja": "芳原"
+        }
       }
     },
     {
@@ -1795,7 +1975,10 @@
         "kmFromStart": 52,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152607796"
+        "osmId": "node/3152607796",
+        "nameLocalized": {
+          "ja": "津島大橋"
+        }
       }
     },
     {
@@ -1817,7 +2000,10 @@
         "kmFromStart": 51.9,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152607795"
+        "osmId": "node/3152607795",
+        "nameLocalized": {
+          "ja": "津島大橋"
+        }
       }
     },
     {
@@ -1839,7 +2025,10 @@
         "kmFromStart": 53.2,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152607797"
+        "osmId": "node/3152607797",
+        "nameLocalized": {
+          "ja": "津島支所前"
+        }
       }
     },
     {
@@ -1861,7 +2050,10 @@
         "kmFromStart": 52.5,
         "icon": "hospital",
         "source": "osm",
-        "osmId": "node/1423741359"
+        "osmId": "node/1423741359",
+        "nameLocalized": {
+          "ja": "宇和島市立津島病院"
+        }
       }
     },
     {
@@ -1883,7 +2075,10 @@
         "kmFromStart": 52.7,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152606342"
+        "osmId": "node/3152606342",
+        "nameLocalized": {
+          "ja": "岩松"
+        }
       }
     },
     {
@@ -1905,7 +2100,10 @@
         "kmFromStart": 52.6,
         "icon": "pharmacy",
         "source": "osm",
-        "osmId": "node/13904227396"
+        "osmId": "node/13904227396",
+        "nameLocalized": {
+          "ja": "南楽薬局"
+        }
       }
     },
     {
@@ -1949,7 +2147,10 @@
         "kmFromStart": 54,
         "icon": "pharmacy",
         "source": "osm",
-        "osmId": "node/13904227388"
+        "osmId": "node/13904227388",
+        "nameLocalized": {
+          "ja": "つしま調剤薬局"
+        }
       }
     },
     {
@@ -1971,7 +2172,10 @@
         "kmFromStart": 54.2,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152611580"
+        "osmId": "node/3152611580",
+        "nameLocalized": {
+          "ja": "高田"
+        }
       }
     },
     {
@@ -2038,7 +2242,10 @@
         "kmFromStart": 54.7,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152607794"
+        "osmId": "node/3152607794",
+        "nameLocalized": {
+          "ja": "津島やすらぎの里入口"
+        }
       }
     },
     {
@@ -2060,7 +2267,10 @@
         "kmFromStart": 55,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152603230"
+        "osmId": "node/3152603230",
+        "nameLocalized": {
+          "ja": "上谷口"
+        }
       }
     },
     {
@@ -2082,7 +2292,10 @@
         "kmFromStart": 55.5,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152607416"
+        "osmId": "node/3152607416",
+        "nameLocalized": {
+          "ja": "松尾トンネル口"
+        }
       }
     },
     {
@@ -2126,7 +2339,10 @@
         "kmFromStart": 59,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152610788"
+        "osmId": "node/3152610788",
+        "nameLocalized": {
+          "ja": "野井"
+        }
       }
     },
     {
@@ -2148,7 +2364,10 @@
         "kmFromStart": 59.1,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152607486"
+        "osmId": "node/3152607486",
+        "nameLocalized": {
+          "ja": "柿の木（旧道）"
+        }
       }
     },
     {
@@ -2192,7 +2411,10 @@
         "kmFromStart": 59.4,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152607485"
+        "osmId": "node/3152607485",
+        "nameLocalized": {
+          "ja": "柿の木"
+        }
       }
     },
     {
@@ -2214,7 +2436,10 @@
         "kmFromStart": 59.9,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152609547"
+        "osmId": "node/3152609547",
+        "nameLocalized": {
+          "ja": "草木"
+        }
       }
     },
     {
@@ -2236,7 +2461,10 @@
         "kmFromStart": 60.3,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152607826"
+        "osmId": "node/3152607826",
+        "nameLocalized": {
+          "ja": "清水"
+        }
       }
     },
     {
@@ -2258,7 +2486,10 @@
         "kmFromStart": 60.9,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152607408"
+        "osmId": "node/3152607408",
+        "nameLocalized": {
+          "ja": "松ヶ鼻"
+        }
       }
     },
     {
@@ -2280,7 +2511,10 @@
         "kmFromStart": 61.1,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152608243"
+        "osmId": "node/3152608243",
+        "nameLocalized": {
+          "ja": "石丸"
+        }
       }
     },
     {
@@ -2302,7 +2536,10 @@
         "kmFromStart": 61.2,
         "icon": "church",
         "source": "osm",
-        "osmId": "node/12287432670"
+        "osmId": "node/12287432670",
+        "nameLocalized": {
+          "ja": "宿地神社"
+        }
       }
     },
     {
@@ -2349,7 +2586,10 @@
         "kmFromStart": 61.6,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152603177"
+        "osmId": "node/3152603177",
+        "nameLocalized": {
+          "ja": "上保田"
+        }
       }
     },
     {
@@ -2371,7 +2611,10 @@
         "kmFromStart": 62.1,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152603987"
+        "osmId": "node/3152603987",
+        "nameLocalized": {
+          "ja": "保田"
+        }
       }
     },
     {
@@ -2393,7 +2636,10 @@
         "kmFromStart": 62.2,
         "icon": "cafe",
         "source": "osm",
-        "osmId": "node/12277901694"
+        "osmId": "node/12277901694",
+        "nameLocalized": {
+          "ja": "ファミリー"
+        }
       }
     },
     {
@@ -2440,7 +2686,10 @@
         "kmFromStart": 62.8,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152604368"
+        "osmId": "node/3152604368",
+        "nameLocalized": {
+          "ja": "出口"
+        }
       }
     },
     {
@@ -2462,7 +2711,10 @@
         "kmFromStart": 63.1,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152605840"
+        "osmId": "node/3152605840",
+        "nameLocalized": {
+          "ja": "寄松橋"
+        }
       }
     },
     {
@@ -2484,7 +2736,10 @@
         "kmFromStart": 63.6,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152608178"
+        "osmId": "node/3152608178",
+        "nameLocalized": {
+          "ja": "番城小学校前"
+        }
       }
     },
     {
@@ -2532,7 +2787,10 @@
         "kmFromStart": 63.9,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152605839"
+        "osmId": "node/3152605839",
+        "nameLocalized": {
+          "ja": "寄松"
+        }
       }
     },
     {
@@ -2554,7 +2812,10 @@
         "kmFromStart": 64,
         "icon": "church",
         "source": "osm",
-        "osmId": "node/12223972610"
+        "osmId": "node/12223972610",
+        "nameLocalized": {
+          "ja": "高城神社"
+        }
       }
     },
     {
@@ -2627,7 +2888,10 @@
         "kmFromStart": 64.3,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152606477"
+        "osmId": "node/3152606477",
+        "nameLocalized": {
+          "ja": "川内口"
+        }
       }
     },
     {
@@ -2649,7 +2913,10 @@
         "kmFromStart": 64.5,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152605769"
+        "osmId": "node/3152605769",
+        "nameLocalized": {
+          "ja": "宇和島警察署前"
+        }
       }
     },
     {
@@ -2693,7 +2960,10 @@
         "kmFromStart": 64.6,
         "icon": "restaurant",
         "source": "osm",
-        "osmId": "node/12210482069"
+        "osmId": "node/12210482069",
+        "nameLocalized": {
+          "ja": "ごはん茶屋 仁"
+        }
       }
     },
     {
@@ -2740,7 +3010,10 @@
         "kmFromStart": 64.8,
         "icon": "church",
         "source": "osm",
-        "osmId": "node/12187487869"
+        "osmId": "node/12187487869",
+        "nameLocalized": {
+          "ja": "金勢神社"
+        }
       }
     },
     {
@@ -2762,7 +3035,10 @@
         "kmFromStart": 64.9,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152604004"
+        "osmId": "node/3152604004",
+        "nameLocalized": {
+          "ja": "元結掛口"
+        }
       }
     },
     {
@@ -2784,7 +3060,10 @@
         "kmFromStart": 65.1,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152610835"
+        "osmId": "node/3152610835",
+        "nameLocalized": {
+          "ja": "長堀橋"
+        }
       }
     },
     {
@@ -2831,7 +3110,10 @@
         "kmFromStart": 65.2,
         "icon": "restaurant",
         "source": "osm",
-        "osmId": "node/13904181632"
+        "osmId": "node/13904181632",
+        "nameLocalized": {
+          "ja": "いごっそ"
+        }
       }
     },
     {
@@ -2853,7 +3135,10 @@
         "kmFromStart": 65.3,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152606952"
+        "osmId": "node/3152606952",
+        "nameLocalized": {
+          "ja": "明倫橋"
+        }
       }
     },
     {
@@ -2875,7 +3160,10 @@
         "kmFromStart": 65.6,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152605224"
+        "osmId": "node/3152605224",
+        "nameLocalized": {
+          "ja": "天赦園前"
+        }
       }
     },
     {
@@ -2897,7 +3185,10 @@
         "kmFromStart": 65.6,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152607513"
+        "osmId": "node/3152607513",
+        "nameLocalized": {
+          "ja": "桜町"
+        }
       }
     },
     {
@@ -2919,7 +3210,10 @@
         "kmFromStart": 65.8,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152608611"
+        "osmId": "node/3152608611",
+        "nameLocalized": {
+          "ja": "神田橋"
+        }
       }
     },
     {
@@ -2941,7 +3235,10 @@
         "kmFromStart": 65.8,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152606521"
+        "osmId": "node/3152606521",
+        "nameLocalized": {
+          "ja": "市立病院南口"
+        }
       }
     },
     {
@@ -2963,7 +3260,10 @@
         "kmFromStart": 65.9,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152603589"
+        "osmId": "node/3152603589",
+        "nameLocalized": {
+          "ja": "京町"
+        }
       }
     },
     {
@@ -2985,7 +3285,10 @@
         "kmFromStart": 66,
         "icon": "hospital",
         "source": "osm",
-        "osmId": "node/1423744636"
+        "osmId": "node/1423744636",
+        "nameLocalized": {
+          "ja": "鎌野病院"
+        }
       }
     },
     {
@@ -3007,7 +3310,10 @@
         "kmFromStart": 66.1,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152606519"
+        "osmId": "node/3152606519",
+        "nameLocalized": {
+          "ja": "市立病院前"
+        }
       }
     },
     {
@@ -3029,7 +3335,10 @@
         "kmFromStart": 66.2,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152607402"
+        "osmId": "node/3152607402",
+        "nameLocalized": {
+          "ja": "東高校前"
+        }
       }
     },
     {
@@ -3051,7 +3360,10 @@
         "kmFromStart": 66.2,
         "icon": "pharmacy",
         "source": "osm",
-        "osmId": "node/12032835009"
+        "osmId": "node/12032835009",
+        "nameLocalized": {
+          "ja": "ダテ薬局"
+        }
       }
     },
     {
@@ -3073,7 +3385,10 @@
         "kmFromStart": 66.1,
         "icon": "restaurant",
         "source": "osm",
-        "osmId": "node/12032835644"
+        "osmId": "node/12032835644",
+        "nameLocalized": {
+          "ja": "みよしの"
+        }
       }
     },
     {
@@ -3095,7 +3410,10 @@
         "kmFromStart": 66.1,
         "icon": "restaurant",
         "source": "osm",
-        "osmId": "node/12032835645"
+        "osmId": "node/12032835645",
+        "nameLocalized": {
+          "ja": "にこにこ食堂"
+        }
       }
     },
     {
@@ -3117,7 +3435,10 @@
         "kmFromStart": 66.2,
         "icon": "church",
         "source": "osm",
-        "osmId": "node/12386242121"
+        "osmId": "node/12386242121",
+        "nameLocalized": {
+          "ja": "南豫護国神社"
+        }
       }
     },
     {
@@ -3139,7 +3460,10 @@
         "kmFromStart": 66.3,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152604934"
+        "osmId": "node/3152604934",
+        "nameLocalized": {
+          "ja": "堀端町"
+        }
       }
     },
     {
@@ -3161,7 +3485,10 @@
         "kmFromStart": 66.4,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152607322"
+        "osmId": "node/3152607322",
+        "nameLocalized": {
+          "ja": "本町追手"
+        }
       }
     },
     {
@@ -3183,7 +3510,10 @@
         "kmFromStart": 66.4,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152610441"
+        "osmId": "node/3152610441",
+        "nameLocalized": {
+          "ja": "追手通り前"
+        }
       }
     },
     {
@@ -3205,7 +3535,10 @@
         "kmFromStart": 66.2,
         "icon": "ruins",
         "source": "osm",
-        "osmId": "node/9719709612"
+        "osmId": "node/9719709612",
+        "nameLocalized": {
+          "ja": "煙硝矢倉跡"
+        }
       }
     },
     {
@@ -3253,7 +3586,10 @@
         "icon": "cafe",
         "source": "osm",
         "osmId": "node/11927834146",
-        "hours": "08:30-19:00"
+        "hours": "08:30-19:00",
+        "nameLocalized": {
+          "ja": "安藤コーヒー"
+        }
       }
     },
     {
@@ -3275,7 +3611,10 @@
         "kmFromStart": 66.3,
         "icon": "church",
         "source": "osm",
-        "osmId": "node/12014491344"
+        "osmId": "node/12014491344",
+        "nameLocalized": {
+          "ja": "カトリック宇和島教会"
+        }
       }
     },
     {
@@ -3344,7 +3683,10 @@
         "kmFromStart": 66.6,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152607910"
+        "osmId": "node/3152607910",
+        "nameLocalized": {
+          "ja": "牛鬼すとりーと"
+        }
       }
     },
     {
@@ -3392,7 +3734,10 @@
         "icon": "restaurant",
         "source": "osm",
         "osmId": "node/13744238521",
-        "hours": "Mo-Sa 11:00-15:00,17:00-20:00; Su off"
+        "hours": "Mo-Sa 11:00-15:00,17:00-20:00; Su off",
+        "nameLocalized": {
+          "ja": "天よし"
+        }
       }
     },
     {
@@ -3414,7 +3759,10 @@
         "kmFromStart": 66.6,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152604590"
+        "osmId": "node/3152604590",
+        "nameLocalized": {
+          "ja": "南予文化会館前"
+        }
       }
     },
     {
@@ -3458,7 +3806,10 @@
         "kmFromStart": 66.8,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152602994"
+        "osmId": "node/3152602994",
+        "nameLocalized": {
+          "ja": "お茶撰橋"
+        }
       }
     },
     {
@@ -3480,7 +3831,10 @@
         "kmFromStart": 66.8,
         "icon": "restaurant",
         "source": "osm",
-        "osmId": "node/11934498729"
+        "osmId": "node/11934498729",
+        "nameLocalized": {
+          "ja": "お好み焼き すかがわ"
+        }
       }
     },
     {
@@ -3502,7 +3856,10 @@
         "kmFromStart": 66.8,
         "icon": "hotel",
         "source": "osm",
-        "osmId": "node/11982490512"
+        "osmId": "node/11982490512",
+        "nameLocalized": {
+          "ja": "旅館なか川"
+        }
       }
     },
     {
@@ -3524,7 +3881,10 @@
         "kmFromStart": 66.8,
         "icon": "guesthouse",
         "source": "osm",
-        "osmId": "node/12014491052"
+        "osmId": "node/12014491052",
+        "nameLocalized": {
+          "ja": "民宿みはら"
+        }
       }
     },
     {
@@ -3546,7 +3906,10 @@
         "kmFromStart": 66.9,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152606828"
+        "osmId": "node/3152606828",
+        "nameLocalized": {
+          "ja": "恵美須町"
+        }
       }
     },
     {
@@ -3621,7 +3984,10 @@
         "icon": "restaurant",
         "source": "osm",
         "osmId": "node/11927182414",
-        "hours": "11:00-13:20 \"ランチ\",17:00-21:00 \"ディナー\"; Su off"
+        "hours": "11:00-13:20 \"ランチ\",17:00-21:00 \"ディナー\"; Su off",
+        "nameLocalized": {
+          "ja": "ほづみ亭"
+        }
       }
     },
     {
@@ -3643,7 +4009,10 @@
         "kmFromStart": 67,
         "icon": "hotel",
         "source": "osm",
-        "osmId": "node/12125904000"
+        "osmId": "node/12125904000",
+        "nameLocalized": {
+          "ja": "スーパーホテル宇和島駅前天然温泉"
+        }
       }
     },
     {
@@ -3665,7 +4034,10 @@
         "kmFromStart": 67.1,
         "icon": "church",
         "source": "osm",
-        "osmId": "node/12123579391"
+        "osmId": "node/12123579391",
+        "nameLocalized": {
+          "ja": "浄満寺"
+        }
       }
     },
     {
@@ -3687,7 +4059,10 @@
         "kmFromStart": 67.3,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152607323"
+        "osmId": "node/3152607323",
+        "nameLocalized": {
+          "ja": "本社前"
+        }
       }
     },
     {
@@ -3709,7 +4084,10 @@
         "kmFromStart": 67.3,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152611619"
+        "osmId": "node/3152611619",
+        "nameLocalized": {
+          "ja": "鶴島町"
+        }
       }
     },
     {
@@ -3775,7 +4153,10 @@
         "kmFromStart": 67.2,
         "icon": "church",
         "source": "osm",
-        "osmId": "node/12135216042"
+        "osmId": "node/12135216042",
+        "nameLocalized": {
+          "ja": "顕本寺"
+        }
       }
     },
     {
@@ -3797,7 +4178,10 @@
         "kmFromStart": 67.4,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152602980"
+        "osmId": "node/3152602980",
+        "nameLocalized": {
+          "ja": "JR宇和島駅前"
+        }
       }
     },
     {
@@ -3844,7 +4228,10 @@
         "kmFromStart": 67.8,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152604828"
+        "osmId": "node/3152604828",
+        "nameLocalized": {
+          "ja": "和霊神社前"
+        }
       }
     },
     {
@@ -3867,7 +4254,10 @@
         "icon": "hotel",
         "source": "osm",
         "osmId": "node/5583293623",
-        "hours": "24/7"
+        "hours": "24/7",
+        "nameLocalized": {
+          "ja": "宇和島オリエンタルホテル"
+        }
       }
     },
     {
@@ -3936,7 +4326,10 @@
         "kmFromStart": 67.9,
         "icon": "hospital",
         "source": "osm",
-        "osmId": "node/1423731074"
+        "osmId": "node/1423731074",
+        "nameLocalized": {
+          "ja": "加藤整形外科病院"
+        }
       }
     },
     {
@@ -3983,7 +4376,10 @@
         "kmFromStart": 68.1,
         "icon": "church",
         "source": "osm",
-        "osmId": "node/12150955477"
+        "osmId": "node/12150955477",
+        "nameLocalized": {
+          "ja": "赤染神社"
+        }
       }
     },
     {
@@ -4005,7 +4401,10 @@
         "kmFromStart": 68.3,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152604825"
+        "osmId": "node/3152604825",
+        "nameLocalized": {
+          "ja": "和霊中町"
+        }
       }
     },
     {
@@ -4027,7 +4426,10 @@
         "kmFromStart": 68.2,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152604827"
+        "osmId": "node/3152604827",
+        "nameLocalized": {
+          "ja": "和霊大橋元"
+        }
       }
     },
     {
@@ -4049,7 +4451,10 @@
         "kmFromStart": 68.5,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152607770"
+        "osmId": "node/3152607770",
+        "nameLocalized": {
+          "ja": "泉町"
+        }
       }
     },
     {
@@ -4071,7 +4476,10 @@
         "kmFromStart": 68.5,
         "icon": "cafe",
         "source": "osm",
-        "osmId": "node/12167360457"
+        "osmId": "node/12167360457",
+        "nameLocalized": {
+          "ja": "宿と珈琲 Sun&Moon 太陽と月"
+        }
       }
     },
     {
@@ -4093,7 +4501,10 @@
         "kmFromStart": 68.7,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152603073"
+        "osmId": "node/3152603073",
+        "nameLocalized": {
+          "ja": "フジ北宇和島店前"
+        }
       }
     },
     {
@@ -4115,7 +4526,10 @@
         "kmFromStart": 68.7,
         "icon": "restaurant",
         "source": "osm",
-        "osmId": "node/12365032865"
+        "osmId": "node/12365032865",
+        "nameLocalized": {
+          "ja": "珈琲伝説"
+        }
       }
     },
     {
@@ -4137,7 +4551,10 @@
         "kmFromStart": 69,
         "icon": "church",
         "source": "osm",
-        "osmId": "node/12174167692"
+        "osmId": "node/12174167692",
+        "nameLocalized": {
+          "ja": "東禅寺"
+        }
       }
     },
     {
@@ -4159,7 +4576,10 @@
         "kmFromStart": 68.9,
         "icon": "church",
         "source": "osm",
-        "osmId": "node/12174186318"
+        "osmId": "node/12174186318",
+        "nameLocalized": {
+          "ja": "八幡神社"
+        }
       }
     },
     {
@@ -4206,7 +4626,10 @@
         "kmFromStart": 69,
         "icon": "church",
         "source": "osm",
-        "osmId": "node/12174204538"
+        "osmId": "node/12174204538",
+        "nameLocalized": {
+          "ja": "石鎚神社"
+        }
       }
     },
     {
@@ -4279,7 +4702,10 @@
         "kmFromStart": 69.3,
         "icon": "church",
         "source": "osm",
-        "osmId": "node/12183340078"
+        "osmId": "node/12183340078",
+        "nameLocalized": {
+          "ja": "明海寺"
+        }
       }
     },
     {
@@ -4301,7 +4727,10 @@
         "kmFromStart": 69.7,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152608164"
+        "osmId": "node/3152608164",
+        "nameLocalized": {
+          "ja": "申生田"
+        }
       }
     },
     {
@@ -4323,7 +4752,10 @@
         "kmFromStart": 71.9,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152607523"
+        "osmId": "node/3152607523",
+        "nameLocalized": {
+          "ja": "梅林口"
+        }
       }
     },
     {
@@ -4345,7 +4777,10 @@
         "kmFromStart": 71,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152611609"
+        "osmId": "node/3152611609",
+        "nameLocalized": {
+          "ja": "鳥越"
+        }
       }
     },
     {
@@ -4367,7 +4802,10 @@
         "kmFromStart": 69.7,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152607500"
+        "osmId": "node/3152607500",
+        "nameLocalized": {
+          "ja": "根無川"
+        }
       }
     },
     {
@@ -4389,7 +4827,10 @@
         "kmFromStart": 72.5,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152604005"
+        "osmId": "node/3152604005",
+        "nameLocalized": {
+          "ja": "光満"
+        }
       }
     },
     {
@@ -4411,7 +4852,10 @@
         "kmFromStart": 72.9,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152603474"
+        "osmId": "node/3152603474",
+        "nameLocalized": {
+          "ja": "中畑"
+        }
       }
     },
     {
@@ -4433,7 +4877,10 @@
         "kmFromStart": 73.9,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152606897"
+        "osmId": "node/3152606897",
+        "nameLocalized": {
+          "ja": "新屋敷"
+        }
       }
     },
     {
@@ -4477,7 +4924,10 @@
         "kmFromStart": 75.1,
         "icon": "church",
         "source": "osm",
-        "osmId": "node/6310590236"
+        "osmId": "node/6310590236",
+        "nameLocalized": {
+          "ja": "若宮神社"
+        }
       }
     },
     {
@@ -4499,7 +4949,10 @@
         "kmFromStart": 75.2,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152604414"
+        "osmId": "node/3152604414",
+        "nameLocalized": {
+          "ja": "務田"
+        }
       }
     },
     {
@@ -4521,7 +4974,10 @@
         "kmFromStart": 75.1,
         "icon": "church",
         "source": "osm",
-        "osmId": "node/6310587761"
+        "osmId": "node/6310587761",
+        "nameLocalized": {
+          "ja": "多福院"
+        }
       }
     },
     {
@@ -4570,7 +5026,10 @@
         "kmFromStart": 75.4,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152604415"
+        "osmId": "node/3152604415",
+        "nameLocalized": {
+          "ja": "務田公民館前"
+        }
       }
     },
     {
@@ -4592,7 +5051,10 @@
         "kmFromStart": 75.6,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/2626509089"
+        "osmId": "node/2626509089",
+        "nameLocalized": {
+          "ja": "道の駅みま"
+        }
       }
     },
     {
@@ -4636,7 +5098,10 @@
         "kmFromStart": 75.9,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152607529"
+        "osmId": "node/3152607529",
+        "nameLocalized": {
+          "ja": "森ヶ鼻"
+        }
       }
     },
     {
@@ -4680,7 +5145,10 @@
         "kmFromStart": 76.7,
         "icon": "restaurant",
         "source": "osm",
-        "osmId": "node/8374058217"
+        "osmId": "node/8374058217",
+        "nameLocalized": {
+          "ja": "お食事処　長命水"
+        }
       }
     },
     {
@@ -4702,7 +5170,10 @@
         "kmFromStart": 76.9,
         "icon": "church",
         "source": "osm",
-        "osmId": "node/10031270371"
+        "osmId": "node/10031270371",
+        "nameLocalized": {
+          "ja": "稲荷神社"
+        }
       }
     },
     {
@@ -4724,7 +5195,10 @@
         "kmFromStart": 77.5,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152608241"
+        "osmId": "node/3152608241",
+        "nameLocalized": {
+          "ja": "石ヶ鼻"
+        }
       }
     },
     {
@@ -4746,7 +5220,10 @@
         "kmFromStart": 78.1,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152606846"
+        "osmId": "node/3152606846",
+        "nameLocalized": {
+          "ja": "成妙学校前"
+        }
       }
     },
     {
@@ -4768,7 +5245,10 @@
         "kmFromStart": 78.8,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152605182"
+        "osmId": "node/3152605182",
+        "nameLocalized": {
+          "ja": "大藤"
+        }
       }
     },
     {
@@ -4790,7 +5270,10 @@
         "kmFromStart": 79.2,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152607691"
+        "osmId": "node/3152607691",
+        "nameLocalized": {
+          "ja": "正地"
+        }
       }
     },
     {
@@ -4812,7 +5295,10 @@
         "kmFromStart": 79.3,
         "icon": "wayside_shrine",
         "source": "osm",
-        "osmId": "node/6278284387"
+        "osmId": "node/6278284387",
+        "nameLocalized": {
+          "ja": "祇園様"
+        }
       }
     },
     {
@@ -4834,7 +5320,10 @@
         "kmFromStart": 79.8,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152603616"
+        "osmId": "node/3152603616",
+        "nameLocalized": {
+          "ja": "仏木寺"
+        }
       }
     },
     {
@@ -4881,7 +5370,10 @@
         "kmFromStart": 79.9,
         "icon": "wayside_shrine",
         "source": "osm",
-        "osmId": "node/7677154317"
+        "osmId": "node/7677154317",
+        "nameLocalized": {
+          "ja": "仏木寺三十三観音霊場33番"
+        }
       }
     },
     {
@@ -4903,7 +5395,10 @@
         "kmFromStart": 79.9,
         "icon": "wayside_shrine",
         "source": "osm",
-        "osmId": "node/7677154339"
+        "osmId": "node/7677154339",
+        "nameLocalized": {
+          "ja": "仏木寺三十三観音霊場11番"
+        }
       }
     },
     {
@@ -4925,7 +5420,10 @@
         "kmFromStart": 80.3,
         "icon": "church",
         "source": "osm",
-        "osmId": "node/4727755217"
+        "osmId": "node/4727755217",
+        "nameLocalized": {
+          "ja": "熊野神社"
+        }
       }
     },
     {
@@ -4969,7 +5467,10 @@
         "kmFromStart": 84.8,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152607700"
+        "osmId": "node/3152607700",
+        "nameLocalized": {
+          "ja": "歯長峠口"
+        }
       }
     },
     {
@@ -5101,7 +5602,10 @@
         "kmFromStart": 87.6,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152603362"
+        "osmId": "node/3152603362",
+        "nameLocalized": {
+          "ja": "下宇和駅"
+        }
       }
     },
     {
@@ -5123,7 +5627,10 @@
         "kmFromStart": 87.7,
         "icon": "wayside_shrine",
         "source": "osm",
-        "osmId": "node/12920656971"
+        "osmId": "node/12920656971",
+        "nameLocalized": {
+          "ja": "道中安全見守大師"
+        }
       }
     },
     {
@@ -5145,7 +5652,10 @@
         "kmFromStart": 88,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152606796"
+        "osmId": "node/3152606796",
+        "nameLocalized": {
+          "ja": "御子谷"
+        }
       }
     },
     {
@@ -5192,7 +5702,10 @@
         "kmFromStart": 88.4,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152608633"
+        "osmId": "node/3152608633",
+        "nameLocalized": {
+          "ja": "稲生"
+        }
       }
     },
     {
@@ -5280,7 +5793,10 @@
         "kmFromStart": 88.5,
         "icon": "restaurant",
         "source": "osm",
-        "osmId": "node/9128624253"
+        "osmId": "node/9128624253",
+        "nameLocalized": {
+          "ja": "ジオ・キッチン"
+        }
       }
     },
     {
@@ -5302,7 +5818,10 @@
         "kmFromStart": 88.6,
         "icon": "restaurant",
         "source": "osm",
-        "osmId": "node/12920656974"
+        "osmId": "node/12920656974",
+        "nameLocalized": {
+          "ja": "大介うどん　宇和店"
+        }
       }
     },
     {
@@ -5349,7 +5868,10 @@
         "kmFromStart": 89.1,
         "icon": "church",
         "source": "osm",
-        "osmId": "node/6959767946"
+        "osmId": "node/6959767946",
+        "nameLocalized": {
+          "ja": "大本神社"
+        }
       }
     },
     {
@@ -5371,7 +5893,10 @@
         "kmFromStart": 89.9,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152605777"
+        "osmId": "node/3152605777",
+        "nameLocalized": {
+          "ja": "宇和高校前"
+        }
       }
     },
     {
@@ -5393,7 +5918,10 @@
         "kmFromStart": 90.2,
         "icon": "wayside_shrine",
         "source": "osm",
-        "osmId": "node/7114441471"
+        "osmId": "node/7114441471",
+        "nameLocalized": {
+          "ja": "白王権現"
+        }
       }
     },
     {
@@ -5415,7 +5943,10 @@
         "kmFromStart": 90.8,
         "icon": "wayside_shrine",
         "source": "osm",
-        "osmId": "node/7398047551"
+        "osmId": "node/7398047551",
+        "nameLocalized": {
+          "ja": "坪ヶ内新四国四十二番"
+        }
       }
     },
     {
@@ -5437,7 +5968,10 @@
         "kmFromStart": 91.4,
         "icon": "wayside_shrine",
         "source": "osm",
-        "osmId": "node/7398047541"
+        "osmId": "node/7398047541",
+        "nameLocalized": {
+          "ja": "坪ヶ内新四国五十番"
+        }
       }
     },
     {
@@ -5459,7 +5993,10 @@
         "kmFromStart": 91.3,
         "icon": "wayside_shrine",
         "source": "osm",
-        "osmId": "node/7398047542"
+        "osmId": "node/7398047542",
+        "nameLocalized": {
+          "ja": "坪ヶ内新四国四十九番"
+        }
       }
     },
     {
@@ -5481,7 +6018,10 @@
         "kmFromStart": 91.3,
         "icon": "wayside_shrine",
         "source": "osm",
-        "osmId": "node/7398047562"
+        "osmId": "node/7398047562",
+        "nameLocalized": {
+          "ja": "坪ヶ内新四国三十二番"
+        }
       }
     },
     {
@@ -5503,7 +6043,10 @@
         "kmFromStart": 91.2,
         "icon": "wayside_shrine",
         "source": "osm",
-        "osmId": "node/7398047561"
+        "osmId": "node/7398047561",
+        "nameLocalized": {
+          "ja": "坪ヶ内新四国三十三番"
+        }
       }
     },
     {
@@ -5525,7 +6068,10 @@
         "kmFromStart": 91.2,
         "icon": "wayside_shrine",
         "source": "osm",
-        "osmId": "node/7398047543"
+        "osmId": "node/7398047543",
+        "nameLocalized": {
+          "ja": "坪ヶ内新四国四十八番"
+        }
       }
     },
     {
@@ -5547,7 +6093,10 @@
         "kmFromStart": 91.2,
         "icon": "wayside_shrine",
         "source": "osm",
-        "osmId": "node/7398047550"
+        "osmId": "node/7398047550",
+        "nameLocalized": {
+          "ja": "坪ヶ内新四国四十一番"
+        }
       }
     },
     {
@@ -5569,7 +6118,10 @@
         "kmFromStart": 91.2,
         "icon": "wayside_shrine",
         "source": "osm",
-        "osmId": "node/7398047552"
+        "osmId": "node/7398047552",
+        "nameLocalized": {
+          "ja": "坪ヶ内新四国四十番"
+        }
       }
     },
     {
@@ -5591,7 +6143,10 @@
         "kmFromStart": 91.2,
         "icon": "wayside_shrine",
         "source": "osm",
-        "osmId": "node/7398047556"
+        "osmId": "node/7398047556",
+        "nameLocalized": {
+          "ja": "坪ヶ内新四国番外"
+        }
       }
     },
     {
@@ -5613,7 +6168,10 @@
         "kmFromStart": 91.1,
         "icon": "wayside_shrine",
         "source": "osm",
-        "osmId": "node/7398047545"
+        "osmId": "node/7398047545",
+        "nameLocalized": {
+          "ja": "坪ヶ内新四国四十六番"
+        }
       }
     },
     {
@@ -5635,7 +6193,10 @@
         "kmFromStart": 91.9,
         "icon": "wayside_shrine",
         "source": "osm",
-        "osmId": "node/7398047502"
+        "osmId": "node/7398047502",
+        "nameLocalized": {
+          "ja": "坪ヶ内新四国八十八番"
+        }
       }
     },
     {
@@ -5657,7 +6218,10 @@
         "kmFromStart": 91.9,
         "icon": "wayside_shrine",
         "source": "osm",
-        "osmId": "node/7398047503"
+        "osmId": "node/7398047503",
+        "nameLocalized": {
+          "ja": "坪ヶ内新四国八十七番"
+        }
       }
     },
     {
@@ -5679,7 +6243,10 @@
         "kmFromStart": 91.9,
         "icon": "wayside_shrine",
         "source": "osm",
-        "osmId": "node/7398047508"
+        "osmId": "node/7398047508",
+        "nameLocalized": {
+          "ja": "坪ヶ内新四国八十二番"
+        }
       }
     },
     {
@@ -5701,7 +6268,10 @@
         "kmFromStart": 91.8,
         "icon": "wayside_shrine",
         "source": "osm",
-        "osmId": "node/7398047510"
+        "osmId": "node/7398047510",
+        "nameLocalized": {
+          "ja": "坪ヶ内新四国八十番"
+        }
       }
     },
     {
@@ -5723,7 +6293,10 @@
         "kmFromStart": 91.4,
         "icon": "wayside_shrine",
         "source": "osm",
-        "osmId": "node/7398047539"
+        "osmId": "node/7398047539",
+        "nameLocalized": {
+          "ja": "坪ヶ内新四国五十二番"
+        }
       }
     },
     {
@@ -5745,7 +6318,10 @@
         "kmFromStart": 91,
         "icon": "wayside_shrine",
         "source": "osm",
-        "osmId": "node/7398047547"
+        "osmId": "node/7398047547",
+        "nameLocalized": {
+          "ja": "坪ヶ内新四国四十四番"
+        }
       }
     },
     {
@@ -5767,7 +6343,10 @@
         "kmFromStart": 91.8,
         "icon": "wayside_shrine",
         "source": "osm",
-        "osmId": "node/7398047514"
+        "osmId": "node/7398047514",
+        "nameLocalized": {
+          "ja": "坪ヶ内新四国七十六番"
+        }
       }
     },
     {
@@ -5789,7 +6368,10 @@
         "kmFromStart": 91.7,
         "icon": "wayside_shrine",
         "source": "osm",
-        "osmId": "node/7398047521"
+        "osmId": "node/7398047521",
+        "nameLocalized": {
+          "ja": "坪ヶ内新四国六十九番"
+        }
       }
     },
     {
@@ -5811,7 +6393,10 @@
         "kmFromStart": 91.6,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152607701"
+        "osmId": "node/3152607701",
+        "nameLocalized": {
+          "ja": "歴史博物館前"
+        }
       }
     },
     {
@@ -5833,7 +6418,10 @@
         "kmFromStart": 91.6,
         "icon": "wayside_shrine",
         "source": "osm",
-        "osmId": "node/7398047524"
+        "osmId": "node/7398047524",
+        "nameLocalized": {
+          "ja": "坪ヶ内新四国六十六番"
+        }
       }
     },
     {
@@ -5855,7 +6443,10 @@
         "kmFromStart": 91.6,
         "icon": "wayside_shrine",
         "source": "osm",
-        "osmId": "node/7398047528"
+        "osmId": "node/7398047528",
+        "nameLocalized": {
+          "ja": "坪ヶ内新四国六十二番"
+        }
       }
     },
     {
@@ -5877,7 +6468,10 @@
         "kmFromStart": 91.5,
         "icon": "wayside_shrine",
         "source": "osm",
-        "osmId": "node/7398047529"
+        "osmId": "node/7398047529",
+        "nameLocalized": {
+          "ja": "坪ヶ内新四国六十一番"
+        }
       }
     },
     {
@@ -5899,7 +6493,10 @@
         "kmFromStart": 91.5,
         "icon": "wayside_shrine",
         "source": "osm",
-        "osmId": "node/7398047537"
+        "osmId": "node/7398047537",
+        "nameLocalized": {
+          "ja": "坪ヶ内新四国五十四番"
+        }
       }
     },
     {
@@ -5921,7 +6518,10 @@
         "kmFromStart": 91.7,
         "icon": "wayside_shrine",
         "source": "osm",
-        "osmId": "node/7398047564"
+        "osmId": "node/7398047564",
+        "nameLocalized": {
+          "ja": "坪ヶ内新四国三十番"
+        }
       }
     },
     {
@@ -5943,7 +6543,10 @@
         "kmFromStart": 91.7,
         "icon": "wayside_shrine",
         "source": "osm",
-        "osmId": "node/7398047571"
+        "osmId": "node/7398047571",
+        "nameLocalized": {
+          "ja": "坪ヶ内新四国二十三番"
+        }
       }
     },
     {
@@ -5965,7 +6568,10 @@
         "kmFromStart": 92.1,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152603245"
+        "osmId": "node/3152603245",
+        "nameLocalized": {
+          "ja": "下の町"
+        }
       }
     },
     {
@@ -5987,7 +6593,10 @@
         "kmFromStart": 92.1,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152604625"
+        "osmId": "node/3152604625",
+        "nameLocalized": {
+          "ja": "卯之町"
+        }
       }
     },
     {
@@ -6054,7 +6663,10 @@
         "kmFromStart": 91.7,
         "icon": "wayside_shrine",
         "source": "osm",
-        "osmId": "node/7398047576"
+        "osmId": "node/7398047576",
+        "nameLocalized": {
+          "ja": "坪ヶ内新四国十八番"
+        }
       }
     },
     {
@@ -6076,7 +6688,10 @@
         "kmFromStart": 92.4,
         "icon": "wayside_shrine",
         "source": "osm",
-        "osmId": "node/7398047582"
+        "osmId": "node/7398047582",
+        "nameLocalized": {
+          "ja": "坪ヶ内新四国十三番"
+        }
       }
     },
     {
@@ -6098,7 +6713,10 @@
         "kmFromStart": 92.4,
         "icon": "wayside_shrine",
         "source": "osm",
-        "osmId": "node/7398047584"
+        "osmId": "node/7398047584",
+        "nameLocalized": {
+          "ja": "坪ヶ内新四国十一番"
+        }
       }
     },
     {
@@ -6120,7 +6738,10 @@
         "kmFromStart": 92.4,
         "icon": "wayside_shrine",
         "source": "osm",
-        "osmId": "node/7398048493"
+        "osmId": "node/7398048493",
+        "nameLocalized": {
+          "ja": "坪ヶ内新四国二番"
+        }
       }
     },
     {
@@ -6142,7 +6763,10 @@
         "kmFromStart": 91.9,
         "icon": "church",
         "source": "osm",
-        "osmId": "node/7398048494"
+        "osmId": "node/7398048494",
+        "nameLocalized": {
+          "ja": "光教寺"
+        }
       }
     },
     {
@@ -6164,7 +6788,10 @@
         "kmFromStart": 92.7,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152610805"
+        "osmId": "node/3152610805",
+        "nameLocalized": {
+          "ja": "野田口"
+        }
       }
     },
     {
@@ -6222,7 +6849,10 @@
         "kmFromStart": 92.5,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152604627"
+        "osmId": "node/3152604627",
+        "nameLocalized": {
+          "ja": "卯之町駅"
+        }
       }
     },
     {
@@ -6244,7 +6874,10 @@
         "kmFromStart": 92.4,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152610018"
+        "osmId": "node/3152610018",
+        "nameLocalized": {
+          "ja": "西予市役所前"
+        }
       }
     },
     {
@@ -6266,7 +6899,10 @@
         "kmFromStart": 92.3,
         "icon": "restaurant",
         "source": "osm",
-        "osmId": "node/8375454118"
+        "osmId": "node/8375454118",
+        "nameLocalized": {
+          "ja": "丸一食堂"
+        }
       }
     },
     {
@@ -6332,7 +6968,10 @@
         "kmFromStart": 92.9,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152605774"
+        "osmId": "node/3152605774",
+        "nameLocalized": {
+          "ja": "宇和病院前"
+        }
       }
     },
     {
@@ -6354,7 +6993,10 @@
         "kmFromStart": 93,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152605773"
+        "osmId": "node/3152605773",
+        "nameLocalized": {
+          "ja": "宇和病院"
+        }
       }
     },
     {
@@ -6376,7 +7018,10 @@
         "kmFromStart": 93.2,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152605767"
+        "osmId": "node/3152605767",
+        "nameLocalized": {
+          "ja": "宇和中学校前"
+        }
       }
     },
     {
@@ -6398,7 +7043,10 @@
         "kmFromStart": 93.2,
         "icon": "church",
         "source": "osm",
-        "osmId": "node/6963024877"
+        "osmId": "node/6963024877",
+        "nameLocalized": {
+          "ja": "稲荷神社"
+        }
       }
     },
     {
@@ -6420,7 +7068,10 @@
         "kmFromStart": 93.6,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152603376"
+        "osmId": "node/3152603376",
+        "nameLocalized": {
+          "ja": "下松葉"
+        }
       }
     },
     {
@@ -6442,7 +7093,10 @@
         "kmFromStart": 94.1,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152607727"
+        "osmId": "node/3152607727",
+        "nameLocalized": {
+          "ja": "永長口"
+        }
       }
     },
     {
@@ -6464,7 +7118,10 @@
         "kmFromStart": 94.1,
         "icon": "church",
         "source": "osm",
-        "osmId": "node/6959763515"
+        "osmId": "node/6959763515",
+        "nameLocalized": {
+          "ja": "春日神社"
+        }
       }
     },
     {
@@ -6486,7 +7143,10 @@
         "kmFromStart": 94.2,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152607460"
+        "osmId": "node/3152607460",
+        "nameLocalized": {
+          "ja": "松葉団地"
+        }
       }
     },
     {
@@ -6534,7 +7194,10 @@
         "kmFromStart": 94.4,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152603186"
+        "osmId": "node/3152603186",
+        "nameLocalized": {
+          "ja": "上宇和駅前"
+        }
       }
     },
     {
@@ -6556,7 +7219,10 @@
         "kmFromStart": 94.8,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152603202"
+        "osmId": "node/3152603202",
+        "nameLocalized": {
+          "ja": "上松葉"
+        }
       }
     },
     {
@@ -6578,7 +7244,10 @@
         "kmFromStart": 94.8,
         "icon": "church",
         "source": "osm",
-        "osmId": "node/6959763514"
+        "osmId": "node/6959763514",
+        "nameLocalized": {
+          "ja": "大恵寺"
+        }
       }
     },
     {
@@ -6600,7 +7269,10 @@
         "kmFromStart": 94.9,
         "icon": "church",
         "source": "osm",
-        "osmId": "node/6959763512"
+        "osmId": "node/6959763512",
+        "nameLocalized": {
+          "ja": "出雲大社"
+        }
       }
     },
     {
@@ -6622,7 +7294,10 @@
         "kmFromStart": 95.4,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152603259"
+        "osmId": "node/3152603259",
+        "nameLocalized": {
+          "ja": "下坂戸共立電気前"
+        }
       }
     },
     {
@@ -6644,7 +7319,10 @@
         "kmFromStart": 95.8,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152604901"
+        "osmId": "node/3152604901",
+        "nameLocalized": {
+          "ja": "坂戸"
+        }
       }
     },
     {
@@ -6666,7 +7344,10 @@
         "kmFromStart": 96.6,
         "icon": "church",
         "source": "osm",
-        "osmId": "node/6959763511"
+        "osmId": "node/6959763511",
+        "nameLocalized": {
+          "ja": "宗合神社"
+        }
       }
     },
     {
@@ -6688,7 +7369,10 @@
         "kmFromStart": 96.7,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152603251"
+        "osmId": "node/3152603251",
+        "nameLocalized": {
+          "ja": "下加茂"
+        }
       }
     },
     {
@@ -6710,7 +7394,10 @@
         "kmFromStart": 97,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152604407"
+        "osmId": "node/3152604407",
+        "nameLocalized": {
+          "ja": "加茂"
+        }
       }
     },
     {
@@ -6754,7 +7441,10 @@
         "kmFromStart": 97.7,
         "icon": "church",
         "source": "osm",
-        "osmId": "node/12942544327"
+        "osmId": "node/12942544327",
+        "nameLocalized": {
+          "ja": "実連寺"
+        }
       }
     },
     {
@@ -6776,7 +7466,10 @@
         "kmFromStart": 97.9,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152605140"
+        "osmId": "node/3152605140",
+        "nameLocalized": {
+          "ja": "大江"
+        }
       }
     },
     {
@@ -6820,7 +7513,10 @@
         "kmFromStart": 98.9,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152607887"
+        "osmId": "node/3152607887",
+        "nameLocalized": {
+          "ja": "瀬戸"
+        }
       }
     },
     {
@@ -6842,7 +7538,10 @@
         "kmFromStart": 99.7,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152607368"
+        "osmId": "node/3152607368",
+        "nameLocalized": {
+          "ja": "東多田"
+        }
       }
     },
     {
@@ -6864,7 +7563,10 @@
         "kmFromStart": 99.7,
         "icon": "church",
         "source": "osm",
-        "osmId": "node/6618391510"
+        "osmId": "node/6618391510",
+        "nameLocalized": {
+          "ja": "八坂神社"
+        }
       }
     },
     {
@@ -6886,7 +7588,10 @@
         "kmFromStart": 100.2,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152609531"
+        "osmId": "node/3152609531",
+        "nameLocalized": {
+          "ja": "芝"
+        }
       }
     },
     {
@@ -6908,7 +7613,10 @@
         "kmFromStart": 100.7,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152603990"
+        "osmId": "node/3152603990",
+        "nameLocalized": {
+          "ja": "信里"
+        }
       }
     },
     {
@@ -6930,7 +7638,10 @@
         "kmFromStart": 100.6,
         "icon": "wayside_shrine",
         "source": "osm",
-        "osmId": "node/6961669269"
+        "osmId": "node/6961669269",
+        "nameLocalized": {
+          "ja": "柳天王神社"
+        }
       }
     },
     {
@@ -6952,7 +7663,10 @@
         "kmFromStart": 101.3,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152607688"
+        "osmId": "node/3152607688",
+        "nameLocalized": {
+          "ja": "正信"
+        }
       }
     },
     {
@@ -6974,7 +7688,10 @@
         "kmFromStart": 102,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152603513"
+        "osmId": "node/3152603513",
+        "nameLocalized": {
+          "ja": "久保"
+        }
       }
     },
     {
@@ -7018,7 +7735,10 @@
         "kmFromStart": 104.3,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152611605"
+        "osmId": "node/3152611605",
+        "nameLocalized": {
+          "ja": "鳥坂トンネル"
+        }
       }
     },
     {
@@ -7040,7 +7760,10 @@
         "kmFromStart": 104.8,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152603134"
+        "osmId": "node/3152603134",
+        "nameLocalized": {
+          "ja": "三本松"
+        }
       }
     },
     {
@@ -7062,7 +7785,10 @@
         "kmFromStart": 107,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152607335"
+        "osmId": "node/3152607335",
+        "nameLocalized": {
+          "ja": "札掛"
+        }
       }
     },
     {
@@ -7106,7 +7832,10 @@
         "kmFromStart": 107.3,
         "icon": "church",
         "source": "osm",
-        "osmId": "node/12006255382"
+        "osmId": "node/12006255382",
+        "nameLocalized": {
+          "ja": "高神様"
+        }
       }
     },
     {
@@ -7150,7 +7879,10 @@
         "kmFromStart": 108.1,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152603047"
+        "osmId": "node/3152603047",
+        "nameLocalized": {
+          "ja": "ゴルフ場前"
+        }
       }
     },
     {
@@ -7172,7 +7904,10 @@
         "kmFromStart": 108.5,
         "icon": "church",
         "source": "osm",
-        "osmId": "node/12006255423"
+        "osmId": "node/12006255423",
+        "nameLocalized": {
+          "ja": "白尾神社"
+        }
       }
     },
     {
@@ -7194,7 +7929,10 @@
         "kmFromStart": 109.5,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152604426"
+        "osmId": "node/3152604426",
+        "nameLocalized": {
+          "ja": "北只"
+        }
       }
     },
     {
@@ -7216,7 +7954,10 @@
         "kmFromStart": 109.5,
         "icon": "church",
         "source": "osm",
-        "osmId": "node/7321639750"
+        "osmId": "node/7321639750",
+        "nameLocalized": {
+          "ja": "栗島神社"
+        }
       }
     },
     {
@@ -7238,7 +7979,10 @@
         "kmFromStart": 109.9,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152604589"
+        "osmId": "node/3152604589",
+        "nameLocalized": {
+          "ja": "南久米農協前"
+        }
       }
     },
     {
@@ -7260,7 +8004,10 @@
         "kmFromStart": 110.5,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152607417"
+        "osmId": "node/3152607417",
+        "nameLocalized": {
+          "ja": "松尾入口"
+        }
       }
     },
     {
@@ -7282,7 +8029,10 @@
         "kmFromStart": 111.5,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152609514"
+        "osmId": "node/3152609514",
+        "nameLocalized": {
+          "ja": "臥龍の湯"
+        }
       }
     },
     {
@@ -7327,7 +8077,10 @@
         "kmFromStart": 111.9,
         "icon": "church",
         "source": "osm",
-        "osmId": "node/5542324704"
+        "osmId": "node/5542324704",
+        "nameLocalized": {
+          "ja": "大洲神社"
+        }
       }
     },
     {
@@ -7476,7 +8229,10 @@
         "kmFromStart": 112.2,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152602988"
+        "osmId": "node/3152602988",
+        "nameLocalized": {
+          "ja": "まちの駅あさもや"
+        }
       }
     },
     {
@@ -7498,7 +8254,10 @@
         "kmFromStart": 112.4,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152605152"
+        "osmId": "node/3152605152",
+        "nameLocalized": {
+          "ja": "大洲本町"
+        }
       }
     },
     {
@@ -7520,7 +8279,10 @@
         "kmFromStart": 112.4,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152606514"
+        "osmId": "node/3152606514",
+        "nameLocalized": {
+          "ja": "市民会館"
+        }
       }
     },
     {
@@ -7542,7 +8304,10 @@
         "kmFromStart": 112.4,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152607516"
+        "osmId": "node/3152607516",
+        "nameLocalized": {
+          "ja": "桝形"
+        }
       }
     },
     {
@@ -7564,7 +8329,10 @@
         "kmFromStart": 112.4,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152607899"
+        "osmId": "node/3152607899",
+        "nameLocalized": {
+          "ja": "片原町"
+        }
       }
     },
     {
@@ -7633,7 +8401,10 @@
         "kmFromStart": 112.2,
         "icon": "restaurant",
         "source": "osm",
-        "osmId": "node/9719625496"
+        "osmId": "node/9719625496",
+        "nameLocalized": {
+          "ja": "大洲炉端 油屋"
+        }
       }
     },
     {
@@ -7655,7 +8426,10 @@
         "kmFromStart": 112.8,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152607702"
+        "osmId": "node/3152607702",
+        "nameLocalized": {
+          "ja": "殿町"
+        }
       }
     },
     {
@@ -7677,7 +8451,10 @@
         "kmFromStart": 112.7,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152607842"
+        "osmId": "node/3152607842",
+        "nameLocalized": {
+          "ja": "渡場"
+        }
       }
     },
     {
@@ -7699,7 +8476,10 @@
         "kmFromStart": 112.9,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152603159"
+        "osmId": "node/3152603159",
+        "nameLocalized": {
+          "ja": "三笠通り二丁目"
+        }
       }
     },
     {
@@ -7721,7 +8501,10 @@
         "kmFromStart": 113.1,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152603158"
+        "osmId": "node/3152603158",
+        "nameLocalized": {
+          "ja": "三笠通り三丁目"
+        }
       }
     },
     {
@@ -7743,7 +8526,10 @@
         "kmFromStart": 113.1,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152606528"
+        "osmId": "node/3152606528",
+        "nameLocalized": {
+          "ja": "常盤町3丁目"
+        }
       }
     },
     {
@@ -7765,7 +8551,10 @@
         "kmFromStart": 113.1,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/6319005782"
+        "osmId": "node/6319005782",
+        "nameLocalized": {
+          "ja": "三笠通り三丁目"
+        }
       }
     },
     {
@@ -7809,7 +8598,10 @@
         "kmFromStart": 113.3,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152603160"
+        "osmId": "node/3152603160",
+        "nameLocalized": {
+          "ja": "三笠通り五丁目"
+        }
       }
     },
     {
@@ -7831,7 +8623,10 @@
         "kmFromStart": 113.5,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152605146"
+        "osmId": "node/3152605146",
+        "nameLocalized": {
+          "ja": "大洲"
+        }
       }
     },
     {
@@ -7853,7 +8648,10 @@
         "kmFromStart": 113.5,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152605161"
+        "osmId": "node/3152605161",
+        "nameLocalized": {
+          "ja": "大洲駅前"
+        }
       }
     },
     {
@@ -7875,7 +8673,10 @@
         "kmFromStart": 113.5,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152606907"
+        "osmId": "node/3152606907",
+        "nameLocalized": {
+          "ja": "新町"
+        }
       }
     },
     {
@@ -7897,7 +8698,10 @@
         "kmFromStart": 113.7,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152605158"
+        "osmId": "node/3152605158",
+        "nameLocalized": {
+          "ja": "大洲農高"
+        }
       }
     },
     {
@@ -7919,7 +8723,10 @@
         "kmFromStart": 113.7,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152605159"
+        "osmId": "node/3152605159",
+        "nameLocalized": {
+          "ja": "大洲農高口"
+        }
       }
     },
     {
@@ -7941,7 +8748,10 @@
         "kmFromStart": 113.6,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/6319005777"
+        "osmId": "node/6319005777",
+        "nameLocalized": {
+          "ja": "大洲農高口"
+        }
       }
     },
     {
@@ -7963,7 +8773,10 @@
         "kmFromStart": 113.8,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152604845"
+        "osmId": "node/3152604845",
+        "nameLocalized": {
+          "ja": "喜多小"
+        }
       }
     },
     {
@@ -7985,7 +8798,10 @@
         "kmFromStart": 114,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152605155"
+        "osmId": "node/3152605155",
+        "nameLocalized": {
+          "ja": "大洲県地方局前"
+        }
       }
     },
     {
@@ -8007,7 +8823,10 @@
         "kmFromStart": 114,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152607370"
+        "osmId": "node/3152607370",
+        "nameLocalized": {
+          "ja": "東大洲天満"
+        }
       }
     },
     {
@@ -8029,7 +8848,10 @@
         "kmFromStart": 114.3,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152609495"
+        "osmId": "node/3152609495",
+        "nameLocalized": {
+          "ja": "総合福祉センター"
+        }
       }
     },
     {
@@ -8051,7 +8873,10 @@
         "kmFromStart": 114.4,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152609537"
+        "osmId": "node/3152609537",
+        "nameLocalized": {
+          "ja": "若宮中"
+        }
       }
     },
     {
@@ -8073,7 +8898,10 @@
         "kmFromStart": 114.6,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152609538"
+        "osmId": "node/3152609538",
+        "nameLocalized": {
+          "ja": "若宮口"
+        }
       }
     },
     {
@@ -8095,7 +8923,10 @@
         "kmFromStart": 114.8,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152603080"
+        "osmId": "node/3152603080",
+        "nameLocalized": {
+          "ja": "マルナカ"
+        }
       }
     },
     {
@@ -8117,7 +8948,10 @@
         "kmFromStart": 114.8,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152604850"
+        "osmId": "node/3152604850",
+        "nameLocalized": {
+          "ja": "喜多酪農前"
+        }
       }
     },
     {
@@ -8139,7 +8973,10 @@
         "kmFromStart": 115.6,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152604859"
+        "osmId": "node/3152604859",
+        "nameLocalized": {
+          "ja": "市立図書館前"
+        }
       }
     },
     {
@@ -8161,7 +8998,10 @@
         "kmFromStart": 115.6,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152611181"
+        "osmId": "node/3152611181",
+        "nameLocalized": {
+          "ja": "防災センター前"
+        }
       }
     },
     {
@@ -8205,7 +9045,10 @@
         "kmFromStart": 116.1,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152607369"
+        "osmId": "node/3152607369",
+        "nameLocalized": {
+          "ja": "東大洲"
+        }
       }
     },
     {
@@ -8227,7 +9070,10 @@
         "kmFromStart": 115.9,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152609512"
+        "osmId": "node/3152609512",
+        "nameLocalized": {
+          "ja": "肱南バス車庫"
+        }
       }
     },
     {
@@ -8249,7 +9095,10 @@
         "kmFromStart": 116.2,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152603028"
+        "osmId": "node/3152603028",
+        "nameLocalized": {
+          "ja": "オズメッセ21"
+        }
       }
     },
     {
@@ -8271,7 +9120,10 @@
         "kmFromStart": 116.5,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152605147"
+        "osmId": "node/3152605147",
+        "nameLocalized": {
+          "ja": "大洲インター口"
+        }
       }
     },
     {
@@ -8293,7 +9145,10 @@
         "kmFromStart": 116.5,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152604565"
+        "osmId": "node/3152604565",
+        "nameLocalized": {
+          "ja": "十夜ヶ橋"
+        }
       }
     },
     {
@@ -8315,7 +9170,10 @@
         "kmFromStart": 116.6,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/6319005764"
+        "osmId": "node/6319005764",
+        "nameLocalized": {
+          "ja": "十夜ヶ橋"
+        }
       }
     },
     {
@@ -8337,7 +9195,10 @@
         "kmFromStart": 116.7,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152603075"
+        "osmId": "node/3152603075",
+        "nameLocalized": {
+          "ja": "フレスポ"
+        }
       }
     },
     {
@@ -8359,7 +9220,10 @@
         "kmFromStart": 117.3,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152605157"
+        "osmId": "node/3152605157",
+        "nameLocalized": {
+          "ja": "大洲記念病院"
+        }
       }
     },
     {
@@ -8381,7 +9245,10 @@
         "kmFromStart": 117.1,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152607407"
+        "osmId": "node/3152607407",
+        "nameLocalized": {
+          "ja": "松ヶ花"
+        }
       }
     },
     {
@@ -8403,7 +9270,10 @@
         "kmFromStart": 118.9,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152606915"
+        "osmId": "node/3152606915",
+        "nameLocalized": {
+          "ja": "新谷"
+        }
       }
     },
     {
@@ -8499,7 +9369,10 @@
         "kmFromStart": 122.5,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152603564"
+        "osmId": "node/3152603564",
+        "nameLocalized": {
+          "ja": "五十崎駅前"
+        }
       }
     },
     {
@@ -8547,7 +9420,10 @@
         "kmFromStart": 124.6,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152604362"
+        "osmId": "node/3152604362",
+        "nameLocalized": {
+          "ja": "内子駅"
+        }
       }
     },
     {
@@ -8811,7 +9687,10 @@
         "kmFromStart": 125.8,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152604361"
+        "osmId": "node/3152604361",
+        "nameLocalized": {
+          "ja": "内子橋"
+        }
       }
     },
     {
@@ -8833,7 +9712,10 @@
         "kmFromStart": 126,
         "icon": "wayside_shrine",
         "source": "osm",
-        "osmId": "node/10939594601"
+        "osmId": "node/10939594601",
+        "nameLocalized": {
+          "ja": "毘沙門天王社"
+        }
       }
     },
     {
@@ -8855,7 +9737,10 @@
         "kmFromStart": 126,
         "icon": "church",
         "source": "osm",
-        "osmId": "node/11975289733"
+        "osmId": "node/11975289733",
+        "nameLocalized": {
+          "ja": "天神社"
+        }
       }
     },
     {
@@ -8877,7 +9762,10 @@
         "kmFromStart": 129.2,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/11763779755"
+        "osmId": "node/11763779755",
+        "nameLocalized": {
+          "ja": "石浦"
+        }
       }
     },
     {
@@ -8899,7 +9787,10 @@
         "kmFromStart": 129.3,
         "icon": "wayside_shrine",
         "source": "osm",
-        "osmId": "node/10939613472"
+        "osmId": "node/10939613472",
+        "nameLocalized": {
+          "ja": "海津見神社"
+        }
       }
     },
     {
@@ -8921,7 +9812,10 @@
         "kmFromStart": 129.8,
         "icon": "church",
         "source": "osm",
-        "osmId": "node/10939599770"
+        "osmId": "node/10939599770",
+        "nameLocalized": {
+          "ja": "黒岩神社"
+        }
       }
     },
     {
@@ -8943,7 +9837,10 @@
         "kmFromStart": 131,
         "icon": "church",
         "source": "osm",
-        "osmId": "node/10939629481"
+        "osmId": "node/10939629481",
+        "nameLocalized": {
+          "ja": "中屋敷天神社"
+        }
       }
     },
     {
@@ -8965,7 +9862,10 @@
         "kmFromStart": 131.6,
         "icon": "wayside_shrine",
         "source": "osm",
-        "osmId": "node/10939652341"
+        "osmId": "node/10939652341",
+        "nameLocalized": {
+          "ja": "天神社"
+        }
       }
     },
     {
@@ -8987,7 +9887,10 @@
         "kmFromStart": 132.1,
         "icon": "church",
         "source": "osm",
-        "osmId": "node/10939747584"
+        "osmId": "node/10939747584",
+        "nameLocalized": {
+          "ja": "宇都宮神社"
+        }
       }
     },
     {
@@ -9009,7 +9912,10 @@
         "kmFromStart": 133.2,
         "icon": "church",
         "source": "osm",
-        "osmId": "node/10939827606"
+        "osmId": "node/10939827606",
+        "nameLocalized": {
+          "ja": "掛木阿弥陀堂"
+        }
       }
     },
     {
@@ -9031,7 +9937,10 @@
         "kmFromStart": 134.2,
         "icon": "wayside_shrine",
         "source": "osm",
-        "osmId": "node/10940033181"
+        "osmId": "node/10940033181",
+        "nameLocalized": {
+          "ja": "金刀比羅宮"
+        }
       }
     },
     {
@@ -9053,7 +9962,10 @@
         "kmFromStart": 134,
         "icon": "church",
         "source": "osm",
-        "osmId": "node/10940092276"
+        "osmId": "node/10940092276",
+        "nameLocalized": {
+          "ja": "星中神社"
+        }
       }
     },
     {
@@ -9075,7 +9987,10 @@
         "kmFromStart": 134.2,
         "icon": "wayside_shrine",
         "source": "osm",
-        "osmId": "node/10940033184"
+        "osmId": "node/10940033184",
+        "nameLocalized": {
+          "ja": "神徳山石鎚神社"
+        }
       }
     },
     {
@@ -9097,7 +10012,10 @@
         "kmFromStart": 134.2,
         "icon": "church",
         "source": "osm",
-        "osmId": "node/10940033178"
+        "osmId": "node/10940033178",
+        "nameLocalized": {
+          "ja": "炷森三島神社"
+        }
       }
     },
     {
@@ -9119,7 +10037,10 @@
         "kmFromStart": 134.4,
         "icon": "wayside_shrine",
         "source": "osm",
-        "osmId": "node/10940033182"
+        "osmId": "node/10940033182",
+        "nameLocalized": {
+          "ja": "豊受大明神"
+        }
       }
     },
     {
@@ -9163,7 +10084,10 @@
         "kmFromStart": 136.1,
         "icon": "wayside_shrine",
         "source": "osm",
-        "osmId": "node/10942133475"
+        "osmId": "node/10942133475",
+        "nameLocalized": {
+          "ja": "秋葉神社"
+        }
       }
     },
     {
@@ -9318,7 +10242,10 @@
         "kmFromStart": 154.6,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152605818"
+        "osmId": "node/3152605818",
+        "nameLocalized": {
+          "ja": "宮成"
+        }
       }
     },
     {
@@ -9340,7 +10267,10 @@
         "kmFromStart": 155.1,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152607539"
+        "osmId": "node/3152607539",
+        "nameLocalized": {
+          "ja": "森田"
+        }
       }
     },
     {
@@ -9362,7 +10292,10 @@
         "kmFromStart": 155.1,
         "icon": "church",
         "source": "osm",
-        "osmId": "node/4857660589"
+        "osmId": "node/4857660589",
+        "nameLocalized": {
+          "ja": "福城寺"
+        }
       }
     },
     {
@@ -9428,7 +10361,10 @@
         "kmFromStart": 159.8,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152603510"
+        "osmId": "node/3152603510",
+        "nameLocalized": {
+          "ja": "久万役場前"
+        }
       }
     },
     {
@@ -9450,7 +10386,10 @@
         "kmFromStart": 159.8,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/6376107786"
+        "osmId": "node/6376107786",
+        "nameLocalized": {
+          "ja": "久万高原"
+        }
       }
     },
     {
@@ -9472,7 +10411,10 @@
         "kmFromStart": 159.5,
         "icon": "hotel",
         "source": "osm",
-        "osmId": "node/12922784442"
+        "osmId": "node/12922784442",
+        "nameLocalized": {
+          "ja": "へんろ宿　OHESO"
+        }
       }
     },
     {
@@ -9494,7 +10436,10 @@
         "kmFromStart": 159.9,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152607280"
+        "osmId": "node/3152607280",
+        "nameLocalized": {
+          "ja": "曙町"
+        }
       }
     },
     {
@@ -9583,7 +10528,10 @@
         "kmFromStart": 163.2,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152607538"
+        "osmId": "node/3152607538",
+        "nameLocalized": {
+          "ja": "森林組合前"
+        }
       }
     },
     {
@@ -9671,7 +10619,10 @@
         "kmFromStart": 165.9,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152603048"
+        "osmId": "node/3152603048",
+        "nameLocalized": {
+          "ja": "ゴルフ場前"
+        }
       }
     },
     {
@@ -9693,7 +10644,10 @@
         "kmFromStart": 167.1,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152606354"
+        "osmId": "node/3152606354",
+        "nameLocalized": {
+          "ja": "嵯峨山"
+        }
       }
     },
     {
@@ -9715,7 +10669,10 @@
         "kmFromStart": 167.5,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152607846"
+        "osmId": "node/3152607846",
+        "nameLocalized": {
+          "ja": "温泉前"
+        }
       }
     },
     {
@@ -9737,7 +10694,10 @@
         "kmFromStart": 168.1,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152610001"
+        "osmId": "node/3152610001",
+        "nameLocalized": {
+          "ja": "西の川"
+        }
       }
     },
     {
@@ -9759,7 +10719,10 @@
         "kmFromStart": 168.7,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152604646"
+        "osmId": "node/3152604646",
+        "nameLocalized": {
+          "ja": "古岩屋"
+        }
       }
     },
     {
@@ -9781,7 +10744,10 @@
         "kmFromStart": 168.8,
         "icon": "hotel",
         "source": "osm",
-        "osmId": "node/8374601817"
+        "osmId": "node/8374601817",
+        "nameLocalized": {
+          "ja": "国民宿舎古岩屋荘"
+        }
       }
     },
     {
@@ -9803,7 +10769,10 @@
         "kmFromStart": 169.7,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152607834"
+        "osmId": "node/3152607834",
+        "nameLocalized": {
+          "ja": "清瀬橋"
+        }
       }
     },
     {
@@ -9825,7 +10794,10 @@
         "kmFromStart": 170.7,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152606338"
+        "osmId": "node/3152606338",
+        "nameLocalized": {
+          "ja": "岩屋寺"
+        }
       }
     },
     {
@@ -9891,7 +10863,10 @@
         "kmFromStart": 164.8,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152603014"
+        "osmId": "node/3152603014",
+        "nameLocalized": {
+          "ja": "ふるさと村"
+        }
       }
     },
     {
@@ -9935,7 +10910,10 @@
         "kmFromStart": 164,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152608174"
+        "osmId": "node/3152608174",
+        "nameLocalized": {
+          "ja": "畑野川"
+        }
       }
     },
     {
@@ -9957,7 +10935,10 @@
         "kmFromStart": 163.6,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152603380"
+        "osmId": "node/3152603380",
+        "nameLocalized": {
+          "ja": "下河合"
+        }
       }
     },
     {
@@ -9979,7 +10960,10 @@
         "kmFromStart": 180.9,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152611587"
+        "osmId": "node/3152611587",
+        "nameLocalized": {
+          "ja": "高野口"
+        }
       }
     },
     {
@@ -10001,7 +10985,10 @@
         "kmFromStart": 181.3,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152605100"
+        "osmId": "node/3152605100",
+        "nameLocalized": {
+          "ja": "大宝寺口"
+        }
       }
     },
     {
@@ -10023,7 +11010,10 @@
         "kmFromStart": 181.7,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152607365"
+        "osmId": "node/3152607365",
+        "nameLocalized": {
+          "ja": "東国"
+        }
       }
     },
     {
@@ -10073,7 +11063,10 @@
         "kmFromStart": 182,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152603509"
+        "osmId": "node/3152603509",
+        "nameLocalized": {
+          "ja": "久万営業所"
+        }
       }
     },
     {
@@ -10209,7 +11202,10 @@
         "kmFromStart": 194.6,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152605820"
+        "osmId": "node/3152605820",
+        "nameLocalized": {
+          "ja": "宮方"
+        }
       }
     },
     {
@@ -10231,7 +11227,10 @@
         "kmFromStart": 194.2,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152603507"
+        "osmId": "node/3152603507",
+        "nameLocalized": {
+          "ja": "丹波"
+        }
       }
     },
     {
@@ -10253,7 +11252,10 @@
         "kmFromStart": 195.3,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152603415"
+        "osmId": "node/3152603415",
+        "nameLocalized": {
+          "ja": "中之坂"
+        }
       }
     },
     {
@@ -10275,7 +11277,10 @@
         "kmFromStart": 195.7,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152611179"
+        "osmId": "node/3152611179",
+        "nameLocalized": {
+          "ja": "関谷"
+        }
       }
     },
     {
@@ -10297,7 +11302,10 @@
         "kmFromStart": 196.1,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152604902"
+        "osmId": "node/3152604902",
+        "nameLocalized": {
+          "ja": "坂本小学校前"
+        }
       }
     },
     {
@@ -10319,7 +11327,10 @@
         "kmFromStart": 195.9,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152604369"
+        "osmId": "node/3152604369",
+        "nameLocalized": {
+          "ja": "出口"
+        }
       }
     },
     {
@@ -10341,7 +11352,10 @@
         "kmFromStart": 196.5,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152604903"
+        "osmId": "node/3152604903",
+        "nameLocalized": {
+          "ja": "坂本駐在所前"
+        }
       }
     },
     {
@@ -10363,7 +11377,10 @@
         "kmFromStart": 197,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152607802"
+        "osmId": "node/3152607802",
+        "nameLocalized": {
+          "ja": "浄瑠璃寺前"
+        }
       }
     },
     {
@@ -10385,7 +11402,10 @@
         "kmFromStart": 197.5,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3220441334"
+        "osmId": "node/3220441334",
+        "nameLocalized": {
+          "ja": "八坂寺前"
+        }
       }
     },
     {
@@ -10407,7 +11427,10 @@
         "kmFromStart": 197.7,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152604018"
+        "osmId": "node/3152604018",
+        "nameLocalized": {
+          "ja": "八坂寺前"
+        }
       }
     },
     {
@@ -10429,7 +11452,10 @@
         "kmFromStart": 198.3,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152606900"
+        "osmId": "node/3152606900",
+        "nameLocalized": {
+          "ja": "新張"
+        }
       }
     },
     {
@@ -10451,7 +11477,10 @@
         "kmFromStart": 199.4,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3220441335"
+        "osmId": "node/3220441335",
+        "nameLocalized": {
+          "ja": "横道"
+        }
       }
     },
     {
@@ -10473,7 +11502,10 @@
         "kmFromStart": 199.2,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152606826"
+        "osmId": "node/3152606826",
+        "nameLocalized": {
+          "ja": "恵原"
+        }
       }
     },
     {
@@ -10495,7 +11527,10 @@
         "kmFromStart": 199,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152606827"
+        "osmId": "node/3152606827",
+        "nameLocalized": {
+          "ja": "恵原公民館前"
+        }
       }
     },
     {
@@ -10542,7 +11577,10 @@
         "kmFromStart": 199.2,
         "icon": "hospital",
         "source": "osm",
-        "osmId": "node/1423738628"
+        "osmId": "node/1423738628",
+        "nameLocalized": {
+          "ja": "杏林会東明病院"
+        }
       }
     },
     {
@@ -10564,7 +11602,10 @@
         "kmFromStart": 199.7,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152607681"
+        "osmId": "node/3152607681",
+        "nameLocalized": {
+          "ja": "横道"
+        }
       }
     },
     {
@@ -10586,7 +11627,10 @@
         "kmFromStart": 200,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152605802"
+        "osmId": "node/3152605802",
+        "nameLocalized": {
+          "ja": "宮の北"
+        }
       }
     },
     {
@@ -10631,7 +11675,10 @@
         "kmFromStart": 200.8,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152605137"
+        "osmId": "node/3152605137",
+        "nameLocalized": {
+          "ja": "大橋町"
+        }
       }
     },
     {
@@ -10653,7 +11700,10 @@
         "kmFromStart": 201,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152606272"
+        "osmId": "node/3152606272",
+        "nameLocalized": {
+          "ja": "小村"
+        }
       }
     },
     {
@@ -10817,7 +11867,10 @@
         "kmFromStart": 203.1,
         "icon": "church",
         "source": "osm",
-        "osmId": "node/10858083707"
+        "osmId": "node/10858083707",
+        "nameLocalized": {
+          "ja": "波賀部神社"
+        }
       }
     },
     {
@@ -10864,7 +11917,10 @@
         "kmFromStart": 203.7,
         "icon": "hospital",
         "source": "osm",
-        "osmId": "node/1423738936"
+        "osmId": "node/1423738936",
+        "nameLocalized": {
+          "ja": "松山リハビリテーション病院"
+        }
       }
     },
     {
@@ -11036,7 +12092,10 @@
         "kmFromStart": 204.6,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3124388413"
+        "osmId": "node/3124388413",
+        "nameLocalized": {
+          "ja": "北窪田"
+        }
       }
     },
     {
@@ -11058,7 +12117,10 @@
         "kmFromStart": 204.7,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152606881"
+        "osmId": "node/3152606881",
+        "nameLocalized": {
+          "ja": "新久米"
+        }
       }
     },
     {
@@ -11102,7 +12164,10 @@
         "kmFromStart": 204.8,
         "icon": "pharmacy",
         "source": "osm",
-        "osmId": "node/6362728443"
+        "osmId": "node/6362728443",
+        "nameLocalized": {
+          "ja": "くすりのレデイ"
+        }
       }
     },
     {
@@ -11124,7 +12189,10 @@
         "kmFromStart": 204.7,
         "icon": "restaurant",
         "source": "osm",
-        "osmId": "node/6363720469"
+        "osmId": "node/6363720469",
+        "nameLocalized": {
+          "ja": "豚太郎"
+        }
       }
     },
     {
@@ -11146,7 +12214,10 @@
         "kmFromStart": 204.9,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3124388408"
+        "osmId": "node/3124388408",
+        "nameLocalized": {
+          "ja": "久米学校前"
+        }
       }
     },
     {
@@ -11190,7 +12261,10 @@
         "kmFromStart": 205.5,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3124388412"
+        "osmId": "node/3124388412",
+        "nameLocalized": {
+          "ja": "久米駅東口"
+        }
       }
     },
     {
@@ -11212,7 +12286,10 @@
         "kmFromStart": 205.3,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3124388409"
+        "osmId": "node/3124388409",
+        "nameLocalized": {
+          "ja": "久米支所前"
+        }
       }
     },
     {
@@ -11234,7 +12311,10 @@
         "kmFromStart": 205.5,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152611624"
+        "osmId": "node/3152611624",
+        "nameLocalized": {
+          "ja": "鷹の子温泉前"
+        }
       }
     },
     {
@@ -11256,7 +12336,10 @@
         "kmFromStart": 205.6,
         "icon": "church",
         "source": "osm",
-        "osmId": "node/2971105388"
+        "osmId": "node/2971105388",
+        "nameLocalized": {
+          "ja": "極楽寺"
+        }
       }
     },
     {
@@ -11330,7 +12413,10 @@
         "kmFromStart": 206,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3124388411"
+        "osmId": "node/3124388411",
+        "nameLocalized": {
+          "ja": "久米駅前"
+        }
       }
     },
     {
@@ -11352,7 +12438,10 @@
         "kmFromStart": 206,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152603529"
+        "osmId": "node/3152603529",
+        "nameLocalized": {
+          "ja": "久米"
+        }
       }
     },
     {
@@ -11422,7 +12511,10 @@
         "kmFromStart": 206.2,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152606940"
+        "osmId": "node/3152606940",
+        "nameLocalized": {
+          "ja": "日尾公園前"
+        }
       }
     },
     {
@@ -11444,7 +12536,10 @@
         "kmFromStart": 206.7,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152604561"
+        "osmId": "node/3152604561",
+        "nameLocalized": {
+          "ja": "北野"
+        }
       }
     },
     {
@@ -11488,7 +12583,10 @@
         "kmFromStart": 207.8,
         "icon": "church",
         "source": "osm",
-        "osmId": "node/11940394336"
+        "osmId": "node/11940394336",
+        "nameLocalized": {
+          "ja": "桑原八幡神社"
+        }
       }
     },
     {
@@ -11510,7 +12608,10 @@
         "kmFromStart": 208.1,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152608171"
+        "osmId": "node/3152608171",
+        "nameLocalized": {
+          "ja": "畑寺"
+        }
       }
     },
     {
@@ -11532,7 +12633,10 @@
         "kmFromStart": 208.2,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152608172"
+        "osmId": "node/3152608172",
+        "nameLocalized": {
+          "ja": "畑寺一丁地"
+        }
       }
     },
     {
@@ -11554,7 +12658,10 @@
         "kmFromStart": 208.2,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152608239"
+        "osmId": "node/3152608239",
+        "nameLocalized": {
+          "ja": "短大前"
+        }
       }
     },
     {
@@ -11576,7 +12683,10 @@
         "kmFromStart": 209.4,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152607689"
+        "osmId": "node/3152607689",
+        "nameLocalized": {
+          "ja": "正円寺"
+        }
       }
     },
     {
@@ -11598,7 +12708,10 @@
         "kmFromStart": 209.5,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152607394"
+        "osmId": "node/3152607394",
+        "nameLocalized": {
+          "ja": "東野"
+        }
       }
     },
     {
@@ -11620,7 +12733,10 @@
         "kmFromStart": 209.7,
         "icon": "restaurant",
         "source": "osm",
-        "osmId": "node/2602474238"
+        "osmId": "node/2602474238",
+        "nameLocalized": {
+          "ja": "笑福"
+        }
       }
     },
     {
@@ -11642,7 +12758,10 @@
         "kmFromStart": 209.8,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152607395"
+        "osmId": "node/3152607395",
+        "nameLocalized": {
+          "ja": "東野一丁目"
+        }
       }
     },
     {
@@ -11664,7 +12783,10 @@
         "kmFromStart": 209.9,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152608252"
+        "osmId": "node/3152608252",
+        "nameLocalized": {
+          "ja": "石手四丁目"
+        }
       }
     },
     {
@@ -11686,7 +12808,10 @@
         "kmFromStart": 209.9,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152608251"
+        "osmId": "node/3152608251",
+        "nameLocalized": {
+          "ja": "石手"
+        }
       }
     },
     {
@@ -11708,7 +12833,10 @@
         "kmFromStart": 210.1,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152604052"
+        "osmId": "node/3152604052",
+        "nameLocalized": {
+          "ja": "公民館前"
+        }
       }
     },
     {
@@ -11730,7 +12858,10 @@
         "kmFromStart": 210.1,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152608253"
+        "osmId": "node/3152608253",
+        "nameLocalized": {
+          "ja": "石手寺"
+        }
       }
     },
     {
@@ -11752,7 +12883,10 @@
         "kmFromStart": 210,
         "icon": "guesthouse",
         "source": "osm",
-        "osmId": "node/9858244046"
+        "osmId": "node/9858244046",
+        "nameLocalized": {
+          "ja": "Eco宿みかん"
+        }
       }
     },
     {
@@ -11821,7 +12955,10 @@
         "kmFromStart": 210.2,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152603225"
+        "osmId": "node/3152603225",
+        "nameLocalized": {
+          "ja": "上石手"
+        }
       }
     },
     {
@@ -11843,7 +12980,10 @@
         "kmFromStart": 210.2,
         "icon": "church",
         "source": "osm",
-        "osmId": "node/12289035856"
+        "osmId": "node/12289035856",
+        "nameLocalized": {
+          "ja": "大山積神社"
+        }
       }
     },
     {
@@ -11887,7 +13027,10 @@
         "kmFromStart": 210.6,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152603394"
+        "osmId": "node/3152603394",
+        "nameLocalized": {
+          "ja": "下石手"
+        }
       }
     },
     {
@@ -11934,7 +13077,10 @@
         "kmFromStart": 211.2,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152610454"
+        "osmId": "node/3152610454",
+        "nameLocalized": {
+          "ja": "道後姫塚"
+        }
       }
     },
     {
@@ -11956,7 +13102,10 @@
         "kmFromStart": 211.1,
         "icon": "hotel",
         "source": "osm",
-        "osmId": "node/3534347860"
+        "osmId": "node/3534347860",
+        "nameLocalized": {
+          "ja": "道後プリンスホテル"
+        }
       }
     },
     {
@@ -12025,7 +13174,10 @@
         "kmFromStart": 211.2,
         "icon": "wayside_shrine",
         "source": "osm",
-        "osmId": "node/11972178335"
+        "osmId": "node/11972178335",
+        "nameLocalized": {
+          "ja": "常盤新田霊社"
+        }
       }
     },
     {
@@ -12091,7 +13243,10 @@
         "kmFromStart": 211.2,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152609506"
+        "osmId": "node/3152609506",
+        "nameLocalized": {
+          "ja": "義安寺前"
+        }
       }
     },
     {
@@ -12254,7 +13409,10 @@
         "kmFromStart": 211.3,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152605257"
+        "osmId": "node/3152605257",
+        "nameLocalized": {
+          "ja": "子規記念館前"
+        }
       }
     },
     {
@@ -12276,7 +13434,10 @@
         "kmFromStart": 211.6,
         "icon": "cafe",
         "source": "osm",
-        "osmId": "node/10836417481"
+        "osmId": "node/10836417481",
+        "nameLocalized": {
+          "ja": "どうごゆけむりかふぇ"
+        }
       }
     },
     {
@@ -12298,7 +13459,10 @@
         "kmFromStart": 211.6,
         "icon": "hotel",
         "source": "osm",
-        "osmId": "node/13866539538"
+        "osmId": "node/13866539538",
+        "nameLocalized": {
+          "ja": "ホテル道後湯の町"
+        }
       }
     },
     {
@@ -12320,7 +13484,10 @@
         "kmFromStart": 211.6,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152607847"
+        "osmId": "node/3152607847",
+        "nameLocalized": {
+          "ja": "温泉前"
+        }
       }
     },
     {
@@ -12342,7 +13509,10 @@
         "kmFromStart": 211.7,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152610460"
+        "osmId": "node/3152610460",
+        "nameLocalized": {
+          "ja": "道後温泉駅前"
+        }
       }
     },
     {
@@ -12389,7 +13559,10 @@
         "kmFromStart": 211.6,
         "icon": "hotel",
         "source": "osm",
-        "osmId": "node/5635161097"
+        "osmId": "node/5635161097",
+        "nameLocalized": {
+          "ja": "ホテル椿舘"
+        }
       }
     },
     {
@@ -12412,7 +13585,10 @@
         "icon": "cafe",
         "source": "osm",
         "osmId": "node/5644001908",
-        "hours": "08:00-22:00"
+        "hours": "08:00-22:00",
+        "nameLocalized": {
+          "ja": "巴堂本舗"
+        }
       }
     },
     {
@@ -12487,7 +13663,10 @@
         "kmFromStart": 211.9,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152607437"
+        "osmId": "node/3152607437",
+        "nameLocalized": {
+          "ja": "松山神社口"
+        }
       }
     },
     {
@@ -12509,7 +13688,10 @@
         "kmFromStart": 211.7,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152608596"
+        "osmId": "node/3152608596",
+        "nameLocalized": {
+          "ja": "祝谷"
+        }
       }
     },
     {
@@ -12575,7 +13757,10 @@
         "kmFromStart": 211.8,
         "icon": "restaurant",
         "source": "osm",
-        "osmId": "node/5603129031"
+        "osmId": "node/5603129031",
+        "nameLocalized": {
+          "ja": "いよ狸"
+        }
       }
     },
     {
@@ -12597,7 +13782,10 @@
         "kmFromStart": 211.8,
         "icon": "hotel",
         "source": "osm",
-        "osmId": "node/11505741250"
+        "osmId": "node/11505741250",
+        "nameLocalized": {
+          "ja": "ふじや"
+        }
       }
     },
     {
@@ -12619,7 +13807,10 @@
         "kmFromStart": 211.7,
         "icon": "pharmacy",
         "source": "osm",
-        "osmId": "node/11539652459"
+        "osmId": "node/11539652459",
+        "nameLocalized": {
+          "ja": "城西調剤薬局"
+        }
       }
     },
     {
@@ -12641,7 +13832,10 @@
         "kmFromStart": 212.1,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152610762"
+        "osmId": "node/3152610762",
+        "nameLocalized": {
+          "ja": "道後緑台"
+        }
       }
     },
     {
@@ -12663,7 +13857,10 @@
         "kmFromStart": 212.2,
         "icon": "pharmacy",
         "source": "osm",
-        "osmId": "node/11553185622"
+        "osmId": "node/11553185622",
+        "nameLocalized": {
+          "ja": "くすりのレデイ 道後緑台店"
+        }
       }
     },
     {
@@ -12685,7 +13882,10 @@
         "kmFromStart": 212.4,
         "icon": "clinic",
         "source": "osm",
-        "osmId": "node/2322807507"
+        "osmId": "node/2322807507",
+        "nameLocalized": {
+          "ja": "桑折内科皮膚科"
+        }
       }
     },
     {
@@ -12781,7 +13981,10 @@
         "kmFromStart": 212.9,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152610390"
+        "osmId": "node/3152610390",
+        "nameLocalized": {
+          "ja": "護国神社前"
+        }
       }
     },
     {
@@ -12850,7 +14053,10 @@
         "kmFromStart": 213,
         "icon": "vending_machine",
         "source": "osm",
-        "osmId": "node/3538582913"
+        "osmId": "node/3538582913",
+        "nameLocalized": {
+          "ja": "紙カップ飲料"
+        }
       }
     },
     {
@@ -12873,7 +14079,10 @@
         "icon": "restaurant",
         "source": "osm",
         "osmId": "node/2305044388",
-        "hours": "11:00-24:00"
+        "hours": "11:00-24:00",
+        "nameLocalized": {
+          "ja": "ラーメン来来亭 松山大前店"
+        }
       }
     },
     {
@@ -12895,7 +14104,10 @@
         "kmFromStart": 213.3,
         "icon": "restaurant",
         "source": "osm",
-        "osmId": "node/2312858746"
+        "osmId": "node/2312858746",
+        "nameLocalized": {
+          "ja": "まるしょう"
+        }
       }
     },
     {
@@ -12942,7 +14154,10 @@
         "kmFromStart": 213.1,
         "icon": "vending_machine",
         "source": "osm",
-        "osmId": "node/3538661864"
+        "osmId": "node/3538661864",
+        "nameLocalized": {
+          "ja": "清涼飲料水"
+        }
       }
     },
     {
@@ -12964,7 +14179,10 @@
         "kmFromStart": 213.2,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/5025603387"
+        "osmId": "node/5025603387",
+        "nameLocalized": {
+          "ja": "松山大学北口"
+        }
       }
     },
     {
@@ -13011,7 +14229,10 @@
         "kmFromStart": 213.5,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152604416"
+        "osmId": "node/3152604416",
+        "nameLocalized": {
+          "ja": "勝中北"
+        }
       }
     },
     {
@@ -13033,7 +14254,10 @@
         "kmFromStart": 213.5,
         "icon": "restaurant",
         "source": "osm",
-        "osmId": "node/4523600462"
+        "osmId": "node/4523600462",
+        "nameLocalized": {
+          "ja": "勝山協食"
+        }
       }
     },
     {
@@ -13077,7 +14301,10 @@
         "kmFromStart": 214.4,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152606326"
+        "osmId": "node/3152606326",
+        "nameLocalized": {
+          "ja": "山越"
+        }
       }
     },
     {
@@ -13099,7 +14326,10 @@
         "kmFromStart": 215.9,
         "icon": "restaurant",
         "source": "osm",
-        "osmId": "node/2561253823"
+        "osmId": "node/2561253823",
+        "nameLocalized": {
+          "ja": "そばや玄"
+        }
       }
     },
     {
@@ -13121,7 +14351,10 @@
         "kmFromStart": 215.8,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152607397"
+        "osmId": "node/3152607397",
+        "nameLocalized": {
+          "ja": "東長戸"
+        }
       }
     },
     {
@@ -13143,7 +14376,10 @@
         "kmFromStart": 215.3,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152605255"
+        "osmId": "node/3152605255",
+        "nameLocalized": {
+          "ja": "姫原"
+        }
       }
     },
     {
@@ -13191,7 +14427,10 @@
         "kmFromStart": 214.9,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152604434"
+        "osmId": "node/3152604434",
+        "nameLocalized": {
+          "ja": "北山越"
+        }
       }
     },
     {
@@ -13213,7 +14452,10 @@
         "kmFromStart": 214.8,
         "icon": "hospital",
         "source": "osm",
-        "osmId": "node/1423732893"
+        "osmId": "node/1423732893",
+        "nameLocalized": {
+          "ja": "増田病院"
+        }
       }
     },
     {
@@ -13235,7 +14477,10 @@
         "kmFromStart": 214.7,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152610765"
+        "osmId": "node/3152610765",
+        "nameLocalized": {
+          "ja": "還熊八幡前"
+        }
       }
     },
     {
@@ -13282,7 +14527,10 @@
         "kmFromStart": 216.7,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152607885"
+        "osmId": "node/3152607885",
+        "nameLocalized": {
+          "ja": "潮見保育園前"
+        }
       }
     },
     {
@@ -13304,7 +14552,10 @@
         "kmFromStart": 216.7,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152611613"
+        "osmId": "node/3152611613",
+        "nameLocalized": {
+          "ja": "鴨川団地前"
+        }
       }
     },
     {
@@ -13326,7 +14577,10 @@
         "kmFromStart": 218.3,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152605782"
+        "osmId": "node/3152605782",
+        "nameLocalized": {
+          "ja": "安城寺"
+        }
       }
     },
     {
@@ -13348,7 +14602,10 @@
         "kmFromStart": 218.7,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152611572"
+        "osmId": "node/3152611572",
+        "nameLocalized": {
+          "ja": "高木"
+        }
       }
     },
     {
@@ -13370,7 +14627,10 @@
         "kmFromStart": 220.6,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152603087"
+        "osmId": "node/3152603087",
+        "nameLocalized": {
+          "ja": "一の門"
+        }
       }
     },
     {
@@ -13414,7 +14674,10 @@
         "kmFromStart": 220.8,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152605227"
+        "osmId": "node/3152605227",
+        "nameLocalized": {
+          "ja": "太山寺"
+        }
       }
     },
     {
@@ -13458,7 +14721,10 @@
         "kmFromStart": 222.7,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152607904"
+        "osmId": "node/3152607904",
+        "nameLocalized": {
+          "ja": "片廻"
+        }
       }
     },
     {
@@ -13480,7 +14746,10 @@
         "kmFromStart": 222.8,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152606264"
+        "osmId": "node/3152606264",
+        "nameLocalized": {
+          "ja": "小山"
+        }
       }
     },
     {
@@ -13502,7 +14771,10 @@
         "kmFromStart": 223.3,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152604811"
+        "osmId": "node/3152604811",
+        "nameLocalized": {
+          "ja": "和気農協前"
+        }
       }
     },
     {
@@ -13549,7 +14821,10 @@
         "kmFromStart": 224,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152604810"
+        "osmId": "node/3152604810",
+        "nameLocalized": {
+          "ja": "和気"
+        }
       }
     },
     {
@@ -13571,7 +14846,10 @@
         "kmFromStart": 223.9,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152604812"
+        "osmId": "node/3152604812",
+        "nameLocalized": {
+          "ja": "和気駅前"
+        }
       }
     },
     {
@@ -13641,7 +14919,10 @@
         "kmFromStart": 225.1,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152604363"
+        "osmId": "node/3152604363",
+        "nameLocalized": {
+          "ja": "内宮"
+        }
       }
     },
     {
@@ -13663,7 +14944,10 @@
         "kmFromStart": 225.2,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3909949936"
+        "osmId": "node/3909949936",
+        "nameLocalized": {
+          "ja": "内宮"
+        }
       }
     },
     {
@@ -13708,7 +14992,10 @@
         "icon": "restaurant",
         "source": "osm",
         "osmId": "node/13954951301",
-        "hours": "Fr-We 10:00-22:00"
+        "hours": "Fr-We 10:00-22:00",
+        "nameLocalized": {
+          "ja": "麺鮮醤油房 周月"
+        }
       }
     },
     {
@@ -13730,7 +15017,10 @@
         "kmFromStart": 226,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152609532"
+        "osmId": "node/3152609532",
+        "nameLocalized": {
+          "ja": "花見橋"
+        }
       }
     },
     {
@@ -13752,7 +15042,10 @@
         "kmFromStart": 226,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3909957799"
+        "osmId": "node/3909957799",
+        "nameLocalized": {
+          "ja": "花見橋"
+        }
       }
     },
     {
@@ -13774,7 +15067,10 @@
         "kmFromStart": 226.7,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152604933"
+        "osmId": "node/3152604933",
+        "nameLocalized": {
+          "ja": "堀江"
+        }
       }
     },
     {
@@ -13918,7 +15214,10 @@
         "kmFromStart": 229.7,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152608583"
+        "osmId": "node/3152608583",
+        "nameLocalized": {
+          "ja": "磯の川"
+        }
       }
     },
     {
@@ -13940,7 +15239,10 @@
         "kmFromStart": 229.4,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152606268"
+        "osmId": "node/3152606268",
+        "nameLocalized": {
+          "ja": "小川"
+        }
       }
     },
     {
@@ -13962,7 +15264,10 @@
         "kmFromStart": 228.9,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152609481"
+        "osmId": "node/3152609481",
+        "nameLocalized": {
+          "ja": "粟井坂"
+        }
       }
     },
     {
@@ -14006,7 +15311,10 @@
         "kmFromStart": 228.2,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152605194"
+        "osmId": "node/3152605194",
+        "nameLocalized": {
+          "ja": "大谷口"
+        }
       }
     },
     {
@@ -14050,7 +15358,10 @@
         "kmFromStart": 227.2,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152607382"
+        "osmId": "node/3152607382",
+        "nameLocalized": {
+          "ja": "東栄"
+        }
       }
     },
     {
@@ -14094,7 +15405,10 @@
         "kmFromStart": 230.6,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152609482"
+        "osmId": "node/3152609482",
+        "nameLocalized": {
+          "ja": "粟井橋"
+        }
       }
     },
     {
@@ -14116,7 +15430,10 @@
         "kmFromStart": 230.2,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152604821"
+        "osmId": "node/3152604821",
+        "nameLocalized": {
+          "ja": "和田"
+        }
       }
     },
     {
@@ -14182,7 +15499,10 @@
         "kmFromStart": 231.3,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152609483"
+        "osmId": "node/3152609483",
+        "nameLocalized": {
+          "ja": "粟井駅前"
+        }
       }
     },
     {
@@ -14230,7 +15550,10 @@
         "kmFromStart": 231.7,
         "icon": "hospital",
         "source": "osm",
-        "osmId": "node/1423731189"
+        "osmId": "node/1423731189",
+        "nameLocalized": {
+          "ja": "北条病院"
+        }
       }
     },
     {
@@ -14252,7 +15575,10 @@
         "kmFromStart": 231.6,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152603493"
+        "osmId": "node/3152603493",
+        "nameLocalized": {
+          "ja": "中須賀"
+        }
       }
     },
     {
@@ -14299,7 +15625,10 @@
         "kmFromStart": 232.1,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152607404"
+        "osmId": "node/3152607404",
+        "nameLocalized": {
+          "ja": "松の木"
+        }
       }
     },
     {
@@ -14321,7 +15650,10 @@
         "kmFromStart": 232.2,
         "icon": "convenience_store",
         "source": "osm",
-        "osmId": "node/5960662696"
+        "osmId": "node/5960662696",
+        "nameLocalized": {
+          "ja": "セブンイレブン(Seven-Eleven)北条片山店"
+        }
       }
     },
     {
@@ -14343,7 +15675,10 @@
         "kmFromStart": 232.5,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152607481"
+        "osmId": "node/3152607481",
+        "nameLocalized": {
+          "ja": "柳原"
+        }
       }
     },
     {
@@ -14391,7 +15726,10 @@
         "kmFromStart": 232.9,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152607765"
+        "osmId": "node/3152607765",
+        "nameLocalized": {
+          "ja": "河野橋"
+        }
       }
     },
     {
@@ -14413,7 +15751,10 @@
         "kmFromStart": 233.1,
         "icon": "hospital",
         "source": "osm",
-        "osmId": "node/1423740346"
+        "osmId": "node/1423740346",
+        "nameLocalized": {
+          "ja": "清和会和ホスピタル"
+        }
       }
     },
     {
@@ -14435,7 +15776,10 @@
         "kmFromStart": 233.2,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152609999"
+        "osmId": "node/3152609999",
+        "nameLocalized": {
+          "ja": "西の下"
+        }
       }
     },
     {
@@ -14457,7 +15801,10 @@
         "kmFromStart": 233.9,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152606919"
+        "osmId": "node/3152606919",
+        "nameLocalized": {
+          "ja": "新開"
+        }
       }
     },
     {
@@ -14479,7 +15826,10 @@
         "kmFromStart": 234.4,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152604450"
+        "osmId": "node/3152604450",
+        "nameLocalized": {
+          "ja": "北条高校前"
+        }
       }
     },
     {
@@ -14523,7 +15873,10 @@
         "kmFromStart": 234.7,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152604448"
+        "osmId": "node/3152604448",
+        "nameLocalized": {
+          "ja": "北条駅前"
+        }
       }
     },
     {
@@ -14545,7 +15898,10 @@
         "kmFromStart": 234.8,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152604449"
+        "osmId": "node/3152604449",
+        "nameLocalized": {
+          "ja": "北条駅口"
+        }
       }
     },
     {
@@ -14567,7 +15923,10 @@
         "kmFromStart": 234.6,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152604451"
+        "osmId": "node/3152604451",
+        "nameLocalized": {
+          "ja": "北条鹿島前"
+        }
       }
     },
     {
@@ -14589,7 +15948,10 @@
         "kmFromStart": 235.1,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152610430"
+        "osmId": "node/3152610430",
+        "nameLocalized": {
+          "ja": "辻町"
+        }
       }
     },
     {
@@ -14611,7 +15973,10 @@
         "kmFromStart": 235.7,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152604442"
+        "osmId": "node/3152604442",
+        "nameLocalized": {
+          "ja": "北本町"
+        }
       }
     },
     {
@@ -14633,7 +15998,10 @@
         "kmFromStart": 235.2,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152604447"
+        "osmId": "node/3152604447",
+        "nameLocalized": {
+          "ja": "北条本町"
+        }
       }
     },
     {
@@ -14677,7 +16045,10 @@
         "kmFromStart": 235.8,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152604444"
+        "osmId": "node/3152604444",
+        "nameLocalized": {
+          "ja": "北条"
+        }
       }
     },
     {
@@ -14724,7 +16095,10 @@
         "kmFromStart": 236.8,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152608184"
+        "osmId": "node/3152608184",
+        "nameLocalized": {
+          "ja": "白橋"
+        }
       }
     },
     {
@@ -14862,7 +16236,10 @@
         "kmFromStart": 245.1,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152609961"
+        "osmId": "node/3152609961",
+        "nameLocalized": {
+          "ja": "菊間"
+        }
       }
     },
     {
@@ -14910,7 +16287,10 @@
         "kmFromStart": 245.8,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152609962"
+        "osmId": "node/3152609962",
+        "nameLocalized": {
+          "ja": "菊間橋"
+        }
       }
     },
     {
@@ -14932,7 +16312,10 @@
         "kmFromStart": 246,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152602973"
+        "osmId": "node/3152602973",
+        "nameLocalized": {
+          "ja": "JA菊間"
+        }
       }
     },
     {
@@ -14977,7 +16360,10 @@
         "kmFromStart": 246.7,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152604024"
+        "osmId": "node/3152604024",
+        "nameLocalized": {
+          "ja": "八幡前"
+        }
       }
     },
     {
@@ -14999,7 +16385,10 @@
         "kmFromStart": 247.3,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152609971"
+        "osmId": "node/3152609971",
+        "nameLocalized": {
+          "ja": "葉山"
+        }
       }
     },
     {
@@ -15021,7 +16410,10 @@
         "kmFromStart": 247.8,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152605229"
+        "osmId": "node/3152605229",
+        "nameLocalized": {
+          "ja": "太陽石油"
+        }
       }
     },
     {
@@ -15043,7 +16435,10 @@
         "kmFromStart": 248.1,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152605230"
+        "osmId": "node/3152605230",
+        "nameLocalized": {
+          "ja": "太陽石油前"
+        }
       }
     },
     {
@@ -15087,7 +16482,10 @@
         "kmFromStart": 248.8,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152607772"
+        "osmId": "node/3152607772",
+        "nameLocalized": {
+          "ja": "泊山団地入口"
+        }
       }
     },
     {
@@ -15109,7 +16507,10 @@
         "kmFromStart": 249.2,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152608632"
+        "osmId": "node/3152608632",
+        "nameLocalized": {
+          "ja": "種"
+        }
       }
     },
     {
@@ -15157,7 +16558,10 @@
         "kmFromStart": 249.6,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152603551"
+        "osmId": "node/3152603551",
+        "nameLocalized": {
+          "ja": "亀岡"
+        }
       }
     },
     {
@@ -15179,7 +16583,10 @@
         "kmFromStart": 250,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152603972"
+        "osmId": "node/3152603972",
+        "nameLocalized": {
+          "ja": "佐方"
+        }
       }
     },
     {
@@ -15201,7 +16608,10 @@
         "kmFromStart": 250.5,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152611259"
+        "osmId": "node/3152611259",
+        "nameLocalized": {
+          "ja": "高城"
+        }
       }
     },
     {
@@ -15223,7 +16633,10 @@
         "kmFromStart": 251.1,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152610017"
+        "osmId": "node/3152610017",
+        "nameLocalized": {
+          "ja": "西之谷"
+        }
       }
     },
     {
@@ -15245,7 +16658,10 @@
         "kmFromStart": 252.2,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152604394"
+        "osmId": "node/3152604394",
+        "nameLocalized": {
+          "ja": "別府"
+        }
       }
     },
     {
@@ -15314,7 +16730,10 @@
         "kmFromStart": 253.5,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152606290"
+        "osmId": "node/3152606290",
+        "nameLocalized": {
+          "ja": "小西保育園前"
+        }
       }
     },
     {
@@ -15336,7 +16755,10 @@
         "kmFromStart": 253.1,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152607268"
+        "osmId": "node/3152607268",
+        "nameLocalized": {
+          "ja": "星の浦海浜公園"
+        }
       }
     },
     {
@@ -15407,7 +16829,10 @@
         "kmFromStart": 254,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152606289"
+        "osmId": "node/3152606289",
+        "nameLocalized": {
+          "ja": "小西"
+        }
       }
     },
     {
@@ -15429,7 +16854,10 @@
         "kmFromStart": 253.8,
         "icon": "restaurant",
         "source": "osm",
-        "osmId": "node/10556632892"
+        "osmId": "node/10556632892",
+        "nameLocalized": {
+          "ja": "CAFE＆BAR ウープス"
+        }
       }
     },
     {
@@ -15451,7 +16879,10 @@
         "kmFromStart": 254.4,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152606316"
+        "osmId": "node/3152606316",
+        "nameLocalized": {
+          "ja": "山之内橋"
+        }
       }
     },
     {
@@ -15495,7 +16926,10 @@
         "kmFromStart": 254.5,
         "icon": "hotel",
         "source": "osm",
-        "osmId": "node/11530061391"
+        "osmId": "node/11530061391",
+        "nameLocalized": {
+          "ja": "ビジネスホテルつよし"
+        }
       }
     },
     {
@@ -15517,7 +16951,10 @@
         "kmFromStart": 254.7,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152605188"
+        "osmId": "node/3152605188",
+        "nameLocalized": {
+          "ja": "大西支所前"
+        }
       }
     },
     {
@@ -15539,7 +16976,10 @@
         "kmFromStart": 254.7,
         "icon": "restaurant",
         "source": "osm",
-        "osmId": "node/8357738025"
+        "osmId": "node/8357738025",
+        "nameLocalized": {
+          "ja": "くれもと大西店"
+        }
       }
     },
     {
@@ -15561,7 +17001,10 @@
         "kmFromStart": 255.3,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152605187"
+        "osmId": "node/3152605187",
+        "nameLocalized": {
+          "ja": "大西"
+        }
       }
     },
     {
@@ -15605,7 +17048,10 @@
         "kmFromStart": 254.9,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152605812"
+        "osmId": "node/3152605812",
+        "nameLocalized": {
+          "ja": "宮前"
+        }
       }
     },
     {
@@ -15627,7 +17073,10 @@
         "kmFromStart": 254.9,
         "icon": "church",
         "source": "osm",
-        "osmId": "node/6403206271"
+        "osmId": "node/6403206271",
+        "nameLocalized": {
+          "ja": "大井八幡大神社"
+        }
       }
     },
     {
@@ -15675,7 +17124,10 @@
         "kmFromStart": 255.4,
         "icon": "hotel",
         "source": "osm",
-        "osmId": "node/11518883453"
+        "osmId": "node/11518883453",
+        "nameLocalized": {
+          "ja": "ホテルニュースガノヤ"
+        }
       }
     },
     {
@@ -15723,7 +17175,10 @@
         "kmFromStart": 256.1,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152609488"
+        "osmId": "node/3152609488",
+        "nameLocalized": {
+          "ja": "紺原"
+        }
       }
     },
     {
@@ -15745,7 +17200,10 @@
         "kmFromStart": 256.5,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152604779"
+        "osmId": "node/3152604779",
+        "nameLocalized": {
+          "ja": "吉田橋"
+        }
       }
     },
     {
@@ -15767,7 +17225,10 @@
         "kmFromStart": 257.1,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152605766"
+        "osmId": "node/3152605766",
+        "nameLocalized": {
+          "ja": "宅間"
+        }
       }
     },
     {
@@ -15789,7 +17250,10 @@
         "kmFromStart": 257.4,
         "icon": "restaurant",
         "source": "osm",
-        "osmId": "node/11527404085"
+        "osmId": "node/11527404085",
+        "nameLocalized": {
+          "ja": "ラーメンショップ KANTOチェーン野間店"
+        }
       }
     },
     {
@@ -15811,7 +17275,10 @@
         "kmFromStart": 257.6,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152610807"
+        "osmId": "node/3152610807",
+        "nameLocalized": {
+          "ja": "野間"
+        }
       }
     },
     {
@@ -15833,7 +17300,10 @@
         "kmFromStart": 258.1,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152606776"
+        "osmId": "node/3152606776",
+        "nameLocalized": {
+          "ja": "延喜"
+        }
       }
     },
     {
@@ -15855,7 +17325,10 @@
         "kmFromStart": 258.7,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152611182"
+        "osmId": "node/3152611182",
+        "nameLocalized": {
+          "ja": "阿方"
+        }
       }
     },
     {
@@ -15877,7 +17350,10 @@
         "kmFromStart": 258.5,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152607504"
+        "osmId": "node/3152607504",
+        "nameLocalized": {
+          "ja": "桜ケ丘団地前"
+        }
       }
     },
     {
@@ -15921,7 +17397,10 @@
         "kmFromStart": 261.3,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152609546"
+        "osmId": "node/3152609546",
+        "nameLocalized": {
+          "ja": "茶堂"
+        }
       }
     },
     {
@@ -15943,7 +17422,10 @@
         "kmFromStart": 261.3,
         "icon": "restaurant",
         "source": "osm",
-        "osmId": "node/8292616460"
+        "osmId": "node/8292616460",
+        "nameLocalized": {
+          "ja": "福寿園"
+        }
       }
     },
     {
@@ -15965,7 +17447,10 @@
         "kmFromStart": 261.6,
         "icon": "hospital",
         "source": "osm",
-        "osmId": "node/1423740411"
+        "osmId": "node/1423740411",
+        "nameLocalized": {
+          "ja": "済生会今治第二病院"
+        }
       }
     },
     {
@@ -15987,7 +17472,10 @@
         "kmFromStart": 261.8,
         "icon": "hospital",
         "source": "osm",
-        "osmId": "node/1423744823"
+        "osmId": "node/1423744823",
+        "nameLocalized": {
+          "ja": "順天会放射線第一病院"
+        }
       }
     },
     {
@@ -16009,7 +17497,10 @@
         "kmFromStart": 261.8,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152604563"
+        "osmId": "node/3152604563",
+        "nameLocalized": {
+          "ja": "北高前"
+        }
       }
     },
     {
@@ -16031,7 +17522,10 @@
         "kmFromStart": 261.9,
         "icon": "hospital",
         "source": "osm",
-        "osmId": "node/1423742142"
+        "osmId": "node/1423742142",
+        "nameLocalized": {
+          "ja": "真泉会第一病院"
+        }
       }
     },
     {
@@ -16053,7 +17547,10 @@
         "kmFromStart": 262,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152604429"
+        "osmId": "node/3152604429",
+        "nameLocalized": {
+          "ja": "北宝来町"
+        }
       }
     },
     {
@@ -16075,7 +17572,10 @@
         "kmFromStart": 261.8,
         "icon": "pharmacy",
         "source": "osm",
-        "osmId": "node/8202787944"
+        "osmId": "node/8202787944",
+        "nameLocalized": {
+          "ja": "しまなみ薬局"
+        }
       }
     },
     {
@@ -16097,7 +17597,10 @@
         "kmFromStart": 262.2,
         "icon": "restaurant",
         "source": "osm",
-        "osmId": "node/8256470931"
+        "osmId": "node/8256470931",
+        "nameLocalized": {
+          "ja": "麺屋 武吉"
+        }
       }
     },
     {
@@ -16119,7 +17622,10 @@
         "kmFromStart": 262.4,
         "icon": "hospital",
         "source": "osm",
-        "osmId": "node/1423743379"
+        "osmId": "node/1423743379",
+        "nameLocalized": {
+          "ja": "聖ルカ会木原病院"
+        }
       }
     },
     {
@@ -16166,7 +17672,10 @@
         "kmFromStart": 262.6,
         "icon": "restaurant",
         "source": "osm",
-        "osmId": "node/8254178849"
+        "osmId": "node/8254178849",
+        "nameLocalized": {
+          "ja": "シャン・ドーレ"
+        }
       }
     },
     {
@@ -16224,7 +17733,10 @@
         "kmFromStart": 262.9,
         "icon": "hospital",
         "source": "osm",
-        "osmId": "node/1423706178"
+        "osmId": "node/1423706178",
+        "nameLocalized": {
+          "ja": "やすらぎ会鈴木病院"
+        }
       }
     },
     {
@@ -16246,7 +17758,10 @@
         "kmFromStart": 262.8,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152603610"
+        "osmId": "node/3152603610",
+        "nameLocalized": {
+          "ja": "今治市役所前"
+        }
       }
     },
     {
@@ -16268,7 +17783,10 @@
         "kmFromStart": 262.9,
         "icon": "restaurant",
         "source": "osm",
-        "osmId": "node/8202530596"
+        "osmId": "node/8202530596",
+        "nameLocalized": {
+          "ja": "寿し きよ輝"
+        }
       }
     },
     {
@@ -16290,7 +17808,10 @@
         "kmFromStart": 262.9,
         "icon": "pharmacy",
         "source": "osm",
-        "osmId": "node/8202530598"
+        "osmId": "node/8202530598",
+        "nameLocalized": {
+          "ja": "アルファ調剤薬局 今治店"
+        }
       }
     },
     {
@@ -16312,7 +17833,10 @@
         "kmFromStart": 262.8,
         "icon": "restaurant",
         "source": "osm",
-        "osmId": "node/8202543858"
+        "osmId": "node/8202543858",
+        "nameLocalized": {
+          "ja": "五右衛門"
+        }
       }
     },
     {
@@ -16334,7 +17858,10 @@
         "kmFromStart": 263.1,
         "icon": "hospital",
         "source": "osm",
-        "osmId": "node/1423738350"
+        "osmId": "node/1423738350",
+        "nameLocalized": {
+          "ja": "明和会高木眼科病院"
+        }
       }
     },
     {
@@ -16356,7 +17883,10 @@
         "kmFromStart": 263,
         "icon": "hospital",
         "source": "osm",
-        "osmId": "node/1423740702"
+        "osmId": "node/1423740702",
+        "nameLocalized": {
+          "ja": "生きる会瀬戸内海病院"
+        }
       }
     },
     {
@@ -16378,7 +17908,10 @@
         "kmFromStart": 263.3,
         "icon": "cafe",
         "source": "osm",
-        "osmId": "node/8204037262"
+        "osmId": "node/8204037262",
+        "nameLocalized": {
+          "ja": "まいるど７"
+        }
       }
     },
     {
@@ -16400,7 +17933,10 @@
         "kmFromStart": 263.3,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152603614"
+        "osmId": "node/3152603614",
+        "nameLocalized": {
+          "ja": "今治駅前"
+        }
       }
     },
     {
@@ -16422,7 +17958,10 @@
         "kmFromStart": 263.3,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152605794"
+        "osmId": "node/3152605794",
+        "nameLocalized": {
+          "ja": "宝来通り"
+        }
       }
     },
     {
@@ -16493,7 +18032,10 @@
         "kmFromStart": 263.3,
         "icon": "restaurant",
         "source": "osm",
-        "osmId": "node/8202424996"
+        "osmId": "node/8202424996",
+        "nameLocalized": {
+          "ja": "白鳥"
+        }
       }
     },
     {
@@ -16515,7 +18057,10 @@
         "kmFromStart": 263.3,
         "icon": "pharmacy",
         "source": "osm",
-        "osmId": "node/8202425000"
+        "osmId": "node/8202425000",
+        "nameLocalized": {
+          "ja": "平野屋薬局"
+        }
       }
     },
     {
@@ -16537,7 +18082,10 @@
         "kmFromStart": 263.3,
         "icon": "restaurant",
         "source": "osm",
-        "osmId": "node/8202639228"
+        "osmId": "node/8202639228",
+        "nameLocalized": {
+          "ja": "こむらさき"
+        }
       }
     },
     {
@@ -16559,7 +18107,10 @@
         "kmFromStart": 263.2,
         "icon": "cafe",
         "source": "osm",
-        "osmId": "node/8202770133"
+        "osmId": "node/8202770133",
+        "nameLocalized": {
+          "ja": "コーヒーショップ進和 今治店"
+        }
       }
     },
     {
@@ -16581,7 +18132,10 @@
         "kmFromStart": 263.5,
         "icon": "restaurant",
         "source": "osm",
-        "osmId": "node/8202519785"
+        "osmId": "node/8202519785",
+        "nameLocalized": {
+          "ja": "お酒とごはんと処 八兵衛 今治店"
+        }
       }
     },
     {
@@ -16603,7 +18157,10 @@
         "kmFromStart": 264,
         "icon": "restaurant",
         "source": "osm",
-        "osmId": "node/8292259427"
+        "osmId": "node/8292259427",
+        "nameLocalized": {
+          "ja": "寿屋"
+        }
       }
     },
     {
@@ -16625,7 +18182,10 @@
         "kmFromStart": 264.3,
         "icon": "hospital",
         "source": "osm",
-        "osmId": "node/1423744623"
+        "osmId": "node/1423744623",
+        "nameLocalized": {
+          "ja": "銀杏会井出病院"
+        }
       }
     },
     {
@@ -16647,7 +18207,10 @@
         "kmFromStart": 264.4,
         "icon": "restaurant",
         "source": "osm",
-        "osmId": "node/8293371794"
+        "osmId": "node/8293371794",
+        "nameLocalized": {
+          "ja": "風音"
+        }
       }
     },
     {
@@ -16669,7 +18232,10 @@
         "kmFromStart": 264.9,
         "icon": "pharmacy",
         "source": "osm",
-        "osmId": "node/12367152756"
+        "osmId": "node/12367152756",
+        "nameLocalized": {
+          "ja": "イオン薬局"
+        }
       }
     },
     {
@@ -16691,7 +18257,10 @@
         "kmFromStart": 264.8,
         "icon": "pharmacy",
         "source": "osm",
-        "osmId": "node/8257996995"
+        "osmId": "node/8257996995",
+        "nameLocalized": {
+          "ja": "レデイ薬局 馬越店調剤"
+        }
       }
     },
     {
@@ -16713,7 +18282,10 @@
         "kmFromStart": 265.7,
         "icon": "church",
         "source": "osm",
-        "osmId": "node/5089656377"
+        "osmId": "node/5089656377",
+        "nameLocalized": {
+          "ja": "荒神社"
+        }
       }
     },
     {
@@ -16735,7 +18307,10 @@
         "kmFromStart": 265.7,
         "icon": "cafe",
         "source": "osm",
-        "osmId": "node/8227271449"
+        "osmId": "node/8227271449",
+        "nameLocalized": {
+          "ja": "コーヒーの店 阿奈波"
+        }
       }
     },
     {
@@ -16757,7 +18332,10 @@
         "kmFromStart": 266.4,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152606279"
+        "osmId": "node/3152606279",
+        "nameLocalized": {
+          "ja": "小泉"
+        }
       }
     },
     {
@@ -16779,7 +18357,10 @@
         "kmFromStart": 266.4,
         "icon": "restaurant",
         "source": "osm",
-        "osmId": "node/8288823608"
+        "osmId": "node/8288823608",
+        "nameLocalized": {
+          "ja": "弁慶寿司"
+        }
       }
     },
     {
@@ -16801,7 +18382,10 @@
         "kmFromStart": 266.5,
         "icon": "restaurant",
         "source": "osm",
-        "osmId": "node/8288823558"
+        "osmId": "node/8288823558",
+        "nameLocalized": {
+          "ja": "海海ラーメン"
+        }
       }
     },
     {
@@ -16823,7 +18407,10 @@
         "kmFromStart": 267.1,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152604386"
+        "osmId": "node/3152604386",
+        "nameLocalized": {
+          "ja": "別名"
+        }
       }
     },
     {
@@ -16845,7 +18432,10 @@
         "kmFromStart": 267.3,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152604387"
+        "osmId": "node/3152604387",
+        "nameLocalized": {
+          "ja": "別名上"
+        }
       }
     },
     {
@@ -16867,7 +18457,10 @@
         "kmFromStart": 267.3,
         "icon": "restaurant",
         "source": "osm",
-        "osmId": "node/8323649721"
+        "osmId": "node/8323649721",
+        "nameLocalized": {
+          "ja": "たわら"
+        }
       }
     },
     {
@@ -16914,7 +18507,10 @@
         "kmFromStart": 268.4,
         "icon": "church",
         "source": "osm",
-        "osmId": "node/8300556396"
+        "osmId": "node/8300556396",
+        "nameLocalized": {
+          "ja": "石清水八幡神社"
+        }
       }
     },
     {
@@ -16936,7 +18532,10 @@
         "kmFromStart": 268.6,
         "icon": "church",
         "source": "osm",
-        "osmId": "node/8300556404"
+        "osmId": "node/8300556404",
+        "nameLocalized": {
+          "ja": "浄寂寺"
+        }
       }
     },
     {
@@ -17005,7 +18604,10 @@
         "kmFromStart": 274.2,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152607446"
+        "osmId": "node/3152607446",
+        "nameLocalized": {
+          "ja": "松木"
+        }
       }
     },
     {
@@ -17027,7 +18629,10 @@
         "kmFromStart": 275.3,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152605844"
+        "osmId": "node/3152605844",
+        "nameLocalized": {
+          "ja": "富田駅前"
+        }
       }
     },
     {
@@ -17075,7 +18680,10 @@
         "kmFromStart": 275.4,
         "icon": "cafe",
         "source": "osm",
-        "osmId": "node/8295503688"
+        "osmId": "node/8295503688",
+        "nameLocalized": {
+          "ja": "喫茶 千羽鶴"
+        }
       }
     },
     {
@@ -17097,7 +18705,10 @@
         "kmFromStart": 275.6,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152603194"
+        "osmId": "node/3152603194",
+        "nameLocalized": {
+          "ja": "上徳"
+        }
       }
     },
     {
@@ -17119,7 +18730,10 @@
         "kmFromStart": 276.1,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152604863"
+        "osmId": "node/3152604863",
+        "nameLocalized": {
+          "ja": "国分橋"
+        }
       }
     },
     {
@@ -17141,7 +18755,10 @@
         "kmFromStart": 276.4,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152604857"
+        "osmId": "node/3152604857",
+        "nameLocalized": {
+          "ja": "団地2丁目"
+        }
       }
     },
     {
@@ -17163,7 +18780,10 @@
         "kmFromStart": 276.5,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152605851"
+        "osmId": "node/3152605851",
+        "nameLocalized": {
+          "ja": "寺山"
+        }
       }
     },
     {
@@ -17185,7 +18805,10 @@
         "kmFromStart": 276.7,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152604862"
+        "osmId": "node/3152604862",
+        "nameLocalized": {
+          "ja": "国分寺西"
+        }
       }
     },
     {
@@ -17207,7 +18830,10 @@
         "kmFromStart": 277,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152604861"
+        "osmId": "node/3152604861",
+        "nameLocalized": {
+          "ja": "国分寺"
+        }
       }
     },
     {
@@ -17254,7 +18880,10 @@
         "kmFromStart": 277.7,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152604860"
+        "osmId": "node/3152604860",
+        "nameLocalized": {
+          "ja": "国分"
+        }
       }
     },
     {
@@ -17276,7 +18905,10 @@
         "kmFromStart": 279,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152605220"
+        "osmId": "node/3152605220",
+        "nameLocalized": {
+          "ja": "天神橋"
+        }
       }
     },
     {
@@ -17298,7 +18930,10 @@
         "kmFromStart": 278.9,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152610778"
+        "osmId": "node/3152610778",
+        "nameLocalized": {
+          "ja": "郷桜井"
+        }
       }
     },
     {
@@ -17346,7 +18981,10 @@
         "kmFromStart": 279.3,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152607509"
+        "osmId": "node/3152607509",
+        "nameLocalized": {
+          "ja": "桜井駅口"
+        }
       }
     },
     {
@@ -17368,7 +19006,10 @@
         "kmFromStart": 280,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152607383"
+        "osmId": "node/3152607383",
+        "nameLocalized": {
+          "ja": "東桜井"
+        }
       }
     },
     {
@@ -17390,7 +19031,10 @@
         "kmFromStart": 280.6,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152610846"
+        "osmId": "node/3152610846",
+        "nameLocalized": {
+          "ja": "長沢"
+        }
       }
     },
     {
@@ -17412,7 +19056,10 @@
         "kmFromStart": 281.1,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152604002"
+        "osmId": "node/3152604002",
+        "nameLocalized": {
+          "ja": "元瀬橋"
+        }
       }
     },
     {
@@ -17434,7 +19081,10 @@
         "kmFromStart": 281.9,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152607862"
+        "osmId": "node/3152607862",
+        "nameLocalized": {
+          "ja": "湯ノ浦温泉入口"
+        }
       }
     },
     {
@@ -17478,7 +19128,10 @@
         "kmFromStart": 281.3,
         "icon": "cafe",
         "source": "osm",
-        "osmId": "node/8253952574"
+        "osmId": "node/8253952574",
+        "nameLocalized": {
+          "ja": "花ぬり"
+        }
       }
     },
     {
@@ -17500,7 +19153,10 @@
         "kmFromStart": 282.5,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152605765"
+        "osmId": "node/3152605765",
+        "nameLocalized": {
+          "ja": "孫兵ヱ作"
+        }
       }
     },
     {
@@ -17522,7 +19178,10 @@
         "kmFromStart": 283.4,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152609993"
+        "osmId": "node/3152609993",
+        "nameLocalized": {
+          "ja": "蛇越池"
+        }
       }
     },
     {
@@ -17544,7 +19203,10 @@
         "kmFromStart": 283.5,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152603653"
+        "osmId": "node/3152603653",
+        "nameLocalized": {
+          "ja": "休暇村入口"
+        }
       }
     },
     {
@@ -17566,7 +19228,10 @@
         "kmFromStart": 284.3,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152603405"
+        "osmId": "node/3152603405",
+        "nameLocalized": {
+          "ja": "世田薬師"
+        }
       }
     },
     {
@@ -17588,7 +19253,10 @@
         "kmFromStart": 284.9,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152604055"
+        "osmId": "node/3152604055",
+        "nameLocalized": {
+          "ja": "六軒"
+        }
       }
     },
     {
@@ -17610,7 +19278,10 @@
         "kmFromStart": 285.8,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152606850"
+        "osmId": "node/3152606850",
+        "nameLocalized": {
+          "ja": "成福寺"
+        }
       }
     },
     {
@@ -17632,7 +19303,10 @@
         "kmFromStart": 286.3,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152607546"
+        "osmId": "node/3152607546",
+        "nameLocalized": {
+          "ja": "楠会堂前"
+        }
       }
     },
     {
@@ -17654,7 +19328,10 @@
         "kmFromStart": 286,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152607545"
+        "osmId": "node/3152607545",
+        "nameLocalized": {
+          "ja": "楠"
+        }
       }
     },
     {
@@ -17676,7 +19353,10 @@
         "kmFromStart": 287.4,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152603164"
+        "osmId": "node/3152603164",
+        "nameLocalized": {
+          "ja": "三芳南条"
+        }
       }
     },
     {
@@ -17698,7 +19378,10 @@
         "kmFromStart": 287,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152603163"
+        "osmId": "node/3152603163",
+        "nameLocalized": {
+          "ja": "三芳"
+        }
       }
     },
     {
@@ -17742,7 +19425,10 @@
         "kmFromStart": 287.7,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152607695"
+        "osmId": "node/3152607695",
+        "nameLocalized": {
+          "ja": "正法寺"
+        }
       }
     },
     {
@@ -17764,7 +19450,10 @@
         "kmFromStart": 290.6,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152608246"
+        "osmId": "node/3152608246",
+        "nameLocalized": {
+          "ja": "石延"
+        }
       }
     },
     {
@@ -17786,7 +19475,10 @@
         "kmFromStart": 290.8,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152605783"
+        "osmId": "node/3152605783",
+        "nameLocalized": {
+          "ja": "安用"
+        }
       }
     },
     {
@@ -17808,7 +19500,10 @@
         "kmFromStart": 290.8,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152605784"
+        "osmId": "node/3152605784",
+        "nameLocalized": {
+          "ja": "安用入口"
+        }
       }
     },
     {
@@ -17830,7 +19525,10 @@
         "kmFromStart": 293.5,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152603505"
+        "osmId": "node/3152603505",
+        "nameLocalized": {
+          "ja": "丹原総合支所前"
+        }
       }
     },
     {
@@ -17852,7 +19550,10 @@
         "kmFromStart": 293.5,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152610422"
+        "osmId": "node/3152610422",
+        "nameLocalized": {
+          "ja": "農協入口"
+        }
       }
     },
     {
@@ -17874,7 +19575,10 @@
         "kmFromStart": 293.4,
         "icon": "church",
         "source": "osm",
-        "osmId": "node/12944733841"
+        "osmId": "node/12944733841",
+        "nameLocalized": {
+          "ja": "遍照寺"
+        }
       }
     },
     {
@@ -17896,7 +19600,10 @@
         "kmFromStart": 293.6,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152603503"
+        "osmId": "node/3152603503",
+        "nameLocalized": {
+          "ja": "丹原中町"
+        }
       }
     },
     {
@@ -17945,7 +19652,10 @@
         "kmFromStart": 294.1,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152603501"
+        "osmId": "node/3152603501",
+        "nameLocalized": {
+          "ja": "丹原上町"
+        }
       }
     },
     {
@@ -17967,7 +19677,10 @@
         "kmFromStart": 294.2,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152603596"
+        "osmId": "node/3152603596",
+        "nameLocalized": {
+          "ja": "今井"
+        }
       }
     },
     {
@@ -17989,7 +19702,10 @@
         "kmFromStart": 294.2,
         "icon": "guesthouse",
         "source": "osm",
-        "osmId": "node/12944733844"
+        "osmId": "node/12944733844",
+        "nameLocalized": {
+          "ja": "ゲストハウス BEKKU"
+        }
       }
     },
     {
@@ -18011,7 +19727,10 @@
         "kmFromStart": 296.8,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152605203"
+        "osmId": "node/3152605203",
+        "nameLocalized": {
+          "ja": "大頭"
+        }
       }
     },
     {
@@ -18033,7 +19752,10 @@
         "kmFromStart": 296.8,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152605250"
+        "osmId": "node/3152605250",
+        "nameLocalized": {
+          "ja": "妙口"
+        }
       }
     },
     {
@@ -18168,7 +19890,10 @@
         "kmFromStart": 313.7,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152605114"
+        "osmId": "node/3152605114",
+        "nameLocalized": {
+          "ja": "大師入口"
+        }
       }
     },
     {
@@ -18264,7 +19989,10 @@
         "kmFromStart": 314.5,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152606887"
+        "osmId": "node/3152606887",
+        "nameLocalized": {
+          "ja": "新宮"
+        }
       }
     },
     {
@@ -18286,7 +20014,10 @@
         "kmFromStart": 314.7,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152606275"
+        "osmId": "node/3152606275",
+        "nameLocalized": {
+          "ja": "小松総合支所前"
+        }
       }
     },
     {
@@ -18308,7 +20039,10 @@
         "kmFromStart": 314.9,
         "icon": "hospital",
         "source": "osm",
-        "osmId": "node/1423730763"
+        "osmId": "node/1423730763",
+        "nameLocalized": {
+          "ja": "倬清会横山病院"
+        }
       }
     },
     {
@@ -18356,7 +20090,10 @@
         "kmFromStart": 315.4,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152606276"
+        "osmId": "node/3152606276",
+        "nameLocalized": {
+          "ja": "小松駅前"
+        }
       }
     },
     {
@@ -18378,7 +20115,10 @@
         "kmFromStart": 316,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152610362"
+        "osmId": "node/3152610362",
+        "nameLocalized": {
+          "ja": "西町入口"
+        }
       }
     },
     {
@@ -18400,7 +20140,10 @@
         "kmFromStart": 316.6,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152607716"
+        "osmId": "node/3152607716",
+        "nameLocalized": {
+          "ja": "氷見"
+        }
       }
     },
     {
@@ -18470,7 +20213,10 @@
         "kmFromStart": 317,
         "icon": "hospital",
         "source": "osm",
-        "osmId": "node/1423731241"
+        "osmId": "node/1423731241",
+        "nameLocalized": {
+          "ja": "北辰会まなべ病院"
+        }
       }
     },
     {
@@ -18514,7 +20260,10 @@
         "kmFromStart": 317.6,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152610785"
+        "osmId": "node/3152610785",
+        "nameLocalized": {
+          "ja": "野々市"
+        }
       }
     },
     {
@@ -18536,7 +20285,10 @@
         "kmFromStart": 318.4,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152607552"
+        "osmId": "node/3152607552",
+        "nameLocalized": {
+          "ja": "楢之木"
+        }
       }
     },
     {
@@ -18558,7 +20310,10 @@
         "kmFromStart": 319.4,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152608564"
+        "osmId": "node/3152608564",
+        "nameLocalized": {
+          "ja": "石鎚神社"
+        }
       }
     },
     {
@@ -18627,7 +20382,10 @@
         "kmFromStart": 320.6,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152607864"
+        "osmId": "node/3152607864",
+        "nameLocalized": {
+          "ja": "湯之谷"
+        }
       }
     },
     {
@@ -18649,7 +20407,10 @@
         "kmFromStart": 321.2,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152605785"
+        "osmId": "node/3152605785",
+        "nameLocalized": {
+          "ja": "安知生"
+        }
       }
     },
     {
@@ -18671,7 +20432,10 @@
         "kmFromStart": 321.6,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152607800"
+        "osmId": "node/3152607800",
+        "nameLocalized": {
+          "ja": "洲之内"
+        }
       }
     },
     {
@@ -18693,7 +20457,10 @@
         "kmFromStart": 322.3,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152607361"
+        "osmId": "node/3152607361",
+        "nameLocalized": {
+          "ja": "東光"
+        }
       }
     },
     {
@@ -18715,7 +20482,10 @@
         "kmFromStart": 323.4,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152603650"
+        "osmId": "node/3152603650",
+        "nameLocalized": {
+          "ja": "伊曽乃"
+        }
       }
     },
     {
@@ -18781,7 +20551,10 @@
         "kmFromStart": 326.4,
         "icon": "hospital",
         "source": "osm",
-        "osmId": "node/1423737811"
+        "osmId": "node/1423737811",
+        "nameLocalized": {
+          "ja": "愛寿会西条愛寿会病院"
+        }
       }
     },
     {
@@ -18803,7 +20576,10 @@
         "kmFromStart": 326.4,
         "icon": "hospital",
         "source": "osm",
-        "osmId": "node/1423744765"
+        "osmId": "node/1423744765",
+        "nameLocalized": {
+          "ja": "隣善会西条道前病院"
+        }
       }
     },
     {
@@ -18825,7 +20601,10 @@
         "kmFromStart": 327.6,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152605798"
+        "osmId": "node/3152605798",
+        "nameLocalized": {
+          "ja": "室川橋"
+        }
       }
     },
     {
@@ -18847,7 +20626,10 @@
         "kmFromStart": 329.2,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152603032"
+        "osmId": "node/3152603032",
+        "nameLocalized": {
+          "ja": "オレンジハイツ入口"
+        }
       }
     },
     {
@@ -18869,7 +20651,10 @@
         "kmFromStart": 328.9,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152604585"
+        "osmId": "node/3152604585",
+        "nameLocalized": {
+          "ja": "半田"
+        }
       }
     },
     {
@@ -18891,7 +20676,10 @@
         "kmFromStart": 328.4,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152611226"
+        "osmId": "node/3152611226",
+        "nameLocalized": {
+          "ja": "飯岡"
+        }
       }
     },
     {
@@ -18913,7 +20701,10 @@
         "kmFromStart": 328.2,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152610025"
+        "osmId": "node/3152610025",
+        "nameLocalized": {
+          "ja": "西原"
+        }
       }
     },
     {
@@ -18935,7 +20726,10 @@
         "kmFromStart": 330.7,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152607845"
+        "osmId": "node/3152607845",
+        "nameLocalized": {
+          "ja": "渦井橋"
+        }
       }
     },
     {
@@ -18983,7 +20777,10 @@
         "kmFromStart": 330.2,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152607511"
+        "osmId": "node/3152607511",
+        "nameLocalized": {
+          "ja": "桜木"
+        }
       }
     },
     {
@@ -19005,7 +20802,10 @@
         "kmFromStart": 329.9,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/2221159148"
+        "osmId": "node/2221159148",
+        "nameLocalized": {
+          "ja": "八幡前"
+        }
       }
     },
     {
@@ -19027,7 +20827,10 @@
         "kmFromStart": 329.6,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152604022"
+        "osmId": "node/3152604022",
+        "nameLocalized": {
+          "ja": "八幡前"
+        }
       }
     },
     {
@@ -19049,7 +20852,10 @@
         "kmFromStart": 331,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152603479"
+        "osmId": "node/3152603479",
+        "nameLocalized": {
+          "ja": "中萩駅前"
+        }
       }
     },
     {
@@ -19071,7 +20877,10 @@
         "kmFromStart": 331.6,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152606307"
+        "osmId": "node/3152606307",
+        "nameLocalized": {
+          "ja": "岸ノ下西"
+        }
       }
     },
     {
@@ -19093,7 +20902,10 @@
         "kmFromStart": 332,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152606347"
+        "osmId": "node/3152606347",
+        "nameLocalized": {
+          "ja": "岸ノ下・局前"
+        }
       }
     },
     {
@@ -19115,7 +20927,10 @@
         "kmFromStart": 332.6,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152609966"
+        "osmId": "node/3152609966",
+        "nameLocalized": {
+          "ja": "萩生"
+        }
       }
     },
     {
@@ -19137,7 +20952,10 @@
         "kmFromStart": 332.8,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/10692924693"
+        "osmId": "node/10692924693",
+        "nameLocalized": {
+          "ja": "萩生"
+        }
       }
     },
     {
@@ -19159,7 +20977,10 @@
         "kmFromStart": 332.9,
         "icon": "church",
         "source": "osm",
-        "osmId": "node/10669837034"
+        "osmId": "node/10669837034",
+        "nameLocalized": {
+          "ja": "萩生寺"
+        }
       }
     },
     {
@@ -19181,7 +21002,10 @@
         "kmFromStart": 333.2,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152611243"
+        "osmId": "node/3152611243",
+        "nameLocalized": {
+          "ja": "馬渕口"
+        }
       }
     },
     {
@@ -19203,7 +21027,10 @@
         "kmFromStart": 333.3,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/10692924720"
+        "osmId": "node/10692924720",
+        "nameLocalized": {
+          "ja": "馬渕口"
+        }
       }
     },
     {
@@ -19225,7 +21052,10 @@
         "kmFromStart": 333.6,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/10692924730"
+        "osmId": "node/10692924730",
+        "nameLocalized": {
+          "ja": "中萩本郷"
+        }
       }
     },
     {
@@ -19247,7 +21077,10 @@
         "kmFromStart": 333.7,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152608221"
+        "osmId": "node/3152608221",
+        "nameLocalized": {
+          "ja": "中萩本郷"
+        }
       }
     },
     {
@@ -19269,7 +21102,10 @@
         "kmFromStart": 334,
         "icon": "hospital",
         "source": "osm",
-        "osmId": "node/1423734706"
+        "osmId": "node/1423734706",
+        "nameLocalized": {
+          "ja": "岩崎病院"
+        }
       }
     },
     {
@@ -19291,7 +21127,10 @@
         "kmFromStart": 334.1,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152607666"
+        "osmId": "node/3152607666",
+        "nameLocalized": {
+          "ja": "横山"
+        }
       }
     },
     {
@@ -19313,7 +21152,10 @@
         "kmFromStart": 334.1,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152610016"
+        "osmId": "node/3152610016",
+        "nameLocalized": {
+          "ja": "西之端"
+        }
       }
     },
     {
@@ -19335,7 +21177,10 @@
         "kmFromStart": 334,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/10692924739"
+        "osmId": "node/10692924739",
+        "nameLocalized": {
+          "ja": "西之端"
+        }
       }
     },
     {
@@ -19357,7 +21202,10 @@
         "kmFromStart": 334.1,
         "icon": "church",
         "source": "osm",
-        "osmId": "node/10572420866"
+        "osmId": "node/10572420866",
+        "nameLocalized": {
+          "ja": "白山神社"
+        }
       }
     },
     {
@@ -19379,7 +21227,10 @@
         "kmFromStart": 334.4,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152603459"
+        "osmId": "node/3152603459",
+        "nameLocalized": {
+          "ja": "中村"
+        }
       }
     },
     {
@@ -19401,7 +21252,10 @@
         "kmFromStart": 334.5,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/10696552884"
+        "osmId": "node/10696552884",
+        "nameLocalized": {
+          "ja": "中村"
+        }
       }
     },
     {
@@ -19423,7 +21277,10 @@
         "kmFromStart": 334.7,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152604881"
+        "osmId": "node/3152604881",
+        "nameLocalized": {
+          "ja": "土橋"
+        }
       }
     },
     {
@@ -19445,7 +21302,10 @@
         "kmFromStart": 334.6,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/10696554908"
+        "osmId": "node/10696554908",
+        "nameLocalized": {
+          "ja": "土橋"
+        }
       }
     },
     {
@@ -19489,7 +21349,10 @@
         "kmFromStart": 335,
         "icon": "church",
         "source": "osm",
-        "osmId": "node/10688013064"
+        "osmId": "node/10688013064",
+        "nameLocalized": {
+          "ja": "新居浜キリスト教会"
+        }
       }
     },
     {
@@ -19511,7 +21374,10 @@
         "kmFromStart": 335.1,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152610380"
+        "osmId": "node/3152610380",
+        "nameLocalized": {
+          "ja": "角野派出所"
+        }
       }
     },
     {
@@ -19533,7 +21399,10 @@
         "kmFromStart": 335.3,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152604842"
+        "osmId": "node/3152604842",
+        "nameLocalized": {
+          "ja": "喜光地"
+        }
       }
     },
     {
@@ -19555,7 +21424,10 @@
         "kmFromStart": 335.7,
         "icon": "clinic",
         "source": "osm",
-        "osmId": "node/1423707344"
+        "osmId": "node/1423707344",
+        "nameLocalized": {
+          "ja": "立花病院"
+        }
       }
     },
     {
@@ -19577,7 +21449,10 @@
         "kmFromStart": 335.6,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152611164"
+        "osmId": "node/3152611164",
+        "nameLocalized": {
+          "ja": "長田"
+        }
       }
     },
     {
@@ -19599,7 +21474,10 @@
         "kmFromStart": 335.9,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152610376"
+        "osmId": "node/3152610376",
+        "nameLocalized": {
+          "ja": "要害"
+        }
       }
     },
     {
@@ -19646,7 +21524,10 @@
         "kmFromStart": 336,
         "icon": "church",
         "source": "osm",
-        "osmId": "node/10673975133"
+        "osmId": "node/10673975133",
+        "nameLocalized": {
+          "ja": "毘沙門堂"
+        }
       }
     },
     {
@@ -19668,7 +21549,10 @@
         "kmFromStart": 336.8,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152607471"
+        "osmId": "node/3152607471",
+        "nameLocalized": {
+          "ja": "枯松"
+        }
       }
     },
     {
@@ -19690,7 +21574,10 @@
         "kmFromStart": 336.5,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152605061"
+        "osmId": "node/3152605061",
+        "nameLocalized": {
+          "ja": "外山"
+        }
       }
     },
     {
@@ -19712,7 +21599,10 @@
         "kmFromStart": 337.3,
         "icon": "restaurant",
         "source": "osm",
-        "osmId": "node/696846346"
+        "osmId": "node/696846346",
+        "nameLocalized": {
+          "ja": "こくりょう食堂"
+        }
       }
     },
     {
@@ -19734,7 +21624,10 @@
         "kmFromStart": 337.2,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152607389"
+        "osmId": "node/3152607389",
+        "nameLocalized": {
+          "ja": "東田入口"
+        }
       }
     },
     {
@@ -19782,7 +21675,10 @@
         "kmFromStart": 337.8,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152607518"
+        "osmId": "node/3152607518",
+        "nameLocalized": {
+          "ja": "桧端"
+        }
       }
     },
     {
@@ -19804,7 +21700,10 @@
         "kmFromStart": 338.2,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152603379"
+        "osmId": "node/3152603379",
+        "nameLocalized": {
+          "ja": "下池田"
+        }
       }
     },
     {
@@ -19826,7 +21725,10 @@
         "kmFromStart": 338.8,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152604896"
+        "osmId": "node/3152604896",
+        "nameLocalized": {
+          "ja": "坂ノ下"
+        }
       }
     },
     {
@@ -19848,7 +21750,10 @@
         "kmFromStart": 339.7,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152603402"
+        "osmId": "node/3152603402",
+        "nameLocalized": {
+          "ja": "下長野"
+        }
       }
     },
     {
@@ -19870,7 +21775,10 @@
         "kmFromStart": 340.1,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152611170"
+        "osmId": "node/3152611170",
+        "nameLocalized": {
+          "ja": "長野"
+        }
       }
     },
     {
@@ -19892,7 +21800,10 @@
         "kmFromStart": 342.2,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152611174"
+        "osmId": "node/3152611174",
+        "nameLocalized": {
+          "ja": "関ノ原"
+        }
       }
     },
     {
@@ -19914,7 +21825,10 @@
         "kmFromStart": 341.8,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152611175"
+        "osmId": "node/3152611175",
+        "nameLocalized": {
+          "ja": "関ノ戸"
+        }
       }
     },
     {
@@ -19936,7 +21850,10 @@
         "kmFromStart": 341.2,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152610764"
+        "osmId": "node/3152610764",
+        "nameLocalized": {
+          "ja": "道面"
+        }
       }
     },
     {
@@ -20006,7 +21923,10 @@
         "kmFromStart": 342.9,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152610448"
+        "osmId": "node/3152610448",
+        "nameLocalized": {
+          "ja": "道ノ下"
+        }
       }
     },
     {
@@ -20028,7 +21948,10 @@
         "kmFromStart": 343.7,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152603231"
+        "osmId": "node/3152603231",
+        "nameLocalized": {
+          "ja": "上野"
+        }
       }
     },
     {
@@ -20072,7 +21995,10 @@
         "kmFromStart": 344.8,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152611244"
+        "osmId": "node/3152611244",
+        "nameLocalized": {
+          "ja": "馬渡"
+        }
       }
     },
     {
@@ -20094,7 +22020,10 @@
         "kmFromStart": 346.3,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152607297"
+        "osmId": "node/3152607297",
+        "nameLocalized": {
+          "ja": "木之川橋"
+        }
       }
     },
     {
@@ -20116,7 +22045,10 @@
         "kmFromStart": 347.4,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152610030"
+        "osmId": "node/3152610030",
+        "nameLocalized": {
+          "ja": "西土居"
+        }
       }
     },
     {
@@ -20138,7 +22070,10 @@
         "kmFromStart": 347.6,
         "icon": "pharmacy",
         "source": "osm",
-        "osmId": "node/4070895406"
+        "osmId": "node/4070895406",
+        "nameLocalized": {
+          "ja": "マック土居店"
+        }
       }
     },
     {
@@ -20160,7 +22095,10 @@
         "kmFromStart": 347.7,
         "icon": "cafe",
         "source": "osm",
-        "osmId": "node/4070893603"
+        "osmId": "node/4070893603",
+        "nameLocalized": {
+          "ja": "リーサ"
+        }
       }
     },
     {
@@ -20207,7 +22145,10 @@
         "kmFromStart": 347.9,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152604007"
+        "osmId": "node/3152604007",
+        "nameLocalized": {
+          "ja": "入野"
+        }
       }
     },
     {
@@ -20229,7 +22170,10 @@
         "kmFromStart": 348,
         "icon": "hospital",
         "source": "osm",
-        "osmId": "node/1423734589"
+        "osmId": "node/1423734589",
+        "nameLocalized": {
+          "ja": "松風病院"
+        }
       }
     },
     {
@@ -20251,7 +22195,10 @@
         "kmFromStart": 348.6,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152603045"
+        "osmId": "node/3152603045",
+        "nameLocalized": {
+          "ja": "コープ土居前"
+        }
       }
     },
     {
@@ -20294,7 +22241,8 @@
         "routeId": "shikoku-88-iyo",
         "name": "ローソン",
         "nameLocalized": {
-          "ko": "로손"
+          "ko": "로손",
+          "ja": "ローソン"
         },
         "type": "supply",
         "subtype": "convenience_store",
@@ -20324,7 +22272,10 @@
         "kmFromStart": 348.9,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152604872"
+        "osmId": "node/3152604872",
+        "nameLocalized": {
+          "ja": "土居"
+        }
       }
     },
     {
@@ -20346,7 +22297,10 @@
         "kmFromStart": 349.3,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152606277"
+        "osmId": "node/3152606277",
+        "nameLocalized": {
+          "ja": "小林"
+        }
       }
     },
     {
@@ -20368,7 +22322,10 @@
         "kmFromStart": 350,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152607498"
+        "osmId": "node/3152607498",
+        "nameLocalized": {
+          "ja": "根々見"
+        }
       }
     },
     {
@@ -20416,7 +22373,10 @@
         "kmFromStart": 350.7,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152610034"
+        "osmId": "node/3152610034",
+        "nameLocalized": {
+          "ja": "西大道"
+        }
       }
     },
     {
@@ -20438,7 +22398,10 @@
         "kmFromStart": 351.4,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152610409"
+        "osmId": "node/3152610409",
+        "nameLocalized": {
+          "ja": "赤星駅前"
+        }
       }
     },
     {
@@ -20460,7 +22423,10 @@
         "kmFromStart": 351.8,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152607385"
+        "osmId": "node/3152607385",
+        "nameLocalized": {
+          "ja": "東津根"
+        }
       }
     },
     {
@@ -20482,7 +22448,10 @@
         "kmFromStart": 352.5,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152610803"
+        "osmId": "node/3152610803",
+        "nameLocalized": {
+          "ja": "野田"
+        }
       }
     },
     {
@@ -20504,7 +22473,10 @@
         "kmFromStart": 352.6,
         "icon": "hotel",
         "source": "osm",
-        "osmId": "node/12948927058"
+        "osmId": "node/12948927058",
+        "nameLocalized": {
+          "ja": "HOTEL AZ 愛媛土居インター店"
+        }
       }
     },
     {
@@ -20551,7 +22523,10 @@
         "kmFromStart": 353.4,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152606491"
+        "osmId": "node/3152606491",
+        "nameLocalized": {
+          "ja": "川西"
+        }
       }
     },
     {
@@ -20573,7 +22548,10 @@
         "kmFromStart": 353.8,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152610402"
+        "osmId": "node/3152610402",
+        "nameLocalized": {
+          "ja": "豊田"
+        }
       }
     },
     {
@@ -20595,7 +22573,10 @@
         "kmFromStart": 354.3,
         "icon": "restaurant",
         "source": "osm",
-        "osmId": "node/4070947874"
+        "osmId": "node/4070947874",
+        "nameLocalized": {
+          "ja": "手打ちうどんロケット"
+        }
       }
     },
     {
@@ -20617,7 +22598,10 @@
         "kmFromStart": 354.8,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152605177"
+        "osmId": "node/3152605177",
+        "nameLocalized": {
+          "ja": "大町"
+        }
       }
     },
     {
@@ -20661,7 +22645,10 @@
         "kmFromStart": 355.4,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152605848"
+        "osmId": "node/3152605848",
+        "nameLocalized": {
+          "ja": "寒川駅前"
+        }
       }
     },
     {
@@ -20709,7 +22696,10 @@
         "kmFromStart": 355.9,
         "icon": "convenience_store",
         "source": "osm",
-        "osmId": "node/704203108"
+        "osmId": "node/704203108",
+        "nameLocalized": {
+          "ja": "FamilyMart 寒川西店"
+        }
       }
     },
     {
@@ -20753,7 +22743,10 @@
         "kmFromStart": 356.2,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152610054"
+        "osmId": "node/3152610054",
+        "nameLocalized": {
+          "ja": "西浜"
+        }
       }
     },
     {
@@ -20801,7 +22794,10 @@
         "kmFromStart": 358.7,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/3152607737"
+        "osmId": "node/3152607737",
+        "nameLocalized": {
+          "ja": "池之下"
+        }
       }
     },
     {

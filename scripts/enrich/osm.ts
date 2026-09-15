@@ -208,13 +208,23 @@ export function extractName(tags: Record<string, string>): string {
   return resolveName(tags) ?? "Unnamed";
 }
 
+/** BCP-47 shapes only: `ja`, `zh-Hans`, `pt-BR`. Not `ja_rm`, not `signed`. */
+const LANGUAGE_KEY = /^name:([a-z]{2,3}(?:-[A-Za-z0-9]{2,8})*)$/;
+
+const CJK = /[぀-ヿ㐀-䶿一-鿿]/;
+
 export function extractNameLocalized(tags: Record<string, string>): Record<string, string> | undefined {
   const localized: Record<string, string> = {};
   for (const [key, value] of Object.entries(tags)) {
-    const match = key.match(/^name:(\w+)$/);
+    const match = key.match(LANGUAGE_KEY);
     if (match && match[1] !== "en") {
       localized[match[1]] = value;
     }
+  }
+  // In Japan the Japanese name is the bare `name`, and an English name:en
+  // beside it meant the Japanese was discarded entirely.
+  if (!localized.ja && tags.name && CJK.test(tags.name)) {
+    localized.ja = tags.name;
   }
   return Object.keys(localized).length > 0 ? localized : undefined;
 }
