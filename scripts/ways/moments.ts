@@ -254,8 +254,8 @@ export function buildMoments(input: MomentInput): MomentResult {
   const dropped: string[] = [];
   const beyondEndIds = new Set<string>();
 
-  let startHasTown = false;
-  let endHasTown = false;
+  let startHasPlace = false;
+  let endHasPlace = false;
 
   for (const feature of waypoints) {
     const properties = feature.properties;
@@ -274,10 +274,11 @@ export function buildMoments(input: MomentInput): MomentResult {
       continue;
     }
 
-    if (properties.type === "town") {
-      if (nearStart) startHasTown = true;
-      if (nearEnd) endHasTown = true;
-    }
+    // Any real place standing where the anchor would stand replaces it. This
+    // used to require `type === "town"`, which is why Shikoku — whose days end
+    // at temples — shipped 17 pairs of pins at zero metres apart.
+    if (nearStart) startHasPlace = true;
+    if (nearEnd) endHasPlace = true;
 
     // The Camino's ids are already `wp-sjpp`; Shikoku's are `temple-12`. Both
     // conventions are already fit to be a moment id, so the raw id is used
@@ -312,8 +313,8 @@ export function buildMoments(input: MomentInput): MomentResult {
     if (!nearStart && !nearEnd) beyondEndIds.add(id);
   }
 
-  if (!startHasTown) moments.push(placeMoment("stage-start", start, line, cumulative));
-  if (!endHasTown) moments.push(placeMoment("stage-end", end, line, cumulative));
+  if (!startHasPlace) moments.push(placeMoment("stage-start", start, line, cumulative));
+  if (!endHasPlace) moments.push(placeMoment("stage-end", end, line, cumulative));
 
   moments.sort((a, b) => a.frac - b.frac || (a.id < b.id ? -1 : a.id > b.id ? 1 : 0));
 

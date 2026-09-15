@@ -188,6 +188,24 @@ test("a start place with a town waypoint on it does not get a second, synthesize
   assert.equal(result.moments.filter((m) => m.id === "stage-start").length, 0);
 });
 
+test("a stage that ends at a temple gets one pin, not two", () => {
+  const end: Position = [133.80, 34.22];
+  const result = buildMoments({
+    line: [[133.78, 34.22], [133.80, 34.22]],
+    cumulative: [0, 184],
+    waypoints: [{
+      id: "temple-88",
+      geometry: { type: "Point", coordinates: end },
+      properties: { type: "sacred_site", subtype: "temple", name: "Ōkubo-ji", templeNumber: 88 },
+    }],
+    start: { name: "A", at: [133.78, 34.22] },
+    end: { name: "Ōkubo-ji", at: end },
+    section: { line: [[133.78, 34.22], [133.80, 34.22]], cumulative: [0, 184], stageIndex: 0, fromMeters: 0, toMeters: 184 },
+  });
+  assert.equal(result.moments.filter((m) => m.id === "stage-end").length, 0);
+  assert.ok(result.moments.some((m) => m.id === "temple-88"));
+});
+
 test("a moment carries text, local names, sit minutes, and a pin off the line", () => {
   const { line, cumulative } = stageSlice(10, 30);
   const result = buildMoments({
