@@ -31,15 +31,26 @@ function stageSlice(from: number, to: number): { line: Position[]; cumulative: n
   return { line, cumulative: cumulativeMeters(line) };
 }
 
-/** The whole fixture route, and the vertices of it one stage walks. */
+/**
+ * The whole fixture route, and the vertices of it one stage walks. The fixture
+ * carries no `source` on any waypoint, so every one of its sacred sites is
+ * curated — which is what these contexts say.
+ */
 function sectionAt(from: number, to: number, stageIndex: number): SectionContext {
   const line = walkedLine(loadJson("route.main.geojson"));
   const cumulative = cumulativeMeters(line);
-  return { line, cumulative, stageIndex, fromMeters: cumulative[from], toMeters: cumulative[to] };
+  return {
+    line,
+    cumulative,
+    stageIndex,
+    fromMeters: cumulative[from],
+    toMeters: cumulative[to],
+    hasCuratedSacredSites: true,
+  };
 }
 
 /** A synthetic line that is the whole section and the whole stage at once. */
-function wholeLineIsTheStage(line: Position[]): SectionContext {
+function wholeLineIsTheStage(line: Position[], hasCuratedSacredSites = true): SectionContext {
   const cumulative = cumulativeMeters(line);
   return {
     line,
@@ -47,6 +58,7 @@ function wholeLineIsTheStage(line: Position[]): SectionContext {
     stageIndex: 0,
     fromMeters: 0,
     toMeters: cumulative[cumulative.length - 1],
+    hasCuratedSacredSites,
   };
 }
 
@@ -93,27 +105,63 @@ test("iconFor gives any stamp-bearing waypoint the seal, whatever its type", () 
 });
 
 test("a fudasho is always drawn", () => {
-  assert.equal(isNotableSacredSite({ type: "sacred_site", templeNumber: 12 }), true);
+  assert.equal(isNotableSacredSite({ type: "sacred_site", source: "osm", templeNumber: 12 }, true), true);
 });
 
 test("a bangai is always drawn", () => {
-  assert.equal(isNotableSacredSite({ type: "sacred_site", bangaiNumber: 3 }), true);
+  assert.equal(isNotableSacredSite({ type: "sacred_site", source: "osm", bangaiNumber: 3 }, true), true);
 });
 
-test("a shrine somebody named twice is drawn", () => {
+/**
+ * Provenance is the first question, and it is asked before any name. The
+ * Kumano oji carry nothing but a Japanese name; they are the whole reason the
+ * Nakahechi is walked, and a rule that read names alone cut all eighteen.
+ */
+test("a curated site is drawn however thinly it is named", () => {
+  assert.equal(isNotableSacredSite({ type: "sacred_site", source: "curated" }, true), true);
+  assert.equal(isNotableSacredSite({ type: "sacred_site", nameLocalized: { ja: "滝尻王子" } }, true), true);
+});
+
+test("a swept shrine named in a second language is drawn", () => {
   assert.equal(
-    isNotableSacredSite({ type: "sacred_site", subtype: "church", nameLocalized: { ja: "椙尾神社" } }),
+    isNotableSacredSite(
+      { type: "sacred_site", source: "osm", subtype: "church", nameLocalized: { ja: "椙尾神社", en: "Sugio Shrine" } },
+      true,
+    ),
     true,
   );
 });
 
-test("a shrine nobody named twice is not drawn", () => {
-  assert.equal(isNotableSacredSite({ type: "sacred_site", subtype: "church" }), false);
+/**
+ * `ja` is backfilled from the bare `name` tag of every Japanese place, so its
+ * presence records nobody's trouble. Counting keys would keep 186 of Shikoku's
+ * 210 shrines; counting keys that are not `ja` keeps the five that earned it.
+ */
+test("a swept shrine named only in Japanese is not drawn beside curated sites", () => {
+  assert.equal(
+    isNotableSacredSite({ type: "sacred_site", source: "osm", subtype: "church", nameLocalized: { ja: "祠" } }, true),
+    false,
+  );
+  assert.equal(isNotableSacredSite({ type: "sacred_site", source: "osm", subtype: "church" }, true), false);
+});
+
+/**
+ * Camino Norte's 68 chapels and the Kohechi's 5 are the whole of what those
+ * sections have. Nothing curated stands beside them for them to compete with,
+ * so the cut has nothing to protect and does not fire.
+ */
+test("the same shrine is drawn when its section curates nothing", () => {
+  assert.equal(
+    isNotableSacredSite({ type: "sacred_site", source: "osm", subtype: "church", nameLocalized: { ja: "祠" } }, false),
+    true,
+  );
+  assert.equal(isNotableSacredSite({ type: "sacred_site", source: "osm", subtype: "church" }, false), true);
 });
 
 test("the rule only judges sacred sites", () => {
-  assert.equal(isNotableSacredSite({ type: "town" }), true);
-  assert.equal(isNotableSacredSite({ type: "viewpoint" }), true);
+  assert.equal(isNotableSacredSite({ type: "town", source: "osm" }, true), true);
+  assert.equal(isNotableSacredSite({ type: "viewpoint", source: "osm" }, true), true);
+  assert.equal(isNotableSacredSite({ type: "cultural_site", source: "osm" }, false), true);
 });
 
 test("composedText builds a line from a temple's structured fields", () => {
@@ -225,7 +273,7 @@ test("a stage that ends at a temple gets one pin, not two", () => {
     }],
     start: { name: "A", at: [133.78, 34.22] },
     end: { name: "Ōkubo-ji", at: end },
-    section: { line: [[133.78, 34.22], [133.80, 34.22]], cumulative: [0, 184], stageIndex: 0, fromMeters: 0, toMeters: 184 },
+    section: wholeLineIsTheStage([[133.78, 34.22], [133.80, 34.22]]),
   });
   assert.equal(result.moments.filter((m) => m.id === "stage-end").length, 0);
   assert.ok(result.moments.some((m) => m.id === "temple-88"));
@@ -284,7 +332,7 @@ test("a temple with a description keeps its number and its school", () => {
     waypoints: [feature],
     start: { name: "A", at: [133.78, 34.22] },
     end: { name: "B", at: [133.80, 34.22] },
-    section: { line: [[133.78, 34.22], [133.80, 34.22]], cumulative: [0, 184], stageIndex: 0, fromMeters: 0, toMeters: 184 },
+    section: wholeLineIsTheStage([[133.78, 34.22], [133.80, 34.22]]),
   });
   const temple = result.moments.find((m) => m.id === "temple-75");
   assert.equal(temple?.text, "Temple 75 · Shingon · stamp available (¥500) · Kūkai was born here");
@@ -310,14 +358,21 @@ test("a waypoint more than 300 m off the line is dropped and named in the warnin
  * The cut is a decision, not a fault, so it leaves no warning behind — and an
  * undrawn shrine standing on the stage's end must not take the anchor with it.
  */
-test("an unnamed shrine on the route is left out silently and does not swallow the end anchor", () => {
+test("a swept shrine named only in Japanese is left out silently and does not swallow the end anchor", () => {
   const end: Position = [133.80, 34.22];
   const line: Position[] = [[133.78, 34.22], end];
   const shrine: WaypointFeature = {
     id: "wp-unnamed-shrine",
     type: "Feature",
     geometry: { type: "Point", coordinates: end },
-    properties: { routeId: "shikoku-88-iyo", name: "祠", type: "sacred_site", stageIndex: 0 },
+    properties: {
+      routeId: "shikoku-88-iyo",
+      name: "祠",
+      nameLocalized: { ja: "祠" },
+      source: "osm",
+      type: "sacred_site",
+      stageIndex: 0,
+    },
   };
   const result = buildMoments({
     line,
@@ -331,6 +386,35 @@ test("an unnamed shrine on the route is left out silently and does not swallow t
   assert.equal(result.moments.some((m) => m.id === "wp-unnamed-shrine"), false);
   assert.deepEqual(result.dropped, []);
   assert.equal(result.moments.some((m) => m.id === "stage-end"), true);
+});
+
+/** The same shrine, in a section with nothing curated to bury it. */
+test("that shrine is drawn, and takes the end anchor, where its section curates nothing", () => {
+  const end: Position = [133.80, 34.22];
+  const line: Position[] = [[133.78, 34.22], end];
+  const shrine: WaypointFeature = {
+    id: "wp-unnamed-shrine",
+    type: "Feature",
+    geometry: { type: "Point", coordinates: end },
+    properties: {
+      routeId: "camino-norte",
+      name: "Ermita",
+      source: "osm",
+      type: "sacred_site",
+      stageIndex: 0,
+    },
+  };
+  const result = buildMoments({
+    line,
+    cumulative: cumulativeMeters(line),
+    waypoints: [shrine],
+    start: { name: "A", at: line[0] },
+    end: { name: "B", at: end },
+    section: wholeLineIsTheStage(line, false),
+  });
+
+  assert.equal(result.moments.some((m) => m.id === "wp-unnamed-shrine"), true);
+  assert.equal(result.moments.some((m) => m.id === "stage-end"), false);
 });
 
 /**

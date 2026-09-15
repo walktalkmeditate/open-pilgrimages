@@ -5,6 +5,8 @@ import { cap, nonEnglishNames } from "./text.js";
 export interface WaypointProperties {
   routeId?: string;
   type: string;
+  /** Who put this place here. `"osm"` is the sweep; anything else is curated. */
+  source?: string;
   name?: string;
   nameLocalized?: Record<string, string>;
   description?: string;
@@ -35,9 +37,10 @@ export interface StagePlace {
 }
 
 /**
- * The section's whole walked line, and the stretch of it the stage these
- * waypoints were filed onto actually walks. Read only when a waypoint is
- * dropped — see dropReason for what it distinguishes.
+ * The section's whole walked line, the stretch of it the stage these waypoints
+ * were filed onto actually walks, and the one fact about the section that
+ * decides which of its sacred sites are drawn — see dropReason for what the
+ * line distinguishes, isNotableSacredSite for what the flag decides.
  */
 export interface SectionContext {
   line: Position[];
@@ -46,6 +49,12 @@ export interface SectionContext {
   /** Where this stage begins and ends along the section line, in metres. */
   fromMeters: number;
   toMeters: number;
+  /**
+   * Whether any sacred site anywhere in this section came from somewhere other
+   * than the OSM sweep. A stage's own waypoints cannot answer this: the
+   * question is about the section, so the answer has to be carried in.
+   */
+  hasCuratedSacredSites: boolean;
 }
 
 export interface MomentInput {
@@ -103,21 +112,37 @@ export function iconFor(properties: WaypointProperties): string {
 }
 
 /**
- * Which sacred sites a walker sees. Every fudasho and every bangai, always —
- * they are the route's structure, not places of interest. Beyond them, a
- * shrine is drawn when OSM gave it a name in a second language: somebody took
- * the trouble, which is a recorded judgement rather than our taste. Measured
- * on the shipped data that is all 88 fudasho and 42 of 210 shrines, which puts
- * Shikoku at 3.8 sacred moments a stage against a corpus range of 2.4–6.1.
+ * Which sacred sites a walker sees. Where the dataset has curated the places
+ * that matter, an OSM sweep has to earn its place beside them; where it has
+ * not, the sweep is all there is.
  *
- * Nothing is deleted: the 168 that go stay in waypoints.geojson, and this
+ * So: a curated site is always drawn, and so is anything numbered — the
+ * fudasho and the bangai are the route's structure, not places of interest.
+ * A section whose sacred sites are *all* the OSM sweep draws the whole sweep,
+ * because cutting it would leave that section nothing. Only where curated
+ * sites already stand does a swept shrine have to show something for itself,
+ * and what it has to show is a name in a language beyond the local one.
+ *
+ * Both halves are load-bearing. An earlier rule read `nameLocalized` alone,
+ * corpus-wide, and it cut 66 of Camino Norte's 68 chapels and all 18 of Kumano
+ * Nakahechi's oji — the oji being the entire reason that route is walked. And
+ * the `ja` key stopped signalling anything the moment the enricher began
+ * backfilling it from the bare `name` tag of every Japanese place, so a rule
+ * that counted keys would now keep 186 of Shikoku's 210 shrines.
+ *
+ * Nothing is deleted: what is not drawn stays in waypoints.geojson, and this
  * decision can be reversed by editing this function alone.
  */
-export function isNotableSacredSite(properties: WaypointProperties): boolean {
+export function isNotableSacredSite(
+  properties: WaypointProperties,
+  hasCuratedSacredSites: boolean,
+): boolean {
   if (properties.type !== "sacred_site") return true;
+  if (properties.source !== "osm") return true;
   if (typeof properties.templeNumber === "number") return true;
   if (typeof properties.bangaiNumber === "number") return true;
-  return Boolean(properties.nameLocalized && Object.keys(properties.nameLocalized).length > 0);
+  if (!hasCuratedSacredSites) return true;
+  return Object.keys(properties.nameLocalized ?? {}).some((language) => language !== "ja");
 }
 
 function feeText(fee: WaypointProperties["stampFee"]): string {
@@ -280,7 +305,7 @@ export function buildMoments(input: MomentInput): MomentResult {
     if (!MOMENT_TYPES.includes(properties.type)) continue;
     // Before anything else: a place this rule cuts is not drawn, not reported
     // as dropped, and does not stand in for the stage's own anchor.
-    if (!isNotableSacredSite(properties)) continue;
+    if (!isNotableSacredSite(properties, section.hasCuratedSacredSites)) continue;
 
     const rawId = feature.id;
     if (!rawId) continue;
