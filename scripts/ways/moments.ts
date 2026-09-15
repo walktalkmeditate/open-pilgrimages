@@ -15,6 +15,10 @@ export interface WaypointProperties {
   denomination?: string;
   credentialStamp?: boolean;
   stampFee?: { currency?: string; amount?: number };
+  subtype?: string;
+  elevation?: number;
+  hours?: string;
+  bangaiNumber?: number;
 }
 
 export interface WaypointFeature {
@@ -108,11 +112,41 @@ function feeText(fee: WaypointProperties["stampFee"]): string {
  * The line a card shows when the dataset gave a place no description. Built
  * only from fields that are already facts about the place, never invented.
  */
+const SUBTYPE_WORDS: Record<string, string> = {
+  temple: "Temple",
+  church: "Church",
+  wayside_shrine: "Wayside shrine",
+  monastery: "Monastery",
+  village: "Village",
+  town: "Town",
+  city: "City",
+  hamlet: "Hamlet",
+  viewpoint: "Viewpoint",
+  museum: "Museum",
+  ruins: "Ruins",
+  castle: "Castle",
+  spring: "Spring",
+  fountain: "Fountain",
+};
+
+/** `wayside_shrine` → `Wayside shrine`, for a subtype the table has not met. */
+function subtypeWord(subtype: string): string {
+  const spaced = subtype.replace(/_/g, " ");
+  return spaced.charAt(0).toUpperCase() + spaced.slice(1);
+}
+
 export function composedText(properties: WaypointProperties): string | undefined {
   const parts: string[] = [];
 
   if (typeof properties.templeNumber === "number") {
     parts.push(`Temple ${properties.templeNumber}`);
+  } else if (typeof properties.bangaiNumber === "number") {
+    parts.push(`Bangai ${properties.bangaiNumber}`);
+  } else if (properties.subtype) {
+    // A numbered temple is named by its number; everything else is named by
+    // what it is. Without this branch a place that is not a fudasho gets no
+    // line at all, which is the whole of Camino Norte's 0%.
+    parts.push(SUBTYPE_WORDS[properties.subtype] ?? subtypeWord(properties.subtype));
   }
 
   const school =
@@ -122,9 +156,16 @@ export function composedText(properties: WaypointProperties): string | undefined
       : undefined);
   if (school) parts.push(school);
 
+  if (typeof properties.elevation === "number") {
+    parts.push(`${Math.round(properties.elevation)} m`);
+  }
+
   if (properties.credentialStamp === true) {
     parts.push(`stamp available${feeText(properties.stampFee)}`);
   }
+
+  const hours = cap(properties.hours, 80);
+  if (hours) parts.push(hours);
 
   return parts.length > 0 ? parts.join(" · ") : undefined;
 }

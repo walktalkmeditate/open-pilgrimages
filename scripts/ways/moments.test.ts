@@ -125,6 +125,35 @@ test("composedText says only what it knows", () => {
   assert.equal(composedText({ type: "cultural_site" }), undefined);
 });
 
+test("a viewpoint carries its height", () => {
+  assert.equal(
+    composedText({ type: "viewpoint", subtype: "viewpoint", elevation: 320 }),
+    "Viewpoint · 320 m",
+  );
+});
+
+test("a town reads as its kind", () => {
+  assert.equal(composedText({ type: "town", subtype: "village" }), "Village");
+});
+
+test("a shrine that is not a fudasho still says what it is", () => {
+  assert.equal(composedText({ type: "sacred_site", subtype: "wayside_shrine" }), "Wayside shrine");
+});
+
+test("hours are appended when the dataset has them", () => {
+  assert.equal(
+    composedText({ type: "cultural_site", subtype: "museum", hours: "09:00-17:00" }),
+    "Museum · 09:00-17:00",
+  );
+});
+
+test("a temple's line is unchanged by the new branches", () => {
+  assert.equal(
+    composedText({ type: "sacred_site", subtype: "temple", templeNumber: 1, denomination: "Shingon" }),
+    "Temple 1 · Shingon",
+  );
+});
+
 test("stage 0's moments are the town, the shrine, the museum, and a synthesized end", () => {
   const { line, cumulative } = stageSlice(0, 10);
   const result = buildMoments({
