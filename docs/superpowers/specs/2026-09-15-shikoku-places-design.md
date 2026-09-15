@@ -49,24 +49,35 @@ It also means **the cut moves no waypoint count**. `check-site` reads those tota
 
 ### 3.2 Which sacred sites become moments
 
-A sacred site is promoted when any of these holds:
+A sacred site is drawn when any of these holds:
 
-- it carries `templeNumber` — the 88 fudasho, always, without exception;
-- it carries `bangaiNumber` — the three bangai of §3.4;
-- OSM gave it a name in more than one language, i.e. `nameLocalized` is present.
+- it is **curated** — `source` is anything but `"osm"`. That is precisely the dataset's own judgement: the 88 fudasho, the Kumano oji, the Francés' nine.
+- it carries `templeNumber` or `bangaiNumber`.
+- **its section has no curated sacred sites at all** — then the OSM sweep is all that section has, and all of it is drawn.
+- otherwise, OSM named it in a language beyond the local one, i.e. `nameLocalized` holds a key other than `ja`.
 
 Everything else stays in `waypoints.geojson` and is not drawn.
 
-The third clause is the whole of the cut, and it is a recorded judgement rather than our taste: somebody in the mapping community took the trouble to write this place's name in a second language. Measured against the shipped data it is exactly the right sieve — all 88 fudasho carry `nameLocalized`, and of the 210 ordinary shrines only **42** do (40 `church`, 2 `wayside_shrine`). The 168 that go are the ones nobody has named twice.
+**The third clause is what keeps this from damaging routes it was never about.** An earlier draft of this rule read `nameLocalized` alone, corpus-wide, and measured it at 42 of 210 — a number taken *before* §3.5's Japanese-name repair. Two things were wrong with it. The repair backfills `ja` from the bare `name` for every Japanese place, so that key stops being a signal of anyone taking trouble and 186 of 210 shrines would have survived. And applied corpus-wide it cut 66 of Camino Norte's 68 chapels and, on the variant that fixed Shikoku, **all 18 of Kumano Nakahechi's sacred sites** — the oji, which are the whole point of that route.
 
-| | sacred moments | per stage |
-|---|---|---|
-| today | 298 | 7.5 |
-| under the rule (88 fudasho + 42 named shrines, 3 of them bangai) | 130 | **3.3** |
+Scoping by provenance fixes both. Measured on the committed data:
 
-That lands Shikoku inside the corpus range of 2.4–6.1 without touching a single non-sacred pin.
+| section | sacred sites | drawn | per stage | change |
+|---|---|---|---|---|
+| camino-frances | 9 | 9 | 0.3 | none |
+| camino-norte | 68 | 68 | 2.0 | none |
+| kumano-kodo-kohechi | 5 | 5 | 1.2 | none |
+| kumano-kodo-nakahechi | 18 | 18 | 4.5 | none |
+| shikoku-88-awa | 51 | 28 | 5.6 | −23 |
+| shikoku-88-iyo | 151 | 26 | 1.9 | −125 |
+| shikoku-88-sanuki | 54 | 23 | 3.8 | −31 |
+| shikoku-88-tosa | 42 | 16 | 1.1 | −26 |
 
-**The rule needs nothing the data does not already carry.** `wikidata` and `heritage` would be the stronger signals, but the Overpass cache holds 21 places of worship across all seven routes and no `heritage` tag at all, so reading them would mean a live re-fetch — and OSM has moved since April, so that re-fetch would silently add and drop places in a diff meant to be about text. `nameLocalized` is already in every section's `waypoints.geojson`. No network, no drift, no enricher change for this rule.
+Only the four sections with the burying problem move. The principle is sayable in one line: **where the dataset has curated the places that matter, an OSM sweep has to earn its place beside them; where it has not, the sweep is all there is.**
+
+**An honest consequence.** Beyond the fudasho and the three bangai, exactly **five** OSM shrines survive, all in Awa. The intent was to keep the shrines carrying real detail, but Shikoku's OSM shrines carry almost none — no `heritage` tag anywhere in the corridor, no `denomination`, and only five named in any language beyond Japanese. The rule keeps what there is to keep. It is not a stricter rule than intended; it is a thinner dataset than hoped.
+
+**The rule needs nothing the data does not already carry.** `wikidata` and `heritage` would be stronger signals, but the Overpass cache holds 21 places of worship across all seven routes and no `heritage` tag at all, so reading them would mean a live re-fetch — and OSM has moved since April, so that re-fetch would silently add and drop places in a diff meant to be about text. `source` and `nameLocalized` are already in every section's `waypoints.geojson`. No network, no drift, no enricher change for this rule.
 
 ### 3.3 What a moment says
 
