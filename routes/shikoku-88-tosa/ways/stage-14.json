@@ -852,29 +852,12 @@
         "lat": 32.9082148,
         "lon": 132.8479536
       },
+      "text": "Village",
       "names": {
         "id": "Mihara",
         "ja": "三原村",
         "ko": "미하라무라",
         "zh": "三原村"
-      }
-    },
-    {
-      "id": "stage-end",
-      "frac": 1,
-      "kind": "waypoint",
-      "label": "Enkō-ji (Temple 39)",
-      "icon": "house.lodge",
-      "at": {
-        "lat": 32.96117,
-        "lon": 132.774102
-      },
-      "pin": {
-        "lat": 32.961,
-        "lon": 132.774
-      },
-      "names": {
-        "ja": "延光寺"
       }
     },
     {

@@ -1241,7 +1241,8 @@
       "pin": {
         "lat": 43.3906511,
         "lon": -4.108048
-      }
+      },
+      "text": "Village · 70 m"
     },
     {
       "id": "wp-osm-sacred_site-node2308417512",
@@ -1257,6 +1258,7 @@
         "lat": 43.403118,
         "lon": -4.1260154
       },
+      "text": "Church",
       "sitMinutes": 5
     },
     {
@@ -1273,6 +1275,7 @@
         "lat": 43.3954695,
         "lon": -4.1334822
       },
+      "text": "Church",
       "sitMinutes": 5
     },
     {
@@ -1289,6 +1292,7 @@
         "lat": 43.3989781,
         "lon": -4.1565495
       },
+      "text": "Church",
       "sitMinutes": 5
     },
     {
@@ -1305,6 +1309,7 @@
         "lat": 43.3873276,
         "lon": -4.182597
       },
+      "text": "Church",
       "sitMinutes": 5
     },
     {
@@ -1321,6 +1326,7 @@
         "lat": 43.383454,
         "lon": -4.1888754
       },
+      "text": "Church",
       "sitMinutes": 5
     },
     {
@@ -1337,6 +1343,7 @@
         "lat": 43.3818785,
         "lon": -4.2105785
       },
+      "text": "Church",
       "sitMinutes": 5
     },
     {
@@ -1353,6 +1360,7 @@
         "lat": 43.38959,
         "lon": -4.2118047
       },
+      "text": "Church",
       "sitMinutes": 5
     },
     {
@@ -1369,6 +1377,7 @@
         "lat": 43.3945363,
         "lon": -4.2194009
       },
+      "text": "Viewpoint",
       "sitMinutes": 5
     },
     {
@@ -1385,6 +1394,7 @@
         "lat": 43.3914908,
         "lon": -4.23057
       },
+      "text": "Church",
       "sitMinutes": 5
     },
     {
@@ -1401,6 +1411,7 @@
         "lat": 43.3854979,
         "lon": -4.2441233
       },
+      "text": "Church",
       "sitMinutes": 5
     },
     {
@@ -1416,7 +1427,8 @@
       "pin": {
         "lat": 43.380764,
         "lon": -4.2519889
-      }
+      },
+      "text": "Village · 33 m"
     },
     {
       "id": "wp-osm-sacred_site-node2316151464",
@@ -1432,6 +1444,7 @@
         "lat": 43.3779394,
         "lon": -4.2607088
       },
+      "text": "Church",
       "sitMinutes": 5
     },
     {
@@ -1448,6 +1461,7 @@
         "lat": 43.3860769,
         "lon": -4.2662818
       },
+      "text": "Church",
       "sitMinutes": 5
     },
     {
@@ -1464,6 +1478,7 @@
         "lat": 43.3881651,
         "lon": -4.2865634
       },
+      "text": "Viewpoint",
       "sitMinutes": 5
     },
     {

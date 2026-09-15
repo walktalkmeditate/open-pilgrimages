@@ -1257,41 +1257,6 @@
       }
     },
     {
-      "id": "wp-osm-sacred_site-node4434097289",
-      "frac": 0,
-      "kind": "waypoint",
-      "label": "39 Enko-ji",
-      "icon": "building.columns",
-      "at": {
-        "lat": 32.96117,
-        "lon": 132.774102
-      },
-      "pin": {
-        "lat": 32.9613141,
-        "lon": 132.7740727
-      },
-      "names": {
-        "ja": "第39番札所 延光寺"
-      },
-      "sitMinutes": 5
-    },
-    {
-      "id": "wp-osm-sacred_site-node13909337222",
-      "frac": 0.24136894504344167,
-      "kind": "waypoint",
-      "label": "日本キリスト改革派",
-      "icon": "building.columns",
-      "at": {
-        "lat": 32.93820869001838,
-        "lon": 132.72982838090445
-      },
-      "pin": {
-        "lat": 32.9393252,
-        "lon": 132.7294565
-      },
-      "sitMinutes": 5
-    },
-    {
       "id": "wp-osm-town-node691562989",
       "frac": 0.25231472877284017,
       "kind": "waypoint",
@@ -1305,6 +1270,7 @@
         "lat": 32.9390595,
         "lon": 132.7262671
       },
+      "text": "City",
       "names": {
         "ar": "سوكومو، كوتشي",
         "cs": "Sukumo",
@@ -1334,6 +1300,10 @@
         "lat": 32.9434934,
         "lon": 132.6766667
       },
+      "text": "Viewpoint",
+      "names": {
+        "ja": "茶偓跡"
+      },
       "sitMinutes": 5
     },
     {
@@ -1350,6 +1320,7 @@
         "lat": 32.9603698,
         "lon": 132.5624807
       },
+      "text": "Town",
       "names": {
         "fr": "Ainan",
         "id": "Ainan",

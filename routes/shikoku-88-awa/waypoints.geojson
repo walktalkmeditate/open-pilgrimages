@@ -55,7 +55,10 @@
         "kmFromStart": 0.1,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/7759735034"
+        "osmId": "node/7759735034",
+        "nameLocalized": {
+          "ja": "霊山寺前(バスのりば)"
+        }
       }
     },
     {
@@ -206,7 +209,8 @@
         "routeId": "shikoku-88-awa",
         "name": "Konsen-ji",
         "nameLocalized": {
-          "ja": "金泉寺"
+          "ja": "金泉寺",
+          "es": "Konsen-ji #3"
         },
         "type": "sacred_site",
         "subtype": "temple",
@@ -223,32 +227,7 @@
         },
         "tags": [
           "temple"
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "wp-osm-sacred_site-node314747849",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          134.4685024,
-          34.147453
-        ]
-      },
-      "properties": {
-        "routeId": "shikoku-88-awa",
-        "name": "03 Konsen-ji",
-        "nameLocalized": {
-          "es": "Konsen-ji #3",
-          "ja": "第03番札所 金泉寺"
-        },
-        "type": "sacred_site",
-        "subtype": "church",
-        "stageIndex": 0,
-        "kmFromStart": 4,
-        "icon": "church",
-        "source": "osm",
+        ],
         "osmId": "node/314747849"
       }
     },
@@ -365,7 +344,6 @@
         "nameLocalized": {
           "es": "Itano",
           "ja": "板野",
-          "ja_rm": "Itano",
           "ko": "이타노"
         },
         "type": "transport",
@@ -396,7 +374,10 @@
         "kmFromStart": 4.8,
         "icon": "hospital",
         "source": "osm",
-        "osmId": "node/1423654392"
+        "osmId": "node/1423654392",
+        "nameLocalized": {
+          "ja": "十全会井上病院"
+        }
       }
     },
     {
@@ -814,7 +795,10 @@
         "kmFromStart": 19.9,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/5974475593"
+        "osmId": "node/5974475593",
+        "nameLocalized": {
+          "ja": "土成 高速バス停"
+        }
       }
     },
     {
@@ -970,7 +954,10 @@
         "kmFromStart": 24,
         "icon": "cafe",
         "source": "osm",
-        "osmId": "node/13166645601"
+        "osmId": "node/13166645601",
+        "nameLocalized": {
+          "ja": "やきいも亭"
+        }
       }
     },
     {
@@ -992,7 +979,10 @@
         "kmFromStart": 24.1,
         "icon": "church",
         "source": "osm",
-        "osmId": "node/5411354162"
+        "osmId": "node/5411354162",
+        "nameLocalized": {
+          "ja": "椙尾神社"
+        }
       }
     },
     {
@@ -1073,7 +1063,10 @@
         "kmFromStart": 35.3,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/13967883982"
+        "osmId": "node/13967883982",
+        "nameLocalized": {
+          "ja": "鴨島営業所"
+        }
       }
     },
     {
@@ -1100,31 +1093,6 @@
     },
     {
       "type": "Feature",
-      "id": "wp-osm-sacred_site-node302592266",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          134.3485336,
-          34.0516692
-        ]
-      },
-      "properties": {
-        "routeId": "shikoku-88-awa",
-        "name": "11 Fujii-dera",
-        "nameLocalized": {
-          "ja": "第11番札所 藤井寺"
-        },
-        "type": "sacred_site",
-        "subtype": "church",
-        "stageIndex": 1,
-        "kmFromStart": 38.2,
-        "icon": "church",
-        "source": "osm",
-        "osmId": "node/302592266"
-      }
-    },
-    {
-      "type": "Feature",
       "id": "wp-osm-sacred_site-node9623452732",
       "geometry": {
         "type": "Point",
@@ -1142,7 +1110,10 @@
         "kmFromStart": 35.9,
         "icon": "church",
         "source": "osm",
-        "osmId": "node/9623452732"
+        "osmId": "node/9623452732",
+        "nameLocalized": {
+          "ja": "西麻植八幡神社"
+        }
       }
     },
     {
@@ -1198,7 +1169,8 @@
         },
         "tags": [
           "temple"
-        ]
+        ],
+        "osmId": "node/302592266"
       }
     },
     {
@@ -1242,7 +1214,10 @@
         "kmFromStart": 34.3,
         "icon": "hospital",
         "source": "osm",
-        "osmId": "node/12067670312"
+        "osmId": "node/12067670312",
+        "nameLocalized": {
+          "ja": "島野外科内科"
+        }
       }
     },
     {
@@ -1287,7 +1262,10 @@
         "icon": "restaurant",
         "source": "osm",
         "osmId": "node/9442303950",
-        "hours": "Tu-Fr 11:00-19:30; Sa,Su 11:00-20:00"
+        "hours": "Tu-Fr 11:00-19:30; Sa,Su 11:00-20:00",
+        "nameLocalized": {
+          "ja": "手打ちそば川内 橋本 川島店"
+        }
       }
     },
     {
@@ -1332,7 +1310,10 @@
         "icon": "restaurant",
         "source": "osm",
         "osmId": "node/12944059808",
-        "hours": "Mo-Fr,Su[3] off; Sa-Su 10:30-14:00"
+        "hours": "Mo-Fr,Su[3] off; Sa-Su 10:30-14:00",
+        "nameLocalized": {
+          "ja": "吉野川製麺所"
+        }
       }
     },
     {
@@ -1596,7 +1577,10 @@
         "kmFromStart": 66.1,
         "icon": "toilet",
         "source": "osm",
-        "osmId": "node/269109297"
+        "osmId": "node/269109297",
+        "nameLocalized": {
+          "ja": "高瀬公衆便所"
+        }
       }
     },
     {
@@ -1782,7 +1766,8 @@
         "routeId": "shikoku-88-awa",
         "name": "Joraku-ji",
         "nameLocalized": {
-          "ja": "常楽寺"
+          "ja": "常楽寺",
+          "de": "Hachiman Schrein"
         },
         "type": "sacred_site",
         "subtype": "temple",
@@ -1799,7 +1784,8 @@
         },
         "tags": [
           "temple"
-        ]
+        ],
+        "osmId": "node/12373206292"
       }
     },
     {
@@ -1823,6 +1809,7 @@
         "stageIndex": 2,
         "kmFromStart": 73.6,
         "icon": "church",
+        "description": "Not one of the 88 temples, but a shrine. Jigen-ji follows about half a kilometre on.",
         "source": "osm",
         "osmId": "node/12373206418"
       }
@@ -1863,31 +1850,6 @@
     },
     {
       "type": "Feature",
-      "id": "wp-osm-sacred_site-node12373206292",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          134.4761056,
-          34.0509322
-        ]
-      },
-      "properties": {
-        "routeId": "shikoku-88-awa",
-        "name": "Hachiman Shrine",
-        "nameLocalized": {
-          "de": "Hachiman Schrein"
-        },
-        "type": "sacred_site",
-        "subtype": "church",
-        "stageIndex": 2,
-        "kmFromStart": 74,
-        "icon": "church",
-        "source": "osm",
-        "osmId": "node/12373206292"
-      }
-    },
-    {
-      "type": "Feature",
       "id": "wp-osm-sacred_site-node12373206293",
       "geometry": {
         "type": "Point",
@@ -1907,6 +1869,7 @@
         "stageIndex": 2,
         "kmFromStart": 74.1,
         "icon": "church",
+        "description": "Not one of the 88 temples, but a Buddhist temple. Hie Shrine sits about half a kilometre back.",
         "source": "osm",
         "osmId": "node/12373206293"
       }
@@ -2137,7 +2100,8 @@
         },
         "tags": [
           "temple"
-        ]
+        ],
+        "osmId": "node/3386821690"
       }
     },
     {
@@ -2232,7 +2196,10 @@
         "kmFromStart": 77.9,
         "icon": "hospital",
         "source": "osm",
-        "osmId": "node/5931175487"
+        "osmId": "node/5931175487",
+        "nameLocalized": {
+          "ja": "国府クリニック"
+        }
       }
     },
     {
@@ -2254,7 +2221,10 @@
         "kmFromStart": 77.9,
         "icon": "hospital",
         "source": "osm",
-        "osmId": "node/5931175486"
+        "osmId": "node/5931175486",
+        "nameLocalized": {
+          "ja": "たまき青空病院"
+        }
       }
     },
     {
@@ -2371,7 +2341,10 @@
         "kmFromStart": 79.4,
         "icon": "guesthouse",
         "source": "osm",
-        "osmId": "node/11544133273"
+        "osmId": "node/11544133273",
+        "nameLocalized": {
+          "ja": "松本屋 Matsumoto-ya"
+        }
       }
     },
     {
@@ -2393,29 +2366,10 @@
         "kmFromStart": 79.4,
         "icon": "restaurant",
         "source": "osm",
-        "osmId": "node/12397143923"
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "wp-osm-sacred_site-node3386821690",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          134.4858585,
-          34.0851834
-        ]
-      },
-      "properties": {
-        "routeId": "shikoku-88-awa",
-        "name": "八幡神社",
-        "type": "sacred_site",
-        "subtype": "church",
-        "stageIndex": 3,
-        "kmFromStart": 79.6,
-        "icon": "church",
-        "source": "osm",
-        "osmId": "node/3386821690"
+        "osmId": "node/12397143923",
+        "nameLocalized": {
+          "ja": "焼肉 天山閣 国府店"
+        }
       }
     },
     {
@@ -2437,7 +2391,10 @@
         "kmFromStart": 79.9,
         "icon": "cafe",
         "source": "osm",
-        "osmId": "node/12875272992"
+        "osmId": "node/12875272992",
+        "nameLocalized": {
+          "ja": "バースブック珈琲"
+        }
       }
     },
     {
@@ -2484,7 +2441,10 @@
         "kmFromStart": 80.7,
         "icon": "convenience_store",
         "source": "osm",
-        "osmId": "node/5269603899"
+        "osmId": "node/5269603899",
+        "nameLocalized": {
+          "ja": "セブン-イレブン徳島国府バイパス店"
+        }
       }
     },
     {
@@ -2506,7 +2466,10 @@
         "kmFromStart": 81.7,
         "icon": "restaurant",
         "source": "osm",
-        "osmId": "node/6017518485"
+        "osmId": "node/6017518485",
+        "nameLocalized": {
+          "ja": "やま"
+        }
       }
     },
     {
@@ -2528,7 +2491,10 @@
         "kmFromStart": 81.8,
         "icon": "restaurant",
         "source": "osm",
-        "osmId": "node/5978129286"
+        "osmId": "node/5978129286",
+        "nameLocalized": {
+          "ja": "ココイチ"
+        }
       }
     },
     {
@@ -2594,7 +2560,10 @@
         "kmFromStart": 82.2,
         "icon": "hospital",
         "source": "osm",
-        "osmId": "node/1423661480"
+        "osmId": "node/1423661480",
+        "nameLocalized": {
+          "ja": "青香会徳島リハビリテーション病院"
+        }
       }
     },
     {
@@ -2616,7 +2585,10 @@
         "kmFromStart": 82.8,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/4513214853"
+        "osmId": "node/4513214853",
+        "nameLocalized": {
+          "ja": "島田石橋"
+        }
       }
     },
     {
@@ -2638,7 +2610,10 @@
         "kmFromStart": 82.8,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/4513214854"
+        "osmId": "node/4513214854",
+        "nameLocalized": {
+          "ja": "北島田一丁目"
+        }
       }
     },
     {
@@ -2685,7 +2660,10 @@
         "kmFromStart": 83.4,
         "icon": "hospital",
         "source": "osm",
-        "osmId": "node/6092676286"
+        "osmId": "node/6092676286",
+        "nameLocalized": {
+          "ja": "徳島検診センター"
+        }
       }
     },
     {
@@ -2733,7 +2711,10 @@
         "kmFromStart": 83,
         "icon": "pharmacy",
         "source": "osm",
-        "osmId": "node/12080105513"
+        "osmId": "node/12080105513",
+        "nameLocalized": {
+          "ja": "ありす調剤薬局"
+        }
       }
     },
     {
@@ -2781,7 +2762,10 @@
         "icon": "restaurant",
         "source": "osm",
         "osmId": "node/12942346123",
-        "hours": "10:00-22:00"
+        "hours": "10:00-22:00",
+        "nameLocalized": {
+          "ja": "焼きそば専門店 突貫亭"
+        }
       }
     },
     {
@@ -2798,8 +2782,7 @@
         "routeId": "shikoku-88-awa",
         "name": "FamilyMart",
         "nameLocalized": {
-          "ja": "ファミリーマート",
-          "ja_rm": "Famirī Mato"
+          "ja": "ファミリーマート"
         },
         "type": "supply",
         "subtype": "convenience_store",
@@ -2829,7 +2812,10 @@
         "kmFromStart": 84.6,
         "icon": "church",
         "source": "osm",
-        "osmId": "node/3759299802"
+        "osmId": "node/3759299802",
+        "nameLocalized": {
+          "ja": "日本聖公会徳島聖テモテ教会"
+        }
       }
     },
     {
@@ -2851,7 +2837,10 @@
         "kmFromStart": 85.8,
         "icon": "church",
         "source": "osm",
-        "osmId": "node/2093377378"
+        "osmId": "node/2093377378",
+        "nameLocalized": {
+          "ja": "滝薬師"
+        }
       }
     },
     {
@@ -2873,7 +2862,10 @@
         "kmFromStart": 85.7,
         "icon": "church",
         "source": "osm",
-        "osmId": "node/3797659460"
+        "osmId": "node/3797659460",
+        "nameLocalized": {
+          "ja": "お笠大名神"
+        }
       }
     },
     {
@@ -2917,7 +2909,10 @@
         "kmFromStart": 85.6,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/2981248037"
+        "osmId": "node/2981248037",
+        "nameLocalized": {
+          "ja": "南出来島"
+        }
       }
     },
     {
@@ -3078,7 +3073,10 @@
         "kmFromStart": 86.1,
         "icon": "restaurant",
         "source": "osm",
-        "osmId": "node/3761183054"
+        "osmId": "node/3761183054",
+        "nameLocalized": {
+          "ja": "龍鳳飯店"
+        }
       }
     },
     {
@@ -3095,7 +3093,7 @@
         "routeId": "shikoku-88-awa",
         "name": "天神社",
         "nameLocalized": {
-          "ja_rm": "Ten-jinja"
+          "ja": "天神社"
         },
         "type": "sacred_site",
         "subtype": "church",
@@ -3125,7 +3123,10 @@
         "kmFromStart": 86.2,
         "icon": "toilet",
         "source": "osm",
-        "osmId": "node/13938908135"
+        "osmId": "node/13938908135",
+        "nameLocalized": {
+          "ja": "阿波おどり会館1Fトイレ"
+        }
       }
     },
     {
@@ -3191,7 +3192,10 @@
         "kmFromStart": 86.4,
         "icon": "restaurant",
         "source": "osm",
-        "osmId": "node/3757641388"
+        "osmId": "node/3757641388",
+        "nameLocalized": {
+          "ja": "いろりあん"
+        }
       }
     },
     {
@@ -3257,7 +3261,10 @@
         "kmFromStart": 86.5,
         "icon": "restaurant",
         "source": "osm",
-        "osmId": "node/3761222563"
+        "osmId": "node/3761222563",
+        "nameLocalized": {
+          "ja": "ジョワ"
+        }
       }
     },
     {
@@ -3348,7 +3355,10 @@
         "kmFromStart": 86.6,
         "icon": "restaurant",
         "source": "osm",
-        "osmId": "node/3184534941"
+        "osmId": "node/3184534941",
+        "nameLocalized": {
+          "ja": "かんの"
+        }
       }
     },
     {
@@ -3370,7 +3380,10 @@
         "kmFromStart": 86.6,
         "icon": "restaurant",
         "source": "osm",
-        "osmId": "node/3754115479"
+        "osmId": "node/3754115479",
+        "nameLocalized": {
+          "ja": "中華家庭料理 福林"
+        }
       }
     },
     {
@@ -3392,7 +3405,10 @@
         "kmFromStart": 86.6,
         "icon": "restaurant",
         "source": "osm",
-        "osmId": "node/3757622191"
+        "osmId": "node/3757622191",
+        "nameLocalized": {
+          "ja": "ちどり"
+        }
       }
     },
     {
@@ -3414,7 +3430,10 @@
         "kmFromStart": 86.6,
         "icon": "church",
         "source": "osm",
-        "osmId": "node/3790298938"
+        "osmId": "node/3790298938",
+        "nameLocalized": {
+          "ja": "井利大明神"
+        }
       }
     },
     {
@@ -3483,7 +3502,10 @@
         "kmFromStart": 86.6,
         "icon": "bus_stop",
         "source": "osm",
-        "osmId": "node/2982748633"
+        "osmId": "node/2982748633",
+        "nameLocalized": {
+          "ja": "仲之町一丁目"
+        }
       }
     },
     {
@@ -3530,7 +3552,10 @@
         "kmFromStart": 86.7,
         "icon": "church",
         "source": "osm",
-        "osmId": "node/3791825163"
+        "osmId": "node/3791825163",
+        "nameLocalized": {
+          "ja": "お芳大明神"
+        }
       }
     },
     {
@@ -3574,7 +3599,10 @@
         "kmFromStart": 86.9,
         "icon": "hospital",
         "source": "osm",
-        "osmId": "node/1423659797"
+        "osmId": "node/1423659797",
+        "nameLocalized": {
+          "ja": "燈来会大久保病院"
+        }
       }
     },
     {
@@ -3647,7 +3675,10 @@
         "kmFromStart": 87,
         "icon": "hospital",
         "source": "osm",
-        "osmId": "node/1423658224"
+        "osmId": "node/1423658224",
+        "nameLocalized": {
+          "ja": "徳島逓信病院"
+        }
       }
     },
     {
@@ -3691,7 +3722,10 @@
         "kmFromStart": 87.3,
         "icon": "restaurant",
         "source": "osm",
-        "osmId": "node/13710645943"
+        "osmId": "node/13710645943",
+        "nameLocalized": {
+          "ja": "二〓麺"
+        }
       }
     },
     {
@@ -3739,7 +3773,10 @@
         "icon": "hospital",
         "source": "osm",
         "osmId": "node/1423661472",
-        "hours": "Mo-Fr 09:00-17:30; Sa 09:00-12:00; Su,PH off"
+        "hours": "Mo-Fr 09:00-17:30; Sa 09:00-12:00; Su,PH off",
+        "nameLocalized": {
+          "ja": "雙立会碩心館病院"
+        }
       }
     },
     {
@@ -3761,7 +3798,10 @@
         "kmFromStart": 93.5,
         "icon": "pharmacy",
         "source": "osm",
-        "osmId": "node/12064038554"
+        "osmId": "node/12064038554",
+        "nameLocalized": {
+          "ja": "ツヅキ調剤薬局"
+        }
       }
     },
     {
@@ -3783,7 +3823,10 @@
         "kmFromStart": 93.4,
         "icon": "church",
         "source": "osm",
-        "osmId": "node/12064394219"
+        "osmId": "node/12064394219",
+        "nameLocalized": {
+          "ja": "開基神社"
+        }
       }
     },
     {
@@ -3855,7 +3898,10 @@
         "kmFromStart": 93.6,
         "icon": "pharmacy",
         "source": "osm",
-        "osmId": "node/12064394216"
+        "osmId": "node/12064394216",
+        "nameLocalized": {
+          "ja": "あおぞら薬局"
+        }
       }
     },
     {
@@ -3877,7 +3923,10 @@
         "kmFromStart": 93.7,
         "icon": "restaurant",
         "source": "osm",
-        "osmId": "node/12064038557"
+        "osmId": "node/12064038557",
+        "nameLocalized": {
+          "ja": "徳島ラーメン　麺八"
+        }
       }
     },
     {
@@ -3925,7 +3974,10 @@
         "kmFromStart": 94.7,
         "icon": "hospital",
         "source": "osm",
-        "osmId": "node/1423661150"
+        "osmId": "node/1423661150",
+        "nameLocalized": {
+          "ja": "道志社小松島病院"
+        }
       }
     },
     {
@@ -3947,7 +3999,10 @@
         "kmFromStart": 94.7,
         "icon": "restaurant",
         "source": "osm",
-        "osmId": "node/12064394228"
+        "osmId": "node/12064394228",
+        "nameLocalized": {
+          "ja": "小松島食堂"
+        }
       }
     },
     {
@@ -3970,7 +4025,10 @@
         "icon": "convenience_store",
         "source": "osm",
         "osmId": "node/298308513",
-        "hours": "24/7"
+        "hours": "24/7",
+        "nameLocalized": {
+          "ja": "セブンイレブン 日開野店"
+        }
       }
     },
     {
@@ -4175,7 +4233,6 @@
         "name": "Lawson",
         "nameLocalized": {
           "ja": "ローソン",
-          "ja_rm": "Rōson",
           "ko": "로손"
         },
         "type": "supply",
@@ -4245,8 +4302,7 @@
         "routeId": "shikoku-88-awa",
         "name": "FamilyMart",
         "nameLocalized": {
-          "ja": "ファミリーマート",
-          "ja_rm": "Sankusu"
+          "ja": "ファミリーマート"
         },
         "type": "supply",
         "subtype": "convenience_store",
@@ -4255,31 +4311,6 @@
         "icon": "convenience_store",
         "source": "osm",
         "osmId": "node/415526322"
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "wp-osm-sacred_site-node294058400",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          134.505258,
-          33.9141272
-        ]
-      },
-      "properties": {
-        "routeId": "shikoku-88-awa",
-        "name": "20 Kakurin-ji",
-        "nameLocalized": {
-          "ja": "第20番札所 鶴林寺"
-        },
-        "type": "sacred_site",
-        "subtype": "church",
-        "stageIndex": 3,
-        "kmFromStart": 115,
-        "icon": "church",
-        "source": "osm",
-        "osmId": "node/294058400"
       }
     },
     {
@@ -4315,7 +4346,8 @@
         "tags": [
           "temple",
           "mountain"
-        ]
+        ],
+        "osmId": "node/294058400"
       }
     },
     {
@@ -4338,31 +4370,6 @@
         "icon": "vending_machine",
         "source": "osm",
         "osmId": "node/9420966350"
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "wp-osm-sacred_site-node13478796431",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          134.5217889,
-          33.8825075
-        ]
-      },
-      "properties": {
-        "routeId": "shikoku-88-awa",
-        "name": "21 Tairyu-ji",
-        "nameLocalized": {
-          "ja": "第21番札所 太龍寺"
-        },
-        "type": "sacred_site",
-        "subtype": "church",
-        "stageIndex": 3,
-        "kmFromStart": 120.6,
-        "icon": "church",
-        "source": "osm",
-        "osmId": "node/13478796431"
       }
     },
     {
@@ -4399,7 +4406,8 @@
           "temple",
           "mountain",
           "ropeway"
-        ]
+        ],
+        "osmId": "node/13478796431"
       }
     },
     {
@@ -4421,32 +4429,10 @@
         "kmFromStart": 131.2,
         "icon": "church",
         "source": "osm",
-        "osmId": "node/388453773"
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "wp-osm-sacred_site-node294063123",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          134.5823363,
-          33.8521418
-        ]
-      },
-      "properties": {
-        "routeId": "shikoku-88-awa",
-        "name": "22 Byodo-ji",
+        "osmId": "node/388453773",
         "nameLocalized": {
-          "ja": "第22番札所 平等寺"
-        },
-        "type": "sacred_site",
-        "subtype": "church",
-        "stageIndex": 3,
-        "kmFromStart": 131.8,
-        "icon": "church",
-        "source": "osm",
-        "osmId": "node/294063123"
+          "ja": "轟神社拝殿"
+        }
       }
     },
     {
@@ -4502,7 +4488,8 @@
         },
         "tags": [
           "temple"
-        ]
+        ],
+        "osmId": "node/294063123"
       }
     },
     {
@@ -4620,7 +4607,10 @@
         "kmFromStart": 144.8,
         "icon": "church",
         "source": "osm",
-        "osmId": "node/370030192"
+        "osmId": "node/370030192",
+        "nameLocalized": {
+          "ja": "白鳥神社"
+        }
       }
     },
     {
@@ -4729,7 +4719,8 @@
         "tags": [
           "temple",
           "phase-boundary"
-        ]
+        ],
+        "osmId": "node/369741886"
       }
     },
     {
@@ -4751,7 +4742,10 @@
         "kmFromStart": 151.9,
         "icon": "church",
         "source": "osm",
-        "osmId": "node/298593792"
+        "osmId": "node/298593792",
+        "nameLocalized": {
+          "ja": "恵比寿神社"
+        }
       }
     },
     {
@@ -4825,7 +4819,10 @@
         "kmFromStart": 153.9,
         "icon": "restaurant",
         "source": "osm",
-        "osmId": "node/2875936823"
+        "osmId": "node/2875936823",
+        "nameLocalized": {
+          "ja": "ひわさ屋"
+        }
       }
     },
     {
@@ -4880,31 +4877,6 @@
     },
     {
       "type": "Feature",
-      "id": "wp-osm-sacred_site-node369741886",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          134.5275924,
-          33.7322973
-        ]
-      },
-      "properties": {
-        "routeId": "shikoku-88-awa",
-        "name": "23 Yakuo-ji",
-        "nameLocalized": {
-          "ja": "第23番札所 薬王寺"
-        },
-        "type": "sacred_site",
-        "subtype": "church",
-        "stageIndex": 4,
-        "kmFromStart": 154.5,
-        "icon": "church",
-        "source": "osm",
-        "osmId": "node/369741886"
-      }
-    },
-    {
-      "type": "Feature",
       "id": "wp-osm-transport-node369987265",
       "geometry": {
         "type": "Point",
@@ -4948,7 +4920,10 @@
         "kmFromStart": 152.4,
         "icon": "church",
         "source": "osm",
-        "osmId": "node/369987357"
+        "osmId": "node/369987357",
+        "nameLocalized": {
+          "ja": "山神社"
+        }
       }
     },
     {
@@ -4970,7 +4945,10 @@
         "kmFromStart": 153.7,
         "icon": "clinic",
         "source": "osm",
-        "osmId": "node/5394655856"
+        "osmId": "node/5394655856",
+        "nameLocalized": {
+          "ja": "美波町国民健康保険日和佐診療所"
+        }
       }
     }
   ]

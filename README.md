@@ -2,7 +2,7 @@
 
 A canonical, open-source dataset of pilgrimage routes worldwide.
 
-158,948 GPS points. 10,800 waypoints. 143 stages. 13 routes across 3 traditions. All structured as JSON and GeoJSON.
+158,948 GPS points. 10,770 waypoints. 143 stages. 13 routes across 3 traditions. All structured as JSON and GeoJSON.
 
 ## What's In the Box
 
@@ -48,10 +48,10 @@ pilgrimage.
 
 | Route | Distance | Topology | Tradition | Route Points | Waypoints | Stats |
 |-------|----------|----------|-----------|-------------|-----------|-------|
-| [Awa (Temples 1-23)](routes/shikoku-88-awa/) | 154.5 km | Linear | Buddhist | 7,660 | 203 | — |
-| [Tosa (Temples 23-39)](routes/shikoku-88-tosa/) | 418.5 km | Linear | Buddhist | 16,190 | 372 | — |
-| [Iyo (Temples 39-65)](routes/shikoku-88-iyo/) | 365.7 km | Linear | Buddhist | 14,893 | 953 | — |
-| [Sanuki (Temples 65-88, and the return to Temple 1)](routes/shikoku-88-sanuki/) | 202.2 km | Linear | Buddhist | 9,678 | 389 | — |
+| [Awa (Temples 1-23)](routes/shikoku-88-awa/) | 154.5 km | Linear | Buddhist | 7,660 | 195 | — |
+| [Tosa (Temples 23-39)](routes/shikoku-88-tosa/) | 418.5 km | Linear | Buddhist | 16,190 | 369 | — |
+| [Iyo (Temples 39-65)](routes/shikoku-88-iyo/) | 365.7 km | Linear | Buddhist | 14,893 | 938 | — |
+| [Sanuki (Temples 65-88, and the return to Temple 1)](routes/shikoku-88-sanuki/) | 202.2 km | Linear | Buddhist | 9,678 | 385 | — |
 
 The Stats column is empty on purpose: what the bureaus publish is measured over the
 whole circuit, not per province, so the 21-year completion series lives in the
@@ -60,7 +60,7 @@ per-section `stats.json`. See [docs/data-sources.md](docs/data-sources.md).
 
 `shikoku-88` was a single route until these four sections replaced it; that id now
 names the pilgrimage they belong to. Its 10 stages became 40 day stages cut mechanically
-from the walked lines, and its waypoint count fell from 2,980 to 1,917 — which is a
+from the walked lines, and its waypoint count fell from 2,980 to 1,887 — which is a
 correction rather than a loss. The old `route.geojson` was one MultiLineString of 77
 separate lines, and flattening it drew chords straight across the island: 1,351 of
 those 2,980 waypoints, 45% of them, sit more than 300 m from any of the four walked
@@ -70,7 +70,7 @@ lines the sections publish now.
 
 **Layer 1 — Geometry:** Full-resolution GPS trails from OpenStreetMap. Not simplified stage endpoints — actual trail paths with 3k-39k coordinate points per route.
 
-**Layer 2 — Logistics:** 10,800 waypoints including water sources, pharmacies, hospitals, accommodation, restaurants, convenience stores, bus stops, and train stations. All but three carry a `stageIndex` and all but six a `kmFromStart`, for route-aware queries. All six exceptions are Kumano Kodō (Nakahechi) waypoints that its walked line does not reach.
+**Layer 2 — Logistics:** 10,770 waypoints including water sources, pharmacies, hospitals, accommodation, restaurants, convenience stores, bus stops, and train stations. All but three carry a `stageIndex` and all but six a `kmFromStart`, for route-aware queries. All six exceptions are Kumano Kodō (Nakahechi) waypoints that its walked line does not reach.
 
 **Layer 3 — Cultural & Spiritual:** Credential systems (Compostela, nokyocho, Dual Pilgrim), sacred site protocols, cultural practices, associated literature, and interior journey narratives per stage.
 
@@ -84,7 +84,7 @@ lines the sections publish now.
 | Food (restaurant/cafe) | 713 | 764 | 265 | 600 | 425 | 152 | 29 | 27 | 92 | 85 | 10 | 2 |
 | Transport (bus/train) | 511 | 657 | 180 | 431 | 302 | 136 | 25 | 162 | 494 | 111 | 28 | 8 |
 | Supply (convenience/toilet) | 189 | 235 | 53 | 134 | 122 | 26 | 70 | 75 | 117 | 103 | 40 | 10 |
-| Sacred sites | 9 | 68 | — | — | — | — | 51 | 42 | 151 | 54 | 18 | 5 |
+| Sacred sites | 9 | 68 | — | — | — | — | 43 | 39 | 136 | 50 | 18 | 5 |
 | Towns | 36 | 51 | — | — | — | — | 2 | 8 | 7 | 6 | 2 | — |
 
 The four Shikoku columns are the four dōjō, which are sections of one circuit rather

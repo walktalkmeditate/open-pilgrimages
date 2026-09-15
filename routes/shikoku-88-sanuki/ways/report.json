@@ -17,9 +17,9 @@
       "passedGate": true,
       "boundaryMode": "snap",
       "routePoints": 403,
-      "moments": 9,
-      "momentsBeyondEnds": 6,
-      "momentsWithText": 2,
+      "moments": 6,
+      "momentsBeyondEnds": 4,
+      "momentsWithText": 4,
       "marks": 23,
       "marksTrimmed": 0,
       "dropped": []
@@ -33,9 +33,9 @@
       "passedGate": true,
       "boundaryMode": "snap",
       "routePoints": 223,
-      "moments": 21,
-      "momentsBeyondEnds": 18,
-      "momentsWithText": 9,
+      "moments": 11,
+      "momentsBeyondEnds": 9,
+      "momentsWithText": 10,
       "marks": 55,
       "marksTrimmed": 0,
       "dropped": [
@@ -51,9 +51,9 @@
       "passedGate": true,
       "boundaryMode": "snap",
       "routePoints": 71,
-      "moments": 8,
-      "momentsBeyondEnds": 6,
-      "momentsWithText": 2,
+      "moments": 7,
+      "momentsBeyondEnds": 5,
+      "momentsWithText": 6,
       "marks": 77,
       "marksTrimmed": 0,
       "dropped": [
@@ -69,13 +69,12 @@
       "passedGate": true,
       "boundaryMode": "snap",
       "routePoints": 552,
-      "moments": 24,
-      "momentsBeyondEnds": 22,
-      "momentsWithText": 7,
+      "moments": 10,
+      "momentsBeyondEnds": 8,
+      "momentsWithText": 9,
       "marks": 138,
       "marksTrimmed": 0,
       "dropped": [
-        "wp-osm-sacred_site-node4806012099 (\"国分八幡宮\") is 304 m from the line, beyond the 300 m limit",
         "wp-osm-supply-node4627855268 (\"Unnamed\") is 308 m from the line, beyond the 300 m limit"
       ]
     },
@@ -88,8 +87,8 @@
       "passedGate": true,
       "boundaryMode": "snap",
       "routePoints": 184,
-      "moments": 6,
-      "momentsBeyondEnds": 3,
+      "moments": 4,
+      "momentsBeyondEnds": 2,
       "momentsWithText": 3,
       "marks": 25,
       "marksTrimmed": 0,
@@ -104,8 +103,8 @@
       "passedGate": true,
       "boundaryMode": "snap",
       "routePoints": 413,
-      "moments": 3,
-      "momentsBeyondEnds": 1,
+      "moments": 2,
+      "momentsBeyondEnds": 0,
       "momentsWithText": 0,
       "marks": 6,
       "marksTrimmed": 0,
@@ -119,8 +118,8 @@
   "dropped": [],
   "places": {
     "sparse": false,
-    "stagesWithMomentBeyondEnds": 6,
+    "stagesWithMomentBeyondEnds": 5,
     "halfOfStages": 3,
-    "placesPerStage": 9.3
+    "placesPerStage": 4.7
   }
 }

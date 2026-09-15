@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
   "release": "v1.9.2",
-  "generatedAt": "2026-09-14T20:18:05.554Z",
+  "generatedAt": "2026-09-15T23:48:36.987Z",
   "pilgrimages": [
     {
       "id": "camino-de-santiago",
@@ -80,7 +80,7 @@
       "pilgrimage": "camino-de-santiago",
       "ways": {
         "stageCount": 33,
-        "bytes": 1049489,
+        "bytes": 1050535,
         "placesPerStage": 0.1,
         "sparse": true
       }
@@ -132,7 +132,7 @@
       "pilgrimage": "camino-de-santiago",
       "ways": {
         "stageCount": 34,
-        "bytes": 1381611,
+        "bytes": 1385811,
         "placesPerStage": 4.1,
         "sparse": false
       }
@@ -235,7 +235,7 @@
       "pilgrimage": "kumano-kodo",
       "ways": {
         "stageCount": 4,
-        "bytes": 80890,
+        "bytes": 80961,
         "placesPerStage": 0.8,
         "sparse": false
       }
@@ -255,7 +255,7 @@
       "pilgrimage": "kumano-kodo",
       "ways": {
         "stageCount": 4,
-        "bytes": 65686,
+        "bytes": 65104,
         "placesPerStage": 2.5,
         "sparse": false
       }
@@ -288,8 +288,8 @@
       "pilgrimage": "shikoku-88",
       "ways": {
         "stageCount": 5,
-        "bytes": 185623,
-        "placesPerStage": 9.6,
+        "bytes": 174696,
+        "placesPerStage": 5,
         "sparse": false
       }
     },
@@ -307,8 +307,8 @@
       "pilgrimage": "shikoku-88",
       "ways": {
         "stageCount": 14,
-        "bytes": 528321,
-        "placesPerStage": 10.4,
+        "bytes": 479410,
+        "placesPerStage": 2.1,
         "sparse": false
       }
     },
@@ -326,8 +326,8 @@
       "pilgrimage": "shikoku-88",
       "ways": {
         "stageCount": 6,
-        "bytes": 270108,
-        "placesPerStage": 9.3,
+        "bytes": 259071,
+        "placesPerStage": 4.7,
         "sparse": false
       }
     },
@@ -345,8 +345,8 @@
       "pilgrimage": "shikoku-88",
       "ways": {
         "stageCount": 15,
-        "bytes": 397115,
-        "placesPerStage": 3.1,
+        "bytes": 385804,
+        "placesPerStage": 1.6,
         "sparse": false
       }
     }

@@ -839,38 +839,6 @@
       }
     },
     {
-      "id": "wp-osm-sacred_site-node5549137522",
-      "frac": 0.5324047315503726,
-      "kind": "waypoint",
-      "label": "Gosho Shrine",
-      "icon": "building.columns",
-      "at": {
-        "lat": 33.251532673060396,
-        "lon": 134.18091200629536
-      },
-      "pin": {
-        "lat": 33.2516526,
-        "lon": 134.1805279
-      },
-      "sitMinutes": 5
-    },
-    {
-      "id": "wp-osm-sacred_site-node1275277197",
-      "frac": 0.554783904887566,
-      "kind": "waypoint",
-      "label": "龍宮厳",
-      "icon": "building.columns",
-      "at": {
-        "lat": 33.24726,
-        "lon": 134.177912
-      },
-      "pin": {
-        "lat": 33.2463855,
-        "lon": 134.1777284
-      },
-      "sitMinutes": 5
-    },
-    {
       "id": "temple-24",
       "frac": 0.5822030640421058,
       "kind": "waypoint",
@@ -884,25 +852,9 @@
         "lat": 33.249,
         "lon": 134.176
       },
-      "text": "Cape Muroto — where Kukai achieved enlightenment.",
+      "text": "Temple 24 · Shingon Buzan · 160 m · stamp available (¥500) · Cape Muroto — where Kukai achieved enlightenment.",
       "names": {
         "ja": "最御崎寺"
-      },
-      "sitMinutes": 5
-    },
-    {
-      "id": "wp-osm-sacred_site-node10155914458",
-      "frac": 0.8349845285240985,
-      "kind": "waypoint",
-      "label": "住吉神社",
-      "icon": "building.columns",
-      "at": {
-        "lat": 33.28610088077573,
-        "lon": 134.1499134890456
-      },
-      "pin": {
-        "lat": 33.2856928,
-        "lon": 134.1492973
       },
       "sitMinutes": 5
     },
@@ -925,56 +877,6 @@
         "ja": "津照寺"
       },
       "sitMinutes": 5
-    },
-    {
-      "id": "wp-osm-sacred_site-node12147869320",
-      "frac": 0.8636813020034428,
-      "kind": "waypoint",
-      "label": "中道寺",
-      "icon": "building.columns",
-      "at": {
-        "lat": 33.28955066046371,
-        "lon": 134.1463170662027
-      },
-      "pin": {
-        "lat": 33.2900213,
-        "lon": 134.1472004
-      },
-      "sitMinutes": 5
-    },
-    {
-      "id": "wp-osm-sacred_site-node12147866456",
-      "frac": 0.8803627535481491,
-      "kind": "waypoint",
-      "label": "八王子宮",
-      "icon": "building.columns",
-      "at": {
-        "lat": 33.29293721699572,
-        "lon": 134.14445941306911
-      },
-      "pin": {
-        "lat": 33.2935805,
-        "lon": 134.1452055
-      },
-      "sitMinutes": 5
-    },
-    {
-      "id": "stage-end",
-      "frac": 0.9992228897715206,
-      "kind": "waypoint",
-      "label": "Kongocho-ji (Temple 26)",
-      "icon": "house.lodge",
-      "at": {
-        "lat": 33.306980910085976,
-        "lon": 134.12294243997277
-      },
-      "pin": {
-        "lat": 33.307,
-        "lon": 134.123
-      },
-      "names": {
-        "ja": "金剛頂寺"
-      }
     },
     {
       "id": "temple-26",

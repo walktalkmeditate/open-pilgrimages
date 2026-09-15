@@ -1147,28 +1147,9 @@
         "lat": 33.838,
         "lon": 133.111
       },
-      "text": "Temple 60 · Shingon Omuro · stamp available (¥500)",
+      "text": "Temple 60 · Shingon Omuro · 750 m · stamp available (¥500)",
       "names": {
         "ja": "横峰寺"
-      },
-      "sitMinutes": 5
-    },
-    {
-      "id": "wp-osm-sacred_site-node13055529205",
-      "frac": 0.6673876881680271,
-      "kind": "waypoint",
-      "label": "Kouonji Okuno-in",
-      "icon": "building.columns",
-      "at": {
-        "lat": 33.876841961464976,
-        "lon": 133.09964666263335
-      },
-      "pin": {
-        "lat": 33.8768783,
-        "lon": 133.0997176
-      },
-      "names": {
-        "ja": "香園寺奥の院白瀧"
       },
       "sitMinutes": 5
     },
@@ -1189,41 +1170,6 @@
       "text": "Temple 61 · Shingon · stamp available (¥500)",
       "names": {
         "ja": "香園寺"
-      },
-      "sitMinutes": 5
-    },
-    {
-      "id": "wp-osm-sacred_site-node412335530",
-      "frac": 0.7576412330530989,
-      "kind": "waypoint",
-      "label": "61 Kōon-ji",
-      "icon": "building.columns",
-      "at": {
-        "lat": 33.89389969101981,
-        "lon": 133.10325345616263
-      },
-      "pin": {
-        "lat": 33.893603,
-        "lon": 133.1034109
-      },
-      "names": {
-        "ja": "第61番札所 香園寺"
-      },
-      "sitMinutes": 5
-    },
-    {
-      "id": "wp-osm-sacred_site-node11407826114",
-      "frac": 0.7749862085921795,
-      "kind": "waypoint",
-      "label": "Mishima-jinja Shrine",
-      "icon": "building.columns",
-      "at": {
-        "lat": 33.89497436483278,
-        "lon": 133.10734479795983
-      },
-      "pin": {
-        "lat": 33.8961263,
-        "lon": 133.10725
       },
       "sitMinutes": 5
     },
@@ -1268,24 +1214,6 @@
       "sitMinutes": 5
     },
     {
-      "id": "stage-end",
-      "frac": 1,
-      "kind": "waypoint",
-      "label": "Maegami-ji (Temple 64)",
-      "icon": "house.lodge",
-      "at": {
-        "lat": 33.890354,
-        "lon": 133.160529
-      },
-      "pin": {
-        "lat": 33.89,
-        "lon": 133.161
-      },
-      "names": {
-        "ja": "前神寺"
-      }
-    },
-    {
       "id": "temple-64",
       "frac": 1,
       "kind": "waypoint",
@@ -1299,28 +1227,9 @@
         "lat": 33.89,
         "lon": 133.161
       },
-      "text": "Temple 64 · Shingon Ishizuchi · stamp available (¥500)",
+      "text": "Temple 64 · Shingon Ishizuchi · 250 m · stamp available (¥500)",
       "names": {
         "ja": "前神寺"
-      },
-      "sitMinutes": 5
-    },
-    {
-      "id": "wp-osm-sacred_site-node412335769",
-      "frac": 1,
-      "kind": "waypoint",
-      "label": "64 Maegami-ji",
-      "icon": "building.columns",
-      "at": {
-        "lat": 33.890354,
-        "lon": 133.160529
-      },
-      "pin": {
-        "lat": 33.8903607,
-        "lon": 133.1605615
-      },
-      "names": {
-        "ja": "第64番札所 前神寺"
       },
       "sitMinutes": 5
     }

@@ -47366,9 +47366,6 @@
       "properties": {
         "routeId": "camino-frances",
         "name": "Unnamed",
-        "nameLocalized": {
-          "signed": "no"
-        },
         "type": "supply",
         "subtype": "convenience_store",
         "stageIndex": 22,

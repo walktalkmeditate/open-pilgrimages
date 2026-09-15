@@ -1557,6 +1557,7 @@
         "lat": 43.2671892,
         "lon": -2.4982177
       },
+      "text": "Village · 79 m",
       "names": {
         "ar": "ماركاينا-كزيماين",
         "es": "Marquina-Jeméin",
@@ -1584,6 +1585,7 @@
         "lat": 43.2506116,
         "lon": -2.5478839
       },
+      "text": "Village · 176 m",
       "names": {
         "es": "Cenarruza-Bolívar",
         "eu": "Ziortza-Bolibar",
@@ -1607,6 +1609,7 @@
         "lat": 43.3182788,
         "lon": -2.6738518
       },
+      "text": "Wayside cross",
       "sitMinutes": 5
     },
     {
@@ -1623,6 +1626,7 @@
         "lat": 43.3188823,
         "lon": -2.6749593
       },
+      "text": "Church",
       "sitMinutes": 5
     },
     {

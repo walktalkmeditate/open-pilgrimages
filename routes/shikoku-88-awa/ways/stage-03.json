@@ -2197,153 +2197,6 @@
       }
     },
     {
-      "id": "wp-osm-sacred_site-node3386821690",
-      "frac": 0.0027150991325112636,
-      "kind": "waypoint",
-      "label": "八幡神社",
-      "icon": "building.columns",
-      "at": {
-        "lat": 34.08485124707944,
-        "lon": 134.48590500399234
-      },
-      "pin": {
-        "lat": 34.0851834,
-        "lon": 134.4858585
-      },
-      "sitMinutes": 5
-    },
-    {
-      "id": "wp-osm-sacred_site-node14062963801",
-      "frac": 0.05224792273475199,
-      "kind": "waypoint",
-      "label": "Tokushima Mosque",
-      "icon": "building.columns",
-      "at": {
-        "lat": 34.081854773412736,
-        "lon": 134.51252746861027
-      },
-      "pin": {
-        "lat": 34.0817912,
-        "lon": 134.5125595
-      },
-      "sitMinutes": 5
-    },
-    {
-      "id": "wp-osm-sacred_site-node3759299802",
-      "frac": 0.09723470718635965,
-      "kind": "waypoint",
-      "label": "日本聖公会徳島聖テモテ教会",
-      "icon": "building.columns",
-      "at": {
-        "lat": 34.07720712449452,
-        "lon": 134.53256709258778
-      },
-      "pin": {
-        "lat": 34.0761141,
-        "lon": 134.5323588
-      },
-      "sitMinutes": 5
-    },
-    {
-      "id": "wp-osm-sacred_site-node3797659460",
-      "frac": 0.1179997664215149,
-      "kind": "waypoint",
-      "label": "お笠大名神",
-      "icon": "building.columns",
-      "at": {
-        "lat": 34.074596251012814,
-        "lon": 134.54308233183187
-      },
-      "pin": {
-        "lat": 34.074464,
-        "lon": 134.542773
-      },
-      "sitMinutes": 5
-    },
-    {
-      "id": "wp-osm-sacred_site-node2093377378",
-      "frac": 0.12089950549441983,
-      "kind": "waypoint",
-      "label": "滝薬師",
-      "icon": "building.columns",
-      "at": {
-        "lat": 34.07348361734846,
-        "lon": 134.54403456299607
-      },
-      "pin": {
-        "lat": 34.0725422,
-        "lon": 134.5425565
-      },
-      "sitMinutes": 5
-    },
-    {
-      "id": "wp-osm-sacred_site-node2993752103",
-      "frac": 0.1286927365476037,
-      "kind": "waypoint",
-      "label": "天神社",
-      "icon": "building.columns",
-      "at": {
-        "lat": 34.070262,
-        "lon": 134.546072
-      },
-      "pin": {
-        "lat": 34.0698175,
-        "lon": 134.5446029
-      },
-      "names": {
-        "ja_rm": "Ten-jinja"
-      },
-      "sitMinutes": 5
-    },
-    {
-      "id": "wp-osm-sacred_site-node3790298938",
-      "frac": 0.13570137184177483,
-      "kind": "waypoint",
-      "label": "井利大明神",
-      "icon": "building.columns",
-      "at": {
-        "lat": 34.067367,
-        "lon": 134.547548
-      },
-      "pin": {
-        "lat": 34.0680965,
-        "lon": 134.5489865
-      },
-      "sitMinutes": 5
-    },
-    {
-      "id": "wp-osm-sacred_site-node3791825163",
-      "frac": 0.13763970729497044,
-      "kind": "waypoint",
-      "label": "お芳大明神",
-      "icon": "building.columns",
-      "at": {
-        "lat": 34.06645365837145,
-        "lon": 134.54750144870403
-      },
-      "pin": {
-        "lat": 34.0663915,
-        "lon": 134.5492786
-      },
-      "sitMinutes": 5
-    },
-    {
-      "id": "wp-osm-sacred_site-node12064394219",
-      "frac": 0.2655466837713648,
-      "kind": "waypoint",
-      "label": "開基神社",
-      "icon": "building.columns",
-      "at": {
-        "lat": 34.01388466702917,
-        "lon": 134.56298733759402
-      },
-      "pin": {
-        "lat": 34.0150724,
-        "lon": 134.5644587
-      },
-      "sitMinutes": 5
-    },
-    {
       "id": "temple-18",
       "frac": 0.3436261693419022,
       "kind": "waypoint",
@@ -2384,25 +2237,6 @@
       "sitMinutes": 5
     },
     {
-      "id": "wp-osm-sacred_site-node294058400",
-      "frac": 0.673250552943966,
-      "kind": "waypoint",
-      "label": "20 Kakurin-ji",
-      "icon": "building.columns",
-      "at": {
-        "lat": 33.91396,
-        "lon": 134.505749
-      },
-      "pin": {
-        "lat": 33.9141272,
-        "lon": 134.505258
-      },
-      "names": {
-        "ja": "第20番札所 鶴林寺"
-      },
-      "sitMinutes": 5
-    },
-    {
       "id": "temple-20",
       "frac": 0.6735444194558695,
       "kind": "waypoint",
@@ -2416,7 +2250,7 @@
         "lat": 33.914,
         "lon": 134.506
       },
-      "text": "Temple 20 · Koyasan Shingon · stamp available (¥500)",
+      "text": "Temple 20 · Koyasan Shingon · 470 m · stamp available (¥500)",
       "names": {
         "ja": "鶴林寺"
       },
@@ -2436,44 +2270,9 @@
         "lat": 33.883,
         "lon": 134.522
       },
-      "text": "Temple 21 · Koyasan Shingon · stamp available (¥500)",
+      "text": "Temple 21 · Koyasan Shingon · 600 m · stamp available (¥500)",
       "names": {
         "ja": "太龍寺"
-      },
-      "sitMinutes": 5
-    },
-    {
-      "id": "wp-osm-sacred_site-node13478796431",
-      "frac": 0.7776711032986295,
-      "kind": "waypoint",
-      "label": "21 Tairyu-ji",
-      "icon": "building.columns",
-      "at": {
-        "lat": 33.88231,
-        "lon": 134.522186
-      },
-      "pin": {
-        "lat": 33.8825075,
-        "lon": 134.5217889
-      },
-      "names": {
-        "ja": "第21番札所 太龍寺"
-      },
-      "sitMinutes": 5
-    },
-    {
-      "id": "wp-osm-sacred_site-node388453773",
-      "frac": 0.977120514103108,
-      "kind": "waypoint",
-      "label": "轟神社拝殿",
-      "icon": "building.columns",
-      "at": {
-        "lat": 33.84830493029158,
-        "lon": 134.57796194339824
-      },
-      "pin": {
-        "lat": 33.8472504,
-        "lon": 134.5788091
       },
       "sitMinutes": 5
     },
@@ -2494,25 +2293,6 @@
       "text": "Temple 22 · Koyasan Shingon · stamp available (¥500)",
       "names": {
         "ja": "平等寺"
-      },
-      "sitMinutes": 5
-    },
-    {
-      "id": "wp-osm-sacred_site-node294063123",
-      "frac": 0.9885515557379135,
-      "kind": "waypoint",
-      "label": "22 Byodo-ji",
-      "icon": "building.columns",
-      "at": {
-        "lat": 33.851848,
-        "lon": 134.582356
-      },
-      "pin": {
-        "lat": 33.8521418,
-        "lon": 134.5823363
-      },
-      "names": {
-        "ja": "第22番札所 平等寺"
       },
       "sitMinutes": 5
     },

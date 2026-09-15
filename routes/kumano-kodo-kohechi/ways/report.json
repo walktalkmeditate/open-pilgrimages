@@ -19,7 +19,7 @@
       "routePoints": 201,
       "moments": 3,
       "momentsBeyondEnds": 1,
-      "momentsWithText": 0,
+      "momentsWithText": 1,
       "marks": 4,
       "marksTrimmed": 0,
       "dropped": [
@@ -50,7 +50,7 @@
       "routePoints": 184,
       "moments": 3,
       "momentsBeyondEnds": 1,
-      "momentsWithText": 0,
+      "momentsWithText": 1,
       "marks": 2,
       "marksTrimmed": 0,
       "dropped": []
@@ -82,7 +82,7 @@
       "routePoints": 168,
       "moments": 3,
       "momentsBeyondEnds": 1,
-      "momentsWithText": 0,
+      "momentsWithText": 1,
       "marks": 8,
       "marksTrimmed": 0,
       "dropped": []

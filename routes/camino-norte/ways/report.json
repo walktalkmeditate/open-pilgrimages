@@ -19,7 +19,7 @@
       "routePoints": 289,
       "moments": 10,
       "momentsBeyondEnds": 8,
-      "momentsWithText": 0,
+      "momentsWithText": 9,
       "marks": 192,
       "marksTrimmed": 0,
       "dropped": [
@@ -37,7 +37,7 @@
       "routePoints": 252,
       "moments": 5,
       "momentsBeyondEnds": 3,
-      "momentsWithText": 0,
+      "momentsWithText": 3,
       "marks": 174,
       "marksTrimmed": 0,
       "dropped": [
@@ -58,7 +58,7 @@
       "routePoints": 225,
       "moments": 6,
       "momentsBeyondEnds": 4,
-      "momentsWithText": 0,
+      "momentsWithText": 4,
       "marks": 102,
       "marksTrimmed": 0,
       "dropped": []
@@ -74,7 +74,7 @@
       "routePoints": 257,
       "moments": 4,
       "momentsBeyondEnds": 2,
-      "momentsWithText": 0,
+      "momentsWithText": 2,
       "marks": 14,
       "marksTrimmed": 0,
       "dropped": []
@@ -90,7 +90,7 @@
       "routePoints": 304,
       "moments": 6,
       "momentsBeyondEnds": 4,
-      "momentsWithText": 0,
+      "momentsWithText": 4,
       "marks": 60,
       "marksTrimmed": 0,
       "dropped": []
@@ -106,7 +106,7 @@
       "routePoints": 179,
       "moments": 3,
       "momentsBeyondEnds": 1,
-      "momentsWithText": 0,
+      "momentsWithText": 2,
       "marks": 56,
       "marksTrimmed": 0,
       "dropped": []
@@ -122,7 +122,7 @@
       "routePoints": 139,
       "moments": 7,
       "momentsBeyondEnds": 5,
-      "momentsWithText": 0,
+      "momentsWithText": 5,
       "marks": 130,
       "marksTrimmed": 0,
       "dropped": []
@@ -138,7 +138,7 @@
       "routePoints": 204,
       "moments": 8,
       "momentsBeyondEnds": 6,
-      "momentsWithText": 0,
+      "momentsWithText": 6,
       "marks": 400,
       "marksTrimmed": 72,
       "dropped": [
@@ -158,7 +158,7 @@
       "routePoints": 348,
       "moments": 9,
       "momentsBeyondEnds": 7,
-      "momentsWithText": 0,
+      "momentsWithText": 8,
       "marks": 114,
       "marksTrimmed": 0,
       "dropped": [
@@ -177,7 +177,7 @@
       "routePoints": 276,
       "moments": 6,
       "momentsBeyondEnds": 4,
-      "momentsWithText": 0,
+      "momentsWithText": 5,
       "marks": 77,
       "marksTrimmed": 0,
       "dropped": []
@@ -193,7 +193,7 @@
       "routePoints": 242,
       "moments": 8,
       "momentsBeyondEnds": 6,
-      "momentsWithText": 0,
+      "momentsWithText": 7,
       "marks": 119,
       "marksTrimmed": 0,
       "dropped": [
@@ -212,7 +212,7 @@
       "routePoints": 150,
       "moments": 5,
       "momentsBeyondEnds": 3,
-      "momentsWithText": 0,
+      "momentsWithText": 3,
       "marks": 55,
       "marksTrimmed": 0,
       "dropped": [
@@ -236,7 +236,7 @@
       "routePoints": 289,
       "moments": 17,
       "momentsBeyondEnds": 15,
-      "momentsWithText": 0,
+      "momentsWithText": 15,
       "marks": 202,
       "marksTrimmed": 0,
       "dropped": []
@@ -252,7 +252,7 @@
       "routePoints": 241,
       "moments": 17,
       "momentsBeyondEnds": 15,
-      "momentsWithText": 0,
+      "momentsWithText": 15,
       "marks": 48,
       "marksTrimmed": 0,
       "dropped": [
@@ -270,7 +270,7 @@
       "routePoints": 262,
       "moments": 13,
       "momentsBeyondEnds": 11,
-      "momentsWithText": 0,
+      "momentsWithText": 11,
       "marks": 61,
       "marksTrimmed": 0,
       "dropped": [
@@ -288,7 +288,7 @@
       "routePoints": 147,
       "moments": 6,
       "momentsBeyondEnds": 4,
-      "momentsWithText": 0,
+      "momentsWithText": 5,
       "marks": 48,
       "marksTrimmed": 0,
       "dropped": [
@@ -306,7 +306,7 @@
       "routePoints": 314,
       "moments": 10,
       "momentsBeyondEnds": 8,
-      "momentsWithText": 0,
+      "momentsWithText": 8,
       "marks": 66,
       "marksTrimmed": 0,
       "dropped": []
@@ -322,7 +322,7 @@
       "routePoints": 200,
       "moments": 7,
       "momentsBeyondEnds": 5,
-      "momentsWithText": 0,
+      "momentsWithText": 5,
       "marks": 57,
       "marksTrimmed": 0,
       "dropped": []
@@ -338,7 +338,7 @@
       "routePoints": 166,
       "moments": 2,
       "momentsBeyondEnds": 0,
-      "momentsWithText": 0,
+      "momentsWithText": 1,
       "marks": 12,
       "marksTrimmed": 0,
       "dropped": []
@@ -354,7 +354,7 @@
       "routePoints": 275,
       "moments": 7,
       "momentsBeyondEnds": 5,
-      "momentsWithText": 0,
+      "momentsWithText": 6,
       "marks": 161,
       "marksTrimmed": 0,
       "dropped": []
@@ -370,7 +370,7 @@
       "routePoints": 204,
       "moments": 3,
       "momentsBeyondEnds": 1,
-      "momentsWithText": 0,
+      "momentsWithText": 1,
       "marks": 158,
       "marksTrimmed": 0,
       "dropped": []
@@ -386,7 +386,7 @@
       "routePoints": 215,
       "moments": 2,
       "momentsBeyondEnds": 0,
-      "momentsWithText": 0,
+      "momentsWithText": 1,
       "marks": 99,
       "marksTrimmed": 0,
       "dropped": []
@@ -402,7 +402,7 @@
       "routePoints": 174,
       "moments": 2,
       "momentsBeyondEnds": 0,
-      "momentsWithText": 0,
+      "momentsWithText": 1,
       "marks": 15,
       "marksTrimmed": 0,
       "dropped": []
@@ -434,7 +434,7 @@
       "routePoints": 155,
       "moments": 4,
       "momentsBeyondEnds": 2,
-      "momentsWithText": 0,
+      "momentsWithText": 2,
       "marks": 23,
       "marksTrimmed": 0,
       "dropped": []
@@ -450,7 +450,7 @@
       "routePoints": 284,
       "moments": 4,
       "momentsBeyondEnds": 2,
-      "momentsWithText": 0,
+      "momentsWithText": 2,
       "marks": 49,
       "marksTrimmed": 0,
       "dropped": []
@@ -466,7 +466,7 @@
       "routePoints": 148,
       "moments": 4,
       "momentsBeyondEnds": 2,
-      "momentsWithText": 0,
+      "momentsWithText": 3,
       "marks": 41,
       "marksTrimmed": 0,
       "dropped": []
@@ -482,7 +482,7 @@
       "routePoints": 168,
       "moments": 3,
       "momentsBeyondEnds": 1,
-      "momentsWithText": 0,
+      "momentsWithText": 1,
       "marks": 20,
       "marksTrimmed": 0,
       "dropped": []
@@ -498,7 +498,7 @@
       "routePoints": 123,
       "moments": 7,
       "momentsBeyondEnds": 5,
-      "momentsWithText": 0,
+      "momentsWithText": 5,
       "marks": 20,
       "marksTrimmed": 0,
       "dropped": []
@@ -514,7 +514,7 @@
       "routePoints": 151,
       "moments": 2,
       "momentsBeyondEnds": 0,
-      "momentsWithText": 0,
+      "momentsWithText": 1,
       "marks": 19,
       "marksTrimmed": 0,
       "dropped": []
@@ -530,7 +530,7 @@
       "routePoints": 148,
       "moments": 5,
       "momentsBeyondEnds": 3,
-      "momentsWithText": 0,
+      "momentsWithText": 3,
       "marks": 12,
       "marksTrimmed": 0,
       "dropped": []
@@ -546,7 +546,7 @@
       "routePoints": 171,
       "moments": 3,
       "momentsBeyondEnds": 1,
-      "momentsWithText": 0,
+      "momentsWithText": 1,
       "marks": 14,
       "marksTrimmed": 0,
       "dropped": []
@@ -562,7 +562,7 @@
       "routePoints": 315,
       "moments": 5,
       "momentsBeyondEnds": 3,
-      "momentsWithText": 0,
+      "momentsWithText": 3,
       "marks": 25,
       "marksTrimmed": 0,
       "dropped": []
@@ -578,7 +578,7 @@
       "routePoints": 123,
       "moments": 6,
       "momentsBeyondEnds": 4,
-      "momentsWithText": 0,
+      "momentsWithText": 4,
       "marks": 22,
       "marksTrimmed": 0,
       "dropped": [

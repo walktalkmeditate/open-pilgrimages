@@ -862,54 +862,6 @@
       }
     },
     {
-      "id": "wp-osm-sacred_site-node6859685939",
-      "frac": 0.0332258299770014,
-      "kind": "waypoint",
-      "label": "Hogonji Temple",
-      "icon": "building.columns",
-      "at": {
-        "lat": 33.8506245223597,
-        "lon": 132.7903233597871
-      },
-      "pin": {
-        "lat": 33.8516618,
-        "lon": 132.7899764
-      },
-      "sitMinutes": 5
-    },
-    {
-      "id": "wp-osm-sacred_site-node11972178335",
-      "frac": 0.03928589046827596,
-      "kind": "waypoint",
-      "label": "常盤新田霊社",
-      "icon": "building.columns",
-      "at": {
-        "lat": 33.85035375183011,
-        "lon": 132.78885447479055
-      },
-      "pin": {
-        "lat": 33.850645,
-        "lon": 132.7888734
-      },
-      "sitMinutes": 5
-    },
-    {
-      "id": "wp-osm-sacred_site-node4969378921",
-      "frac": 0.14472048594338208,
-      "kind": "waypoint",
-      "label": "Raikokuji",
-      "icon": "building.columns",
-      "at": {
-        "lat": 33.85586341772612,
-        "lon": 132.76597116454775
-      },
-      "pin": {
-        "lat": 33.8560156,
-        "lon": 132.7660815
-      },
-      "sitMinutes": 5
-    },
-    {
       "id": "temple-52",
       "frac": 0.4625827416744718,
       "kind": "waypoint",

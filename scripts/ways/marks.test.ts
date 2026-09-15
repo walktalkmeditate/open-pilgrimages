@@ -19,7 +19,14 @@ function stageSlice(from: number, to: number): { line: Position[]; cumulative: n
 function sectionAt(from: number, to: number, stageIndex: number): SectionContext {
   const line = walkedLine(loadJson("route.main.geojson"));
   const cumulative = cumulativeMeters(line);
-  return { line, cumulative, stageIndex, fromMeters: cumulative[from], toMeters: cumulative[to] };
+  return {
+    line,
+    cumulative,
+    stageIndex,
+    fromMeters: cumulative[from],
+    toMeters: cumulative[to],
+    hasCuratedSacredSites: true,
+  };
 }
 
 /** A synthetic line that is the whole section and the whole stage at once. */
@@ -31,6 +38,7 @@ function wholeLineIsTheStage(line: Position[]): SectionContext {
     stageIndex: 0,
     fromMeters: 0,
     toMeters: cumulative[cumulative.length - 1],
+    hasCuratedSacredSites: true,
   };
 }
 

@@ -1195,6 +1195,7 @@
         "lat": 33.5019095,
         "lon": 133.9072127
       },
+      "text": "City",
       "names": {
         "ar": "أكي، كوتشي",
         "cs": "Aki",
@@ -1211,22 +1212,6 @@
       }
     },
     {
-      "id": "wp-osm-sacred_site-node13116189003",
-      "frac": 0.5530507489252253,
-      "kind": "waypoint",
-      "label": "極楽寺",
-      "icon": "building.columns",
-      "at": {
-        "lat": 33.50711085026088,
-        "lon": 133.84344558162226
-      },
-      "pin": {
-        "lat": 33.5066734,
-        "lon": 133.8432713
-      },
-      "sitMinutes": 5
-    },
-    {
       "id": "wp-osm-viewpoint-node3268703474",
       "frac": 0.5841691579202942,
       "kind": "waypoint",
@@ -1239,6 +1224,10 @@
       "pin": {
         "lat": 33.5137377,
         "lon": 133.8354927
+      },
+      "text": "Viewpoint",
+      "names": {
+        "ja": "赤野休憩所"
       },
       "sitMinutes": 5
     },

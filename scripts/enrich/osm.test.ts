@@ -4,7 +4,7 @@ import { existsSync, mkdtempSync, readdirSync, rmSync, writeFileSync } from "fs"
 import { tmpdir } from "os";
 import { join } from "path";
 import {
-  CLIENT_TIMEOUT_MS, queryOverpass, buildPoiQuery, classifyNode, extractName, resolveName,
+  CLIENT_TIMEOUT_MS, queryOverpass, buildPoiQuery, classifyNode, extractName, extractNameLocalized, resolveName,
 } from "./osm.js";
 
 // This suite never touches the network: every test injects a fake `fetch` and
@@ -233,4 +233,21 @@ test("a service tag still wins over a place tag on the same node", () => {
   const n = { type: "node" as const, id: 4, lat: 43, lon: -2, tags: { shop: "convenience", place: "village" } };
   // #then the service classification is unchanged, so no existing waypoint moves type
   assert.deepEqual(classifyNode(n), { type: "supply", subtype: "convenience_store" });
+});
+
+test("a bare Japanese name becomes the ja entry", () => {
+  const tags = { name: "霊山寺", "name:en": "Ryōzen-ji" };
+  assert.deepEqual(extractNameLocalized(tags), { ja: "霊山寺" });
+});
+
+test("a romanisation is not a language", () => {
+  const tags = { name: "霊山寺", "name:ja_rm": "Ryōzenji", signed: "no" };
+  const out = extractNameLocalized(tags) ?? {};
+  assert.equal(out.ja_rm, undefined);
+  assert.equal(out.signed, undefined);
+});
+
+test("an explicit name:ja still wins over the bare name", () => {
+  const tags = { name: "Ryōzen-ji", "name:ja": "霊山寺" };
+  assert.deepEqual(extractNameLocalized(tags), { ja: "霊山寺" });
 });

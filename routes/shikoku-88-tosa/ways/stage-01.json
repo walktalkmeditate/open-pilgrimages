@@ -999,57 +999,6 @@
       }
     },
     {
-      "id": "wp-osm-sacred_site-node11627123070",
-      "frac": 0.19230382324800332,
-      "kind": "waypoint",
-      "label": "熊野神社",
-      "icon": "building.columns",
-      "at": {
-        "lat": 33.54778078204633,
-        "lon": 134.30054739441664
-      },
-      "pin": {
-        "lat": 33.5477278,
-        "lon": 134.3005735
-      },
-      "sitMinutes": 5
-    },
-    {
-      "id": "wp-osm-sacred_site-node11636162358",
-      "frac": 0.21693867199799252,
-      "kind": "waypoint",
-      "label": "妙見宮",
-      "icon": "building.columns",
-      "at": {
-        "lat": 33.54563342530779,
-        "lon": 134.29441498763686
-      },
-      "pin": {
-        "lat": 33.5452481,
-        "lon": 134.294681
-      },
-      "sitMinutes": 5
-    },
-    {
-      "id": "wp-osm-sacred_site-node11400122769",
-      "frac": 0.38539917649345135,
-      "kind": "waypoint",
-      "label": "Meitokuji",
-      "icon": "building.columns",
-      "at": {
-        "lat": 33.5099347089115,
-        "lon": 134.2742945913308
-      },
-      "pin": {
-        "lat": 33.5104176,
-        "lon": 134.2738338
-      },
-      "names": {
-        "ja": "明徳寺(東洋大師)"
-      },
-      "sitMinutes": 5
-    },
-    {
       "id": "stage-end",
       "frac": 1,
       "kind": "waypoint",

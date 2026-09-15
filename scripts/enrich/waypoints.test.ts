@@ -11,7 +11,7 @@ import Ajv2020 from "ajv/dist/2020.js";
 import { classifyNode, OSM_TAG_MAP, type OsmNode } from "./osm.js";
 import {
   keepsNode, wholeRouteRange, stageAssignmentRefusal, enforceStageAssignmentRefusal,
-  OVERWRITE_FLAG,
+  decimalsOf, isSamePlace, OVERWRITE_FLAG,
 } from "./waypoints.js";
 import { MOMENT_TYPES } from "../ways/moments.js";
 
@@ -95,6 +95,27 @@ test("the sweep follows OSM_TAG_MAP rather than a hand-written list", () => {
   const produced = new Set(Object.values(OSM_TAG_MAP).map((c) => c.type));
   // #then the fixture covers exactly those, so a new type cannot slip out silently
   assert.deepEqual(new Set(Object.keys(TYPE_FIXTURES)), produced);
+});
+
+test("a curated point rounded to three decimals still matches its OSM twin", () => {
+  const curated = { lon: 134.507, lat: 34.173 };          // three decimals
+  const osm = { lon: 134.5074123, lat: 34.1736521 };      // full precision
+  assert.equal(isSamePlace(curated, osm), true);
+});
+
+test("two genuinely different shrines 200 m apart stay separate", () => {
+  assert.equal(isSamePlace({ lon: 134.507, lat: 34.173 }, { lon: 134.5092, lat: 34.173 }), false);
+});
+
+test("a twin is not split by which side of a rounding boundary it fell", () => {
+  // #given the pair above, whose OSM latitude rounds away from the curated one
+  assert.equal(decimalsOf(34.173), 3);
+  assert.equal(Number((34.1736521).toFixed(3)), 34.174);
+
+  // #then they still match — snapping both onto the coarser grid would have put
+  // 111 m between two points 82 m apart and split the pair on nothing but the
+  // boundary, which is why the uncertainty widens the threshold instead
+  assert.equal(isSamePlace({ lon: 134.507, lat: 34.173 }, { lon: 134.507, lat: 34.1736521 }), true);
 });
 
 test("a section with no stages yet spreads one provisional range over its whole line", () => {

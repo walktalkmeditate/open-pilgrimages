@@ -1467,6 +1467,7 @@
         "lat": 43.3410266,
         "lon": -1.7876768
       },
+      "text": "Church",
       "sitMinutes": 5
     },
     {
@@ -1483,6 +1484,7 @@
         "lat": 43.3383176,
         "lon": -1.7888095
       },
+      "text": "Town · 9 m",
       "names": {
         "ar": "إرون",
         "br": "Irun",
@@ -1507,6 +1509,7 @@
         "lat": 43.3487083,
         "lon": -1.7975137
       },
+      "text": "Viewpoint",
       "sitMinutes": 5
     },
     {
@@ -1523,6 +1526,7 @@
         "lat": 43.3351368,
         "lon": -1.8809574
       },
+      "text": "Viewpoint",
       "sitMinutes": 5
     },
     {
@@ -1539,6 +1543,7 @@
         "lat": 43.3324522,
         "lon": -1.8957024
       },
+      "text": "Viewpoint",
       "names": {
         "es": "Torre 1",
         "eu": "Dorrea 1",
@@ -1560,6 +1565,7 @@
         "lat": 43.3239952,
         "lon": -1.9200587
       },
+      "text": "Town",
       "names": {
         "es": "Pasajes",
         "eu": "Pasaia"
@@ -1578,7 +1584,8 @@
       "pin": {
         "lat": 43.330355,
         "lon": -1.9337284
-      }
+      },
+      "text": "Ruins"
     },
     {
       "id": "wp-osm-sacred_site-node7706564385",
@@ -1594,6 +1601,7 @@
         "lat": 43.3282445,
         "lon": -1.9489756
       },
+      "text": "Church",
       "sitMinutes": 5
     },
     {
@@ -1610,6 +1618,7 @@
         "lat": 43.3241766,
         "lon": -1.9873002
       },
+      "text": "Church",
       "names": {
         "es": "Convento de Santa Teresa",
         "eu": "Santa Teresa monasterioa"

@@ -27484,9 +27484,6 @@
       "properties": {
         "routeId": "camino-portugues",
         "name": "Unnamed",
-        "nameLocalized": {
-          "signed": "no"
-        },
         "type": "transport",
         "subtype": "bus_stop",
         "stageIndex": 9,

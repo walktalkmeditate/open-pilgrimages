@@ -5,6 +5,8 @@ import { cap, nonEnglishNames } from "./text.js";
 export interface WaypointProperties {
   routeId?: string;
   type: string;
+  /** Who put this place here. `"osm"` is the sweep; anything else is curated. */
+  source?: string;
   name?: string;
   nameLocalized?: Record<string, string>;
   description?: string;
@@ -15,6 +17,10 @@ export interface WaypointProperties {
   denomination?: string;
   credentialStamp?: boolean;
   stampFee?: { currency?: string; amount?: number };
+  subtype?: string;
+  elevation?: number;
+  hours?: string;
+  bangaiNumber?: number;
 }
 
 export interface WaypointFeature {
@@ -31,9 +37,10 @@ export interface StagePlace {
 }
 
 /**
- * The section's whole walked line, and the stretch of it the stage these
- * waypoints were filed onto actually walks. Read only when a waypoint is
- * dropped — see dropReason for what it distinguishes.
+ * The section's whole walked line, the stretch of it the stage these waypoints
+ * were filed onto actually walks, and the one fact about the section that
+ * decides which of its sacred sites are drawn — see dropReason for what the
+ * line distinguishes, isNotableSacredSite for what the flag decides.
  */
 export interface SectionContext {
   line: Position[];
@@ -42,6 +49,12 @@ export interface SectionContext {
   /** Where this stage begins and ends along the section line, in metres. */
   fromMeters: number;
   toMeters: number;
+  /**
+   * Whether any sacred site anywhere in this section came from somewhere other
+   * than the OSM sweep. A stage's own waypoints cannot answer this: the
+   * question is about the section, so the answer has to be carried in.
+   */
+  hasCuratedSacredSites: boolean;
 }
 
 export interface MomentInput {
@@ -98,6 +111,40 @@ export function iconFor(properties: WaypointProperties): string {
   return ICON_BY_TYPE[properties.type] ?? "mappin";
 }
 
+/**
+ * Which sacred sites a walker sees. Where the dataset has curated the places
+ * that matter, an OSM sweep has to earn its place beside them; where it has
+ * not, the sweep is all there is.
+ *
+ * So: a curated site is always drawn, and so is anything numbered — the
+ * fudasho and the bangai are the route's structure, not places of interest.
+ * A section whose sacred sites are *all* the OSM sweep draws the whole sweep,
+ * because cutting it would leave that section nothing. Only where curated
+ * sites already stand does a swept shrine have to show something for itself,
+ * and what it has to show is a name in a language beyond the local one.
+ *
+ * Both halves are load-bearing. An earlier rule read `nameLocalized` alone,
+ * corpus-wide, and it cut 66 of Camino Norte's 68 chapels and all 18 of Kumano
+ * Nakahechi's oji — the oji being the entire reason that route is walked. And
+ * the `ja` key stopped signalling anything the moment the enricher began
+ * backfilling it from the bare `name` tag of every Japanese place, so a rule
+ * that counted keys would now keep 186 of Shikoku's 210 shrines.
+ *
+ * Nothing is deleted: what is not drawn stays in waypoints.geojson, and this
+ * decision can be reversed by editing this function alone.
+ */
+export function isNotableSacredSite(
+  properties: WaypointProperties,
+  hasCuratedSacredSites: boolean,
+): boolean {
+  if (properties.type !== "sacred_site") return true;
+  if (properties.source !== "osm") return true;
+  if (typeof properties.templeNumber === "number") return true;
+  if (typeof properties.bangaiNumber === "number") return true;
+  if (!hasCuratedSacredSites) return true;
+  return Object.keys(properties.nameLocalized ?? {}).some((language) => language !== "ja");
+}
+
 function feeText(fee: WaypointProperties["stampFee"]): string {
   if (!fee || typeof fee.amount !== "number" || !fee.currency) return "";
   const symbol = CURRENCY_SYMBOL[fee.currency];
@@ -108,11 +155,41 @@ function feeText(fee: WaypointProperties["stampFee"]): string {
  * The line a card shows when the dataset gave a place no description. Built
  * only from fields that are already facts about the place, never invented.
  */
+const SUBTYPE_WORDS: Record<string, string> = {
+  temple: "Temple",
+  church: "Church",
+  wayside_shrine: "Wayside shrine",
+  monastery: "Monastery",
+  village: "Village",
+  town: "Town",
+  city: "City",
+  hamlet: "Hamlet",
+  viewpoint: "Viewpoint",
+  museum: "Museum",
+  ruins: "Ruins",
+  castle: "Castle",
+  spring: "Spring",
+  fountain: "Fountain",
+};
+
+/** `wayside_shrine` → `Wayside shrine`, for a subtype the table has not met. */
+function subtypeWord(subtype: string): string {
+  const spaced = subtype.replace(/_/g, " ");
+  return spaced.charAt(0).toUpperCase() + spaced.slice(1);
+}
+
 export function composedText(properties: WaypointProperties): string | undefined {
   const parts: string[] = [];
 
   if (typeof properties.templeNumber === "number") {
     parts.push(`Temple ${properties.templeNumber}`);
+  } else if (typeof properties.bangaiNumber === "number") {
+    parts.push(`Bangai ${properties.bangaiNumber}`);
+  } else if (properties.subtype) {
+    // A numbered temple is named by its number; everything else is named by
+    // what it is. Without this branch a place that is not a fudasho gets no
+    // line at all, which is the whole of Camino Norte's 0%.
+    parts.push(SUBTYPE_WORDS[properties.subtype] ?? subtypeWord(properties.subtype));
   }
 
   const school =
@@ -122,9 +199,16 @@ export function composedText(properties: WaypointProperties): string | undefined
       : undefined);
   if (school) parts.push(school);
 
+  if (typeof properties.elevation === "number") {
+    parts.push(`${Math.round(properties.elevation)} m`);
+  }
+
   if (properties.credentialStamp === true) {
     parts.push(`stamp available${feeText(properties.stampFee)}`);
   }
+
+  const hours = cap(properties.hours, 80);
+  if (hours) parts.push(hours);
 
   return parts.length > 0 ? parts.join(" · ") : undefined;
 }
@@ -213,12 +297,15 @@ export function buildMoments(input: MomentInput): MomentResult {
   const dropped: string[] = [];
   const beyondEndIds = new Set<string>();
 
-  let startHasTown = false;
-  let endHasTown = false;
+  let startHasPlace = false;
+  let endHasPlace = false;
 
   for (const feature of waypoints) {
     const properties = feature.properties;
     if (!MOMENT_TYPES.includes(properties.type)) continue;
+    // Before anything else: a place this rule cuts is not drawn, not reported
+    // as dropped, and does not stand in for the stage's own anchor.
+    if (!isNotableSacredSite(properties, section.hasCuratedSacredSites)) continue;
 
     const rawId = feature.id;
     if (!rawId) continue;
@@ -233,10 +320,11 @@ export function buildMoments(input: MomentInput): MomentResult {
       continue;
     }
 
-    if (properties.type === "town") {
-      if (nearStart) startHasTown = true;
-      if (nearEnd) endHasTown = true;
-    }
+    // Any real place standing where the anchor would stand replaces it. This
+    // used to require `type === "town"`, which is why Shikoku — whose days end
+    // at temples — shipped 17 pairs of pins at zero metres apart.
+    if (nearStart) startHasPlace = true;
+    if (nearEnd) endHasPlace = true;
 
     // The Camino's ids are already `wp-sjpp`; Shikoku's are `temple-12`. Both
     // conventions are already fit to be a moment id, so the raw id is used
@@ -254,8 +342,13 @@ export function buildMoments(input: MomentInput): MomentResult {
       pin: coordinate(point),
     };
 
-    const text = cap(properties.description, MOMENT_TEXT_MAX) ?? composedText(properties);
-    if (text) moment.text = text;
+    const composed = composedText(properties);
+    const described = cap(properties.description, MOMENT_TEXT_MAX);
+    // A description used to replace the composed line rather than follow it,
+    // so the twelve temples somebody wrote about were the twelve that lost
+    // their number. Identity first, then the words.
+    const text = [composed, described].filter(Boolean).join(" · ") || undefined;
+    if (text) moment.text = cap(text, MOMENT_TEXT_MAX);
 
     const names = nonEnglishNames(properties.nameLocalized);
     if (names) moment.names = names;
@@ -266,8 +359,8 @@ export function buildMoments(input: MomentInput): MomentResult {
     if (!nearStart && !nearEnd) beyondEndIds.add(id);
   }
 
-  if (!startHasTown) moments.push(placeMoment("stage-start", start, line, cumulative));
-  if (!endHasTown) moments.push(placeMoment("stage-end", end, line, cumulative));
+  if (!startHasPlace) moments.push(placeMoment("stage-start", start, line, cumulative));
+  if (!endHasPlace) moments.push(placeMoment("stage-end", end, line, cumulative));
 
   moments.sort((a, b) => a.frac - b.frac || (a.id < b.id ? -1 : a.id > b.id ? 1 : 0));
 

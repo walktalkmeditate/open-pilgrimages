@@ -99,6 +99,15 @@ export function buildRouteWays(input: RouteWaysInput): RouteWaysResult {
         : `${label} has stageIndex ${w.properties.stageIndex}, outside 0..${stages.length - 1}, and was dropped`;
     });
 
+  // Whether an OSM shrine has to earn its place beside curated ones is a fact
+  // about the section, not about the shrine — so it is read once, here, from
+  // the section's whole feature list. A stage sees only its own slice of that
+  // list, and a stage that happens to hold no curated site would otherwise
+  // conclude the section curates nothing and draw the entire sweep.
+  const hasCuratedSacredSites = input.waypoints.some(
+    (w) => w.properties.type === "sacred_site" && w.properties.source !== "osm",
+  );
+
   // Each day has to end where the next begins. Where it does not, the ground
   // between the two places is walked by nobody: the cut below runs from one
   // stage's start anchor to the next one's, so a stage's own declared end is
@@ -196,13 +205,15 @@ export function buildRouteWays(input: RouteWaysInput): RouteWaysResult {
     const stageWaypoints = input.waypoints.filter((w) => w.properties.stageIndex === stage.index);
     // The whole section's line and the stretch of it this stage walks, carried
     // alongside the slice so a drop can say whether the place is off route or
-    // merely filed onto a stage that never goes near it.
+    // merely filed onto a stage that never goes near it — and with it the
+    // section-wide provenance answer the notability rule needs.
     const section = {
       line,
       cumulative,
       stageIndex: stage.index,
       fromMeters: cumulative[from],
       toMeters: cumulative[to],
+      hasCuratedSacredSites,
     };
     const moments = buildMoments({
       line: slice,

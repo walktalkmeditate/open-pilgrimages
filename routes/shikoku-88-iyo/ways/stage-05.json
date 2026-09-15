@@ -1274,22 +1274,6 @@
       }
     },
     {
-      "id": "wp-osm-sacred_site-node4857660589",
-      "frac": 0.6245535875894672,
-      "kind": "waypoint",
-      "label": "福城寺",
-      "icon": "building.columns",
-      "at": {
-        "lat": 33.636022,
-        "lon": 132.863141
-      },
-      "pin": {
-        "lat": 33.6364124,
-        "lon": 132.8620155
-      },
-      "sitMinutes": 5
-    },
-    {
       "id": "temple-44",
       "frac": 0.8539024357905142,
       "kind": "waypoint",

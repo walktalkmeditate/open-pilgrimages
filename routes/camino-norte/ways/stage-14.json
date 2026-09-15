@@ -1346,7 +1346,8 @@
       "pin": {
         "lat": 43.3855344,
         "lon": -4.2901505
-      }
+      },
+      "text": "Village · 22 m"
     },
     {
       "id": "wp-osm-sacred_site-node2316161375",
@@ -1362,6 +1363,7 @@
         "lat": 43.3734798,
         "lon": -4.3284296
       },
+      "text": "Church",
       "sitMinutes": 5
     },
     {
@@ -1378,6 +1380,7 @@
         "lat": 43.3705739,
         "lon": -4.3331597
       },
+      "text": "Church",
       "sitMinutes": 5
     },
     {
@@ -1394,6 +1397,7 @@
         "lat": 43.3731898,
         "lon": -4.3394309
       },
+      "text": "Church",
       "sitMinutes": 5
     },
     {
@@ -1410,6 +1414,7 @@
         "lat": 43.3757071,
         "lon": -4.3527968
       },
+      "text": "Church",
       "sitMinutes": 5
     },
     {
@@ -1426,6 +1431,7 @@
         "lat": 43.3758459,
         "lon": -4.3597902
       },
+      "text": "Church",
       "sitMinutes": 5
     },
     {
@@ -1442,6 +1448,7 @@
         "lat": 43.3807639,
         "lon": -4.3983978
       },
+      "text": "Church",
       "sitMinutes": 5
     },
     {
@@ -1457,7 +1464,8 @@
       "pin": {
         "lat": 43.38318,
         "lon": -4.40027
-      }
+      },
+      "text": "Town · 13 m"
     },
     {
       "id": "wp-osm-sacred_site-node2300085668",
@@ -1473,6 +1481,7 @@
         "lat": 43.3660515,
         "lon": -4.4090258
       },
+      "text": "Church",
       "sitMinutes": 5
     },
     {
@@ -1489,6 +1498,7 @@
         "lat": 43.3586233,
         "lon": -4.4456415
       },
+      "text": "Church",
       "sitMinutes": 5
     },
     {
@@ -1504,7 +1514,8 @@
       "pin": {
         "lat": 43.3749469,
         "lon": -4.4871637
-      }
+      },
+      "text": "Village · 69 m"
     },
     {
       "id": "stage-end",

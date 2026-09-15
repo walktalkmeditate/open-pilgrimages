@@ -652,6 +652,7 @@
         "lat": 43.4879088,
         "lon": -7.2648297
       },
+      "text": "Wayside cross",
       "sitMinutes": 5
     },
     {
@@ -668,6 +669,7 @@
         "lat": 43.4708307,
         "lon": -7.2984557
       },
+      "text": "Village · 60 m",
       "names": {
         "gl": "Vilanova"
       }
@@ -686,6 +688,7 @@
         "lat": 43.4492134,
         "lon": -7.3440849
       },
+      "text": "Wayside cross",
       "sitMinutes": 5
     },
     {
@@ -702,6 +705,7 @@
         "lat": 43.4390024,
         "lon": -7.3578093
       },
+      "text": "Wayside cross",
       "sitMinutes": 5
     },
     {
@@ -718,6 +722,7 @@
         "lat": 43.4296687,
         "lon": -7.3638814
       },
+      "text": "Town · 129 m",
       "names": {
         "es": "Mondoñedo",
         "gl": "Mondoñedo",

@@ -1279,24 +1279,6 @@
   "theirActiveSeconds": 3600,
   "moments": [
     {
-      "id": "stage-start",
-      "frac": 0,
-      "kind": "waypoint",
-      "label": "Ryōzen-ji (Temple 1)",
-      "icon": "house.lodge",
-      "at": {
-        "lat": 34.159589,
-        "lon": 134.50252
-      },
-      "pin": {
-        "lat": 34.16,
-        "lon": 134.503
-      },
-      "names": {
-        "ja": "霊山寺"
-      }
-    },
-    {
       "id": "temple-1",
       "frac": 0,
       "kind": "waypoint",
@@ -1330,6 +1312,7 @@
         "lat": 34.1596687,
         "lon": 134.496749
       },
+      "text": "Ruins",
       "names": {
         "de": "Das ehemalige Kriegsgefangenenlager Bando",
         "ja": "板東俘虜収容所跡"
@@ -1349,6 +1332,7 @@
         "lat": 34.1583456,
         "lon": 134.4960149
       },
+      "text": "Ruins",
       "names": {
         "de": "Eingangstor",
         "ja": "正門"
@@ -1375,26 +1359,6 @@
       "sitMinutes": 5
     },
     {
-      "id": "wp-osm-sacred_site-node314747849",
-      "frac": 0.14002959699206907,
-      "kind": "waypoint",
-      "label": "03 Konsen-ji",
-      "icon": "building.columns",
-      "at": {
-        "lat": 34.147409752714395,
-        "lon": 134.46863556355646
-      },
-      "pin": {
-        "lat": 34.147453,
-        "lon": 134.4685024
-      },
-      "names": {
-        "es": "Konsen-ji #3",
-        "ja": "第03番札所 金泉寺"
-      },
-      "sitMinutes": 5
-    },
-    {
       "id": "temple-3",
       "frac": 0.14110917073204654,
       "kind": "waypoint",
@@ -1410,6 +1374,7 @@
       },
       "text": "Temple 3 · Koyasan Shingon · stamp available (¥500)",
       "names": {
+        "es": "Konsen-ji #3",
         "ja": "金泉寺"
       },
       "sitMinutes": 5
@@ -1428,6 +1393,7 @@
         "lat": 34.1443632,
         "lon": 134.4626394
       },
+      "text": "Town",
       "names": {
         "fr": "Itano",
         "id": "Itano",
@@ -1557,40 +1523,6 @@
         "ja": "法輪寺"
       },
       "sitMinutes": 5
-    },
-    {
-      "id": "wp-osm-sacred_site-node5411354162",
-      "frac": 0.8542078187047076,
-      "kind": "waypoint",
-      "label": "椙尾神社",
-      "icon": "building.columns",
-      "at": {
-        "lat": 34.103768,
-        "lon": 134.334153
-      },
-      "pin": {
-        "lat": 34.102548,
-        "lon": 134.336661
-      },
-      "sitMinutes": 5
-    },
-    {
-      "id": "stage-end",
-      "frac": 1,
-      "kind": "waypoint",
-      "label": "Kirihata-ji (Temple 10)",
-      "icon": "house.lodge",
-      "at": {
-        "lat": 34.107624,
-        "lon": 134.304276
-      },
-      "pin": {
-        "lat": 34.108,
-        "lon": 134.304
-      },
-      "names": {
-        "ja": "切幡寺"
-      }
     },
     {
       "id": "temple-10",

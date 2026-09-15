@@ -1401,7 +1401,8 @@
       "pin": {
         "lat": 43.3843347,
         "lon": -3.2162576
-      }
+      },
+      "text": "Town · 18 m"
     },
     {
       "id": "wp-osm-viewpoint-node4696021847",
@@ -1417,6 +1418,7 @@
         "lat": 43.4020442,
         "lon": -3.2740709
       },
+      "text": "Viewpoint",
       "sitMinutes": 5
     },
     {
@@ -1433,6 +1435,7 @@
         "lat": 43.4053653,
         "lon": -3.2948004
       },
+      "text": "Viewpoint",
       "sitMinutes": 5
     },
     {
@@ -1448,7 +1451,8 @@
       "pin": {
         "lat": 43.39374,
         "lon": -3.38044
-      }
+      },
+      "text": "Village · 30 m"
     },
     {
       "id": "wp-osm-viewpoint-node2831589094",
@@ -1464,6 +1468,7 @@
         "lat": 43.4082209,
         "lon": -3.4119241
       },
+      "text": "Viewpoint",
       "sitMinutes": 5
     },
     {

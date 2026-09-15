@@ -837,25 +837,9 @@
         "lat": 33.659,
         "lon": 132.981
       },
-      "text": "The 'Cave Temple' — dramatically set in cliff faces.",
+      "text": "Temple 45 · Shingon Buzan · 560 m · stamp available (¥500) · The 'Cave Temple' — dramatically set in cliff faces.",
       "names": {
         "ja": "岩屋寺"
-      },
-      "sitMinutes": 5
-    },
-    {
-      "id": "wp-osm-sacred_site-node11417102669",
-      "frac": 0.36916801697828366,
-      "kind": "waypoint",
-      "label": "Iwaya Temple Okunoin Hakusan Gyojo",
-      "icon": "building.columns",
-      "at": {
-        "lat": 33.658962,
-        "lon": 132.981062
-      },
-      "pin": {
-        "lat": 33.6584676,
-        "lon": 132.9789124
       },
       "sitMinutes": 5
     },
@@ -873,6 +857,7 @@
         "lat": 33.6602974,
         "lon": 132.9008253
       },
+      "text": "Town",
       "names": {
         "id": "Kumakogen",
         "ja": "久万高原町",

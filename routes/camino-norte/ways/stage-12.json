@@ -1482,6 +1482,7 @@
         "lat": 43.4608059,
         "lon": -3.8070128
       },
+      "text": "Church",
       "sitMinutes": 5
     },
     {
@@ -1498,6 +1499,7 @@
         "lat": 43.4618932,
         "lon": -3.8100255
       },
+      "text": "City · 8 m",
       "names": {
         "ar": "سانتاندير",
         "be": "Сантандэр",
@@ -1534,7 +1536,8 @@
       "pin": {
         "lat": 43.4610167,
         "lon": -3.8115599
-      }
+      },
+      "text": "Ruins"
     },
     {
       "id": "wp-osm-sacred_site-node7494640298",
@@ -1550,6 +1553,7 @@
         "lat": 43.4636769,
         "lon": -3.8120289
       },
+      "text": "Church",
       "sitMinutes": 5
     },
     {
@@ -1565,7 +1569,8 @@
       "pin": {
         "lat": 43.4429407,
         "lon": -3.9049243
-      }
+      },
+      "text": "Town · 44 m"
     },
     {
       "id": "wp-osm-sacred_site-node2315712890",
@@ -1581,6 +1586,7 @@
         "lat": 43.4265077,
         "lon": -3.9402849
       },
+      "text": "Church",
       "sitMinutes": 5
     },
     {
@@ -1597,6 +1603,7 @@
         "lat": 43.41318,
         "lon": -3.9447233
       },
+      "text": "Church",
       "sitMinutes": 5
     },
     {
@@ -1612,7 +1619,8 @@
       "pin": {
         "lat": 43.4098414,
         "lon": -3.9427107
-      }
+      },
+      "text": "Village · 3 m"
     },
     {
       "id": "wp-osm-town-node288260800",
@@ -1627,7 +1635,8 @@
       "pin": {
         "lat": 43.4023668,
         "lon": -3.9493584
-      }
+      },
+      "text": "Village · 6 m"
     },
     {
       "id": "wp-osm-sacred_site-node2314255056",
@@ -1643,6 +1652,7 @@
         "lat": 43.4034105,
         "lon": -3.9525061
       },
+      "text": "Church",
       "sitMinutes": 5
     },
     {
@@ -1658,7 +1668,8 @@
       "pin": {
         "lat": 43.4038471,
         "lon": -3.9792584
-      }
+      },
+      "text": "Ruins"
     },
     {
       "id": "wp-osm-sacred_site-node2308298288",
@@ -1674,6 +1685,7 @@
         "lat": 43.3999614,
         "lon": -4.0091962
       },
+      "text": "Church",
       "sitMinutes": 5
     },
     {
@@ -1689,7 +1701,8 @@
       "pin": {
         "lat": 43.38889,
         "lon": -4.02814
-      }
+      },
+      "text": "Village · 19 m"
     },
     {
       "id": "wp-osm-sacred_site-node2308298284",
@@ -1705,6 +1718,7 @@
         "lat": 43.3795037,
         "lon": -4.0372189
       },
+      "text": "Church",
       "sitMinutes": 5
     },
     {
@@ -1721,6 +1735,7 @@
         "lat": 43.3878002,
         "lon": -4.0598956
       },
+      "text": "Church",
       "sitMinutes": 5
     },
     {

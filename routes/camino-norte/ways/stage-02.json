@@ -1162,6 +1162,7 @@
         "lat": 43.3044559,
         "lon": -2.2037374
       },
+      "text": "Village · 27 m",
       "names": {
         "es": "Guetaria",
         "eu": "Getaria"
@@ -1181,6 +1182,7 @@
         "lat": 43.296653,
         "lon": -2.2571182
       },
+      "text": "Town · 4 m",
       "names": {
         "es": "Zumaia",
         "eu": "Zumaia"
@@ -1200,6 +1202,7 @@
         "lat": 43.2966047,
         "lon": -2.2596983
       },
+      "text": "Wayside cross",
       "sitMinutes": 5
     },
     {
@@ -1216,6 +1219,7 @@
         "lat": 43.294141,
         "lon": -2.3539311
       },
+      "text": "Village · 4 m",
       "names": {
         "es": "Deva",
         "eu": "Deba"

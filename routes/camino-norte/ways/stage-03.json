@@ -1322,6 +1322,7 @@
         "lat": 43.2911826,
         "lon": -2.3904316
       },
+      "text": "Wayside shrine",
       "sitMinutes": 5
     },
     {
@@ -1337,7 +1338,8 @@
       "pin": {
         "lat": 43.2900305,
         "lon": -2.3993107
-      }
+      },
+      "text": "Ruins"
     },
     {
       "id": "stage-end",

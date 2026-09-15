@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Awa (Temples 1-23) &mdash; Open Pilgrimages</title>
-  <meta name="description" content="Awa: the first of the four dōjō of the Shikoku 88 Temple Pilgrimage, 154.5 km from Ryōzen-ji (Temple 1) to Yakuō-ji (Temple 23). Walked line, five day stages cut by rule, and 203 waypoints.">
+  <meta name="description" content="Awa: the first of the four dōjō of the Shikoku 88 Temple Pilgrimage, 154.5 km from Ryōzen-ji (Temple 1) to Yakuō-ji (Temple 23). Walked line, five day stages cut by rule, and 195 waypoints.">
   <link rel="canonical" href="https://open.pilgrimag.es/shikoku-88-awa">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <meta property="og:type" content="website">
@@ -150,14 +150,14 @@
     </details>
 
     <h2>Waypoints</h2>
-    <p>203 waypoints stand on this section, each with a <code>type</code>, a <code>stageIndex</code> and a <code>kmFromStart</code> measured along this section&#39;s own walked line &mdash; of which 51 are sacred sites and 2 are towns.</p>
+    <p>195 waypoints stand on this section, each with a <code>type</code>, a <code>stageIndex</code> and a <code>kmFromStart</code> measured along this section&#39;s own walked line &mdash; of which 43 are sacred sites and 2 are towns.</p>
     <table>
       <caption>Waypoint counts by type on Awa (Temples 1-23).</caption>
       <thead>
         <tr><th scope="col">Type</th><th scope="col">Count</th></tr>
       </thead>
       <tbody>
-        <tr><th scope="row">Sacred sites</th><td>51</td></tr>
+        <tr><th scope="row">Sacred sites</th><td>43</td></tr>
         <tr><th scope="row">Cultural sites</th><td>2</td></tr>
         <tr><th scope="row">Towns</th><td>2</td></tr>
         <tr><th scope="row">Accommodation</th><td>9</td></tr>
@@ -166,11 +166,11 @@
         <tr><th scope="row">Supply (convenience/toilet)</th><td>70</td></tr>
         <tr><th scope="row">Medical (pharmacy/hospital)</th><td>14</td></tr>
         <tr><th scope="row">Water sources</th><td>1</td></tr>
-        <tr><th scope="row">Total</th><td>203</td></tr>
+        <tr><th scope="row">Total</th><td>195</td></tr>
       </tbody>
     </table>
-    <p>The 23 temples are the curated half: hand-placed, carrying a <code>templeNumber</code> and no <code>osmId</code>, and they are what the day rule looks for. The other 180 came from OpenStreetMap through the enricher, every one of them carrying an <code>osmId</code>, so a re-run reproduces them.</p>
-    <p><code>index.json</code> records this section as <code>sparse: false</code>, at 9.6 places per stage. That bar belongs to a section, not to a day: a section clears it when at least half its stages carry a place beyond their own start and end, and all five of Awa's do. The 9.6 is the mean of those beyond-the-ends counts — 13, 7, 7, 17 and 4 — so it is not the number of places you would pass in a day.</p>
+    <p>The 23 temples are the curated half: hand-placed, carrying a <code>templeNumber</code> and no <code>osmId</code>, and they are what the day rule looks for. The other 172 came from OpenStreetMap through the enricher, every one of them carrying an <code>osmId</code>, so a re-run reproduces them.</p>
+    <p><code>index.json</code> records this section as <code>sparse: false</code>, at 5 places per stage. That bar belongs to a section, not to a day: a section clears it when at least half its stages carry a place beyond their own start and end, and all five of Awa's do. The 5 is the mean of those beyond-the-ends counts — 11, 2, 6, 5 and 1 — so it is not the number of places you would pass in a day.</p>
     <p>Seven waypoints in this file never reach a stage. The corridor that admitted them is measured against <code>route.geojson</code>, which carries every member way of the 22 relations and runs 349.7 km against the walked line's 154.5; build-ways then measures against the walked line and drops anything more than 300 m from it. All seven are named, with their distances, in <code>ways/report.json</code>.</p>
     <p><a href="/contribute">Help fill in what is missing</a>.</p>
 
@@ -198,7 +198,7 @@
         <tr><td><code>route.main.geojson</code></td><td>The walked line the stages are cut from &mdash; 7,054 points</td></tr>
         <tr><td><a href="https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1/routes/shikoku-88-awa/route.gpx"><code>route.gpx</code></a></td><td>GPX 1.1 track for GPS apps and devices &mdash; 7,660 points</td></tr>
         <tr><td><code>stages.json</code></td><td>5 day stages, with interior journey narratives</td></tr>
-        <tr><td><code>waypoints.geojson</code></td><td>203 waypoints &mdash; 23 curated temples, 180 from OpenStreetMap</td></tr>
+        <tr><td><code>waypoints.geojson</code></td><td>195 waypoints &mdash; 23 curated temples, 172 from OpenStreetMap</td></tr>
         <tr><td><a href="https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1/routes/shikoku-88-awa/ways/route.json"><code>ways/route.json</code></a></td><td>The stage package&#39;s catalog card; <code>ways/report.json</code> beside it records what this section can and cannot promise a walker</td></tr>
       </tbody>
     </table>
