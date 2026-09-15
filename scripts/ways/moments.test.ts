@@ -8,6 +8,7 @@ import {
   composedText,
   dropReason,
   iconFor,
+  isNotableSacredSite,
   MOMENT_DROP_METERS,
   type SectionContext,
   type StagePlace,
@@ -89,6 +90,30 @@ test("iconFor gives any stamp-bearing waypoint the seal, whatever its type", () 
   assert.equal(iconFor({ type: "sacred_site", credentialStamp: true }), "seal");
   assert.equal(iconFor({ type: "town", credentialStamp: true }), "seal");
   assert.equal(iconFor({ type: "sacred_site", credentialStamp: false }), "building.columns");
+});
+
+test("a fudasho is always drawn", () => {
+  assert.equal(isNotableSacredSite({ type: "sacred_site", templeNumber: 12 }), true);
+});
+
+test("a bangai is always drawn", () => {
+  assert.equal(isNotableSacredSite({ type: "sacred_site", bangaiNumber: 3 }), true);
+});
+
+test("a shrine somebody named twice is drawn", () => {
+  assert.equal(
+    isNotableSacredSite({ type: "sacred_site", subtype: "church", nameLocalized: { ja: "椙尾神社" } }),
+    true,
+  );
+});
+
+test("a shrine nobody named twice is not drawn", () => {
+  assert.equal(isNotableSacredSite({ type: "sacred_site", subtype: "church" }), false);
+});
+
+test("the rule only judges sacred sites", () => {
+  assert.equal(isNotableSacredSite({ type: "town" }), true);
+  assert.equal(isNotableSacredSite({ type: "viewpoint" }), true);
 });
 
 test("composedText builds a line from a temple's structured fields", () => {
@@ -282,6 +307,33 @@ test("a waypoint more than 300 m off the line is dropped and named in the warnin
 });
 
 /**
+ * The cut is a decision, not a fault, so it leaves no warning behind — and an
+ * undrawn shrine standing on the stage's end must not take the anchor with it.
+ */
+test("an unnamed shrine on the route is left out silently and does not swallow the end anchor", () => {
+  const end: Position = [133.80, 34.22];
+  const line: Position[] = [[133.78, 34.22], end];
+  const shrine: WaypointFeature = {
+    id: "wp-unnamed-shrine",
+    type: "Feature",
+    geometry: { type: "Point", coordinates: end },
+    properties: { routeId: "shikoku-88-iyo", name: "祠", type: "sacred_site", stageIndex: 0 },
+  };
+  const result = buildMoments({
+    line,
+    cumulative: cumulativeMeters(line),
+    waypoints: [shrine],
+    start: { name: "A", at: line[0] },
+    end: { name: "B", at: end },
+    section: wholeLineIsTheStage(line),
+  });
+
+  assert.equal(result.moments.some((m) => m.id === "wp-unnamed-shrine"), false);
+  assert.deepEqual(result.dropped, []);
+  assert.equal(result.moments.some((m) => m.id === "stage-end"), true);
+});
+
+/**
  * The report this exists for: routes/shikoku-88-awa said "GuestHouse & Cafe
  * Green House is 34688 m from the line" about a place 182 m from that section's
  * line and the end anchor of the very stage it names. The 35 km was measured
@@ -296,7 +348,13 @@ test("a place on the section line but off this stage's slice is reported as a st
     id: "wp-later-shrine",
     type: "Feature",
     geometry: { type: "Point", coordinates: sectionLine[35] },
-    properties: { routeId: "fixture-way", name: "Later Shrine", type: "sacred_site", stageIndex: 0 },
+    properties: {
+      routeId: "fixture-way",
+      name: "Later Shrine",
+      nameLocalized: { es: "Ermita Posterior" },
+      type: "sacred_site",
+      stageIndex: 0,
+    },
   };
 
   const result = buildMoments({

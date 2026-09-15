@@ -102,6 +102,24 @@ export function iconFor(properties: WaypointProperties): string {
   return ICON_BY_TYPE[properties.type] ?? "mappin";
 }
 
+/**
+ * Which sacred sites a walker sees. Every fudasho and every bangai, always —
+ * they are the route's structure, not places of interest. Beyond them, a
+ * shrine is drawn when OSM gave it a name in a second language: somebody took
+ * the trouble, which is a recorded judgement rather than our taste. Measured
+ * on the shipped data that is all 88 fudasho and 42 of 210 shrines, which puts
+ * Shikoku at 3.8 sacred moments a stage against a corpus range of 2.4–6.1.
+ *
+ * Nothing is deleted: the 168 that go stay in waypoints.geojson, and this
+ * decision can be reversed by editing this function alone.
+ */
+export function isNotableSacredSite(properties: WaypointProperties): boolean {
+  if (properties.type !== "sacred_site") return true;
+  if (typeof properties.templeNumber === "number") return true;
+  if (typeof properties.bangaiNumber === "number") return true;
+  return Boolean(properties.nameLocalized && Object.keys(properties.nameLocalized).length > 0);
+}
+
 function feeText(fee: WaypointProperties["stampFee"]): string {
   if (!fee || typeof fee.amount !== "number" || !fee.currency) return "";
   const symbol = CURRENCY_SYMBOL[fee.currency];
@@ -260,6 +278,9 @@ export function buildMoments(input: MomentInput): MomentResult {
   for (const feature of waypoints) {
     const properties = feature.properties;
     if (!MOMENT_TYPES.includes(properties.type)) continue;
+    // Before anything else: a place this rule cuts is not drawn, not reported
+    // as dropped, and does not stand in for the stage's own anchor.
+    if (!isNotableSacredSite(properties)) continue;
 
     const rawId = feature.id;
     if (!rawId) continue;
