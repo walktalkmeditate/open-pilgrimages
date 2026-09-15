@@ -254,8 +254,13 @@ export function buildMoments(input: MomentInput): MomentResult {
       pin: coordinate(point),
     };
 
-    const text = cap(properties.description, MOMENT_TEXT_MAX) ?? composedText(properties);
-    if (text) moment.text = text;
+    const composed = composedText(properties);
+    const described = cap(properties.description, MOMENT_TEXT_MAX);
+    // A description used to replace the composed line rather than follow it,
+    // so the twelve temples somebody wrote about were the twelve that lost
+    // their number. Identity first, then the words.
+    const text = [composed, described].filter(Boolean).join(" · ") || undefined;
+    if (text) moment.text = cap(text, MOMENT_TEXT_MAX);
 
     const names = nonEnglishNames(properties.nameLocalized);
     if (names) moment.names = names;

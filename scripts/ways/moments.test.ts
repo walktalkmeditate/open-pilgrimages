@@ -191,6 +191,33 @@ test("a moment carries text, local names, sit minutes, and a pin off the line", 
   assert.equal(office.sitMinutes, undefined);
 });
 
+test("a temple with a description keeps its number and its school", () => {
+  const properties = {
+    type: "sacred_site",
+    name: "Zentsū-ji",
+    templeNumber: 75,
+    denomination: "Shingon",
+    credentialStamp: true,
+    stampFee: { currency: "JPY", amount: 500 },
+    description: "Kūkai was born here",
+  };
+  const feature: WaypointFeature = {
+    id: "temple-75",
+    geometry: { type: "Point", coordinates: [133.79, 34.22] },
+    properties,
+  };
+  const result = buildMoments({
+    line: [[133.78, 34.22], [133.80, 34.22]],
+    cumulative: [0, 184],
+    waypoints: [feature],
+    start: { name: "A", at: [133.78, 34.22] },
+    end: { name: "B", at: [133.80, 34.22] },
+    section: { line: [[133.78, 34.22], [133.80, 34.22]], cumulative: [0, 184], stageIndex: 0, fromMeters: 0, toMeters: 184 },
+  });
+  const temple = result.moments.find((m) => m.id === "temple-75");
+  assert.equal(temple?.text, "Temple 75 · Shingon · stamp available (¥500) · Kūkai was born here");
+});
+
 test("a waypoint more than 300 m off the line is dropped and named in the warnings", () => {
   const { line, cumulative } = stageSlice(10, 30);
   const result = buildMoments({
