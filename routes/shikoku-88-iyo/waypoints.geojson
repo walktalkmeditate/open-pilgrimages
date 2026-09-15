@@ -11450,10 +11450,11 @@
         },
         "type": "sacred_site",
         "subtype": "church",
+        "bangaiNumber": 9,
         "stageIndex": 7,
         "kmFromStart": 198.9,
         "icon": "church",
-        "source": "osm",
+        "source": "curated",
         "osmId": "node/6069879618"
       }
     },
@@ -21770,10 +21771,11 @@
         },
         "type": "sacred_site",
         "subtype": "church",
+        "bangaiNumber": 12,
         "stageIndex": 12,
         "kmFromStart": 347.8,
         "icon": "church",
-        "source": "osm",
+        "source": "curated",
         "osmId": "node/6069894534"
       }
     },
