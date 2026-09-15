@@ -35,7 +35,7 @@
 | `scripts/enrich/waypoints.test.ts` | Its tests | 5 |
 | `scripts/migrate-japanese-names.ts` | One-off, no-network data repair | 4 |
 | `scripts/migrate-twin-waypoints.ts` | One-off, no-network dedup repair | 5 |
-| `routes/shikoku-88-*/waypoints.geojson` | Gains 20 bangai, loses 29 twins, gains `ja` names | 4, 5, 7 |
+| `routes/shikoku-88-*/waypoints.geojson` | Three bangai named, ~29 twins merged, `ja` names recovered | 4, 5, 7 |
 | `docs/review/shikoku-88.md` | Existing ticks honoured | 8 |
 | `routes/*/ways/**`, `docs/**`, `README.md`, `index.json` | Regenerated outputs | 9 |
 
@@ -654,25 +654,39 @@ Message: `feat(ways): the fudasho stop competing with 168 unnamed shrines`
 
 ---
 
-### Task 7: The twenty bangai
+### Task 7: The three bangai OSM knows about
 
 **Files:**
 - Modify: `routes/shikoku-88-{awa,tosa,iyo,sanuki}/waypoints.geojson`
 - Test: `scripts/ways/contract.test.ts` (a count assertion), `npm run validate`
 
-**Why:** The bangai (番外) are the twenty side temples many walkers visit alongside the 88. They are the only new waypoints this work adds.
+**Why:** The bangai (番外) are twenty side temples many walkers visit alongside the 88. **Three of them are in the data; seventeen are not, and this task does not invent them.**
 
-**How they are authored:** each is a `Point` feature with `properties` carrying `type: "sacred_site"`, `subtype: "temple"`, `source: "curated"`, `bangaiNumber` (1–20), `name` (romanised), `nameLocalized.ja`, `tradition: "buddhist"`, and the `stageIndex` / `kmFromStart` of the stage whose line passes nearest. Ids follow the fudasho convention: `bangai-1` … `bangai-20`.
+A survey of the four sections' committed waypoints found exactly three carrying OSM's own `Bekkaku` / `別格` designation: number 9 (Monju-in, Iyo), number 12 (Enmei-ji, Iyo) and number 14 (Tsubaki-dō, Sanuki). The other seventeen appear nowhere in the corridor. Hand-authoring their coordinates would be inventing data, which this repo has refused since PR B established that places are machine-derived and never hand-authored. It is also largely moot: a bangai is a *side* temple by definition, and a place more than `MOMENT_DROP_METERS` (300 m) off the walked line is dropped from moments anyway, so most of the seventeen could not render even with perfect coordinates.
 
-- [ ] **Step 1: Assemble the twenty with their coordinates**
+- [ ] **Step 1: Promote the three**
 
-Work from the bangai list as recorded in the sections' own reference material; for each, take the coordinate from the existing `waypoints.geojson` if OSM already has that temple as a sacred site (several are present as ordinary shrines today — reuse the coordinate and the `osmId`, and set `source: "curated"` with `bangaiNumber`), otherwise author the coordinate to four decimal places.
+For each of the three features found by
 
-Record in the commit body which of the twenty were promoted from an existing OSM feature and which were authored fresh.
+```bash
+node -e "
+const fs=require('fs');
+for (const s of ['awa','tosa','iyo','sanuki']) {
+  const g=JSON.parse(fs.readFileSync('routes/shikoku-88-'+s+'/waypoints.geojson'));
+  for (const f of g.features) {
+    const p=f.properties, t=(p.name||'')+((p.nameLocalized||{}).ja||'');
+    const m=t.match(/(?:Bekkaku|別格)\s*(\d{1,2})/);
+    if (m) console.log(s, f.id, m[1], p.name);
+  }
+}
+"
+```
 
-- [ ] **Step 2: Assign each to a section and a stage**
+set `bangaiNumber` to the matched integer and `source` to `"curated"`, keeping the existing coordinate, `osmId`, `stageIndex` and `kmFromStart` exactly as they are. Do not change the feature's `id` — it is already referenced by the built packages.
 
-For each bangai, compute the nearest point on that section's `route.main.geojson` and set `stageIndex` to the stage whose span contains it and `kmFromStart` to the distance along. A bangai further than 300 m from every section's line is **not added** — it is a detour, and `MOMENT_DROP_METERS` would drop it anyway. Record any so excluded.
+- [ ] **Step 2: Record the seventeen as absent**
+
+Add to each of the four sections' `metadata.json` under `provenance.notes` a single sentence naming what was searched and what was found: that OSM's `Bekkaku` / `別格` designation yielded three bangai inside the 300 m corridor, and that the remaining seventeen are absent from the corridor rather than omitted by choice. This is the sentence a future contributor needs so nobody re-runs this survey.
 
 - [ ] **Step 3: Validate**
 
@@ -701,7 +715,7 @@ git add routes/shikoku-88-*/waypoints.geojson
 git commit
 ```
 
-Message: `feat(shikoku): the twenty bangai join the eighty-eight`
+Message: `feat(shikoku): the three bangai OSM knows about are named as bangai`
 
 ---
 
@@ -711,11 +725,11 @@ Message: `feat(shikoku): the twenty bangai join the eighty-eight`
 - Modify: `routes/shikoku-88-*/waypoints.geojson` (a `description` on selected features)
 - Modify: `docs/review/shikoku-88.md` only if a stage lacks a line
 
-**Why:** After Task 2 every place carries at least its kind. The 42 notable shrines and the 20 bangai deserve better than `Church`, and they are a small enough set for a human to actually read.
+**Why:** After Task 2 every place carries at least its kind. The 42 notable shrines and the 3 bangai deserve better than `Church`, and they are a small enough set for a human to actually read.
 
-**Budget:** 62 entries. Facts only, no legend — the repo's standing rule, and the lesson v1.9.1 paid for.
+**Budget:** 45 entries — the 42 shrines and the 3 bangai. Facts only, no legend — the repo's standing rule, and the lesson v1.9.1 paid for.
 
-- [ ] **Step 1: List the 62**
+- [ ] **Step 1: List the 45**
 
 ```bash
 node -e "
@@ -750,7 +764,7 @@ git add routes/shikoku-88-*/waypoints.geojson docs/review/shikoku-88.md
 git commit
 ```
 
-Message: `content(shikoku): a line for the forty-two shrines and the twenty bangai`
+Message: `content(shikoku): a line for the forty-two shrines and the three bangai`
 
 ---
 
