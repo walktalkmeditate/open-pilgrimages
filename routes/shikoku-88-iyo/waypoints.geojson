@@ -9512,8 +9512,7 @@
         "routeId": "shikoku-88-iyo",
         "name": "sunkus",
         "nameLocalized": {
-          "ja": "サンクス",
-          "ja_rm": "Sankusu"
+          "ja": "サンクス"
         },
         "type": "supply",
         "subtype": "convenience_store",
@@ -12234,8 +12233,7 @@
         "routeId": "shikoku-88-iyo",
         "name": "noodles shop Ikko Takanoko",
         "nameLocalized": {
-          "ja": "ラーメン 一興 鷹子店",
-          "ja_rm": "Famirī Mato"
+          "ja": "ラーメン 一興 鷹子店"
         },
         "type": "food",
         "subtype": "restaurant",
@@ -16629,7 +16627,6 @@
         "name": "Lawson",
         "nameLocalized": {
           "ja": "ローソン",
-          "ja_rm": "Rōson",
           "ko": "로손"
         },
         "type": "supply",
@@ -16975,8 +16972,7 @@
         "routeId": "shikoku-88-iyo",
         "name": "FamilyMart",
         "nameLocalized": {
-          "ja": "ファミリーマート",
-          "ja_rm": "Sankusu"
+          "ja": "ファミリーマート"
         },
         "type": "supply",
         "subtype": "convenience_store",
@@ -19330,7 +19326,6 @@
         "name": "MINISTOP",
         "nameLocalized": {
           "ja": "ミニストップ",
-          "ja_rm": "Mini Sutoppu",
           "ko": "미니스톱"
         },
         "type": "supply",
@@ -20405,8 +20400,7 @@
         "routeId": "shikoku-88-iyo",
         "name": "Lawson",
         "nameLocalized": {
-          "ja": "ローソン",
-          "ja_rm": "Famirī Mato"
+          "ja": "ローソン"
         },
         "type": "supply",
         "subtype": "convenience_store",
@@ -21303,8 +21297,7 @@
         "routeId": "shikoku-88-iyo",
         "name": "Hanamarūdon",
         "nameLocalized": {
-          "ja": "はなまるうどん",
-          "ja_rm": "Hanamaru Udon"
+          "ja": "はなまるうどん"
         },
         "type": "food",
         "subtype": "restaurant",
@@ -21551,8 +21544,7 @@
         "routeId": "shikoku-88-iyo",
         "name": "Daily YAMAZAKI",
         "nameLocalized": {
-          "ja": "デイリーヤマザキ",
-          "ja_rm": "Deiri Yamazaki"
+          "ja": "デイリーヤマザキ"
         },
         "type": "supply",
         "subtype": "convenience_store",
@@ -22001,8 +21993,7 @@
         "routeId": "shikoku-88-iyo",
         "name": "FamilyMart",
         "nameLocalized": {
-          "ja": "ファミリーマート",
-          "ja_rm": "Famirī Mato"
+          "ja": "ファミリーマート"
         },
         "type": "supply",
         "subtype": "convenience_store",
@@ -22422,8 +22413,7 @@
         "routeId": "shikoku-88-iyo",
         "name": "Circle K",
         "nameLocalized": {
-          "ja": "サークルK",
-          "ja_rm": "Sākuru-Kei"
+          "ja": "サークルK"
         },
         "type": "supply",
         "subtype": "convenience_store",

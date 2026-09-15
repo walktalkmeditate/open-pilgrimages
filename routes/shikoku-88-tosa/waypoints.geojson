@@ -5255,8 +5255,7 @@
         "routeId": "shikoku-88-tosa",
         "name": "FamilyMart",
         "nameLocalized": {
-          "ja": "ファミリーマート",
-          "ja_rm": "FamilyMart"
+          "ja": "ファミリーマート"
         },
         "type": "supply",
         "subtype": "convenience_store",
@@ -5443,8 +5442,7 @@
         "routeId": "shikoku-88-tosa",
         "name": "FamilyMart",
         "nameLocalized": {
-          "ja": "ファミリーマート",
-          "ja_rm": "FamilyMart"
+          "ja": "ファミリーマート"
         },
         "type": "supply",
         "subtype": "convenience_store",

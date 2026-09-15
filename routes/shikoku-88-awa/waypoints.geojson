@@ -344,7 +344,6 @@
         "nameLocalized": {
           "es": "Itano",
           "ja": "板野",
-          "ja_rm": "Itano",
           "ko": "이타노"
         },
         "type": "transport",
@@ -2781,8 +2780,7 @@
         "routeId": "shikoku-88-awa",
         "name": "FamilyMart",
         "nameLocalized": {
-          "ja": "ファミリーマート",
-          "ja_rm": "Famirī Mato"
+          "ja": "ファミリーマート"
         },
         "type": "supply",
         "subtype": "convenience_store",
@@ -3093,7 +3091,6 @@
         "routeId": "shikoku-88-awa",
         "name": "天神社",
         "nameLocalized": {
-          "ja_rm": "Ten-jinja",
           "ja": "天神社"
         },
         "type": "sacred_site",
@@ -4234,7 +4231,6 @@
         "name": "Lawson",
         "nameLocalized": {
           "ja": "ローソン",
-          "ja_rm": "Rōson",
           "ko": "로손"
         },
         "type": "supply",
@@ -4304,8 +4300,7 @@
         "routeId": "shikoku-88-awa",
         "name": "FamilyMart",
         "nameLocalized": {
-          "ja": "ファミリーマート",
-          "ja_rm": "Sankusu"
+          "ja": "ファミリーマート"
         },
         "type": "supply",
         "subtype": "convenience_store",
