@@ -5153,31 +5153,6 @@
     },
     {
       "type": "Feature",
-      "id": "wp-osm-sacred_site-node10031270371",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          132.5984627,
-          33.2953474
-        ]
-      },
-      "properties": {
-        "routeId": "shikoku-88-iyo",
-        "name": "稲荷神社",
-        "type": "sacred_site",
-        "subtype": "church",
-        "stageIndex": 2,
-        "kmFromStart": 76.9,
-        "icon": "church",
-        "source": "osm",
-        "osmId": "node/10031270371",
-        "nameLocalized": {
-          "ja": "稲荷神社"
-        }
-      }
-    },
-    {
-      "type": "Feature",
       "id": "wp-osm-transport-node3152608241",
       "geometry": {
         "type": "Point",
@@ -5323,81 +5298,6 @@
         "osmId": "node/3152603616",
         "nameLocalized": {
           "ja": "仏木寺"
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "wp-osm-sacred_site-node811018827",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          132.5814592,
-          33.3105599
-        ]
-      },
-      "properties": {
-        "routeId": "shikoku-88-iyo",
-        "name": "42 Butsumoku-ji",
-        "nameLocalized": {
-          "ja": "第42番札所 佛木寺 仏木寺"
-        },
-        "type": "sacred_site",
-        "subtype": "church",
-        "stageIndex": 2,
-        "kmFromStart": 79.9,
-        "icon": "church",
-        "source": "osm",
-        "osmId": "node/811018827"
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "wp-osm-sacred_site-node7677154317",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          132.581839,
-          33.3114001
-        ]
-      },
-      "properties": {
-        "routeId": "shikoku-88-iyo",
-        "name": "仏木寺三十三観音霊場33番",
-        "type": "sacred_site",
-        "subtype": "wayside_shrine",
-        "stageIndex": 2,
-        "kmFromStart": 79.9,
-        "icon": "wayside_shrine",
-        "source": "osm",
-        "osmId": "node/7677154317",
-        "nameLocalized": {
-          "ja": "仏木寺三十三観音霊場33番"
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "wp-osm-sacred_site-node7677154339",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          132.5820241,
-          33.3108846
-        ]
-      },
-      "properties": {
-        "routeId": "shikoku-88-iyo",
-        "name": "仏木寺三十三観音霊場11番",
-        "type": "sacred_site",
-        "subtype": "wayside_shrine",
-        "stageIndex": 2,
-        "kmFromStart": 79.9,
-        "icon": "wayside_shrine",
-        "source": "osm",
-        "osmId": "node/7677154339",
-        "nameLocalized": {
-          "ja": "仏木寺三十三観音霊場11番"
         }
       }
     },
@@ -11781,28 +11681,6 @@
     },
     {
       "type": "Feature",
-      "id": "wp-osm-sacred_site-node2387950625",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          132.8138601,
-          33.7935638
-        ]
-      },
-      "properties": {
-        "routeId": "shikoku-88-iyo",
-        "name": "Sairinji Temple (Temple 48)",
-        "type": "sacred_site",
-        "subtype": "church",
-        "stageIndex": 7,
-        "kmFromStart": 202.4,
-        "icon": "church",
-        "source": "osm",
-        "osmId": "node/2387950625"
-      }
-    },
-    {
-      "type": "Feature",
       "id": "wp-osm-supply-node11395289372",
       "geometry": {
         "type": "Point",
@@ -12344,31 +12222,6 @@
     },
     {
       "type": "Feature",
-      "id": "wp-osm-sacred_site-node2387958055",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          132.8083106,
-          33.8166202
-        ]
-      },
-      "properties": {
-        "routeId": "shikoku-88-iyo",
-        "name": "Jodoji Temple (Temple 49)",
-        "nameLocalized": {
-          "ja": "第49番札所 浄土寺"
-        },
-        "type": "sacred_site",
-        "subtype": "church",
-        "stageIndex": 7,
-        "kmFromStart": 205.7,
-        "icon": "church",
-        "source": "osm",
-        "osmId": "node/2387958055"
-      }
-    },
-    {
-      "type": "Feature",
       "id": "wp-osm-food-node2387958471",
       "geometry": {
         "type": "Point",
@@ -12540,28 +12393,6 @@
         "nameLocalized": {
           "ja": "北野"
         }
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "wp-osm-sacred_site-node608287974",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          132.8042637,
-          33.827983
-        ]
-      },
-      "properties": {
-        "routeId": "shikoku-88-iyo",
-        "name": "Hantaji Temple (Temple 50)",
-        "type": "sacred_site",
-        "subtype": "church",
-        "stageIndex": 7,
-        "kmFromStart": 207.4,
-        "icon": "church",
-        "source": "osm",
-        "osmId": "node/608287974"
       }
     },
     {
@@ -17630,31 +17461,6 @@
     },
     {
       "type": "Feature",
-      "id": "wp-osm-sacred_site-node4435546089",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          132.9953058,
-          34.0682265
-        ]
-      },
-      "properties": {
-        "routeId": "shikoku-88-iyo",
-        "name": "55 南光坊 (Nankōbō)",
-        "nameLocalized": {
-          "ja": "南光坊 (Nankōbō)"
-        },
-        "type": "sacred_site",
-        "subtype": "church",
-        "stageIndex": 10,
-        "kmFromStart": 262.8,
-        "icon": "church",
-        "source": "osm",
-        "osmId": "node/4435546089"
-      }
-    },
-    {
-      "type": "Feature",
       "id": "wp-osm-food-node8254178849",
       "geometry": {
         "type": "Point",
@@ -18265,31 +18071,6 @@
     },
     {
       "type": "Feature",
-      "id": "wp-osm-sacred_site-node5089656377",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          132.9742997,
-          34.0506491
-        ]
-      },
-      "properties": {
-        "routeId": "shikoku-88-iyo",
-        "name": "荒神社",
-        "type": "sacred_site",
-        "subtype": "church",
-        "stageIndex": 10,
-        "kmFromStart": 265.7,
-        "icon": "church",
-        "source": "osm",
-        "osmId": "node/5089656377",
-        "nameLocalized": {
-          "ja": "荒神社"
-        }
-      }
-    },
-    {
-      "type": "Feature",
       "id": "wp-osm-food-node8227271449",
       "geometry": {
         "type": "Point",
@@ -18536,53 +18317,6 @@
         "nameLocalized": {
           "ja": "浄寂寺"
         }
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "wp-osm-sacred_site-node4435546090",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          132.9781846,
-          34.0297812
-        ]
-      },
-      "properties": {
-        "routeId": "shikoku-88-iyo",
-        "name": "57 栄福寺 (Eifuku-ji)",
-        "nameLocalized": {
-          "ja": "栄福寺 (Eifuku-ji)"
-        },
-        "type": "sacred_site",
-        "subtype": "church",
-        "stageIndex": 10,
-        "kmFromStart": 268.6,
-        "icon": "church",
-        "source": "osm",
-        "osmId": "node/4435546090"
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "wp-osm-sacred_site-node5087296423",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          132.9773616,
-          34.0135138
-        ]
-      },
-      "properties": {
-        "routeId": "shikoku-88-iyo",
-        "name": "Temple Senyuji, No. 58 of pilgrimage route",
-        "type": "sacred_site",
-        "subtype": "church",
-        "stageIndex": 10,
-        "kmFromStart": 271,
-        "icon": "church",
-        "source": "osm",
-        "osmId": "node/5087296423"
       }
     },
     {
@@ -18834,31 +18568,6 @@
         "nameLocalized": {
           "ja": "国分寺"
         }
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "wp-osm-sacred_site-node4435525693",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          133.0255592,
-          34.0261394
-        ]
-      },
-      "properties": {
-        "routeId": "shikoku-88-iyo",
-        "name": "第59番札所 伊予国分寺 (Iyo Kokubun-ji)",
-        "nameLocalized": {
-          "ja": "第59番札所 伊予国分寺"
-        },
-        "type": "sacred_site",
-        "subtype": "church",
-        "stageIndex": 10,
-        "kmFromStart": 277.3,
-        "icon": "church",
-        "source": "osm",
-        "osmId": "node/4435525693"
       }
     },
     {
@@ -19898,31 +19607,6 @@
     },
     {
       "type": "Feature",
-      "id": "wp-osm-sacred_site-node412335530",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          133.1034109,
-          33.893603
-        ]
-      },
-      "properties": {
-        "routeId": "shikoku-88-iyo",
-        "name": "61 Kōon-ji",
-        "nameLocalized": {
-          "ja": "第61番札所 香園寺"
-        },
-        "type": "sacred_site",
-        "subtype": "church",
-        "stageIndex": 11,
-        "kmFromStart": 313.7,
-        "icon": "church",
-        "source": "osm",
-        "osmId": "node/412335530"
-      }
-    },
-    {
-      "type": "Feature",
       "id": "wp-osm-supply-node3212649944",
       "geometry": {
         "type": "Point",
@@ -20336,31 +20020,6 @@
         "icon": "toilet",
         "source": "osm",
         "osmId": "node/412335767"
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "wp-osm-sacred_site-node412335769",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          133.1605615,
-          33.8903607
-        ]
-      },
-      "properties": {
-        "routeId": "shikoku-88-iyo",
-        "name": "64 Maegami-ji",
-        "nameLocalized": {
-          "ja": "第64番札所 前神寺"
-        },
-        "type": "sacred_site",
-        "subtype": "church",
-        "stageIndex": 11,
-        "kmFromStart": 319.9,
-        "icon": "church",
-        "source": "osm",
-        "osmId": "node/412335769"
       }
     },
     {
@@ -22846,28 +22505,6 @@
     },
     {
       "type": "Feature",
-      "id": "wp-osm-sacred_site-node4839325648",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          133.5866363,
-          33.9673725
-        ]
-      },
-      "properties": {
-        "routeId": "shikoku-88-iyo",
-        "name": "Sankaku-ji",
-        "type": "sacred_site",
-        "subtype": "church",
-        "stageIndex": 13,
-        "kmFromStart": 365.7,
-        "icon": "church",
-        "source": "osm",
-        "osmId": "node/4839325648"
-      }
-    },
-    {
-      "type": "Feature",
       "id": "temple-40",
       "geometry": {
         "type": "Point",
@@ -22931,7 +22568,8 @@
         },
         "tags": [
           "temple"
-        ]
+        ],
+        "osmId": "node/10031270371"
       }
     },
     {
@@ -22965,7 +22603,8 @@
         },
         "tags": [
           "temple"
-        ]
+        ],
+        "osmId": "node/811018827"
       }
     },
     {
@@ -23173,7 +22812,8 @@
         },
         "tags": [
           "temple"
-        ]
+        ],
+        "osmId": "node/2387950625"
       }
     },
     {
@@ -23207,7 +22847,8 @@
         },
         "tags": [
           "temple"
-        ]
+        ],
+        "osmId": "node/2387958055"
       }
     },
     {
@@ -23241,7 +22882,8 @@
         },
         "tags": [
           "temple"
-        ]
+        ],
+        "osmId": "node/608287974"
       }
     },
     {
@@ -23413,7 +23055,8 @@
         },
         "tags": [
           "temple"
-        ]
+        ],
+        "osmId": "node/4435546089"
       }
     },
     {
@@ -23447,7 +23090,8 @@
         },
         "tags": [
           "temple"
-        ]
+        ],
+        "osmId": "node/5089656377"
       }
     },
     {
@@ -23481,7 +23125,8 @@
         },
         "tags": [
           "temple"
-        ]
+        ],
+        "osmId": "node/4435546090"
       }
     },
     {
@@ -23516,7 +23161,8 @@
         },
         "tags": [
           "temple"
-        ]
+        ],
+        "osmId": "node/5087296423"
       }
     },
     {
@@ -23550,7 +23196,8 @@
         },
         "tags": [
           "temple"
-        ]
+        ],
+        "osmId": "node/4435525693"
       }
     },
     {
@@ -23620,7 +23267,8 @@
         },
         "tags": [
           "temple"
-        ]
+        ],
+        "osmId": "node/412335530"
       }
     },
     {
@@ -23723,7 +23371,8 @@
         },
         "tags": [
           "temple"
-        ]
+        ],
+        "osmId": "node/412335769"
       }
     },
     {
@@ -23758,7 +23407,8 @@
         },
         "tags": [
           "temple"
-        ]
+        ],
+        "osmId": "node/4839325648"
       }
     }
   ]

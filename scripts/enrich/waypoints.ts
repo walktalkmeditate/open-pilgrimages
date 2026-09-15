@@ -8,7 +8,7 @@ import {
   haversineKm, minDistanceToLineKm, projectOntoLine,
   pointToSegmentDistanceKm, type Coord,
 } from "./geo-utils.js";
-import { walkedLine, lineLengthMeters } from "../ways/geo.js";
+import { walkedLine, lineLengthMeters, haversineMeters } from "../ways/geo.js";
 import { MOMENT_TYPES } from "../ways/moments.js";
 import { resolveInvokedPath } from "../cli.js";
 
@@ -18,7 +18,54 @@ const ROOT = join(import.meta.dirname, "../..");
  * so admitting one past that only writes a waypoint no package will carry.
  */
 const BUFFER_KM = 0.3;
-const DEDUP_KM = 0.05;
+const DEDUP_METERS = 50;
+
+/** Decimal places a number is written with: 134.507 is three, 134.5074123 seven. */
+export function decimalsOf(value: number): number {
+  const text = String(value);
+  const dot = text.indexOf(".");
+  return dot === -1 ? 0 : text.length - dot - 1;
+}
+
+const METERS_PER_DEGREE_LAT = 110574;
+const METERS_PER_DEGREE_LON = 111320;
+
+/**
+ * How far a coordinate written to `places` decimals may stand from the position
+ * it records — half a cell of its grid in each direction, at this latitude.
+ */
+function quantisationMeters(places: number, lat: number): number {
+  const halfCell = 0.5 * Math.pow(10, -places);
+  return Math.hypot(
+    halfCell * METERS_PER_DEGREE_LAT,
+    halfCell * METERS_PER_DEGREE_LON * Math.cos((lat * Math.PI) / 180),
+  );
+}
+
+/**
+ * A curated point stored at three decimals is only known to about 70 m, so
+ * measuring it against a full-precision OSM twin at 50 m could never match:
+ * across Shikoku the nearest-twin distances run 50–107 m with a minimum of
+ * exactly 50, and the gate never once fired.
+ *
+ * The threshold is widened by the coarser point's own uncertainty rather than
+ * both points being snapped onto the coarser grid. Snapping reads better and is
+ * wrong: it turns a continuous question into which side of a cell boundary each
+ * point fell on, and the very pair this fix exists for — a curated 34.173
+ * against an OSM 34.1736521, 82 m apart — rounds to 34.173 and 34.174 and comes
+ * back 111 m apart, further than before the repair.
+ */
+export function isSamePlace(
+  a: { lon: number; lat: number },
+  b: { lon: number; lat: number },
+): boolean {
+  const places = Math.min(
+    Math.max(decimalsOf(a.lon), decimalsOf(a.lat)),
+    Math.max(decimalsOf(b.lon), decimalsOf(b.lat)),
+  );
+  const metres = haversineMeters([a.lon, a.lat], [b.lon, b.lat]);
+  return metres <= DEDUP_METERS + quantisationMeters(places, a.lat);
+}
 
 /**
  * A service is useful without a name: an unnamed drinking fountain is still
@@ -331,10 +378,13 @@ async function main() {
       continue;
     }
 
-    const tooCloseCurated = curatedCoords.some((c: Coord) => haversineKm(c, coord) < DEDUP_KM);
-    const tooCloseOsm = newWaypoints.some((w: any) =>
-      haversineKm(w.geometry.coordinates as Coord, coord) < DEDUP_KM
-    );
+    const here = { lon: node.lon, lat: node.lat };
+    const tooCloseCurated = curatedCoords.some(
+      (c: Coord) => isSamePlace({ lon: c[0], lat: c[1] }, here));
+    const tooCloseOsm = newWaypoints.some((w: any) => {
+      const [lon, lat] = w.geometry.coordinates as Coord;
+      return isSamePlace({ lon, lat }, here);
+    });
     if (tooCloseCurated || tooCloseOsm) {
       skippedDedup++;
       continue;
@@ -388,7 +438,7 @@ async function main() {
     console.log(`    ${type}: ${count}`);
   }
   console.log(`  Skipped (>${BUFFER_KM * 1000}m from route): ${skippedDistance}`);
-  console.log(`  Skipped (duplicate <${DEDUP_KM * 1000}m): ${skippedDedup}`);
+  console.log(`  Skipped (duplicate within ${DEDUP_METERS}m plus rounding): ${skippedDedup}`);
   console.log(`  Skipped (place with no name): ${skippedUnnamed}`);
   console.log(`  Total waypoints: ${allWaypoints.length}`);
 }

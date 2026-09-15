@@ -395,31 +395,6 @@
     },
     {
       "type": "Feature",
-      "id": "wp-osm-sacred_site-node13457236116",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          133.7236141,
-          34.0354635
-        ]
-      },
-      "properties": {
-        "routeId": "shikoku-88-sanuki",
-        "name": "第66番札所 雲辺寺",
-        "type": "sacred_site",
-        "subtype": "church",
-        "stageIndex": 0,
-        "kmFromStart": 20.7,
-        "icon": "church",
-        "source": "osm",
-        "osmId": "node/13457236116",
-        "nameLocalized": {
-          "ja": "第66番札所 雲辺寺"
-        }
-      }
-    },
-    {
-      "type": "Feature",
       "id": "wp-osm-sacred_site-node12157823757",
       "geometry": {
         "type": "Point",
@@ -699,31 +674,6 @@
         "source": "osm",
         "osmId": "node/13190148801",
         "hours": "24/7"
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "wp-osm-sacred_site-node13457234989",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          133.6475726,
-          34.1345052
-        ]
-      },
-      "properties": {
-        "routeId": "shikoku-88-sanuki",
-        "name": "第69番札所 観音寺",
-        "type": "sacred_site",
-        "subtype": "church",
-        "stageIndex": 1,
-        "kmFromStart": 39.2,
-        "icon": "church",
-        "source": "osm",
-        "osmId": "node/13457234989",
-        "nameLocalized": {
-          "ja": "第69番札所 観音寺"
-        }
       }
     },
     {
@@ -4547,31 +4497,6 @@
     },
     {
       "type": "Feature",
-      "id": "wp-osm-sacred_site-node8497522570",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          133.94457,
-          34.302873
-        ]
-      },
-      "properties": {
-        "routeId": "shikoku-88-sanuki",
-        "name": "良縁社",
-        "type": "sacred_site",
-        "subtype": "church",
-        "stageIndex": 3,
-        "kmFromStart": 91.8,
-        "icon": "church",
-        "source": "osm",
-        "osmId": "node/8497522570",
-        "nameLocalized": {
-          "ja": "良縁社"
-        }
-      }
-    },
-    {
-      "type": "Feature",
       "id": "wp-osm-sacred_site-node4806012099",
       "geometry": {
         "type": "Point",
@@ -4668,31 +4593,6 @@
         "icon": "church",
         "source": "osm",
         "osmId": "node/13059569001"
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "wp-osm-sacred_site-node705230870",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          133.9270371,
-          34.3344627
-        ]
-      },
-      "properties": {
-        "routeId": "shikoku-88-sanuki",
-        "name": "81 Shiromine-ji",
-        "nameLocalized": {
-          "ja": "第81番札所 白峯寺"
-        },
-        "type": "sacred_site",
-        "subtype": "church",
-        "stageIndex": 3,
-        "kmFromStart": 98.5,
-        "icon": "church",
-        "source": "osm",
-        "osmId": "node/705230870"
       }
     },
     {
@@ -8836,7 +8736,8 @@
           "temple",
           "highest",
           "phase-boundary"
-        ]
+        ],
+        "osmId": "node/13457236116"
       }
     },
     {
@@ -8942,7 +8843,8 @@
         "tags": [
           "temple",
           "shared-grounds"
-        ]
+        ],
+        "osmId": "node/13457234989"
       }
     },
     {
@@ -9321,7 +9223,8 @@
         },
         "tags": [
           "temple"
-        ]
+        ],
+        "osmId": "node/8497522570"
       }
     },
     {
@@ -9357,7 +9260,8 @@
         "tags": [
           "temple",
           "mountain"
-        ]
+        ],
+        "osmId": "node/705230870"
       }
     },
     {

@@ -4136,56 +4136,6 @@
     },
     {
       "type": "Feature",
-      "id": "wp-osm-sacred_site-node408839221",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          133.9752755,
-          33.4686967
-        ]
-      },
-      "properties": {
-        "routeId": "shikoku-88-tosa",
-        "name": "神峯神社",
-        "type": "sacred_site",
-        "subtype": "church",
-        "stageIndex": 3,
-        "kmFromStart": 116.6,
-        "icon": "church",
-        "source": "osm",
-        "osmId": "node/408839221",
-        "nameLocalized": {
-          "ja": "神峯神社"
-        }
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "wp-osm-sacred_site-node408839421",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          133.9749882,
-          33.4675303
-        ]
-      },
-      "properties": {
-        "routeId": "shikoku-88-tosa",
-        "name": "27 Kōnomine-ji",
-        "nameLocalized": {
-          "ja": "第27番札所 神峯寺"
-        },
-        "type": "sacred_site",
-        "subtype": "church",
-        "stageIndex": 3,
-        "kmFromStart": 116.6,
-        "icon": "church",
-        "source": "osm",
-        "osmId": "node/408839421"
-      }
-    },
-    {
-      "type": "Feature",
       "id": "wp-osm-supply-node13161254801",
       "geometry": {
         "type": "Point",
@@ -6262,31 +6212,6 @@
     },
     {
       "type": "Feature",
-      "id": "wp-osm-sacred_site-node3919866480",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          133.409532,
-          33.5124748
-        ]
-      },
-      "properties": {
-        "routeId": "shikoku-88-tosa",
-        "name": "35 Kiyotaki-ji",
-        "nameLocalized": {
-          "ja": "第35番札所 清滝寺"
-        },
-        "type": "sacred_site",
-        "subtype": "church",
-        "stageIndex": 7,
-        "kmFromStart": 208.3,
-        "icon": "church",
-        "source": "osm",
-        "osmId": "node/3919866480"
-      }
-    },
-    {
-      "type": "Feature",
       "id": "wp-osm-medical-node1423735472",
       "geometry": {
         "type": "Point",
@@ -6737,7 +6662,8 @@
         "tags": [
           "temple",
           "mountain"
-        ]
+        ],
+        "osmId": "node/408839221"
       }
     },
     {
@@ -8429,7 +8355,8 @@
         },
         "tags": [
           "temple"
-        ]
+        ],
+        "osmId": "node/3919866480"
       }
     },
     {
