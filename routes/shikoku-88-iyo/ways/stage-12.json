@@ -1112,86 +1112,6 @@
       }
     },
     {
-      "id": "wp-osm-sacred_site-node11408953169",
-      "frac": 0.19424187514761798,
-      "kind": "waypoint",
-      "label": "Jizoharajizoan",
-      "icon": "building.columns",
-      "at": {
-        "lat": 33.90851656759599,
-        "lon": 133.2111534867093
-      },
-      "pin": {
-        "lat": 33.9084382,
-        "lon": 133.211168
-      },
-      "sitMinutes": 5
-    },
-    {
-      "id": "wp-osm-sacred_site-node10669837034",
-      "frac": 0.39762302988821324,
-      "kind": "waypoint",
-      "label": "萩生寺",
-      "icon": "building.columns",
-      "at": {
-        "lat": 33.92871498395066,
-        "lon": 133.27333354770752
-      },
-      "pin": {
-        "lat": 33.9261575,
-        "lon": 133.2740747
-      },
-      "sitMinutes": 5
-    },
-    {
-      "id": "wp-osm-sacred_site-node10572420866",
-      "frac": 0.43489256071303145,
-      "kind": "waypoint",
-      "label": "白山神社",
-      "icon": "building.columns",
-      "at": {
-        "lat": 33.930406,
-        "lon": 133.286311
-      },
-      "pin": {
-        "lat": 33.9282632,
-        "lon": 133.2867704
-      },
-      "sitMinutes": 5
-    },
-    {
-      "id": "wp-osm-sacred_site-node10688013064",
-      "frac": 0.46170083881193597,
-      "kind": "waypoint",
-      "label": "新居浜キリスト教会",
-      "icon": "building.columns",
-      "at": {
-        "lat": 33.932169993066736,
-        "lon": 133.29552541991703
-      },
-      "pin": {
-        "lat": 33.9338893,
-        "lon": 133.2945275
-      },
-      "sitMinutes": 5
-    },
-    {
-      "id": "wp-osm-sacred_site-node10673975133",
-      "frac": 0.4905249533127328,
-      "kind": "waypoint",
-      "label": "毘沙門堂",
-      "icon": "building.columns",
-      "at": {
-        "lat": 33.934344763153305,
-        "lon": 133.3052239963423
-      },
-      "pin": {
-        "lat": 33.9358905,
-        "lon": 133.3048095
-      },
-      "sitMinutes": 5
-    },
-    {
       "id": "wp-osm-sacred_site-node6069894534",
       "frac": 0.8523747514268492,
       "kind": "waypoint",
@@ -1205,6 +1125,7 @@
         "lat": 33.9565499,
         "lon": 133.4203938
       },
+      "text": "Bangai 12 · 延命寺. A bekkaku (別格) is a side temple, not one of the 88; temple 54 of this section carries the same name.",
       "names": {
         "ja": "別格12 延命寺"
       },

@@ -731,7 +731,8 @@
       "pin": {
         "lat": 43.2743248,
         "lon": -2.8329246
-      }
+      },
+      "text": "Village · 60 m"
     },
     {
       "id": "wp-osm-town-node313218582",
@@ -747,6 +748,7 @@
         "lat": 43.2827605,
         "lon": -2.8623645
       },
+      "text": "Village · 50 m",
       "names": {
         "eu": "Zamudio"
       }
@@ -765,6 +767,7 @@
         "lat": 43.2654928,
         "lon": -2.9109833
       },
+      "text": "Church",
       "names": {
         "eu": "Goiuriko Andra Mari parrokia"
       },
@@ -784,6 +787,7 @@
         "lat": 43.2630884,
         "lon": -2.912079
       },
+      "text": "Church",
       "sitMinutes": 5
     },
     {
@@ -800,6 +804,7 @@
         "lat": 43.2567944,
         "lon": -2.9151798
       },
+      "text": "Church",
       "sitMinutes": 5
     },
     {

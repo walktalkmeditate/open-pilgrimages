@@ -756,7 +756,8 @@
       "pin": {
         "lat": 43.3749259,
         "lon": -4.5409351
-      }
+      },
+      "text": "Village · 111 m"
     },
     {
       "id": "wp-osm-sacred_site-node558553089",
@@ -772,6 +773,7 @@
         "lat": 43.380363,
         "lon": -4.5561786
       },
+      "text": "Church",
       "sitMinutes": 5
     },
     {
@@ -788,6 +790,7 @@
         "lat": 43.3939262,
         "lon": -4.5966303
       },
+      "text": "Wayside shrine",
       "sitMinutes": 5
     },
     {
@@ -804,6 +807,7 @@
         "lat": 43.3967277,
         "lon": -4.666096
       },
+      "text": "Church",
       "sitMinutes": 5
     },
     {
@@ -820,6 +824,7 @@
         "lat": 43.4211205,
         "lon": -4.7530835
       },
+      "text": "Town · 5 m",
       "names": {
         "la": "Libunca",
         "uk": "Льянес"

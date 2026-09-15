@@ -1762,6 +1762,7 @@
         "lat": 43.3189646,
         "lon": -3.0198633
       },
+      "text": "Town · 38 m",
       "names": {
         "eu": "Portugalete"
       }
@@ -1780,6 +1781,7 @@
         "lat": 43.3184983,
         "lon": -3.022925
       },
+      "text": "Church",
       "sitMinutes": 5
     },
     {
@@ -1796,6 +1798,7 @@
         "lat": 43.3122041,
         "lon": -3.0483593
       },
+      "text": "Viewpoint",
       "sitMinutes": 5
     },
     {
@@ -1812,6 +1815,7 @@
         "lat": 43.3495347,
         "lon": -3.1229484
       },
+      "text": "Viewpoint",
       "sitMinutes": 5
     },
     {
@@ -1827,7 +1831,8 @@
       "pin": {
         "lat": 43.3496784,
         "lon": -3.1581201
-      }
+      },
+      "text": "Ruins"
     },
     {
       "id": "wp-osm-cultural_site-node10128733812",
@@ -1842,7 +1847,8 @@
       "pin": {
         "lat": 43.3492371,
         "lon": -3.157809
-      }
+      },
+      "text": "Ruins"
     },
     {
       "id": "wp-osm-town-node288260129",
@@ -1857,7 +1863,8 @@
       "pin": {
         "lat": 43.3578453,
         "lon": -3.2297328
-      }
+      },
+      "text": "Village · 24 m"
     },
     {
       "id": "wp-osm-sacred_site-node4605618386",
@@ -1873,6 +1880,7 @@
         "lat": 43.3815812,
         "lon": -3.2210812
       },
+      "text": "Church",
       "sitMinutes": 5
     },
     {

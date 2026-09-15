@@ -17,9 +17,9 @@
       "passedGate": true,
       "boundaryMode": "snap",
       "routePoints": 254,
-      "moments": 17,
-      "momentsBeyondEnds": 13,
-      "momentsWithText": 10,
+      "moments": 13,
+      "momentsBeyondEnds": 11,
+      "momentsWithText": 13,
       "marks": 24,
       "marksTrimmed": 0,
       "dropped": []
@@ -33,8 +33,8 @@
       "passedGate": true,
       "boundaryMode": "snap",
       "routePoints": 237,
-      "moments": 9,
-      "momentsBeyondEnds": 7,
+      "moments": 4,
+      "momentsBeyondEnds": 2,
       "momentsWithText": 2,
       "marks": 11,
       "marksTrimmed": 0,
@@ -52,9 +52,9 @@
       "passedGate": true,
       "boundaryMode": "snap",
       "routePoints": 259,
-      "moments": 10,
-      "momentsBeyondEnds": 7,
-      "momentsWithText": 5,
+      "moments": 8,
+      "momentsBeyondEnds": 6,
+      "momentsWithText": 7,
       "marks": 28,
       "marksTrimmed": 0,
       "dropped": []
@@ -68,8 +68,8 @@
       "passedGate": true,
       "boundaryMode": "snap",
       "routePoints": 434,
-      "moments": 20,
-      "momentsBeyondEnds": 17,
+      "moments": 7,
+      "momentsBeyondEnds": 5,
       "momentsWithText": 5,
       "marks": 69,
       "marksTrimmed": 0,
@@ -87,13 +87,12 @@
       "passedGate": true,
       "boundaryMode": "snap",
       "routePoints": 250,
-      "moments": 8,
-      "momentsBeyondEnds": 4,
-      "momentsWithText": 1,
+      "moments": 3,
+      "momentsBeyondEnds": 1,
+      "momentsWithText": 2,
       "marks": 10,
       "marksTrimmed": 0,
       "dropped": [
-        "wp-osm-sacred_site-node369987357 (\"山神社\") is 1242 m from the line, beyond the 300 m limit",
         "wp-osm-supply-node298725358 (\"Lawson\") is 554 m from the line, beyond the 300 m limit",
         "wp-osm-transport-node369987265 (\"Kitagawachi\") is 963 m from the line, beyond the 300 m limit"
       ]
@@ -108,6 +107,6 @@
     "sparse": false,
     "stagesWithMomentBeyondEnds": 5,
     "halfOfStages": 3,
-    "placesPerStage": 9.6
+    "placesPerStage": 5
   }
 }

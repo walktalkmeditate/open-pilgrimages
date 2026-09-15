@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Iyo (Temples 39-65) &mdash; Open Pilgrimages</title>
-  <meta name="description" content="Iyo: the third of the four dōjō of the Shikoku 88 Temple Pilgrimage, 365.7 km from Enkō-ji (Temple 39) to Sankaku-ji (Temple 65). Walked line, fourteen day stages cut by rule, and 953 waypoints.">
+  <meta name="description" content="Iyo: the third of the four dōjō of the Shikoku 88 Temple Pilgrimage, 365.7 km from Enkō-ji (Temple 39) to Sankaku-ji (Temple 65). Walked line, fourteen day stages cut by rule, and 938 waypoints.">
   <link rel="canonical" href="https://open.pilgrimag.es/shikoku-88-iyo">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <meta property="og:type" content="website">
@@ -239,14 +239,14 @@
     </details>
 
     <h2>Waypoints</h2>
-    <p>953 waypoints stand on this section, each with a <code>type</code>, a <code>stageIndex</code> and a <code>kmFromStart</code> measured along this section&#39;s own walked line &mdash; of which 151 are sacred sites and 7 are towns.</p>
+    <p>938 waypoints stand on this section, each with a <code>type</code>, a <code>stageIndex</code> and a <code>kmFromStart</code> measured along this section&#39;s own walked line &mdash; of which 136 are sacred sites and 7 are towns.</p>
     <table>
       <caption>Waypoint counts by type on Iyo (Temples 39-65).</caption>
       <thead>
         <tr><th scope="col">Type</th><th scope="col">Count</th></tr>
       </thead>
       <tbody>
-        <tr><th scope="row">Sacred sites</th><td>151</td></tr>
+        <tr><th scope="row">Sacred sites</th><td>136</td></tr>
         <tr><th scope="row">Cultural sites</th><td>1</td></tr>
         <tr><th scope="row">Towns</th><td>7</td></tr>
         <tr><th scope="row">Accommodation</th><td>41</td></tr>
@@ -256,12 +256,12 @@
         <tr><th scope="row">Medical (pharmacy/hospital)</th><td>45</td></tr>
         <tr><th scope="row">Water sources</th><td>4</td></tr>
         <tr><th scope="row">Viewpoints</th><td>1</td></tr>
-        <tr><th scope="row">Total</th><td>953</td></tr>
+        <tr><th scope="row">Total</th><td>938</td></tr>
       </tbody>
     </table>
-    <p>The 26 temples are the curated half: hand-placed, carrying a <code>templeNumber</code> and no <code>osmId</code>, and they are what the day rule looks for. The other 927 came from OpenStreetMap through the enricher, every one of them carrying an <code>osmId</code>, so a re-run reproduces them — more than in the other three dōjō put together, and 494 of them are bus stops and railway stations.</p>
+    <p>The 26 temples are the curated half: hand-placed, carrying a <code>templeNumber</code> and no <code>osmId</code>, and they are what the day rule looks for. Two more are curated without being hand-placed &mdash; bangai 9, Monju-in, and bangai 12, Enmei-ji, which OpenStreetMap itself designated and which keep the <code>osmId</code>s they were found by. The other 910 came from OpenStreetMap through the enricher, every one of them carrying an <code>osmId</code>, so a re-run reproduces them — more than in the other three dōjō put together, and 494 of them are bus stops and railway stations.</p>
     <p>Of the 953, 151 carry the <code>sacred_site</code> type, and only 26 of those are temples of the 88. The rest are the wayside shrines, halls and small sanctuaries OpenStreetMap records along the way — 43 of them wayside shrines, 28 of those one numbered series inside 1.7 km on stage 4. The day rule refuses that looser reading of the word: a temple, for the purpose of cutting a day, means a waypoint carrying a <code>templeNumber</code>, and nothing else.</p>
-    <p><code>index.json</code> records this section as <code>sparse: false</code>, at 10.4 places per stage — the richest of the four. That bar belongs to a section, not to a day: a section clears it when at least half its stages carry a place beyond their own start and end, and Iyo clears it on twelve of its fourteen.</p>
+    <p><code>index.json</code> records this section as <code>sparse: false</code>, at 2.1 places per stage — the richest of the four. That bar belongs to a section, not to a day: a section clears it when at least half its stages carry a place beyond their own start and end, and Iyo clears it on twelve of its fourteen.</p>
     <p>The two that carry nothing between their own two ends are stage 2, Kanjizai-ji (Temple 40) to Hotel Ailin, and stage 14, HOTEL AZ 愛媛土居インター店 to Sankaku-ji (Temple 65). Both still carry marks — 34 and 16 — so a walker has services on the map; what those two days do not offer is somewhere to arrive at between the start and the finish. The 10.4 is the mean of the beyond-the-ends counts, so 10.4 per stage and two stages with nothing are an average with two zeroes in it rather than a contradiction. Awa, Tosa and Sanuki have no such stage.</p>
     <p>Four waypoints in this file never reach a stage, and the farthest is 325 m out. The corridor that admitted them is measured against <code>route.geojson</code>, which carries every member way of the 26 relations and runs 636.6 km against the walked line's 365.7; build-ways then measures against the walked line and drops anything more than 300 m from it. All four are named, with their distances, in <code>ways/report.json</code>.</p>
     <p><a href="/contribute">Help fill in what is missing</a>.</p>

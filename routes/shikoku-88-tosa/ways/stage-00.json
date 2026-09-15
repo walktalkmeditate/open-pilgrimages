@@ -1077,41 +1077,6 @@
       }
     },
     {
-      "id": "wp-osm-sacred_site-node369741886",
-      "frac": 0.00022903177432968564,
-      "kind": "waypoint",
-      "label": "23 Yakuo-ji",
-      "icon": "building.columns",
-      "at": {
-        "lat": 33.732048678932685,
-        "lon": 134.5281029100177
-      },
-      "pin": {
-        "lat": 33.7322973,
-        "lon": 134.5275924
-      },
-      "names": {
-        "ja": "第23番札所 薬王寺"
-      },
-      "sitMinutes": 5
-    },
-    {
-      "id": "wp-osm-sacred_site-node11869158094",
-      "frac": 0.17645642942715875,
-      "kind": "waypoint",
-      "label": "打越寺",
-      "icon": "building.columns",
-      "at": {
-        "lat": 33.7165849073894,
-        "lon": 134.48479968206053
-      },
-      "pin": {
-        "lat": 33.7163573,
-        "lon": 134.4849756
-      },
-      "sitMinutes": 5
-    },
-    {
       "id": "wp-osm-cultural_site-node13626737001",
       "frac": 0.2678789586846637,
       "kind": "waypoint",
@@ -1125,6 +1090,7 @@
         "lat": 33.7074813,
         "lon": 134.4573886
       },
+      "text": "Ruins",
       "names": {
         "fr": "Restaurant en ruine"
       }

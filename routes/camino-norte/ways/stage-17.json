@@ -1037,6 +1037,7 @@
         "lat": 43.4617962,
         "lon": -5.0588575
       },
+      "text": "Town · 45 m",
       "names": {
         "ast": "Ribeseya",
         "es": "Ribadesella",
@@ -1057,6 +1058,7 @@
         "lat": 43.4612689,
         "lon": -5.0613016
       },
+      "text": "Viewpoint",
       "sitMinutes": 5
     },
     {
@@ -1073,6 +1075,7 @@
         "lat": 43.4625779,
         "lon": -5.0701898
       },
+      "text": "Viewpoint",
       "sitMinutes": 5
     },
     {
@@ -1089,6 +1092,7 @@
         "lat": 43.4770181,
         "lon": -5.1300804
       },
+      "text": "Church",
       "sitMinutes": 5
     },
     {
@@ -1105,6 +1109,7 @@
         "lat": 43.4733777,
         "lon": -5.1515204
       },
+      "text": "Church",
       "sitMinutes": 5
     },
     {

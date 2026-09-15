@@ -967,6 +967,7 @@
         "lat": 33.4960168,
         "lon": 133.425544
       },
+      "text": "City",
       "names": {
         "ar": "توسا، كوتشي",
         "cs": "Tosa",
@@ -1000,41 +1001,6 @@
       "text": "Temple 35 · Shingon Buzan · stamp available (¥500)",
       "names": {
         "ja": "清滝寺"
-      },
-      "sitMinutes": 5
-    },
-    {
-      "id": "wp-osm-sacred_site-node3919866480",
-      "frac": 0.14293137457399924,
-      "kind": "waypoint",
-      "label": "35 Kiyotaki-ji",
-      "icon": "building.columns",
-      "at": {
-        "lat": 33.512468,
-        "lon": 133.409582
-      },
-      "pin": {
-        "lat": 33.5124748,
-        "lon": 133.409532
-      },
-      "names": {
-        "ja": "第35番札所 清滝寺"
-      },
-      "sitMinutes": 5
-    },
-    {
-      "id": "wp-osm-sacred_site-node5459380601",
-      "frac": 0.6285109526255961,
-      "kind": "waypoint",
-      "label": "正念寺",
-      "icon": "building.columns",
-      "at": {
-        "lat": 33.450395675124554,
-        "lon": 133.440886777434
-      },
-      "pin": {
-        "lat": 33.4515783,
-        "lon": 133.4420898
       },
       "sitMinutes": 5
     },

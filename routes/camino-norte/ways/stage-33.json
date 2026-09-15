@@ -651,7 +651,8 @@
       "pin": {
         "lat": 43.0403957,
         "lon": -8.0224927
-      }
+      },
+      "text": "Village · 504 m"
     },
     {
       "id": "wp-osm-sacred_site-node13424242285",
@@ -667,6 +668,7 @@
         "lat": 43.0159995,
         "lon": -8.1186201
       },
+      "text": "Wayside cross",
       "sitMinutes": 5
     },
     {
@@ -682,7 +684,8 @@
       "pin": {
         "lat": 43.0009184,
         "lon": -8.1336282
-      }
+      },
+      "text": "Village · 492 m"
     },
     {
       "id": "stage-end",
@@ -712,7 +715,8 @@
       "pin": {
         "lat": 42.9279921,
         "lon": -8.1605667
-      }
+      },
+      "text": "Town · 386 m"
     }
   ],
   "marks": [

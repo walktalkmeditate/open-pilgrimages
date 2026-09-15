@@ -1305,7 +1305,7 @@
         "lat": 33.829,
         "lon": 135.634
       },
-      "text": "800-year-old cedar trees tower over the shrine.",
+      "text": "Oji · Shinto · 550 m · stamp available · 800-year-old cedar trees tower over the shrine.",
       "names": {
         "ja": "継桜王子"
       },
@@ -1325,7 +1325,7 @@
         "lat": 33.835,
         "lon": 135.657
       },
-      "text": "Shinto",
+      "text": "Oji · Shinto · 600 m",
       "names": {
         "ja": "小広王子"
       },
@@ -1345,29 +1345,11 @@
         "lat": 33.857,
         "lon": 135.721
       },
-      "text": "Shinto",
+      "text": "Oji · Shinto · 350 m",
       "names": {
         "ja": "猪鼻王子"
       },
       "sitMinutes": 5
-    },
-    {
-      "id": "stage-end",
-      "frac": 1,
-      "kind": "waypoint",
-      "label": "Hosshinmon-oji",
-      "icon": "house.lodge",
-      "at": {
-        "lat": 33.861638,
-        "lon": 135.720908
-      },
-      "pin": {
-        "lat": 33.862,
-        "lon": 135.721
-      },
-      "names": {
-        "ja": "発心門王子"
-      }
     },
     {
       "id": "wp-hosshinmon-oji",
@@ -1383,7 +1365,7 @@
         "lat": 33.862,
         "lon": 135.721
       },
-      "text": "Gate of Spiritual Awakening. One of the Five Great Oji. Entrance to the sacred precincts of Kumano Hongu Taisha.",
+      "text": "Oji · Shinto · 290 m · stamp available · Gate of Spiritual Awakening. One of the Five Great Oji. Entrance to the sacred precincts of Kumano Hongu Taisha.",
       "names": {
         "ja": "発心門王子"
       },

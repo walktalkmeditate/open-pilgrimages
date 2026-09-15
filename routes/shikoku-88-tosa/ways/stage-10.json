@@ -1242,60 +1242,6 @@
       }
     },
     {
-      "id": "wp-osm-sacred_site-node13044815801",
-      "frac": 0.33071684836777604,
-      "kind": "waypoint",
-      "label": "Iyoki Tenmangu Shrine",
-      "icon": "building.columns",
-      "at": {
-        "lat": 33.14427893147797,
-        "lon": 133.12387886490146
-      },
-      "pin": {
-        "lat": 33.1444426,
-        "lon": 133.1214124
-      },
-      "names": {
-        "ja": "天満宮"
-      },
-      "sitMinutes": 5
-    },
-    {
-      "id": "wp-osm-sacred_site-node10810977710",
-      "frac": 0.39407578748682975,
-      "kind": "waypoint",
-      "label": "八坂神社",
-      "icon": "building.columns",
-      "at": {
-        "lat": 33.131702486705244,
-        "lon": 133.11913344963853
-      },
-      "pin": {
-        "lat": 33.1317722,
-        "lon": 133.1192661
-      },
-      "sitMinutes": 5
-    },
-    {
-      "id": "wp-osm-sacred_site-node13044816301",
-      "frac": 0.586823692772878,
-      "kind": "waypoint",
-      "label": "Kumano Shrine",
-      "icon": "building.columns",
-      "at": {
-        "lat": 33.1036395862112,
-        "lon": 133.0987695048507
-      },
-      "pin": {
-        "lat": 33.1033148,
-        "lon": 133.0996059
-      },
-      "names": {
-        "ja": "熊野神社"
-      },
-      "sitMinutes": 5
-    },
-    {
       "id": "stage-end",
       "frac": 0.9999858354924348,
       "kind": "waypoint",

@@ -1300,6 +1300,7 @@
         "lat": 43.3148645,
         "lon": -2.0136676
       },
+      "text": "Church",
       "sitMinutes": 5
     },
     {
@@ -1316,6 +1317,7 @@
         "lat": 43.2760488,
         "lon": -2.127262
       },
+      "text": "Village · 3 m",
       "names": {
         "es": "Orio",
         "eu": "Orio"
@@ -1335,6 +1337,7 @@
         "lat": 43.2834873,
         "lon": -2.1723467
       },
+      "text": "Town · 5 m",
       "names": {
         "ar": "ثاراوث",
         "es": "Zarauz",

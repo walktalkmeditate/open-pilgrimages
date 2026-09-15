@@ -13,7 +13,7 @@ test("totals match the figures published on the site and README", () => {
 
   assert.equal(totals.routes, 13);
   assert.equal(totals.routePoints, 158948);
-  assert.equal(totals.waypoints, 10800);
+  assert.equal(totals.waypoints, 10770);
   assert.equal(totals.stages, 143);
 });
 
@@ -25,7 +25,7 @@ test("per-route figures match npm run stats", () => {
   assert.equal(byId.get("camino-frances")!.stages, 33);
   assert.equal(byId.get("shikoku-88-awa")!.distanceKm, 154.5);
   assert.equal(byId.get("shikoku-88-awa")!.routePoints, 7660);
-  assert.equal(byId.get("shikoku-88-awa")!.waypoints, 203);
+  assert.equal(byId.get("shikoku-88-awa")!.waypoints, 195);
   assert.equal(byId.get("kumano-kodo-nakahechi")!.waypoints, 115);
   assert.equal(byId.get("kumano-kodo-kohechi")!.waypoints, 35);
   assert.equal(byId.get("camino-ingles")!.distanceKm, 112);

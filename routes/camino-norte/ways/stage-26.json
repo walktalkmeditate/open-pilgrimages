@@ -762,6 +762,7 @@
         "lat": 43.5509739,
         "lon": -6.8289851
       },
+      "text": "Village · 60 m",
       "names": {
         "ast": "A Caridá",
         "es": "La Caridad",
@@ -782,6 +783,7 @@
         "lat": 43.5449643,
         "lon": -7.03591
       },
+      "text": "Viewpoint",
       "names": {
         "es": "Mirador del cargadero de hierro"
       },
@@ -800,7 +802,8 @@
       "pin": {
         "lat": 43.5361589,
         "lon": -7.0436775
-      }
+      },
+      "text": "Town · 41 m"
     },
     {
       "id": "stage-end",

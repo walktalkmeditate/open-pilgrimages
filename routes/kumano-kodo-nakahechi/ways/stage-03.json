@@ -475,7 +475,7 @@
         "lat": 33.858,
         "lon": 135.737
       },
-      "text": "Ruins. Known for its water source.",
+      "text": "Oji · Shinto · 280 m · Ruins. Known for its water source.",
       "names": {
         "ja": "水呑王子跡"
       },
@@ -495,7 +495,7 @@
         "lat": 33.86,
         "lon": 135.757
       },
-      "text": "Prostrate Worship Shrine. First view of Kumano Hongu Taisha. Pilgrims traditionally fell to their knees here.",
+      "text": "Oji · Shinto · 250 m · stamp available · Prostrate Worship Shrine. First view of Kumano Hongu Taisha. Pilgrims traditionally fell to their knees here.",
       "names": {
         "ja": "伏拝王子"
       },
@@ -515,29 +515,11 @@
         "lat": 33.843,
         "lon": 135.77
       },
-      "text": "Original site of Kumano Hongu Taisha. The massive torii gate (33.9m tall, 42m wide) is the largest in the world.",
+      "text": "Shrine · Shinto · 65 m · Original site of Kumano Hongu Taisha. The massive torii gate (33.9m tall, 42m wide) is the largest in the world.",
       "names": {
         "ja": "大斎原"
       },
       "sitMinutes": 5
-    },
-    {
-      "id": "stage-end",
-      "frac": 1,
-      "kind": "waypoint",
-      "label": "Kumano Hongu Taisha",
-      "icon": "house.lodge",
-      "at": {
-        "lat": 33.840015,
-        "lon": 135.773969
-      },
-      "pin": {
-        "lat": 33.84,
-        "lon": 135.774
-      },
-      "names": {
-        "ja": "熊野本宮大社"
-      }
     },
     {
       "id": "wp-hongu-taisha",
@@ -553,7 +535,7 @@
         "lat": 33.84,
         "lon": 135.774
       },
-      "text": "The primary Grand Shrine of Kumano. Symbol: Yatagarasu (three-legged crow).",
+      "text": "Taisha · Shinto · 80 m · stamp available · 08:00-17:00 · The primary Grand Shrine of Kumano. Symbol: Yatagarasu (three-legged crow).",
       "names": {
         "ja": "熊野本宮大社"
       },

@@ -1457,6 +1457,7 @@
         "lat": 43.5440883,
         "lon": -6.5371549
       },
+      "text": "Viewpoint",
       "sitMinutes": 5
     },
     {
@@ -1473,6 +1474,7 @@
         "lat": 43.5391112,
         "lon": -6.7233704
       },
+      "text": "Town · 14 m",
       "names": {
         "gl": "Navia"
       }

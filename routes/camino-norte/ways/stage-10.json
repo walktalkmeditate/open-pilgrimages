@@ -1231,7 +1231,8 @@
       "pin": {
         "lat": 43.41063,
         "lon": -3.4173
-      }
+      },
+      "text": "Town · 3 m"
     },
     {
       "id": "wp-osm-town-node288260865",
@@ -1247,6 +1248,7 @@
         "lat": 43.4449362,
         "lon": -3.4553628
       },
+      "text": "Town · 3 m",
       "names": {
         "eu": "Santoña",
         "ru": "Сантонья"
@@ -1266,6 +1268,7 @@
         "lat": 43.4529273,
         "lon": -3.4578448
       },
+      "text": "Viewpoint",
       "sitMinutes": 5
     },
     {
@@ -1282,6 +1285,7 @@
         "lat": 43.4728174,
         "lon": -3.5135613
       },
+      "text": "Viewpoint",
       "sitMinutes": 5
     },
     {
@@ -1297,7 +1301,8 @@
       "pin": {
         "lat": 43.4813309,
         "lon": -3.5210066
-      }
+      },
+      "text": "Village · 28 m"
     },
     {
       "id": "wp-osm-sacred_site-node12790499754",
@@ -1313,6 +1318,7 @@
         "lat": 43.4771485,
         "lon": -3.5305787
       },
+      "text": "Church",
       "sitMinutes": 5
     },
     {
@@ -1329,6 +1335,7 @@
         "lat": 43.4483012,
         "lon": -3.6294041
       },
+      "text": "Church",
       "sitMinutes": 5
     },
     {

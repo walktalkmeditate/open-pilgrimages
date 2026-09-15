@@ -2042,22 +2042,6 @@
       }
     },
     {
-      "id": "wp-osm-sacred_site-node4839325648",
-      "frac": 0,
-      "kind": "waypoint",
-      "label": "Sankaku-ji",
-      "icon": "building.columns",
-      "at": {
-        "lat": 33.967383,
-        "lon": 133.586968
-      },
-      "pin": {
-        "lat": 33.9673725,
-        "lon": 133.5866363
-      },
-      "sitMinutes": 5
-    },
-    {
       "id": "wp-osm-sacred_site-node6069903588",
       "frac": 0.17177194658419995,
       "kind": "waypoint",
@@ -2071,6 +2055,7 @@
         "lat": 33.9897032,
         "lon": 133.6351332
       },
+      "text": "Bangai 14 · 椿堂, a hall of 常福寺. The bekkaku (別格) are side temples, not numbered among the 88.",
       "names": {
         "ja": "別格14 常福寺椿堂"
       },
@@ -2090,7 +2075,7 @@
         "lat": 34.035,
         "lon": 133.724
       },
-      "text": "Cloud Monastery — highest temple on the pilgrimage at 911m.",
+      "text": "Temple 66 · Shingon Omuro · 911 m · stamp available (¥500) · Cloud Monastery — highest temple on the pilgrimage at 911m.",
       "names": {
         "ja": "雲辺寺"
       },
@@ -2110,37 +2095,9 @@
         "lat": 34.0353484,
         "lon": 133.7227937
       },
-      "sitMinutes": 5
-    },
-    {
-      "id": "wp-osm-sacred_site-node13457236116",
-      "frac": 0.5391315651474362,
-      "kind": "waypoint",
-      "label": "第66番札所 雲辺寺",
-      "icon": "building.columns",
-      "at": {
-        "lat": 34.035415733075034,
-        "lon": 133.72375196077877
-      },
-      "pin": {
-        "lat": 34.0354635,
-        "lon": 133.7236141
-      },
-      "sitMinutes": 5
-    },
-    {
-      "id": "wp-osm-sacred_site-node12157823757",
-      "frac": 0.7377287205546011,
-      "kind": "waypoint",
-      "label": "地神宮",
-      "icon": "building.columns",
-      "at": {
-        "lat": 34.09139344525685,
-        "lon": 133.70810338018384
-      },
-      "pin": {
-        "lat": 34.0911479,
-        "lon": 133.704952
+      "text": "Viewpoint",
+      "names": {
+        "ja": "毘沙門天展望館"
       },
       "sitMinutes": 5
     },

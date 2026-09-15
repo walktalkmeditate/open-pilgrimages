@@ -786,7 +786,8 @@
       "pin": {
         "lat": 43.4693019,
         "lon": -3.6684966
-      }
+      },
+      "text": "Ruins"
     },
     {
       "id": "wp-osm-viewpoint-node3300697005",
@@ -802,6 +803,7 @@
         "lat": 43.4697573,
         "lon": -3.7263878
       },
+      "text": "Viewpoint",
       "sitMinutes": 5
     },
     {
@@ -818,6 +820,7 @@
         "lat": 43.4533688,
         "lon": -3.7444042
       },
+      "text": "Church",
       "sitMinutes": 5
     },
     {

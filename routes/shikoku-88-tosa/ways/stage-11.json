@@ -1064,22 +1064,6 @@
       }
     },
     {
-      "id": "wp-osm-sacred_site-node11377065269",
-      "frac": 0.007940797950304038,
-      "kind": "waypoint",
-      "label": "Kanonji Daishido",
-      "icon": "building.columns",
-      "at": {
-        "lat": 33.03727438613024,
-        "lon": 133.07420682881386
-      },
-      "pin": {
-        "lat": 33.0374654,
-        "lon": 133.0743411
-      },
-      "sitMinutes": 5
-    },
-    {
       "id": "wp-osm-viewpoint-node6851902953",
       "frac": 0.26323307222457804,
       "kind": "waypoint",
@@ -1093,6 +1077,7 @@
         "lat": 33.0134817,
         "lon": 133.0031349
       },
+      "text": "Viewpoint",
       "names": {
         "ja": "土佐西南大規模公園球技場"
       },
@@ -1112,6 +1097,7 @@
         "lat": 33.0119279,
         "lon": 132.9983969
       },
+      "text": "Town",
       "names": {
         "fr": "Kuroshio",
         "id": "Kuroshio",

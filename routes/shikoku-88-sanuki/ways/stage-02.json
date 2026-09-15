@@ -395,6 +395,7 @@
         "lat": 34.2716875,
         "lon": 133.7601435
       },
+      "text": "Town",
       "names": {
         "id": "Tadotsu",
         "ja": "多度津町",
@@ -437,6 +438,7 @@
         "lat": 34.2888128,
         "lon": 133.7982421
       },
+      "text": "City",
       "names": {
         "cs": "Marugame",
         "et": "Marugame",
@@ -485,6 +487,7 @@
         "lat": 34.3105438,
         "lon": 133.8256305
       },
+      "text": "Town",
       "names": {
         "fr": "Utazu",
         "id": "Utazu",
@@ -493,25 +496,6 @@
         "th": "อูตาซุ",
         "zh": "宇多津町"
       }
-    },
-    {
-      "id": "wp-osm-sacred_site-node2313558197",
-      "frac": 0.9134200348360195,
-      "kind": "waypoint",
-      "label": "Shirogane Christ Church",
-      "icon": "building.columns",
-      "at": {
-        "lat": 34.31464725873549,
-        "lon": 133.84662695223042
-      },
-      "pin": {
-        "lat": 34.3158665,
-        "lon": 133.8464248
-      },
-      "names": {
-        "ja": "白金キリスト教会"
-      },
-      "sitMinutes": 5
     },
     {
       "id": "wp-osm-town-node1012320253",
@@ -527,6 +511,7 @@
         "lat": 34.3166804,
         "lon": 133.8604011
       },
+      "text": "City",
       "names": {
         "cs": "Sakaide",
         "eu": "Sakaide",

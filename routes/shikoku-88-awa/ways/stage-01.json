@@ -1212,22 +1212,6 @@
       }
     },
     {
-      "id": "wp-osm-sacred_site-node9623452732",
-      "frac": 0.3151432002687095,
-      "kind": "waypoint",
-      "label": "西麻植八幡神社",
-      "icon": "building.columns",
-      "at": {
-        "lat": 34.063880205578634,
-        "lon": 134.33817151732032
-      },
-      "pin": {
-        "lat": 34.0618987,
-        "lon": 134.3359986
-      },
-      "sitMinutes": 5
-    },
-    {
       "id": "temple-11",
       "frac": 0.399052663591539,
       "kind": "waypoint",
@@ -1248,79 +1232,6 @@
       "sitMinutes": 5
     },
     {
-      "id": "wp-osm-sacred_site-node302592266",
-      "frac": 0.41217749980639734,
-      "kind": "waypoint",
-      "label": "11 Fujii-dera",
-      "icon": "building.columns",
-      "at": {
-        "lat": 34.05162052186629,
-        "lon": 134.34811028313916
-      },
-      "pin": {
-        "lat": 34.0516692,
-        "lon": 134.3485336
-      },
-      "names": {
-        "ja": "第11番札所 藤井寺"
-      },
-      "sitMinutes": 5
-    },
-    {
-      "id": "wp-osm-sacred_site-node6099934916",
-      "frac": 0.5285151541987747,
-      "kind": "waypoint",
-      "label": "Choudo-An",
-      "icon": "building.columns",
-      "at": {
-        "lat": 34.03317464087695,
-        "lon": 134.34523523357234
-      },
-      "pin": {
-        "lat": 34.0332235,
-        "lon": 134.3451938
-      },
-      "names": {
-        "ja": "長戸庵"
-      },
-      "sitMinutes": 5
-    },
-    {
-      "id": "wp-osm-sacred_site-node11419669334",
-      "frac": 0.6024913463905645,
-      "kind": "waypoint",
-      "label": "ishidou-gongen",
-      "icon": "building.columns",
-      "at": {
-        "lat": 34.02429417824509,
-        "lon": 134.3350934570832
-      },
-      "pin": {
-        "lat": 34.0242857,
-        "lon": 134.3350473
-      },
-      "sitMinutes": 5
-    },
-    {
-      "id": "wp-osm-sacred_site-node378075409",
-      "frac": 0.6469134194066571,
-      "kind": "waypoint",
-      "label": "Ryusui-An",
-      "icon": "building.columns",
-      "at": {
-        "lat": 34.01611687066951,
-        "lon": 134.33060362436618
-      },
-      "pin": {
-        "lat": 34.0161827,
-        "lon": 134.3304967
-      },
-      "names": {
-        "ja": "柳水庵"
-      },
-      "sitMinutes": 5
-    },
-    {
       "id": "temple-12",
       "frac": 0.8743493105775865,
       "kind": "waypoint",
@@ -1334,7 +1245,7 @@
         "lat": 33.985,
         "lon": 134.31
       },
-      "text": "The 'Burning Mountain Temple' — first major mountain climb.",
+      "text": "Temple 12 · Koyasan Shingon · 700 m · stamp available (¥500) · The 'Burning Mountain Temple' — first major mountain climb.",
       "names": {
         "ja": "焼山寺"
       },

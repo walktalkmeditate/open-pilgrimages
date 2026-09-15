@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Sanuki (Temples 65-88, and the return to Temple 1) &mdash; Open Pilgrimages</title>
-  <meta name="description" content="Sanuki: the last of the four dōjō of the Shikoku 88 Temple Pilgrimage, 202.2 km from Sankaku-ji (Temple 65) to Ōkubo-ji (Temple 88) and on to Ryōzen-ji (Temple 1). Walked line, six day stages cut by rule, and 389 waypoints.">
+  <meta name="description" content="Sanuki: the last of the four dōjō of the Shikoku 88 Temple Pilgrimage, 202.2 km from Sankaku-ji (Temple 65) to Ōkubo-ji (Temple 88) and on to Ryōzen-ji (Temple 1). Walked line, six day stages cut by rule, and 385 waypoints.">
   <link rel="canonical" href="https://open.pilgrimag.es/shikoku-88-sanuki">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <meta property="og:type" content="website">
@@ -162,14 +162,14 @@
     </details>
 
     <h2>Waypoints</h2>
-    <p>389 waypoints stand on this section, each with a <code>type</code>, a <code>stageIndex</code> and a <code>kmFromStart</code> measured along this section&#39;s own walked line &mdash; of which 54 are sacred sites and 6 are towns.</p>
+    <p>385 waypoints stand on this section, each with a <code>type</code>, a <code>stageIndex</code> and a <code>kmFromStart</code> measured along this section&#39;s own walked line &mdash; of which 50 are sacred sites and 6 are towns.</p>
     <table>
       <caption>Waypoint counts by type on Sanuki (Temples 65-88, and the return to Temple 1).</caption>
       <thead>
         <tr><th scope="col">Type</th><th scope="col">Count</th></tr>
       </thead>
       <tbody>
-        <tr><th scope="row">Sacred sites</th><td>54</td></tr>
+        <tr><th scope="row">Sacred sites</th><td>50</td></tr>
         <tr><th scope="row">Towns</th><td>6</td></tr>
         <tr><th scope="row">Accommodation</th><td>9</td></tr>
         <tr><th scope="row">Food (restaurant/café)</th><td>85</td></tr>
@@ -178,11 +178,11 @@
         <tr><th scope="row">Medical (pharmacy/hospital)</th><td>18</td></tr>
         <tr><th scope="row">Water sources</th><td>1</td></tr>
         <tr><th scope="row">Viewpoints</th><td>2</td></tr>
-        <tr><th scope="row">Total</th><td>389</td></tr>
+        <tr><th scope="row">Total</th><td>385</td></tr>
       </tbody>
     </table>
-    <p>The 23 temples are the curated half: hand-placed, carrying a <code>templeNumber</code> and no <code>osmId</code>, and they are what the day rule looks for. The other 366 came from OpenStreetMap through the enricher, every one of them carrying an <code>osmId</code>, so a re-run reproduces them.</p>
-    <p><code>index.json</code> records this section as <code>sparse: false</code>, at 9.3 places per stage. That bar belongs to a section, not to a day: a section clears it when at least half its stages carry a place beyond their own start and end, and all six of Sanuki's do. The 9.3 is the mean of those beyond-the-ends counts — 6, 18, 6, 22, 3 and 1.</p>
+    <p>The 23 temples are the curated half: hand-placed, carrying a <code>templeNumber</code> and no <code>osmId</code>, and they are what the day rule looks for. One more is curated without being hand-placed &mdash; bangai 14, Tsubaki-d&omacr;, which OpenStreetMap itself designated and which keeps the <code>osmId</code> it was found by. The other 361 came from OpenStreetMap through the enricher, every one of them carrying an <code>osmId</code>, so a re-run reproduces them.</p>
+    <p><code>index.json</code> records this section as <code>sparse: false</code>, at 4.7 places per stage. That bar belongs to a section, not to a day: a section clears it when at least half its stages carry a place beyond their own start and end, and five of Sanuki's six do. The 4.7 is the mean of those beyond-the-ends counts — 4, 9, 5, 8, 2 and 0.</p>
     <p>What the section does not hold is beds. From 63.8 km to 149.9 km — 86.1 km of walked line — the record marks no place to stay at all, and past Ōkubo-ji it holds exactly one. That single absence is what makes stage 3 the shortest of the six and stage 4 the longest of the forty.</p>
     <p>Four waypoints in this file never reach a stage. The corridor that admitted them is measured against <code>route.geojson</code>, which carries every member way of the 24 relations and runs 371.1 km against the walked line's 202.2; build-ways then measures against the walked line and drops anything more than 300 m from it. All four are named, with their distances, in <code>ways/report.json</code>.</p>
     <p><a href="/contribute">Help fill in what is missing</a>.</p>

@@ -1047,6 +1047,7 @@
         "lat": 33.5644902,
         "lon": 133.7006682
       },
+      "text": "City",
       "names": {
         "ar": "كونان كوتشي",
         "cs": "Kónan",
@@ -1123,24 +1124,6 @@
       "sitMinutes": 5
     },
     {
-      "id": "stage-end",
-      "frac": 1,
-      "kind": "waypoint",
-      "label": "Chikurin-ji (Temple 31)",
-      "icon": "house.lodge",
-      "at": {
-        "lat": 33.546451,
-        "lon": 133.576589
-      },
-      "pin": {
-        "lat": 33.547,
-        "lon": 133.577
-      },
-      "names": {
-        "ja": "竹林寺"
-      }
-    },
-    {
       "id": "temple-31",
       "frac": 1,
       "kind": "waypoint",
@@ -1154,7 +1137,7 @@
         "lat": 33.547,
         "lon": 133.577
       },
-      "text": "Temple 31 · Shingon Chizan · stamp available (¥500)",
+      "text": "Temple 31 · Shingon Chizan · 140 m · stamp available (¥500)",
       "names": {
         "ja": "竹林寺"
       },
@@ -1173,6 +1156,10 @@
       "pin": {
         "lat": 33.546822,
         "lon": 133.5740049
+      },
+      "text": "Viewpoint",
+      "names": {
+        "ja": "五台山展望台"
       },
       "sitMinutes": 5
     }

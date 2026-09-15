@@ -2817,38 +2817,6 @@
       "sitMinutes": 5
     },
     {
-      "id": "wp-osm-sacred_site-node4806012116",
-      "frac": 0.15030658786011747,
-      "kind": "waypoint",
-      "label": "蓮光寺",
-      "icon": "building.columns",
-      "at": {
-        "lat": 34.301245264949,
-        "lon": 133.9412752321981
-      },
-      "pin": {
-        "lat": 34.3030153,
-        "lon": 133.9406978
-      },
-      "sitMinutes": 5
-    },
-    {
-      "id": "wp-osm-sacred_site-node8497522570",
-      "frac": 0.15723090165610776,
-      "kind": "waypoint",
-      "label": "良縁社",
-      "icon": "building.columns",
-      "at": {
-        "lat": 34.30286712491719,
-        "lon": 133.94417366919657
-      },
-      "pin": {
-        "lat": 34.302873,
-        "lon": 133.94457
-      },
-      "sitMinutes": 5
-    },
-    {
       "id": "temple-80",
       "frac": 0.1574622212744979,
       "kind": "waypoint",
@@ -2869,57 +2837,6 @@
       "sitMinutes": 5
     },
     {
-      "id": "wp-osm-sacred_site-node4806012101",
-      "frac": 0.16605283534092696,
-      "kind": "waypoint",
-      "label": "天津神社",
-      "icon": "building.columns",
-      "at": {
-        "lat": 34.302264,
-        "lon": 133.947953
-      },
-      "pin": {
-        "lat": 34.3022318,
-        "lon": 133.9511495
-      },
-      "sitMinutes": 5
-    },
-    {
-      "id": "wp-osm-sacred_site-node4806012115",
-      "frac": 0.16745202138452667,
-      "kind": "waypoint",
-      "label": "徳清寺",
-      "icon": "building.columns",
-      "at": {
-        "lat": 34.30297706767284,
-        "lon": 133.94769874455707
-      },
-      "pin": {
-        "lat": 34.3031455,
-        "lon": 133.948391
-      },
-      "sitMinutes": 5
-    },
-    {
-      "id": "wp-osm-sacred_site-node13059569001",
-      "frac": 0.1988431282001633,
-      "kind": "waypoint",
-      "label": "Ishizuchi Shrine",
-      "icon": "building.columns",
-      "at": {
-        "lat": 34.318223994800896,
-        "lon": 133.94835779341787
-      },
-      "pin": {
-        "lat": 34.3180563,
-        "lon": 133.9477303
-      },
-      "names": {
-        "ja": "石鎚神社"
-      },
-      "sitMinutes": 5
-    },
-    {
       "id": "temple-81",
       "frac": 0.2693880952911942,
       "kind": "waypoint",
@@ -2933,28 +2850,9 @@
         "lat": 34.334,
         "lon": 133.927
       },
-      "text": "Temple 81 · Shingon Omuro · stamp available (¥500)",
+      "text": "Temple 81 · Shingon Omuro · 250 m · stamp available (¥500)",
       "names": {
         "ja": "白峯寺"
-      },
-      "sitMinutes": 5
-    },
-    {
-      "id": "wp-osm-sacred_site-node705230870",
-      "frac": 0.2693880952911942,
-      "kind": "waypoint",
-      "label": "81 Shiromine-ji",
-      "icon": "building.columns",
-      "at": {
-        "lat": 34.333922,
-        "lon": 133.926621
-      },
-      "pin": {
-        "lat": 34.3344627,
-        "lon": 133.9270371
-      },
-      "names": {
-        "ja": "第81番札所 白峯寺"
       },
       "sitMinutes": 5
     },
@@ -2972,7 +2870,7 @@
         "lat": 34.345,
         "lon": 133.961
       },
-      "text": "Temple 82 · Tendai · stamp available (¥500)",
+      "text": "Temple 82 · Tendai · 330 m · stamp available (¥500)",
       "names": {
         "ja": "根香寺"
       },
@@ -2999,105 +2897,6 @@
       "sitMinutes": 5
     },
     {
-      "id": "wp-osm-sacred_site-node547773354",
-      "frac": 0.6399695062026531,
-      "kind": "waypoint",
-      "label": "伏石神社",
-      "icon": "building.columns",
-      "at": {
-        "lat": 34.311695604090986,
-        "lon": 134.0524716275303
-      },
-      "pin": {
-        "lat": 34.3117752,
-        "lon": 134.051919
-      },
-      "sitMinutes": 5
-    },
-    {
-      "id": "wp-osm-sacred_site-node12218220033",
-      "frac": 0.6466013882582297,
-      "kind": "waypoint",
-      "label": "農民神社",
-      "icon": "building.columns",
-      "at": {
-        "lat": 34.312358,
-        "lon": 134.055699
-      },
-      "pin": {
-        "lat": 34.3122929,
-        "lon": 134.055765
-      },
-      "sitMinutes": 5
-    },
-    {
-      "id": "wp-osm-sacred_site-node971515277",
-      "frac": 0.6466013882582297,
-      "kind": "waypoint",
-      "label": "立石神社",
-      "icon": "building.columns",
-      "at": {
-        "lat": 34.312358,
-        "lon": 134.055699
-      },
-      "pin": {
-        "lat": 34.3114286,
-        "lon": 134.057856
-      },
-      "sitMinutes": 5
-    },
-    {
-      "id": "wp-osm-sacred_site-node892757580",
-      "frac": 0.6750771623504649,
-      "kind": "waypoint",
-      "label": "熊野神社",
-      "icon": "building.columns",
-      "at": {
-        "lat": 34.32068157279469,
-        "lon": 134.0643601576136
-      },
-      "pin": {
-        "lat": 34.3208281,
-        "lon": 134.0634529
-      },
-      "sitMinutes": 5
-    },
-    {
-      "id": "wp-osm-sacred_site-node1509587033",
-      "frac": 0.7835737984757474,
-      "kind": "waypoint",
-      "label": "Kajisui",
-      "icon": "building.columns",
-      "at": {
-        "lat": 34.35057068482917,
-        "lon": 134.1038038330939
-      },
-      "pin": {
-        "lat": 34.3505985,
-        "lon": 134.1038297
-      },
-      "names": {
-        "ja": "加持水"
-      },
-      "sitMinutes": 5
-    },
-    {
-      "id": "wp-osm-sacred_site-node11041848015",
-      "frac": 0.7906585213973318,
-      "kind": "waypoint",
-      "label": "Kuwazu-no Nashi",
-      "icon": "building.columns",
-      "at": {
-        "lat": 34.35339445283898,
-        "lon": 134.10374006158375
-      },
-      "pin": {
-        "lat": 34.3533941,
-        "lon": 134.1037424
-      },
-      "sitMinutes": 5
-    },
-    {
       "id": "wp-osm-viewpoint-node7157730338",
       "frac": 0.7989784419468722,
       "kind": "waypoint",
@@ -3110,6 +2909,10 @@
       "pin": {
         "lat": 34.3550094,
         "lon": 134.0991343
+      },
+      "text": "Viewpoint",
+      "names": {
+        "ja": "西尾根展望台"
       },
       "sitMinutes": 5
     },
@@ -3127,25 +2930,9 @@
         "lat": 34.358,
         "lon": 134.101
       },
-      "text": "Panoramic views of the Seto Inland Sea.",
+      "text": "Temple 84 · Shingon Omuro · 280 m · stamp available (¥500) · Panoramic views of the Seto Inland Sea.",
       "names": {
         "ja": "屋島寺"
-      },
-      "sitMinutes": 5
-    },
-    {
-      "id": "wp-osm-sacred_site-node12330633155",
-      "frac": 0.8302610420903772,
-      "kind": "waypoint",
-      "label": "安徳天皇社",
-      "icon": "building.columns",
-      "at": {
-        "lat": 34.35835278444586,
-        "lon": 134.11376368856597
-      },
-      "pin": {
-        "lat": 34.3585702,
-        "lon": 134.1138464
       },
       "sitMinutes": 5
     },
@@ -3163,25 +2950,9 @@
         "lat": 34.36,
         "lon": 134.14
       },
-      "text": "Temple 85 · Shingon Daikakuji · stamp available (¥500)",
+      "text": "Temple 85 · Shingon Daikakuji · 200 m · stamp available (¥500)",
       "names": {
         "ja": "八栗寺"
-      },
-      "sitMinutes": 5
-    },
-    {
-      "id": "wp-osm-sacred_site-node716251669",
-      "frac": 0.960820423099489,
-      "kind": "waypoint",
-      "label": "塩竃神社",
-      "icon": "building.columns",
-      "at": {
-        "lat": 34.336762887948254,
-        "lon": 134.15568647455262
-      },
-      "pin": {
-        "lat": 34.3368065,
-        "lon": 134.1557671
       },
       "sitMinutes": 5
     },
@@ -3199,6 +2970,7 @@
         "lat": 34.3250182,
         "lon": 134.1720191
       },
+      "text": "City",
       "names": {
         "ar": "سانوكي، كاغاوا",
         "cs": "Sanuki",

@@ -1060,6 +1060,7 @@
         "lat": 43.2564236,
         "lon": -2.9574346
       },
+      "text": "Viewpoint",
       "sitMinutes": 5
     },
     {
@@ -1076,6 +1077,7 @@
         "lat": 43.2949177,
         "lon": -2.9887476
       },
+      "text": "City · 23 m",
       "names": {
         "es": "Baracaldo",
         "eu": "Barakaldo",
@@ -1096,6 +1098,7 @@
         "lat": 43.309341,
         "lon": -3.0074501
       },
+      "text": "Town · 48 m",
       "names": {
         "eu": "Sestao"
       }
@@ -1114,6 +1117,7 @@
         "lat": 43.3087818,
         "lon": -3.0083671
       },
+      "text": "Church",
       "sitMinutes": 5
     },
     {
@@ -1130,6 +1134,7 @@
         "lat": 43.3120567,
         "lon": -3.0042334
       },
+      "text": "Church",
       "sitMinutes": 5
     },
     {
@@ -1145,7 +1150,8 @@
       "pin": {
         "lat": 43.3155316,
         "lon": -3.0108099
-      }
+      },
+      "text": "Ruins"
     },
     {
       "id": "stage-end",

@@ -2092,25 +2092,6 @@
       }
     },
     {
-      "id": "wp-osm-sacred_site-node13058002702",
-      "frac": 0.6410945242184045,
-      "kind": "waypoint",
-      "label": "Kosaka Shrine",
-      "icon": "building.columns",
-      "at": {
-        "lat": 34.20797581883089,
-        "lon": 134.4281141351579
-      },
-      "pin": {
-        "lat": 34.207091,
-        "lon": 134.42638
-      },
-      "names": {
-        "ja": "小坂神社"
-      },
-      "sitMinutes": 5
-    },
-    {
       "id": "stage-end",
       "frac": 1,
       "kind": "waypoint",
