@@ -33,6 +33,14 @@ index.json                  # Route registry (auto-generated)
 ## Data Conventions
 
 - Coordinates: `[longitude, latitude]`, optionally `[longitude, latitude, altitude]` (GeoJSON standard). Route geometry in `route.geojson` is currently 2D; per-stage elevation lives in `stages.json`.
+- Sampled elevation: where a route's ascent, descent and high/low points were
+  measured rather than taken from a guidebook, they come from SRTM 30 m at
+  every vertex of the walked line, with a 20 m hysteresis threshold so the
+  model's own noise is not counted as climbing, rounded to the nearest 10 m.
+  `scripts/elevation.ts` is that rule, `npm run fetch-elevation` is the
+  readings, and `kumano-kodo-kohechi` — whose
+  `overview.elevationRange.elevationNote` states the method in prose — is the
+  route it is pinned against.
 - Altitude: meters
 - Distance: kilometers
 - Localized strings: `{ "en": "...", "es": "...", "ja": "..." }` — `en` always required
