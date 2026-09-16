@@ -76,8 +76,9 @@ npm run fetch         # Fetch route geometry from OSM
 npm run build-index   # Regenerate index.json
 npm run build-ways            # Build routes/{route-id}/ways/ from the walked line + stages + waypoints
 npm run build-main-line <id>  # Derive route.main.geojson from OSM member ways (network)
-npm run fetch-roads   # Fetch road-corridor data from Overpass into .cache/ (gitignored) — the only command that touches the network
+npm run fetch-roads   # Fetch road-corridor data from Overpass into .cache/ (gitignored) — network
 npm run build-roads   # Render docs/assets/roads/{route-id}.svg from the .cache/ fetched above; no network access
+npm run fetch-elevation # Sample SRTM 30 m elevations at every vertex of the walked line into .cache/ (gitignored) — network; writes nothing to routes/
 npm run build-assets  # Regenerate docs/ pages and assets — routes/{route-id}/route.gpx, the glyphs, profiles and sparklines, and docs/{pilgrimage-id}.html
 npm run check-site    # Check docs/, README.md and index.json still agree; run it after build-assets
 ```
