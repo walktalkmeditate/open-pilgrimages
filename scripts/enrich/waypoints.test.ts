@@ -11,7 +11,7 @@ import Ajv2020 from "ajv/dist/2020.js";
 import { classifyNode, OSM_TAG_MAP, type OsmNode } from "./osm.js";
 import {
   keepsNode, wholeRouteRange, stageAssignmentRefusal, enforceStageAssignmentRefusal,
-  decimalsOf, isSamePlace, OVERWRITE_FLAG,
+  decimalsOf, isSamePlace, duplicatesCurated, OVERWRITE_FLAG,
 } from "./waypoints.js";
 import { MOMENT_TYPES } from "../ways/moments.js";
 
@@ -105,6 +105,33 @@ test("a curated point rounded to three decimals still matches its OSM twin", () 
 
 test("two genuinely different shrines 200 m apart stay separate", () => {
   assert.equal(isSamePlace({ lon: 134.507, lat: 34.173 }, { lon: 134.5092, lat: 34.173 }), false);
+});
+
+test("an OSM temple standing where a curated temple stands is still a duplicate", () => {
+  const curated = { coord: [134.507, 34.173] as [number, number], type: "sacred_site" };
+  assert.equal(
+    duplicatesCurated(curated, { lon: 134.5074123, lat: 34.1736521, type: "sacred_site" }),
+    true,
+  );
+});
+
+test("a cafe beside a temple is not a duplicate of the temple", () => {
+  // Inside the widened circle the coarse curated coordinate earns, and a
+  // bare distance test would have swallowed it. Around thirty-four places
+  // across Shikoku sit like this.
+  const curated = { coord: [134.507, 34.173] as [number, number], type: "sacred_site" };
+  assert.equal(
+    duplicatesCurated(curated, { lon: 134.5074123, lat: 34.1736521, type: "food" }),
+    false,
+  );
+});
+
+test("same kind, genuinely far apart, stays separate", () => {
+  const curated = { coord: [134.507, 34.173] as [number, number], type: "sacred_site" };
+  assert.equal(
+    duplicatesCurated(curated, { lon: 134.512, lat: 34.173, type: "sacred_site" }),
+    false,
+  );
 });
 
 test("a twin is not split by which side of a rounding boundary it fell", () => {

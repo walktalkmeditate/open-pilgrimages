@@ -67,6 +67,31 @@ export function isSamePlace(
   return metres <= DEDUP_METERS + quantisationMeters(places, a.lat);
 }
 
+export interface CuratedPlace {
+  coord: Coord;
+  type: string;
+}
+
+/**
+ * The widened threshold above is only reached when one side is a coarse
+ * curated point, and the curated points are the temples — so it draws a ~120 m
+ * circle around every fudasho, and a bare distance test inside that circle
+ * calls a café a duplicate of a temple. Across Shikoku that would swallow
+ * around thirty-four cafés, shops and bus stops on the next enrichment run,
+ * silently, and none of them is a duplicate of anything.
+ *
+ * Two things are the same place only if they are the same kind of thing. An
+ * OSM temple standing where a curated temple already stands is still merged,
+ * which is the whole point of the gate.
+ */
+export function duplicatesCurated(
+  curated: CuratedPlace,
+  node: { lon: number; lat: number; type: string },
+): boolean {
+  if (curated.type !== node.type) return false;
+  return isSamePlace({ lon: curated.coord[0], lat: curated.coord[1] }, node);
+}
+
 /**
  * A service is useful without a name: an unnamed drinking fountain is still
  * water, an unnamed bus stop is still a way out. A place is not — the name is
@@ -345,7 +370,10 @@ async function main() {
   const bbox = meta.overview.bbox as [number, number, number, number];
 
   const curated = existing.features.filter((f: any) => f.properties.source !== "osm");
-  const curatedCoords = curated.map((f: any) => f.geometry.coordinates as Coord);
+  const curatedPlaces: CuratedPlace[] = curated.map((f: any) => ({
+    coord: f.geometry.coordinates as Coord,
+    type: f.properties.type as string,
+  }));
 
   console.log(`Fetching POIs for ${routeId} within bbox [${bbox}]...`);
   const query = buildPoiQuery(bbox);
@@ -379,8 +407,8 @@ async function main() {
     }
 
     const here = { lon: node.lon, lat: node.lat };
-    const tooCloseCurated = curatedCoords.some(
-      (c: Coord) => isSamePlace({ lon: c[0], lat: c[1] }, here));
+    const tooCloseCurated = curatedPlaces.some(
+      (c) => duplicatesCurated(c, { ...here, type: classification.type }));
     const tooCloseOsm = newWaypoints.some((w: any) => {
       const [lon, lat] = w.geometry.coordinates as Coord;
       return isSamePlace({ lon, lat }, here);
