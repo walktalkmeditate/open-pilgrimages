@@ -38,9 +38,22 @@ index.json                  # Route registry (auto-generated)
   every vertex of the walked line, with a 20 m hysteresis threshold so the
   model's own noise is not counted as climbing, rounded to the nearest 10 m.
   `scripts/elevation.ts` is that rule, `npm run fetch-elevation` is the
-  readings, and `kumano-kodo-kohechi` — whose
-  `overview.elevationRange.elevationNote` states the method in prose — is the
-  route it is pinned against.
+  readings, `npm run apply-elevation` writes the figures into `stages.json`,
+  and `kumano-kodo-kohechi` — whose `overview.elevationRange.elevationNote`
+  states the method in prose — is the route it is pinned against. A figure a
+  stages.json already declares is never re-derived without `--overwrite`:
+  kohechi's stage 2 ascent sits on a rounding tie this method resolves the
+  other way, and its own elevationNote says so.
+- Derived hours: a section whose `estimatedHours` were computed rather than
+  authored says so in `overview.hoursNote` — the rule, any factor and where it
+  was fitted, and the published times the result was checked against. The four
+  Shikoku dōjō are Naismith at two paces (5 km/h + 600 m/h for min, 3.5 km/h +
+  500 m/h for max, whole hours) with no roughness factor;
+  `kumano-kodo-kohechi` is Naismith times a factor fitted on the Nakahechi. A
+  reader has to be able to tell a derived figure from an asserted one.
+- No `difficulty` is written for a route whose stages were measured rather
+  than graded. The thresholds that would produce one fit this corpus at 79%
+  and miss Kumano entirely; an absent key renders as nothing, which is honest.
 - Altitude: meters
 - Distance: kilometers
 - Localized strings: `{ "en": "...", "es": "...", "ja": "..." }` — `en` always required
@@ -87,6 +100,7 @@ npm run build-main-line <id>  # Derive route.main.geojson from OSM member ways (
 npm run fetch-roads   # Fetch road-corridor data from Overpass into .cache/ (gitignored) — network
 npm run build-roads   # Render docs/assets/roads/{route-id}.svg from the .cache/ fetched above; no network access
 npm run fetch-elevation # Sample SRTM 30 m elevations at every vertex of the walked line into .cache/ (gitignored) — network; writes nothing to routes/
+npm run apply-elevation # Write per-stage gain/loss/high/low and Naismith hours into routes/{route-id}/stages.json from the .cache/ readings above; no network. Never replaces a figure the file already declares unless given --overwrite
 npm run build-assets  # Regenerate docs/ pages and assets — routes/{route-id}/route.gpx, the glyphs, profiles and sparklines, and docs/{pilgrimage-id}.html
 npm run check-site    # Check docs/, README.md and index.json still agree; run it after build-assets
 ```
