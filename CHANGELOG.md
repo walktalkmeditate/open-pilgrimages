@@ -6,6 +6,99 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 Consumers read the catalog from `https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@main/index.json` and pin every file they then download to the tag that index's `release` field names. The `v1` alias is no longer maintained — jsDelivr caches tag URLs permanently, so moving it changed nothing a consumer saw.
 
+## [1.10.0] — 2026-09-21
+
+Six faults in how a stage's places reach a walker, five of them corpus-wide and
+only one of them visible as a Shikoku problem. Every place a walker meets now
+carries a line worth reading, and the eighty-eight fudasho no longer compete
+with two hundred and ten unnamed roadside shrines.
+
+**No stage was re-cut and no distance moved.** Strip `interior` from the four
+Shikoku `stages.json` and they are byte-identical to 1.9.2.
+
+### Fixed
+
+Pipeline:
+
+- **A description hid a temple's number.** `buildMoments` read
+  `description ?? composedText`, so a hand-written description *replaced* the
+  composed `Temple N · school · stamp available` line instead of following it.
+  Exactly twelve temples carry a description, so exactly those twelve lost
+  their number — Zentsū-ji, where Kūkai was born, and Ōkubo-ji, which closes
+  the circuit, were anonymous *because* somebody had written about them.
+- **Nothing composed text for a place that was not a temple.** `composedText`
+  read only `templeNumber`, `denomination`, `tradition` and `credentialStamp`,
+  and `placeMoment` had no text branch at all. Camino Norte shipped 208 moments
+  and not one of them carried a word. It now reads `subtype`, `elevation` and
+  `hours`, so a town reads as a town and a viewpoint carries its height.
+- **Japanese names were discarded.** `extractNameLocalized` matched
+  `^name:(\w+)$` only, and in Japan the Japanese name lives in the bare `name`
+  tag — so it was dropped whenever `name:en` existed. **1,029 names recovered**
+  across the four Shikoku sections. The same `\w` admitted `ja_rm` and `signed`
+  as if they were languages; the pattern is now real BCP-47 subtags, and 31
+  junk keys were stripped from committed data.
+- **The duplicate gate could never fire.** Dedup was coordinate-only at 50 m
+  while 87 of 88 curated temple coordinates are stored at three decimals, about
+  110 m of rounding — every twin measured 50 m or further. **30 duplicate pins
+  merged**, keeping the curated feature and folding in the OSM twin's `osmId`.
+- **The widened gate was then too generous.** Reaching the threshold only
+  happens when one side is a coarse curated point, and the curated points are
+  the temples, so it drew a ~120 m circle around every fudasho in which a bare
+  distance test called a café a duplicate of a temple. Two things are now the
+  same place only if they are the same kind of thing.
+- **Anchor suppression only knew towns.** A stage's start and end anchors were
+  suppressed against a real waypoint only when its type was `town`. Shikoku's
+  days end at temples, so 17 anchor/temple pairs shipped as two pins at zero
+  metres apart.
+
+### Changed
+
+- **Which sacred sites a walker sees.** A sacred site is drawn when it is
+  curated, or numbered, or its section has no curated sacred sites at all, or
+  OSM named it in a language beyond the local one. Curated sacred sites turn
+  out to be exactly the meaningful ones — the 88 fudasho, the Kumano oji, the
+  Francés' nine — so provenance is the discriminator: **where the dataset has
+  curated the places that matter, an OSM sweep has to earn its place beside
+  them; where it has not, the sweep is all there is.**
+
+  Only the four Shikoku sections move. Iyo falls from 13.4 moments a stage to
+  4.1, Awa from 12.8 to 7.0, Sanuki from 11.8 to 6.7, Tosa from 5.7 to 3.6.
+  Every other section is untouched, and **nothing is deleted** — the 168
+  shrines that go stay in `waypoints.geojson` and are simply not drawn.
+
+- **Text coverage, corpus-wide.** Camino Norte goes from 0% of moments carrying
+  text to 73%, Kohechi from 0% to 27%, Nakahechi from 68% to 79%, and the four
+  Shikoku sections from 14–36% to 56–83%. **Textless non-anchor moments across
+  the whole corpus: zero.** The remainder are stage anchors, which carry a
+  label and no text by design, as the Camino Francés always has.
+
+### Added
+
+- **Three bangai.** The bangai (番外) are twenty side temples walked alongside
+  the 88. Three of them are inside the 300 m corridor and carry OSM's own
+  `Bekkaku` / `別格` designation: 9 Monju-in and 12 Enmei-ji in Iyo, 14
+  Tsubaki-dō in Sanuki. They are promoted in place — `bangaiNumber` set,
+  `source` now `curated`, coordinate and `osmId` untouched — so this release
+  adds no new waypoint at all.
+
+  The other seventeen were **not** authored. Inventing their coordinates would
+  break the rule this corpus has held since 1.7.1, that places are
+  machine-derived; and a bangai is a side temple, so most fall outside the
+  corridor and could not render however well they were mapped. Each section's
+  `provenance.notes` records what was searched and what was found.
+
+- Descriptions for the two Awa shrines and the three bangai that the new rule
+  draws but OSM left with nothing to say.
+
+### Documentation
+
+- `docs/superpowers/specs/2026-09-15-shikoku-places-design.md` and its plan,
+  including the two ways the notability rule was wrong before it was right: it
+  was first measured at 42 of 210 shrines *before* the Japanese-name repair
+  landed, which backfilled the very key that measurement depended on; and the
+  obvious tightening after that would have deleted all 18 of Kumano
+  Nakahechi's sacred sites — the oji — on a route this work was never about.
+
 ## [1.9.2] — 2026-09-14
 
 `kumano-kodo-nakahechi` was still called "Kumano Kodo" — the name of the
@@ -902,6 +995,8 @@ Each route ships with `metadata.json` (overview, tradition, cultural, logistics)
 
 ---
 
+[1.10.0]: https://github.com/walktalkmeditate/open-pilgrimages/compare/v1.9.2...v1.10.0
+[1.9.2]: https://github.com/walktalkmeditate/open-pilgrimages/compare/v1.9.1...v1.9.2
 [1.9.1]: https://github.com/walktalkmeditate/open-pilgrimages/compare/v1.9.0...v1.9.1
 [1.9.0]: https://github.com/walktalkmeditate/open-pilgrimages/compare/v1.8.0...v1.9.0
 [1.8.0]: https://github.com/walktalkmeditate/open-pilgrimages/compare/v1.7.1...v1.8.0
