@@ -204,6 +204,68 @@ export function stageBoundaries(
   return boundaries;
 }
 
+/** The part of a stages.json stage that decides where the line is cut. */
+export interface AnchoredStage {
+  start: { coordinates: Position; offLineMeters?: number };
+  end: { coordinates: Position; offLineMeters?: number };
+  distanceKm: number;
+}
+
+/**
+ * A mid-route boundary's anchor is a stage's `start`, but the same place is
+ * also the previous stage's `end` — stages.json happens to write the
+ * declaration on both sides of every pair today, but nothing requires that,
+ * and reading only `start` would silently drop one written solely on the
+ * earlier stage's `end`. The two describe one physical distance, so a
+ * disagreement between them is imprecision, not a conflict to fail the build
+ * over; take the larger, since raising the radius can only admit a vertex
+ * neither side's own figure would have refused on its own.
+ */
+function largerOffLine(a: number | undefined, b: number | undefined): number | undefined {
+  if (a === undefined) return b;
+  if (b === undefined) return a;
+  return Math.max(a, b);
+}
+
+/**
+ * Where a route's stages cut its walked line: `stageBoundaries` above, called
+ * with the anchors and declarations a stages.json actually carries. Stage `i`
+ * is the slice `line.slice(boundaries[i].index, boundaries[i + 1].index + 1)`,
+ * so `boundaries` is one longer than `stages`.
+ *
+ * This exists because the cut is read by more than one pass now — `build-ways`
+ * packages each slice, `apply-elevation` measures the climbing along it — and
+ * two stages measured from two different cuts of the same line would each look
+ * entirely plausible on its own. One function, so a package and the figures
+ * printed beside it are always describing the same stretch of ground.
+ */
+export function boundariesForStages(
+  line: Position[],
+  cumulative: number[],
+  stages: ReadonlyArray<AnchoredStage>,
+  snapMeters: number = SNAP_METERS,
+): Boundary[] {
+  // Both arrays are built from the same walk over the stages, so the anchor at
+  // position i and the declaration at position i are always the same place's.
+  const anchors: Position[] = stages.map((stage) => stage.start.coordinates);
+  const offLine: Array<number | undefined> = stages.map((stage, i) =>
+    largerOffLine(stage.start.offLineMeters, i > 0 ? stages[i - 1].end.offLineMeters : undefined),
+  );
+
+  const lastStage = stages[stages.length - 1];
+  anchors.push(lastStage.end.coordinates);
+  offLine.push(lastStage.end.offLineMeters);
+
+  return stageBoundaries(
+    line,
+    cumulative,
+    anchors,
+    stages.map((stage) => stage.distanceKm),
+    snapMeters,
+    offLine,
+  );
+}
+
 /**
  * Metres in a local plane. Over the few hundred metres an RDP or projection
  * step spans, this is exact enough and, unlike a law-of-cosines projection,

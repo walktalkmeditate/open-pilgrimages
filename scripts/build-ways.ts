@@ -4,14 +4,14 @@ import Ajv2020 from "ajv/dist/2020.js";
 import type { AnySchema } from "ajv";
 import addFormats from "ajv-formats";
 import { resolveInvokedPath } from "./cli.js";
-import type { Position, WayFile, WayReportFile, WayRouteFile } from "./ways/types.js";
+import type { WayFile, WayReportFile, WayRouteFile } from "./ways/types.js";
 import { SCHEMA_VERSION } from "./ways/types.js";
 import {
   walkedLine,
   cumulativeMeters,
   haversineMeters,
   lineLengthMeters,
-  stageBoundaries,
+  boundariesForStages,
   simplify,
   strideCap,
   roundLine,
@@ -49,12 +49,6 @@ export interface RouteWaysResult {
   report: WayReportFile;
   /** True when every stage cleared the length gate, so a package was built. */
   emitted: boolean;
-}
-
-function largerOffLine(a: number | undefined, b: number | undefined): number | undefined {
-  if (a === undefined) return b;
-  if (b === undefined) return a;
-  return Math.max(a, b);
 }
 
 export function buildRouteWays(input: RouteWaysInput): RouteWaysResult {
@@ -127,32 +121,7 @@ export function buildRouteWays(input: RouteWaysInput): RouteWaysResult {
 
   const line = walkedLine(input.routeGeoJson);
   const cumulative = cumulativeMeters(line);
-
-  // Both arrays are built from the same walk over the stages, so the anchor at
-  // position i and the declaration at position i are always the same place's.
-  const anchors: Position[] = input.stages.map((s) => s.start.coordinates);
-  // A mid-route boundary's anchor is a stage's `start`, but the same place is
-  // also the previous stage's `end` — stages.json happens to write the
-  // declaration on both sides of every pair today, but nothing requires that,
-  // and reading only `start` would silently drop one written solely on the
-  // earlier stage's `end`. The two describe one physical distance, so a
-  // disagreement between them is imprecision, not a conflict to fail the
-  // build over; take the larger, since raising the radius can only admit a
-  // vertex neither side's own figure would have refused on its own.
-  const offLine: Array<number | undefined> = input.stages.map((stage, i) =>
-    largerOffLine(stage.start.offLineMeters, i > 0 ? input.stages[i - 1].end.offLineMeters : undefined),
-  );
-  const lastStage = input.stages[input.stages.length - 1];
-  anchors.push(lastStage.end.coordinates);
-  offLine.push(lastStage.end.offLineMeters);
-  const boundaries = stageBoundaries(
-    line,
-    cumulative,
-    anchors,
-    input.stages.map((s) => s.distanceKm),
-    SNAP_METERS,
-    offLine,
-  );
+  const boundaries = boundariesForStages(line, cumulative, input.stages);
 
   // A boundary that does not advance means an empty slice: the anchors
   // resolved to one point of the line. Report it and skip that stage alone,
