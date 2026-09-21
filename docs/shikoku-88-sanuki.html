@@ -66,16 +66,20 @@
         <tr><th scope="row">Topology</th><td>Linear</td></tr>
         <tr><th scope="row">Difficulty</th><td>Hard</td></tr>
         <tr><th scope="row">Countries</th><td>Japan</td></tr>
-        <tr><th scope="row">Elevation range</th><td>Unmeasured along the line. Unpen-ji (Temple 66) stands in this section at 911 m and is the highest temple on the circuit; no minimum, ascent or descent is declared</td></tr>
+        <tr><th scope="row">Elevation range</th><td>0&ndash;900 m (total ascent 3,640 m, descent 3,970 m); Unpen-ji, Temple 66 and the highest temple on the circuit, stands at 911 m</td></tr>
         <tr><th scope="row">Start</th><td>Sankaku-ji, Temple 65</td></tr>
         <tr><th scope="row">End</th><td>Ryōzen-ji, Temple 1 (15 m)</td></tr>
       </tbody>
     </table>
     <p>The typical duration is a pace estimate, not a stage count: it divides this section's 202.2 km by the pace the pilgrimage's own declared figures imply, about 26.7 km a day. The day cut below divides the same line 6 ways.</p>
 
-    <h2>Elevation</h2>
-    <p>This section publishes no elevation profile, because it holds no elevation to draw one from. The walked line is two-dimensional &mdash; not one of <code>route.main.geojson</code>&#39;s 9,020 vertices carries a third coordinate &mdash; and no stage in <code>stages.json</code> declares an ascent or a descent. Read that as unmeasured rather than as level ground: the henro trail climbs to mountain temples, and this dataset simply does not yet hold the heights along it. Nothing here should be read as a claim that the walking is flat.</p>
-    <p>What the files do hold are point heights on temples, where OpenStreetMap tagged one. Eighteen of the 88 temple waypoints carry one &mdash; three in Awa, three in Tosa, five in Iyo and seven in Sanuki. Sanuki's seven are Unpen-ji (Temple 66) at 911 m, Iyadani-ji (Temple 71) at 160 m, Shiromine-ji (Temple 81) at 250 m, Negoro-ji (Temple 82) at 330 m, Yashima-ji (Temple 84) at 280 m, Yakuri-ji (Temple 85) at 200 m and Ōkubo-ji (Temple 88) at 450 m. Unpen-ji's 911 m is the highest of the eighteen, and this section's <code>metadata.json</code> records it as the high point of the whole circuit — a rank that belongs to the pilgrimage rather than to any one day of it. A height at a gate is not a profile between gates, and nothing here interpolates one.</p>
+    <h2>Elevation Profile</h2>
+    <figure>
+      <svg viewBox="0 0 800 120" class="profile" role="img" aria-label="Elevation profile: 6 stages, low point 0 m, high point 900 m"><path d="M0,120.0 V0.0 H151.5 V89.3 H267.5 V117.3 H326.4 V58.7 H562.2 V18.7 H642.5 V57.3 H800.0 V120.0 Z" class="profile-fill"/></svg>
+      <figcaption class="figure-caption">High point: 900 m on the Sankaku-ji &rarr; Fujikawa Ryokan stage, the crossing to Unpen-ji (Temple 66). 6 stages, low point 0 m, 3,640 m of ascent.</figcaption>
+    </figure>
+    <p>Ascent, descent and every high and low point on this page are sampled from the SRTM 30 m digital elevation model at each of the walked line&#39;s 9,020 vertices, with a 20 m threshold so the model&#39;s own noise is not counted as climbing. This section carried none of it until now: the line is two-dimensional, and the figures come from the model rather than from the geometry. Read them as this line&#39;s, not the henro trail&#39;s in general &mdash; where the pinned relations follow a road, the model reads the road.</p>
+    <p>The files also hold point heights on temples, where OpenStreetMap tagged one. Eighteen of the 88 temple waypoints carry one &mdash; three in Awa, three in Tosa, five in Iyo and seven in Sanuki. Sanuki&#39;s seven are Unpen-ji (Temple 66) at 911 m, Iyadani-ji (Temple 71) at 160 m, Shiromine-ji (Temple 81) at 250 m, Negoro-ji (Temple 82) at 330 m, Yashima-ji (Temple 84) at 280 m, Yakuri-ji (Temple 85) at 200 m and Ōkubo-ji (Temple 88) at 450 m. Against those, the model reads 465 m at Ōkubo-ji and 292 m at Yashima-ji: it runs a little above the declared heights across this section, which is what a model that reads canopy top does. Unpen-ji is the exception and the one worth naming &mdash; the model reads 894 m at the vertex nearest it, and 900 m where the line runs highest on the crossing, against the map&#39;s 911 m for the temple itself. Unpen-ji&#39;s 911 m is the highest of the eighteen, and that rank belongs to the pilgrimage rather than to any one day of it; the 0&ndash;900 m above is this section&#39;s own line. A height at a gate is still not a profile between gates, and nothing here interpolates one.</p>
 
     <h2>Stages</h2>
     <div class="full-bleed scroll-x">
@@ -86,22 +90,27 @@
             <th scope="col">#</th>
             <th scope="col">Stage</th>
             <th scope="col">Distance</th>
+            <th scope="col">Ascent</th>
+            <th scope="col">Descent</th>
+            <th scope="col">Hours</th>
             <th scope="col">How the day ends</th>
           </tr>
         </thead>
         <tbody>
-          <tr><td>1</td><td>Sankaku-ji (Temple 65) &rarr; Fujikawa Ryokan</td><td>38.3 km</td><td>Lodging</td></tr>
-          <tr><td>2</td><td>Fujikawa Ryokan &rarr; Konzo-ji (Temple 76)</td><td>29.3 km</td><td>Temple</td></tr>
-          <tr><td>3</td><td>Konzo-ji (Temple 76) &rarr; Sakaide</td><td>14.9 km</td><td>Town</td></tr>
-          <tr><td>4</td><td>Sakaide &rarr; Sanuki</td><td>59.6 km</td><td>Town</td></tr>
-          <tr><td>5</td><td>Sanuki &rarr; Okubo-ji (Temple 88)</td><td>20.3 km</td><td>Temple — held fixed</td></tr>
-          <tr><td>6</td><td>Okubo-ji (Temple 88) &rarr; Ryōzen-ji (Temple 1)</td><td>39.8 km</td><td>Temple — section boundary</td></tr>
+          <tr><td>1</td><td>Sankaku-ji (Temple 65) &rarr; Fujikawa Ryokan</td><td>38.3 km</td><td>880 m</td><td>1,210 m</td><td>9&ndash;13</td><td>Lodging</td></tr>
+          <tr><td>2</td><td>Fujikawa Ryokan &rarr; Konzo-ji (Temple 76)</td><td>29.3 km</td><td>290 m</td><td>290 m</td><td>6&ndash;9</td><td>Temple</td></tr>
+          <tr><td>3</td><td>Konzo-ji (Temple 76) &rarr; Sakaide</td><td>14.9 km</td><td>0 m</td><td>20 m</td><td>3&ndash;4</td><td>Town</td></tr>
+          <tr><td>4</td><td>Sakaide &rarr; Sanuki</td><td>59.6 km</td><td>1,110 m</td><td>1,120 m</td><td>14&ndash;19</td><td>Town</td></tr>
+          <tr><td>5</td><td>Sanuki &rarr; Okubo-ji (Temple 88)</td><td>20.3 km</td><td>770 m</td><td>310 m</td><td>5&ndash;7</td><td>Temple — held fixed</td></tr>
+          <tr><td>6</td><td>Okubo-ji (Temple 88) &rarr; Ryōzen-ji (Temple 1)</td><td>39.8 km</td><td>590 m</td><td>1,020 m</td><td>9&ndash;13</td><td>Temple — section boundary</td></tr>
         </tbody>
       </table>
     </div>
     <p>A day ends at a temple whenever one falls between 25 and 30 km along the walked line; where none does, it ends at the nearest named accommodation or town waypoint on the line instead, and a day that comes within 30 km of the section's own end anchor ends there whatever its length. One of Sanuki's six days ends at a temple the band chose, one at a lodging and two at a town; the fifth ends at Ōkubo-ji, held fixed, and the sixth at the section's own boundary.</p>
     <p>Two clauses are specific to this section, and they are two rather than one. Ōkubo-ji, Temple 88, is held as a day end because the temple sequence completes there — without the hold that day runs 190 m further to a lodging, leaving the closing return with no day-end at all. And the return itself, Ōkubo-ji to Ryōzen-ji, is walked as one stage — without that clause the fallback emits a 0.19 km day to that same lodging, the only named place the record holds anywhere past Ōkubo-ji.</p>
     <p>Stage 4 runs 59.6 km, the longest day of the forty the four dōjō were cut into, and it is long because of an absence: OpenStreetMap records no named accommodation and no town on the walked line between Sakaide and Sanuki, so the fallback had nowhere nearer to stop. The stage carries that as a warning in <code>stages.json</code>. No maximum refuses a day that long, because refusing would leave the stretch with no day-end at all.</p>
+
+    <p>The hours are derived, not reported. Each is Naismith&#39;s rule read at two paces and rounded to whole hours &mdash; five kilometres an hour plus 600 m of ascent at the fast end, 3.5 km/h plus 500 m at the slow &mdash; with no roughness factor, because this dataset holds no walking times for the henro trail to fit one against. Read a window as what a day&#39;s distance and climbing cost rather than as a day anyone walks in one go. Stage 4&#39;s 14&ndash;19 hours is what 59.6 km and 1,110 m of ascent come to, and is the same absence its warning describes. <code>metadata.json</code>&#39;s <code>hoursNote</code> gives the rule and what it was checked against.</p>
 
     <h2>Interior Journey</h2>
     <p class="editorial-note">The narrative and reflection prompt for each stage below are editorial writing, grounded only in what the stage contains &mdash; its temples, shrines, towns, spacing and distance. All 6 were read against that evidence and cleared by a reviewer who did not write them, then edited for readability; the edited wording is awaiting a second reading. See <code>docs/review/shikoku-88.md</code> for the checks stage by stage, and <code>docs/data-sources.md</code> for what is, and isn&#39;t, independently sourced.</p>

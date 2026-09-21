@@ -14,10 +14,10 @@
       "name": "Ryōzen-ji (Temple 1) to Kirihata-ji (Temple 10)",
       "distanceKm": 28.3,
       "hours": {
-        "min": 1,
-        "max": 1
+        "min": 6,
+        "max": 9
       },
-      "gainMeters": 0,
+      "gainMeters": 290,
       "difficulty": ""
     },
     {
@@ -25,10 +25,10 @@
       "name": "Kirihata-ji (Temple 10) to Sudachi-an",
       "distanceKm": 24.3,
       "hours": {
-        "min": 1,
-        "max": 1
+        "min": 7,
+        "max": 9
       },
-      "gainMeters": 0,
+      "gainMeters": 1120,
       "difficulty": ""
     },
     {
@@ -36,10 +36,10 @@
       "name": "Sudachi-an to Ido-ji (Temple 17)",
       "distanceKm": 26.9,
       "hours": {
-        "min": 1,
-        "max": 1
+        "min": 6,
+        "max": 8
       },
-      "gainMeters": 0,
+      "gainMeters": 290,
       "difficulty": ""
     },
     {
@@ -47,10 +47,10 @@
       "name": "Ido-ji (Temple 17) to GuestHouse & Cafe Green House",
       "distanceKm": 52.9,
       "hours": {
-        "min": 1,
-        "max": 1
+        "min": 12,
+        "max": 17
       },
-      "gainMeters": 0,
+      "gainMeters": 1140,
       "difficulty": ""
     },
     {
@@ -58,10 +58,10 @@
       "name": "GuestHouse & Cafe Green House to Yakuō-ji (Temple 23)",
       "distanceKm": 22.1,
       "hours": {
-        "min": 1,
-        "max": 1
+        "min": 5,
+        "max": 7
       },
-      "gainMeters": 0,
+      "gainMeters": 440,
       "difficulty": ""
     }
   ]

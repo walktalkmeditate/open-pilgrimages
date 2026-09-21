@@ -66,15 +66,20 @@
         <tr><th scope="row">Topology</th><td>Linear</td></tr>
         <tr><th scope="row">Difficulty</th><td>Hard</td></tr>
         <tr><th scope="row">Countries</th><td>Japan</td></tr>
+        <tr><th scope="row">Elevation range</th><td>0&ndash;760 m (total ascent 3,280 m, descent 3,290 m)</td></tr>
         <tr><th scope="row">Start</th><td>Ryōzen-ji, Temple 1 (15 m)</td></tr>
         <tr><th scope="row">End</th><td>Yakuō-ji, Temple 23</td></tr>
       </tbody>
     </table>
     <p>The typical duration is a pace estimate, not a stage count: it divides this section's 154.5 km by the pace the pilgrimage's own declared figures imply, about 26.7 km a day. The day cut below divides the same line 5 ways.</p>
 
-    <h2>Elevation</h2>
-    <p>This section publishes no elevation profile, because it holds no elevation to draw one from. The walked line is two-dimensional &mdash; not one of <code>route.main.geojson</code>&#39;s 7,054 vertices carries a third coordinate &mdash; and no stage in <code>stages.json</code> declares an ascent or a descent. Read that as unmeasured rather than as level ground: the henro trail climbs to mountain temples, and this dataset simply does not yet hold the heights along it. Nothing here should be read as a claim that the walking is flat.</p>
-    <p>What the files do hold are point heights on temples, where OpenStreetMap tagged one. Eighteen of the 88 temple waypoints carry one &mdash; three in Awa, three in Tosa, five in Iyo and seven in Sanuki. Awa's three are Shōzan-ji (Temple 12) at 700 m, Kakurin-ji (Temple 20) at 470 m and Tairyū-ji (Temple 21) at 600 m. A height at a gate is not a profile between gates, and nothing here interpolates one.</p>
+    <h2>Elevation Profile</h2>
+    <figure>
+      <svg viewBox="0 0 800 120" class="profile" role="img" aria-label="Elevation profile: 5 stages, low point 0 m, high point 760 m"><path d="M0,120.0 V94.7 H146.5 V0.0 H272.4 V45.8 H411.7 V42.6 H685.6 V99.5 H800.0 V120.0 Z" class="profile-fill"/></svg>
+      <figcaption class="figure-caption">High point: 760 m on the Kirihata-ji &rarr; Sudachi-an stage, the crossing to Shōzan-ji (Temple 12). 5 stages, low point 0 m, 3,280 m of ascent.</figcaption>
+    </figure>
+    <p>Ascent, descent and every high and low point on this page are sampled from the SRTM 30 m digital elevation model at each of the walked line&#39;s 7,054 vertices, with a 20 m threshold so the model&#39;s own noise is not counted as climbing. This section carried none of it until now: the line is two-dimensional, and the figures come from the model rather than from the geometry. Read them as this line&#39;s, not the henro trail&#39;s in general &mdash; where the pinned relations follow a road, the model reads the road.</p>
+    <p>The files also hold point heights on temples, where OpenStreetMap tagged one. Eighteen of the 88 temple waypoints carry one &mdash; three in Awa, three in Tosa, five in Iyo and seven in Sanuki. Awa&#39;s three are Shōzan-ji (Temple 12) at 700 m, Kakurin-ji (Temple 20) at 470 m and Tairyū-ji (Temple 21) at 600 m, and they are what the sampling can be checked against: the model reads 700 m where the line passes Shōzan-ji, exactly the height the map gives it. It reads 486 m near Tairyū-ji, which the map puts at 600 m, because the walked line passes 79 m from that gate and below the climb to it. A height at a gate is still not a profile between gates, and nothing here interpolates one &mdash; the profile above is read off the line itself.</p>
 
     <h2>Stages</h2>
     <div class="full-bleed scroll-x">
@@ -85,20 +90,24 @@
             <th scope="col">#</th>
             <th scope="col">Stage</th>
             <th scope="col">Distance</th>
+            <th scope="col">Ascent</th>
+            <th scope="col">Descent</th>
+            <th scope="col">Hours</th>
             <th scope="col">How the day ends</th>
           </tr>
         </thead>
         <tbody>
-          <tr><td>1</td><td>Ryōzen-ji (Temple 1) &rarr; Kirihata-ji (Temple 10)</td><td>28.3 km</td><td>Temple</td></tr>
-          <tr><td>2</td><td>Kirihata-ji (Temple 10) &rarr; Sudachi-an</td><td>24.3 km</td><td>Lodging</td></tr>
-          <tr><td>3</td><td>Sudachi-an &rarr; Ido-ji (Temple 17)</td><td>26.9 km</td><td>Temple</td></tr>
-          <tr><td>4</td><td>Ido-ji (Temple 17) &rarr; GuestHouse &amp; Cafe Green House</td><td>52.9 km</td><td>Lodging</td></tr>
-          <tr><td>5</td><td>GuestHouse &amp; Cafe Green House &rarr; Yakuō-ji (Temple 23)</td><td>22.1 km</td><td>Temple — section boundary</td></tr>
+          <tr><td>1</td><td>Ryōzen-ji (Temple 1) &rarr; Kirihata-ji (Temple 10)</td><td>28.3 km</td><td>290 m</td><td>170 m</td><td>6&ndash;9</td><td>Temple</td></tr>
+          <tr><td>2</td><td>Kirihata-ji (Temple 10) &rarr; Sudachi-an</td><td>24.3 km</td><td>1,120 m</td><td>1,030 m</td><td>7&ndash;9</td><td>Lodging</td></tr>
+          <tr><td>3</td><td>Sudachi-an &rarr; Ido-ji (Temple 17)</td><td>26.9 km</td><td>290 m</td><td>510 m</td><td>6&ndash;8</td><td>Temple</td></tr>
+          <tr><td>4</td><td>Ido-ji (Temple 17) &rarr; GuestHouse &amp; Cafe Green House</td><td>52.9 km</td><td>1,140 m</td><td>1,110 m</td><td>12&ndash;17</td><td>Lodging</td></tr>
+          <tr><td>5</td><td>GuestHouse &amp; Cafe Green House &rarr; Yakuō-ji (Temple 23)</td><td>22.1 km</td><td>440 m</td><td>470 m</td><td>5&ndash;7</td><td>Temple — section boundary</td></tr>
         </tbody>
       </table>
     </div>
     <p>A day ends at a temple whenever one falls between 25 and 30 km along the walked line; where none does, it ends at the nearest named accommodation or town waypoint on the line instead, and a day that comes within 30 km of the section's own end anchor ends there whatever its length. Three of Awa's five days end at a temple and two at a lodging. Every distance is the length of <code>route.main.geojson</code> between that day's own two anchors, and every anchor carries a note in <code>stages.json</code> saying which arm of the rule chose it; the whole rule, its tie-breaks and the readings it refuses are written out in <code>metadata.json</code>'s provenance.</p>
     <p>Stage 4 runs 52.9 km, the longest day in this section, and it is long because of an absence rather than a distance: OpenStreetMap records no named accommodation and no town on the walked line between Ido-ji and where the day ends, so the fallback had nowhere nearer to stop. The stage carries that as a warning in <code>stages.json</code>. No maximum refuses a day that long, because refusing would leave the stretch with no day-end at all.</p>
+    <p>The hours are derived, not reported. Each is Naismith&#39;s rule read at two paces and rounded to whole hours &mdash; five kilometres an hour plus 600 m of ascent at the fast end, 3.5 km/h plus 500 m at the slow &mdash; with no roughness factor, because this dataset holds no walking times for the henro trail to fit one against. Read a window as what a day&#39;s distance and climbing cost rather than as a day anyone walks in one go: stage 4&#39;s 12&ndash;17 hours is what 52.9 km and 1,140 m of ascent come to, and is the same absence the warning describes. <code>metadata.json</code>&#39;s <code>hoursNote</code> gives the rule and what it was checked against.</p>
 
     <h2>Interior Journey</h2>
     <p class="editorial-note">The narrative and reflection prompt for each stage below are editorial writing, grounded only in what the stage contains &mdash; its temples, shrines, towns, spacing and distance. All 5 were read against that evidence and cleared by a reviewer who did not write them, then edited for readability; the edited wording is awaiting a second reading. See <code>docs/review/shikoku-88.md</code> for the checks stage by stage, and <code>docs/data-sources.md</code> for what is, and isn&#39;t, independently sourced.</p>

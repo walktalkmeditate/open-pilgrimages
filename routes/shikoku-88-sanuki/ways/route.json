@@ -14,10 +14,10 @@
       "name": "Sankaku-ji (Temple 65) to Fujikawa Ryokan",
       "distanceKm": 38.3,
       "hours": {
-        "min": 1,
-        "max": 1
+        "min": 9,
+        "max": 13
       },
-      "gainMeters": 0,
+      "gainMeters": 880,
       "difficulty": ""
     },
     {
@@ -25,10 +25,10 @@
       "name": "Fujikawa Ryokan to Konzo-ji (Temple 76)",
       "distanceKm": 29.3,
       "hours": {
-        "min": 1,
-        "max": 1
+        "min": 6,
+        "max": 9
       },
-      "gainMeters": 0,
+      "gainMeters": 290,
       "difficulty": ""
     },
     {
@@ -36,8 +36,8 @@
       "name": "Konzo-ji (Temple 76) to Sakaide",
       "distanceKm": 14.9,
       "hours": {
-        "min": 1,
-        "max": 1
+        "min": 3,
+        "max": 4
       },
       "gainMeters": 0,
       "difficulty": ""
@@ -47,10 +47,10 @@
       "name": "Sakaide to Sanuki",
       "distanceKm": 59.6,
       "hours": {
-        "min": 1,
-        "max": 1
+        "min": 14,
+        "max": 19
       },
-      "gainMeters": 0,
+      "gainMeters": 1110,
       "difficulty": ""
     },
     {
@@ -58,10 +58,10 @@
       "name": "Sanuki to Okubo-ji (Temple 88)",
       "distanceKm": 20.3,
       "hours": {
-        "min": 1,
-        "max": 1
+        "min": 5,
+        "max": 7
       },
-      "gainMeters": 0,
+      "gainMeters": 770,
       "difficulty": ""
     },
     {
@@ -69,10 +69,10 @@
       "name": "Okubo-ji (Temple 88) to Ryōzen-ji (Temple 1)",
       "distanceKm": 39.8,
       "hours": {
-        "min": 1,
-        "max": 1
+        "min": 9,
+        "max": 13
       },
-      "gainMeters": 0,
+      "gainMeters": 590,
       "difficulty": ""
     }
   ]

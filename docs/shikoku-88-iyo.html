@@ -66,15 +66,21 @@
         <tr><th scope="row">Topology</th><td>Linear</td></tr>
         <tr><th scope="row">Difficulty</th><td>Hard</td></tr>
         <tr><th scope="row">Countries</th><td>Japan</td></tr>
+        <tr><th scope="row">Elevation range</th><td>0&ndash;800 m (total ascent 6,030 m, descent 5,760 m)</td></tr>
         <tr><th scope="row">Start</th><td>Enkō-ji, Temple 39</td></tr>
         <tr><th scope="row">End</th><td>Sankaku-ji, Temple 65</td></tr>
       </tbody>
     </table>
     <p>The typical duration is a pace estimate, not a stage count: it divides this section's 365.7 km by the pace the pilgrimage's own declared figures imply, about 26.7 km a day. The day cut below divides the same line 14 ways.</p>
 
-    <h2>Elevation</h2>
-    <p>This section publishes no elevation profile, because it holds no elevation to draw one from. The walked line is two-dimensional &mdash; not one of <code>route.main.geojson</code>&#39;s 13,983 vertices carries a third coordinate &mdash; and no stage in <code>stages.json</code> declares an ascent or a descent. Read that as unmeasured rather than as level ground: the henro trail climbs to mountain temples, and this dataset simply does not yet hold the heights along it. Nothing here should be read as a claim that the walking is flat.</p>
-    <p>What the files do hold are point heights on temples, where OpenStreetMap tagged one. Eighteen of the 88 temple waypoints carry one &mdash; three in Awa, three in Tosa, five in Iyo and seven in Sanuki. Iyo's five are Iwaya-ji (Temple 45) at 560 m, Senyū-ji (Temple 58) at 250 m, Yokomine-ji (Temple 60) at 750 m, Maegami-ji (Temple 64) at 250 m and Sankaku-ji (Temple 65) at 350 m. A height at a gate is not a profile between gates, and nothing here interpolates one.</p>
+    <h2>Elevation Profile</h2>
+    <figure>
+      <svg viewBox="0 0 800 120" class="profile" role="img" aria-label="Elevation profile: 14 stages, low point 0 m, high point 800 m"><path d="M0,120.0 V73.5 H59.5 V48.0 H117.7 V84.0 H174.7 V45.0 H245.8 V96.0 H303.8 V0.0 H360.9 V16.5 H399.1 V10.5 H460.1 V105.0 H512.6 V105.0 H574.5 V81.0 H643.6 V1.5 H699.8 V93.0 H771.6 V69.0 H800.0 V120.0 Z" class="profile-fill"/></svg>
+      <figcaption class="figure-caption">High point: 800 m on the Rairakuku &rarr; Karibaen stage. 14 stages, low point 0 m, 6,030 m of ascent &mdash; more than any other dōjō.</figcaption>
+    </figure>
+    <p>Ascent, descent and every high and low point on this page are sampled from the SRTM 30 m digital elevation model at each of the walked line&#39;s 13,983 vertices, with a 20 m threshold so the model&#39;s own noise is not counted as climbing. This section carried none of it until now: the line is two-dimensional, and the figures come from the model rather than from the geometry. Read them as this line&#39;s, not the henro trail&#39;s in general &mdash; where the pinned relations follow a road, the model reads the road.</p>
+    <p>The files also hold point heights on temples, where OpenStreetMap tagged one. Eighteen of the 88 temple waypoints carry one &mdash; three in Awa, three in Tosa, five in Iyo and seven in Sanuki. Iyo&#39;s five are Iwaya-ji (Temple 45) at 560 m, Senyū-ji (Temple 58) at 250 m, Yokomine-ji (Temple 60) at 750 m, Maegami-ji (Temple 64) at 250 m and Sankaku-ji (Temple 65) at 350 m, and they are what the sampling can be checked against: the model reads 754 m where the line passes Yokomine-ji and 255 m at Senyū-ji. Maegami-ji is the one wide disagreement &mdash; 48 m read where the line passes 59 m from a temple the map puts at 250 m &mdash; and that is a fact about where the line goes, not about the model. A height at a gate is still not a profile between gates, and nothing here interpolates one &mdash; the profile above is read off the line itself.</p>
+    <p>Sankaku-ji closes this section at 340 m and opens Sanuki at 350 m. The two sections cut their own lines at different vertices near the one temple, which the map itself puts at 350 m, and each figure is the reading on the line it belongs to.</p>
 
     <h2>Stages</h2>
     <div class="full-bleed scroll-x">
@@ -85,29 +91,34 @@
             <th scope="col">#</th>
             <th scope="col">Stage</th>
             <th scope="col">Distance</th>
+            <th scope="col">Ascent</th>
+            <th scope="col">Descent</th>
+            <th scope="col">Hours</th>
             <th scope="col">How the day ends</th>
           </tr>
         </thead>
         <tbody>
-          <tr><td>1</td><td>Enkō-ji (Temple 39) &rarr; Kanjizai-ji (Temple 40)</td><td>27.2 km</td><td>Temple</td></tr>
-          <tr><td>2</td><td>Kanjizai-ji (Temple 40) &rarr; Hotel Ailin</td><td>26.6 km</td><td>Lodging</td></tr>
-          <tr><td>3</td><td>Hotel Ailin &rarr; Butsumoku-ji (Temple 42)</td><td>26.1 km</td><td>Temple</td></tr>
-          <tr><td>4</td><td>Butsumoku-ji (Temple 42) &rarr; Ozu</td><td>32.5 km</td><td>Town</td></tr>
-          <tr><td>5</td><td>Ozu &rarr; Rairakuku</td><td>26.5 km</td><td>Lodging</td></tr>
-          <tr><td>6</td><td>Rairakuku &rarr; Karibaen</td><td>26.1 km</td><td>Lodging</td></tr>
-          <tr><td>7</td><td>Karibaen &rarr; Ichiriki</td><td>17.5 km</td><td>Lodging</td></tr>
-          <tr><td>8</td><td>Ichiriki &rarr; Ishite-ji (Temple 51)</td><td>27.9 km</td><td>Temple</td></tr>
-          <tr><td>9</td><td>Ishite-ji (Temple 51) &rarr; Hōjō Suigun Youth Hostel</td><td>24 km</td><td>Lodging</td></tr>
-          <tr><td>10</td><td>Hōjō Suigun Youth Hostel &rarr; Nankobo (Temple 55)</td><td>28.3 km</td><td>Temple</td></tr>
-          <tr><td>11</td><td>Nankobo (Temple 55) &rarr; ゲストハウス BEKKU</td><td>31.6 km</td><td>Lodging</td></tr>
-          <tr><td>12</td><td>ゲストハウス BEKKU &rarr; Maegami-ji (Temple 64)</td><td>25.7 km</td><td>Temple</td></tr>
-          <tr><td>13</td><td>Maegami-ji (Temple 64) &rarr; HOTEL AZ 愛媛土居インター店</td><td>32.8 km</td><td>Lodging</td></tr>
-          <tr><td>14</td><td>HOTEL AZ 愛媛土居インター店 &rarr; Sankaku-ji (Temple 65)</td><td>13 km</td><td>Temple — section boundary</td></tr>
+          <tr><td>1</td><td>Enkō-ji (Temple 39) &rarr; Kanjizai-ji (Temple 40)</td><td>27.2 km</td><td>460 m</td><td>490 m</td><td>6&ndash;9</td><td>Temple</td></tr>
+          <tr><td>2</td><td>Kanjizai-ji (Temple 40) &rarr; Hotel Ailin</td><td>26.6 km</td><td>550 m</td><td>550 m</td><td>6&ndash;9</td><td>Lodging</td></tr>
+          <tr><td>3</td><td>Hotel Ailin &rarr; Butsumoku-ji (Temple 42)</td><td>26.1 km</td><td>440 m</td><td>260 m</td><td>6&ndash;8</td><td>Temple</td></tr>
+          <tr><td>4</td><td>Butsumoku-ji (Temple 42) &rarr; Ozu</td><td>32.5 km</td><td>660 m</td><td>830 m</td><td>8&ndash;11</td><td>Town</td></tr>
+          <tr><td>5</td><td>Ozu &rarr; Rairakuku</td><td>26.5 km</td><td>370 m</td><td>270 m</td><td>6&ndash;8</td><td>Lodging</td></tr>
+          <tr><td>6</td><td>Rairakuku &rarr; Karibaen</td><td>26.1 km</td><td>980 m</td><td>550 m</td><td>7&ndash;9</td><td>Lodging</td></tr>
+          <tr><td>7</td><td>Karibaen &rarr; Ichiriki</td><td>17.5 km</td><td>490 m</td><td>540 m</td><td>4&ndash;6</td><td>Lodging</td></tr>
+          <tr><td>8</td><td>Ichiriki &rarr; Ishite-ji (Temple 51)</td><td>27.9 km</td><td>240 m</td><td>680 m</td><td>6&ndash;8</td><td>Temple</td></tr>
+          <tr><td>9</td><td>Ishite-ji (Temple 51) &rarr; Hōjō Suigun Youth Hostel</td><td>24 km</td><td>90 m</td><td>150 m</td><td>5&ndash;7</td><td>Lodging</td></tr>
+          <tr><td>10</td><td>Hōjō Suigun Youth Hostel &rarr; Nankobo (Temple 55)</td><td>28.3 km</td><td>110 m</td><td>110 m</td><td>6&ndash;8</td><td>Temple</td></tr>
+          <tr><td>11</td><td>Nankobo (Temple 55) &rarr; ゲストハウス BEKKU</td><td>31.6 km</td><td>290 m</td><td>280 m</td><td>7&ndash;10</td><td>Lodging</td></tr>
+          <tr><td>12</td><td>ゲストハウス BEKKU &rarr; Maegami-ji (Temple 64)</td><td>25.7 km</td><td>880 m</td><td>870 m</td><td>7&ndash;9</td><td>Temple</td></tr>
+          <tr><td>13</td><td>Maegami-ji (Temple 64) &rarr; HOTEL AZ 愛媛土居インター店</td><td>32.8 km</td><td>150 m</td><td>180 m</td><td>7&ndash;10</td><td>Lodging</td></tr>
+          <tr><td>14</td><td>HOTEL AZ 愛媛土居インター店 &rarr; Sankaku-ji (Temple 65)</td><td>13 km</td><td>320 m</td><td>0 m</td><td>3&ndash;4</td><td>Temple — section boundary</td></tr>
         </tbody>
       </table>
     </div>
     <p>A day ends at a temple whenever one falls between 25 and 30 km along the walked line; where none does, it ends at the nearest named accommodation or town waypoint on the line instead, and a day that comes within 30 km of the section's own end anchor ends there whatever its length. Six of Iyo's fourteen days end at a temple, seven at a lodging and one at a town. Every distance is the length of <code>route.main.geojson</code> between that day's own two anchors, and every anchor carries a note in <code>stages.json</code> saying which arm of the rule chose it; the whole rule, its tie-breaks and the readings it refuses are written out in <code>metadata.json</code>'s provenance.</p>
     <p>The last day is the shortest of the forty the four dōjō were cut into, and it is short for one reason: a day that comes within 30 km of the section's end anchor ends at that anchor whatever its length. Sankaku-ji closes Iyo, and Sanuki starts from the same point.</p>
+
+    <p>The hours are derived, not reported. Each is Naismith&#39;s rule read at two paces and rounded to whole hours &mdash; five kilometres an hour plus 600 m of ascent at the fast end, 3.5 km/h plus 500 m at the slow &mdash; with no roughness factor, because this dataset holds no walking times for the henro trail to fit one against. Read a window as what a day&#39;s distance and climbing cost rather than as a day anyone walks in one go. The widest window here belongs to the 32.8 km thirteenth day, at 7&ndash;10 hours. <code>metadata.json</code>&#39;s <code>hoursNote</code> gives the rule and what it was checked against.</p>
 
     <h2>Interior Journey</h2>
     <p class="editorial-note">The narrative and reflection prompt for each stage below are editorial writing, grounded only in what the stage contains &mdash; its temples, shrines, towns, spacing and distance. All 14 were read against that evidence and cleared by a reviewer who did not write them, then edited for readability; the edited wording is awaiting a second reading. See <code>docs/review/shikoku-88.md</code> for the checks stage by stage, and <code>docs/data-sources.md</code> for what is, and isn&#39;t, independently sourced.</p>

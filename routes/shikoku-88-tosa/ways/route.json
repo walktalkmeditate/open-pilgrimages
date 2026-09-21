@@ -14,10 +14,10 @@
       "name": "Yakuō-ji (Temple 23) to Haryugetu Guesthouse",
       "distanceKm": 32.1,
       "hours": {
-        "min": 1,
-        "max": 1
+        "min": 7,
+        "max": 10
       },
-      "gainMeters": 0,
+      "gainMeters": 270,
       "difficulty": ""
     },
     {
@@ -25,10 +25,10 @@
       "name": "Haryugetu Guesthouse to Tokumasu Minshuku",
       "distanceKm": 30.8,
       "hours": {
-        "min": 1,
-        "max": 1
+        "min": 6,
+        "max": 9
       },
-      "gainMeters": 0,
+      "gainMeters": 150,
       "difficulty": ""
     },
     {
@@ -36,10 +36,10 @@
       "name": "Tokumasu Minshuku to Kongocho-ji (Temple 26)",
       "distanceKm": 25.2,
       "hours": {
-        "min": 1,
-        "max": 1
+        "min": 6,
+        "max": 8
       },
-      "gainMeters": 0,
+      "gainMeters": 330,
       "difficulty": ""
     },
     {
@@ -47,10 +47,10 @@
       "name": "Kongocho-ji (Temple 26) to Konomine-ji (Temple 27)",
       "distanceKm": 28.5,
       "hours": {
-        "min": 1,
-        "max": 1
+        "min": 7,
+        "max": 9
       },
-      "gainMeters": 0,
+      "gainMeters": 480,
       "difficulty": ""
     },
     {
@@ -58,10 +58,10 @@
       "name": "Konomine-ji (Temple 27) to 黒潮温泉ホテル",
       "distanceKm": 35.8,
       "hours": {
-        "min": 1,
-        "max": 1
+        "min": 7,
+        "max": 10
       },
-      "gainMeters": 0,
+      "gainMeters": 70,
       "difficulty": ""
     },
     {
@@ -69,10 +69,10 @@
       "name": "黒潮温泉ホテル to Chikurin-ji (Temple 31)",
       "distanceKm": 25.4,
       "hours": {
-        "min": 1,
-        "max": 1
+        "min": 5,
+        "max": 8
       },
-      "gainMeters": 0,
+      "gainMeters": 220,
       "difficulty": ""
     },
     {
@@ -80,10 +80,10 @@
       "name": "Chikurin-ji (Temple 31) to Tosa",
       "distanceKm": 27.5,
       "hours": {
-        "min": 1,
-        "max": 1
+        "min": 6,
+        "max": 8
       },
-      "gainMeters": 0,
+      "gainMeters": 60,
       "difficulty": ""
     },
     {
@@ -91,10 +91,10 @@
       "name": "Tosa to Ohenro Guest House Lilian",
       "distanceKm": 21.1,
       "hours": {
-        "min": 1,
-        "max": 1
+        "min": 5,
+        "max": 7
       },
-      "gainMeters": 0,
+      "gainMeters": 340,
       "difficulty": ""
     },
     {
@@ -102,10 +102,10 @@
       "name": "Ohenro Guest House Lilian to 民宿あわの里",
       "distanceKm": 26.6,
       "hours": {
-        "min": 1,
-        "max": 1
+        "min": 6,
+        "max": 8
       },
-      "gainMeters": 0,
+      "gainMeters": 370,
       "difficulty": ""
     },
     {
@@ -113,10 +113,10 @@
       "name": "民宿あわの里 to Iwamoto-ji (Temple 37)",
       "distanceKm": 27.9,
       "hours": {
-        "min": 1,
-        "max": 1
+        "min": 7,
+        "max": 9
       },
-      "gainMeters": 0,
+      "gainMeters": 560,
       "difficulty": ""
     },
     {
@@ -124,10 +124,10 @@
       "name": "Iwamoto-ji (Temple 37) to Henro House Maaru",
       "distanceKm": 28.2,
       "hours": {
-        "min": 1,
-        "max": 1
+        "min": 6,
+        "max": 9
       },
-      "gainMeters": 0,
+      "gainMeters": 230,
       "difficulty": ""
     },
     {
@@ -135,10 +135,10 @@
       "name": "Henro House Maaru to 民宿いさりび",
       "distanceKm": 33.6,
       "hours": {
-        "min": 1,
-        "max": 1
+        "min": 7,
+        "max": 10
       },
-      "gainMeters": 0,
+      "gainMeters": 340,
       "difficulty": ""
     },
     {
@@ -146,10 +146,10 @@
       "name": "民宿いさりび to 金剛福寺宿坊",
       "distanceKm": 20.9,
       "hours": {
-        "min": 1,
-        "max": 1
+        "min": 4,
+        "max": 6
       },
-      "gainMeters": 0,
+      "gainMeters": 160,
       "difficulty": ""
     },
     {
@@ -157,10 +157,10 @@
       "name": "金剛福寺宿坊 to Ocean, River, Mountain Retreat",
       "distanceKm": 35.8,
       "hours": {
-        "min": 1,
-        "max": 1
+        "min": 8,
+        "max": 11
       },
-      "gainMeters": 0,
+      "gainMeters": 320,
       "difficulty": ""
     },
     {
@@ -168,10 +168,10 @@
       "name": "Ocean, River, Mountain Retreat to Enkō-ji (Temple 39)",
       "distanceKm": 19.2,
       "hours": {
-        "min": 1,
-        "max": 1
+        "min": 4,
+        "max": 6
       },
-      "gainMeters": 0,
+      "gainMeters": 200,
       "difficulty": ""
     }
   ]

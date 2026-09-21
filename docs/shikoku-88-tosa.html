@@ -66,15 +66,20 @@
         <tr><th scope="row">Topology</th><td>Linear</td></tr>
         <tr><th scope="row">Difficulty</th><td>Hard</td></tr>
         <tr><th scope="row">Countries</th><td>Japan</td></tr>
+        <tr><th scope="row">Elevation range</th><td>0&ndash;430 m (total ascent 4,100 m, descent 4,090 m)</td></tr>
         <tr><th scope="row">Start</th><td>Yakuō-ji, Temple 23</td></tr>
         <tr><th scope="row">End</th><td>Enkō-ji, Temple 39</td></tr>
       </tbody>
     </table>
     <p>The typical duration is a pace estimate, not a stage count: it divides this section's 418.5 km by the pace the pilgrimage's own declared figures imply, about 26.7 km a day. The day cut below divides the same line 15 ways.</p>
 
-    <h2>Elevation</h2>
-    <p>This section publishes no elevation profile, because it holds no elevation to draw one from. The walked line is two-dimensional &mdash; not one of <code>route.main.geojson</code>&#39;s 15,280 vertices carries a third coordinate &mdash; and no stage in <code>stages.json</code> declares an ascent or a descent. Read that as unmeasured rather than as level ground: the henro trail climbs to mountain temples, and this dataset simply does not yet hold the heights along it. Nothing here should be read as a claim that the walking is flat.</p>
-    <p>What the files do hold are point heights on temples, where OpenStreetMap tagged one. Eighteen of the 88 temple waypoints carry one &mdash; three in Awa, three in Tosa, five in Iyo and seven in Sanuki. Tosa's three are Hotsumisaki-ji (Temple 24) at 160 m, Kōnomine-ji (Temple 27) at 380 m and Chikurin-ji (Temple 31) at 140 m. A height at a gate is not a profile between gates, and nothing here interpolates one.</p>
+    <h2>Elevation Profile</h2>
+    <figure>
+      <svg viewBox="0 0 800 120" class="profile" role="img" aria-label="Elevation profile: 15 stages, low point 0 m, high point 430 m"><path d="M0,120.0 V83.7 H61.3 V106.0 H120.2 V72.6 H168.4 V0.0 H222.8 V0.0 H291.3 V83.7 H339.8 V83.7 H392.4 V67.0 H432.7 V75.3 H483.5 V36.3 H536.8 V36.3 H590.7 V44.7 H654.9 V80.9 H694.9 V80.9 H763.3 V72.6 H800.0 V120.0 Z" class="profile-fill"/></svg>
+      <figcaption class="figure-caption">High point: 430 m, reached on two consecutive days &mdash; the one that ends at Kōnomine-ji (Temple 27) and the one that leaves it. 15 stages, low point 0 m, 4,100 m of ascent.</figcaption>
+    </figure>
+    <p>Ascent, descent and every high and low point on this page are sampled from the SRTM 30 m digital elevation model at each of the walked line&#39;s 15,280 vertices, with a 20 m threshold so the model&#39;s own noise is not counted as climbing. This section carried none of it until now: the line is two-dimensional, and the figures come from the model rather than from the geometry. Read them as this line&#39;s, not the henro trail&#39;s in general &mdash; where the pinned relations follow a road, the model reads the road.</p>
+    <p>The files also hold point heights on temples, where OpenStreetMap tagged one. Eighteen of the 88 temple waypoints carry one &mdash; three in Awa, three in Tosa, five in Iyo and seven in Sanuki. Tosa&#39;s three are Hotsumisaki-ji (Temple 24) at 160 m, Kōnomine-ji (Temple 27) at 380 m and Chikurin-ji (Temple 31) at 140 m, and they are what the sampling can be checked against: the model reads 162 m where the line passes Hotsumisaki-ji at Cape Muroto and 132 m at Chikurin-ji. At the vertex nearest Kōnomine-ji it reads 428 m against the map&#39;s 380 m &mdash; the line passes 53 m from that gate, over ground the model reads higher. Tosa is the lowest of the four dōjō by this reading: no day rises above 430 m. A height at a gate is still not a profile between gates, and nothing here interpolates one &mdash; the profile above is read off the line itself.</p>
 
     <h2>Stages</h2>
     <div class="full-bleed scroll-x">
@@ -85,30 +90,35 @@
             <th scope="col">#</th>
             <th scope="col">Stage</th>
             <th scope="col">Distance</th>
+            <th scope="col">Ascent</th>
+            <th scope="col">Descent</th>
+            <th scope="col">Hours</th>
             <th scope="col">How the day ends</th>
           </tr>
         </thead>
         <tbody>
-          <tr><td>1</td><td>Yakuō-ji (Temple 23) &rarr; Haryugetu Guesthouse</td><td>32.1 km</td><td>Lodging</td></tr>
-          <tr><td>2</td><td>Haryugetu Guesthouse &rarr; Tokumasu Minshuku</td><td>30.8 km</td><td>Lodging</td></tr>
-          <tr><td>3</td><td>Tokumasu Minshuku &rarr; Kongocho-ji (Temple 26)</td><td>25.2 km</td><td>Temple</td></tr>
-          <tr><td>4</td><td>Kongocho-ji (Temple 26) &rarr; Konomine-ji (Temple 27)</td><td>28.5 km</td><td>Temple</td></tr>
-          <tr><td>5</td><td>Konomine-ji (Temple 27) &rarr; 黒潮温泉ホテル</td><td>35.8 km</td><td>Lodging</td></tr>
-          <tr><td>6</td><td>黒潮温泉ホテル &rarr; Chikurin-ji (Temple 31)</td><td>25.4 km</td><td>Temple</td></tr>
-          <tr><td>7</td><td>Chikurin-ji (Temple 31) &rarr; Tosa</td><td>27.5 km</td><td>Town</td></tr>
-          <tr><td>8</td><td>Tosa &rarr; Ohenro Guest House Lilian</td><td>21.1 km</td><td>Lodging</td></tr>
-          <tr><td>9</td><td>Ohenro Guest House Lilian &rarr; 民宿あわの里</td><td>26.6 km</td><td>Lodging</td></tr>
-          <tr><td>10</td><td>民宿あわの里 &rarr; Iwamoto-ji (Temple 37)</td><td>27.9 km</td><td>Temple</td></tr>
-          <tr><td>11</td><td>Iwamoto-ji (Temple 37) &rarr; Henro House Maaru</td><td>28.2 km</td><td>Lodging</td></tr>
-          <tr><td>12</td><td>Henro House Maaru &rarr; 民宿いさりび</td><td>33.6 km</td><td>Lodging</td></tr>
-          <tr><td>13</td><td>民宿いさりび &rarr; 金剛福寺宿坊</td><td>20.9 km</td><td>Lodging</td></tr>
-          <tr><td>14</td><td>金剛福寺宿坊 &rarr; Ocean, River, Mountain Retreat</td><td>35.8 km</td><td>Lodging</td></tr>
-          <tr><td>15</td><td>Ocean, River, Mountain Retreat &rarr; Enkō-ji (Temple 39)</td><td>19.2 km</td><td>Temple — section boundary</td></tr>
+          <tr><td>1</td><td>Yakuō-ji (Temple 23) &rarr; Haryugetu Guesthouse</td><td>32.1 km</td><td>270 m</td><td>270 m</td><td>7&ndash;10</td><td>Lodging</td></tr>
+          <tr><td>2</td><td>Haryugetu Guesthouse &rarr; Tokumasu Minshuku</td><td>30.8 km</td><td>150 m</td><td>150 m</td><td>6&ndash;9</td><td>Lodging</td></tr>
+          <tr><td>3</td><td>Tokumasu Minshuku &rarr; Kongocho-ji (Temple 26)</td><td>25.2 km</td><td>330 m</td><td>170 m</td><td>6&ndash;8</td><td>Temple</td></tr>
+          <tr><td>4</td><td>Kongocho-ji (Temple 26) &rarr; Konomine-ji (Temple 27)</td><td>28.5 km</td><td>480 m</td><td>240 m</td><td>7&ndash;9</td><td>Temple</td></tr>
+          <tr><td>5</td><td>Konomine-ji (Temple 27) &rarr; 黒潮温泉ホテル</td><td>35.8 km</td><td>70 m</td><td>490 m</td><td>7&ndash;10</td><td>Lodging</td></tr>
+          <tr><td>6</td><td>黒潮温泉ホテル &rarr; Chikurin-ji (Temple 31)</td><td>25.4 km</td><td>220 m</td><td>120 m</td><td>5&ndash;8</td><td>Temple</td></tr>
+          <tr><td>7</td><td>Chikurin-ji (Temple 31) &rarr; Tosa</td><td>27.5 km</td><td>60 m</td><td>180 m</td><td>6&ndash;8</td><td>Town</td></tr>
+          <tr><td>8</td><td>Tosa &rarr; Ohenro Guest House Lilian</td><td>21.1 km</td><td>340 m</td><td>350 m</td><td>5&ndash;7</td><td>Lodging</td></tr>
+          <tr><td>9</td><td>Ohenro Guest House Lilian &rarr; 民宿あわの里</td><td>26.6 km</td><td>370 m</td><td>350 m</td><td>6&ndash;8</td><td>Lodging</td></tr>
+          <tr><td>10</td><td>民宿あわの里 &rarr; Iwamoto-ji (Temple 37)</td><td>27.9 km</td><td>560 m</td><td>350 m</td><td>7&ndash;9</td><td>Temple</td></tr>
+          <tr><td>11</td><td>Iwamoto-ji (Temple 37) &rarr; Henro House Maaru</td><td>28.2 km</td><td>230 m</td><td>440 m</td><td>6&ndash;9</td><td>Lodging</td></tr>
+          <tr><td>12</td><td>Henro House Maaru &rarr; 民宿いさりび</td><td>33.6 km</td><td>340 m</td><td>320 m</td><td>7&ndash;10</td><td>Lodging</td></tr>
+          <tr><td>13</td><td>民宿いさりび &rarr; 金剛福寺宿坊</td><td>20.9 km</td><td>160 m</td><td>110 m</td><td>4&ndash;6</td><td>Lodging</td></tr>
+          <tr><td>14</td><td>金剛福寺宿坊 &rarr; Ocean, River, Mountain Retreat</td><td>35.8 km</td><td>320 m</td><td>300 m</td><td>8&ndash;11</td><td>Lodging</td></tr>
+          <tr><td>15</td><td>Ocean, River, Mountain Retreat &rarr; Enkō-ji (Temple 39)</td><td>19.2 km</td><td>200 m</td><td>250 m</td><td>4&ndash;6</td><td>Temple — section boundary</td></tr>
         </tbody>
       </table>
     </div>
     <p>A day ends at a temple whenever one falls between 25 and 30 km along the walked line; where none does, it ends at the nearest named accommodation or town waypoint on the line instead, and a day that comes within 30 km of the section's own end anchor ends there whatever its length. Tosa is where the second arm earns its place: only 5 of these fifteen days end at a temple, against 9 at a lodging and 1 at a town. Of the section's sixteen temple-to-temple legs, exactly one — Temple 26 to Temple 27, 28.5 km — falls inside the band the rule aims at, and it is stage 4, a day that is a single leg.</p>
     <p>Every distance is the length of <code>route.main.geojson</code> between that day's own two anchors, and every anchor carries a note in <code>stages.json</code> saying which arm of the rule chose it; the whole rule, its tie-breaks and the readings it refuses are written out in <code>metadata.json</code>'s provenance.</p>
+
+    <p>The hours are derived, not reported. Each is Naismith&#39;s rule read at two paces and rounded to whole hours &mdash; five kilometres an hour plus 600 m of ascent at the fast end, 3.5 km/h plus 500 m at the slow &mdash; with no roughness factor, because this dataset holds no walking times for the henro trail to fit one against. Read a window as what a day&#39;s distance and climbing cost rather than as a day anyone walks in one go. The widest windows here belong to the two 35.8 km days, at 7&ndash;10 and 8&ndash;11 hours. <code>metadata.json</code>&#39;s <code>hoursNote</code> gives the rule and what it was checked against.</p>
 
     <h2>Interior Journey</h2>
     <p class="editorial-note">The narrative and reflection prompt for each stage below are editorial writing, grounded only in what the stage contains &mdash; its temples, shrines, towns, spacing and distance. All 15 were read against that evidence and cleared by a reviewer who did not write them, then edited for readability; the edited wording is awaiting a second reading. See <code>docs/review/shikoku-88.md</code> for the checks stage by stage, and <code>docs/data-sources.md</code> for what is, and isn&#39;t, independently sourced.</p>
