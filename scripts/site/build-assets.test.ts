@@ -104,19 +104,20 @@ test("buildAssets is idempotent", () => {
 test("every route with stats gets a sparkline, and every route with elevation a profile", () => {
   const counts = buildAssets(ROOT);
 
-  assert.equal(counts.profiles >= 7, true);
+  assert.equal(counts.profiles >= 11, true);
   assert.equal(counts.sparklines >= 7, true);
   assert.ok(existsSync(join(ASSETS, "profiles", "camino-primitivo.svg")));
   assert.ok(existsSync(join(ASSETS, "sparklines", "camino-frances.svg")));
 
-  // The four dōjō have stages.json and no elevation in it, so profileSvg
-  // returns "" and no file is written — see its own comment. A profile here
-  // would be the flat "high point 1 m" one this replaced.
+  // This ran the other way until the dōjō were sampled: their stages.json
+  // carried no elevation, profileSvg returned "" and no file was written.
+  // They carry it now, so each writes a profile of its own — and the four are
+  // named rather than left to the count above, because a count of eleven is
+  // also what seven profiles and four of something else would read as.
   for (const dojo of ["awa", "tosa", "iyo", "sanuki"]) {
-    assert.equal(
+    assert.ok(
       existsSync(join(ASSETS, "profiles", `shikoku-88-${dojo}.svg`)),
-      false,
-      `shikoku-88-${dojo} should have no elevation profile`,
+      `shikoku-88-${dojo} should have an elevation profile`,
     );
   }
 });

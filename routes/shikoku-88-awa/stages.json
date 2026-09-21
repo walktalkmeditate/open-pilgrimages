@@ -28,11 +28,20 @@
         },
         "coordinates": [
           134.304,
-          34.108
+          34.108,
+          160
         ],
         "note": "Temple 10, 28.26 km along this section's walked line, 49 m off it — 28.26 km from the previous day's end at 0.00 km, inside the 25-30 km band and, of the temples in it, the one nearest 27.5 km."
       },
       "distanceKm": 28.3,
+      "elevationGainMeters": 290,
+      "elevationLossMeters": 170,
+      "highPointMeters": 160,
+      "lowPointMeters": 0,
+      "estimatedHours": {
+        "min": 6,
+        "max": 9
+      },
       "interior": {
         "theme": {
           "en": "Ten temples in twenty-eight kilometres"
@@ -57,7 +66,8 @@
         },
         "coordinates": [
           134.304,
-          34.108
+          34.108,
+          160
         ],
         "note": "Where stage 0 ended."
       },
@@ -67,11 +77,20 @@
         },
         "coordinates": [
           134.3266188,
-          33.9870093
+          33.9870093,
+          230
         ],
         "note": "OpenStreetMap node/11544133369 (accommodation), 52.54 km along this section's walked line, 43 m off it. No temple falls 25-30 km past the previous day's end at 28.26 km, so the day ends at the named accommodation or town waypoint on the line nearest 27.5 km, 24.28 km on."
       },
       "distanceKm": 24.3,
+      "elevationGainMeters": 1120,
+      "elevationLossMeters": 1030,
+      "highPointMeters": 760,
+      "lowPointMeters": 20,
+      "estimatedHours": {
+        "min": 7,
+        "max": 9
+      },
       "interior": {
         "theme": {
           "en": "From ten temples to two"
@@ -95,7 +114,8 @@
         },
         "coordinates": [
           134.3266188,
-          33.9870093
+          33.9870093,
+          230
         ],
         "note": "Where stage 1 ended."
       },
@@ -106,11 +126,20 @@
         },
         "coordinates": [
           134.485,
-          34.085
+          34.085,
+          10
         ],
         "note": "Temple 17, 79.45 km along this section's walked line, 46 m off it — 26.90 km from the previous day's end at 52.54 km, inside the 25-30 km band and, of the temples in it, the one nearest 27.5 km."
       },
       "distanceKm": 26.9,
+      "elevationGainMeters": 290,
+      "elevationLossMeters": 510,
+      "highPointMeters": 470,
+      "lowPointMeters": 10,
+      "estimatedHours": {
+        "min": 6,
+        "max": 8
+      },
       "interior": {
         "theme": {
           "en": "Five temples in the last eight kilometres"
@@ -135,7 +164,8 @@
         },
         "coordinates": [
           134.485,
-          34.085
+          34.085,
+          10
         ],
         "note": "Where stage 2 ended."
       },
@@ -145,11 +175,20 @@
         },
         "coordinates": [
           134.5864013,
-          33.8483688
+          33.8483688,
+          40
         ],
         "note": "OpenStreetMap node/11342795169 (accommodation), 132.39 km along this section's walked line, 182 m off it. No temple falls 25-30 km past the previous day's end at 79.45 km, so the day ends at the named accommodation or town waypoint on the line nearest 27.5 km, 52.94 km on."
       },
       "distanceKm": 52.9,
+      "elevationGainMeters": 1140,
+      "elevationLossMeters": 1110,
+      "highPointMeters": 490,
+      "lowPointMeters": 0,
+      "estimatedHours": {
+        "min": 12,
+        "max": 17
+      },
       "warnings": [
         {
           "en": "52.9 km, the longest of Awa's five days. OpenStreetMap records no named accommodation or town on the walked line between Ido-ji and this day's end, so the rule had nowhere nearer to stop. Carry water and food for the whole distance, or break the day at a place off the line."
@@ -178,7 +217,8 @@
         },
         "coordinates": [
           134.5864013,
-          33.8483688
+          33.8483688,
+          40
         ],
         "note": "Where stage 3 ended."
       },
@@ -189,11 +229,20 @@
         },
         "coordinates": [
           134.528,
-          33.732
+          33.732,
+          10
         ],
         "note": "Section boundary. Coordinates and name are taken verbatim from this section's metadata.json overview, so the neighbouring section's stage anchor is the same point. 154.48 km along this section's walked line, 6 m off it. A boundary day ends at the boundary temple itself whatever its length, and the lodging fallback does not apply here; this one runs 22.09 km."
       },
       "distanceKm": 22.1,
+      "elevationGainMeters": 440,
+      "elevationLossMeters": 470,
+      "highPointMeters": 130,
+      "lowPointMeters": 0,
+      "estimatedHours": {
+        "min": 5,
+        "max": 7
+      },
       "interior": {
         "theme": {
           "en": "One temple, at the end of it"

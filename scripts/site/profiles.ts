@@ -44,10 +44,13 @@ export function profileSvg(stages: ProfileStage[], width = 800, height = 120): s
 
   // A dataset that declares no high point anywhere has no profile to draw, and
   // the peak floor below would render it as a flat path labelled "high point
-  // 1 m" — in an aria-label, as fact. Shikoku's four dōjō are exactly that
-  // case: their lines are 2D and their stages carry no elevation at all, on a
-  // circuit whose own metadata declares 911 m at Temple 66. Silence is the
-  // same answer as no stages: emit nothing, and let the caller skip the file.
+  // 1 m" — in an aria-label, as fact. Shikoku's four dōjō were exactly that
+  // case when this guard was written: their stages carried no elevation at
+  // all, on a circuit whose own metadata declares 911 m at Temple 66. They
+  // are sampled now and draw four real profiles, so no section in the corpus
+  // reaches this line today. It stays for the next one to arrive without
+  // elevation, because silence is still the same answer as no stages: emit
+  // nothing, and let the caller skip the file.
   if (stages.every((stage) => stage.highPointMeters === 0)) return "";
 
   const totalKm = stages.reduce((sum, s) => sum + s.distanceKm, 0) || 1;

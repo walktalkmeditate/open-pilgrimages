@@ -91,16 +91,38 @@ test("a stage that declares only a low point still draws", () => {
 });
 
 /**
- * The four dōjō were cut from 2D lines and their stages carry no elevation.
- * Before this, `build-assets` published four SVGs whose aria-label read "low
- * point 0 m, high point 1 m" for a pilgrimage whose own metadata declares
- * 911 m at Temple 66 — the peak floor turning silence into a measurement.
+ * This assertion used to run the other way. The four dōjō were cut from 2D
+ * lines and their stages carried no elevation, and before the guard above
+ * existed `build-assets` published four SVGs whose aria-label read "low point
+ * 0 m, high point 1 m" for a pilgrimage whose own metadata declares 911 m at
+ * Temple 66 — the peak floor turning silence into a measurement. The test
+ * then pinned the silence: no elevation, no profile.
+ *
+ * Their stages are sampled now, so the silence is gone and with it the only
+ * thing that assertion could be read as saying — that these four sections
+ * have no heights. What it was really guarding is the step from data to
+ * picture, so it guards that instead: each dōjō draws, and each draws its own
+ * measured range rather than a neighbour's or a floor's. The empty-string case
+ * keeps its own test above, on stages that declare no high point.
  */
-test("the Shikoku dōjō, whose stages carry no elevation, get no profile", () => {
-  for (const dojo of ["awa", "tosa", "iyo", "sanuki"]) {
+const DOJO_RANGES: Record<string, [number, number]> = {
+  awa: [0, 760],
+  tosa: [0, 430],
+  iyo: [0, 800],
+  sanuki: [0, 900],
+};
+
+test("the Shikoku dōjō draw the profile their sampled stages now carry", () => {
+  for (const [dojo, [low, high]] of Object.entries(DOJO_RANGES)) {
     const stages = stagesOf(stagesJson(`shikoku-88-${dojo}`));
     assert.ok(stages.length > 0, `shikoku-88-${dojo} has stages to read`);
-    assert.equal(profileSvg(stages), "", `shikoku-88-${dojo} should draw no profile`);
+
+    const svg = profileSvg(stages);
+    assert.match(
+      svg,
+      new RegExp(`low point ${low} m, high point ${high} m`),
+      `shikoku-88-${dojo} should draw its own range`,
+    );
   }
 });
 

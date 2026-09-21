@@ -16,7 +16,8 @@
         },
         "coordinates": [
           132.774,
-          32.961
+          32.961,
+          50
         ],
         "note": "Section boundary. Coordinates and name are taken verbatim from this section's metadata.json overview, so the neighbouring section's stage anchor is the same point. 0.00 km along this section's walked line, 21 m off it."
       },
@@ -27,11 +28,20 @@
         },
         "coordinates": [
           132.564,
-          32.965
+          32.965,
+          20
         ],
         "note": "Temple 40, 27.16 km along this section's walked line, 45 m off it — 27.16 km from the previous day's end at 0.00 km, inside the 25-30 km band and, of the temples in it, the one nearest 27.5 km."
       },
       "distanceKm": 27.2,
+      "elevationGainMeters": 460,
+      "elevationLossMeters": 490,
+      "highPointMeters": 310,
+      "lowPointMeters": 0,
+      "estimatedHours": {
+        "min": 6,
+        "max": 9
+      },
       "interior": {
         "theme": {
           "en": "Two towns, and the only viewpoint mapped in Iyo"
@@ -56,7 +66,8 @@
         },
         "coordinates": [
           132.564,
-          32.965
+          32.965,
+          20
         ],
         "note": "Where stage 0 ended."
       },
@@ -66,11 +77,20 @@
         },
         "coordinates": [
           132.5244295,
-          33.132053
+          33.132053,
+          10
         ],
         "note": "OpenStreetMap node/10858084271 (accommodation), 53.80 km along this section's walked line, 33 m off it. No temple falls 25-30 km past the previous day's end at 27.16 km, so the day ends at the named accommodation or town waypoint on the line nearest 27.5 km, 26.64 km on."
       },
       "distanceKm": 26.6,
+      "elevationGainMeters": 550,
+      "elevationLossMeters": 550,
+      "highPointMeters": 480,
+      "lowPointMeters": 0,
+      "estimatedHours": {
+        "min": 6,
+        "max": 9
+      },
       "interior": {
         "theme": {
           "en": "The longest stretch in Iyo with nothing mapped"
@@ -94,7 +114,8 @@
         },
         "coordinates": [
           132.5244295,
-          33.132053
+          33.132053,
+          10
         ],
         "note": "Where stage 1 ended."
       },
@@ -105,11 +126,20 @@
         },
         "coordinates": [
           132.581,
-          33.311
+          33.311,
+          200
         ],
         "note": "Temple 42, 79.90 km along this section's walked line, 70 m off it — 26.10 km from the previous day's end at 53.80 km, inside the 25-30 km band and, of the temples in it, the one nearest 27.5 km."
       },
       "distanceKm": 26.1,
+      "elevationGainMeters": 440,
+      "elevationLossMeters": 260,
+      "highPointMeters": 240,
+      "lowPointMeters": 0,
+      "estimatedHours": {
+        "min": 6,
+        "max": 8
+      },
       "interior": {
         "theme": {
           "en": "More places than on any other day in Iyo"
@@ -135,7 +165,8 @@
         },
         "coordinates": [
           132.581,
-          33.311
+          33.311,
+          200
         ],
         "note": "Where stage 2 ended."
       },
@@ -157,11 +188,20 @@
         },
         "coordinates": [
           132.5446842,
-          33.506488
+          33.506488,
+          20
         ],
         "note": "OpenStreetMap node/691563007 (town), 112.35 km along this section's walked line, 99 m off it. No temple falls 25-30 km past the previous day's end at 79.90 km, so the day ends at the named accommodation or town waypoint on the line nearest 27.5 km, 32.45 km on."
       },
       "distanceKm": 32.5,
+      "elevationGainMeters": 660,
+      "elevationLossMeters": 830,
+      "highPointMeters": 500,
+      "lowPointMeters": 20,
+      "estimatedHours": {
+        "min": 8,
+        "max": 11
+      },
       "interior": {
         "theme": {
           "en": "Twenty-eight numbered shrines in less than two kilometres"
@@ -197,7 +237,8 @@
         },
         "coordinates": [
           132.5446842,
-          33.506488
+          33.506488,
+          20
         ],
         "note": "Where stage 3 ended."
       },
@@ -207,11 +248,20 @@
         },
         "coordinates": [
           132.7538917,
-          33.5852172
+          33.5852172,
+          120
         ],
         "note": "OpenStreetMap node/5923663885 (accommodation), 138.83 km along this section's walked line, 11 m off it. No temple falls 25-30 km past the previous day's end at 112.35 km, so the day ends at the named accommodation or town waypoint on the line nearest 27.5 km, 26.48 km on."
       },
       "distanceKm": 26.5,
+      "elevationGainMeters": 370,
+      "elevationLossMeters": 270,
+      "highPointMeters": 160,
+      "lowPointMeters": 10,
+      "estimatedHours": {
+        "min": 6,
+        "max": 8
+      },
       "interior": {
         "theme": {
           "en": "The one day with no temple on it"
@@ -235,7 +285,8 @@
         },
         "coordinates": [
           132.7538917,
-          33.5852172
+          33.5852172,
+          120
         ],
         "note": "Where stage 4 ended."
       },
@@ -245,11 +296,20 @@
         },
         "coordinates": [
           132.9378852,
-          33.6699367
+          33.6699367,
+          550
         ],
         "note": "OpenStreetMap node/5923659291 (accommodation), 164.92 km along this section's walked line, 38 m off it. No temple falls 25-30 km past the previous day's end at 138.83 km, so the day ends at the named accommodation or town waypoint on the line nearest 27.5 km, 26.09 km on."
       },
       "distanceKm": 26.1,
+      "elevationGainMeters": 980,
+      "elevationLossMeters": 550,
+      "highPointMeters": 800,
+      "lowPointMeters": 120,
+      "estimatedHours": {
+        "min": 7,
+        "max": 9
+      },
       "interior": {
         "theme": {
           "en": "Twenty-two kilometres, and then the temple"
@@ -273,7 +333,8 @@
         },
         "coordinates": [
           132.9378852,
-          33.6699367
+          33.6699367,
+          550
         ],
         "note": "Where stage 5 ended."
       },
@@ -283,11 +344,20 @@
         },
         "coordinates": [
           132.8982921,
-          33.6627716
+          33.6627716,
+          500
         ],
         "note": "OpenStreetMap node/10858072227 (accommodation), 182.39 km along this section's walked line, 94 m off it. No temple falls 25-30 km past the previous day's end at 164.92 km, so the day ends at the named accommodation or town waypoint on the line nearest 27.5 km, 17.47 km on."
       },
       "distanceKm": 17.5,
+      "elevationGainMeters": 490,
+      "elevationLossMeters": 540,
+      "highPointMeters": 690,
+      "lowPointMeters": 430,
+      "estimatedHours": {
+        "min": 4,
+        "max": 6
+      },
       "interior": {
         "theme": {
           "en": "The fewest places of any day in Iyo"
@@ -311,7 +381,8 @@
         },
         "coordinates": [
           132.8982921,
-          33.6627716
+          33.6627716,
+          500
         ],
         "note": "Where stage 6 ended."
       },
@@ -322,11 +393,20 @@
         },
         "coordinates": [
           132.796,
-          33.848
+          33.848,
+          70
         ],
         "note": "Temple 51, 210.26 km along this section's walked line, 15 m off it — 27.87 km from the previous day's end at 182.39 km, inside the 25-30 km band and, of the temples in it, the one nearest 27.5 km."
       },
       "distanceKm": 27.9,
+      "elevationGainMeters": 240,
+      "elevationLossMeters": 680,
+      "highPointMeters": 730,
+      "lowPointMeters": 40,
+      "estimatedHours": {
+        "min": 6,
+        "max": 8
+      },
       "interior": {
         "theme": {
           "en": "Six temples in thirteen kilometres"
@@ -351,7 +431,8 @@
         },
         "coordinates": [
           132.796,
-          33.848
+          33.848,
+          70
         ],
         "note": "Where stage 7 ended."
       },
@@ -361,11 +442,20 @@
         },
         "coordinates": [
           132.7722368,
-          33.9689834
+          33.9689834,
+          10
         ],
         "note": "OpenStreetMap node/11535058569 (accommodation), 234.28 km along this section's walked line, 9 m off it. No temple falls 25-30 km past the previous day's end at 210.26 km, so the day ends at the named accommodation or town waypoint on the line nearest 27.5 km, 24.02 km on."
       },
       "distanceKm": 24,
+      "elevationGainMeters": 90,
+      "elevationLossMeters": 150,
+      "highPointMeters": 100,
+      "lowPointMeters": 0,
+      "estimatedHours": {
+        "min": 5,
+        "max": 7
+      },
       "interior": {
         "theme": {
           "en": "Twelve places to stay in eight hundred metres"
@@ -389,7 +479,8 @@
         },
         "coordinates": [
           132.7722368,
-          33.9689834
+          33.9689834,
+          10
         ],
         "note": "Where stage 8 ended."
       },
@@ -400,11 +491,20 @@
         },
         "coordinates": [
           132.996,
-          34.069
+          34.069,
+          10
         ],
         "note": "Temple 55, 262.59 km along this section's walked line, 2 m off it — 28.31 km from the previous day's end at 234.28 km, inside the 25-30 km band and, of the temples in it, the one nearest 27.5 km."
       },
       "distanceKm": 28.3,
+      "elevationGainMeters": 110,
+      "elevationLossMeters": 110,
+      "highPointMeters": 100,
+      "lowPointMeters": 0,
+      "estimatedHours": {
+        "min": 6,
+        "max": 8
+      },
       "interior": {
         "theme": {
           "en": "Both of the day's gates in its last four kilometres"
@@ -429,7 +529,8 @@
         },
         "coordinates": [
           132.996,
-          34.069
+          34.069,
+          10
         ],
         "note": "Where stage 9 ended."
       },
@@ -439,11 +540,20 @@
         },
         "coordinates": [
           133.0597474,
-          33.9004435
+          33.9004435,
+          20
         ],
         "note": "OpenStreetMap node/12944733844 (accommodation), 294.17 km along this section's walked line, 9 m off it. No temple falls 25-30 km past the previous day's end at 262.59 km, so the day ends at the named accommodation or town waypoint on the line nearest 27.5 km, 31.58 km on."
       },
       "distanceKm": 31.6,
+      "elevationGainMeters": 290,
+      "elevationLossMeters": 280,
+      "highPointMeters": 260,
+      "lowPointMeters": 0,
+      "estimatedHours": {
+        "min": 7,
+        "max": 10
+      },
       "interior": {
         "theme": {
           "en": "Five gates in the first fifteen kilometres, and none after"
@@ -467,7 +577,8 @@
         },
         "coordinates": [
           133.0597474,
-          33.9004435
+          33.9004435,
+          20
         ],
         "note": "Where stage 10 ended."
       },
@@ -478,11 +589,20 @@
         },
         "coordinates": [
           133.161,
-          33.89
+          33.89,
+          50
         ],
         "note": "Temple 64, 319.88 km along this section's walked line, 59 m off it — 25.71 km from the previous day's end at 294.17 km, inside the 25-30 km band and, of the temples in it, the one nearest 27.5 km."
       },
       "distanceKm": 25.7,
+      "elevationGainMeters": 880,
+      "elevationLossMeters": 870,
+      "highPointMeters": 790,
+      "lowPointMeters": 0,
+      "estimatedHours": {
+        "min": 7,
+        "max": 9
+      },
       "interior": {
         "theme": {
           "en": "One gate alone, then four inside six kilometres"
@@ -507,7 +627,8 @@
         },
         "coordinates": [
           133.161,
-          33.89
+          33.89,
+          50
         ],
         "note": "Where stage 11 ended."
       },
@@ -517,11 +638,20 @@
         },
         "coordinates": [
           133.4692511,
-          33.9666556
+          33.9666556,
+          30
         ],
         "note": "OpenStreetMap node/12948927058 (accommodation), 352.63 km along this section's walked line, 290 m off it. No temple falls 25-30 km past the previous day's end at 319.88 km, so the day ends at the named accommodation or town waypoint on the line nearest 27.5 km, 32.75 km on."
       },
       "distanceKm": 32.8,
+      "elevationGainMeters": 150,
+      "elevationLossMeters": 180,
+      "highPointMeters": 180,
+      "lowPointMeters": 0,
+      "estimatedHours": {
+        "min": 7,
+        "max": 10
+      },
       "interior": {
         "theme": {
           "en": "The longest day, and no bed mapped on it"
@@ -545,7 +675,8 @@
         },
         "coordinates": [
           133.4692511,
-          33.9666556
+          33.9666556,
+          30
         ],
         "note": "Where stage 12 ended."
       },
@@ -556,11 +687,20 @@
         },
         "coordinates": [
           133.587,
-          33.968
+          33.968,
+          340
         ],
         "note": "Section boundary. Coordinates and name are taken verbatim from this section's metadata.json overview, so the neighbouring section's stage anchor is the same point. 365.68 km along this section's walked line, 56 m off it. A boundary day ends at the boundary temple itself whatever its length, and the lodging fallback does not apply here; this one runs 13.05 km."
       },
       "distanceKm": 13,
+      "elevationGainMeters": 320,
+      "elevationLossMeters": 0,
+      "highPointMeters": 340,
+      "lowPointMeters": 10,
+      "estimatedHours": {
+        "min": 3,
+        "max": 4
+      },
       "interior": {
         "theme": {
           "en": "Thirteen kilometres, because the section ends here"

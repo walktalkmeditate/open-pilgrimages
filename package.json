@@ -16,6 +16,7 @@
     "build-assets": "tsx scripts/site/build-assets.ts",
     "fetch-roads": "tsx scripts/fetch-roads.ts",
     "fetch-elevation": "tsx scripts/fetch-elevation.ts",
+    "apply-elevation": "tsx scripts/apply-elevation.ts",
     "build-roads": "tsx scripts/site/roads.ts",
     "check-site": "tsx scripts/site/check-site.ts",
     "check-cdn": "tsx scripts/site/check-cdn.ts",
