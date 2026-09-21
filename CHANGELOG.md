@@ -6,6 +6,72 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 Consumers read the catalog from `https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@main/index.json` and pin every file they then download to the tag that index's `release` field names. The `v1` alias is no longer maintained — jsDelivr caches tag URLs permanently, so moving it changed nothing a consumer saw.
 
+## [1.11.0] — 2026-09-21
+
+The forty Shikoku stages carried `estimatedHours` of one hour, no elevation and
+no difficulty, while every other route in the corpus carried real figures. A
+consumer reading the stage facts was told that a 52.9 km day across Awa takes
+an hour and climbs nothing. `validate` never caught it: it checks only that
+`hours.min` is not greater than `hours.max`, and one is not greater than one.
+
+**No stage was re-cut, no distance moved, and no other route's packages
+changed.** The only file outside `routes/shikoku-88-*` that this release
+touches is `kumano-kodo-kohechi/metadata.json`, and only its prose.
+
+### Added
+
+- **Elevation for all forty Shikoku stages**: `elevationGainMeters`,
+  `elevationLossMeters`, `highPointMeters` and `lowPointMeters`, sampled from
+  the SRTM 30 m model at every one of the walked line's 45,337 vertices, with a
+  20 m hysteresis threshold so the model's own noise is not counted as
+  climbing, then rounded to 10 m. Zero voids across the four sections.
+
+  Per section: Awa 3,280 m of ascent over five stages, Tosa 4,100 m over
+  fifteen, Iyo 6,030 m over fourteen, Sanuki 3,640 m over six.
+
+  **The method is kohechi's, not a new one.** `kumano-kodo-kohechi` shipped
+  this pass in 1.8.0 and recorded it in its own `elevationNote`, but no script
+  was ever committed for it. `npm run fetch-elevation` and
+  `npm run apply-elevation` are both the tooling and the retroactive record,
+  and they regression-test themselves by reproducing kohechi's committed
+  figures from kohechi's own line.
+
+- **`estimatedHours` for all forty stages**, derived from Naismith's rule as a
+  window: 5 km/h with 600 m/h of ascent at the fast end, 3.5 km/h with 500 m/h
+  at the slow. Against the Camino Francés' hand-authored hours that band
+  contains **33 of 33** stages. Each section's notes record the derivation, so
+  a reader can tell a computed figure from a measured one.
+
+  Deriving hours is not itself new — kohechi derives its own with a fitted
+  factor. Deriving them with **no** fitted factor is, and the notes say so.
+
+- **Elevation profiles for the four dōjō** on the docs site, and an elevation
+  row in each of their Key Facts tables. `profiles.ts` used to refuse to draw
+  them, deliberately, because their stages declared no elevation at all; that
+  refusal and the tests asserting it have been updated to the new truth rather
+  than removed.
+
+- 3D stage anchors: the start and end of every Shikoku stage now carries its
+  sampled elevation.
+
+### Changed
+
+- **`difficulty` is still not written for Shikoku, and that is deliberate.**
+  The best threshold fit against the corpus's own authored values reached 79%
+  and missed all four Kumano stages. An empty string renders as nothing, which
+  is honest; a wrong word is not.
+
+- `kumano-kodo-kohechi`'s `elevationNote` records a rounding tie: its stage 2
+  accumulates to exactly 955 m, and its published 950 m stands. A reader
+  re-running the method and getting 960 is not looking at a broken script, and
+  `apply-elevation` leaves an already-declared figure where it found it.
+
+### Fixed
+
+- One stale figure on `docs/shikoku-88-sanuki.html` and its twin in that
+  section's `metadata.json`, both of which said the per-section elevation
+  totals were waiting on the walked line. They are not waiting any more.
+
 ## [1.10.0] — 2026-09-21
 
 Six faults in how a stage's places reach a walker, five of them corpus-wide and
@@ -995,6 +1061,7 @@ Each route ships with `metadata.json` (overview, tradition, cultural, logistics)
 
 ---
 
+[1.11.0]: https://github.com/walktalkmeditate/open-pilgrimages/compare/v1.10.0...v1.11.0
 [1.10.0]: https://github.com/walktalkmeditate/open-pilgrimages/compare/v1.9.2...v1.10.0
 [1.9.2]: https://github.com/walktalkmeditate/open-pilgrimages/compare/v1.9.1...v1.9.2
 [1.9.1]: https://github.com/walktalkmeditate/open-pilgrimages/compare/v1.9.0...v1.9.1

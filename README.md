@@ -114,12 +114,12 @@ its `release` field names:
 
 ```
 https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@main/index.json
-https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1.10.0/routes/camino-frances/route.geojson
-https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1.10.0/routes/camino-frances/route.gpx
-https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1.10.0/routes/camino-frances/waypoints.geojson
-https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1.10.0/routes/camino-frances/stages.json
-https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1.10.0/routes/camino-frances/metadata.json
-https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1.10.0/routes/camino-frances/stats.json
+https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1.11.0/routes/camino-frances/route.geojson
+https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1.11.0/routes/camino-frances/route.gpx
+https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1.11.0/routes/camino-frances/waypoints.geojson
+https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1.11.0/routes/camino-frances/stages.json
+https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1.11.0/routes/camino-frances/metadata.json
+https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1.11.0/routes/camino-frances/stats.json
 ```
 
 Not `@v1`: jsDelivr caches a tag URL permanently, so that alias is frozen at a
@@ -172,7 +172,7 @@ package files pinned at the exact tag its `release` field names:
 
 ```
 https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@main/index.json
-https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1.10.0/routes/camino-frances/ways/route.json
+https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1.11.0/routes/camino-frances/ways/route.json
 ```
 
 Not `@v1`: jsDelivr caches a tag URL permanently, so that alias still serves a
