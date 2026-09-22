@@ -6,6 +6,43 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 Consumers read the catalog from `https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@main/index.json` and pin every file they then download to the tag that index's `release` field names. The `v1` alias is no longer maintained — jsDelivr caches tag URLs permanently, so moving it changed nothing a consumer saw.
 
+## [1.12.0] — 2026-09-22
+
+On the Shikoku henro the nōkyōjo, the temple stamp office, shuts at 17:00. A
+walker who arrives after it gets no stamp and has to come back for one. The
+dataset has recorded those hours since the pilgrimage's statistics block was
+written, but they never reached a consumer: a stage package's `route.json`
+carried a name, a distance and a summary, and nothing about when the offices
+close.
+
+**No stage, waypoint, moment or distance changed.** Only the four Shikoku
+`route.json` files move, and each moves by one field.
+
+### Added
+
+- **`stampHours` on `ways/route.json`**, an optional `{ opens, closes }` pair
+  in `HH:MM`:
+
+  ```json
+  "stampHours": { "opens": "08:00", "closes": "17:00" }
+  ```
+
+  Derived from the pilgrimage's own `infrastructure.templeHours.current`, never
+  authored separately. Written only where a pilgrimage declares it and the
+  string parses as `HH:MM-HH:MM`; absent, rather than empty or null, everywhere
+  else. Today that is the four dōjō and nothing more. A malformed declaration
+  is logged and skipped, not thrown.
+
+  It is the **stamp office's** hours, not the temple grounds'. No ordering is
+  imposed on the pair, since an office whose hours span midnight is not the
+  schema's business to refuse.
+
+### Changed
+
+- `schema/way-route.schema.json` admits the new field. It is
+  `additionalProperties: false`, so the change was required rather than
+  cosmetic. `way.schema.json`, the per-stage wire contract, is untouched.
+
 ## [1.11.0] — 2026-09-21
 
 The forty Shikoku stages carried `estimatedHours` of one hour, no elevation and
@@ -1061,6 +1098,7 @@ Each route ships with `metadata.json` (overview, tradition, cultural, logistics)
 
 ---
 
+[1.12.0]: https://github.com/walktalkmeditate/open-pilgrimages/compare/v1.11.0...v1.12.0
 [1.11.0]: https://github.com/walktalkmeditate/open-pilgrimages/compare/v1.10.0...v1.11.0
 [1.10.0]: https://github.com/walktalkmeditate/open-pilgrimages/compare/v1.9.2...v1.10.0
 [1.9.2]: https://github.com/walktalkmeditate/open-pilgrimages/compare/v1.9.1...v1.9.2
