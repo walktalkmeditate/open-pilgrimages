@@ -8,6 +8,10 @@
   "stageCount": 6,
   "tradition": "buddhist",
   "summary": "The last of the four dōjō, and the one that closes the circuit: Temple 65 Sankaku-ji to Temple 88 Ōkubo-ji, then on to Temple 1 Ryōzen-ji where the pilgrimage began — 202.2 km along 24 temple-to-temple henro trail relations. The temples stand closest together here — Temple 68 to Temple 69 is 0.11 km and Temple 72 to Temple 73 is 0.46 km. The last relation is the 39.8 km return from Ōkubo-ji to Ryōzen-ji, and it is the only leg in this section longer than 30 km. Sanuki carries the fourth of the four stages of spiritual progression the pilgrimage maps onto Shikoku's four provinces: nirvana.",
+  "stampHours": {
+    "opens": "08:00",
+    "closes": "17:00"
+  },
   "stages": [
     {
       "index": 0,

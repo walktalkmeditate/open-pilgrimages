@@ -8,6 +8,10 @@
   "stageCount": 5,
   "tradition": "buddhist",
   "summary": "The first of the four dōjō: Temple 1 Ryōzen-ji to Temple 23 Yakuō-ji, 154.5 km along 22 temple-to-temple henro trail relations. The gentlest of the four to pace — no leg between two temples runs longer than 22.7 km, so every day of it can end at a temple. Awa carries the first of the four stages of spiritual progression the pilgrimage maps onto Shikoku's four provinces: awakening.",
+  "stampHours": {
+    "opens": "08:00",
+    "closes": "17:00"
+  },
   "stages": [
     {
       "index": 0,

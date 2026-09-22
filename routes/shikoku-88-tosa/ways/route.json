@@ -8,6 +8,10 @@
   "stageCount": 15,
   "tradition": "buddhist",
   "summary": "The second of the four dōjō: Temple 23 Yakuō-ji to Temple 39 Enkō-ji, 418.5 km along 16 temple-to-temple henro trail relations. The longest and emptiest of the four — sixteen legs for 418 km, five of them longer than 30 km and the longest, Temple 37 to Temple 38, 82.7 km. Tosa carries the second of the four stages of spiritual progression the pilgrimage maps onto Shikoku's four provinces: discipline.",
+  "stampHours": {
+    "opens": "08:00",
+    "closes": "17:00"
+  },
   "stages": [
     {
       "index": 0,

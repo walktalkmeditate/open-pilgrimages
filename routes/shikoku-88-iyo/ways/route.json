@@ -8,6 +8,10 @@
   "stageCount": 14,
   "tradition": "buddhist",
   "summary": "The third of the four dōjō: Temple 39 Enkō-ji to Temple 65 Sankaku-ji, 365.7 km along 26 temple-to-temple henro trail relations. Twenty-six legs of every length — four longer than 30 km, the longest Temple 43 to Temple 44 at 70.3 km, and against them a run of five from Temple 46 to Temple 51 that are each under 5 km. Iyo carries the third of the four stages of spiritual progression the pilgrimage maps onto Shikoku's four provinces: enlightenment.",
+  "stampHours": {
+    "opens": "08:00",
+    "closes": "17:00"
+  },
   "stages": [
     {
       "index": 0,
