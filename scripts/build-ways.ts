@@ -25,7 +25,13 @@ import { buildMoments, MOMENT_TYPES, type WaypointFeature } from "./ways/moments
 import { buildMarks } from "./ways/marks.js";
 import { buildStageBlock, midpointHours, type DatasetStage } from "./ways/stage.js";
 import { wholeSecondISO } from "./ways/text.js";
-import { buildReport, buildRouteCard, type ReportStageInput, type RouteMetadata } from "./ways/catalog.js";
+import {
+  buildReport,
+  buildRouteCard,
+  templeHoursCurrent,
+  type ReportStageInput,
+  type RouteMetadata,
+} from "./ways/catalog.js";
 
 type Ajv = InstanceType<typeof Ajv2020>;
 
@@ -364,6 +370,16 @@ function buildRouteDirectory(routeDir: string, ajv: Ajv, failures: string[]): vo
     }
     for (const reason of reasons) console.log(`    ${reason}`);
     return;
+  }
+
+  // A pilgrimage that declares hours the card could not carry is a dataset
+  // that meant to say something and was not understood — said out loud, like a
+  // dropped waypoint, rather than left as a silently missing field.
+  const declaredTempleHours = templeHoursCurrent(metadata);
+  if (declaredTempleHours !== undefined && result.route.stampHours === undefined) {
+    console.log(
+      `${metadata.id}: templeHours "${declaredTempleHours}" is not HH:MM-HH:MM, so route.json carries no stampHours`,
+    );
   }
 
   if (!ajv.validate("way-route.schema.json", result.route)) {

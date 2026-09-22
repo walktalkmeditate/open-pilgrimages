@@ -4,7 +4,13 @@ import { readFileSync } from "fs";
 import { join } from "path";
 import Ajv2020 from "ajv/dist/2020.js";
 import addFormats from "ajv-formats";
-import { buildRouteCard, buildReport, halfOfStages } from "./catalog.js";
+import {
+  buildRouteCard,
+  buildReport,
+  halfOfStages,
+  parseStampHours,
+  templeHoursCurrent,
+} from "./catalog.js";
 import type { DatasetStage } from "./stage.js";
 
 const ROOT = join(import.meta.dirname, "..", "..");
@@ -78,6 +84,72 @@ test("a stage the dataset is silent about still carries the two fields the app r
 
 test("the route card names a cover only when one exists on disk", () => {
   assert.equal(buildRouteCard("fixture-way", metadata, stages, true).cover, "cover.jpg");
+});
+
+/** The fixture's metadata with a pilgrimage block declaring `current` hours. */
+function withTempleHours(current: unknown) {
+  return {
+    ...metadata,
+    pilgrimage: { id: "fixture", name: {}, stats: { infrastructure: { templeHours: { current } } } },
+  };
+}
+
+test("parseStampHours reads the stamp office's opening and closing times", () => {
+  assert.deepEqual(parseStampHours("08:00-17:00"), { opens: "08:00", closes: "17:00" });
+  assert.deepEqual(parseStampHours("07:00-17:00"), { opens: "07:00", closes: "17:00" });
+  assert.deepEqual(parseStampHours("00:00-23:59"), { opens: "00:00", closes: "23:59" });
+});
+
+test("parseStampHours omits a range it cannot read rather than guessing at one", () => {
+  // Every one of these was written by someone meaning something; none of them
+  // is a pair of times the app can put on a screen, and a wrong closing time
+  // sends a walker to a shut office.
+  for (const malformed of [
+    "",
+    "17:00",
+    "08:00 - 17:00",
+    "8:00-17:00",
+    "08:00–17:00", // en dash, not a hyphen
+    "08:00-25:00",
+    "08:00-17:60",
+    "24:00-17:00",
+    "08:00-12:00-13:00-17:00",
+    "dawn to dusk",
+    "08:00-17:00 (Mar-Nov)",
+  ]) {
+    assert.equal(parseStampHours(malformed), undefined, `"${malformed}" should not parse`);
+  }
+});
+
+test("parseStampHours and templeHoursCurrent are silent where the dataset is", () => {
+  assert.equal(parseStampHours(undefined), undefined);
+  assert.equal(templeHoursCurrent(metadata), undefined);
+  assert.equal(templeHoursCurrent(withTempleHours(undefined)), undefined);
+  // A non-string current — a number, an object of seasons — is not a range
+  // either, and must not reach the parse as one.
+  assert.equal(templeHoursCurrent(withTempleHours(1700) as never), undefined);
+});
+
+test("the route card carries stamp hours when its pilgrimage declares them", () => {
+  const card = buildRouteCard("fixture-way", withTempleHours("08:00-17:00"), stages, false);
+  assert.deepEqual(card.stampHours, { opens: "08:00", closes: "17:00" });
+
+  const ajv = cardValidator();
+  assert.ok(ajv.validate("card", card), JSON.stringify(ajv.errors));
+});
+
+test("the route card omits stamp hours entirely where there are none to carry", () => {
+  // Absent, never an empty object or a pair of nulls: the app shows the
+  // closing time or says nothing about stamps at all.
+  const silent = buildRouteCard("fixture-way", metadata, stages, false);
+  assert.equal("stampHours" in silent, false);
+
+  const malformed = buildRouteCard("fixture-way", withTempleHours("dawn to dusk"), stages, false);
+  assert.equal("stampHours" in malformed, false);
+
+  const ajv = cardValidator();
+  assert.ok(ajv.validate("card", silent), JSON.stringify(ajv.errors));
+  assert.ok(ajv.validate("card", malformed), JSON.stringify(ajv.errors));
 });
 
 test("the report records each stage against its declared distance", () => {

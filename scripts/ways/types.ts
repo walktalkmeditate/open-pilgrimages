@@ -114,6 +114,17 @@ export interface WayRouteStage {
   difficulty: string;
 }
 
+/**
+ * When the stamp office opens and closes, each as "HH:MM" in the route's own
+ * local time. The Shikoku henro's nōkyōjo shuts at 17:00 whether or not the
+ * temple grounds do, and a pilgrim who arrives after it walks back the next
+ * morning for the stamp.
+ */
+export interface WayStampHours {
+  opens: string;
+  closes: string;
+}
+
 export interface WayRouteFile {
   schemaVersion: string;
   id: string;
@@ -125,6 +136,8 @@ export interface WayRouteFile {
   stageCount: number;
   tradition: string;
   summary: string;
+  /** Absent unless the section's pilgrimage declares hours this build could read. */
+  stampHours?: WayStampHours;
   cover?: string;
   stages: WayRouteStage[];
 }

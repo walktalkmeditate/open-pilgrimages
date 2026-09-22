@@ -3,6 +3,7 @@ import type {
   WayReportStage,
   WayRouteFile,
   WayRouteStage,
+  WayStampHours,
 } from "./types.js";
 import { SCHEMA_VERSION } from "./types.js";
 import { cap, nonEnglishNames } from "./text.js";
@@ -22,11 +23,41 @@ export function halfOfStages(stageCount: number): number {
   return Math.ceil(stageCount / 2);
 }
 
+/** A 24-hour clock time, "00:00" through "23:59". */
+const CLOCK = /^([01]\d|2[0-3]):[0-5]\d$/;
+
 export interface RouteMetadata {
   name: Record<string, string>;
   description?: Record<string, string>;
   overview?: { countries?: string[] };
   tradition?: { type?: string };
+  pilgrimage?: { stats?: { infrastructure?: { templeHours?: { current?: string } } } };
+}
+
+/**
+ * The one place that knows where a section's pilgrimage declares the stamp
+ * office's hours. Every step of the path is optional — `stats` is optional on
+ * the block, `infrastructure` on the stats, `templeHours` on that — so a
+ * section that says nothing about hours reads as `undefined` rather than
+ * throwing on the way down.
+ */
+export function templeHoursCurrent(metadata: RouteMetadata): string | undefined {
+  const current = metadata.pilgrimage?.stats?.infrastructure?.templeHours?.current;
+  return typeof current === "string" ? current : undefined;
+}
+
+/**
+ * "08:00-17:00" as the app reads it. Anything else — a 25th hour, a season's
+ * two windows, prose — is omitted rather than guessed at: a wrong closing time
+ * sends a walker to a shut office, which is worse than telling them nothing.
+ * build-ways says which string it could not read on the way past.
+ */
+export function parseStampHours(current: string | undefined): WayStampHours | undefined {
+  if (current === undefined) return undefined;
+  const [opens, closes, ...rest] = current.split("-");
+  if (rest.length > 0) return undefined;
+  if (!CLOCK.test(opens ?? "") || !CLOCK.test(closes ?? "")) return undefined;
+  return { opens, closes };
 }
 
 export function buildRouteCard(
@@ -53,6 +84,11 @@ export function buildRouteCard(
     difficulty: stage.difficulty ?? "",
   }));
 
+  // Omitted, not emptied: the app shows the closing time or says nothing, and
+  // an empty object would be a third state neither the card nor the phone has
+  // a use for.
+  const stampHours = parseStampHours(templeHoursCurrent(metadata));
+
   const card: WayRouteFile = {
     schemaVersion: SCHEMA_VERSION,
     id: routeId,
@@ -64,6 +100,7 @@ export function buildRouteCard(
     stageCount: stages.length,
     tradition: metadata.tradition?.type ?? "",
     summary: cap(metadata.description?.en, SUMMARY_MAX) ?? "",
+    ...(stampHours ? { stampHours } : {}),
     stages: cardStages,
   };
 

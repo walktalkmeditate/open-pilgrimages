@@ -160,6 +160,36 @@ test("the route-card schema accepts the empty difficulty the build writes for a 
   assert.ok(ajv.validate("way-route.schema.json", card), JSON.stringify(ajv.errors));
 });
 
+test("the route-card schema takes stamp hours as a pair of clock times, or not at all", () => {
+  const ajv = validator();
+  const card = () => loadJson(join(ROOT, "routes", "camino-frances", "ways", "route.json"));
+
+  // Optional: the Francés declares no stamp office hours and never will.
+  assert.ok(ajv.validate("way-route.schema.json", card()), JSON.stringify(ajv.errors));
+
+  const withHours = card();
+  withHours.stampHours = { opens: "08:00", closes: "17:00" };
+  assert.ok(ajv.validate("way-route.schema.json", withHours), JSON.stringify(ajv.errors));
+
+  for (const bad of [
+    { opens: "08:00" },
+    { closes: "17:00" },
+    { opens: "8:00", closes: "17:00" },
+    { opens: "08:00", closes: "24:00" },
+    { opens: "08:00", closes: "17:00", previous: "07:00-17:00" },
+    { opens: "08:00-17:00", closes: "08:00-17:00" },
+    {},
+  ]) {
+    const invalid = card();
+    invalid.stampHours = bad;
+    assert.equal(
+      ajv.validate("way-route.schema.json", invalid),
+      false,
+      `${JSON.stringify(bad)} is not a pair of clock times`,
+    );
+  }
+});
+
 test("the stages schema rejects an interior with no reflection", () => {
   const ajv = validator();
   const stages = loadJson(join(FIXTURE, "stages.json"));
