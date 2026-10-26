@@ -23,13 +23,43 @@ const CACHE_DIR = join(ROOT, ".cache", "elevation");
  * OpenTopoData's own Docker image run locally against downloaded SRTM HGT
  * tiles. Same dataset, same interpolation, no rate limit — the method stays
  * byte-identical, which matters more than where the server lives.
+ *
+ * SRTM ends at 60° N. A section beyond it declares another model in
+ * `overview.elevationRange.dataset` — see DATASETS — and says why in its
+ * elevationNote.
  */
-const OPENTOPODATA_URL = "https://api.opentopodata.org/v1/srtm30m";
+const OPENTOPODATA_BASE = "https://api.opentopodata.org/v1";
 const USER_AGENT =
   "open-pilgrimages-elevation/1.0 (+https://github.com/walktalkmeditate/open-pilgrimages)";
 
-/** The dataset name this script asks for, and expects echoed back in every result. */
+/** The dataset this script asks for unless a section declares another, and expects echoed back in every result. */
 export const DATASET = "srtm30m";
+
+/**
+ * The datasets a section may declare in `overview.elevationRange.dataset`, each
+ * one OpenTopoData serves and each one whose licence lets its readings into an
+ * ODbL dataset. SRTM stops at 60° N, so a route further north reads as voids
+ * there; EU-DEM v1.1 (Copernicus, free and open with attribution) is built
+ * from SRTM and ASTER and covers all of Europe at 25 m. A dataset is added
+ * here deliberately or not at all — an unlisted name is refused rather than
+ * passed through to the server, which would answer from it.
+ */
+export const DATASETS: ReadonlySet<string> = new Set(["srtm30m", "eudem25m"]);
+
+/** The dataset a section's readings come from: its declared one, else SRTM. */
+export function datasetFor(dir: string): string {
+  const metadata = readJson(join(dir, "metadata.json")) as
+    | { overview?: { elevationRange?: { dataset?: unknown } } }
+    | null;
+  const declared = metadata?.overview?.elevationRange?.dataset;
+  if (declared === undefined) return DATASET;
+  if (typeof declared !== "string" || !DATASETS.has(declared)) {
+    throw new Error(
+      `overview.elevationRange.dataset ${JSON.stringify(declared)} is not one of ${[...DATASETS].join(", ")}`,
+    );
+  }
+  return declared;
+}
 
 /**
  * OpenTopoData's published limits for the free public instance, confirmed
@@ -131,6 +161,8 @@ export interface ElevationChunkCacheFile {
   routeId: string;
   chunkIndex: number;
   anchorHash: string;
+  /** Absent on chunks written before a section could declare a dataset; those were all SRTM. */
+  dataset?: string;
   fetchedAt: string;
   elevations: Array<number | null>;
 }
@@ -194,17 +226,25 @@ export function readElevationChunkCache(
   const parsed = parseJsonFile(chunkCachePathFor(root, routeId, index));
   if (typeof parsed !== "object" || parsed === null) return null;
 
-  const { routeId: cachedId, chunkIndex, anchorHash, fetchedAt, elevations } = parsed as Record<string, unknown>;
+  const { routeId: cachedId, chunkIndex, anchorHash, dataset, fetchedAt, elevations } = parsed as Record<string, unknown>;
   if (
     typeof cachedId !== "string" ||
     typeof chunkIndex !== "number" ||
     typeof anchorHash !== "string" ||
+    (dataset !== undefined && typeof dataset !== "string") ||
     typeof fetchedAt !== "string" ||
     !isElevationArray(elevations)
   ) {
     return null;
   }
-  return { routeId: cachedId, chunkIndex, anchorHash, fetchedAt, elevations };
+  return {
+    routeId: cachedId,
+    chunkIndex,
+    anchorHash,
+    ...(dataset === undefined ? {} : { dataset: dataset as string }),
+    fetchedAt,
+    elevations,
+  };
 }
 
 export function isFreshChunkCache(
@@ -212,8 +252,17 @@ export function isFreshChunkCache(
   routeId: string,
   chunkIndex: number,
   anchorHash: string,
+  dataset: string = DATASET,
 ): boolean {
-  return cache.routeId === routeId && cache.chunkIndex === chunkIndex && cache.anchorHash === anchorHash;
+  // A chunk read from one model is not a reading of another at the same
+  // vertices, and a merged line of SRTM and EU-DEM halves would publish an
+  // ascent neither model measured.
+  return (
+    cache.routeId === routeId &&
+    cache.chunkIndex === chunkIndex &&
+    cache.anchorHash === anchorHash &&
+    (cache.dataset ?? DATASET) === dataset
+  );
 }
 
 /**
@@ -223,8 +272,12 @@ export function isFreshChunkCache(
  * published as a stage's ascent, so it is checked here, where re-fetching is
  * still an option.
  */
-export function isFreshElevationCache(cache: ElevationCacheFile, lineHash: string): boolean {
-  return cache.lineHash === lineHash && cache.dataset === DATASET;
+export function isFreshElevationCache(
+  cache: ElevationCacheFile,
+  lineHash: string,
+  dataset: string = DATASET,
+): boolean {
+  return cache.lineHash === lineHash && cache.dataset === dataset;
 }
 
 export type ChunkMergeResult =
@@ -310,7 +363,11 @@ export function describeHttpError(status: number, statusText: string, body: unkn
  *   server that snaps the echo to its own grid (a 30 m post is ~0.0003°) and
  *   far tighter than any real transposition.
  */
-export function classifyElevationBody(body: unknown, requested: Position[]): ElevationOutcome {
+export function classifyElevationBody(
+  body: unknown,
+  requested: Position[],
+  dataset: string = DATASET,
+): ElevationOutcome {
   if (typeof body !== "object" || body === null) {
     return { ok: false, reason: "OpenTopoData returned an unrecognized response shape" };
   }
@@ -336,10 +393,10 @@ export function classifyElevationBody(body: unknown, requested: Position[]): Ele
     if (typeof result !== "object" || result === null) {
       return { ok: false, reason: `OpenTopoData result ${i} is not an object` };
     }
-    if (typeof result.dataset === "string" && result.dataset !== DATASET) {
+    if (typeof result.dataset === "string" && result.dataset !== dataset) {
       return {
         ok: false,
-        reason: `OpenTopoData answered from "${result.dataset}", not "${DATASET}"`,
+        reason: `OpenTopoData answered from "${result.dataset}", not "${dataset}"`,
       };
     }
 
@@ -378,8 +435,9 @@ export function classifyElevationBody(body: unknown, requested: Position[]): Ele
 export async function fetchElevations(
   vertices: Position[],
   fetchImpl: typeof fetch = fetch,
+  dataset: string = DATASET,
 ): Promise<Array<number | null>> {
-  const url = `${OPENTOPODATA_URL}?locations=${encodeURIComponent(locationsParam(vertices))}`;
+  const url = `${OPENTOPODATA_BASE}/${dataset}?locations=${encodeURIComponent(locationsParam(vertices))}`;
   const response = await fetchImpl(url, {
     headers: { "User-Agent": USER_AGENT },
     signal: AbortSignal.timeout(CLIENT_TIMEOUT_MS),
@@ -400,7 +458,7 @@ export async function fetchElevations(
     throw new Error(describeHttpError(response.status, response.statusText, body));
   }
 
-  const outcome = classifyElevationBody(body, vertices);
+  const outcome = classifyElevationBody(body, vertices, dataset);
   if (!outcome.ok) throw new Error(outcome.reason);
   return outcome.elevations;
 }
@@ -480,9 +538,10 @@ export async function fetchRouteElevation(
   const line = walkedLine(geo);
   if (line.length === 0) return { status: "no-geometry", networkCallAttempted: false, requestsMade: 0 };
 
+  const dataset = datasetFor(dir);
   const lineHash = hashVertices(line);
   const existing = readElevationCache(root, id);
-  if (existing && isFreshElevationCache(existing, lineHash)) {
+  if (existing && isFreshElevationCache(existing, lineHash, dataset)) {
     return {
       status: "already-cached",
       vertexCount: existing.elevations.length,
@@ -502,7 +561,7 @@ export async function fetchRouteElevation(
     const anchorHash = hashVertices(chunks[i]);
     const cached = readElevationChunkCache(root, id, i);
 
-    if (cached && isFreshChunkCache(cached, id, i, anchorHash)) {
+    if (cached && isFreshChunkCache(cached, id, i, anchorHash, dataset)) {
       caches[i] = cached;
       reusedThisRun++;
       continue;
@@ -522,7 +581,7 @@ export async function fetchRouteElevation(
 
     let elevations: Array<number | null>;
     try {
-      elevations = await fetchElevations(chunks[i], fetchImpl);
+      elevations = await fetchElevations(chunks[i], fetchImpl, dataset);
     } catch (error) {
       console.error(`  ✗ Failed: ${error instanceof Error ? error.message : String(error)}`);
       console.error(`  ↳ Stopping this route — chunk ${i} and later remain, everything before it stays cached`);
@@ -533,6 +592,7 @@ export async function fetchRouteElevation(
       routeId: id,
       chunkIndex: i,
       anchorHash,
+      dataset,
       fetchedAt: new Date().toISOString(),
       elevations,
     };
@@ -564,7 +624,7 @@ export async function fetchRouteElevation(
   const cache: ElevationCacheFile = {
     fetchedAt: merged.earliestFetchedAt,
     routeId: id,
-    dataset: DATASET,
+    dataset,
     source,
     lineHash,
     elevations: merged.elevations,
@@ -673,7 +733,7 @@ export async function runFetchElevation(
 
 async function main(): Promise<void> {
   mkdirSync(CACHE_DIR, { recursive: true });
-  console.log("Sampling SRTM 30 m elevations from OpenTopoData\n");
+  console.log("Sampling elevations from OpenTopoData — SRTM 30 m unless a section declares another dataset\n");
 
   const list = selectedTargets(ROOT, process.argv.slice(2));
   await runFetchElevation(list);
