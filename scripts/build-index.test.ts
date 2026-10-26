@@ -109,6 +109,7 @@ test("scans every top-level route directory", () => {
     "shikoku-88-iyo",
     "shikoku-88-sanuki",
     "shikoku-88-tosa",
+    "st-olav-ways-gudbrandsdalsleden",
   ]);
 });
 

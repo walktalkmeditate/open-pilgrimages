@@ -11,10 +11,10 @@ const ROOT = join(import.meta.dirname, "..");
 test("totals match the figures published on the site and README", () => {
   const { totals } = computeStats(ROOT);
 
-  assert.equal(totals.routes, 13);
-  assert.equal(totals.routePoints, 158948);
-  assert.equal(totals.waypoints, 10770);
-  assert.equal(totals.stages, 143);
+  assert.equal(totals.routes, 14);
+  assert.equal(totals.routePoints, 191891);
+  assert.equal(totals.waypoints, 11831);
+  assert.equal(totals.stages, 167);
 });
 
 test("per-route figures match npm run stats", () => {
@@ -210,5 +210,5 @@ test("running stats.ts as a CLI script prints the route points total the site an
 
   // #then the totals block prints a thousands-separated Route points line
   // matching the figure the site and README publish
-  assert.match(output, /Route points: 158,948/);
+  assert.match(output, /Route points: 191,891/);
 });

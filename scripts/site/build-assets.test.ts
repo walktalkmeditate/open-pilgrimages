@@ -60,12 +60,12 @@ const IDS = [
   "camino-frances", "camino-ingles", "camino-norte", "camino-portugues",
   "camino-primitivo", "kumano-kodo-kohechi", "kumano-kodo-nakahechi",
   "shikoku-88-awa", "shikoku-88-iyo", "shikoku-88-sanuki", "shikoku-88-tosa",
-  "camino-portugues-coastal",
+  "st-olav-ways-gudbrandsdalsleden", "camino-portugues-coastal",
 ];
 
 test("buildAssets writes a glyph for every route and the coastal variant", () => {
   const counts = buildAssets(ROOT);
-  assert.equal(counts.glyphs, 12);
+  assert.equal(counts.glyphs, 13);
 
   const glyphs = readFileSync(join(ASSETS, "glyphs.js"), "utf-8");
   for (const id of IDS) {
