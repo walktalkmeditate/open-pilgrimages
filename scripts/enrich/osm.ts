@@ -1,7 +1,8 @@
 import { writeFileSync, mkdirSync, existsSync, readFileSync } from "fs";
 import { join } from "path";
+import { overpassUrl } from "../overpass.js";
 
-const OVERPASS_URL = "https://overpass-api.de/api/interpreter";
+const OVERPASS_URL = overpassUrl();
 const CACHE_DIR = join(import.meta.dirname, "../../.cache/enrich");
 
 /**

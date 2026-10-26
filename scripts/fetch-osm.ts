@@ -1,10 +1,11 @@
 import { writeFileSync, mkdirSync, existsSync, readFileSync } from "fs";
 import { join } from "path";
 import { resolveInvokedPath } from "./cli.js";
+import { overpassUrl } from "./overpass.js";
 
 const ROOT = join(import.meta.dirname, "..");
 const CACHE_DIR = join(ROOT, ".cache", "osm");
-const OVERPASS_URL = "https://overpass-api.de/api/interpreter";
+const OVERPASS_URL = overpassUrl();
 
 /**
  * Overpass answers Node's default User-Agent with 406 Not Acceptable, so every
