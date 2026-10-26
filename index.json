@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
   "release": "v1.12.0",
-  "generatedAt": "2026-10-26T20:18:54.339Z",
+  "generatedAt": "2026-10-26T21:20:24.998Z",
   "pilgrimages": [
     {
       "id": "camino-de-santiago",
@@ -376,7 +376,7 @@
       "pilgrimage": "st-olav-ways",
       "ways": {
         "stageCount": 24,
-        "bytes": 709224,
+        "bytes": 709219,
         "placesPerStage": 1.8,
         "sparse": false
       }
