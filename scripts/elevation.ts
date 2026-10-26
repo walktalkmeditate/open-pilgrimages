@@ -1,3 +1,4 @@
+import { haversineMeters } from "./ways/geo.js";
 import type { Position } from "./ways/types.js";
 
 /**
@@ -40,6 +41,69 @@ export const HYSTERESIS_METERS = 20;
  * entirely. This rounding belongs to the sampled routes.)
  */
 export const ROUNDING_METERS = 10;
+
+/**
+ * The longest stretch of line, bounding reading to bounding reading, across
+ * which a run of voids may be filled. EU-DEM marks the sea as no-data, and a
+ * road along a shore can fall a few metres inside its coastline: on the
+ * Gudbrandsdalsleden six vertices on Buvikvegen, 120 m of road with 0.87 m
+ * read on one side and 0.83 m on the other. Filled or not, no figure could
+ * move — the threshold is 20 m and every figure is rounded to ten — but a void
+ * still stops the pass, so the choice was between this and no elevation for the
+ * whole stage. 200 m is short enough that interpolating cannot hide a climb the
+ * 20 m threshold would count; anything longer, or open at either end, is still
+ * an error, because then there is nothing on both sides to interpolate from.
+ */
+export const MAX_VOID_RUN_METERS = 200;
+
+export interface FilledReadings {
+  elevations: Array<number | null>;
+  /** The indices that were voids and now carry an interpolated reading. */
+  filled: number[];
+}
+
+/**
+ * Fills each run of voids that has a reading at both ends and spans no more
+ * than `maxRunMeters` of line, interpolating linearly along distance between
+ * those two readings. Every other void is left as it was, for elevationProfile
+ * to refuse.
+ */
+export function fillShortVoids(
+  vertices: Position[],
+  elevations: Array<number | null>,
+  maxRunMeters: number = MAX_VOID_RUN_METERS,
+): FilledReadings {
+  const out = [...elevations];
+  const filled: number[] = [];
+  const isVoid = (e: number | null) => e === null || !Number.isFinite(e);
+
+  let i = 0;
+  while (i < out.length) {
+    if (!isVoid(out[i])) {
+      i++;
+      continue;
+    }
+    let end = i;
+    while (end < out.length && isVoid(out[end])) end++;
+    const before = i - 1;
+    const after = end;
+    if (before >= 0 && after < out.length && vertices.length === out.length) {
+      const along: number[] = [0];
+      for (let k = before + 1; k <= after; k++) along.push(along[along.length - 1] + haversineMeters(vertices[k - 1], vertices[k]));
+      const span = along[along.length - 1];
+      if (span <= maxRunMeters) {
+        const from = out[before] as number;
+        const to = out[after] as number;
+        for (let k = i; k < end; k++) {
+          out[k] = span === 0 ? from : from + ((to - from) * along[k - before]) / span;
+          filled.push(k);
+        }
+      }
+    }
+    i = end;
+  }
+  return { elevations: out, filled };
+}
 
 export interface ElevationProfile {
   gainMeters: number;

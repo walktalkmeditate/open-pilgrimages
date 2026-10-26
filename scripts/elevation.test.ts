@@ -2,7 +2,14 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "fs";
 import { join } from "path";
-import { HYSTERESIS_METERS, accumulate, elevationProfile, roundToTen } from "./elevation.js";
+import {
+  HYSTERESIS_METERS,
+  accumulate,
+  elevationProfile,
+  roundToTen,
+  fillShortVoids,
+  MAX_VOID_RUN_METERS,
+} from "./elevation.js";
 import { hashVertices } from "./fetch-elevation.js";
 import { cumulativeMeters, stageBoundaries, walkedLine } from "./ways/geo.js";
 import type { Position } from "./ways/types.js";
@@ -304,4 +311,38 @@ test("the model still reads the Hatenashi-toge crossing at the 1,070 m kohechi's
       1070,
     );
   }
+});
+
+// --- fillShortVoids ---
+
+/** Vertices 0.0001° of longitude apart on the equator: ~11.1 m each. */
+const STEP: Position[] = Array.from({ length: 10 }, (_, i) => [i * 0.0001, 0] as Position);
+
+test("fillShortVoids interpolates a short run of voids along distance between the readings either side", () => {
+  const { elevations, filled } = fillShortVoids(STEP.slice(0, 5), [1, null, null, null, 5]);
+  assert.deepEqual(filled, [1, 2, 3]);
+  elevations.forEach((e, i) => assert.ok(Math.abs((e as number) - (1 + i)) < 1e-9, `${i}: ${e}`));
+});
+
+test("fillShortVoids leaves a void with no reading on one side, and elevationProfile still refuses it", () => {
+  const leading = fillShortVoids(STEP.slice(0, 3), [null, 2, 3]);
+  const trailing = fillShortVoids(STEP.slice(0, 3), [1, 2, null]);
+  assert.deepEqual([leading.filled, trailing.filled], [[], []]);
+  assert.throws(() => elevationProfile(STEP.slice(0, 3), leading.elevations), /no elevation at vertex 0/);
+  assert.throws(() => elevationProfile(STEP.slice(0, 3), trailing.elevations), /no elevation at vertex 2/);
+});
+
+test("fillShortVoids leaves a run longer than MAX_VOID_RUN_METERS for elevationProfile to refuse", () => {
+  const line: Position[] = Array.from({ length: 4 }, (_, i) => [i * 0.001, 0] as Position); // ~111 m apart
+  const { elevations, filled } = fillShortVoids(line, [10, null, null, 40]);
+  assert.ok(3 * 111 > MAX_VOID_RUN_METERS);
+  assert.deepEqual(filled, []);
+  assert.throws(() => elevationProfile(line, elevations), /no elevation at vertex 1/);
+});
+
+test("fillShortVoids returns a line with no voids unchanged", () => {
+  const readings = [3, 1, 4, 1, 5];
+  const { elevations, filled } = fillShortVoids(STEP.slice(0, 5), readings);
+  assert.deepEqual(elevations, readings);
+  assert.deepEqual(filled, []);
 });

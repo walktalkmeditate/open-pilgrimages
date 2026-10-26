@@ -2,7 +2,7 @@ import { readFileSync, writeFileSync } from "fs";
 import { join } from "path";
 import { resolveInvokedPath } from "./cli.js";
 import { readJson, targets } from "./site/build-assets.js";
-import { elevationProfile, roundToTen, type ElevationProfile } from "./elevation.js";
+import { elevationProfile, fillShortVoids, roundToTen, type ElevationProfile } from "./elevation.js";
 import { hashVertices, readElevationCache, walkedLineSourceFor } from "./fetch-elevation.js";
 import { boundariesForStages, cumulativeMeters, walkedLine } from "./ways/geo.js";
 import type { DatasetStage } from "./ways/stage.js";
@@ -241,7 +241,15 @@ export type ApplyOutcome =
   | { status: "no-cache" }
   | { status: "no-geometry" }
   | { status: "stale-cache"; reason: string }
-  | { status: "applied"; figures: StageFigures[]; totals: SectionTotals; kept: number; changed: boolean };
+  | {
+      status: "applied";
+      figures: StageFigures[];
+      totals: SectionTotals;
+      kept: number;
+      changed: boolean;
+      /** Vertices whose void was filled by fillShortVoids, for the section's elevationNote to name. */
+      filled: Position[];
+    };
 
 interface StagesFile {
   stages?: unknown;
@@ -301,7 +309,8 @@ export function applyRouteElevation(
   }
   const stages = raw as DatasetStage[];
 
-  const figures = measureStages(line, cache.elevations, stages);
+  const { elevations: readings, filled } = fillShortVoids(line, cache.elevations);
+  const figures = measureStages(line, readings, stages);
 
   const before = JSON.stringify(file);
   let kept = 0;
@@ -315,7 +324,14 @@ export function applyRouteElevation(
 
   if (changed) writeFileSync(stagesPath, after);
 
-  return { status: "applied", figures, totals: sectionTotals(figures), kept, changed };
+  return {
+    status: "applied",
+    figures,
+    totals: sectionTotals(figures),
+    kept,
+    changed,
+    filled: filled.map((i) => line[i]),
+  };
 }
 
 function selectedTargets(root: string, ids: string[]): ReturnType<typeof targets> {
@@ -338,6 +354,12 @@ function reportRoute(id: string, outcome: ApplyOutcome): void {
       return;
     case "applied": {
       console.log(`${id}:`);
+      if (outcome.filled.length > 0) {
+        console.log(
+          `  ↳ ${outcome.filled.length} void(s) filled by interpolation along the line, at ` +
+            outcome.filled.map(([lon, lat]) => `${lon},${lat}`).join("; "),
+        );
+      }
       if (!outcome.changed) {
         console.log(`  ↳ every figure already declared — nothing written (--overwrite to re-derive)`);
         return;
