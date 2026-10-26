@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
   "release": "v1.12.0",
-  "generatedAt": "2026-09-22T20:38:01.952Z",
+  "generatedAt": "2026-10-26T20:18:54.339Z",
   "pilgrimages": [
     {
       "id": "camino-de-santiago",
@@ -59,6 +59,17 @@
           }
         }
       }
+    },
+    {
+      "id": "st-olav-ways",
+      "name": {
+        "en": "St. Olav Ways",
+        "nb": "St. Olavsvegene"
+      },
+      "kind": "alternatives",
+      "sections": [
+        "st-olav-ways-gudbrandsdalsleden"
+      ]
     }
   ],
   "routes": [
@@ -347,6 +358,26 @@
         "stageCount": 15,
         "bytes": 388834,
         "placesPerStage": 1.6,
+        "sparse": false
+      }
+    },
+    {
+      "id": "st-olav-ways-gudbrandsdalsleden",
+      "name": {
+        "en": "Gudbrandsdalsleden",
+        "nb": "Gudbrandsdalsleden"
+      },
+      "region": "Europe",
+      "country": "NO",
+      "distanceKm": 643,
+      "topology": "linear",
+      "tradition": "christian",
+      "path": "routes/st-olav-ways-gudbrandsdalsleden",
+      "pilgrimage": "st-olav-ways",
+      "ways": {
+        "stageCount": 24,
+        "bytes": 709224,
+        "placesPerStage": 1.8,
         "sparse": false
       }
     }
