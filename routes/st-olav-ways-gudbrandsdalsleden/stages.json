@@ -51,7 +51,15 @@
           "en": "You leave from the ruins of a church to walk to a cathedral. What are you carrying out of the city with you?"
         }
       },
-      "drafted": true
+      "drafted": true,
+      "terrainTypes": [
+        "paved",
+        "gravel",
+        "dirt"
+      ],
+      "terrainNotes": {
+        "en": "By OpenStreetMap's tags on the ways this stage follows: 17.3 km paved, 1.9 km gravel or compacted, 2.0 km earth or grass, and 2.3 km with no surface recorded. 12.8 km is path, track, footway or cycleway and 10.6 km is road."
+      }
     },
     {
       "index": 1,
@@ -101,7 +109,14 @@
           "en": "With nothing to arrive at until evening, where does your attention go?"
         }
       },
-      "drafted": true
+      "drafted": true,
+      "terrainTypes": [
+        "paved",
+        "gravel"
+      ],
+      "terrainNotes": {
+        "en": "By OpenStreetMap's tags on the ways this stage follows: 1.7 km paved, 11.1 km gravel or compacted, 0.2 km earth or grass, and 11.9 km with no surface recorded. 11.5 km is path, track, footway or cycleway and 13.4 km is road."
+      }
     },
     {
       "index": 2,
@@ -151,7 +166,14 @@
           "en": "Two churches in an afternoon. What would you stop to ask in each?"
         }
       },
-      "drafted": true
+      "drafted": true,
+      "terrainTypes": [
+        "paved",
+        "gravel"
+      ],
+      "terrainNotes": {
+        "en": "By OpenStreetMap's tags on the ways this stage follows: 3.2 km paved, 3.5 km gravel or compacted, 0.0 km earth or grass, and 18.2 km with no surface recorded. 11.6 km is path, track, footway or cycleway and 13.3 km is road."
+      }
     },
     {
       "index": 3,
@@ -201,7 +223,14 @@
           "en": "Two churches built side by side. Who walks beside you, even when you walk alone?"
         }
       },
-      "drafted": true
+      "drafted": true,
+      "terrainTypes": [
+        "paved",
+        "gravel"
+      ],
+      "terrainNotes": {
+        "en": "By OpenStreetMap's tags on the ways this stage follows: 14.5 km paved, 2.9 km gravel or compacted, 0.0 km earth or grass, and 13.9 km with no surface recorded. 8.4 km is path, track, footway or cycleway and 22.9 km is road."
+      }
     },
     {
       "index": 4,
@@ -256,7 +285,14 @@
         {
           "en": "49.6 km. This stage is long because OpenStreetMap maps no lodging within 500 m of the line between 20 and 30 km from its start, so the day rule had nowhere nearer to end it. Plan a bed off the line, or split the day, before setting out."
         }
-      ]
+      ],
+      "terrainTypes": [
+        "paved",
+        "gravel"
+      ],
+      "terrainNotes": {
+        "en": "By OpenStreetMap's tags on the ways this stage follows: 9.4 km paved, 6.8 km gravel or compacted, 0.8 km earth or grass, and 32.5 km with no surface recorded. 8.7 km is path, track, footway or cycleway and 40.8 km is road."
+      }
     },
     {
       "index": 5,
@@ -306,7 +342,14 @@
           "en": "After the longest day, an ordinary one. What does ordinary feel like now?"
         }
       },
-      "drafted": true
+      "drafted": true,
+      "terrainTypes": [
+        "paved",
+        "dirt"
+      ],
+      "terrainNotes": {
+        "en": "By OpenStreetMap's tags on the ways this stage follows: 5.1 km paved, 0.4 km gravel or compacted, 2.1 km earth or grass, and 16.9 km with no surface recorded. 15.3 km is path, track, footway or cycleway and 9.1 km is road."
+      }
     },
     {
       "index": 6,
@@ -356,7 +399,13 @@
           "en": "Halfway between two places, which one are you thinking about?"
         }
       },
-      "drafted": true
+      "drafted": true,
+      "terrainTypes": [
+        "paved"
+      ],
+      "terrainNotes": {
+        "en": "By OpenStreetMap's tags on the ways this stage follows: 4.9 km paved, 0.8 km gravel or compacted, 0.0 km earth or grass, and 17.0 km with no surface recorded. 9.4 km is path, track, footway or cycleway and 13.3 km is road."
+      }
     },
     {
       "index": 7,
@@ -406,7 +455,13 @@
           "en": "The next town is in sight before the day is over. How do you walk the last stretch?"
         }
       },
-      "drafted": true
+      "drafted": true,
+      "terrainTypes": [
+        "paved"
+      ],
+      "terrainNotes": {
+        "en": "By OpenStreetMap's tags on the ways this stage follows: 11.8 km paved, 0.9 km gravel or compacted, 0.0 km earth or grass, and 12.7 km with no surface recorded. 11.7 km is path, track, footway or cycleway and 13.7 km is road."
+      }
     },
     {
       "index": 8,
@@ -456,7 +511,15 @@
           "en": "A town full of beds, and you walk on through it. What makes you keep going?"
         }
       },
-      "drafted": true
+      "drafted": true,
+      "terrainTypes": [
+        "paved",
+        "gravel",
+        "dirt"
+      ],
+      "terrainNotes": {
+        "en": "By OpenStreetMap's tags on the ways this stage follows: 7.1 km paved, 4.3 km gravel or compacted, 2.3 km earth or grass, and 11.5 km with no surface recorded. 13.1 km is path, track, footway or cycleway and 12.1 km is road."
+      }
     },
     {
       "index": 9,
@@ -506,7 +569,14 @@
           "en": "Someone made a room for walkers like you. What would you leave behind for the next one?"
         }
       },
-      "drafted": true
+      "drafted": true,
+      "terrainTypes": [
+        "paved",
+        "gravel"
+      ],
+      "terrainNotes": {
+        "en": "By OpenStreetMap's tags on the ways this stage follows: 3.9 km paved, 2.7 km gravel or compacted, 0.0 km earth or grass, and 18.3 km with no surface recorded. 12.7 km is path, track, footway or cycleway and 12.2 km is road."
+      }
     },
     {
       "index": 10,
@@ -556,7 +626,14 @@
           "en": "A church built of wood has stood long enough to be called old. What in you has lasted that long?"
         }
       },
-      "drafted": true
+      "drafted": true,
+      "terrainTypes": [
+        "paved",
+        "gravel"
+      ],
+      "terrainNotes": {
+        "en": "By OpenStreetMap's tags on the ways this stage follows: 9.6 km paved, 3.8 km gravel or compacted, 0.0 km earth or grass, and 11.3 km with no surface recorded. 3.0 km is path, track, footway or cycleway and 21.8 km is road."
+      }
     },
     {
       "index": 11,
@@ -606,7 +683,14 @@
           "en": "Farms that take in walkers. What does it mean to be a guest?"
         }
       },
-      "drafted": true
+      "drafted": true,
+      "terrainTypes": [
+        "paved",
+        "gravel"
+      ],
+      "terrainNotes": {
+        "en": "By OpenStreetMap's tags on the ways this stage follows: 9.6 km paved, 3.9 km gravel or compacted, 0.4 km earth or grass, and 16.0 km with no surface recorded. 14.6 km is path, track, footway or cycleway and 15.3 km is road."
+      }
     },
     {
       "index": 12,
@@ -656,7 +740,13 @@
           "en": "The valley narrows the choices. Which ones are you glad not to have?"
         }
       },
-      "drafted": true
+      "drafted": true,
+      "terrainTypes": [
+        "paved"
+      ],
+      "terrainNotes": {
+        "en": "By OpenStreetMap's tags on the ways this stage follows: 7.5 km paved, 0.0 km gravel or compacted, 0.0 km earth or grass, and 17.9 km with no surface recorded. 13.3 km is path, track, footway or cycleway and 12.1 km is road."
+      }
     },
     {
       "index": 13,
@@ -706,7 +796,14 @@
           "en": "Two churches with one name between them. What do you share with the people who walked here before?"
         }
       },
-      "drafted": true
+      "drafted": true,
+      "terrainTypes": [
+        "paved",
+        "gravel"
+      ],
+      "terrainNotes": {
+        "en": "By OpenStreetMap's tags on the ways this stage follows: 3.3 km paved, 1.8 km gravel or compacted, 0.0 km earth or grass, and 20.1 km with no surface recorded. 2.9 km is path, track, footway or cycleway and 22.4 km is road."
+      }
     },
     {
       "index": 14,
@@ -756,7 +853,19 @@
           "en": "The road climbs out of the valley. What do you hope to see from higher up?"
         }
       },
-      "drafted": true
+      "drafted": true,
+      "terrainTypes": [
+        "paved",
+        "mountain"
+      ],
+      "terrainNotes": {
+        "en": "By OpenStreetMap's tags on the ways this stage follows: 6.6 km paved, 0.0 km gravel or compacted, 0.0 km earth or grass, and 18.1 km with no surface recorded. 15.5 km is path, track, footway or cycleway and 9.2 km is road. Its high point is 1,210 m."
+      },
+      "warnings": [
+        {
+          "en": "This stage crosses Dovrefjell. The national pilgrim office advises against crossing before about 10 June, when snow and meltwater can block the way, the river bridges are not yet in place and wild reindeer are calving, and notes that places to stay may still be closed. Check conditions, or take the train over Dovre."
+        }
+      ]
     },
     {
       "index": 15,
@@ -806,7 +915,19 @@
           "en": "Up here there is a great deal of sky. What feels small, and what feels large?"
         }
       },
-      "drafted": true
+      "drafted": true,
+      "terrainTypes": [
+        "dirt",
+        "mountain"
+      ],
+      "terrainNotes": {
+        "en": "By OpenStreetMap's tags on the ways this stage follows: 0.0 km paved, 0.1 km gravel or compacted, 1.8 km earth or grass, and 22.5 km with no surface recorded. 23.3 km is path, track, footway or cycleway and 1.3 km is road. Its high point is 1,200 m."
+      },
+      "warnings": [
+        {
+          "en": "This stage crosses Dovrefjell. The national pilgrim office advises against crossing before about 10 June, when snow and meltwater can block the way, the river bridges are not yet in place and wild reindeer are calving, and notes that places to stay may still be closed. Check conditions, or take the train over Dovre."
+        }
+      ]
     },
     {
       "index": 16,
@@ -860,8 +981,17 @@
       "warnings": [
         {
           "en": "34.2 km. This stage is long because OpenStreetMap maps no lodging within 500 m of the line between 20 and 30 km from its start, so the day rule had nowhere nearer to end it. Plan a bed off the line, or split the day, before setting out."
+        },
+        {
+          "en": "This stage crosses Dovrefjell. The national pilgrim office advises against crossing before about 10 June, when snow and meltwater can block the way, the river bridges are not yet in place and wild reindeer are calving, and notes that places to stay may still be closed. Check conditions, or take the train over Dovre."
         }
-      ]
+      ],
+      "terrainTypes": [
+        "mountain"
+      ],
+      "terrainNotes": {
+        "en": "By OpenStreetMap's tags on the ways this stage follows: 0.3 km paved, 0.1 km gravel or compacted, 0.0 km earth or grass, and 33.8 km with no surface recorded. 32.0 km is path, track, footway or cycleway and 2.3 km is road. Its high point is 1,310 m."
+      }
     },
     {
       "index": 17,
@@ -911,7 +1041,15 @@
           "en": "Back among houses after the mountain. What do you want to keep from up there?"
         }
       },
-      "drafted": true
+      "drafted": true,
+      "terrainTypes": [
+        "paved",
+        "gravel",
+        "mountain"
+      ],
+      "terrainNotes": {
+        "en": "By OpenStreetMap's tags on the ways this stage follows: 1.5 km paved, 4.9 km gravel or compacted, 0.0 km earth or grass, and 20.6 km with no surface recorded. 4.8 km is path, track, footway or cycleway and 22.2 km is road. Its high point is 1,100 m."
+      }
     },
     {
       "index": 18,
@@ -961,7 +1099,14 @@
           "en": "A day the map leaves blank. What do you fill it with?"
         }
       },
-      "drafted": true
+      "drafted": true,
+      "terrainTypes": [
+        "paved",
+        "gravel"
+      ],
+      "terrainNotes": {
+        "en": "By OpenStreetMap's tags on the ways this stage follows: 3.1 km paved, 10.0 km gravel or compacted, 0.0 km earth or grass, and 11.2 km with no surface recorded. 2.6 km is path, track, footway or cycleway and 21.6 km is road."
+      }
     },
     {
       "index": 19,
@@ -1011,7 +1156,15 @@
           "en": "Four days from the cathedral. What has changed in how you walk?"
         }
       },
-      "drafted": true
+      "drafted": true,
+      "terrainTypes": [
+        "paved",
+        "gravel",
+        "dirt"
+      ],
+      "terrainNotes": {
+        "en": "By OpenStreetMap's tags on the ways this stage follows: 6.3 km paved, 1.6 km gravel or compacted, 2.7 km earth or grass, and 14.4 km with no surface recorded. 9.4 km is path, track, footway or cycleway and 15.5 km is road."
+      }
     },
     {
       "index": 20,
@@ -1066,7 +1219,14 @@
         {
           "en": "34.6 km. This stage is long because OpenStreetMap maps no lodging within 500 m of the line between 20 and 30 km from its start, so the day rule had nowhere nearer to end it. Plan a bed off the line, or split the day, before setting out."
         }
-      ]
+      ],
+      "terrainTypes": [
+        "paved",
+        "gravel"
+      ],
+      "terrainNotes": {
+        "en": "By OpenStreetMap's tags on the ways this stage follows: 4.2 km paved, 4.9 km gravel or compacted, 0.3 km earth or grass, and 25.3 km with no surface recorded. 11.3 km is path, track, footway or cycleway and 23.4 km is road."
+      }
     },
     {
       "index": 21,
@@ -1116,7 +1276,11 @@
           "en": "An afternoon with nowhere to be. How do you spend it?"
         }
       },
-      "drafted": true
+      "drafted": true,
+      "terrainTypes": [],
+      "terrainNotes": {
+        "en": "By OpenStreetMap's tags on the ways this stage follows: 0.1 km paved, 0.0 km gravel or compacted, 0.0 km earth or grass, and 8.8 km with no surface recorded. 2.6 km is path, track, footway or cycleway and 6.3 km is road."
+      }
     },
     {
       "index": 22,
@@ -1171,7 +1335,15 @@
         {
           "en": "34.6 km. This stage is long because OpenStreetMap maps no lodging within 500 m of the line between 20 and 30 km from its start, so the day rule had nowhere nearer to end it. Plan a bed off the line, or split the day, before setting out."
         }
-      ]
+      ],
+      "terrainTypes": [
+        "paved",
+        "gravel",
+        "dirt"
+      ],
+      "terrainNotes": {
+        "en": "By OpenStreetMap's tags on the ways this stage follows: 2.8 km paved, 2.8 km gravel or compacted, 7.4 km earth or grass, and 21.7 km with no surface recorded. 19.0 km is path, track, footway or cycleway and 15.7 km is road."
+      }
     },
     {
       "index": 23,
@@ -1221,7 +1393,14 @@
           "en": "You have arrived where the way was always going. What did you come to say?"
         }
       },
-      "drafted": true
+      "drafted": true,
+      "terrainTypes": [
+        "paved",
+        "gravel"
+      ],
+      "terrainNotes": {
+        "en": "By OpenStreetMap's tags on the ways this stage follows: 7.3 km paved, 7.9 km gravel or compacted, 0.6 km earth or grass, and 7.8 km with no surface recorded. 8.3 km is path, track, footway or cycleway and 15.3 km is road."
+      }
     }
   ]
 }

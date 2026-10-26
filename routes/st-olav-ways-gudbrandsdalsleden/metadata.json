@@ -13,7 +13,62 @@
       "nb": "St. Olavsvegene"
     },
     "kind": "alternatives",
-    "order": 1
+    "order": 1,
+    "stats": {
+      "lastUpdated": "2026-10-26",
+      "dataYear": 2024,
+      "dataNote": "Long-distance walkers, pilgrims who walked more than two days, registered on arrival at Nidaros Pilegrimsgård in Trondheim, across all the St. Olav Ways, from the national pilgrim office's 2024 statistics report. Not every pilgrim who reaches the cathedral calls at the reception, so the true number is somewhat higher, and the report counts short walkers separately and only in some years. Its news page gives 1,793 pilgrims received in 2025, 13% more than the year before, without saying whether short walkers are included, so that figure is not in the series. Provisional: the office has not yet confirmed a licence for these figures.",
+      "annualPilgrims": {
+        "latest": {
+          "year": 2024,
+          "count": 1579,
+          "note": "Long-distance walkers registered at Nidaros Pilegrimsgård, all routes."
+        },
+        "trend": [
+          {
+            "year": 2018,
+            "count": 1326
+          },
+          {
+            "year": 2019,
+            "count": 1471
+          },
+          {
+            "year": 2020,
+            "count": 449
+          },
+          {
+            "year": 2021,
+            "count": 857
+          },
+          {
+            "year": 2022,
+            "count": 1563
+          },
+          {
+            "year": 2023,
+            "count": 1483
+          },
+          {
+            "year": 2024,
+            "count": 1579
+          }
+        ],
+        "source": "https://www.pilegrimsleden.no/assets/images/Statistikk-2024-Pilegrimsleden.-St.Olavsvegene-til-Trondheim.pdf"
+      },
+      "sources": [
+        {
+          "name": "Nasjonalt pilegrimssenter, Statistikk 2024",
+          "url": "https://www.pilegrimsleden.no/assets/images/Statistikk-2024-Pilegrimsleden.-St.Olavsvegene-til-Trondheim.pdf",
+          "accessDate": "2026-10-26"
+        },
+        {
+          "name": "Nasjonalt pilegrimssenter, Flere pilegrimer i 2025",
+          "url": "https://www.pilegrimsleden.no/artikler/flere-pilegrimer",
+          "accessDate": "2026-10-26"
+        }
+      ]
+    }
   },
   "description": {
     "en": "The inland pilgrim way from Oslo to Nidaros Cathedral in Trondheim: 643 km from the ruins of St Mary's Church in Oslo's medieval town, over Hadeland, past Gjøvik and Lillehammer, through Gudbrandsdalen and across Dovrefjell, then down through Oppdal and Skaun to the cathedral where St Olav is buried. 24 days here, the high point 1,310 m on Dovrefjell, with about 11,960 m of ascent against 11,880 m of descent."
@@ -21,16 +76,16 @@
   "overview": {
     "distanceKm": 643,
     "distanceNote": {
-      "en": "643 km is the rounded sum of the 24 stages, as every linear route here declares, and each stage's figure is the length of route.main.geojson between its own two anchors. That line is the shortest connected path through the eight pinned OpenStreetMap relations, held to the route by every stage anchor in turn, and measured with the repository's own way graph. No published figure set it: the national pilgrim office publishes a length for this route, but states no licence for anything on its site, so none of its figures is used here, even as a check."
+      "en": "643 km is the rounded sum of the 24 stages, as every linear route here declares, and each stage's figure is the length of route.main.geojson between its own two anchors. That line is the shortest connected path through the eight pinned OpenStreetMap relations, held to the route by every stage anchor in turn, and measured with the repository's own way graph. No published figure set it. It agrees with the 643 km the national pilgrim office gives for the route, a check only, from a source whose licence is still unconfirmed (see provenance). Between Oslo and Lillehammer the office's route has two branches, one either side of Lake Mjøsa and of about equal length; this section follows the western one, over Hadeland and through Gjøvik, which is the one relation 1370273 carries. The eastern branch, by Eidsvoll and Hamar, is OpenStreetMap relation 1200009 (Romeriksleden) and is left for a later variant."
     },
     "estimatedDays": {
       "min": 22,
       "max": 33,
       "typical": 24,
-      "note": "typical is the stage count: each stage is one day by construction of the day rule recorded in provenance. min and max are the walked line's 643.0 km at the two ends of that rule's 20-30 km band, rounded up. No published walking time set any of the three."
+      "note": "typical is the stage count: each stage is one day by construction of the day rule recorded in provenance. min and max are the walked line's 643.0 km at the two ends of that rule's 20-30 km band, rounded up. No published walking time set any of the three. The national pilgrim office gives 32 days for the whole route at about 20 km a day, inside this range; it is a check, not a source."
     },
     "hoursNote": {
-      "en": "Every stage's estimatedHours is Naismith's rule read at two paces and rounded to whole hours, the rule the four Shikoku dōjō use: min at five kilometres an hour plus 600 m of ascent an hour, max at 3.5 km/h plus 500 m. No roughness factor is applied, because this repository holds no walking times for this route to fit one against, and borrowing Kumano's would assert that a Gudbrandsdalen farm-track day walks like a Kii mountain day. Nothing published was used to check the result either: the walking times the national pilgrim office gives carry no stated licence. Read each band as what a day's distance and climbing cost, not as a promise; the 4 days over 34 km carry warnings in stages.json saying why they are that long."
+      "en": "Every stage's estimatedHours is Naismith's rule read at two paces and rounded to whole hours, the rule the four Shikoku dōjō use: min at five kilometres an hour plus 600 m of ascent an hour, max at 3.5 km/h plus 500 m. No roughness factor is applied, because this repository holds no walking times for this route to fit one against, and borrowing Kumano's would assert that a Gudbrandsdalen farm-track day walks like a Kii mountain day. Nothing published was used to check the result either. Read each band as what a day's distance and climbing cost, not as a promise; the 4 days over 34 km carry warnings in stages.json saying why they are that long."
     },
     "topology": "linear",
     "direction": "north",
@@ -74,7 +129,21 @@
       59.9,
       10.88,
       63.44
-    ]
+    ],
+    "bestMonths": [
+      6,
+      7,
+      8
+    ],
+    "terrainTypes": [
+      "paved",
+      "gravel",
+      "dirt",
+      "mountain"
+    ],
+    "terrainNote": {
+      "en": "From OpenStreetMap's tags on the ways the walked line follows, measured segment by segment: 140.9 km paved, 77.0 km gravel or compacted, 20.5 km earth or grass, and 404.9 km with no surface recorded, so terrainTypes says what is tagged and nothing about the untagged majority. 277.7 km is path, track, footway or cycleway and 365.5 km is road. mountain is added for the stages whose measured high point reaches 1,000 m, the crossing of Dovrefjell. Each stage's terrainNotes gives its own figures."
+    }
   },
   "tradition": {
     "type": "christian",
@@ -85,6 +154,30 @@
     },
     "origin": {
       "en": "The route leads to the grave of Olav II Haraldsson, King of Norway from 1015 to 1028, who died at Stiklestad on 29 July 1030 and is buried in Nidaros Cathedral. He is venerated as a saint, and 29 July, the day of his death, is his feast, Olsok."
+    },
+    "credentialSystem": {
+      "name": {
+        "en": "Pilgrim passport and Olavsbrev",
+        "nb": "Pilegrimspass og Olavsbrev"
+      },
+      "description": {
+        "en": "Pilgrims can carry a pilgrim passport (pilegrimspass) and collect stamps in it along the way, at pilgrim hostels, regional pilgrim centres and churches; where a place to stay has no stamp, the host can sign it instead. Carrying one is optional. The passport costs NOK 50 and is sold at the regional pilgrim centres and at other places along the route, among them the centres in Oslo, Granavollen and on Dovrefjell."
+      },
+      "completionCertificate": {
+        "en": "Olavsbrevet (the Olav letter)",
+        "nb": "Olavsbrevet"
+      },
+      "minimumDistanceKm": 100,
+      "minimumDistanceNote": {
+        "en": "The Olavsbrev is given to pilgrims who show a stamped passport for at least the last 100 km on foot to Nidaros Cathedral, or the last 200 km by bicycle. On this route the office suggests Berkåk to Trondheim as a walk that qualifies. Pilgrims who do not qualify can receive a pilgrim diploma instead."
+      },
+      "obtainableAt": [
+        {
+          "name": {
+            "en": "The pilgrim reception (pilegrimsmottaket) near Nidaros Cathedral, Trondheim"
+          }
+        }
+      ]
     }
   },
   "cultural": {
@@ -103,7 +196,62 @@
           "en": "The feast of St Olav, on the anniversary of his death at Stiklestad in 1030."
         }
       }
-    ]
+    ],
+    "practices": [
+      {
+        "name": {
+          "en": "Stamps in the pilgrim passport",
+          "nb": "Stempel i pilegrimspasset"
+        },
+        "description": {
+          "en": "Collecting stamps along the way records where a pilgrim has been, and the stamped passport is what the Olavsbrev is given against."
+        }
+      },
+      {
+        "name": {
+          "en": "The zero stone",
+          "nb": "Nullsteinen"
+        },
+        "description": {
+          "en": "Outside the west front of Nidaros Cathedral stands the last milestone of the route, carrying the pilgrim mark and an inscription saying that no kilometres remain."
+        },
+        "location": {
+          "stageIndex": 23
+        }
+      },
+      {
+        "name": {
+          "en": "Olav springs",
+          "nb": "Olavskilder"
+        },
+        "description": {
+          "en": "Springs associated with St Olav lie at many places along the route; their water was said to heal."
+        }
+      },
+      {
+        "name": {
+          "en": "Arriving at the pilgrim reception",
+          "nb": "Pilegrimsmottaket"
+        },
+        "description": {
+          "en": "Pilgrims who reach the cathedral are invited to the pilgrim reception nearby, where the last stamps are given, arrivals are counted, and the Olavsbrev is issued to those who qualify."
+        },
+        "location": {
+          "stageIndex": 23
+        }
+      }
+    ],
+    "etiquette": [
+      {
+        "en": "Two stretches over Dovrefjell run through calving grounds of wild reindeer. The office asks pilgrims to take care around them, and not to cross before the calving is over, in mid-June."
+      },
+      {
+        "en": "Where a place to stay has no stamp, ask the host to sign the pilgrim passport instead."
+      }
+    ],
+    "historicalSignificance": {
+      "en": "In the Middle Ages the Gudbrandsdalsleden was the main road to Trondheim and Nidaros Cathedral, where St Olav is buried. Norwegian authorities began restoring the old pilgrim routes in the 1990s, and the St. Olav Ways now total more than 3,800 km, of which about 2,770 km are on land; several of them belong to the association that holds their status as a Council of Europe Cultural Route. The year 2030 marks 1,000 years since St Olav's death at Stiklestad."
+    }
   },
   "logistics": {
     "accommodationTypes": [
@@ -112,7 +260,7 @@
       "pension"
     ],
     "accommodationNotes": {
-      "en": "accommodationTypes lists the kinds of lodging OpenStreetMap records within 300 m of the walked line (7 guesthouse, 2 hostel, 13 hotel), and nothing more: it says what is mapped, not what is open, and it is the same coverage the day rule had to work with. Where it runs thin the days run long — stage 4 (Granavollen to Alstad, 49.6 km) is the longest, and stage 21 (Løkken Verk to Hongslo, 8.9 km) the shortest, for the same reason."
+      "en": "accommodationTypes lists the kinds of lodging OpenStreetMap records within 300 m of the walked line (7 guesthouse, 2 hostel, 13 hotel), and nothing more: it says what is mapped, not what is open, and it is the same coverage the day rule had to work with. Where it runs thin the days run long — stage 4 (Granavollen to Alstad, 49.6 km) is the longest, and stage 21 (Løkken Verk to Hongslo, 8.9 km) the shortest, for the same reason. Across all the St. Olav Ways the office counts more than 500 places to stay, from pilgrim hostels, many of them on farms, to cabins, campsites and hotels."
     },
     "currency": "NOK",
     "languages": [
@@ -122,6 +270,123 @@
     "emergencyNumber": "112",
     "emergencyNote": {
       "en": "Wikidata (Q20, P2852) lists 112, 113 and 110 as Norway's emergency numbers."
+    },
+    "seasonalAvailability": {
+      "openMonths": [
+        6,
+        7,
+        8
+      ],
+      "notes": {
+        "en": "The national pilgrim office recommends walking between 1 June and 1 September, to avoid snow and meltwater; places to stay may be closed outside that window. Do not cross Dovrefjell before about 10 June: until then the crossing has no infrastructure in place, the bridges over the Hondyrju and Vesle Hondyrju rivers are laid out only around that date, snow can hide the waymarks, and wild reindeer are calving. Even in summer the temperature on the plateau can fall towards 0 °C, and the office suggests taking the train over Dovre when the crossing is not open."
+      }
+    },
+    "transportLinks": [
+      {
+        "type": "train",
+        "name": {
+          "en": "Oslo S"
+        },
+        "nearStage": 0,
+        "notes": {
+          "en": "OpenStreetMap node/660921 (railway=station), 1.0 km from the stage boundary."
+        }
+      },
+      {
+        "type": "train",
+        "name": {
+          "en": "Gran"
+        },
+        "nearStage": 4,
+        "notes": {
+          "en": "OpenStreetMap node/5720557916 (railway=station), 2.4 km from the stage boundary."
+        }
+      },
+      {
+        "type": "train",
+        "name": {
+          "en": "Gjøvik"
+        },
+        "nearStage": 6,
+        "notes": {
+          "en": "OpenStreetMap node/5720557887 (railway=station), 0.1 km from the stage boundary."
+        }
+      },
+      {
+        "type": "train",
+        "name": {
+          "en": "Lillehammer"
+        },
+        "nearStage": 8,
+        "notes": {
+          "en": "OpenStreetMap node/5526332118 (railway=station), 1.4 km from the stage boundary."
+        }
+      },
+      {
+        "type": "train",
+        "name": {
+          "en": "Kvam"
+        },
+        "nearStage": 12,
+        "notes": {
+          "en": "OpenStreetMap node/5526332023 (railway=station), 0.6 km from the stage boundary."
+        }
+      },
+      {
+        "type": "train",
+        "name": {
+          "en": "Hjerkinn"
+        },
+        "nearStage": 16,
+        "notes": {
+          "en": "OpenStreetMap node/197705493 (railway=station), 1.9 km from the stage boundary."
+        }
+      },
+      {
+        "type": "train",
+        "name": {
+          "en": "Oppdal"
+        },
+        "nearStage": 18,
+        "notes": {
+          "en": "OpenStreetMap node/5526331907 (railway=station), 1.4 km from the stage boundary."
+        }
+      },
+      {
+        "type": "train",
+        "name": {
+          "en": "Trondheim S"
+        },
+        "nearStage": 23,
+        "notes": {
+          "en": "OpenStreetMap node/5526332028 (railway=station), 1.1 km from the stage boundary."
+        }
+      },
+      {
+        "type": "airport",
+        "name": {
+          "en": "Oslo lufthavn, Gardermoen"
+        },
+        "code": "OSL",
+        "nearStage": 0,
+        "notes": {
+          "en": "OpenStreetMap way/425295012 (aeroway=aerodrome, iata=OSL)."
+        }
+      },
+      {
+        "type": "airport",
+        "name": {
+          "en": "Trondheim lufthavn, Værnes"
+        },
+        "code": "TRD",
+        "nearStage": 23,
+        "notes": {
+          "en": "OpenStreetMap relation/10264031 (aeroway=aerodrome, iata=TRD)."
+        }
+      }
+    ],
+    "transportNotes": {
+      "en": "transportLinks lists, for each stage boundary, the nearest railway station within 3 km that lies beside the national network (within 150 m of a railway=rail line tagged usage=main or branch), and the airport at each end, all from OpenStreetMap. The national pilgrim office notes that trains run alongside almost the whole route."
     }
   },
   "provenance": {
@@ -173,6 +438,20 @@
         ],
         "accessDate": "2026-10-26",
         "notes": "Q2095033 (the St. Olav Ways network, whose Norwegian description supplies the pilgrimage's nb name, St. Olavsvegene), Q208331 (Olav II: reign, death at Stiklestad Q369100 on 29 July 1030, burial at Nidaros Cathedral Q215023, feast day), Q279006 (Olsok, 29 July), Q1133099 (St Mary's Church, Oslo, linked to OpenStreetMap way/257875433), Q11995693 (Pilegrimsleia over Dovrefjell, the wikidata tag on the five Dovre relations) and Q20 (Norway: currency, official languages, emergency numbers). Wikidata holds no item for the Gudbrandsdalsleden itself."
+      },
+      {
+        "name": "Nasjonalt pilegrimssenter (national pilgrim office) — provisional, licence unconfirmed",
+        "url": "https://www.pilegrimsleden.no/",
+        "license": "unconfirmed — reuse permission requested; provisional until the office answers",
+        "dataTypes": [
+          "credential",
+          "season",
+          "cultural",
+          "stats",
+          "checks"
+        ],
+        "accessDate": "2026-10-26",
+        "notes": "Facts only, restated in this dataset's own words; no text from the site is reproduced. Taken from https://www.pilegrimsleden.no/pilegrimsledene/gudbrandsdalsleden, /pilegrimspass-og-olavsbrevet, /artikler/flere-pilegrimer and the 2024 statistics report. Everything that rests on this source, so it can be removed in one change if permission is refused: tradition.credentialSystem; cultural.practices, cultural.etiquette and cultural.historicalSignificance; logistics.seasonalAvailability and overview.bestMonths; the last sentence of logistics.accommodationNotes and of logistics.transportNotes; the Dovrefjell warnings on stages 14, 15, 16 in stages.json; pilgrimage.stats; routes/st-olav-ways-gudbrandsdalsleden/stats.json; and the cross-checks in overview.distanceNote and overview.estimatedDays.note, which set no figure. The two-branch fact in distanceNote is also theirs."
       }
     ],
     "contributors": [

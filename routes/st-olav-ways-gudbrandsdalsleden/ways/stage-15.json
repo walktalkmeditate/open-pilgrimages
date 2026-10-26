@@ -1285,7 +1285,9 @@
     "theme": "Across Dovrefjell",
     "narrative": "From Fokstugu the King's Road crosses Dovrefjell to Hageseter, nearly twenty kilometres on, and then to Hjerkinn fjellstue: 24.5 km, between 900 m and 1,200 m, with 340 m of ascent and 370 m of descent.",
     "closing": "Up here there is a great deal of sky. What feels small, and what feels large?",
-    "warnings": [],
+    "warnings": [
+      "This stage crosses Dovrefjell. The national pilgrim office advises against crossing before about 10 June, when snow and meltwater can block the way, the river bridges are not yet in place and wild reindeer are calving, and notes that places to stay may still be closed. Check conditions, or take the "
+    ],
     "distanceKm": 24.5,
     "gainMeters": 340,
     "hours": {
