@@ -7,6 +7,7 @@ import type { Position } from "./ways/types.js";
 import {
   CLIENT_TIMEOUT_MS,
   DATASET,
+  DATASETS,
   MAX_LOCATIONS_PER_REQUEST,
   REQUEST_DELAY_MS,
   cachePathFor,
@@ -14,6 +15,7 @@ import {
   chunkCachePathFor,
   chunkVertices,
   classifyElevationBody,
+  datasetFor,
   describeRateLimitError,
   fetchElevations,
   fetchRouteElevation,
@@ -528,5 +530,114 @@ test("the request budget is spent across routes, not handed out fresh to each on
   } finally {
     rmSync(a.root, { recursive: true, force: true });
     rmSync(b.root, { recursive: true, force: true });
+  }
+});
+
+// --- a section's declared dataset ---
+
+function declareDataset(dir: string, dataset: unknown): void {
+  writeFileSync(join(dir, "metadata.json"), JSON.stringify({ overview: { elevationRange: { dataset } } }));
+}
+
+/** Like echoingFetch, but answers as `dataset` and records each URL it was asked. */
+function datasetFetch(dataset: string, asked: string[]): typeof fetch {
+  return (async (url: RequestInfo | URL) => {
+    asked.push(String(url));
+    const results = requestedLocations(String(url)).map((location) => ({
+      dataset,
+      elevation: elevationOf([location.lng, 0] as Position),
+      location,
+    }));
+    return new Response(JSON.stringify({ status: "OK", results }), { status: 200 });
+  }) as unknown as typeof fetch;
+}
+
+test("datasetFor is SRTM for a section that declares nothing, which is every section before this one", () => {
+  const { root, dir } = routeFixture("undeclared-route");
+  try {
+    assert.equal(datasetFor(dir), "srtm30m");
+    writeFileSync(join(dir, "metadata.json"), JSON.stringify({ overview: { elevationRange: { minMeters: 0 } } }));
+    assert.equal(datasetFor(dir), "srtm30m");
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("datasetFor returns a listed dataset and refuses one that is not listed", () => {
+  const { root, dir } = routeFixture("declared-route");
+  try {
+    assert.deepEqual([...DATASETS].sort(), ["eudem25m", "srtm30m"]);
+    declareDataset(dir, "eudem25m");
+    assert.equal(datasetFor(dir), "eudem25m");
+    declareDataset(dir, "aster30m");
+    assert.throws(() => datasetFor(dir), /aster30m.*is not one of/);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("a section that declares eudem25m is sampled from eudem25m, and its cache says so", async () => {
+  const { root, dir } = routeFixture("northern-route", risingLine(150));
+  declareDataset(dir, "eudem25m");
+  const asked: string[] = [];
+  try {
+    const outcome = await fetchRouteElevation("northern-route", dir, {
+      root,
+      fetchImpl: datasetFetch("eudem25m", asked),
+      sleepImpl: async () => {},
+    });
+    assert.equal(outcome.status, "complete");
+    assert.equal(asked.length, 2);
+    for (const url of asked) assert.equal(new URL(url).pathname, "/v1/eudem25m");
+    assert.equal(readElevationCache(root, "northern-route")?.dataset, "eudem25m");
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("an SRTM answer to an eudem25m request is refused, not cached as EU-DEM", async () => {
+  const { root, dir } = routeFixture("mismatched-route");
+  declareDataset(dir, "eudem25m");
+  try {
+    const outcome = await fetchRouteElevation("mismatched-route", dir, {
+      root,
+      fetchImpl: datasetFetch("srtm30m", []),
+      sleepImpl: async () => {},
+    });
+    assert.equal(outcome.status, "incomplete");
+    assert.equal(readElevationCache(root, "mismatched-route"), null);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("SRTM chunks already on disk are re-fetched, not reused, once the section declares eudem25m", async () => {
+  const { root, dir } = routeFixture("switched-route", risingLine(250));
+  let calls = 0;
+  // Two SRTM chunks land on disk, the third fails — exactly what an SRTM run
+  // north of 60° N leaves behind before the section is switched.
+  const failingThird = (async (url: RequestInfo | URL) => {
+    calls++;
+    return calls === 3 ? new Response("{}", { status: 500 }) : echoingFetch()(url);
+  }) as unknown as typeof fetch;
+  try {
+    const first = await fetchRouteElevation("switched-route", dir, {
+      root,
+      fetchImpl: failingThird,
+      sleepImpl: async () => {},
+    });
+    assert.ok(first.status === "incomplete" && first.fetchedThisRun === 2);
+
+    declareDataset(dir, "eudem25m");
+    const asked: string[] = [];
+    const second = await fetchRouteElevation("switched-route", dir, {
+      root,
+      fetchImpl: datasetFetch("eudem25m", asked),
+      sleepImpl: async () => {},
+    });
+    assert.ok(second.status === "complete" && second.fetchedThisRun === 3 && second.reusedThisRun === 0);
+    assert.equal(readElevationCache(root, "switched-route")?.dataset, "eudem25m");
+  } finally {
+    rmSync(root, { recursive: true, force: true });
   }
 });

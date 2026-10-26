@@ -43,7 +43,10 @@ index.json                  # Route registry (auto-generated)
   states the method in prose — is the route it is pinned against. A figure a
   stages.json already declares is never re-derived without `--overwrite`:
   kohechi's stage 2 ascent sits on a rounding tie this method resolves the
-  other way, and its own elevationNote says so.
+  other way, and its own elevationNote says so. SRTM ends at 60° N: a section
+  beyond it declares `overview.elevationRange.dataset` (`eudem25m`, EU-DEM 25 m)
+  and its elevationNote says why; `fetch-elevation` refuses any dataset not in
+  its `DATASETS` list.
 - Derived hours: a section whose `estimatedHours` were computed rather than
   authored says so in `overview.hoursNote` — the rule, any factor and where it
   was fitted, and the published times the result was checked against. The four
