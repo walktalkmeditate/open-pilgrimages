@@ -19,10 +19,11 @@ import {
   type RoadsCacheFile,
   type RoadsChunkCacheFile,
 } from "./site/roads.js";
+import { overpassUrl } from "./overpass.js";
 
 const ROOT = join(import.meta.dirname, "..");
 const CACHE_DIR = join(ROOT, ".cache", "roads");
-const OVERPASS_URL = "https://overpass-api.de/api/interpreter";
+const OVERPASS_URL = overpassUrl();
 
 // A descriptive UA plus a delay between requests, per Overpass's usage
 // guidelines for the free public instance — this is the only script in the
