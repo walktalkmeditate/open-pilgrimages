@@ -1,0 +1,569 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "pilgrimage:st-olav-ways-gudbrandsdalsleden:21",
+  "title": "Løkken Verk to Hongslo",
+  "departedAt": "2026-10-26T00:00:00Z",
+  "route": [
+    {
+      "lat": 63.125799,
+      "lon": 9.704829,
+      "t": 0
+    },
+    {
+      "lat": 63.12696,
+      "lon": 9.705082,
+      "t": 132
+    },
+    {
+      "lat": 63.128375,
+      "lon": 9.704858,
+      "t": 292.4
+    },
+    {
+      "lat": 63.130349,
+      "lon": 9.70523,
+      "t": 516.5
+    },
+    {
+      "lat": 63.133254,
+      "lon": 9.707364,
+      "t": 862.8
+    },
+    {
+      "lat": 63.134172,
+      "lon": 9.707711,
+      "t": 968.1
+    },
+    {
+      "lat": 63.135491,
+      "lon": 9.707708,
+      "t": 1117.3
+    },
+    {
+      "lat": 63.138371,
+      "lon": 9.706897,
+      "t": 1445.7
+    },
+    {
+      "lat": 63.139027,
+      "lon": 9.706971,
+      "t": 1520.1
+    },
+    {
+      "lat": 63.141427,
+      "lon": 9.708299,
+      "t": 1799.9
+    },
+    {
+      "lat": 63.141724,
+      "lon": 9.70819,
+      "t": 1833.9
+    },
+    {
+      "lat": 63.144093,
+      "lon": 9.709101,
+      "t": 2105.9
+    },
+    {
+      "lat": 63.148307,
+      "lon": 9.709962,
+      "t": 2584.6
+    },
+    {
+      "lat": 63.149392,
+      "lon": 9.711285,
+      "t": 2724.8
+    },
+    {
+      "lat": 63.149624,
+      "lon": 9.711806,
+      "t": 2762.1
+    },
+    {
+      "lat": 63.1496,
+      "lon": 9.712928,
+      "t": 2819.5
+    },
+    {
+      "lat": 63.149767,
+      "lon": 9.71344,
+      "t": 2851.8
+    },
+    {
+      "lat": 63.149716,
+      "lon": 9.714792,
+      "t": 2921.1
+    },
+    {
+      "lat": 63.149812,
+      "lon": 9.715654,
+      "t": 2966.5
+    },
+    {
+      "lat": 63.150953,
+      "lon": 9.716751,
+      "t": 3107.2
+    },
+    {
+      "lat": 63.150843,
+      "lon": 9.718239,
+      "t": 3184.2
+    },
+    {
+      "lat": 63.151071,
+      "lon": 9.720024,
+      "t": 3279
+    },
+    {
+      "lat": 63.153769,
+      "lon": 9.722321,
+      "t": 3606
+    },
+    {
+      "lat": 63.155501,
+      "lon": 9.726481,
+      "t": 3895
+    },
+    {
+      "lat": 63.156317,
+      "lon": 9.727271,
+      "t": 3995.7
+    },
+    {
+      "lat": 63.156634,
+      "lon": 9.728464,
+      "t": 4066.5
+    },
+    {
+      "lat": 63.156781,
+      "lon": 9.730221,
+      "t": 4157.7
+    },
+    {
+      "lat": 63.157644,
+      "lon": 9.733335,
+      "t": 4344.4
+    },
+    {
+      "lat": 63.161928,
+      "lon": 9.742281,
+      "t": 5010.4
+    },
+    {
+      "lat": 63.162892,
+      "lon": 9.743582,
+      "t": 5138.1
+    },
+    {
+      "lat": 63.163911,
+      "lon": 9.744324,
+      "t": 5259.4
+    },
+    {
+      "lat": 63.164146,
+      "lon": 9.744875,
+      "t": 5298.1
+    },
+    {
+      "lat": 63.16468,
+      "lon": 9.744976,
+      "t": 5358.7
+    },
+    {
+      "lat": 63.164837,
+      "lon": 9.746077,
+      "t": 5417.7
+    },
+    {
+      "lat": 63.166224,
+      "lon": 9.749623,
+      "t": 5657.3
+    },
+    {
+      "lat": 63.166148,
+      "lon": 9.750604,
+      "t": 5708.1
+    },
+    {
+      "lat": 63.165935,
+      "lon": 9.751046,
+      "t": 5741.1
+    },
+    {
+      "lat": 63.165544,
+      "lon": 9.751204,
+      "t": 5786.1
+    },
+    {
+      "lat": 63.16542,
+      "lon": 9.75179,
+      "t": 5819.1
+    },
+    {
+      "lat": 63.165421,
+      "lon": 9.752363,
+      "t": 5848.4
+    },
+    {
+      "lat": 63.16592,
+      "lon": 9.753786,
+      "t": 5940.4
+    },
+    {
+      "lat": 63.166324,
+      "lon": 9.754196,
+      "t": 5990.7
+    },
+    {
+      "lat": 63.168137,
+      "lon": 9.754235,
+      "t": 6195.8
+    },
+    {
+      "lat": 63.168189,
+      "lon": 9.754701,
+      "t": 6220.3
+    },
+    {
+      "lat": 63.167715,
+      "lon": 9.755554,
+      "t": 6289.4
+    },
+    {
+      "lat": 63.167586,
+      "lon": 9.756095,
+      "t": 6320.6
+    },
+    {
+      "lat": 63.167858,
+      "lon": 9.757691,
+      "t": 6407.7
+    },
+    {
+      "lat": 63.169286,
+      "lon": 9.75961,
+      "t": 6596.6
+    },
+    {
+      "lat": 63.170252,
+      "lon": 9.762108,
+      "t": 6764.6
+    },
+    {
+      "lat": 63.171088,
+      "lon": 9.76321,
+      "t": 6874.6
+    },
+    {
+      "lat": 63.172532,
+      "lon": 9.766771,
+      "t": 7119
+    },
+    {
+      "lat": 63.17375,
+      "lon": 9.768071,
+      "t": 7272
+    },
+    {
+      "lat": 63.175542,
+      "lon": 9.770715,
+      "t": 7515.5
+    },
+    {
+      "lat": 63.17608,
+      "lon": 9.774294,
+      "t": 7708
+    },
+    {
+      "lat": 63.176211,
+      "lon": 9.776684,
+      "t": 7830.9
+    },
+    {
+      "lat": 63.17603,
+      "lon": 9.777487,
+      "t": 7876.8
+    },
+    {
+      "lat": 63.175391,
+      "lon": 9.778554,
+      "t": 7967.3
+    },
+    {
+      "lat": 63.17508,
+      "lon": 9.780829,
+      "t": 8088.6
+    },
+    {
+      "lat": 63.174619,
+      "lon": 9.782621,
+      "t": 8193.9
+    },
+    {
+      "lat": 63.174634,
+      "lon": 9.784344,
+      "t": 8281.9
+    },
+    {
+      "lat": 63.174889,
+      "lon": 9.786178,
+      "t": 8379.8
+    },
+    {
+      "lat": 63.175134,
+      "lon": 9.786541,
+      "t": 8413.2
+    },
+    {
+      "lat": 63.175746,
+      "lon": 9.786629,
+      "t": 8482.5
+    },
+    {
+      "lat": 63.176297,
+      "lon": 9.787145,
+      "t": 8550.2
+    },
+    {
+      "lat": 63.176831,
+      "lon": 9.787311,
+      "t": 8611.2
+    },
+    {
+      "lat": 63.177556,
+      "lon": 9.788048,
+      "t": 8701.4
+    },
+    {
+      "lat": 63.178782,
+      "lon": 9.788179,
+      "t": 8840.3
+    },
+    {
+      "lat": 63.180093,
+      "lon": 9.789341,
+      "t": 9000
+    }
+  ],
+  "totalDistanceMeters": 8846.9,
+  "theirActiveSeconds": 9000,
+  "moments": [
+    {
+      "id": "stage-start",
+      "frac": 0,
+      "kind": "waypoint",
+      "label": "Løkken Verk",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 63.125799,
+        "lon": 9.704829
+      },
+      "pin": {
+        "lat": 63.1257479,
+        "lon": 9.7053282
+      }
+    },
+    {
+      "id": "stage-end",
+      "frac": 0.9990880273543772,
+      "kind": "waypoint",
+      "label": "Hongslo",
+      "icon": "house.lodge",
+      "at": {
+        "lat": 63.18002562900552,
+        "lon": 9.789281285968283
+      },
+      "pin": {
+        "lat": 63.1802353,
+        "lon": 9.7881193
+      }
+    }
+  ],
+  "marks": [
+    {
+      "id": "wp-osm-transport-node7099991730",
+      "kind": "transport",
+      "name": "Løkken skole",
+      "at": {
+        "lat": 63.126089,
+        "lon": 9.706837
+      },
+      "frac": 0.00474571445809385,
+      "offLineMeters": 97.3
+    },
+    {
+      "id": "wp-osm-transport-node8067741570",
+      "kind": "transport",
+      "name": "Langeng gård",
+      "at": {
+        "lat": 63.130335,
+        "lon": 9.705064
+      },
+      "frac": 0.05713839828430292,
+      "offLineMeters": 8.2
+    },
+    {
+      "id": "wp-osm-transport-node7099990326",
+      "kind": "transport",
+      "name": "Bjørnliveien",
+      "at": {
+        "lat": 63.134513,
+        "lon": 9.707738
+      },
+      "frac": 0.11185660467353373,
+      "offLineMeters": 1.4
+    },
+    {
+      "id": "wp-osm-transport-node7099990328",
+      "kind": "transport",
+      "name": "Bjørnliveien",
+      "at": {
+        "lat": 63.135173,
+        "lon": 9.707547
+      },
+      "frac": 0.12015309256031598,
+      "offLineMeters": 8.1
+    },
+    {
+      "id": "wp-osm-transport-node7099991610",
+      "kind": "transport",
+      "name": "Jordhus",
+      "at": {
+        "lat": 63.139675,
+        "lon": 9.707295
+      },
+      "frac": 0.17724230178882008,
+      "offLineMeters": 1.7
+    },
+    {
+      "id": "wp-osm-transport-node8067741564",
+      "kind": "transport",
+      "name": "Amundmoen",
+      "at": {
+        "lat": 63.14447,
+        "lon": 9.711292
+      },
+      "frac": 0.23985490995294154,
+      "offLineMeters": 105.7
+    },
+    {
+      "id": "wp-osm-transport-node7099989359",
+      "kind": "transport",
+      "name": "Skjøtskift",
+      "at": {
+        "lat": 63.147353,
+        "lon": 9.713647
+      },
+      "frac": 0.2771660698830106,
+      "offLineMeters": 194.1
+    },
+    {
+      "id": "wp-osm-transport-node7099989349",
+      "kind": "transport",
+      "name": "Skjøtskift bru",
+      "at": {
+        "lat": 63.15093,
+        "lon": 9.71659
+      },
+      "frac": 0.34461401633643574,
+      "offLineMeters": 6.4
+    },
+    {
+      "id": "wp-osm-transport-node5526330457",
+      "kind": "transport",
+      "name": "Klinghåmmår'n",
+      "at": {
+        "lat": 63.157701,
+        "lon": 9.726125
+      },
+      "frac": 0.44718585571852565,
+      "offLineMeters": 161.8
+    },
+    {
+      "id": "wp-osm-transport-node10896648068",
+      "kind": "transport",
+      "name": "Malmplassen",
+      "at": {
+        "lat": 63.165649,
+        "lon": 9.752823
+      },
+      "frac": 0.6536416192560404,
+      "offLineMeters": 5.9
+    },
+    {
+      "id": "wp-osm-transport-node7099991780",
+      "kind": "transport",
+      "name": "Talleråsen",
+      "at": {
+        "lat": 63.17108,
+        "lon": 9.76325
+      },
+      "frac": 0.7639485560897195,
+      "offLineMeters": 2
+    },
+    {
+      "id": "wp-osm-accommodation-node12881707301",
+      "kind": "bed",
+      "name": "Gumdal Farm",
+      "at": {
+        "lat": 63.176512,
+        "lon": 9.772661
+      },
+      "frac": 0.8493755737481756,
+      "offLineMeters": 71.5
+    },
+    {
+      "id": "wp-osm-transport-node10896648070",
+      "kind": "transport",
+      "name": "Gumdalen",
+      "at": {
+        "lat": 63.175878,
+        "lon": 9.773197
+      },
+      "frac": 0.8497440490380833,
+      "offLineMeters": 3.9
+    },
+    {
+      "id": "wp-osm-transport-node10896648072",
+      "kind": "transport",
+      "name": "Litlmoen",
+      "at": {
+        "lat": 63.17461,
+        "lon": 9.783218
+      },
+      "frac": 0.9138167417655104,
+      "offLineMeters": 1.6
+    }
+  ],
+  "stage": {
+    "routeId": "st-olav-ways-gudbrandsdalsleden",
+    "index": 21,
+    "count": 24,
+    "name": "Løkken Verk to Hongslo",
+    "theme": "A short day",
+    "narrative": "Only 8.9 km, from Løkken Verk to Hongslo by Gumdal Farm, because the next mapped bed near the line after it is 34.6 km further on. 140 m of climbing, 150 m of descent.",
+    "closing": "An afternoon with nowhere to be. How do you spend it?",
+    "warnings": [],
+    "distanceKm": 8.9,
+    "gainMeters": 140,
+    "hours": {
+      "min": 2,
+      "max": 3
+    },
+    "difficulty": "",
+    "start": {
+      "name": "Løkken Verk",
+      "at": {
+        "lat": 63.1257479,
+        "lon": 9.7053282
+      }
+    },
+    "end": {
+      "name": "Hongslo",
+      "at": {
+        "lat": 63.1802353,
+        "lon": 9.7881193
+      }
+    }
+  }
+}

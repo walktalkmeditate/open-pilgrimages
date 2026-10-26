@@ -1,0 +1,1227 @@
+{
+  "schemaVersion": "1.0.0",
+  "routeId": "st-olav-ways-gudbrandsdalsleden",
+  "stageCount": 24,
+  "stages": [
+    {
+      "index": 0,
+      "name": {
+        "en": "Mariakirken to Sæteren gård",
+        "nb": "Mariakirken–Sæteren gård"
+      },
+      "start": {
+        "name": {
+          "en": "Mariakirken"
+        },
+        "coordinates": [
+          10.7617508,
+          59.9034732,
+          10
+        ],
+        "note": "OpenStreetMap node/2452502718 (historic=monument, name=Mariakirken), at the ruins of St Mary's Church in Oslo's medieval town — way/257875433 (historic=ruins, wikidata=Q1133099), which Wikidata's item for the church, Q1133099, names as its OpenStreetMap way (P10689). The walked line begins at relation 1370273's own southern end, 65 m from this node."
+      },
+      "end": {
+        "name": {
+          "en": "Sæteren gård"
+        },
+        "coordinates": [
+          10.5621885,
+          59.9478038,
+          190
+        ],
+        "note": "OpenStreetMap node/530783833 (name=Sæteren gård, tourism=wilderness_hut), 372 m from the walked line. Chosen inside the 20-30 km band. The lodging is itself the anchor: no settlement node lies within 1.5 km of it."
+      },
+      "distanceKm": 23.4,
+      "elevationGainMeters": 300,
+      "elevationLossMeters": 120,
+      "highPointMeters": 210,
+      "lowPointMeters": 10,
+      "estimatedHours": {
+        "min": 5,
+        "max": 7
+      },
+      "interior": {
+        "theme": {
+          "en": "Out through the old town"
+        },
+        "narrative": {
+          "en": "The way begins among the ruins of St Mary's Church in Oslo's medieval town and leaves the city on foot. It passes close to Gamle Aker kirke about four and a half kilometres in, then a run of city churches and suburbs, and passes Haslum some twenty kilometres out. The day ends at Sæteren gård, 23.4 km from the start, having climbed 300 m and come down 120 m, with its high point at 210 m."
+        },
+        "reflection": {
+          "en": "You leave from the ruins of a church to walk to a cathedral. What are you carrying out of the city with you?"
+        }
+      },
+      "drafted": true
+    },
+    {
+      "index": 1,
+      "name": {
+        "en": "Sæteren gård to Sundvollen",
+        "nb": "Sæteren gård–Sundvollen"
+      },
+      "start": {
+        "name": {
+          "en": "Sæteren gård"
+        },
+        "coordinates": [
+          10.5621885,
+          59.9478038,
+          190
+        ],
+        "note": "OpenStreetMap node/530783833 (name=Sæteren gård, tourism=wilderness_hut), 372 m from the walked line. Chosen inside the 20-30 km band. The lodging is itself the anchor: no settlement node lies within 1.5 km of it."
+      },
+      "end": {
+        "name": {
+          "en": "Sundvollen"
+        },
+        "coordinates": [
+          10.3071438,
+          60.062583,
+          70
+        ],
+        "note": "OpenStreetMap node/6234312533 (name=Sundvollen, place=village, wikidata=Q2385157), 8 m from the walked line. Chosen inside the 20-30 km band. Chosen for Sundvolden hotell (OpenStreetMap way/697935467), a named lodging within 1.5 km."
+      },
+      "distanceKm": 24.9,
+      "elevationGainMeters": 460,
+      "elevationLossMeters": 570,
+      "highPointMeters": 500,
+      "lowPointMeters": 70,
+      "estimatedHours": {
+        "min": 6,
+        "max": 8
+      },
+      "interior": {
+        "theme": {
+          "en": "A day without villages"
+        },
+        "narrative": {
+          "en": "From Sæteren gård to Sundvollen OpenStreetMap records no village and no church within reach of the line: 24.9 km between one bed and the next. The day rises to 500 m and drops to 70 m before Sundvollen, 460 m of climbing and 570 m of descent in all."
+        },
+        "reflection": {
+          "en": "With nothing to arrive at until evening, where does your attention go?"
+        }
+      },
+      "drafted": true
+    },
+    {
+      "index": 2,
+      "name": {
+        "en": "Sundvollen to Klekken",
+        "nb": "Sundvollen–Klekken"
+      },
+      "start": {
+        "name": {
+          "en": "Sundvollen"
+        },
+        "coordinates": [
+          10.3071438,
+          60.062583,
+          70
+        ],
+        "note": "OpenStreetMap node/6234312533 (name=Sundvollen, place=village, wikidata=Q2385157), 8 m from the walked line. Chosen inside the 20-30 km band. Chosen for Sundvolden hotell (OpenStreetMap way/697935467), a named lodging within 1.5 km."
+      },
+      "end": {
+        "name": {
+          "en": "Klekken"
+        },
+        "coordinates": [
+          10.3180985,
+          60.1649375,
+          200
+        ],
+        "note": "OpenStreetMap node/9665422415 (name=Klekken, place=hamlet), 476 m from the walked line. Chosen inside the 20-30 km band. Chosen for Klækken Hotell (OpenStreetMap node/1259163400), a named lodging within 1.5 km."
+      },
+      "distanceKm": 24.9,
+      "elevationGainMeters": 310,
+      "elevationLossMeters": 180,
+      "highPointMeters": 210,
+      "lowPointMeters": 60,
+      "estimatedHours": {
+        "min": 5,
+        "max": 8
+      },
+      "interior": {
+        "theme": {
+          "en": "Two churches on the way"
+        },
+        "narrative": {
+          "en": "Out of Sundvollen the way passes Vik early on, then two old parish churches set close to the line: Hole kirke a little under thirteen kilometres in, and Norderhov kirke at about twenty. It ends at Klekken after 24.9 km, with 310 m of ascent and 180 m of descent."
+        },
+        "reflection": {
+          "en": "Two churches in an afternoon. What would you stop to ask in each?"
+        }
+      },
+      "drafted": true
+    },
+    {
+      "index": 3,
+      "name": {
+        "en": "Klekken to Granavollen",
+        "nb": "Klekken–Granavollen"
+      },
+      "start": {
+        "name": {
+          "en": "Klekken"
+        },
+        "coordinates": [
+          10.3180985,
+          60.1649375,
+          200
+        ],
+        "note": "OpenStreetMap node/9665422415 (name=Klekken, place=hamlet), 476 m from the walked line. Chosen inside the 20-30 km band. Chosen for Klækken Hotell (OpenStreetMap node/1259163400), a named lodging within 1.5 km."
+      },
+      "end": {
+        "name": {
+          "en": "Granavollen"
+        },
+        "coordinates": [
+          10.5286056,
+          60.366825,
+          350
+        ],
+        "note": "OpenStreetMap node/9076113060 (name=Granavollen, place=hamlet), 0 m from the walked line. Chosen by the fallback arm, the band holding no candidate. Chosen for Granavolden Gjæstgiveri (OpenStreetMap node/1902970226), a named lodging within 1.5 km."
+      },
+      "distanceKm": 31.3,
+      "elevationGainMeters": 600,
+      "elevationLossMeters": 450,
+      "highPointMeters": 410,
+      "lowPointMeters": 150,
+      "estimatedHours": {
+        "min": 7,
+        "max": 10
+      },
+      "interior": {
+        "theme": {
+          "en": "To the sister churches"
+        },
+        "narrative": {
+          "en": "This is a long day, 31.3 km, because OpenStreetMap shows no bed between 20 and 30 km out of Klekken. It passes Haug kirke in its first kilometre and Jevnaker kirke at about thirteen and a half, and ends at Granavollen, where two churches, Mariakirken and Nikolaikirken, stand side by side as Søsterkirkene, the sister churches. 600 m up, 450 m down, the high point 410 m."
+        },
+        "reflection": {
+          "en": "Two churches built side by side. Who walks beside you, even when you walk alone?"
+        }
+      },
+      "drafted": true
+    },
+    {
+      "index": 4,
+      "name": {
+        "en": "Granavollen to Alstad",
+        "nb": "Granavollen–Alstad"
+      },
+      "start": {
+        "name": {
+          "en": "Granavollen"
+        },
+        "coordinates": [
+          10.5286056,
+          60.366825,
+          350
+        ],
+        "note": "OpenStreetMap node/9076113060 (name=Granavollen, place=hamlet), 0 m from the walked line. Chosen by the fallback arm, the band holding no candidate. Chosen for Granavolden Gjæstgiveri (OpenStreetMap node/1902970226), a named lodging within 1.5 km."
+      },
+      "end": {
+        "name": {
+          "en": "Alstad"
+        },
+        "coordinates": [
+          10.8203049,
+          60.6811228,
+          250
+        ],
+        "note": "OpenStreetMap node/9702200235 (name=Alstad, place=hamlet), 383 m from the walked line. Chosen by the fallback arm, the band holding no candidate. Chosen for Hoff Gjestgiveri (OpenStreetMap way/928625231), a named lodging within 1.5 km."
+      },
+      "distanceKm": 49.6,
+      "elevationGainMeters": 700,
+      "elevationLossMeters": 820,
+      "highPointMeters": 660,
+      "lowPointMeters": 170,
+      "estimatedHours": {
+        "min": 11,
+        "max": 16
+      },
+      "interior": {
+        "theme": {
+          "en": "The longest day"
+        },
+        "narrative": {
+          "en": "49.6 km, the longest stage of the route, and long only because OpenStreetMap maps no bed between 20 and 30 km out of Granavollen. It passes Tingelstad gamle kirke within the first three and a half kilometres, then Brandbu, and much later Kolbu kirke and Lena, before Alstad. It climbs 700 m and descends 820 m. The stage marks where the map shows a bed, not a recommended day."
+        },
+        "reflection": {
+          "en": "When a day is longer than you would choose, what do you let go of to finish it?"
+        }
+      },
+      "drafted": true,
+      "warnings": [
+        {
+          "en": "49.6 km. This stage is long because OpenStreetMap maps no lodging within 500 m of the line between 20 and 30 km from its start, so the day rule had nowhere nearer to end it. Plan a bed off the line, or split the day, before setting out."
+        }
+      ]
+    },
+    {
+      "index": 5,
+      "name": {
+        "en": "Alstad to Gjøvik",
+        "nb": "Alstad–Gjøvik"
+      },
+      "start": {
+        "name": {
+          "en": "Alstad"
+        },
+        "coordinates": [
+          10.8203049,
+          60.6811228,
+          250
+        ],
+        "note": "OpenStreetMap node/9702200235 (name=Alstad, place=hamlet), 383 m from the walked line. Chosen by the fallback arm, the band holding no candidate. Chosen for Hoff Gjestgiveri (OpenStreetMap way/928625231), a named lodging within 1.5 km."
+      },
+      "end": {
+        "name": {
+          "en": "Gjøvik"
+        },
+        "coordinates": [
+          10.6934904,
+          60.796633,
+          160
+        ],
+        "note": "OpenStreetMap node/31264090 (name=Gjøvik, place=town, wikidata=Q5420717), 414 m from the walked line. Chosen inside the 20-30 km band. Chosen for Brusveen gård (OpenStreetMap node/6808271311), a named lodging within 1.5 km."
+      },
+      "distanceKm": 24.4,
+      "elevationGainMeters": 170,
+      "elevationLossMeters": 250,
+      "highPointMeters": 290,
+      "lowPointMeters": 120,
+      "estimatedHours": {
+        "min": 5,
+        "max": 7
+      },
+      "interior": {
+        "theme": {
+          "en": "Into Gjøvik"
+        },
+        "narrative": {
+          "en": "The day starts beside Hoff kirke, passes Kapp kirke and the village of Kapp, and ends in the town of Gjøvik by Gjøvik kirke: 24.4 km, 170 m of ascent, 250 m of descent."
+        },
+        "reflection": {
+          "en": "After the longest day, an ordinary one. What does ordinary feel like now?"
+        }
+      },
+      "drafted": true
+    },
+    {
+      "index": 6,
+      "name": {
+        "en": "Gjøvik to Biri",
+        "nb": "Gjøvik–Biri"
+      },
+      "start": {
+        "name": {
+          "en": "Gjøvik"
+        },
+        "coordinates": [
+          10.6934904,
+          60.796633,
+          160
+        ],
+        "note": "OpenStreetMap node/31264090 (name=Gjøvik, place=town, wikidata=Q5420717), 414 m from the walked line. Chosen inside the 20-30 km band. Chosen for Brusveen gård (OpenStreetMap node/6808271311), a named lodging within 1.5 km."
+      },
+      "end": {
+        "name": {
+          "en": "Biri"
+        },
+        "coordinates": [
+          10.6094855,
+          60.9565725,
+          140
+        ],
+        "note": "OpenStreetMap node/317608349 (name=Biri, place=village), 25 m from the walked line. Chosen inside the 20-30 km band. Chosen for Vertshuset V-E6 (OpenStreetMap node/6808271312), a named lodging within 1.5 km."
+      },
+      "distanceKm": 22.7,
+      "elevationGainMeters": 520,
+      "elevationLossMeters": 520,
+      "highPointMeters": 360,
+      "lowPointMeters": 130,
+      "estimatedHours": {
+        "min": 5,
+        "max": 8
+      },
+      "interior": {
+        "theme": {
+          "en": "Between towns"
+        },
+        "narrative": {
+          "en": "Out of Gjøvik the line passes Redalen about halfway and reaches Biri after 22.7 km. It climbs 520 m and descends 520 m, between a low of 130 m and a high of 360 m."
+        },
+        "reflection": {
+          "en": "Halfway between two places, which one are you thinking about?"
+        }
+      },
+      "drafted": true
+    },
+    {
+      "index": 7,
+      "name": {
+        "en": "Biri to Vingnes",
+        "nb": "Biri–Vingnes"
+      },
+      "start": {
+        "name": {
+          "en": "Biri"
+        },
+        "coordinates": [
+          10.6094855,
+          60.9565725,
+          140
+        ],
+        "note": "OpenStreetMap node/317608349 (name=Biri, place=village), 25 m from the walked line. Chosen inside the 20-30 km band. Chosen for Vertshuset V-E6 (OpenStreetMap node/6808271312), a named lodging within 1.5 km."
+      },
+      "end": {
+        "name": {
+          "en": "Vingnes"
+        },
+        "coordinates": [
+          10.4444687,
+          61.1053344,
+          130
+        ],
+        "note": "OpenStreetMap node/7157414792 (name=Vingnes, place=suburb), 13 m from the walked line. Chosen inside the 20-30 km band. Chosen for Suttestad gård (OpenStreetMap node/6808271322), a named lodging within 1.5 km."
+      },
+      "distanceKm": 25.4,
+      "elevationGainMeters": 250,
+      "elevationLossMeters": 260,
+      "highPointMeters": 230,
+      "lowPointMeters": 120,
+      "estimatedHours": {
+        "min": 5,
+        "max": 8
+      },
+      "interior": {
+        "theme": {
+          "en": "Towards Lillehammer"
+        },
+        "narrative": {
+          "en": "The day leaves Biri past Biri kirke, passes two campsites, then Vingrom and Vingrom kirke, and ends at Vingnes, across from Lillehammer: 25.4 km, 250 m up and 260 m down."
+        },
+        "reflection": {
+          "en": "The next town is in sight before the day is over. How do you walk the last stretch?"
+        }
+      },
+      "drafted": true
+    },
+    {
+      "index": 8,
+      "name": {
+        "en": "Vingnes to Kruke",
+        "nb": "Vingnes–Kruke"
+      },
+      "start": {
+        "name": {
+          "en": "Vingnes"
+        },
+        "coordinates": [
+          10.4444687,
+          61.1053344,
+          130
+        ],
+        "note": "OpenStreetMap node/7157414792 (name=Vingnes, place=suburb), 13 m from the walked line. Chosen inside the 20-30 km band. Chosen for Suttestad gård (OpenStreetMap node/6808271322), a named lodging within 1.5 km."
+      },
+      "end": {
+        "name": {
+          "en": "Kruke"
+        },
+        "coordinates": [
+          10.4221119,
+          61.2763732,
+          480
+        ],
+        "note": "OpenStreetMap node/9659906306 (name=Kruke, place=hamlet), 116 m from the walked line. Chosen inside the 20-30 km band. Chosen for Skåden Gard (OpenStreetMap node/1821221821), a named lodging within 1.5 km."
+      },
+      "distanceKm": 25.2,
+      "elevationGainMeters": 660,
+      "elevationLossMeters": 290,
+      "highPointMeters": 500,
+      "lowPointMeters": 120,
+      "estimatedHours": {
+        "min": 6,
+        "max": 9
+      },
+      "interior": {
+        "theme": {
+          "en": "Through Lillehammer"
+        },
+        "narrative": {
+          "en": "Within two kilometres the way is in Lillehammer, past Lillehammer kirke, and then it goes on north through Fåberg. The day ends at Kruke, by Skåden Gard, 25.2 km on, after 660 m of climbing and 290 m of descent."
+        },
+        "reflection": {
+          "en": "A town full of beds, and you walk on through it. What makes you keep going?"
+        }
+      },
+      "drafted": true
+    },
+    {
+      "index": 9,
+      "name": {
+        "en": "Kruke to Sletring",
+        "nb": "Kruke–Sletring"
+      },
+      "start": {
+        "name": {
+          "en": "Kruke"
+        },
+        "coordinates": [
+          10.4221119,
+          61.2763732,
+          480
+        ],
+        "note": "OpenStreetMap node/9659906306 (name=Kruke, place=hamlet), 116 m from the walked line. Chosen inside the 20-30 km band. Chosen for Skåden Gard (OpenStreetMap node/1821221821), a named lodging within 1.5 km."
+      },
+      "end": {
+        "name": {
+          "en": "Sletring"
+        },
+        "coordinates": [
+          10.2409167,
+          61.4125389,
+          290
+        ],
+        "note": "OpenStreetMap node/9634874637 (name=Sletring, place=hamlet), 379 m from the walked line. Chosen inside the 20-30 km band. Chosen for Fåvang Turistsenter (OpenStreetMap node/3663314987), a named lodging within 1.5 km."
+      },
+      "distanceKm": 24.9,
+      "elevationGainMeters": 660,
+      "elevationLossMeters": 860,
+      "highPointMeters": 590,
+      "lowPointMeters": 230,
+      "estimatedHours": {
+        "min": 6,
+        "max": 8
+      },
+      "interior": {
+        "theme": {
+          "en": "A loft for pilgrims"
+        },
+        "narrative": {
+          "en": "No church and no village lies near the line on this stage, but about twelve kilometres in it passes Pilegrimsloftet Borkerud, a hostel whose name means the pilgrims' loft. It ends at Sletring after 24.9 km, with 660 m of ascent and 860 m of descent."
+        },
+        "reflection": {
+          "en": "Someone made a room for walkers like you. What would you leave behind for the next one?"
+        }
+      },
+      "drafted": true
+    },
+    {
+      "index": 10,
+      "name": {
+        "en": "Sletring to Frya",
+        "nb": "Sletring–Frya"
+      },
+      "start": {
+        "name": {
+          "en": "Sletring"
+        },
+        "coordinates": [
+          10.2409167,
+          61.4125389,
+          290
+        ],
+        "note": "OpenStreetMap node/9634874637 (name=Sletring, place=hamlet), 379 m from the walked line. Chosen inside the 20-30 km band. Chosen for Fåvang Turistsenter (OpenStreetMap node/3663314987), a named lodging within 1.5 km."
+      },
+      "end": {
+        "name": {
+          "en": "Frya"
+        },
+        "coordinates": [
+          10.0452592,
+          61.5488438,
+          230
+        ],
+        "note": "OpenStreetMap node/3042543294 (name=Frya, place=village), 188 m from the walked line. Chosen inside the 20-30 km band. Chosen for Enden Camping (OpenStreetMap node/3663314596), a named lodging within 1.5 km."
+      },
+      "distanceKm": 24.7,
+      "elevationGainMeters": 390,
+      "elevationLossMeters": 440,
+      "highPointMeters": 400,
+      "lowPointMeters": 190,
+      "estimatedHours": {
+        "min": 6,
+        "max": 8
+      },
+      "interior": {
+        "theme": {
+          "en": "The stave church"
+        },
+        "narrative": {
+          "en": "About fourteen kilometres in the way passes Ringebu stavkyrkje, the stave church at Ringebu, then the village itself, and ends at Frya: 24.7 km, 390 m up, 440 m down."
+        },
+        "reflection": {
+          "en": "A church built of wood has stood long enough to be called old. What in you has lasted that long?"
+        }
+      },
+      "drafted": true
+    },
+    {
+      "index": 11,
+      "name": {
+        "en": "Frya to Klomstad",
+        "nb": "Frya–Klomstad"
+      },
+      "start": {
+        "name": {
+          "en": "Frya"
+        },
+        "coordinates": [
+          10.0452592,
+          61.5488438,
+          230
+        ],
+        "note": "OpenStreetMap node/3042543294 (name=Frya, place=village), 188 m from the walked line. Chosen inside the 20-30 km band. Chosen for Enden Camping (OpenStreetMap node/3663314596), a named lodging within 1.5 km."
+      },
+      "end": {
+        "name": {
+          "en": "Klomstad"
+        },
+        "coordinates": [
+          9.7096326,
+          61.6677341,
+          310
+        ],
+        "note": "OpenStreetMap node/9633674428 (name=Klomstad, place=hamlet), 127 m from the walked line. Chosen inside the 20-30 km band. Chosen for Vertshuset Sinclair (OpenStreetMap node/2248480444), a named lodging within 1.5 km."
+      },
+      "distanceKm": 29.8,
+      "elevationGainMeters": 860,
+      "elevationLossMeters": 780,
+      "highPointMeters": 600,
+      "lowPointMeters": 210,
+      "estimatedHours": {
+        "min": 7,
+        "max": 10
+      },
+      "interior": {
+        "theme": {
+          "en": "Farms along the valley"
+        },
+        "narrative": {
+          "en": "Over 29.8 km the way passes the farm lodgings of Rudi gard and Sygard Grytting about nine kilometres in and ends at Klomstad, with 860 m of ascent and 780 m of descent."
+        },
+        "reflection": {
+          "en": "Farms that take in walkers. What does it mean to be a guest?"
+        }
+      },
+      "drafted": true
+    },
+    {
+      "index": 12,
+      "name": {
+        "en": "Klomstad to Rukin",
+        "nb": "Klomstad–Rukin"
+      },
+      "start": {
+        "name": {
+          "en": "Klomstad"
+        },
+        "coordinates": [
+          9.7096326,
+          61.6677341,
+          310
+        ],
+        "note": "OpenStreetMap node/9633674428 (name=Klomstad, place=hamlet), 127 m from the walked line. Chosen inside the 20-30 km band. Chosen for Vertshuset Sinclair (OpenStreetMap node/2248480444), a named lodging within 1.5 km."
+      },
+      "end": {
+        "name": {
+          "en": "Rukin"
+        },
+        "coordinates": [
+          9.561868,
+          61.8035597,
+          320
+        ],
+        "note": "OpenStreetMap node/9633049508 (name=Rukin, place=hamlet), 483 m from the walked line. Chosen inside the 20-30 km band. Chosen for Otta Turistsenter (OpenStreetMap node/3663316162), a named lodging within 1.5 km."
+      },
+      "distanceKm": 25.4,
+      "elevationGainMeters": 720,
+      "elevationLossMeters": 710,
+      "highPointMeters": 580,
+      "lowPointMeters": 230,
+      "estimatedHours": {
+        "min": 6,
+        "max": 9
+      },
+      "interior": {
+        "theme": {
+          "en": "Past Kvam and Sjoa"
+        },
+        "narrative": {
+          "en": "Kvam comes early, then two campsites at Sjoa a little after halfway; the day ends at Rukin, near Otta Turistsenter, after 25.4 km. 720 m of climbing, 710 m of descent, the high point 580 m."
+        },
+        "reflection": {
+          "en": "The valley narrows the choices. Which ones are you glad not to have?"
+        }
+      },
+      "drafted": true
+    },
+    {
+      "index": 13,
+      "name": {
+        "en": "Rukin to Rindal",
+        "nb": "Rukin–Rindal"
+      },
+      "start": {
+        "name": {
+          "en": "Rukin"
+        },
+        "coordinates": [
+          9.561868,
+          61.8035597,
+          320
+        ],
+        "note": "OpenStreetMap node/9633049508 (name=Rukin, place=hamlet), 483 m from the walked line. Chosen inside the 20-30 km band. Chosen for Otta Turistsenter (OpenStreetMap node/3663316162), a named lodging within 1.5 km."
+      },
+      "end": {
+        "name": {
+          "en": "Rindal"
+        },
+        "coordinates": [
+          9.3228182,
+          61.9351626,
+          620
+        ],
+        "note": "OpenStreetMap node/9632876382 (name=Rindal, place=hamlet), 326 m from the walked line. Chosen inside the 20-30 km band. Chosen for Dovreskogen Camping (OpenStreetMap way/299738523), a named lodging within 1.5 km."
+      },
+      "distanceKm": 25.2,
+      "elevationGainMeters": 580,
+      "elevationLossMeters": 290,
+      "highPointMeters": 620,
+      "lowPointMeters": 280,
+      "estimatedHours": {
+        "min": 6,
+        "max": 8
+      },
+      "interior": {
+        "theme": {
+          "en": "Sel and Nord-Sel"
+        },
+        "narrative": {
+          "en": "The stage starts beside Sel kirke and passes Nord-Sel kirke at about eleven kilometres, then Dovreskogen before Rindal: 25.2 km, 580 m up and 290 m down."
+        },
+        "reflection": {
+          "en": "Two churches with one name between them. What do you share with the people who walked here before?"
+        }
+      },
+      "drafted": true
+    },
+    {
+      "index": 14,
+      "name": {
+        "en": "Rindal to Fokstugu fjellstue",
+        "nb": "Rindal–Fokstugu fjellstue"
+      },
+      "start": {
+        "name": {
+          "en": "Rindal"
+        },
+        "coordinates": [
+          9.3228182,
+          61.9351626,
+          620
+        ],
+        "note": "OpenStreetMap node/9632876382 (name=Rindal, place=hamlet), 326 m from the walked line. Chosen inside the 20-30 km band. Chosen for Dovreskogen Camping (OpenStreetMap way/299738523), a named lodging within 1.5 km."
+      },
+      "end": {
+        "name": {
+          "en": "Fokstugu fjellstue"
+        },
+        "coordinates": [
+          9.287377,
+          62.1142695,
+          970
+        ],
+        "note": "OpenStreetMap way/298217058 (building=church, name=Fokstugu fjellstue, tourism=chalet), 40 m from the walked line. Chosen inside the 20-30 km band. The lodging is itself the anchor: no settlement node lies within 1.5 km of it."
+      },
+      "distanceKm": 24.7,
+      "elevationGainMeters": 840,
+      "elevationLossMeters": 480,
+      "highPointMeters": 1210,
+      "lowPointMeters": 470,
+      "estimatedHours": {
+        "min": 6,
+        "max": 9
+      },
+      "interior": {
+        "theme": {
+          "en": "Up to Fokstugu"
+        },
+        "narrative": {
+          "en": "The way passes Dovre and Dovre kyrkje before eight kilometres, then Pilgrimsgården Busjord, and follows the old King's Road, Kongeveien over Dovre, up to Fokstugu fjellstue. The day climbs 840 m and descends 480 m over 24.7 km, its high point 1,210 m."
+        },
+        "reflection": {
+          "en": "The road climbs out of the valley. What do you hope to see from higher up?"
+        }
+      },
+      "drafted": true
+    },
+    {
+      "index": 15,
+      "name": {
+        "en": "Fokstugu fjellstue to Hjerkinn fjellstue",
+        "nb": "Fokstugu fjellstue–Hjerkinn fjellstue"
+      },
+      "start": {
+        "name": {
+          "en": "Fokstugu fjellstue"
+        },
+        "coordinates": [
+          9.287377,
+          62.1142695,
+          970
+        ],
+        "note": "OpenStreetMap way/298217058 (building=church, name=Fokstugu fjellstue, tourism=chalet), 40 m from the walked line. Chosen inside the 20-30 km band. The lodging is itself the anchor: no settlement node lies within 1.5 km of it."
+      },
+      "end": {
+        "name": {
+          "en": "Hjerkinn fjellstue"
+        },
+        "coordinates": [
+          9.5771009,
+          62.2220862,
+          950
+        ],
+        "note": "OpenStreetMap node/1873483825 (name=Hjerkinn fjellstue, tourism=alpine_hut), 24 m from the walked line. Chosen inside the 20-30 km band. The lodging is itself the anchor: no settlement node lies within 1.5 km of it."
+      },
+      "distanceKm": 24.5,
+      "elevationGainMeters": 340,
+      "elevationLossMeters": 370,
+      "highPointMeters": 1200,
+      "lowPointMeters": 900,
+      "estimatedHours": {
+        "min": 5,
+        "max": 8
+      },
+      "interior": {
+        "theme": {
+          "en": "Across Dovrefjell"
+        },
+        "narrative": {
+          "en": "From Fokstugu the King's Road crosses Dovrefjell to Hageseter, nearly twenty kilometres on, and then to Hjerkinn fjellstue: 24.5 km, between 900 m and 1,200 m, with 340 m of ascent and 370 m of descent."
+        },
+        "reflection": {
+          "en": "Up here there is a great deal of sky. What feels small, and what feels large?"
+        }
+      },
+      "drafted": true
+    },
+    {
+      "index": 16,
+      "name": {
+        "en": "Hjerkinn fjellstue to Ryphusan",
+        "nb": "Hjerkinn fjellstue–Ryphusan"
+      },
+      "start": {
+        "name": {
+          "en": "Hjerkinn fjellstue"
+        },
+        "coordinates": [
+          9.5771009,
+          62.2220862,
+          950
+        ],
+        "note": "OpenStreetMap node/1873483825 (name=Hjerkinn fjellstue, tourism=alpine_hut), 24 m from the walked line. Chosen inside the 20-30 km band. The lodging is itself the anchor: no settlement node lies within 1.5 km of it."
+      },
+      "end": {
+        "name": {
+          "en": "Ryphusan"
+        },
+        "coordinates": [
+          9.7026187,
+          62.4209351,
+          1100
+        ],
+        "note": "OpenStreetMap node/4363452794 (name=Ryphusan, tourism=wilderness_hut), 27 m from the walked line. Chosen by the fallback arm, the band holding no candidate. The lodging is itself the anchor: no settlement node lies within 1.5 km of it."
+      },
+      "distanceKm": 34.2,
+      "elevationGainMeters": 1120,
+      "elevationLossMeters": 960,
+      "highPointMeters": 1310,
+      "lowPointMeters": 840,
+      "estimatedHours": {
+        "min": 9,
+        "max": 12
+      },
+      "interior": {
+        "theme": {
+          "en": "Past Eysteinkyrkja"
+        },
+        "narrative": {
+          "en": "A kilometre out of Hjerkinn the way passes Eysteinkyrkja, then Kongsvold Fjeldstue at about thirteen kilometres, and goes on to Ryphusan: 34.2 km, long because OpenStreetMap maps no bed between 20 and 30 km out of Hjerkinn. It climbs 1,120 m and descends 960 m."
+        },
+        "reflection": {
+          "en": "A long day after the high ground. How do you pace yourself when you cannot see the end?"
+        }
+      },
+      "drafted": true,
+      "warnings": [
+        {
+          "en": "34.2 km. This stage is long because OpenStreetMap maps no lodging within 500 m of the line between 20 and 30 km from its start, so the day rule had nowhere nearer to end it. Plan a bed off the line, or split the day, before setting out."
+        }
+      ]
+    },
+    {
+      "index": 17,
+      "name": {
+        "en": "Ryphusan to Aungrenda",
+        "nb": "Ryphusan–Aungrenda"
+      },
+      "start": {
+        "name": {
+          "en": "Ryphusan"
+        },
+        "coordinates": [
+          9.7026187,
+          62.4209351,
+          1100
+        ],
+        "note": "OpenStreetMap node/4363452794 (name=Ryphusan, tourism=wilderness_hut), 27 m from the walked line. Chosen by the fallback arm, the band holding no candidate. The lodging is itself the anchor: no settlement node lies within 1.5 km of it."
+      },
+      "end": {
+        "name": {
+          "en": "Aungrenda"
+        },
+        "coordinates": [
+          9.6743148,
+          62.6011914,
+          570
+        ],
+        "note": "OpenStreetMap node/9628210434 (name=Aungrenda, place=hamlet), 47 m from the walked line. Chosen inside the 20-30 km band. Chosen for Oppdal Gjestetun (OpenStreetMap node/3388322556), a named lodging within 1.5 km."
+      },
+      "distanceKm": 27,
+      "elevationGainMeters": 230,
+      "elevationLossMeters": 740,
+      "highPointMeters": 1100,
+      "lowPointMeters": 480,
+      "estimatedHours": {
+        "min": 6,
+        "max": 8
+      },
+      "interior": {
+        "theme": {
+          "en": "Down to Oppdal"
+        },
+        "narrative": {
+          "en": "The day passes St. Michaels kapell, then Driva, and ends at Aungrenda near Oppdal kirke, which lies about two kilometres before the end: 27 km, 230 m of ascent and 740 m of descent."
+        },
+        "reflection": {
+          "en": "Back among houses after the mountain. What do you want to keep from up there?"
+        }
+      },
+      "drafted": true
+    },
+    {
+      "index": 18,
+      "name": {
+        "en": "Aungrenda to Hæverstølen",
+        "nb": "Aungrenda–Hæverstølen"
+      },
+      "start": {
+        "name": {
+          "en": "Aungrenda"
+        },
+        "coordinates": [
+          9.6743148,
+          62.6011914,
+          570
+        ],
+        "note": "OpenStreetMap node/9628210434 (name=Aungrenda, place=hamlet), 47 m from the walked line. Chosen inside the 20-30 km band. Chosen for Oppdal Gjestetun (OpenStreetMap node/3388322556), a named lodging within 1.5 km."
+      },
+      "end": {
+        "name": {
+          "en": "Hæverstølen"
+        },
+        "coordinates": [
+          9.9541148,
+          62.7432385,
+          530
+        ],
+        "note": "OpenStreetMap way/945271281 (building=house, name=Hæverstølen, tourism=guest_house), 32 m from the walked line. Chosen inside the 20-30 km band. The lodging is itself the anchor: no settlement node lies within 1.5 km of it."
+      },
+      "distanceKm": 24.2,
+      "elevationGainMeters": 230,
+      "elevationLossMeters": 260,
+      "highPointMeters": 710,
+      "lowPointMeters": 530,
+      "estimatedHours": {
+        "min": 5,
+        "max": 7
+      },
+      "interior": {
+        "theme": {
+          "en": "Nothing on the map"
+        },
+        "narrative": {
+          "en": "From Aungrenda to Hæverstølen OpenStreetMap records no church, no village and no other lodging near the line. 24.2 km, 230 m up, 260 m down, the high point 710 m."
+        },
+        "reflection": {
+          "en": "A day the map leaves blank. What do you fill it with?"
+        }
+      },
+      "drafted": true
+    },
+    {
+      "index": 19,
+      "name": {
+        "en": "Hæverstølen to Voll",
+        "nb": "Hæverstølen–Voll"
+      },
+      "start": {
+        "name": {
+          "en": "Hæverstølen"
+        },
+        "coordinates": [
+          9.9541148,
+          62.7432385,
+          530
+        ],
+        "note": "OpenStreetMap way/945271281 (building=house, name=Hæverstølen, tourism=guest_house), 32 m from the walked line. Chosen inside the 20-30 km band. The lodging is itself the anchor: no settlement node lies within 1.5 km of it."
+      },
+      "end": {
+        "name": {
+          "en": "Voll"
+        },
+        "coordinates": [
+          9.8394461,
+          62.8770516,
+          230
+        ],
+        "note": "OpenStreetMap node/188803442 (name=Voll, place=village), 6 m from the walked line. Chosen inside the 20-30 km band. Chosen for Nørgar Voll (OpenStreetMap way/748647214), a named lodging within 1.5 km."
+      },
+      "distanceKm": 25,
+      "elevationGainMeters": 540,
+      "elevationLossMeters": 830,
+      "highPointMeters": 540,
+      "lowPointMeters": 220,
+      "estimatedHours": {
+        "min": 6,
+        "max": 8
+      },
+      "interior": {
+        "theme": {
+          "en": "To Voll"
+        },
+        "narrative": {
+          "en": "The way passes Gjesteheim Havdal early and ends at Voll, by Rennebu kirke: 25 km, with 540 m of climbing and 830 m of descent."
+        },
+        "reflection": {
+          "en": "Four days from the cathedral. What has changed in how you walk?"
+        }
+      },
+      "drafted": true
+    },
+    {
+      "index": 20,
+      "name": {
+        "en": "Voll to Løkken Verk",
+        "nb": "Voll–Løkken Verk"
+      },
+      "start": {
+        "name": {
+          "en": "Voll"
+        },
+        "coordinates": [
+          9.8394461,
+          62.8770516,
+          230
+        ],
+        "note": "OpenStreetMap node/188803442 (name=Voll, place=village), 6 m from the walked line. Chosen inside the 20-30 km band. Chosen for Nørgar Voll (OpenStreetMap way/748647214), a named lodging within 1.5 km."
+      },
+      "end": {
+        "name": {
+          "en": "Løkken Verk"
+        },
+        "coordinates": [
+          9.7053282,
+          63.1257479,
+          180
+        ],
+        "note": "OpenStreetMap node/1635193302 (name=Løkken Verk, place=village), 25 m from the walked line. Chosen by the fallback arm, the band holding no candidate. Chosen for Bergmannskroa (OpenStreetMap node/6817588285), a named lodging within 1.5 km."
+      },
+      "distanceKm": 34.6,
+      "elevationGainMeters": 380,
+      "elevationLossMeters": 430,
+      "highPointMeters": 290,
+      "lowPointMeters": 150,
+      "estimatedHours": {
+        "min": 8,
+        "max": 11
+      },
+      "interior": {
+        "theme": {
+          "en": "Ry, Meldal and Løkken Verk"
+        },
+        "narrative": {
+          "en": "Past Ry Herberge in the first seven kilometres, then Meldal and Meldal kirke, and on to Løkken Verk: 34.6 km, long because no bed is mapped between 20 and 30 km out of Voll. 380 m up and 430 m down."
+        },
+        "reflection": {
+          "en": "A long day near the end. What are you walking towards now?"
+        }
+      },
+      "drafted": true,
+      "warnings": [
+        {
+          "en": "34.6 km. This stage is long because OpenStreetMap maps no lodging within 500 m of the line between 20 and 30 km from its start, so the day rule had nowhere nearer to end it. Plan a bed off the line, or split the day, before setting out."
+        }
+      ]
+    },
+    {
+      "index": 21,
+      "name": {
+        "en": "Løkken Verk to Hongslo",
+        "nb": "Løkken Verk–Hongslo"
+      },
+      "start": {
+        "name": {
+          "en": "Løkken Verk"
+        },
+        "coordinates": [
+          9.7053282,
+          63.1257479,
+          180
+        ],
+        "note": "OpenStreetMap node/1635193302 (name=Løkken Verk, place=village), 25 m from the walked line. Chosen by the fallback arm, the band holding no candidate. Chosen for Bergmannskroa (OpenStreetMap node/6817588285), a named lodging within 1.5 km."
+      },
+      "end": {
+        "name": {
+          "en": "Hongslo"
+        },
+        "coordinates": [
+          9.7881193,
+          63.1802353,
+          170
+        ],
+        "note": "OpenStreetMap node/9914064277 (name=Hongslo, place=hamlet), 63 m from the walked line. Chosen by the fallback arm, the band holding no candidate. Chosen for Gumdal Farm (OpenStreetMap node/12881707301), a named lodging within 1.5 km."
+      },
+      "distanceKm": 8.9,
+      "elevationGainMeters": 140,
+      "elevationLossMeters": 150,
+      "highPointMeters": 190,
+      "lowPointMeters": 50,
+      "estimatedHours": {
+        "min": 2,
+        "max": 3
+      },
+      "interior": {
+        "theme": {
+          "en": "A short day"
+        },
+        "narrative": {
+          "en": "Only 8.9 km, from Løkken Verk to Hongslo by Gumdal Farm, because the next mapped bed near the line after it is 34.6 km further on. 140 m of climbing, 150 m of descent."
+        },
+        "reflection": {
+          "en": "An afternoon with nowhere to be. How do you spend it?"
+        }
+      },
+      "drafted": true
+    },
+    {
+      "index": 22,
+      "name": {
+        "en": "Hongslo to Heggen",
+        "nb": "Hongslo–Heggen"
+      },
+      "start": {
+        "name": {
+          "en": "Hongslo"
+        },
+        "coordinates": [
+          9.7881193,
+          63.1802353,
+          170
+        ],
+        "note": "OpenStreetMap node/9914064277 (name=Hongslo, place=hamlet), 63 m from the walked line. Chosen by the fallback arm, the band holding no candidate. Chosen for Gumdal Farm (OpenStreetMap node/12881707301), a named lodging within 1.5 km."
+      },
+      "end": {
+        "name": {
+          "en": "Heggen"
+        },
+        "coordinates": [
+          10.2173179,
+          63.3275208,
+          0
+        ],
+        "note": "OpenStreetMap node/9916390099 (name=Heggen, place=hamlet), 152 m from the walked line. Chosen by the fallback arm, the band holding no candidate. Chosen for Øysand Camping (OpenStreetMap way/75923474), a named lodging within 1.5 km."
+      },
+      "distanceKm": 34.6,
+      "elevationGainMeters": 640,
+      "elevationLossMeters": 810,
+      "highPointMeters": 450,
+      "lowPointMeters": 0,
+      "estimatedHours": {
+        "min": 8,
+        "max": 11
+      },
+      "interior": {
+        "theme": {
+          "en": "Past Skaun"
+        },
+        "narrative": {
+          "en": "The way passes Skaun kirke at about nineteen kilometres and Buvika at thirty-one, and ends at Heggen by Øysand Camping: 34.6 km, 640 m up and 810 m down."
+        },
+        "reflection": {
+          "en": "One day left. What would you like to have finished before you arrive?"
+        }
+      },
+      "drafted": true,
+      "warnings": [
+        {
+          "en": "34.6 km. This stage is long because OpenStreetMap maps no lodging within 500 m of the line between 20 and 30 km from its start, so the day rule had nowhere nearer to end it. Plan a bed off the line, or split the day, before setting out."
+        }
+      ]
+    },
+    {
+      "index": 23,
+      "name": {
+        "en": "Heggen to Nidarosdomen",
+        "nb": "Heggen–Nidarosdomen"
+      },
+      "start": {
+        "name": {
+          "en": "Heggen"
+        },
+        "coordinates": [
+          10.2173179,
+          63.3275208,
+          0
+        ],
+        "note": "OpenStreetMap node/9916390099 (name=Heggen, place=hamlet), 152 m from the walked line. Chosen by the fallback arm, the band holding no candidate. Chosen for Øysand Camping (OpenStreetMap way/75923474), a named lodging within 1.5 km."
+      },
+      "end": {
+        "name": {
+          "en": "Nidarosdomen"
+        },
+        "coordinates": [
+          10.3969,
+          63.42692,
+          0
+        ],
+        "note": "OpenStreetMap way/417245741 (building=cathedral, name=Nidarosdomen, wikidata=Q215023), at the centroid of the cathedral's footprint. The walked line, the end of relation 5659103, passes 53 m from it."
+      },
+      "distanceKm": 23.5,
+      "elevationGainMeters": 320,
+      "elevationLossMeters": 310,
+      "highPointMeters": 270,
+      "lowPointMeters": 0,
+      "estimatedHours": {
+        "min": 5,
+        "max": 7
+      },
+      "interior": {
+        "theme": {
+          "en": "Into Nidaros"
+        },
+        "narrative": {
+          "en": "The last day passes Haltdalen stavkirke and Lo kirke at about nineteen kilometres, then Ilen kirke, and comes into Trondheim to end at Nidarosdomen, where St Olav is buried: 23.5 km, 320 m of ascent and 310 m of descent. Beside the cathedral, Nidaros Pilgrimsgård is mapped as a stamp office for pilgrims."
+        },
+        "reflection": {
+          "en": "You have arrived where the way was always going. What did you come to say?"
+        }
+      },
+      "drafted": true
+    }
+  ]
+}
