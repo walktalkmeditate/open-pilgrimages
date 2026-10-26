@@ -239,6 +239,16 @@ The series itself is the Omotenashi Network's Henro Ambassador certificates (200
 
 ---
 
+## St. Olav Ways
+
+**Authoritative source for pilgrim counts:** Nasjonalt pilegrimssenter, the national pilgrim office at Nidarosdomen, <https://www.pilegrimsleden.no/>. Its homepage links a page on the pilgrim passport and the Olavsbrev certificate (`/pilegrimspass-og-olavsbrevet`) and an article on pilgrim numbers (`/artikler/flere-pilegrimer`); neither was read for figures.
+
+**Not used, and why:** none of the pages checked on that site — the homepage, the English page, the Gudbrandsdalsleden page, the press page and the privacy page — states a licence for its content, and this dataset takes nothing from a source whose licence it cannot determine. So no `stats.json` ships for `st-olav-ways-gudbrandsdalsleden`, and no figure from the site, stage list or length included, is used even as a check. Ask the office for terms, or find the same counts in an openly licensed publication, before adding one.
+
+**What the section is sourced from instead:** OpenStreetMap (ODbL) for the walked line, stage anchors and waypoints; Wikidata (CC0) for St Olav, Olsok and the facts about Norway; EU-DEM v1.1 (Copernicus, full, free and open with attribution) for elevation, because SRTM has no data north of 60° N. Everything else — day divisions, distances, hours — is derived from those, by rules written out in the section's own `metadata.json`. The drafted stage text is editorial writing grounded in the OpenStreetMap features on each stage; `docs/review/st-olav-ways-gudbrandsdalsleden.md` records what each stage was written from.
+
+---
+
 ## When you add a new route
 
 When you add a new pilgrimage route to this repository:

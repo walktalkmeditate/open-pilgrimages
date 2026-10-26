@@ -1,0 +1,280 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "st-olav-ways-gudbrandsdalsleden",
+  "name": "Gudbrandsdalsleden",
+  "country": "NO",
+  "region": "Europe",
+  "distanceKm": 643,
+  "stageCount": 24,
+  "tradition": "christian",
+  "summary": "The inland pilgrim way from Oslo to Nidaros Cathedral in Trondheim: 643 km from the ruins of St Mary's Church in Oslo's medieval town, over Hadeland, past Gjøvik and Lillehammer, through Gudbrandsdalen and across Dovrefjell, then down through Oppdal and Skaun to the cathedral where St Olav is buried. 24 days here, the high point 1,310 m on Dovrefjell, with about 11,960 m of ascent against 11,880 m of descent.",
+  "stages": [
+    {
+      "index": 0,
+      "name": "Mariakirken to Sæteren gård",
+      "distanceKm": 23.4,
+      "hours": {
+        "min": 5,
+        "max": 7
+      },
+      "gainMeters": 300,
+      "difficulty": ""
+    },
+    {
+      "index": 1,
+      "name": "Sæteren gård to Sundvollen",
+      "distanceKm": 24.9,
+      "hours": {
+        "min": 6,
+        "max": 8
+      },
+      "gainMeters": 460,
+      "difficulty": ""
+    },
+    {
+      "index": 2,
+      "name": "Sundvollen to Klekken",
+      "distanceKm": 24.9,
+      "hours": {
+        "min": 5,
+        "max": 8
+      },
+      "gainMeters": 310,
+      "difficulty": ""
+    },
+    {
+      "index": 3,
+      "name": "Klekken to Granavollen",
+      "distanceKm": 31.3,
+      "hours": {
+        "min": 7,
+        "max": 10
+      },
+      "gainMeters": 600,
+      "difficulty": ""
+    },
+    {
+      "index": 4,
+      "name": "Granavollen to Alstad",
+      "distanceKm": 49.6,
+      "hours": {
+        "min": 11,
+        "max": 16
+      },
+      "gainMeters": 700,
+      "difficulty": ""
+    },
+    {
+      "index": 5,
+      "name": "Alstad to Gjøvik",
+      "distanceKm": 24.4,
+      "hours": {
+        "min": 5,
+        "max": 7
+      },
+      "gainMeters": 170,
+      "difficulty": ""
+    },
+    {
+      "index": 6,
+      "name": "Gjøvik to Biri",
+      "distanceKm": 22.7,
+      "hours": {
+        "min": 5,
+        "max": 8
+      },
+      "gainMeters": 520,
+      "difficulty": ""
+    },
+    {
+      "index": 7,
+      "name": "Biri to Vingnes",
+      "distanceKm": 25.4,
+      "hours": {
+        "min": 5,
+        "max": 8
+      },
+      "gainMeters": 250,
+      "difficulty": ""
+    },
+    {
+      "index": 8,
+      "name": "Vingnes to Kruke",
+      "distanceKm": 25.2,
+      "hours": {
+        "min": 6,
+        "max": 9
+      },
+      "gainMeters": 660,
+      "difficulty": ""
+    },
+    {
+      "index": 9,
+      "name": "Kruke to Sletring",
+      "distanceKm": 24.9,
+      "hours": {
+        "min": 6,
+        "max": 8
+      },
+      "gainMeters": 660,
+      "difficulty": ""
+    },
+    {
+      "index": 10,
+      "name": "Sletring to Frya",
+      "distanceKm": 24.7,
+      "hours": {
+        "min": 6,
+        "max": 8
+      },
+      "gainMeters": 390,
+      "difficulty": ""
+    },
+    {
+      "index": 11,
+      "name": "Frya to Klomstad",
+      "distanceKm": 29.8,
+      "hours": {
+        "min": 7,
+        "max": 10
+      },
+      "gainMeters": 860,
+      "difficulty": ""
+    },
+    {
+      "index": 12,
+      "name": "Klomstad to Rukin",
+      "distanceKm": 25.4,
+      "hours": {
+        "min": 6,
+        "max": 9
+      },
+      "gainMeters": 720,
+      "difficulty": ""
+    },
+    {
+      "index": 13,
+      "name": "Rukin to Rindal",
+      "distanceKm": 25.2,
+      "hours": {
+        "min": 6,
+        "max": 8
+      },
+      "gainMeters": 580,
+      "difficulty": ""
+    },
+    {
+      "index": 14,
+      "name": "Rindal to Fokstugu fjellstue",
+      "distanceKm": 24.7,
+      "hours": {
+        "min": 6,
+        "max": 9
+      },
+      "gainMeters": 840,
+      "difficulty": ""
+    },
+    {
+      "index": 15,
+      "name": "Fokstugu fjellstue to Hjerkinn fjellstue",
+      "distanceKm": 24.5,
+      "hours": {
+        "min": 5,
+        "max": 8
+      },
+      "gainMeters": 340,
+      "difficulty": ""
+    },
+    {
+      "index": 16,
+      "name": "Hjerkinn fjellstue to Ryphusan",
+      "distanceKm": 34.2,
+      "hours": {
+        "min": 9,
+        "max": 12
+      },
+      "gainMeters": 1120,
+      "difficulty": ""
+    },
+    {
+      "index": 17,
+      "name": "Ryphusan to Aungrenda",
+      "distanceKm": 27,
+      "hours": {
+        "min": 6,
+        "max": 8
+      },
+      "gainMeters": 230,
+      "difficulty": ""
+    },
+    {
+      "index": 18,
+      "name": "Aungrenda to Hæverstølen",
+      "distanceKm": 24.2,
+      "hours": {
+        "min": 5,
+        "max": 7
+      },
+      "gainMeters": 230,
+      "difficulty": ""
+    },
+    {
+      "index": 19,
+      "name": "Hæverstølen to Voll",
+      "distanceKm": 25,
+      "hours": {
+        "min": 6,
+        "max": 8
+      },
+      "gainMeters": 540,
+      "difficulty": ""
+    },
+    {
+      "index": 20,
+      "name": "Voll to Løkken Verk",
+      "distanceKm": 34.6,
+      "hours": {
+        "min": 8,
+        "max": 11
+      },
+      "gainMeters": 380,
+      "difficulty": ""
+    },
+    {
+      "index": 21,
+      "name": "Løkken Verk to Hongslo",
+      "distanceKm": 8.9,
+      "hours": {
+        "min": 2,
+        "max": 3
+      },
+      "gainMeters": 140,
+      "difficulty": ""
+    },
+    {
+      "index": 22,
+      "name": "Hongslo to Heggen",
+      "distanceKm": 34.6,
+      "hours": {
+        "min": 8,
+        "max": 11
+      },
+      "gainMeters": 640,
+      "difficulty": ""
+    },
+    {
+      "index": 23,
+      "name": "Heggen to Nidarosdomen",
+      "distanceKm": 23.5,
+      "hours": {
+        "min": 5,
+        "max": 7
+      },
+      "gainMeters": 320,
+      "difficulty": ""
+    }
+  ],
+  "names": {
+    "nb": "Gudbrandsdalsleden"
+  }
+}

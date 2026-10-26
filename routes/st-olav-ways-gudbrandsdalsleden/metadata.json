@@ -1,0 +1,201 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "st-olav-ways-gudbrandsdalsleden",
+  "lastUpdated": "2026-10-26T00:00:00Z",
+  "name": {
+    "en": "Gudbrandsdalsleden",
+    "nb": "Gudbrandsdalsleden"
+  },
+  "pilgrimage": {
+    "id": "st-olav-ways",
+    "name": {
+      "en": "St. Olav Ways",
+      "nb": "St. Olavsvegene"
+    },
+    "kind": "alternatives",
+    "order": 1
+  },
+  "description": {
+    "en": "The inland pilgrim way from Oslo to Nidaros Cathedral in Trondheim: 643 km from the ruins of St Mary's Church in Oslo's medieval town, over Hadeland, past Gjøvik and Lillehammer, through Gudbrandsdalen and across Dovrefjell, then down through Oppdal and Skaun to the cathedral where St Olav is buried. 24 days here, the high point 1,310 m on Dovrefjell, with about 11,960 m of ascent against 11,880 m of descent."
+  },
+  "overview": {
+    "distanceKm": 643,
+    "distanceNote": {
+      "en": "643 km is the rounded sum of the 24 stages, as every linear route here declares, and each stage's figure is the length of route.main.geojson between its own two anchors. That line is the shortest connected path through the eight pinned OpenStreetMap relations, held to the route by every stage anchor in turn, and measured with the repository's own way graph. No published figure set it: the national pilgrim office publishes a length for this route, but states no licence for anything on its site, so none of its figures is used here, even as a check."
+    },
+    "estimatedDays": {
+      "min": 22,
+      "max": 33,
+      "typical": 24,
+      "note": "typical is the stage count: each stage is one day by construction of the day rule recorded in provenance. min and max are the walked line's 643.0 km at the two ends of that rule's 20-30 km band, rounded up. No published walking time set any of the three."
+    },
+    "hoursNote": {
+      "en": "Every stage's estimatedHours is Naismith's rule read at two paces and rounded to whole hours, the rule the four Shikoku dōjō use: min at five kilometres an hour plus 600 m of ascent an hour, max at 3.5 km/h plus 500 m. No roughness factor is applied, because this repository holds no walking times for this route to fit one against, and borrowing Kumano's would assert that a Gudbrandsdalen farm-track day walks like a Kii mountain day. Nothing published was used to check the result either: the walking times the national pilgrim office gives carry no stated licence. Read each band as what a day's distance and climbing cost, not as a promise; the 4 days over 34 km carry warnings in stages.json saying why they are that long."
+    },
+    "topology": "linear",
+    "direction": "north",
+    "startPoint": {
+      "name": {
+        "en": "Mariakirken, Oslo",
+        "nb": "Mariakirken, Oslo"
+      },
+      "coordinates": [
+        10.7617508,
+        59.9034732,
+        10
+      ]
+    },
+    "endPoint": {
+      "name": {
+        "en": "Nidaros Cathedral, Trondheim",
+        "nb": "Nidarosdomen, Trondheim"
+      },
+      "coordinates": [
+        10.3969,
+        63.42692,
+        0
+      ]
+    },
+    "elevationRange": {
+      "minMeters": 0,
+      "maxMeters": 1310,
+      "totalAscentMeters": 11960,
+      "totalDescentMeters": 11880,
+      "dataset": "eudem25m",
+      "elevationNote": "Ascent, descent and every per-stage high and low point are sampled from EU-DEM v1.1, the Copernicus 25 m digital elevation model, at each of the walked line's 31,116 vertices, with a 20 m hysteresis threshold so the model's own noise is not counted as climbing, then rounded to the nearest 10 m — scripts/elevation.ts, applied by npm run apply-elevation, the method kumano-kodo-kohechi was measured with, on a different model. Not SRTM 30 m, the corpus's model, because SRTM stops at 60° N and this route runs from 59.9° to 63.4° N: sampled first, on a planning version of this line, SRTM returned voids for 28,680 of its 31,108 vertices. EU-DEM was built from SRTM and ASTER and covers Scandinavia north of 60°, with a stated vertical accuracy of ±7 m RMSE, inside the 20 m threshold; its figures are therefore close kin to the corpus's SRTM ones but not identical, and are not to be compared with them metre for metre. The totals are the sum of the 24 stages. The high point, 1,310 m, falls on stage 16 (Hjerkinn fjellstue to Ryphusan, 34.2 km)."
+    },
+    "difficulty": "moderate",
+    "difficultyNote": "The schema requires an overview difficulty, and no open or official source grades this route, so this value is a declared placeholder and not a measurement or a grading. CLAUDE.md's rule — no difficulty written for a route whose stages were measured rather than graded — is kept at stage level, where no stage carries one, as on the four Shikoku dōjō. Expect a maintainer to rule on this field.",
+    "countries": [
+      "NO"
+    ],
+    "bbox": [
+      9.21,
+      59.9,
+      10.88,
+      63.44
+    ]
+  },
+  "tradition": {
+    "type": "christian",
+    "primaryFaith": "Christian",
+    "saint": {
+      "en": "Saint Olav",
+      "nb": "Olav den hellige"
+    },
+    "origin": {
+      "en": "The route leads to the grave of Olav II Haraldsson, King of Norway from 1015 to 1028, who died at Stiklestad on 29 July 1030 and is buried in Nidaros Cathedral. He is venerated as a saint, and 29 July, the day of his death, is his feast, Olsok."
+    }
+  },
+  "cultural": {
+    "events": [
+      {
+        "name": {
+          "en": "Olsok",
+          "nb": "Olsok"
+        },
+        "date": {
+          "month": 7,
+          "day": 29
+        },
+        "recurrence": "annual",
+        "description": {
+          "en": "The feast of St Olav, on the anniversary of his death at Stiklestad in 1030."
+        }
+      }
+    ]
+  },
+  "logistics": {
+    "accommodationTypes": [
+      "hostel",
+      "hotel",
+      "pension"
+    ],
+    "accommodationNotes": {
+      "en": "accommodationTypes lists the kinds of lodging OpenStreetMap records within 300 m of the walked line (7 guesthouse, 2 hostel, 13 hotel), and nothing more: it says what is mapped, not what is open, and it is the same coverage the day rule had to work with. Where it runs thin the days run long — stage 4 (Granavollen to Alstad, 49.6 km) is the longest, and stage 21 (Løkken Verk to Hongslo, 8.9 km) the shortest, for the same reason."
+    },
+    "currency": "NOK",
+    "languages": [
+      "nb",
+      "nn"
+    ],
+    "emergencyNumber": "112",
+    "emergencyNote": {
+      "en": "Wikidata (Q20, P2852) lists 112, 113 and 110 as Norway's emergency numbers."
+    }
+  },
+  "provenance": {
+    "sources": [
+      {
+        "name": "OpenStreetMap",
+        "url": "https://www.openstreetmap.org/relation/1370274",
+        "license": "ODbL-1.0",
+        "dataTypes": [
+          "geometry",
+          "stages",
+          "waypoints"
+        ],
+        "accessDate": "2026-10-26",
+        "notes": "Eight relations of the Pilegrimsleden superroute 1370274 — the osm block below says which and how each was confirmed. Read through the Overpass instance at maps.mail.ru and the OpenStreetMap API, because overpass-api.de refused connections from the environment this section was built in; the database and its licence are the same. Every stage anchor is an OpenStreetMap node or way, recorded in that anchor's own note in stages.json. The service waypoints are enrich-waypoints' own POI query, run in 120 tiles along route.geojson rather than as one box from Oslo to Trondheim, which the mirror would not answer; 90 of the tiles came from the OpenStreetMap API's map call, filtered to that query's exact tags, when the mirror kept timing out. A node within 300 m of route.geojson lies inside some tile, so the waypoints are the ones the single query would have kept. The curated waypoints are the churches and sites the drafted stage text names, each carrying its OpenStreetMap id in osmId."
+      },
+      {
+        "name": "Derived from the walked line",
+        "url": "https://github.com/walktalkmeditate/open-pilgrimages",
+        "license": "ODbL-1.0",
+        "dataTypes": [
+          "stages",
+          "distances",
+          "waypoints",
+          "hours"
+        ],
+        "accessDate": "2026-10-26",
+        "notes": "The day divisions are cut by rule rather than taken from a guidebook, so they can be re-run; no guidebook or official stage list was used, because the national pilgrim office's site states no licence. The rule ends each day where OpenStreetMap shows a bed. A candidate is either a named lodging — tourism hostel, guest_house, hotel, motel, alpine_hut, wilderness_hut, camp_site or chalet — within 500 m of the walked line, or a named settlement — place city, town, village, hamlet or suburb — within 500 m of the line with a named lodging within 1.5 km of it and of the line. A lodging candidate is anchored on the nearest named settlement within 1.5 km of it and 500 m of the line where there is one, and on the lodging itself where there is not, so a day is named for the place a walker would say they reached. Named means a non-empty name. 500 m is the radius build-ways snaps a stage boundary across. From each day's start, the day ends at the candidate nearest 25 km ahead among those 20 to 30 km ahead, the earlier of two equally near; where that band is empty it ends at the candidate nearest 25 km among all those strictly ahead, which is what keeps the cut advancing through stretches with no mapped lodging. Once the cathedral is no more than 30 km ahead, the day ends there. Position along the line is the perpendicular projection onto route.main.geojson, in a local plane per segment, with distance along the line summed by haversine. Each stage's distanceKm is the length of route.main.geojson between its own two anchors as build-ways cuts it, rounded to one decimal, and each anchor's note says which arm chose it and for which lodging. Every waypoint's stageIndex and kmFromStart is derived from the same line and the same cut: a waypoint belongs to the stage whose stretch of route.main.geojson holds the perpendicular projection of its coordinate, and kmFromStart is where that projection falls, in km from the section's start, rounded to one decimal. "
+      },
+      {
+        "name": "EU-DEM v1.1 elevation (Copernicus), via OpenTopoData",
+        "url": "https://www.opentopodata.org/datasets/eudem/",
+        "license": "Copernicus full, free and open data policy (Regulation (EU) No 1159/2013)",
+        "dataTypes": [
+          "elevation"
+        ],
+        "accessDate": "2026-10-26",
+        "notes": "Produced using Copernicus data and information funded by the European Union — EU-DEM layers. Sampled at every vertex of route.main.geojson through OpenTopoData's eudem25m dataset. Not public domain like the SRTM readings the rest of the corpus uses: Copernicus releases EU-DEM under full, free and open access on condition of attribution, which is this entry. Chosen because SRTM has no data north of 60° N; method in overview.elevationRange.elevationNote."
+      },
+      {
+        "name": "Wikidata",
+        "url": "https://www.wikidata.org/wiki/Q2095033",
+        "license": "CC0-1.0",
+        "dataTypes": [
+          "overview",
+          "tradition",
+          "cultural",
+          "logistics"
+        ],
+        "accessDate": "2026-10-26",
+        "notes": "Q2095033 (the St. Olav Ways network, whose Norwegian description supplies the pilgrimage's nb name, St. Olavsvegene), Q208331 (Olav II: reign, death at Stiklestad Q369100 on 29 July 1030, burial at Nidaros Cathedral Q215023, feast day), Q279006 (Olsok, 29 July), Q1133099 (St Mary's Church, Oslo, linked to OpenStreetMap way/257875433), Q11995693 (Pilegrimsleia over Dovrefjell, the wikidata tag on the five Dovre relations) and Q20 (Norway: currency, official languages, emergency numbers). Wikidata holds no item for the Gudbrandsdalsleden itself."
+      }
+    ],
+    "contributors": [
+      {
+        "name": "walk · talk · meditate",
+        "role": "initial_author",
+        "url": "https://github.com/walktalkmeditate"
+      }
+    ],
+    "license": "ODbL-1.0"
+  },
+  "osm": {
+    "relations": [
+      1370273,
+      5659125,
+      3917970,
+      3918309,
+      1671572,
+      5677571,
+      5697677,
+      5659103
+    ],
+    "superroute": 1370274,
+    "note": "The Gudbrandsdalsleden has no Wikidata item, so there was no P402 to follow; the relations were found by tag search and confirmed by their own tags. All eight are members of superroute 1370274 (name=Pilegrimsleden, website=https://pilegrimsleden.no/, pilgrimage=yes), and they chain end to end, south to north. 1370273 is name=Gudbrandsdalsleden, website=https://pilegrimsleden.no/no/map/gudbrandsdalsleden, description:no naming the way from Oslo over Hadeland and through Gudbrandsdalen towards Nidaros, covering Oslo to Lillehammer. 5659125 is name=Gudbrandsdalsleden (Lillehammer-Dovre). 3917970, 3918309 and 1671572 are name=Kongeveien over Dovre with ref=DOV61, DOV62 and DOV63 and from/to tags running Dovre-Fokstugu, Fokstugu-Hageseter, Hageseter-Kongsvold; 5677571 is Kongeveien over Dovre (Kongsvoll-Oppdal) and 5697677 Kongeveien over Dovre (Oppdal-Skaun). All five carry wikidata=Q11995693, which Wikidata labels Pilegrimsleia over Dovrefjell — the pilgrim way over Dovrefjell — which is what makes them this route and not only the old King's Road. 5659103 is name=Gudbrandsdalsleden (Skaun-Nidaros), with the same website and description as 1370273, and ends at Nidaros Cathedral. Order matters: geometry.ts concatenates in this order. Variants are left out: the superroute's other members are other St. Olav ways, for later sections, and the spurs inside these eight are what build-main-line's shortest path leaves behind. As first fetched on 2026-10-26 the eight did not form one connected line: six breaks, five where an existing way joining two members was not itself a member, and one where a member road stopped 3.6 m short of the track it continues along. They were fixed upstream the same day, not spliced here: changesets 191073648, 191073650, 191073653 and 191073659 add the five ways (splitting Konventveien in Oslo so only its 3.2 m connecting piece joins 1370273), and changeset 191073959 joins the road to the track, whose 81 m between the two members it now links joins 5697677. OpenStreetMap note 5601886 described that last gap before it was mapped. The walked line is the relations' own geometry, with no join of this repository's."
+  }
+}
