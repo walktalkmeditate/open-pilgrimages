@@ -27,8 +27,13 @@ const key = (p: Position): string => `${p[0]},${p[1]}`;
  * it, so identity is the true topology — and a fuzzy radius is what made the
  * first attempt at this cut corners wherever the route passes near itself in
  * a town (633 km instead of 764).
+ *
+ * `splitAt` adds nodes at coordinates no second way shares — the vertex
+ * nearest an anchor, so the anchor snaps to where the trail passes it rather
+ * than to the next junction, which on a rural way can be kilometres on. It
+ * changes no geometry: the way is cut into two edges that meet where it was.
  */
-export function buildWayGraph(ways: Position[][]): WayGraph {
+export function buildWayGraph(ways: Position[][], splitAt: ReadonlySet<string> = new Set()): WayGraph {
   const occurrences = new Map<string, number>();
   for (const way of ways) {
     for (const point of way) occurrences.set(key(point), (occurrences.get(key(point)) ?? 0) + 1);
@@ -63,7 +68,7 @@ export function buildWayGraph(ways: Position[][]): WayGraph {
       // A coordinate another way also carries is a real junction, even in the
       // middle of this one; without splitting there, a side path that meets
       // this way mid-block would be unreachable.
-      const isJunction = (occurrences.get(key(way[i])) ?? 0) > 1;
+      const isJunction = (occurrences.get(key(way[i])) ?? 0) > 1 || splitAt.has(key(way[i]));
       if (isJunction || i === way.length - 1) {
         const segment = way.slice(start, i + 1);
         if (segment.length >= 2) link(nodeId(segment[0]), nodeId(segment[segment.length - 1]), segment);
@@ -166,11 +171,26 @@ export function shortestPath(
   return { meters: distance[to], line };
 }
 
+function nearestWayVertex(ways: Position[][], p: Position): Position {
+  let best: Position = p;
+  let meters = Infinity;
+  for (const way of ways) {
+    for (const vertex of way) {
+      const d = haversineMeters(vertex, p);
+      if (d < meters) {
+        meters = d;
+        best = vertex;
+      }
+    }
+  }
+  return best;
+}
+
 export function mainLine(
   ways: Position[][],
   anchors: Position[],
 ): { line: Position[]; legs: number[]; missing: string[]; snaps: number[] } {
-  const graph = buildWayGraph(ways);
+  const graph = buildWayGraph(ways, new Set(anchors.map((anchor) => key(nearestWayVertex(ways, anchor)))));
   const nodes = anchors.map((anchor) => nearestGraphNode(graph, anchor));
 
   const line: Position[] = [];
