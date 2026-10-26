@@ -49,6 +49,29 @@ test("buildWayGraph splits a way at a coordinate another way meets in its middle
   assert.equal(graph.adjacency.get(junction.node)!.length, 3);
 });
 
+test("buildWayGraph splits a way at a coordinate it is told to, and changes no geometry", () => {
+  const way: Position[] = [[0, 0], [0.01, 0], [0.02, 0], [0.03, 0]];
+  const graph = buildWayGraph([way], new Set(["0.02,0"]));
+  assert.equal(graph.nodes.length, 3);
+  const split = nearestGraphNode(graph, [0.02, 0]);
+  assert.ok(split.meters < 1e-6);
+  assert.equal(graph.adjacency.get(split.node)!.length, 2);
+  const path = shortestPath(graph, nearestGraphNode(graph, [0, 0]).node, nearestGraphNode(graph, [0.03, 0]).node)!;
+  assert.deepEqual(path.line, way);
+});
+
+test("mainLine snaps an anchor to the trail beside it, not to a junction kilometres on", () => {
+  // One 3.3 km way with no junction in it: before the split, an anchor 11 m
+  // off its middle snapped to an end 1.67 km away and read as off the route.
+  const way: Position[] = [[0, 0], [0.01, 0], [0.015, 0], [0.02, 0], [0.03, 0]];
+  const result = mainLine([way], [[0, 0], [0.015, 0.0001], [0.03, 0]]);
+  assert.equal(result.missing.length, 0);
+  assert.ok(result.snaps[1] < 12, `${result.snaps[1]}`);
+  assert.ok(Math.abs(result.legs[0] - 1.5 * LEG) < 1, `${result.legs[0]}`);
+  assert.ok(Math.abs(result.legs[1] - 1.5 * LEG) < 1, `${result.legs[1]}`);
+  assert.deepEqual(result.line, way);
+});
+
 test("nearestGraphNode reports the node and how far off it was", () => {
   const graph = buildWayGraph(WAYS);
   const found = nearestGraphNode(graph, [0.0201, 0]);
