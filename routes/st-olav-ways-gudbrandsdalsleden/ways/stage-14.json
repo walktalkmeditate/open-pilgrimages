@@ -1004,7 +1004,9 @@
     "theme": "Up to Fokstugu",
     "narrative": "The way passes Dovre and Dovre kyrkje before eight kilometres, then Pilgrimsgården Busjord, and follows the old King's Road, Kongeveien over Dovre, up to Fokstugu fjellstue. The day climbs 840 m and descends 480 m over 24.7 km, its high point 1,210 m.",
     "closing": "The road climbs out of the valley. What do you hope to see from higher up?",
-    "warnings": [],
+    "warnings": [
+      "This stage crosses Dovrefjell. The national pilgrim office advises against crossing before about 10 June, when snow and meltwater can block the way, the river bridges are not yet in place and wild reindeer are calving, and notes that places to stay may still be closed. Check conditions, or take the "
+    ],
     "distanceKm": 24.7,
     "gainMeters": 840,
     "hours": {

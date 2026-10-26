@@ -1,0 +1,153 @@
+{
+  "schemaVersion": "1.0.0",
+  "routeId": "st-olav-ways-gudbrandsdalsleden",
+  "lastUpdated": "2026-10-26",
+  "dataYear": 2024,
+  "provisional": "The national pilgrim office has not yet confirmed a licence for these figures; reuse permission is requested. See metadata.json provenance.",
+  "annualPilgrims": {
+    "latest": {
+      "year": 2024,
+      "count": 982,
+      "note": "Long-distance walkers (more than two days) registered on arrival at Nidaros Pilegrimsgård, Trondheim, who had walked the Gudbrandsdalsleden: 982 of the 1,579 who arrived by any route."
+    },
+    "trend": [
+      {
+        "year": 2018,
+        "count": 941
+      },
+      {
+        "year": 2019,
+        "count": 1056
+      },
+      {
+        "year": 2020,
+        "count": 341,
+        "note": "COVID-19"
+      },
+      {
+        "year": 2021,
+        "count": 513,
+        "note": "COVID-19"
+      },
+      {
+        "year": 2022,
+        "count": 923
+      },
+      {
+        "year": 2023,
+        "count": 874
+      },
+      {
+        "year": 2024,
+        "count": 982
+      }
+    ],
+    "source": "https://www.pilegrimsleden.no/assets/images/Statistikk-2024-Pilegrimsleden.-St.Olavsvegene-til-Trondheim.pdf",
+    "sourceNotes": "From the national pilgrim office's 2024 statistics report, table of long-distance walkers by route on arrival at Nidaros Pilegrimsgård. The office counts the Gudbrandsdalsleden as one route, so these figures include walkers on both of its branches between Oslo and Lillehammer, of which this section is the western one. Not every pilgrim calls at the reception, and those who walk part of the route and do not reach Trondheim are not counted, so the true number of walkers is higher. See docs/data-sources.md."
+  },
+  "startingFromOslo": {
+    "note": "Long-distance walkers registered as setting out from the regional pilgrim centre in Oslo, where this section starts, with how many nationalities they came from and the shares of foreign and German-speaking pilgrims. The centre serves every route that leaves Oslo, not only this one, and pilgrims who set out without calling there are not counted.",
+    "trend": [
+      {
+        "year": 2012,
+        "count": 165,
+        "nationalities": 20,
+        "foreignPercent": 65,
+        "germanSpeakingPercent": 32
+      },
+      {
+        "year": 2013,
+        "count": 157,
+        "nationalities": 19,
+        "foreignPercent": 61,
+        "germanSpeakingPercent": 30
+      },
+      {
+        "year": 2014,
+        "count": 238,
+        "nationalities": 12,
+        "foreignPercent": 43,
+        "germanSpeakingPercent": 24
+      },
+      {
+        "year": 2015,
+        "count": 283,
+        "nationalities": 19,
+        "foreignPercent": 60,
+        "germanSpeakingPercent": 31
+      },
+      {
+        "year": 2016,
+        "count": 394,
+        "nationalities": 17,
+        "foreignPercent": 65,
+        "germanSpeakingPercent": 28
+      },
+      {
+        "year": 2017,
+        "count": 408,
+        "nationalities": 25,
+        "foreignPercent": 61,
+        "germanSpeakingPercent": 30
+      },
+      {
+        "year": 2018,
+        "count": 524,
+        "nationalities": 31,
+        "foreignPercent": 70,
+        "germanSpeakingPercent": 41
+      },
+      {
+        "year": 2019,
+        "count": 618,
+        "nationalities": 25,
+        "foreignPercent": 77,
+        "germanSpeakingPercent": 41
+      },
+      {
+        "year": 2020,
+        "count": 332,
+        "nationalities": 15,
+        "foreignPercent": 21,
+        "germanSpeakingPercent": 15
+      },
+      {
+        "year": 2021,
+        "count": 266,
+        "nationalities": 23,
+        "foreignPercent": 45,
+        "germanSpeakingPercent": 21
+      },
+      {
+        "year": 2022,
+        "count": 850,
+        "nationalities": 35,
+        "foreignPercent": 67,
+        "germanSpeakingPercent": 33
+      },
+      {
+        "year": 2023,
+        "count": 897,
+        "nationalities": 28,
+        "foreignPercent": 74,
+        "germanSpeakingPercent": 37
+      },
+      {
+        "year": 2024,
+        "count": 920,
+        "nationalities": 28,
+        "foreignPercent": 67,
+        "germanSpeakingPercent": 31
+      }
+    ],
+    "source": "https://www.pilegrimsleden.no/assets/images/Statistikk-2024-Pilegrimsleden.-St.Olavsvegene-til-Trondheim.pdf"
+  },
+  "sources": [
+    {
+      "name": "Nasjonalt pilegrimssenter, Statistikk 2024 (Gudbrandsdalsleden, St. Olavsleden, Kystpilegrimsleia og Borgleden)",
+      "url": "https://www.pilegrimsleden.no/assets/images/Statistikk-2024-Pilegrimsleden.-St.Olavsvegene-til-Trondheim.pdf",
+      "accessDate": "2026-10-26",
+      "license": "unconfirmed — permission requested"
+    }
+  ]
+}
