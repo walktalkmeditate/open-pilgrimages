@@ -2,7 +2,7 @@
 
 A canonical, open-source dataset of pilgrimage routes worldwide.
 
-158,948 GPS points. 10,770 waypoints. 143 stages. 13 routes across 3 traditions. All structured as JSON and GeoJSON.
+191,891 GPS points. 11,831 waypoints. 167 stages. 14 routes across 3 traditions. All structured as JSON and GeoJSON.
 
 ## What's In the Box
 
@@ -66,26 +66,39 @@ separate lines, and flattening it drew chords straight across the island: 1,351 
 those 2,980 waypoints, 45% of them, sit more than 300 m from any of the four walked
 lines the sections publish now.
 
+### St. Olav Ways
+
+The pilgrim ways to Nidaros Cathedral in Trondheim, where St Olav is buried. Like the
+Kumano Kodō's routes they are alternatives, each its own way to the same end, so there
+is no total. The Gudbrandsdalsleden is the first to ship; the others come later.
+
+| Route | Distance | Topology | Tradition | Route Points | Waypoints | Stats |
+|-------|----------|----------|-----------|-------------|-----------|-------|
+| [Gudbrandsdalsleden](routes/st-olav-ways-gudbrandsdalsleden/) | 643 km | Linear | Christian | 32,943 | 1,061 | — |
+
+Its stage text is drafted and awaiting review, and its elevation is EU-DEM 25 m rather
+than SRTM, which has no data north of 60° N — see its `metadata.json`.
+
 ### Three Layers of Data
 
 **Layer 1 — Geometry:** Full-resolution GPS trails from OpenStreetMap. Not simplified stage endpoints — actual trail paths with 3k-39k coordinate points per route.
 
-**Layer 2 — Logistics:** 10,770 waypoints including water sources, pharmacies, hospitals, accommodation, restaurants, convenience stores, bus stops, and train stations. All but three carry a `stageIndex` and all but six a `kmFromStart`, for route-aware queries. All six exceptions are Kumano Kodō (Nakahechi) waypoints that its walked line does not reach.
+**Layer 2 — Logistics:** 11,831 waypoints including water sources, pharmacies, hospitals, accommodation, restaurants, convenience stores, bus stops, and train stations. All but three carry a `stageIndex` and all but six a `kmFromStart`, for route-aware queries. All six exceptions are Kumano Kodō (Nakahechi) waypoints that its walked line does not reach.
 
 **Layer 3 — Cultural & Spiritual:** Credential systems (Compostela, nokyocho, Dual Pilgrim), sacred site protocols, cultural practices, associated literature, and interior journey narratives per stage.
 
 ### Waypoint Coverage
 
-| Type | Frances | Norte | Primitivo | Portugués | Coastal | Inglés | Awa | Tosa | Iyo | Sanuki | Nakahechi | Kohechi |
-|------|---------|-------|-----------|-----------|---------|--------|-----|------|-----|--------|-----------|---------|
-| Water sources | 788 | 662 | 96 | 177 | 52 | 85 | 1 | 1 | 4 | 1 | 1 | — |
-| Medical (pharmacy/hospital) | 172 | 206 | 63 | 112 | 50 | 44 | 14 | 18 | 45 | 18 | — | — |
-| Accommodation | 532 | 250 | 75 | 180 | 92 | 39 | 9 | 33 | 41 | 9 | 16 | 9 |
-| Food (restaurant/cafe) | 713 | 764 | 265 | 600 | 425 | 152 | 29 | 27 | 92 | 85 | 10 | 2 |
-| Transport (bus/train) | 511 | 657 | 180 | 431 | 302 | 136 | 25 | 162 | 494 | 111 | 28 | 8 |
-| Supply (convenience/toilet) | 189 | 235 | 53 | 134 | 122 | 26 | 70 | 75 | 117 | 103 | 40 | 10 |
-| Sacred sites | 9 | 68 | — | — | — | — | 43 | 39 | 136 | 50 | 18 | 5 |
-| Towns | 36 | 51 | — | — | — | — | 2 | 8 | 7 | 6 | 2 | — |
+| Type | Frances | Norte | Primitivo | Portugués | Coastal | Inglés | Awa | Tosa | Iyo | Sanuki | Nakahechi | Kohechi | Gudbrandsdalsleden |
+|------|---------|-------|-----------|-----------|---------|--------|-----|------|-----|--------|-----------|---------|--------------------|
+| Water sources | 788 | 662 | 96 | 177 | 52 | 85 | 1 | 1 | 4 | 1 | 1 | — | 21 |
+| Medical (pharmacy/hospital) | 172 | 206 | 63 | 112 | 50 | 44 | 14 | 18 | 45 | 18 | — | — | 26 |
+| Accommodation | 532 | 250 | 75 | 180 | 92 | 39 | 9 | 33 | 41 | 9 | 16 | 9 | 22 |
+| Food (restaurant/cafe) | 713 | 764 | 265 | 600 | 425 | 152 | 29 | 27 | 92 | 85 | 10 | 2 | 170 |
+| Transport (bus/train) | 511 | 657 | 180 | 431 | 302 | 136 | 25 | 162 | 494 | 111 | 28 | 8 | 696 |
+| Supply (convenience/toilet) | 189 | 235 | 53 | 134 | 122 | 26 | 70 | 75 | 117 | 103 | 40 | 10 | 69 |
+| Sacred sites | 9 | 68 | — | — | — | — | 43 | 39 | 136 | 50 | 18 | 5 | 36 |
+| Towns | 36 | 51 | — | — | — | — | 2 | 8 | 7 | 6 | 2 | — | 16 |
 
 The four Shikoku columns are the four dōjō, which are sections of one circuit rather
 than alternatives to each other; the 88 temples are split 23 / 16 / 26 / 23 between
