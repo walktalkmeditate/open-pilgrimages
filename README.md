@@ -78,8 +78,8 @@ is no total. The Gudbrandsdalsleden is the first to ship; the others come later.
 
 Its stage text is drafted and awaiting review, and its elevation is EU-DEM 25 m rather
 than SRTM, which has no data north of 60° N — see its `metadata.json`. Its season,
-credential and pilgrim figures come from the national pilgrim office and are provisional
-until the office confirms a licence for reuse.
+credential and pilgrim figures come from the national pilgrim office, which granted
+their reuse under ODbL with attribution.
 
 ### Three Layers of Data
 

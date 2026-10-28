@@ -3,7 +3,6 @@
   "routeId": "st-olav-ways-gudbrandsdalsleden",
   "lastUpdated": "2026-10-26",
   "dataYear": 2024,
-  "provisional": "The national pilgrim office has not yet confirmed a licence for these figures; reuse permission is requested. See metadata.json provenance.",
   "annualPilgrims": {
     "latest": {
       "year": 2024,
@@ -147,7 +146,7 @@
       "name": "Nasjonalt pilegrimssenter, Statistikk 2024 (Gudbrandsdalsleden, St. Olavsleden, Kystpilegrimsleia og Borgleden)",
       "url": "https://www.pilegrimsleden.no/assets/images/Statistikk-2024-Pilegrimsleden.-St.Olavsvegene-til-Trondheim.pdf",
       "accessDate": "2026-10-26",
-      "license": "unconfirmed — permission requested"
+      "license": "Permission to reuse under ODbL 1.0 with attribution, granted by the office by email, October 2026"
     }
   ]
 }

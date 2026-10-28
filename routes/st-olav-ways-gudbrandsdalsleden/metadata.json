@@ -17,7 +17,7 @@
     "stats": {
       "lastUpdated": "2026-10-26",
       "dataYear": 2024,
-      "dataNote": "Long-distance walkers, pilgrims who walked more than two days, registered on arrival at Nidaros Pilegrimsgård in Trondheim, across all the St. Olav Ways, from the national pilgrim office's 2024 statistics report. Not every pilgrim who reaches the cathedral calls at the reception, so the true number is somewhat higher, and the report counts short walkers separately and only in some years. Its news page gives 1,793 pilgrims received in 2025, 13% more than the year before, without saying whether short walkers are included, so that figure is not in the series. Provisional: the office has not yet confirmed a licence for these figures.",
+      "dataNote": "Long-distance walkers, pilgrims who walked more than two days, registered on arrival at Nidaros Pilegrimsgård in Trondheim, across all the St. Olav Ways, from the national pilgrim office's 2024 statistics report. Not every pilgrim who reaches the cathedral calls at the reception, so the true number is somewhat higher, and the report counts short walkers separately and only in some years. Its news page gives 1,793 pilgrims received in 2025, 13% more than the year before, without saying whether short walkers are included, so that figure is not in the series. Reused with the office's permission, under ODbL with attribution.",
       "annualPilgrims": {
         "latest": {
           "year": 2024,
@@ -76,7 +76,7 @@
   "overview": {
     "distanceKm": 643,
     "distanceNote": {
-      "en": "643 km is the rounded sum of the 24 stages, as every linear route here declares, and each stage's figure is the length of route.main.geojson between its own two anchors. That line is the shortest connected path through the eight pinned OpenStreetMap relations, held to the route by every stage anchor in turn, and measured with the repository's own way graph. No published figure set it. It agrees with the 643 km the national pilgrim office gives for the route, a check only, from a source whose licence is still unconfirmed (see provenance). Between Oslo and Lillehammer the office's route has two branches, one either side of Lake Mjøsa and of about equal length; this section follows the western one, over Hadeland and through Gjøvik, which is the one relation 1370273 carries. The eastern branch, by Eidsvoll and Hamar, is OpenStreetMap relation 1200009 (Romeriksleden) and is left for a later variant."
+      "en": "643 km is the rounded sum of the 24 stages, as every linear route here declares, and each stage's figure is the length of route.main.geojson between its own two anchors. That line is the shortest connected path through the eight pinned OpenStreetMap relations, held to the route by every stage anchor in turn, and measured with the repository's own way graph. No published figure set it. It agrees with the 643 km the national pilgrim office gives for the route, a check only (see provenance). Between Oslo and Lillehammer the office's route has two branches, one either side of Lake Mjøsa and of about equal length; this section follows the western one, over Hadeland and through Gjøvik, which is the one relation 1370273 carries. The eastern branch, by Eidsvoll and Hamar, is OpenStreetMap relation 1200009 (Romeriksleden) and is left for a later variant."
     },
     "estimatedDays": {
       "min": 22,
@@ -440,9 +440,9 @@
         "notes": "Q2095033 (the St. Olav Ways network, whose Norwegian description supplies the pilgrimage's nb name, St. Olavsvegene), Q208331 (Olav II: reign, death at Stiklestad Q369100 on 29 July 1030, burial at Nidaros Cathedral Q215023, feast day), Q279006 (Olsok, 29 July), Q1133099 (St Mary's Church, Oslo, linked to OpenStreetMap way/257875433), Q11995693 (Pilegrimsleia over Dovrefjell, the wikidata tag on the five Dovre relations) and Q20 (Norway: currency, official languages, emergency numbers). Wikidata holds no item for the Gudbrandsdalsleden itself."
       },
       {
-        "name": "Nasjonalt pilegrimssenter (national pilgrim office) — provisional, licence unconfirmed",
+        "name": "Nasjonalt pilegrimssenter (national pilgrim office)",
         "url": "https://www.pilegrimsleden.no/",
-        "license": "unconfirmed — reuse permission requested; provisional until the office answers",
+        "license": "Permission to reuse under ODbL 1.0 with attribution, granted by the office by email, October 2026",
         "dataTypes": [
           "credential",
           "season",
@@ -451,7 +451,7 @@
           "checks"
         ],
         "accessDate": "2026-10-26",
-        "notes": "Facts only, restated in this dataset's own words; no text from the site is reproduced. Taken from https://www.pilegrimsleden.no/pilegrimsledene/gudbrandsdalsleden, /pilegrimspass-og-olavsbrevet, /artikler/flere-pilegrimer and the 2024 statistics report. Everything that rests on this source, so it can be removed in one change if permission is refused: tradition.credentialSystem; cultural.practices, cultural.etiquette and cultural.historicalSignificance; logistics.seasonalAvailability and overview.bestMonths; the last sentence of logistics.accommodationNotes and of logistics.transportNotes; the Dovrefjell warnings on stages 14, 15, 16 in stages.json; pilgrimage.stats; routes/st-olav-ways-gudbrandsdalsleden/stats.json; and the cross-checks in overview.distanceNote and overview.estimatedDays.note, which set no figure. The two-branch fact in distanceNote is also theirs."
+        "notes": "Facts only, restated in this dataset's own words; no text from the site is reproduced. Taken from https://www.pilegrimsleden.no/pilegrimsledene/gudbrandsdalsleden, /pilegrimspass-og-olavsbrevet, /artikler/flere-pilegrimer and the 2024 statistics report. Everything that rests on this source, so it can be refreshed or credited together: tradition.credentialSystem; cultural.practices, cultural.etiquette and cultural.historicalSignificance; logistics.seasonalAvailability and overview.bestMonths; the last sentence of logistics.accommodationNotes and of logistics.transportNotes; the Dovrefjell warnings on stages 14, 15, 16 in stages.json; pilgrimage.stats; routes/st-olav-ways-gudbrandsdalsleden/stats.json; and the cross-checks in overview.distanceNote and overview.estimatedDays.note, which set no figure. The two-branch fact in distanceNote is also theirs."
       }
     ],
     "contributors": [
