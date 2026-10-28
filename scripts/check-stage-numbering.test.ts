@@ -1,5 +1,8 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
+import { join } from "path";
+import { cpSync, mkdirSync, mkdtempSync, rmSync, writeFileSync } from "fs";
+import { execFileSync } from "child_process";
 import { checkStageNumbering, isMajorBump, MOVE_TOLERANCE_METERS } from "./check-stage-numbering.js";
 
 type Ends = [[number, number], [number, number]];
@@ -104,4 +107,101 @@ test("empty coordinate arrays are reported, not passed", () => {
   const problems = checkStageNumbering("camino-frances", "v1.0.0", stages([A, B]), JSON.stringify(broken));
   assert.equal(problems.length, 1);
   assert.match(problems[0], /camino-frances: stages\.json could not be read/);
+});
+
+const ROOT = join(import.meta.dirname, "..");
+
+/**
+ * A real git repo holding one walkable route, because main()'s job is the
+ * git plumbing: which tag, which routes, which version. Created inside ROOT
+ * so the copied script still resolves tsx from node_modules.
+ */
+function createTempRepo(options: { tag: boolean; walkable: boolean }): { dir: string; run: () => string } {
+  const dir = mkdtempSync(join(ROOT, ".check-stage-numbering-test-"));
+  const git = (...args: string[]) => execFileSync("git", args, { cwd: dir, stdio: "pipe" });
+  git("init", "-q");
+  git("config", "user.email", "test@example.com");
+  git("config", "user.name", "Test");
+  git("config", "commit.gpgSign", "false");
+  git("config", "tag.gpgSign", "false");
+
+  const routeDir = join(dir, "routes", "camino-frances");
+  mkdirSync(join(routeDir, "ways"), { recursive: true });
+  writeFileSync(join(routeDir, "stages.json"), stages([A, B], [B, C]));
+  if (options.walkable) writeFileSync(join(routeDir, "ways", "route.json"), JSON.stringify({ id: "camino-frances" }));
+  writeFileSync(join(dir, "package.json"), JSON.stringify({ type: "module", version: "1.0.0" }));
+  git("add", "-A");
+  git("commit", "-q", "-m", "base");
+  if (options.tag) git("tag", "v1.0.0");
+
+  mkdirSync(join(dir, "scripts", "ways"), { recursive: true });
+  for (const name of ["check-stage-numbering.ts", "cli.ts", "ways/geo.ts", "ways/types.ts"]) {
+    cpSync(join(ROOT, "scripts", name), join(dir, "scripts", name));
+  }
+  const scriptPath = join(dir, "scripts", "check-stage-numbering.ts");
+  return {
+    dir,
+    run: () =>
+      execFileSync(process.execPath, ["--import", "tsx", scriptPath], { cwd: dir, stdio: "pipe", encoding: "utf8" }),
+  };
+}
+
+function stderrOf(run: () => string): string {
+  try {
+    run();
+  } catch (error) {
+    return (error as { stderr?: Buffer | string }).stderr?.toString() ?? "";
+  }
+  assert.fail("expected the check to exit non-zero");
+}
+
+test("cli: unchanged since the tag passes and says how many routes it compared", () => {
+  const { dir, run } = createTempRepo({ tag: true, walkable: true });
+  try {
+    assert.match(run(), /Stage numbers unchanged since v1\.0\.0 for 1 walkable route/);
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test("cli: a moved stage on a MINOR release fails", () => {
+  const { dir, run } = createTempRepo({ tag: true, walkable: true });
+  try {
+    writeFileSync(join(dir, "routes", "camino-frances", "stages.json"), stages([A_600M, B], [B, C]));
+    writeFileSync(join(dir, "package.json"), JSON.stringify({ type: "module", version: "1.1.0" }));
+    assert.match(stderrOf(run), /camino-frances: stage 1 \(index 0\)'s start moved/);
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test("cli: the same move on a MAJOR release passes and lists what it allowed", () => {
+  const { dir, run } = createTempRepo({ tag: true, walkable: true });
+  try {
+    writeFileSync(join(dir, "routes", "camino-frances", "stages.json"), stages([A_600M, B], [B, C]));
+    writeFileSync(join(dir, "package.json"), JSON.stringify({ type: "module", version: "2.0.0" }));
+    const stdout = run();
+    assert.match(stdout, /MAJOR release/);
+    assert.match(stdout, /camino-frances: stage 1/);
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test("cli: no reachable tag fails instead of passing with nothing compared", () => {
+  const { dir, run } = createTempRepo({ tag: false, walkable: true });
+  try {
+    assert.match(stderrOf(run), /No release tag is reachable from HEAD/);
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test("cli: a tag with no walkable routes fails", () => {
+  const { dir, run } = createTempRepo({ tag: true, walkable: false });
+  try {
+    assert.match(stderrOf(run), /v1\.0\.0 has no walkable routes/);
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
 });

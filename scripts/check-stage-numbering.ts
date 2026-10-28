@@ -1,3 +1,7 @@
+import { execFileSync } from "child_process";
+import { existsSync, readFileSync } from "fs";
+import { basename, join } from "path";
+import { resolveInvokedPath } from "./cli.js";
 import { haversineMeters } from "./ways/geo.js";
 import type { Position } from "./ways/types.js";
 
@@ -84,4 +88,74 @@ export function isMajorBump(tag: string, version: string): boolean {
   const to = SEMVER.exec(version);
   if (!tag.startsWith("v") || !from || !to) return false;
   return Number(to[1]) > Number(from[1]);
+}
+
+const ROOT = join(import.meta.dirname, "..");
+const WAYS_ROUTE = "/ways/route.json";
+
+function git(args: string[]): string {
+  return execFileSync("git", args, { encoding: "utf8", stdio: ["ignore", "pipe", "pipe"] });
+}
+
+/**
+ * Walkable routes are listed from the tag rather than the working tree, so
+ * a route deleted at head is still compared (and fails), and a tag that
+ * lists none fails instead of passing with nothing checked.
+ */
+function main(): void {
+  let tag: string;
+  try {
+    tag = git(["describe", "--tags", "--abbrev=0", "--match", "v[0-9]*", "HEAD"]).trim();
+  } catch {
+    console.error("No release tag is reachable from HEAD, so there is nothing to compare stage numbers against.");
+    console.error("  ✗ Fetch tags first (actions/checkout with fetch-depth: 0). This check never passes without one.");
+    process.exit(1);
+  }
+
+  const walkable = git(["ls-tree", "-r", "--name-only", tag, "--", "routes"])
+    .split("\n")
+    .filter((path) => path.endsWith(WAYS_ROUTE))
+    .map((path) => path.slice(0, -WAYS_ROUTE.length))
+    .sort();
+  if (walkable.length === 0) {
+    console.error(`${tag} has no walkable routes, so the tag or the repo layout is not what this check expects.`);
+    process.exit(1);
+  }
+
+  const problems: string[] = [];
+  for (const dir of walkable) {
+    const routeId = basename(dir);
+    let before: string;
+    try {
+      before = git(["show", `${tag}:${dir}/stages.json`]);
+    } catch {
+      problems.push(`${routeId}: stages.json could not be read at ${tag} or in the working tree.`);
+      continue;
+    }
+    const headPath = join(ROOT, dir, "stages.json");
+    const after = existsSync(headPath) ? readFileSync(headPath, "utf8") : undefined;
+    problems.push(...checkStageNumbering(routeId, tag, before, after));
+  }
+
+  const count = `${walkable.length} walkable route${walkable.length === 1 ? "" : "s"}`;
+  if (problems.length === 0) {
+    console.log(`Stage numbers unchanged since ${tag} for ${count}.`);
+    return;
+  }
+
+  const version = (JSON.parse(readFileSync(join(ROOT, "package.json"), "utf8")) as { version?: string }).version ?? "";
+  if (isMajorBump(tag, version)) {
+    console.log(`MAJOR release (${tag} → ${version}): these stage-number changes are allowed:`);
+    for (const p of problems) console.log(`  • ${p}`);
+    return;
+  }
+
+  console.error("Stage numbers are public addresses (honor.pilgrimapp.org/<route>/<stage>), and these changed:");
+  for (const p of problems) console.error(`  ✗ ${p}`);
+  console.error("Keep the stages where they were, or make this a MAJOR release in package.json.");
+  process.exit(1);
+}
+
+if (import.meta.filename === resolveInvokedPath(process.argv[1])) {
+  main();
 }
