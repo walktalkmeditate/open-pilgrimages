@@ -76,7 +76,7 @@ is no total. The Gudbrandsdalsleden is the first to ship; the others come later.
 |-------|----------|----------|-----------|-------------|-----------|-------|
 | [Gudbrandsdalsleden](routes/st-olav-ways-gudbrandsdalsleden/) | 643 km | Linear | Christian | 32,943 | 1,061 | 7 years (2018-2024) |
 
-Its stage text is drafted and awaiting review, and its elevation is EU-DEM 25 m rather
+Its elevation is EU-DEM 25 m rather
 than SRTM, which has no data north of 60° N — see its `metadata.json`. Its season,
 credential and pilgrim figures come from the national pilgrim office, which granted
 their reuse under ODbL with attribution.
