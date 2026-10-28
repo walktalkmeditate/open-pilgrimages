@@ -24,12 +24,14 @@ git status
 git log $(git describe --tags --abbrev=0)..HEAD --oneline
 npm run validate
 npx tsc --noEmit
+npm run check-stage-numbering
 ```
 
 **Halt the release** and report to the user if any of:
 - Working tree is not clean (uncommitted changes other than the release commits we're about to make)
 - Validation fails
 - TypeScript check fails
+- Stage-number check fails (stages moved or recounted without a MAJOR release; see Phase 2)
 - There are zero commits since the last tag (nothing to release)
 
 ## Phase 1: Compute new dataset stats
@@ -88,6 +90,8 @@ Update `package.json` to set `"version": "$VERSION"`. Verify with:
 ```bash
 grep '"version"' package.json
 ```
+
+A stage redraw (changed stage count, or a stage start or end moved more than 500 m) makes the bump MAJOR. If `package.json` is already bumped, run `/release <exact version>` rather than letting it bump again.
 
 ## Phase 2b: Regenerate the ways packages and the index
 

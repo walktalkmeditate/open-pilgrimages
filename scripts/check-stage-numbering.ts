@@ -47,14 +47,24 @@ function stageEnds(json: string): StageEnds[] {
     .sort((a, b) => a.index - b.index);
 }
 
+export interface StageNumberingResult {
+  /** Stage-number changes. A MAJOR release may allow these. */
+  changes: string[];
+  /** Files that could not be read. Nothing allows these, MAJOR included. */
+  unreadable: string[];
+}
+
 export function checkStageNumbering(
   routeId: string,
   tag: string,
   before: string,
   after: string | undefined,
-): string[] {
+): StageNumberingResult {
   if (after === undefined) {
-    return [`${routeId}: walkable at ${tag} but its stages.json is gone, so every link to it would open nothing.`];
+    return {
+      changes: [`${routeId}: walkable at ${tag} but its stages.json is gone, so every link to it would open nothing.`],
+      unreadable: [],
+    };
   }
   let was: StageEnds[];
   let now: StageEnds[];
@@ -62,23 +72,26 @@ export function checkStageNumbering(
     was = stageEnds(before);
     now = stageEnds(after);
   } catch {
-    return [`${routeId}: stages.json could not be read at ${tag} or in the working tree.`];
+    return { changes: [], unreadable: [`${routeId}: stages.json could not be read at ${tag} or in the working tree.`] };
   }
   if (was.length !== now.length) {
-    return [`${routeId}: ${was.length} stages at ${tag}, ${now.length} now, so stage links would open different days' walks.`];
+    return {
+      changes: [`${routeId}: ${was.length} stages at ${tag}, ${now.length} now, so stage links would open different days' walks.`],
+      unreadable: [],
+    };
   }
-  const problems: string[] = [];
+  const changes: string[] = [];
   for (let i = 0; i < was.length; i++) {
     for (const side of ["start", "end"] as const) {
       const meters = haversineMeters(was[i][side], now[i][side]);
       if (meters > MOVE_TOLERANCE_METERS) {
-        problems.push(
+        changes.push(
           `${routeId}: stage ${i + 1} (index ${was[i].index})'s ${side} moved ${Math.round(meters)} m since ${tag}.`,
         );
       }
     }
   }
-  return problems;
+  return { changes, unreadable: [] };
 }
 
 const SEMVER = /^(\d+)\.(\d+)\.(\d+)$/;
@@ -97,15 +110,27 @@ function git(args: string[]): string {
   return execFileSync("git", args, { encoding: "utf8", stdio: ["ignore", "pipe", "pipe"] });
 }
 
+const RELEASE_TAG_PATTERN = "v[0-9]*.[0-9]*.[0-9]*";
+
+function describeTag(exclude?: string): string {
+  const args = ["describe", "--tags", "--abbrev=0", "--match", RELEASE_TAG_PATTERN];
+  if (exclude) args.push("--exclude", exclude);
+  return git([...args, "HEAD"]).trim();
+}
+
 /**
  * Walkable routes are listed from the tag rather than the working tree, so
  * a route deleted at head is still compared (and fails), and a tag that
- * lists none fails instead of passing with nothing checked.
+ * lists none fails instead of passing with nothing checked. A release commit
+ * is measured against the release before it, never against itself.
  */
 function main(): void {
   let tag: string;
   try {
-    tag = git(["describe", "--tags", "--abbrev=0", "--match", "v[0-9]*", "HEAD"]).trim();
+    tag = describeTag();
+    if (git(["rev-list", "-n", "1", tag]).trim() === git(["rev-parse", "HEAD"]).trim()) {
+      tag = describeTag(tag);
+    }
   } catch {
     console.error("No release tag is reachable from HEAD, so there is nothing to compare stage numbers against.");
     console.error("  ✗ Fetch tags first (actions/checkout with fetch-depth: 0). This check never passes without one.");
@@ -122,37 +147,48 @@ function main(): void {
     process.exit(1);
   }
 
-  const problems: string[] = [];
+  const changes: string[] = [];
+  const unreadable: string[] = [];
   for (const dir of walkable) {
     const routeId = basename(dir);
     let before: string;
     try {
       before = git(["show", `${tag}:${dir}/stages.json`]);
     } catch {
-      problems.push(`${routeId}: stages.json could not be read at ${tag} or in the working tree.`);
+      unreadable.push(`${routeId}: stages.json could not be read at ${tag}.`);
       continue;
     }
     const headPath = join(ROOT, dir, "stages.json");
     const after = existsSync(headPath) ? readFileSync(headPath, "utf8") : undefined;
-    problems.push(...checkStageNumbering(routeId, tag, before, after));
+    const result = checkStageNumbering(routeId, tag, before, after);
+    changes.push(...result.changes);
+    unreadable.push(...result.unreadable);
+    if (!existsSync(join(ROOT, dir, "ways", "route.json"))) {
+      changes.push(`${routeId}: walkable at ${tag} but has no ways package now, so every link to it would open nothing.`);
+    }
   }
 
   const count = `${walkable.length} walkable route${walkable.length === 1 ? "" : "s"}`;
-  if (problems.length === 0) {
+  if (changes.length === 0 && unreadable.length === 0) {
     console.log(`Stage numbers unchanged since ${tag} for ${count}.`);
     return;
   }
 
   const version = (JSON.parse(readFileSync(join(ROOT, "package.json"), "utf8")) as { version?: string }).version ?? "";
-  if (isMajorBump(tag, version)) {
+  if (unreadable.length === 0 && isMajorBump(tag, version)) {
     console.log(`MAJOR release (${tag} → ${version}): these stage-number changes are allowed:`);
-    for (const p of problems) console.log(`  • ${p}`);
+    for (const p of changes) console.log(`  • ${p}`);
     return;
   }
 
   console.error("Stage numbers are public addresses (honor.pilgrimapp.org/<route>/<stage>), and these changed:");
-  for (const p of problems) console.error(`  ✗ ${p}`);
-  console.error("Keep the stages where they were, or make this a MAJOR release in package.json.");
+  for (const p of [...unreadable, ...changes]) console.error(`  ✗ ${p}`);
+  if (unreadable.length > 0) {
+    console.error("A file that cannot be read fails even on a MAJOR release.");
+  } else {
+    console.error("Keep the stages where they were, or ship the redraw as the MAJOR release itself,");
+    console.error("through the release procedure, with the tag pushed right behind the merge.");
+  }
   process.exit(1);
 }
 

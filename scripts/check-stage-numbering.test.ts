@@ -20,6 +20,11 @@ function stages(...ends: Ends[]): string {
   });
 }
 
+function problemsOf(...args: Parameters<typeof checkStageNumbering>): string[] {
+  const { changes, unreadable } = checkStageNumbering(...args);
+  return [...unreadable, ...changes];
+}
+
 const A: [number, number] = [-3.912, 42.337];
 const B: [number, number] = [-4.14, 42.289];
 const C: [number, number] = [-4.4, 42.3];
@@ -32,39 +37,54 @@ test("the tolerance is 500 m", () => {
 });
 
 test("an unchanged route passes", () => {
-  assert.deepEqual(checkStageNumbering("camino-frances", "v1.0.0", stages([A, B], [B, C]), stages([A, B], [B, C])), []);
+  assert.deepEqual(problemsOf("camino-frances", "v1.0.0", stages([A, B], [B, C]), stages([A, B], [B, C])), []);
 });
 
 test("a renamed stage passes", () => {
   const renamed = JSON.parse(stages([A, B])) as { stages: { name: { en: string } }[] };
   renamed.stages[0].name.en = "Hornillos del Camino to Castrojeriz";
-  assert.deepEqual(checkStageNumbering("camino-frances", "v1.0.0", stages([A, B]), JSON.stringify(renamed)), []);
+  assert.deepEqual(problemsOf("camino-frances", "v1.0.0", stages([A, B]), JSON.stringify(renamed)), []);
 });
 
 test("a start moved 600 m fails and names the stage by its link number", () => {
-  const problems = checkStageNumbering("camino-frances", "v1.0.0", stages([A, B]), stages([A_600M, B]));
+  const problems = problemsOf("camino-frances", "v1.0.0", stages([A, B]), stages([A_600M, B]));
   assert.equal(problems.length, 1);
   assert.match(problems[0], /camino-frances: stage 1 \(index 0\)'s start moved 60\d m since v1\.0\.0/);
 });
 
 test("a 400 m nudge passes", () => {
-  assert.deepEqual(checkStageNumbering("camino-frances", "v1.0.0", stages([A, B]), stages([A_400M, B])), []);
+  assert.deepEqual(problemsOf("camino-frances", "v1.0.0", stages([A, B]), stages([A_400M, B])), []);
+});
+
+test("a 499 m move passes and a 501 m move fails", () => {
+  const metersPerDegree = (Math.PI / 180) * 6_371_000;
+  const north = (meters: number): [number, number] => [A[0], A[1] + meters / metersPerDegree];
+  assert.deepEqual(problemsOf("camino-frances", "v1.0.0", stages([A, B]), stages([north(499), B])), []);
+  const problems = problemsOf("camino-frances", "v1.0.0", stages([A, B]), stages([north(501), B]));
+  assert.equal(problems.length, 1);
+  assert.match(problems[0], /start moved 501 m/);
+});
+
+test("unreadable files are reported apart from changes, so MAJOR cannot allow them", () => {
+  const result = checkStageNumbering("camino-frances", "v1.0.0", stages([A, B]), "{not json");
+  assert.equal(result.changes.length, 0);
+  assert.equal(result.unreadable.length, 1);
 });
 
 test("a changed stage count fails", () => {
-  const problems = checkStageNumbering("camino-frances", "v1.0.0", stages([A, B], [B, C]), stages([A, B], [B, C], [C, A]));
+  const problems = problemsOf("camino-frances", "v1.0.0", stages([A, B], [B, C]), stages([A, B], [B, C], [C, A]));
   assert.equal(problems.length, 1);
   assert.match(problems[0], /camino-frances: 2 stages at v1\.0\.0, 3 now/);
 });
 
 test("a route gone from the working tree fails", () => {
-  const problems = checkStageNumbering("camino-frances", "v1.0.0", stages([A, B]), undefined);
+  const problems = problemsOf("camino-frances", "v1.0.0", stages([A, B]), undefined);
   assert.equal(problems.length, 1);
   assert.match(problems[0], /camino-frances: walkable at v1\.0\.0 but its stages\.json is gone/);
 });
 
 test("unreadable JSON is reported, not thrown", () => {
-  const problems = checkStageNumbering("camino-frances", "v1.0.0", stages([A, B]), "{not json");
+  const problems = problemsOf("camino-frances", "v1.0.0", stages([A, B]), "{not json");
   assert.equal(problems.length, 1);
   assert.match(problems[0], /camino-frances: stages\.json could not be read/);
 });
@@ -72,7 +92,7 @@ test("unreadable JSON is reported, not thrown", () => {
 test("a stage with no end is reported, not thrown", () => {
   const broken = JSON.parse(stages([A, B])) as { stages: Record<string, unknown>[] };
   delete broken.stages[0].end;
-  const problems = checkStageNumbering("camino-frances", "v1.0.0", stages([A, B]), JSON.stringify(broken));
+  const problems = problemsOf("camino-frances", "v1.0.0", stages([A, B]), JSON.stringify(broken));
   assert.equal(problems.length, 1);
   assert.match(problems[0], /camino-frances: stages\.json could not be read/);
 });
@@ -80,7 +100,7 @@ test("a stage with no end is reported, not thrown", () => {
 test("stages are matched by index, not array order", () => {
   const reordered = JSON.parse(stages([A, B], [B, C])) as { stages: unknown[] };
   reordered.stages.reverse();
-  assert.deepEqual(checkStageNumbering("camino-frances", "v1.0.0", stages([A, B], [B, C]), JSON.stringify(reordered)), []);
+  assert.deepEqual(problemsOf("camino-frances", "v1.0.0", stages([A, B], [B, C]), JSON.stringify(reordered)), []);
 });
 
 test("isMajorBump only for a strictly higher major", () => {
@@ -96,7 +116,7 @@ test("isMajorBump only for a strictly higher major", () => {
 test("coordinates with non-numeric elements are reported, not passed", () => {
   const broken = JSON.parse(stages([A, B])) as { stages: Record<string, unknown>[] };
   (broken.stages[0].start as unknown as Record<string, unknown>).coordinates = ["a", "b"];
-  const problems = checkStageNumbering("camino-frances", "v1.0.0", stages([A, B]), JSON.stringify(broken));
+  const problems = problemsOf("camino-frances", "v1.0.0", stages([A, B]), JSON.stringify(broken));
   assert.equal(problems.length, 1);
   assert.match(problems[0], /camino-frances: stages\.json could not be read/);
 });
@@ -104,7 +124,7 @@ test("coordinates with non-numeric elements are reported, not passed", () => {
 test("empty coordinate arrays are reported, not passed", () => {
   const broken = JSON.parse(stages([A, B])) as { stages: Record<string, unknown>[] };
   (broken.stages[0].start as unknown as Record<string, unknown>).coordinates = [];
-  const problems = checkStageNumbering("camino-frances", "v1.0.0", stages([A, B]), JSON.stringify(broken));
+  const problems = problemsOf("camino-frances", "v1.0.0", stages([A, B]), JSON.stringify(broken));
   assert.equal(problems.length, 1);
   assert.match(problems[0], /camino-frances: stages\.json could not be read/);
 });
@@ -112,7 +132,7 @@ test("empty coordinate arrays are reported, not passed", () => {
 const ROOT = join(import.meta.dirname, "..");
 
 /**
- * A real git repo holding one walkable route, because main()'s job is the
+ * A real git repo holding one walkable route, tagged one commit behind HEAD, because main()'s job is the
  * git plumbing: which tag, which routes, which version. Created inside ROOT
  * so the copied script still resolves tsx from node_modules.
  */
@@ -133,6 +153,7 @@ function createTempRepo(options: { tag: boolean; walkable: boolean }): { dir: st
   git("add", "-A");
   git("commit", "-q", "-m", "base");
   if (options.tag) git("tag", "v1.0.0");
+  git("commit", "-q", "--allow-empty", "-m", "work after the release");
 
   mkdirSync(join(dir, "scripts", "ways"), { recursive: true });
   for (const name of ["check-stage-numbering.ts", "cli.ts", "ways/geo.ts", "ways/types.ts"]) {
@@ -201,6 +222,71 @@ test("cli: a tag with no walkable routes fails", () => {
   const { dir, run } = createTempRepo({ tag: true, walkable: false });
   try {
     assert.match(stderrOf(run), /v1\.0\.0 has no walkable routes/);
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test("cli: a release commit is measured against the release before it", () => {
+  const { dir, run } = createTempRepo({ tag: true, walkable: true });
+  try {
+    const git = (...args: string[]) => execFileSync("git", args, { cwd: dir, stdio: "pipe" });
+    writeFileSync(join(dir, "routes", "camino-frances", "stages.json"), stages([A_600M, B], [B, C]));
+    writeFileSync(join(dir, "package.json"), JSON.stringify({ type: "module", version: "1.1.0" }));
+    git("add", "-A");
+    git("commit", "-q", "-m", "release 1.1.0");
+    git("tag", "v1.1.0");
+    const message = stderrOf(run);
+    assert.match(message, /since v1\.0\.0/);
+    assert.match(message, /stage 1 \(index 0\)'s start moved/);
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test("cli: a walkable route that loses its ways package fails", () => {
+  const { dir, run } = createTempRepo({ tag: true, walkable: true });
+  try {
+    rmSync(join(dir, "routes", "camino-frances", "ways", "route.json"));
+    assert.match(
+      stderrOf(run),
+      /camino-frances: walkable at v1\.0\.0 but has no ways package now, so every link to it would open nothing\./,
+    );
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test("cli: an unreadable stages.json fails even on a MAJOR release", () => {
+  const { dir, run } = createTempRepo({ tag: true, walkable: true });
+  try {
+    writeFileSync(join(dir, "routes", "camino-frances", "stages.json"), "{not json");
+    writeFileSync(join(dir, "package.json"), JSON.stringify({ type: "module", version: "2.0.0" }));
+    assert.match(stderrOf(run), /camino-frances: stages\.json could not be read at v1\.0\.0 or in the working tree/);
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test("cli: a route new since the tag is not compared", () => {
+  const { dir, run } = createTempRepo({ tag: true, walkable: true });
+  try {
+    const fresh = join(dir, "routes", "new-route");
+    mkdirSync(join(fresh, "ways"), { recursive: true });
+    writeFileSync(join(fresh, "stages.json"), stages([A, B]));
+    writeFileSync(join(fresh, "ways", "route.json"), JSON.stringify({ id: "new-route" }));
+    assert.match(run(), /Stage numbers unchanged since v1\.0\.0 for 1 walkable route/);
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test("cli: a MAJOR bump still allows a route to lose its ways package", () => {
+  const { dir, run } = createTempRepo({ tag: true, walkable: true });
+  try {
+    rmSync(join(dir, "routes", "camino-frances", "ways", "route.json"));
+    writeFileSync(join(dir, "package.json"), JSON.stringify({ type: "module", version: "2.0.0" }));
+    assert.match(run(), /MAJOR release/);
   } finally {
     rmSync(dir, { recursive: true, force: true });
   }

@@ -84,10 +84,10 @@ jobs:
         run: git diff --exit-code index.json
       - run: npm run validate
       - name: Stage numbers stay where links expect them
-        # Runs on push and pull_request alike. It reads the last release tag,
-        # which the checkout above already fetched: fetch-depth: 0 brings
-        # every tag with the history. Without a tag the script fails rather
-        # than passing with nothing compared.
+        # Runs on push and pull_request alike. It reads the nearest release tag
+        # behind this commit, which the checkout above already fetched:
+        # fetch-depth: 0 brings every tag with the history. Without a tag the
+        # script fails rather than passing with nothing compared.
         run: npm run check-stage-numbering
       - name: No drafted text cleared without a review
         if: github.event_name == 'pull_request'
