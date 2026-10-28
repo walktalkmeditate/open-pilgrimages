@@ -19,6 +19,14 @@ interface StageEnds {
   end: Position;
 }
 
+function isValidPosition(p: unknown): p is Position {
+  if (!Array.isArray(p) || p.length < 2 || p.length > 3) return false;
+  if (typeof p[0] !== "number" || !Number.isFinite(p[0])) return false;
+  if (typeof p[1] !== "number" || !Number.isFinite(p[1])) return false;
+  if (p.length === 3 && (typeof p[2] !== "number" || !Number.isFinite(p[2]))) return false;
+  return true;
+}
+
 function stageEnds(json: string): StageEnds[] {
   const stages = (JSON.parse(json) as { stages?: unknown }).stages;
   if (!Array.isArray(stages)) throw new Error("no stages array");
@@ -27,10 +35,10 @@ function stageEnds(json: string): StageEnds[] {
       const s = raw as { index?: unknown; start?: { coordinates?: unknown }; end?: { coordinates?: unknown } };
       const start = s.start?.coordinates;
       const end = s.end?.coordinates;
-      if (typeof s.index !== "number" || !Array.isArray(start) || !Array.isArray(end)) {
+      if (typeof s.index !== "number" || !isValidPosition(start) || !isValidPosition(end)) {
         throw new Error("a stage is missing its index, start or end");
       }
-      return { index: s.index, start: start as Position, end: end as Position };
+      return { index: s.index, start, end };
     })
     .sort((a, b) => a.index - b.index);
 }

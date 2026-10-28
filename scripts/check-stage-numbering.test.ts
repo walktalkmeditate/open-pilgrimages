@@ -89,3 +89,19 @@ test("isMajorBump only for a strictly higher major", () => {
   assert.equal(isMajorBump("v1.12.0", "not-a-version"), false);
   assert.equal(isMajorBump("main", "2.0.0"), false);
 });
+
+test("coordinates with non-numeric elements are reported, not passed", () => {
+  const broken = JSON.parse(stages([A, B])) as { stages: Record<string, unknown>[] };
+  (broken.stages[0].start as unknown as Record<string, unknown>).coordinates = ["a", "b"];
+  const problems = checkStageNumbering("camino-frances", "v1.0.0", stages([A, B]), JSON.stringify(broken));
+  assert.equal(problems.length, 1);
+  assert.match(problems[0], /camino-frances: stages\.json could not be read/);
+});
+
+test("empty coordinate arrays are reported, not passed", () => {
+  const broken = JSON.parse(stages([A, B])) as { stages: Record<string, unknown>[] };
+  (broken.stages[0].start as unknown as Record<string, unknown>).coordinates = [];
+  const problems = checkStageNumbering("camino-frances", "v1.0.0", stages([A, B]), JSON.stringify(broken));
+  assert.equal(problems.length, 1);
+  assert.match(problems[0], /camino-frances: stages\.json could not be read/);
+});
