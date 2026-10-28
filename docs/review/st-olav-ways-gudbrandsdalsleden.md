@@ -8,9 +8,10 @@ This is the checklist CLAUDE.md requires of a PR whose content work is one secti
 take the bare `stage N` form. `npm run validate` reads it beside `stages.json`, and
 `npm run check-drafted-diff` reads it again against the base ref.
 
-**The text was drafted by the agent that built this section, and nothing here is ticked.** The
-author of the text cannot also be its reviewer. A reviewer who did not write it ticks a line, then
-removes that stage's `"drafted": true` in the same change.
+**The text was drafted by the agent that built this section; the review is the maintainer's.** The
+author of the text cannot also be its reviewer. The maintainer, who wrote none of it, read all 24
+stages on 2026-10-28 and approved them as drafted, with no changes asked for. Each line below is
+ticked on that review, and the same change removes every stage's `"drafted": true`.
 
 ## What every stage was written from
 
@@ -35,7 +36,7 @@ removes that stage's `"drafted": true` in the same change.
 
 Written from: Mariakirken ruins (way/257875433, wikidata Q1133099) as the start; Gamle Aker kirke (way/32808508, heritage) 51 m from the line at km 4.5; Haslum (village) at km 20.3; Sæteren gård (node/530783833); distance, ascent, descent and high point from this stage's stages.json fields.
 
-- [ ] stage 0
+- [x] stage 0
 
 ## stage 1 — Sæteren gård to Sundvollen
 
@@ -45,7 +46,7 @@ Written from: Mariakirken ruins (way/257875433, wikidata Q1133099) as the start;
 
 Written from: The fact sheet's empty church and settlement lists for this stage (nothing within 300 m and 500 m of the line respectively); Sundvolden hotell (way/697935467) at the end; figures from stages.json.
 
-- [ ] stage 1
+- [x] stage 1
 
 ## stage 2 — Sundvollen to Klekken
 
@@ -55,7 +56,7 @@ Written from: The fact sheet's empty church and settlement lists for this stage 
 
 Written from: Vik (village) at km 2.9; Hole kirke (way/558315311, heritage) 26 m from the line at km 12.7; Norderhov kirke (way/558315235, heritage) 38 m from the line at km 19.7; Klekken (node/9665422415) for Klækken Hotell; figures from stages.json. 'Old parish churches' rests on both carrying heritage=yes, and on nothing more.
 
-- [ ] stage 2
+- [x] stage 2
 
 ## stage 3 — Klekken to Granavollen
 
@@ -65,7 +66,7 @@ Written from: Vik (village) at km 2.9; Hole kirke (way/558315311, heritage) 26 m
 
 Written from: Haug kirke (way/558315240, heritage) at km 0.7; Jevnaker kirke (way/312111400, heritage) at km 13.6; Mariakirken (way/475158596) and Nikolaikirken (way/475158597), both heritage, and the Søsterkirkene node/8674241919 and relation/124134, at km 31.2–31.3; 'side by side' from both churches lying within 60 m of the same point on the line; the fallback arm of the day rule, recorded in this stage's end-anchor note; figures from stages.json.
 
-- [ ] stage 3
+- [x] stage 3
 
 ## stage 4 — Granavollen to Alstad
 
@@ -75,7 +76,7 @@ Written from: Haug kirke (way/558315240, heritage) at km 0.7; Jevnaker kirke (wa
 
 Written from: Tingelstad gamle kirke (way/557779909, heritage) at km 3.4; Brandbu (village) at km 7.5; Kolbu kirke (way/928048717, heritage) at km 40.5; Lena (village) at km 48.6; Alstad (node/9702200235) for Hoff Gjestgiveri (way/928625231); longest stage by distanceKm; figures from stages.json.
 
-- [ ] stage 4
+- [x] stage 4
 
 ## stage 5 — Alstad to Gjøvik
 
@@ -85,7 +86,7 @@ Written from: Tingelstad gamle kirke (way/557779909, heritage) at km 3.4; Brandb
 
 Written from: Hoff kirke (way/928625158, heritage) at km 1.2; Kapp kirke (way/928778405) at km 5.3; Kapp (village) at km 7.9; Gjøvik (town, node/31264090) and Gjøvik kirke (way/102350909, heritage) at the end; the previous stage's distance; figures from stages.json.
 
-- [ ] stage 5
+- [x] stage 5
 
 ## stage 6 — Gjøvik to Biri
 
@@ -95,7 +96,7 @@ Written from: Hoff kirke (way/928625158, heritage) at km 1.2; Kapp kirke (way/92
 
 Written from: Redalen (village) at km 13.7; Biri (village, node/317608349) at the end; figures from stages.json.
 
-- [ ] stage 6
+- [x] stage 6
 
 ## stage 7 — Biri to Vingnes
 
@@ -105,7 +106,7 @@ Written from: Redalen (village) at km 13.7; Biri (village, node/317608349) at th
 
 Written from: Biri kirke (way/932148418, heritage) at km 1.1; Flutua Camping and Furuodden Camping at km 9.8 and 13.7; Vingrom (village) at km 17.7; Vingrom kirke (way/557417253) at km 21.4; Vingnes (suburb, node/7157414792) at the end; 'across from Lillehammer' from Lillehammer town lying 1.8 km into the next stage; figures from stages.json.
 
-- [ ] stage 7
+- [x] stage 7
 
 ## stage 8 — Vingnes to Kruke
 
@@ -115,7 +116,7 @@ Written from: Biri kirke (way/932148418, heritage) at km 1.1; Flutua Camping and
 
 Written from: Lillehammer kirke (way/125454938, heritage) at km 1.4; Lillehammer (town) at km 1.8; Fåberg (village) at km 9.6; Kruke (node/9659906306) for Skåden Gard (node/1821221821); figures from stages.json.
 
-- [ ] stage 8
+- [x] stage 8
 
 ## stage 9 — Kruke to Sletring
 
@@ -125,7 +126,7 @@ Written from: Lillehammer kirke (way/125454938, heritage) at km 1.4; Lillehammer
 
 Written from: Empty church and settlement lists for this stage; Pilegrimsloftet Borkerud (way/1004842071, tourism=hostel) at km 11.8; Sletring (node/9634874637) for Fåvang Turistsenter; figures from stages.json. 'The pilgrims' loft' is a translation of the name, not a claim about the building.
 
-- [ ] stage 9
+- [x] stage 9
 
 ## stage 10 — Sletring to Frya
 
@@ -135,7 +136,7 @@ Written from: Empty church and settlement lists for this stage; Pilegrimsloftet 
 
 Written from: Ringebu stavkyrkje (way/557779921, heritage, wikidata Q2030772, also tagged tourism=attraction) at km 13.9; Ringebu (village) at km 17.4; Frya (village, node/3042543294) at the end; 'stave church' and 'built of wood' from the name, stavkyrkje; figures from stages.json.
 
-- [ ] stage 10
+- [x] stage 10
 
 ## stage 11 — Frya to Klomstad
 
@@ -145,7 +146,7 @@ Written from: Ringebu stavkyrkje (way/557779921, heritage, wikidata Q2030772, al
 
 Written from: Rudi gard and Sygard Grytting (tourism=hotel) at km 9.0 and 9.7; Klomstad (node/9633674428) for Vertshuset Sinclair; empty church list; figures from stages.json.
 
-- [ ] stage 11
+- [x] stage 11
 
 ## stage 12 — Klomstad to Rukin
 
@@ -155,7 +156,7 @@ Written from: Rudi gard and Sygard Grytting (tourism=hotel) at km 9.0 and 9.7; K
 
 Written from: Kvam (village) at km 1.9; Storrusten Gjestehus & Camping Sjoa and Sjoa Raftingsenter at km 13.0–13.1; Rukin (node/9633049508) for Otta Turistsenter; figures from stages.json. 'The valley narrows' is the reflection's image, not a claim about the terrain.
 
-- [ ] stage 12
+- [x] stage 12
 
 ## stage 13 — Rukin to Rindal
 
@@ -165,7 +166,7 @@ Written from: Kvam (village) at km 1.9; Storrusten Gjestehus & Camping Sjoa and 
 
 Written from: Sel kirke (way/557779819, heritage) at km 0.0; Nord-Sel kirke (way/557779816, heritage) at km 10.7; Dovreskogen gjestegård at km 21.4; Rindal (node/9632876382); figures from stages.json.
 
-- [ ] stage 13
+- [x] stage 13
 
 ## stage 14 — Rindal to Fokstugu fjellstue
 
@@ -175,7 +176,7 @@ Written from: Sel kirke (way/557779819, heritage) at km 0.0; Nord-Sel kirke (way
 
 Written from: Dovre (village) at km 7.8 and Dovre kyrkje (way/294922586, heritage) at km 8.0; Pilgrimsgården Busjord (node/6808271323) at km 11.5; relation 3917970, name=Kongeveien over Dovre, from=Dovre, to=Fokstugu; Fokstugu fjellstue (way/298217058); figures from stages.json.
 
-- [ ] stage 14
+- [x] stage 14
 
 ## stage 15 — Fokstugu fjellstue to Hjerkinn fjellstue
 
@@ -185,7 +186,7 @@ Written from: Dovre (village) at km 7.8 and Dovre kyrkje (way/294922586, heritag
 
 Written from: Relations 3918309 (Fokstugu–Hageseter) and 1671572 (Hageseter–Kongsvold), name=Kongeveien over Dovre, wikidata=Q11995693 (Pilegrimsleia over Dovrefjell); Hageseter (alpine_hut) at km 19.9; Hjerkinn fjellstue (node/1873483825); figures from stages.json.
 
-- [ ] stage 15
+- [x] stage 15
 
 ## stage 16 — Hjerkinn fjellstue to Ryphusan
 
@@ -195,7 +196,7 @@ Written from: Relations 3918309 (Fokstugu–Hageseter) and 1671572 (Hageseter–
 
 Written from: Eysteinkyrkja (way/232307838) 14 m from the line at km 1.0; Kongsvold Fjeldstue (alpine_hut) at km 12.7; Ryphusan (node/4363452794, wilderness_hut); the fallback arm of the day rule; figures from stages.json.
 
-- [ ] stage 16
+- [x] stage 16
 
 ## stage 17 — Ryphusan to Aungrenda
 
@@ -205,7 +206,7 @@ Written from: Eysteinkyrkja (way/232307838) 14 m from the line at km 1.0; Kongsv
 
 Written from: St. Michaels kapell (way/955483091) at km 12.4; Driva (village) at km 15.1; Oppdal kirke (way/557738176, heritage) at km 25.1; Aungrenda (node/9628210434) for Oppdal Gjestetun; relation 5677571, Kongeveien over Dovre (Kongsvoll-Oppdal); figures from stages.json.
 
-- [ ] stage 17
+- [x] stage 17
 
 ## stage 18 — Aungrenda to Hæverstølen
 
@@ -215,7 +216,7 @@ Written from: St. Michaels kapell (way/955483091) at km 12.4; Driva (village) at
 
 Written from: Empty church, settlement and lodging lists for this stage; Hæverstølen (way/945271281, guest_house); figures from stages.json.
 
-- [ ] stage 18
+- [x] stage 18
 
 ## stage 19 — Hæverstølen to Voll
 
@@ -225,7 +226,7 @@ Written from: Empty church, settlement and lodging lists for this stage; Hævers
 
 Written from: Gjesteheim Havdal (guest_house) at km 2.8; Voll (village, node/188803442); Rennebu kirke (way/300896838, heritage) at the start of the next stage, 227 m from the line; 'four days' counts stages 20-23; figures from stages.json.
 
-- [ ] stage 19
+- [x] stage 19
 
 ## stage 20 — Voll to Løkken Verk
 
@@ -235,7 +236,7 @@ Written from: Gjesteheim Havdal (guest_house) at km 2.8; Voll (village, node/188
 
 Written from: Ry Herberge (node/9040020597, guest_house) at km 6.6; Meldal (village) at km 24.3 and Meldal kirke (way/510511020) at km 23.9; Løkken Verk (village, node/1635193302); the fallback arm of the day rule; figures from stages.json.
 
-- [ ] stage 20
+- [x] stage 20
 
 ## stage 21 — Løkken Verk to Hongslo
 
@@ -245,7 +246,7 @@ Written from: Ry Herberge (node/9040020597, guest_house) at km 6.6; Meldal (vill
 
 Written from: Løkken Verk and Orkla Gjestebolig at the start; Gumdal Farm (tourism=hostel) at km 7.7; Hongslo (node/9914064277); the fallback arm of the day rule and the next stage's distance; figures from stages.json.
 
-- [ ] stage 21
+- [x] stage 21
 
 ## stage 22 — Hongslo to Heggen
 
@@ -255,7 +256,7 @@ Written from: Løkken Verk and Orkla Gjestebolig at the start; Gumdal Farm (tour
 
 Written from: Skaun kirke (way/255772500, heritage) at km 18.9; Buvika (village) at km 31.0; Heggen (node/9916390099) for Øysand Camping (way/75923474); relation 5659103, Gudbrandsdalsleden (Skaun-Nidaros); figures from stages.json.
 
-- [ ] stage 22
+- [x] stage 22
 
 ## stage 23 — Heggen to Nidarosdomen
 
@@ -265,4 +266,4 @@ Written from: Skaun kirke (way/255772500, heritage) at km 18.9; Buvika (village)
 
 Written from: Haltdalen stavkirke (way/170168535, heritage) at km 19.1; Lo kirke (way/177481699, heritage) at km 19.2; Ilen kirke (way/89753972, heritage) at km 22.1; Nidarosdomen (way/417245741, wikidata Q215023); St Olav's burial from Wikidata Q208331 P119; Nidaros Pilgrimsgård (way/167823309, pilgrimage=stamp_office, tourism=guest_house); figures from stages.json.
 
-- [ ] stage 23
+- [x] stage 23

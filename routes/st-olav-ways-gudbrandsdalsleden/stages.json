@@ -51,7 +51,6 @@
           "en": "You leave from the ruins of a church to walk to a cathedral. What are you carrying out of the city with you?"
         }
       },
-      "drafted": true,
       "terrainTypes": [
         "paved",
         "gravel",
@@ -109,7 +108,6 @@
           "en": "With nothing to arrive at until evening, where does your attention go?"
         }
       },
-      "drafted": true,
       "terrainTypes": [
         "paved",
         "gravel"
@@ -166,7 +164,6 @@
           "en": "Two churches in an afternoon. What would you stop to ask in each?"
         }
       },
-      "drafted": true,
       "terrainTypes": [
         "paved",
         "gravel"
@@ -223,7 +220,6 @@
           "en": "Two churches built side by side. Who walks beside you, even when you walk alone?"
         }
       },
-      "drafted": true,
       "terrainTypes": [
         "paved",
         "gravel"
@@ -280,7 +276,6 @@
           "en": "When a day is longer than you would choose, what do you let go of to finish it?"
         }
       },
-      "drafted": true,
       "warnings": [
         {
           "en": "49.6 km. This stage is long because OpenStreetMap maps no lodging within 500 m of the line between 20 and 30 km from its start, so the day rule had nowhere nearer to end it. Plan a bed off the line, or split the day, before setting out."
@@ -342,7 +337,6 @@
           "en": "After the longest day, an ordinary one. What does ordinary feel like now?"
         }
       },
-      "drafted": true,
       "terrainTypes": [
         "paved",
         "dirt"
@@ -399,7 +393,6 @@
           "en": "Halfway between two places, which one are you thinking about?"
         }
       },
-      "drafted": true,
       "terrainTypes": [
         "paved"
       ],
@@ -455,7 +448,6 @@
           "en": "The next town is in sight before the day is over. How do you walk the last stretch?"
         }
       },
-      "drafted": true,
       "terrainTypes": [
         "paved"
       ],
@@ -511,7 +503,6 @@
           "en": "A town full of beds, and you walk on through it. What makes you keep going?"
         }
       },
-      "drafted": true,
       "terrainTypes": [
         "paved",
         "gravel",
@@ -569,7 +560,6 @@
           "en": "Someone made a room for walkers like you. What would you leave behind for the next one?"
         }
       },
-      "drafted": true,
       "terrainTypes": [
         "paved",
         "gravel"
@@ -626,7 +616,6 @@
           "en": "A church built of wood has stood long enough to be called old. What in you has lasted that long?"
         }
       },
-      "drafted": true,
       "terrainTypes": [
         "paved",
         "gravel"
@@ -683,7 +672,6 @@
           "en": "Farms that take in walkers. What does it mean to be a guest?"
         }
       },
-      "drafted": true,
       "terrainTypes": [
         "paved",
         "gravel"
@@ -740,7 +728,6 @@
           "en": "The valley narrows the choices. Which ones are you glad not to have?"
         }
       },
-      "drafted": true,
       "terrainTypes": [
         "paved"
       ],
@@ -796,7 +783,6 @@
           "en": "Two churches with one name between them. What do you share with the people who walked here before?"
         }
       },
-      "drafted": true,
       "terrainTypes": [
         "paved",
         "gravel"
@@ -853,7 +839,6 @@
           "en": "The road climbs out of the valley. What do you hope to see from higher up?"
         }
       },
-      "drafted": true,
       "terrainTypes": [
         "paved",
         "mountain"
@@ -915,7 +900,6 @@
           "en": "Up here there is a great deal of sky. What feels small, and what feels large?"
         }
       },
-      "drafted": true,
       "terrainTypes": [
         "dirt",
         "mountain"
@@ -977,7 +961,6 @@
           "en": "A long day after the high ground. How do you pace yourself when you cannot see the end?"
         }
       },
-      "drafted": true,
       "warnings": [
         {
           "en": "34.2 km. This stage is long because OpenStreetMap maps no lodging within 500 m of the line between 20 and 30 km from its start, so the day rule had nowhere nearer to end it. Plan a bed off the line, or split the day, before setting out."
@@ -1041,7 +1024,6 @@
           "en": "Back among houses after the mountain. What do you want to keep from up there?"
         }
       },
-      "drafted": true,
       "terrainTypes": [
         "paved",
         "gravel",
@@ -1099,7 +1081,6 @@
           "en": "A day the map leaves blank. What do you fill it with?"
         }
       },
-      "drafted": true,
       "terrainTypes": [
         "paved",
         "gravel"
@@ -1156,7 +1137,6 @@
           "en": "Four days from the cathedral. What has changed in how you walk?"
         }
       },
-      "drafted": true,
       "terrainTypes": [
         "paved",
         "gravel",
@@ -1214,7 +1194,6 @@
           "en": "A long day near the end. What are you walking towards now?"
         }
       },
-      "drafted": true,
       "warnings": [
         {
           "en": "34.6 km. This stage is long because OpenStreetMap maps no lodging within 500 m of the line between 20 and 30 km from its start, so the day rule had nowhere nearer to end it. Plan a bed off the line, or split the day, before setting out."
@@ -1276,7 +1255,6 @@
           "en": "An afternoon with nowhere to be. How do you spend it?"
         }
       },
-      "drafted": true,
       "terrainTypes": [],
       "terrainNotes": {
         "en": "By OpenStreetMap's tags on the ways this stage follows: 0.1 km paved, 0.0 km gravel or compacted, 0.0 km earth or grass, and 8.8 km with no surface recorded. 2.6 km is path, track, footway or cycleway and 6.3 km is road."
@@ -1330,7 +1308,6 @@
           "en": "One day left. What would you like to have finished before you arrive?"
         }
       },
-      "drafted": true,
       "warnings": [
         {
           "en": "34.6 km. This stage is long because OpenStreetMap maps no lodging within 500 m of the line between 20 and 30 km from its start, so the day rule had nowhere nearer to end it. Plan a bed off the line, or split the day, before setting out."
@@ -1393,7 +1370,6 @@
           "en": "You have arrived where the way was always going. What did you come to say?"
         }
       },
-      "drafted": true,
       "terrainTypes": [
         "paved",
         "gravel"
