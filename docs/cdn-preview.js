@@ -1,5 +1,5 @@
 (function () {
-  var INDEX_URL = "https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1/index.json";
+  var INDEX_URL = "https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@main/index.json";
   var TIMEOUT_MS = 6000;
 
   document.addEventListener("DOMContentLoaded", function () {

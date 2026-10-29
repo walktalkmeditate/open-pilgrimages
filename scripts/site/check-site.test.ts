@@ -160,7 +160,7 @@ test("checkSite accepts a detail page that identifies its own route via <code>",
   writeFileSync(
     join(root, "docs", "camino-frances.html"),
     '<html><body><code>camino-frances</code>' +
-      '<a href="https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1/routes/camino-frances/route.gpx">route.gpx</a>' +
+      '<a href="https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@main/routes/camino-frances/route.gpx">route.gpx</a>' +
       '<img class="route-hero-roads" src="assets/roads/camino-frances.svg" alt="">' +
       "</body></html>",
   );
@@ -2988,7 +2988,7 @@ test("checkSite accepts a detail page that links its own route.gpx (fixture)", (
   writeFileSync(
     join(root, "docs", "camino-frances.html"),
     '<html><body><code>camino-frances</code>' +
-      '<a href="https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1/routes/camino-frances/route.gpx">route.gpx</a>' +
+      '<a href="https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@main/routes/camino-frances/route.gpx">route.gpx</a>' +
       "</body></html>",
   );
 
@@ -5382,6 +5382,122 @@ test("checkSite reads a need tag that carries a second class alongside need-tag"
     const problems = needTagProblems(root);
     assert.equal(problems.length, 1);
     assert.match(problems[0], /^need tag "K" asks for work on section "kumano-kodo-nakahechi"/);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+// Route pages and cdn-preview.js link @main, not the frozen @v1 alias (which
+// jsDelivr still serves as its March 2026 build). checkCdnLinks accepts @v1
+// and @vX.Y.Z as recognised refs, so only this gate speaks for the pages.
+
+const MAIN_BASE = "https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@main";
+
+const cdnRefProblems = (root: string): string[] =>
+  checkSite(root)
+    .filter(
+      (p) =>
+        p.message.includes("route pages must link") ||
+        p.message.includes("has no jsDelivr URLs") ||
+        p.file === "docs/cdn-preview.js",
+    )
+    .map((p) => `${p.file}: ${p.message}`);
+
+function cdnRefFixtureRoot(pageHtml: string, previewJs: string | null = `var INDEX_URL = "${MAIN_BASE}/index.json";`): string {
+  const root = createFixtureRoot([{ id: "camino-frances" }]);
+  writeDetailHtml(root, "camino-frances", `<html><body><code>camino-frances</code>${pageHtml}</body></html>`);
+  if (previewJs !== null) writeFileSync(join(root, "docs", "cdn-preview.js"), previewJs);
+  return root;
+}
+
+test("the committed route pages and cdn-preview.js already link @main (positive control)", () => {
+  assert.deepEqual(cdnRefProblems(ROOT), []);
+});
+
+test("checkSite passes a detail page whose CDN links are all @main", () => {
+  const root = cdnRefFixtureRoot(`<pre><code>${MAIN_BASE}/routes/camino-frances/stages.json</code></pre>`);
+
+  try {
+    assert.deepEqual(cdnRefProblems(root), []);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("checkSite reports a detail page linking @v1 and names the ref", () => {
+  const url = "https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1/routes/camino-frances/stages.json";
+  const root = cdnRefFixtureRoot(`<pre><code>${url}</code></pre>`);
+
+  try {
+    const problems = cdnRefProblems(root);
+    assert.equal(problems.length, 1);
+    assert.match(problems[0], /^docs\/camino-frances\.html: .*"@v1"/);
+    assert.ok(problems[0].includes(url));
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("checkSite reports a detail page pinned to @v1.13.0, not only the @v1 alias", () => {
+  const root = cdnRefFixtureRoot(
+    '<a href="https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1.13.0/routes/camino-frances/stages.json">x</a>',
+  );
+
+  try {
+    const problems = cdnRefProblems(root);
+    assert.equal(problems.length, 1);
+    assert.match(problems[0], /"@v1\.13\.0"/);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("checkSite reports a detail page with no CDN links at all (floor)", () => {
+  const root = cdnRefFixtureRoot("<p>no links here</p>");
+
+  try {
+    const problems = cdnRefProblems(root);
+    assert.equal(problems.length, 1);
+    assert.match(problems[0], /has no jsDelivr URLs/);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("checkSite reports cdn-preview.js whose INDEX_URL is still @v1", () => {
+  const root = cdnRefFixtureRoot(
+    `<code>${MAIN_BASE}/routes/camino-frances/stages.json</code>`,
+    'var INDEX_URL = "https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@v1/index.json";',
+  );
+
+  try {
+    const problems = cdnRefProblems(root);
+    assert.equal(problems.length, 1);
+    assert.match(problems[0], /^docs\/cdn-preview\.js: INDEX_URL is .*@v1\/index\.json/);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("checkSite reports a cdn-preview.js with no INDEX_URL", () => {
+  const root = cdnRefFixtureRoot(`<code>${MAIN_BASE}/routes/camino-frances/stages.json</code>`, "var x = 1;");
+
+  try {
+    const problems = cdnRefProblems(root);
+    assert.equal(problems.length, 1);
+    assert.match(problems[0], /has no INDEX_URL/);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test("checkSite reports a missing docs/cdn-preview.js", () => {
+  const root = cdnRefFixtureRoot(`<code>${MAIN_BASE}/routes/camino-frances/stages.json</code>`, null);
+
+  try {
+    const problems = cdnRefProblems(root);
+    assert.equal(problems.length, 1);
+    assert.match(problems[0], /cdn-preview\.js does not exist/);
   } finally {
     rmSync(root, { recursive: true, force: true });
   }

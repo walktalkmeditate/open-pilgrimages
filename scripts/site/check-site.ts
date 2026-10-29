@@ -7,7 +7,6 @@ import { computeStats, type RouteStats } from "../stats.js";
 import {
   CDN_REPO_BASE,
   cdnPathExistsOnDisk,
-  currentCdnMovingRef,
   extractCdnRefs,
   isPublishedCdnPath,
   isRecognizedCdnRef,
@@ -31,7 +30,17 @@ const HREF_PATTERN = /href="([^"]+)"/g;
 
 const TRKPT_PATTERN = /<trkpt\b/g;
 
-const JSDELIVR_BASE = `${CDN_REPO_BASE}@${currentCdnMovingRef()}`;
+// The ref route pages link and cdn-preview.js fetches. Not the legacy major
+// alias: jsDelivr caches a tag URL permanently and `v1` is frozen on its
+// March 2026 build, so a link at @v1 404s for every route added since. The
+// site is published from main, so @main describes the same commit as the page.
+const CDN_PAGE_REF = "main";
+
+const JSDELIVR_BASE = `${CDN_REPO_BASE}@${CDN_PAGE_REF}`;
+
+const CDN_PREVIEW_INDEX_URL = `${JSDELIVR_BASE}/index.json`;
+
+const CDN_PREVIEW_INDEX_URL_PATTERN = /\bINDEX_URL\s*=\s*(["'])(.*?)\1/;
 
 const STAGE_INTERIOR_PATTERN = /<details class="stage-interior">/g;
 
@@ -3209,6 +3218,72 @@ export function checkSite(root: string, overrides: PageOverrides = {}): Problem[
   }
 
   /**
+   * Every route detail page linked its data files at jsDelivr's `@v1` alias
+   * after the release procedure stopped moving that tag. jsDelivr caches a
+   * tag URL permanently, so `@v1` kept serving its March 2026 build and 42
+   * links to every route added since 404'd; docs/cdn-preview.js fetched
+   * `@v1/index.json` and showed the stale three-route index as "Live
+   * response from jsDelivr". checkCdnLinks accepts `@v1` and `@vX.Y.Z` as
+   * recognised refs (README and schema `$id`s legitimately carry them), so
+   * nothing flagged the pages. This pins the two places the site itself
+   * speaks for the live data: each route detail page's CDN URLs must name
+   * `@main`, and cdn-preview.js's INDEX_URL must be exactly the `@main`
+   * index. A pinned `@v1.13.0` or `@latest` on a detail page fails too —
+   * those pages promise "follows main" in their own copy.
+   *
+   * Floors: a detail page with zero CDN URLs, a missing cdn-preview.js, and
+   * a missing or different INDEX_URL are all errors, never a pass. A page
+   * that does not exist is skipped here because the loop already reports it.
+   *
+   * Deliberately out of scope: README.md, docs/usage.html (which teaches
+   * pinning to a release tag), schema `$id`s, and docs/superpowers/ plans,
+   * all of which may name other refs.
+   */
+  function checkPageCdnRefIsMain(): void {
+    for (const id of ids) {
+      const file = `docs/${id}.html`;
+      const pagePath = join(docs, `${id}.html`);
+      if (!existsSync(pagePath)) continue;
+
+      const cdnRefs = extractCdnRefs(readFileSync(pagePath, "utf-8"));
+      if (cdnRefs.length === 0) {
+        add(
+          file,
+          `route "${id}" detail page has no jsDelivr URLs — expected its Files & CDN links at ` +
+            `${JSDELIVR_BASE}/routes/${id}/`,
+        );
+      }
+
+      for (const cdnRef of cdnRefs) {
+        if (cdnRef.ref !== CDN_PAGE_REF) {
+          add(
+            file,
+            `links to ${cdnRef.url} at "@${cdnRef.ref}" — route pages must link "@${CDN_PAGE_REF}"; ` +
+              `a tag URL is cached permanently and the frozen @v1 alias 404s for every route added since March 2026`,
+          );
+        }
+      }
+    }
+
+    const previewPath = join(docs, "cdn-preview.js");
+    if (!existsSync(previewPath)) {
+      add("docs/cdn-preview.js", "docs/cdn-preview.js does not exist — the usage page's live index preview has no script");
+      return;
+    }
+
+    const indexUrl = CDN_PREVIEW_INDEX_URL_PATTERN.exec(readFileSync(previewPath, "utf-8"))?.[2];
+    if (indexUrl === undefined) {
+      add("docs/cdn-preview.js", `has no INDEX_URL assignment — expected INDEX_URL = "${CDN_PREVIEW_INDEX_URL}"`);
+    } else if (indexUrl !== CDN_PREVIEW_INDEX_URL) {
+      add(
+        "docs/cdn-preview.js",
+        `INDEX_URL is "${indexUrl}", expected "${CDN_PREVIEW_INDEX_URL}" — the preview is labelled live, ` +
+          `and a tag URL serves a frozen build`,
+      );
+    }
+  }
+
+  /**
    * See NEED_TAG_SPAN_PATTERN for why the key is an attribute rather than the
    * tag's own words, for the name-matching alternative that reading replaced,
    * and for the ruling that a variant's completeness is not something
@@ -3478,6 +3553,7 @@ export function checkSite(root: string, overrides: PageOverrides = {}): Problem[
   checkRouteFilterWiring();
   checkDifficultyFilterVocabulary();
   checkCdnLinks();
+  checkPageCdnRefIsMain();
   checkReadmeGrouping();
   checkContributeNeedTags();
 
