@@ -62,6 +62,15 @@ index.json                  # Route registry (auto-generated)
 - Localized strings: `{ "en": "...", "es": "...", "ja": "..." }` — `en` always required
 - Schema version: SemVer in every file (`"schemaVersion": "1.0.0"`)
 - Route IDs: kebab-case (`camino-frances`, `shikoku-88-awa`, `kumano-kodo-nakahechi`)
+- Stage numbers of a walkable route are public addresses:
+  `honor.pilgrimapp.org/<route>/<stage>` (counted from 1) opens that stage in
+  Pilgrim, and shared links outlive releases. Changing a route's stage count,
+  or moving a stage's start or end more than 500 m, is a MAJOR release. Ship
+  it *as* that release through `/release`, tag pushed right behind the merge,
+  never as a content PR that bumps the major version (that version becomes
+  `index.json`'s `release`, so downloads would point at a missing tag).
+  `npm run check-stage-numbering` compares against the nearest release tag
+  behind HEAD; renaming a stage is fine.
 - Pilgrimage: `pilgrimage: { id, name, kind, order }` in a section's metadata,
   plus an optional `circular`. `kind` is `legs` (walked one after another; the
   sections must chain) or `alternatives` (each section its own way to the same

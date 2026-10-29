@@ -6,6 +6,7 @@
   "scripts": {
     "validate": "tsx scripts/validate.ts",
     "check-drafted-diff": "tsx scripts/check-drafted-diff.ts",
+    "check-stage-numbering": "tsx scripts/check-stage-numbering.ts",
     "build-index": "tsx scripts/build-index.ts",
     "build-ways": "tsx scripts/build-ways.ts",
     "build-main-line": "tsx scripts/enrich/build-main-line.ts",

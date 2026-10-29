@@ -79,7 +79,7 @@ function scanVariants(routeDir: string, root: string): VariantEntry[] {
 
 /**
  * The tag the release will carry, read from package.json rather than from git:
- * the tag does not exist yet when this runs, and CI has no tags at all.
+ * the tag does not exist yet when this runs (CI's tags are earlier releases).
  * .claude/commands/release.md bumps the version before regenerating.
  */
 export function releaseTag(packageJsonPath: string): string {
