@@ -6,6 +6,41 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 Consumers read the catalog from `https://cdn.jsdelivr.net/gh/walktalkmeditate/open-pilgrimages@main/index.json` and pin every file they then download to the tag that index's `release` field names. The `v1` alias is no longer maintained — jsDelivr caches tag URLs permanently, so moving it changed nothing a consumer saw.
 
+## [1.13.0] — 2026-10-28
+
+The St. Olav Ways arrive. The Gudbrandsdalsleden, the pilgrim way from Oslo to Nidarosdomen in Trondheim, is the first Norwegian route in the dataset: 643 km in 24 stages, with a `ways/` package the Pilgrim app can walk.
+
+**No existing route's data changed.** Every existing `ways/` package is byte-identical to 1.12.0. `index.json` gains one route and the `release` field now names `v1.13.0`; until this tag existed, the Gudbrandsdalsleden's package URLs pointed at a tag that could not serve them.
+
+### Added
+
+- **`st-olav-ways-gudbrandsdalsleden`**, the first section of the new pilgrimage `st-olav-ways` (`kind: alternatives`, `order: 1`, not circular). It runs from the Mariakirken ruins in Oslo to Nidarosdomen: **643 km in 24 stages**, 32,943 route points and 1,061 waypoints.
+  - **Days** are cut by a re-runnable rule recorded in provenance: each day ends at a named place where OSM maps a bed within reach of the line, aiming for 20-30 km. 19 of 24 days fall in that band; four run over 34 km because OSM maps no lodging there, and each carries a warning.
+  - **Elevation** is measured from EU-DEM 25 m with the corpus method: high point 1,310 m on Dovrefjell, 11,960 m of ascent against 11,880 m of descent. Naismith hours at two paces, as on the Shikoku dōjō.
+  - **Terrain and transport** come from OSM: per-stage `terrainTypes` and `terrainNotes`, eight railway stations near stage boundaries and the airports OSL and TRD.
+  - **The walked line** is entirely the OSM relations' own geometry. Six breaks in the relations were fixed upstream in OSM rather than spliced here.
+  - **From Nasjonalt pilegrimssenter**, which granted reuse under ODbL 1.0 with attribution: the credential system (the pilgrim passport and the Olavsbrev), season, a Dovrefjell warning, practices, etiquette, history, and `stats.json` (long-distance walkers arriving at Nidaros, 2018-2024; walkers setting out from Oslo, 2012-2024).
+  - **Stage text** (theme, narrative, reflection) was reviewed in full by the maintainer; every stage's `drafted` flag is cleared.
+- **A `ways/` package for the Gudbrandsdalsleden**: the gate passes on all 24 stages, not sparse (17 of 24 stages have places), 1.8 places per stage. It is the route's first `ways` entry in `index.json`, so it is only downloadable from this release on.
+- **EU-DEM elevation north of 60° N.** `fetch-elevation` accepts a section that declares `eudem25m`, because SRTM has no data north of 60° N. Only `srtm30m` (the default, unchanged for every existing route) or `eudem25m` is accepted.
+- **`OVERPASS_URL`** selects the Overpass instance the scripts query, so they can run when overpass-api.de is unreachable. The default is unchanged.
+- **Site pages** for the new route and pilgrimage: `st-olav-ways-gudbrandsdalsleden.html`, `st-olav-ways.html`, and its entry on the index and routes pages, with generated glyphs.
+
+### Fixed
+
+- **Pipeline: `build-main-line` snaps anchors to the trail, not the next junction.** On long rural ways the nearest junction was up to 1.5 km from the anchor, and valid anchors were refused.
+- **Pipeline: a short elevation void is interpolated** when readings bound it on both sides, at most 200 m. EU-DEM masks 120 m of shore road at Buvika as sea. No existing route has a void, and the Kohechi regression test still holds.
+
+### Changed
+
+- **The dataset is now fourteen routes**: 191,891 route points, 11,831 waypoints and 167 stages across 3 traditions. Three positive-control tests pin the new corpus facts.
+- `index.json` `release` is `v1.13.0`.
+
+### Documentation
+
+- README and `docs/usage.html` gain the Gudbrandsdalsleden rows, the St. Olav Ways section and the `@v1.13.0` CDN samples.
+- A plan for the first St. Olav section (`docs/superpowers/plans/2026-10-26-st-olav-ways.md`) records where it stopped at Overpass.
+
 ## [1.12.0] — 2026-09-22
 
 On the Shikoku henro the nōkyōjo, the temple stamp office, shuts at 17:00. A
@@ -1098,6 +1133,7 @@ Each route ships with `metadata.json` (overview, tradition, cultural, logistics)
 
 ---
 
+[1.13.0]: https://github.com/walktalkmeditate/open-pilgrimages/compare/v1.12.0...v1.13.0
 [1.12.0]: https://github.com/walktalkmeditate/open-pilgrimages/compare/v1.11.0...v1.12.0
 [1.11.0]: https://github.com/walktalkmeditate/open-pilgrimages/compare/v1.10.0...v1.11.0
 [1.10.0]: https://github.com/walktalkmeditate/open-pilgrimages/compare/v1.9.2...v1.10.0
